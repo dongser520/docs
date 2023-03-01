@@ -1,10 +1,25 @@
+const moment = require('moment');
+
 module.exports = {
+    base:"/docs/",
     title:'睿晨网',
     description:'睿晨网|睿晨编程|零基础学做网站、app、小程序就从这里开始',
     head: [
         ['link', { rel: 'icon', href: '/assets/img/favicon.png' }],
         ['meta', { name: 'keywords', content: '睿晨网,睿晨编程,零基础学做网站,零基础学app,零基础学小程序' }],
         ['meta', { name: 'author', content: '睿晨网,睿晨编程,阿东老师' }],
+    ],
+    //引入插件,时间格式查看moment官网：http://momentjs.cn/docs/#/displaying/format/
+    plugins: [
+        [
+          '@vuepress/last-updated',
+          {
+            transformer: (timestamp, lang="zh-cn") => {
+              moment.locale("zh-cn")
+              return moment(timestamp).format("LLLL")
+            }
+          }
+        ]
     ],
     themeConfig: {
         //logo: '/assets/img/logo.png',
