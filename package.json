@@ -4,8 +4,9 @@
   "description": "首个vuepress",
   "main": "index.js",
   "scripts": {
-    "docs:dev": "vuepress dev docs",
-    "docs:build": "vuepress build docs"
+    "docs:dev": "cross-env NODE_OPTIONS=--openssl-legacy-provider vuepress dev docs --temp .temp",
+    "docs:build": "cross-env NODE_OPTIONS=--openssl-legacy-provider vuepress build docs",
+    "deploy": "bash deploy.sh"
   },
   "repository": {
     "type": "git",
@@ -19,6 +20,10 @@
   },
   "homepage": "https://github.com/dongser520/docs#readme",
   "devDependencies": {
-    "vuepress": "^1.9.9"
+    "vuepress": "^1.9.9",
+    "cross-env": "^7.0.3"
+  },
+  "dependencies": {
+    "moment": "^2.29.4"
   }
 }
