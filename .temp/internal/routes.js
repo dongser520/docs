@@ -29,6 +29,34 @@ export const routes = [
     },
   },
   {
+    name: "v-7ba60f92",
+    path: "/pc/",
+    component: GlobalLayout,
+    beforeEnter: (to, from, next) => {
+      ensureAsyncComponentsLoaded("Layout", "v-7ba60f92").then(next)
+    },
+  },
+  {
+    path: "/pc/index.html",
+    redirect: "/pc/"
+  },
+  {
+    name: "v-4630ecb1",
+    path: "/pc/p-c.html",
+    component: GlobalLayout,
+    beforeEnter: (to, from, next) => {
+      ensureAsyncComponentsLoaded("Layout", "v-4630ecb1").then(next)
+    },
+  },
+  {
+    name: "v-7fa37fb5",
+    path: "/pc/p-a.html",
+    component: GlobalLayout,
+    beforeEnter: (to, from, next) => {
+      ensureAsyncComponentsLoaded("Layout", "v-7fa37fb5").then(next)
+    },
+  },
+  {
     name: "v-2c6c8e00",
     path: "/about/",
     component: GlobalLayout,
@@ -41,11 +69,11 @@ export const routes = [
     redirect: "/about/"
   },
   {
-    name: "v-4630ecb1",
-    path: "/pc/p-c.html",
+    name: "v-10de5a02",
+    path: "/phone/phone-a.html",
     component: GlobalLayout,
     beforeEnter: (to, from, next) => {
-      ensureAsyncComponentsLoaded("Layout", "v-4630ecb1").then(next)
+      ensureAsyncComponentsLoaded("Layout", "v-10de5a02").then(next)
     },
   },
   {
@@ -57,16 +85,16 @@ export const routes = [
     },
   },
   {
-    name: "v-7ba60f92",
-    path: "/pc/",
+    name: "v-4f90747e",
+    path: "/phone/",
     component: GlobalLayout,
     beforeEnter: (to, from, next) => {
-      ensureAsyncComponentsLoaded("Layout", "v-7ba60f92").then(next)
+      ensureAsyncComponentsLoaded("Layout", "v-4f90747e").then(next)
     },
   },
   {
-    path: "/pc/index.html",
-    redirect: "/pc/"
+    path: "/phone/index.html",
+    redirect: "/phone/"
   },
   {
     name: "v-e1449282",
@@ -82,14 +110,6 @@ export const routes = [
     component: GlobalLayout,
     beforeEnter: (to, from, next) => {
       ensureAsyncComponentsLoaded("Layout", "v-437744df").then(next)
-    },
-  },
-  {
-    name: "v-7fa37fb5",
-    path: "/pc/p-a.html",
-    component: GlobalLayout,
-    beforeEnter: (to, from, next) => {
-      ensureAsyncComponentsLoaded("Layout", "v-7fa37fb5").then(next)
     },
   },
   {
@@ -129,14 +149,6 @@ export const routes = [
     },
   },
   {
-    name: "v-10de5a02",
-    path: "/phone/phone-a.html",
-    component: GlobalLayout,
-    beforeEnter: (to, from, next) => {
-      ensureAsyncComponentsLoaded("Layout", "v-10de5a02").then(next)
-    },
-  },
-  {
     name: "v-1ead3dbc",
     path: "/%E5%BC%80%E5%8F%91%E8%AE%B0%E5%BD%95.html",
     component: GlobalLayout,
@@ -151,18 +163,6 @@ export const routes = [
   {
     path: "/开发记录.html",
     redirect: "/%E5%BC%80%E5%8F%91%E8%AE%B0%E5%BD%95.html"
-  },
-  {
-    name: "v-4f90747e",
-    path: "/phone/",
-    component: GlobalLayout,
-    beforeEnter: (to, from, next) => {
-      ensureAsyncComponentsLoaded("Layout", "v-4f90747e").then(next)
-    },
-  },
-  {
-    path: "/phone/index.html",
-    redirect: "/phone/"
   },
   {
     path: '*',
