@@ -29,11 +29,19 @@ export const routes = [
     },
   },
   {
-    name: "v-437744df",
-    path: "/phone/phone-b.html",
+    name: "v-10de5a02",
+    path: "/phone/phone-a.html",
     component: GlobalLayout,
     beforeEnter: (to, from, next) => {
-      ensureAsyncComponentsLoaded("Layout", "v-437744df").then(next)
+      ensureAsyncComponentsLoaded("Layout", "v-10de5a02").then(next)
+    },
+  },
+  {
+    name: "v-62ea3633",
+    path: "/pc/p-b.html",
+    component: GlobalLayout,
+    beforeEnter: (to, from, next) => {
+      ensureAsyncComponentsLoaded("Layout", "v-62ea3633").then(next)
     },
   },
   {
@@ -47,22 +55,6 @@ export const routes = [
   {
     path: "/about/index.html",
     redirect: "/about/"
-  },
-  {
-    name: "v-7fa37fb5",
-    path: "/pc/p-a.html",
-    component: GlobalLayout,
-    beforeEnter: (to, from, next) => {
-      ensureAsyncComponentsLoaded("Layout", "v-7fa37fb5").then(next)
-    },
-  },
-  {
-    name: "v-10de5a02",
-    path: "/phone/phone-a.html",
-    component: GlobalLayout,
-    beforeEnter: (to, from, next) => {
-      ensureAsyncComponentsLoaded("Layout", "v-10de5a02").then(next)
-    },
   },
   {
     name: "v-7ba60f92",
@@ -89,11 +81,27 @@ export const routes = [
     redirect: "/phone/"
   },
   {
+    name: "v-7fa37fb5",
+    path: "/pc/p-a.html",
+    component: GlobalLayout,
+    beforeEnter: (to, from, next) => {
+      ensureAsyncComponentsLoaded("Layout", "v-7fa37fb5").then(next)
+    },
+  },
+  {
     name: "v-4630ecb1",
     path: "/pc/p-c.html",
     component: GlobalLayout,
     beforeEnter: (to, from, next) => {
       ensureAsyncComponentsLoaded("Layout", "v-4630ecb1").then(next)
+    },
+  },
+  {
+    name: "v-437744df",
+    path: "/phone/phone-b.html",
+    component: GlobalLayout,
+    beforeEnter: (to, from, next) => {
+      ensureAsyncComponentsLoaded("Layout", "v-437744df").then(next)
     },
   },
   {
@@ -125,27 +133,19 @@ export const routes = [
     },
   },
   {
-    name: "v-b2a3f302",
-    path: "/web/w-b.html",
-    component: GlobalLayout,
-    beforeEnter: (to, from, next) => {
-      ensureAsyncComponentsLoaded("Layout", "v-b2a3f302").then(next)
-    },
-  },
-  {
-    name: "v-62ea3633",
-    path: "/pc/p-b.html",
-    component: GlobalLayout,
-    beforeEnter: (to, from, next) => {
-      ensureAsyncComponentsLoaded("Layout", "v-62ea3633").then(next)
-    },
-  },
-  {
     name: "v-0de685c2",
     path: "/web/w-c.html",
     component: GlobalLayout,
     beforeEnter: (to, from, next) => {
       ensureAsyncComponentsLoaded("Layout", "v-0de685c2").then(next)
+    },
+  },
+  {
+    name: "v-b2a3f302",
+    path: "/web/w-b.html",
+    component: GlobalLayout,
+    beforeEnter: (to, from, next) => {
+      ensureAsyncComponentsLoaded("Layout", "v-b2a3f302").then(next)
     },
   },
   {

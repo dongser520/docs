@@ -11,7 +11,7 @@ title:  关于我们html
 为了演示 PWA 弹窗效果的内容。
 
 ## 基础路径图片
-<img :src="$withBase('/hear.jpg')" alt="基础路径图片">
+<img :src="$withBase('/hear.jpg')" alt="基础路径图片" class="zoom-custom-imgs">
 
 ## 相对路径图片
 ![相对路径图片](/hear.jpg)

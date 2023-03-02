@@ -30,6 +30,21 @@ module.exports = {
     },
     //快速返回
     '@vuepress/back-to-top':true, //对象写法
+    //图片缩放插件
+    '@vuepress/medium-zoom': {
+        selector: 'img.zoom-custom-imgs',
+        // selector: 'img',
+        // medium-zoom options here
+        // See: https://github.com/francoischalifour/medium-zoom#options
+        options: {
+          margin: 16
+        }
+    },
+    //自动侧边栏插件:https://shanyuhai123.github.io/vuepress-plugin-auto-sidebar/zh/features/plugin-options.html#removeemptygroup-%E9%9A%90%E8%97%8F%E7%A9%BA%E5%88%86%E7%BB%84
+    //这个插件和自己的自定义，两个自己感觉吧，看需求吧,不需要就隐藏它
+    // "vuepress-plugin-auto-sidebar":{
+    //     nav:true,//自动按照目录文件生成导航栏
+    // },
 }
 
 //以下是数组形式写法
