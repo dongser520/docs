@@ -1,0 +1,1 @@
+export { default } from "E:\\vuepress\\vuepress-github\\docs\\node_modules\\@vuepress\\plugin-back-to-top\\enhanceAppFile.js"
