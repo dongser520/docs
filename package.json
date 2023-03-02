@@ -6,7 +6,8 @@
   "scripts": {
     "docs:dev": "cross-env NODE_OPTIONS=--openssl-legacy-provider vuepress dev docs --temp .temp",
     "docs:build": "cross-env NODE_OPTIONS=--openssl-legacy-provider vuepress build docs",
-    "deploy": "bash deploy.sh"
+    "deploy": "bash deploy.sh",
+    "cname":"bash cname.sh"
   },
   "repository": {
     "type": "git",
@@ -29,6 +30,7 @@
     "@vssue/api-github-v3": "^1.4.7",
     "@vssue/api-github-v4": "^1.4.7",
     "@vssue/vuepress-plugin-vssue": "^1.4.8",
+    "countup.js": "^2.5.0",
     "moment": "^2.29.4"
   }
 }
