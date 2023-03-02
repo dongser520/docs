@@ -19,8 +19,10 @@ module.exports = {
         ['meta', { name: 'msapplication-TileColor', content: '#000000' }]
     ],
     //引入插件,时间格式查看moment官网：http://momentjs.cn/docs/#/displaying/format/
+    //以下是数组形式写法
+    /*
     plugins: [
-        // 更新时间插件使用
+        // 更新时间插件使用---数组形式
         [
           '@vuepress/last-updated',
           {
@@ -30,7 +32,7 @@ module.exports = {
             }
           }
         ],
-        // PWA插件使用
+        // PWA插件使用---数组形式
         [
             '@vuepress/pwa', 
             {
@@ -40,8 +42,38 @@ module.exports = {
                     buttonText: "刷新"
                 }
             }
-        ]
+        ],
     ],
+    */
+    //以下是对象形式写法
+    plugins:{
+        // 更新时间插件使用
+        '@vuepress/last-updated':{
+            transformer: (timestamp, lang="zh-cn") => {
+                moment.locale("zh-cn")
+                return moment(timestamp).format("LLLL")
+            }
+        },
+        // PWA插件使用
+        '@vuepress/pwa':{
+            serviceWorker: true,
+            updatePopup: {
+                message: "发现新内容",
+                buttonText: "刷新"
+            }
+        },
+        //vssue评论插件
+        '@vssue/vuepress-plugin-vssue': {
+            // 设置 `platform` 而不是 `api`
+            platform: 'github-v4',
+      
+            // 其他的 Vssue 配置
+            owner: 'dongser520',
+            repo: 'docs',
+            clientId: 'f9f6f910f557f65f5c4f',
+            clientSecret: '30016ba7c110ca7da73fa9811e96208ab1412a1a',
+        },
+    },
     themeConfig: {
         //logo: '/assets/img/logo.png',
         lastUpdated: '更新时间', // string | boolean 最后更新时间
