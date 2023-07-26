@@ -1,19 +1,19 @@
 //数组形式--侧边栏
 module.exports = [
-    '',
-    'about',
-    'about/',
+    // '',
+    'aboutless',
     {
-        title: 'web前端开发',   // 必要的
-        path: '/web/',      // 可选的, 标题的跳转链接，应为绝对路径且必须存在
+        title: '第二期课程',   // 必要的
+        path: '/secondless/',      // 可选的, 标题的跳转链接，应为绝对路径且必须存在
         collapsable: false, // 可选的, 默认值是 true,
         sidebarDepth: 1,    // 可选的, 默认值是 1
         children: [
-          '/web/w-a',
-          '/web/w-b',
-          '/web/w-c',
+          '/secondless/w-a',
+          '/secondless/w-b',
+          '/secondless/w-c',
         ]
     },
+    'about/',
 ]
 
 //对象形式
