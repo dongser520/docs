@@ -1,16 +1,16 @@
 ---
 navbar: true
 sidebar: auto
-title: javascript基础 
+title: 章节2.javascript基础 
 ---
 
-## 变量
+## 1、变量
 ### 操作符
 >  var  
 >  let  
 >  const 
 
-## 关键保留字
+## 2、关键保留字
 ### 关键字
 >  简单点讲：下面这些关键字不能用作变量名（标识符），一般用于控制语句的开始或结束，
 或者用于执行特定的操作等用的。
@@ -39,7 +39,7 @@ title: javascript基础
 |  private        |   transient |  implements     |   protected       |     |
 
 
-## 语法构成
+## 3、语法构成
 ### 标识符
 >  就是指变量、函数、属性的名字，或者函数的参数。由下列格
 式规则组合起来的一或多个字符：
@@ -61,3 +61,34 @@ title: javascript基础
 * 块级注释
 */
 ```
+
+## 4、数据类型
+### Undefined 类型
+> Undefined 类型只有一个值，即 undefined。我们声明变量，但没有对其初
+始化时(没有给它赋值的时候)，这个变量的值就是 undefined。
+> 没有必要  let text = undefined;
+
+> 我们用  typeof  操作符检查数据类型
+
+```javascript
+let text;
+alert(text);alert(nickname);
+alert(typeof text);alert(typeof nickname);
+```
+
+> <b>总结：没有定义内容（未赋值）和 不存在的变量，通过 typeof 都返回 undefined。导致我们不好判断类型，因此：我们
+在声明变量后就必须要赋值（初始化），以避免我们不好判断出现问题。 </b>
+
+### Null 类型
+> Null 类型是一个只有一个值的数据类型，即 null。typeof 操作符检测 null 会返回 object
+```javascript
+let text = null; alert(typeof text); //返回 object
+```
+> 作用
+>> 如果定义的变量准备在将来用于保存对象，那么最好将该变量初始化为 null。
+
+
+
+<p style="height:500px"></p>
+
+

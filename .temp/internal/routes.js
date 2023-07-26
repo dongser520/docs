@@ -9,14 +9,6 @@ import GlobalLayout from "E:\\vuepress\\vuepress-github\\docs\\node_modules\\@vu
 injectComponentOption(GlobalLayout, 'mixins', rootMixins)
 export const routes = [
   {
-    name: "v-35204b8c",
-    path: "/about.html",
-    component: GlobalLayout,
-    beforeEnter: (to, from, next) => {
-      ensureAsyncComponentsLoaded("Layout", "v-35204b8c").then(next)
-    },
-  },
-  {
     name: "v-1215a3cf",
     path: "/",
     component: GlobalLayout,
@@ -29,16 +21,20 @@ export const routes = [
     redirect: "/"
   },
   {
-    name: "v-2c6c8e00",
-    path: "/about/",
+    name: "v-35204b8c",
+    path: "/about.html",
     component: GlobalLayout,
     beforeEnter: (to, from, next) => {
-      ensureAsyncComponentsLoaded("Layout", "v-2c6c8e00").then(next)
+      ensureAsyncComponentsLoaded("Layout", "v-35204b8c").then(next)
     },
   },
   {
-    path: "/about/index.html",
-    redirect: "/about/"
+    name: "v-5387826c",
+    path: "/aboutless.html",
+    component: GlobalLayout,
+    beforeEnter: (to, from, next) => {
+      ensureAsyncComponentsLoaded("Layout", "v-5387826c").then(next)
+    },
   },
   {
     name: "v-7ba60f92",
@@ -69,11 +65,23 @@ export const routes = [
     },
   },
   {
-    name: "v-5387826c",
-    path: "/aboutless.html",
+    name: "v-2c6c8e00",
+    path: "/about/",
     component: GlobalLayout,
     beforeEnter: (to, from, next) => {
-      ensureAsyncComponentsLoaded("Layout", "v-5387826c").then(next)
+      ensureAsyncComponentsLoaded("Layout", "v-2c6c8e00").then(next)
+    },
+  },
+  {
+    path: "/about/index.html",
+    redirect: "/about/"
+  },
+  {
+    name: "v-4630ecb1",
+    path: "/pc/p-c.html",
+    component: GlobalLayout,
+    beforeEnter: (to, from, next) => {
+      ensureAsyncComponentsLoaded("Layout", "v-4630ecb1").then(next)
     },
   },
   {
@@ -113,14 +121,6 @@ export const routes = [
     },
   },
   {
-    name: "v-4630ecb1",
-    path: "/pc/p-c.html",
-    component: GlobalLayout,
-    beforeEnter: (to, from, next) => {
-      ensureAsyncComponentsLoaded("Layout", "v-4630ecb1").then(next)
-    },
-  },
-  {
     name: "v-17cd735c",
     path: "/secondless/",
     component: GlobalLayout,
@@ -131,30 +131,6 @@ export const routes = [
   {
     path: "/secondless/index.html",
     redirect: "/secondless/"
-  },
-  {
-    name: "v-00ea391a",
-    path: "/secondless/w-a.html",
-    component: GlobalLayout,
-    beforeEnter: (to, from, next) => {
-      ensureAsyncComponentsLoaded("Layout", "v-00ea391a").then(next)
-    },
-  },
-  {
-    name: "v-057d6a1e",
-    path: "/secondless/w-b.html",
-    component: GlobalLayout,
-    beforeEnter: (to, from, next) => {
-      ensureAsyncComponentsLoaded("Layout", "v-057d6a1e").then(next)
-    },
-  },
-  {
-    name: "v-0a109b22",
-    path: "/secondless/w-c.html",
-    component: GlobalLayout,
-    beforeEnter: (to, from, next) => {
-      ensureAsyncComponentsLoaded("Layout", "v-0a109b22").then(next)
-    },
   },
   {
     name: "v-57c86994",
@@ -173,6 +149,30 @@ export const routes = [
     redirect: "/secondless/w-a/javascript%E5%9F%BA%E7%A1%80.html"
   },
   {
+    name: "v-057d6a1e",
+    path: "/secondless/w-b.html",
+    component: GlobalLayout,
+    beforeEnter: (to, from, next) => {
+      ensureAsyncComponentsLoaded("Layout", "v-057d6a1e").then(next)
+    },
+  },
+  {
+    name: "v-00ea391a",
+    path: "/secondless/w-a.html",
+    component: GlobalLayout,
+    beforeEnter: (to, from, next) => {
+      ensureAsyncComponentsLoaded("Layout", "v-00ea391a").then(next)
+    },
+  },
+  {
+    name: "v-0a109b22",
+    path: "/secondless/w-c.html",
+    component: GlobalLayout,
+    beforeEnter: (to, from, next) => {
+      ensureAsyncComponentsLoaded("Layout", "v-0a109b22").then(next)
+    },
+  },
+  {
     name: "v-6de531b2",
     path: "/web/",
     component: GlobalLayout,
@@ -183,6 +183,30 @@ export const routes = [
   {
     path: "/web/index.html",
     redirect: "/web/"
+  },
+  {
+    name: "v-b2a3f302",
+    path: "/web/w-b.html",
+    component: GlobalLayout,
+    beforeEnter: (to, from, next) => {
+      ensureAsyncComponentsLoaded("Layout", "v-b2a3f302").then(next)
+    },
+  },
+  {
+    name: "v-544f4fdf",
+    path: "/web/w-a.html",
+    component: GlobalLayout,
+    beforeEnter: (to, from, next) => {
+      ensureAsyncComponentsLoaded("Layout", "v-544f4fdf").then(next)
+    },
+  },
+  {
+    name: "v-0de685c2",
+    path: "/web/w-c.html",
+    component: GlobalLayout,
+    beforeEnter: (to, from, next) => {
+      ensureAsyncComponentsLoaded("Layout", "v-0de685c2").then(next)
+    },
   },
   {
     name: "v-1ead3dbc",
@@ -201,28 +225,20 @@ export const routes = [
     redirect: "/%E5%BC%80%E5%8F%91%E8%AE%B0%E5%BD%95.html"
   },
   {
-    name: "v-544f4fdf",
-    path: "/web/w-a.html",
+    name: "v-04195fe8",
+    path: "/secondless/w-a/%E4%B8%B4%E6%97%B6%E6%96%87%E6%A1%A3.html",
     component: GlobalLayout,
     beforeEnter: (to, from, next) => {
-      ensureAsyncComponentsLoaded("Layout", "v-544f4fdf").then(next)
+      ensureAsyncComponentsLoaded("Layout", "v-04195fe8").then(next)
     },
   },
   {
-    name: "v-b2a3f302",
-    path: "/web/w-b.html",
-    component: GlobalLayout,
-    beforeEnter: (to, from, next) => {
-      ensureAsyncComponentsLoaded("Layout", "v-b2a3f302").then(next)
-    },
+    path: "/secondless/w-a/临时文档.html",
+    redirect: "/secondless/w-a/%E4%B8%B4%E6%97%B6%E6%96%87%E6%A1%A3.html"
   },
   {
-    name: "v-0de685c2",
-    path: "/web/w-c.html",
-    component: GlobalLayout,
-    beforeEnter: (to, from, next) => {
-      ensureAsyncComponentsLoaded("Layout", "v-0de685c2").then(next)
-    },
+    path: "/secondless/w-a/临时文档.html",
+    redirect: "/secondless/w-a/%E4%B8%B4%E6%97%B6%E6%96%87%E6%A1%A3.html"
   },
   {
     path: '*',
