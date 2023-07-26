@@ -1,9 +1,10 @@
 ---
 home: true
+title:  首页
 # heroImage: /hear.jpg
 heroText: 睿晨编程
 tagline: 零基础转行学做网站、app、小程序
-actionText: 快速上手 →
+actionText: 查看课程文档 →
 actionLink: https://www.bilibili.com/video/BV1SW4y1L7i9/?vd_source=9a6ee0d7e6c1657e4a7381c1f8f18f4b
 features:
 - title: 需求人群

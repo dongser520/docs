@@ -39,7 +39,7 @@
         <template #bottom>
           <slot name="page-bottom" />
           <!-- 全局新增vssue -->
-          <Vssue class="theme-default-content content__default" :options="{ locale: 'zh' }" />
+          <!-- <Vssue class="theme-default-content content__default" :options="{ locale: 'zh' }" /> -->
         </template>
       </Page>
     </div>

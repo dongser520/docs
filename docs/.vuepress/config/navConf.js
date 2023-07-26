@@ -1,11 +1,7 @@
 module.exports = [
     { text: '主页', link: '/' },
-    { text: '关于', link: '/about' },
-    { text: '内关于', link: '/about/' },
-    { text: 'pc', link: '/pc/' },
-    { text: 'phone', link: '/phone/' },
-    { text: '百度', link: 'https://www.baidu.com', target: '_blank' },
-    { text: '谷歌', link: 'https://google.com', target: '_self', rel: '' },
+    { text: '第一期课程', link: '/aboutless' },
+    { text: '第二期课程', link: '/secondless/' },
     {
         text: '单列表',
         ariaLabel: '单列表 Menu',
@@ -18,14 +14,16 @@ module.exports = [
         text: '列表分组',
         items: [
             {
-                text: '分组1',
+                text: '栏目',
                 items: [
                     { text: '关于', link: '/about' },
                     { text: '内关于', link: '/about/' },
+                    { text: 'pc', link: '/pc/' },
+                    { text: 'phone', link: '/phone/' },
                 ]
             },
             {
-                text: '分组2',
+                text: '外部链接',
                 items: [
                     { text: '百度', link: 'https://www.baidu.com', target: '_blank' },
                     { text: '谷歌', link: 'https://google.com', target: '_self', rel: '' },
