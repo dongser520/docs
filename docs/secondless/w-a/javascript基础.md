@@ -73,7 +73,8 @@ title: 章节2.javascript基础
 ```javascript
 let text;
 alert(text);alert(nickname);
-alert(typeof text);alert(typeof nickname);
+alert(typeof text); //返回 undefined
+alert(typeof nickname); //返回 undefined
 ```
 
 > <b>总结：没有定义内容（未赋值）和 不存在的变量，通过 typeof 都返回 undefined。导致我们不好判断类型，因此：我们
@@ -86,6 +87,33 @@ let text = null; alert(typeof text); //返回 object
 ```
 > 作用
 >> 如果定义的变量准备在将来用于保存对象，那么最好将该变量初始化为 null。
+
+
+### Boolean 类型
+> 注意
+>> 1.Boolean 类型有两个值(字面量)：true 和 false <br/>
+```javascript
+let text = true; alert(typeof text); //返回boolean
+```
+>> 2.true 不一定等于 1，false 不一定等于 0       <br/>
+```javascript
+let text = true;
+alert(text == 1); //返回true
+alert(text == 0); //返回false
+alert(text === 1); //返回false 恒等，数据类型也必须相同
+```
+>> 3.js 是区分大小写的，True 和 False 或者其他都不是 Boolean 类型的值
+```javascript
+let text = True; alert(typeof text); //报错，未定义
+let text = 'True'; alert(typeof text); //返回string 字符串类型了
+```
+
+>> 4.使用转型函数Boolean()可将其他值转成 true 或  false
+>>> 作用：程序开发中，多用于判断
+>>> ```javascript
+>>>   let text;alert(Boolean(text));//返回false
+>>>   let text = null; alert(Boolean(text));//返回false
+>>> ```
 
 
 
