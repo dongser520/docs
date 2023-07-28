@@ -29,6 +29,14 @@ export const routes = [
     },
   },
   {
+    name: "v-5387826c",
+    path: "/aboutless.html",
+    component: GlobalLayout,
+    beforeEnter: (to, from, next) => {
+      ensureAsyncComponentsLoaded("Layout", "v-5387826c").then(next)
+    },
+  },
+  {
     name: "v-7ba60f92",
     path: "/pc/",
     component: GlobalLayout,
@@ -41,12 +49,16 @@ export const routes = [
     redirect: "/pc/"
   },
   {
-    name: "v-5387826c",
-    path: "/aboutless.html",
+    name: "v-2c6c8e00",
+    path: "/about/",
     component: GlobalLayout,
     beforeEnter: (to, from, next) => {
-      ensureAsyncComponentsLoaded("Layout", "v-5387826c").then(next)
+      ensureAsyncComponentsLoaded("Layout", "v-2c6c8e00").then(next)
     },
+  },
+  {
+    path: "/about/index.html",
+    redirect: "/about/"
   },
   {
     name: "v-62ea3633",
@@ -65,36 +77,12 @@ export const routes = [
     },
   },
   {
-    name: "v-2c6c8e00",
-    path: "/about/",
-    component: GlobalLayout,
-    beforeEnter: (to, from, next) => {
-      ensureAsyncComponentsLoaded("Layout", "v-2c6c8e00").then(next)
-    },
-  },
-  {
-    path: "/about/index.html",
-    redirect: "/about/"
-  },
-  {
     name: "v-4630ecb1",
     path: "/pc/p-c.html",
     component: GlobalLayout,
     beforeEnter: (to, from, next) => {
       ensureAsyncComponentsLoaded("Layout", "v-4630ecb1").then(next)
     },
-  },
-  {
-    name: "v-4f90747e",
-    path: "/phone/",
-    component: GlobalLayout,
-    beforeEnter: (to, from, next) => {
-      ensureAsyncComponentsLoaded("Layout", "v-4f90747e").then(next)
-    },
-  },
-  {
-    path: "/phone/index.html",
-    redirect: "/phone/"
   },
   {
     name: "v-10de5a02",
@@ -111,6 +99,18 @@ export const routes = [
     beforeEnter: (to, from, next) => {
       ensureAsyncComponentsLoaded("Layout", "v-437744df").then(next)
     },
+  },
+  {
+    name: "v-4f90747e",
+    path: "/phone/",
+    component: GlobalLayout,
+    beforeEnter: (to, from, next) => {
+      ensureAsyncComponentsLoaded("Layout", "v-4f90747e").then(next)
+    },
+  },
+  {
+    path: "/phone/index.html",
+    redirect: "/phone/"
   },
   {
     name: "v-e1449282",
@@ -139,22 +139,6 @@ export const routes = [
     beforeEnter: (to, from, next) => {
       ensureAsyncComponentsLoaded("Layout", "v-00ea391a").then(next)
     },
-  },
-  {
-    name: "v-57c86994",
-    path: "/secondless/w-a/javascript%E5%9F%BA%E7%A1%80.html",
-    component: GlobalLayout,
-    beforeEnter: (to, from, next) => {
-      ensureAsyncComponentsLoaded("Layout", "v-57c86994").then(next)
-    },
-  },
-  {
-    path: "/secondless/w-a/javascript基础.html",
-    redirect: "/secondless/w-a/javascript%E5%9F%BA%E7%A1%80.html"
-  },
-  {
-    path: "/secondless/w-a/javascript基础.html",
-    redirect: "/secondless/w-a/javascript%E5%9F%BA%E7%A1%80.html"
   },
   {
     name: "v-04195fe8",
@@ -189,11 +173,27 @@ export const routes = [
     },
   },
   {
-    name: "v-544f4fdf",
-    path: "/web/w-a.html",
+    name: "v-57c86994",
+    path: "/secondless/w-a/javascript%E5%9F%BA%E7%A1%80.html",
     component: GlobalLayout,
     beforeEnter: (to, from, next) => {
-      ensureAsyncComponentsLoaded("Layout", "v-544f4fdf").then(next)
+      ensureAsyncComponentsLoaded("Layout", "v-57c86994").then(next)
+    },
+  },
+  {
+    path: "/secondless/w-a/javascript基础.html",
+    redirect: "/secondless/w-a/javascript%E5%9F%BA%E7%A1%80.html"
+  },
+  {
+    path: "/secondless/w-a/javascript基础.html",
+    redirect: "/secondless/w-a/javascript%E5%9F%BA%E7%A1%80.html"
+  },
+  {
+    name: "v-0de685c2",
+    path: "/web/w-c.html",
+    component: GlobalLayout,
+    beforeEnter: (to, from, next) => {
+      ensureAsyncComponentsLoaded("Layout", "v-0de685c2").then(next)
     },
   },
   {
@@ -205,11 +205,11 @@ export const routes = [
     },
   },
   {
-    name: "v-0de685c2",
-    path: "/web/w-c.html",
+    name: "v-544f4fdf",
+    path: "/web/w-a.html",
     component: GlobalLayout,
     beforeEnter: (to, from, next) => {
-      ensureAsyncComponentsLoaded("Layout", "v-0de685c2").then(next)
+      ensureAsyncComponentsLoaded("Layout", "v-544f4fdf").then(next)
     },
   },
   {
