@@ -9,3 +9,4 @@ title: 第一季（课程学习顺序：02）
 ## 3.查看课程文档
 ### 章节1.课程介绍 [略]
 ### <a href="/secondless/w-a/javascript基础" target="_blank" title="点击查看课程文档">章节2.javascript基础</a>
+### <a href="/secondless/w-a/javascript运算符" target="_blank" title="点击查看课程文档">章节3.javascript运算符</a>
