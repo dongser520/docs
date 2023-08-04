@@ -13,7 +13,7 @@ module.exports = [
           '/secondless/w-c',
         ]
     },
-    'about/',
+    //'about/',
 ]
 
 //对象形式
