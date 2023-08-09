@@ -433,4 +433,5 @@ Number()函数是转型函数，可以用于任何数据类型。
 
 ## 其它课程章节
 ### [章节3.javascript运算符](/secondless/w-a/javascript运算符 '章节3.javascript运算符')
+### [章节4.流程控制语句](/secondless/w-a/流程控制语句 '章节4.流程控制语句')
 

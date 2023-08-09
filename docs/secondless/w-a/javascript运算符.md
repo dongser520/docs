@@ -623,7 +623,7 @@ title: 章节3.javascript运算符
 >> #### 4.对象的字面量声明（后面会详细讲对象）
 >> ```javascript
 >> let text = {
->>    name:'迪丽热巴',
+>>    name:'迪丽热巴',  //键值对，左边是属性名，右边是值
 >>    age:31,
 >>    weight:'52kg',
 >>    bar:'85cm',
@@ -692,3 +692,4 @@ title: 章节3.javascript运算符
 
 ## 其它课程章节
 ### [章节2.javascript基础](/secondless/w-a/javascript基础 '章节2.javascript基础')
+### [章节4.流程控制语句](/secondless/w-a/流程控制语句 '章节4.流程控制语句')

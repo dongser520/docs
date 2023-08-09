@@ -8,6 +8,8 @@ title: 章节5.javascript对象
 > 1.<a href="/secondless/w-a/javascript基础.html#object-类型" target="_blank">Object数据类型</a> <br/>
 > 2.<a href="/secondless/w-a/javascript运算符.html#_3-其它类型在一元运算符的规则" target="_blank">其它类型在一元运算符的规则_5.对象---提到对象的toString()和valueOf()</a> <br/>
 > 3.<a href="/secondless/w-a/javascript运算符.html#_2-逗号运算符"  target="_blank">逗号运算符___4.对象的字面量声明</a> <br/>
+> 4.<a href="/secondless/w-a/流程控制语句.html#_4、for-in-语句-枚举对象的属性"  target="_blank">流程控制语句___4.for...in 语句 枚举对象的属性</a> <br/>
+> 5.<a href="/secondless/w-a/流程控制语句.html#_6、with语句"  target="_blank">流程控制语句___6.with语句 是将代码的作用域设置到一个特定的对象中</a> <br/>
 
 if语句出现的地方：<br/>
 <a href="/secondless/w-a/javascript基础.html#总结-boolean-类型转换" target="_blank">Boolean()函数隐式转换</a> <br/>
