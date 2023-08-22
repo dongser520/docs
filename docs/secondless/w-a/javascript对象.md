@@ -1,7 +1,7 @@
 ---
 navbar: true
 sidebar: auto
-title: 章节5.javascript对象 
+title: 章节6.javascript对象 
 ---
 
 > 回忆一下，我们之前学习的时候，提到的对象出现的地方：<br/>

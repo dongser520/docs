@@ -11,3 +11,5 @@ title: 第一季（课程学习顺序：02）
 ### <a href="/secondless/w-a/javascript基础" target="_blank" title="点击查看课程文档">章节2.javascript基础</a>
 ### <a href="/secondless/w-a/javascript运算符" target="_blank" title="点击查看课程文档">章节3.javascript运算符</a>
 ### <a href="/secondless/w-a/流程控制语句" target="_blank" title="点击查看课程文档">章节4.流程控制语句</a>
+### <a href="/secondless/w-a/javascript函数" target="_blank" title="点击查看课程文档">章节5.javascript函数</a>
+### <a href="/secondless/w-a/javascript对象" target="_blank" title="点击查看课程文档">章节6.javascript对象</a>

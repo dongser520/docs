@@ -693,3 +693,5 @@ title: 章节3.javascript运算符
 ## 其它课程章节
 ### [章节2.javascript基础](/secondless/w-a/javascript基础 '章节2.javascript基础')
 ### [章节4.流程控制语句](/secondless/w-a/流程控制语句 '章节4.流程控制语句')
+### [章节5.javascript函数](/secondless/w-a/javascript函数 '章节5.javascript函数')
+### [章节6.javascript对象](/secondless/w-a/javascript对象 '章节6.javascript对象')
