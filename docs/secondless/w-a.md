@@ -7,9 +7,10 @@ title: 第一季（课程学习顺序：02）
 ## 2.课程视频学习
 [学习课程完整视频](https://study.163.com/course/courseMain.htm?courseId=1213374826&share=2&shareId=480000002289674 '点击学习课程完整视频')
 ## 3.查看课程文档
-### 章节1.课程介绍 [略]
+### 章节1.第一季课程介绍 
 ### <a href="/secondless/w-a/javascript基础" target="_blank" title="点击查看课程文档">章节2.javascript基础</a>
 ### <a href="/secondless/w-a/javascript运算符" target="_blank" title="点击查看课程文档">章节3.javascript运算符</a>
 ### <a href="/secondless/w-a/流程控制语句" target="_blank" title="点击查看课程文档">章节4.流程控制语句</a>
 ### <a href="/secondless/w-a/javascript函数" target="_blank" title="点击查看课程文档">章节5.javascript函数</a>
 ### <a href="/secondless/w-a/javascript对象" target="_blank" title="点击查看课程文档">章节6.javascript对象</a>
+### <a href="/secondless/w-a/javascript数组" target="_blank" title="点击查看课程文档">章节7.javascript数组</a>
