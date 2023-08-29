@@ -5,7 +5,7 @@ title:  首页
 heroText: 睿晨编程
 tagline: 零基础转行学做网站、app、小程序
 actionText: 查看课程文档 →
-actionLink: https://www.bilibili.com/video/BV1SW4y1L7i9/?vd_source=9a6ee0d7e6c1657e4a7381c1f8f18f4b
+actionLink: /aboutless
 features:
 - title: 需求人群
   details: 很多想转行，想接单做网站等需求的小白，不知道如何转行学编程的学员。
