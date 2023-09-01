@@ -698,4 +698,5 @@ title: 章节3.javascript运算符
 ### [章节4.流程控制语句](/secondless/w-a/流程控制语句 '章节4.流程控制语句')
 ### [章节5.javascript函数](/secondless/w-a/javascript函数 '章节5.javascript函数')
 ### [章节6.javascript对象](/secondless/w-a/javascript对象 '章节6.javascript对象')
-### [章节7.javascript数组](/secondless/w-a/javascript数组 '章节7.javascript数组')
+### [章节7.javascript数组](/secondless/w-a/javascript数组 '章节7.javascript数组') 
+### [章节8.Date类型：时间和日期](/secondless/w-a/Date类型：时间和日期 '章节8.Date类型：时间和日期')
