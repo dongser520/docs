@@ -161,6 +161,97 @@ title: 章节9.Function类型：函数进阶
 >> text.mygirl();// 此时里面的this对象就变成了text, 所以mygirl函数里面的this是动态的，第一次在window下， 第二次在text下
 >> ```
 
+## 4、函数的属性和方法
+> js中的函数是对象，因此函数也有属性和方法。每个函数都包含两个属性：length 和 prototype。
+### ① length属性
+> length 属性表示函数希望接收的命名参数的个数。
+> ``` javascript
+> function love(name,height,weight){
+>     return `${name},升高：${height},体重：${weight}`;
+> }
+> console.log(love('迪丽热巴','172cm','52kg')); // '迪丽热巴,升高：172cm,体重：52kg'
+> console.log(love.length);//属性就可以直接用 点  返回：3  3个参数
+> ```
+### ② prototype 属性--apply()和 call()方法进行 函数冒充
+> 对于 prototype 属性，它是保存所有实例方法的真正所在，也就是原型。这个属性，我们在后面讲面向对象章节再详细介绍。<br/>
+> prototype 下有两个方法：apply()和 call()，每个函数都包含这两个非继承而来的方法。这两个方法的用途都在特定的作用域中调用函数，实际上等于设置函数体内 this 对象的值。<br/>
+> 这里重点讲一下apply()和 call()：函数冒充
+> ``` javascript
+> //正常函数执行
+> function text(n1,n2){
+>     return n1+n2;
+> }
+> console.log(text(10,20));
+> ```
+>> #### 1. apply() 冒充其它函数执行
+>>  ``` javascript
+>>  function text(n1,n2){
+>>      return n1+n2;
+>>  }
+>>  function love(n1,n2){
+>>      //冒充text函数执行，括号里面的第一个参数：this,表示window下面去执行它，因为text函数的作用域在window下面
+>>      //第二个参数就是冒充的函数text要接收的参数，用[]，参数写在里面, 这两个参数就是我要调用love函数传递过来的参数，把这两个参数传递给冒充的函数text就行了
+>>      return text.apply(this,[n1,n2]); //this表示window作用域，[]表示传递的参数
+>>      return text.apply(this,arguments);//当数组传，替换上面的[n1,n2]
+>>  }
+>>  //这样的话，love函数就可以冒充text函数进行执行了, love函数本身是没有写相加的功能的，用的text函数的功能
+>>  console.log(love(10,20));
+>>  ``` 
+>> #### 2. call() 冒充其它函数执行
+>> call()方法和 apply()方法相同，都是冒充其它函数执行，它们的区别仅仅在于接收参数的方式不同。对于 call()方法而言，第一个参数是作用域，没有变化，变化只是其余的参数都是直接传递给函数的。
+>>  ``` javascript
+>>  function text(n1,n2){
+>>      return n1+n2;
+>>  }
+>>  function love(n1,n2){
+>>      return text.call(this,n1,n2);//传参方式不同而已，功能是一样的
+>>  }
+>>  console.log(love(10,20));//返回：30
+>>  ```
+> 有的同学不禁要问，我自己写函数执行不好吗，为何还要冒充其它函数，所以，apply()和 call()方法真正常用的地方是：能够扩展函数赖以运行的作用域。
+### ③ apply()和 call()方法扩展函数赖以运行的作用域
+>>  ``` javascript
+>>  window.girl = '迪丽热巴';// var girl = '迪丽热巴';// 全局，这里的girl变量就是全局变量
+>>  var text= {
+>>      girl:'古力娜扎' // 这里的girl就是局部变量，因为它在text对象里面
+>>  }
+>>  function mygirl(){
+>>      console.log(this.girl);
+>>  }
+>>  mygirl();//直接执行肯定是全局，this.girl 返回 '迪丽热巴'，因为函数在window下面，不在text对象里面
+>>  //用call来实现对象冒充，可以冒充text下，也可以冒充window下
+>>  //1.冒充window下
+>>  mygirl.call(window);// '迪丽热巴'
+>>  mygirl.call(this);// '迪丽热巴'  this就是window
+>>  //2.冒充text下
+>>  //冒充text,作用域就在text对象里面，所以girl就是 '古力娜扎'
+>>  mygirl.call(text);// '古力娜扎'
+>>  //注意：用call而不用apply是因为call传参方便，没有参数就不传
+>>  ```
+>> 好处：就是对象不需要与方法发生任何耦合关系(耦合，就是互相关联的意思，扩展和维护会发生连锁反应)。也就是说，text 对象和
+mygirl()方法之间不会有多余的关联操作，比如 text.mygirl1 = mygirl;为我们程序的维护提供了便利。
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
