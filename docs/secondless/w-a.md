@@ -15,3 +15,4 @@ title: 第一季（课程学习顺序：02）
 ### <a href="/secondless/w-a/javascript对象" target="_blank" title="点击查看课程文档">章节6.javascript对象</a>
 ### <a href="/secondless/w-a/javascript数组" target="_blank" title="点击查看课程文档">章节7.javascript数组</a>
 ### <a href="/secondless/w-a/Date类型：时间和日期" target="_blank" title="点击查看课程文档">章节8.Date类型：时间和日期</a>
+### <a href="/secondless/w-a/Function类型：函数进阶" target="_blank" title="点击查看课程文档">章节9.Function类型：函数进阶</a>

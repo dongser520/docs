@@ -347,3 +347,4 @@ title: 章节7.javascript数组
 ### [章节6.javascript对象](/secondless/w-a/javascript对象 '章节6.javascript对象')
 ### [章节7.javascript数组](/secondless/w-a/javascript数组 '章节7.javascript数组')
 ### [章节8.Date类型：时间和日期](/secondless/w-a/Date类型：时间和日期 '章节8.Date类型：时间和日期')
+### [章节9.Function类型：函数进阶](/secondless/w-a/Function类型：函数进阶 '章节9.Function类型：函数进阶')
