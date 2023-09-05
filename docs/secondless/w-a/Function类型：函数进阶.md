@@ -72,12 +72,94 @@ title: 章节9.Function类型：函数进阶
 >>  // 这样写法就是将函数本身做了传递，就是将它作为值了，也就是作为值的函数
 >> ```
 
-
-
-
-
-
-
+## 3、函数内部属性
+> 在函数内部，有两个特殊的对象：arguments(我们在<a href="/secondless/w-a/javascript函数.html#_1、函数声明" target="_blank">章节5.javascript函数</a>已有所了解) 和 this。arguments 是一个类数组对象，包含着传入函数中的所有参数，主要用途是保存函数参数。但这个对象还有一个名叫 callee 的属性，该属性是一个指针，指向拥有这个 arguments 对象的函数。
+> ### ① 写个递归（阶乘）函数
+> 完成传递一个参数6，返回类似于： 6\*5\*4\*3\*2\*1  的算术结果
+>> ``` javascript
+>> function love(num){
+>>     if(num <= 1) return 1; // 比1小的数直接返回1，后面的代码由于return返回 就不会去执行了
+>>     // 传递过来的值 乘以  调用自己（参数减1），就是不停的调用自己，直到1为止
+>>     return num * love(num - 1); // 6 * 5 * 4 * 3 * 2 * 1 
+>> }
+>> console.log(love(6)); //返回：720
+>> console.log(love(3)); //返回：6   3*2*1=6     
+>> ```
+> ### ② 使用 arguments.callee 来执行自身完成递归函数
+> 上面 num \* love(num - 1) 调用自身，如果函数名更换了，这里也要跟着更换，如果内部很复杂，改起来非常麻烦且容易出错，那么可以使用 arguments.callee 来代替
+>> ``` javascript
+>> function love(num){
+>>     if(num <= 1) return 1; // 比1小的数直接返回1，后面的代码由于return返回 就不会去执行了
+>>     // 传递过来的值 乘以  调用自己（参数减1），就是不停的调用自己，直到1为止
+>>     return num * arguments.callee(num - 1); // 6 * 5 * 4 * 3 * 2 * 1 
+>> }
+>> console.log(love(6)); //返回：720
+>> console.log(love(3)); //返回：6   3*2*1=6 
+>> ```
+> ### ③ 函数内部另一个特殊对象： this
+> this就是函数调用语句所处的那个作用域，当在全局作用域中调用函数时，this 对象引用的就是 window。<br/>
+> 首先要理解window是什么，它是一个对象，而且是js中最大的对象,是最外围的对象。我们可以来输出一下window对象
+>> ``` javascript
+>> console.log(window);//可以看到alert, 我们的alert() 和 window.alert()一个效果
+>> alert(window); //[object Window]
+>> alert(typeof window);// object  window是对象，类型是对象
+>> alert(this); // [object Window] this目前表示的是window，因为在window的范围下
+>> alert(typeof this);// object 和window一模一样，这个时候的this就是window
+>> ```
+> window我们可以认为是全局
+>> ``` javascript
+>> // 关于 var let const 学习完作用域后，还会再总结
+>> var girl = '迪丽热巴'; // 这里girl就是全局变量，而这个变量又是window的属性
+>> console.log(window); // 控制台window对象中出现了一个属性名girl，值是 '迪丽热巴'
+>> console.log(window.girl); // '迪丽热巴'
+>> // 换成let操作符就没有了，可见 var 和 let的区别，作用域范围不一样
+>> console.log(this.girl); // '迪丽热巴'
+>> // 那么就有
+>> window.girl = '迪丽热巴'; // 和 var girl = '迪丽热巴'; 是一样的
+>> 
+>> console.log(this.girl); // '迪丽热巴' 当前this在全局
+>> ```
+>> 扩展
+>> ``` javascript
+>> window.girl = '迪丽热巴';//全局的，或者 var girl = '迪丽热巴';也行
+>> console.log(this); // this代表window 全局
+>> console.log(this.girl); //'迪丽热巴'   打印全局的girl
+>> var text = {
+>>     //注意此时的girl在text的范围下了
+>>     girl:'古力娜扎', //这里的girl是在text下的属性，也就是局部变量了
+>>     canDo:function(){ 
+>>         //那么这里的this代表的是谁？ 是 text 还是window ?
+>>         console.log(this.girl); // '古力娜扎'
+>>         console.log(this); // 这里的this 代表 text对象
+>>     }
+>> }
+>> text.canDo();
+>> ```
+>> 更深理解
+>> ``` javascript
+>> window.girl = '迪丽热巴';
+>> function mygirl(){
+>>     console.log(this.girl);// '迪丽热巴'
+>>     console.log(this); // 这里的this就是window
+>> }
+>> mygirl(); // 这里调用mygirl，其实范围还是在window下
+>> 
+>> var text= {
+>>     girl:'古力娜扎'
+>> }
+>> text.mygirl = mygirl; 
+>> // 相当于 
+>> /*
+>> var text= {
+>>     girl:'古力娜扎',
+>>     mygirl:function(){
+>>         console.log(this.girl);
+>>         console.log(this); 
+>>     }
+>> }
+>> */
+>> text.mygirl();// 此时里面的this对象就变成了text, 所以mygirl函数里面的this是动态的，第一次在window下， 第二次在text下
+>> ```
 
 
 
