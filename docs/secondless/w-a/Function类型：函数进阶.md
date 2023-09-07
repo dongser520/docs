@@ -241,7 +241,7 @@ mygirl()方法之间不会有多余的关联操作，比如 text.mygirl1 = mygir
 <br/><br/><br/><br/><br/><br/>
 
 
-## 其它课程章节
+## 课程其它章节
 ### [章节1.课程介绍](/secondless/w-a '章节1.课程介绍')
 ### [章节2.javascript基础](/secondless/w-a/javascript基础 '章节2.javascript基础')
 ### [章节3.javascript运算符](/secondless/w-a/javascript运算符 '章节3.javascript运算符')

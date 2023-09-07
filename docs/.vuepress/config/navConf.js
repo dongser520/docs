@@ -1,7 +1,7 @@
 module.exports = [
     { text: '主页', link: '/' },
-    { text: '第一期课程', link: '/aboutless' },
-    { text: '第二期课程', link: '/secondless/' },
+    { text: '第一学期课程', link: '/aboutless' },
+    { text: '第二学期课程', link: '/secondless/' },
     {
         text: '单列表',
         ariaLabel: '单列表 Menu',

@@ -433,7 +433,7 @@ Number()函数是转型函数，可以用于任何数据类型。
 <br/><br/><br/><br/>
 
 
-## 其它课程章节
+## 课程其它章节
 ### [章节1.课程介绍](/secondless/w-a '章节1.课程介绍')
 ### [章节2.javascript基础](/secondless/w-a/javascript基础 '章节2.javascript基础')
 ### [章节3.javascript运算符](/secondless/w-a/javascript运算符 '章节3.javascript运算符')
