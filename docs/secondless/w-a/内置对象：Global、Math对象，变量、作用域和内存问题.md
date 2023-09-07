@@ -238,15 +238,79 @@ title: 章节10.内置对象：Global、Math对象，变量、作用域和内存
 >>  ```
 >> 总结：在引用类型中，love 其实就是 text，因为它们指向的是同一个对象。如果这个对象中的
 name 属性被修改了，love.name 和 text.name 输出的值都会被相应修改掉了。
-
-
-
-
-
-
-
-
-
+> ### ④ 传递参数： 按值传参
+> <b>js中所有函数的参数都是按值传递的</b>，言下之意就是说，参数不会按引用传递，虽然变量有基本类型和引用类型之分。注意和上面的我们访问要区别，基本类型我们通过按值来访问的，引用类型我们按引用访问。
+>>  ``` javascript
+>>  function text(i){ 
+>>      i += 10; // i = i + 10; //这里的 i 是局部变量，全局无效
+>>      return i;
+>>  }
+>>  
+>>  var i = 100;
+>>  console.log(text(i)); // 110
+>>  //在输出i,思考，这个i是函数里面的i,还是外面的i
+>>  console.log(i);// 100 打印的是外面的i，就是按值传递
+>>  //如果按照引用传递，那么函数里面的i会成为类似全局变量，把外面的i替换掉
+>>  //也就是i最后应该输出110，但是输出的100，所以是按值传递的
+>>  ```
+>>> ### ⑤ 传递参数： 传递一个引用类型的参数（对象），但是它不是按引用传递，它是按值传递的
+>>>  ``` javascript
+>>>   function text(obj){
+>>>      obj.name = '迪丽热巴';
+>>>   }
+>>>   
+>>>   let obj = new Object();
+>>>   text(obj);//执行一下函数
+>>>   //思考，能输出obj.name吗？我们上面的例子，说的是obj.name是一个局部变量，应该是没有的
+>>>   //那么我们这里可以输出吗？
+>>>   console.log(obj.name);// '迪丽热巴'
+>>>   //可以访问，原因是：我们把外面的obj传递给了函数，而函数里面只是将obj这个引用地址里面新增了一个属性name,赋值叫'迪丽热巴'
+>>>   //我外面访问obj,就是访问堆内存里面的数据，是可以访问到的
+>>>  
+>>>  //延伸一下
+>>> function text(obj){
+>>>     obj.name = '迪丽热巴';
+>>>     var obj = new Object();
+>>>     obj.name = '古力娜扎';
+>>>     //如果obj是按照引用传递的话，下面应该打印 '古力娜扎'
+>>>     //因为下面的obj.name 会替换上面的 obj.name , 通过输出得知 依然是 '迪丽热巴'
+>>>    //说明不是按照引用传递的，原因是 函数里面声明的obj，外面看不到
+>>>     //如果此时拿到外面来，就能看到
+>>>     //所以js没有按引用传参的功能，但是传递参数的时候，可以传递一个对象过去，这在后面我们用得很多
+>>>  }
+>>>  
+>>>  var obj = new Object();
+>>>  text(obj);
+>>>  console.log(obj.name); // '迪丽热巴'
+>>>   ```
+>> <b>总结：如果js按引用传递的话，那么函数里的那个变量将会是全局变量，在外部也可以访问。很显然，通过上面的例子，函数里面的变量，外面无法访问，也就是js不是按引用来传递的，是按值来传递的，函数的参数都是局部变量，外面无法访问。</b>
+> ### ⑥ 检测变量类型：typeof()、instanceof()
+> 要检测一个变量的类型，我们可以通过 typeof 运算符来判别
+> ``` javascript
+> let text = '迪丽热巴';
+> console.log(typeof text); // string
+> ```
+>虽然 typeof 运算符在检查基本数据类型的时候非常好用，但检测引用类型的时候，它就不是那么好用了。通常，我们并不想知道它是不是对象，而是想知道它到底是什么类型的对象。因为数组也是 object，null 也是 Object 等等。<br/>
+> 这时我们应该采用 instanceof 运算符来查看.
+> ``` javascript
+> //是否是数组
+> let text1 = [1,2,3];
+> console.log(text1 instanceof Array); //返回： true
+> 
+> //是否是对象
+> let text2 = {};
+> console.log(text2 instanceof Object); //返回： true
+> 
+> //是否是字符串对象
+> let text3 = new String('迪丽热巴');
+> console.log(text3 instanceof String); //返回： true
+>
+> //当使用 instanceof 检查基本类型的值时，它会返回 false，所以检查基本类型用typeof
+> let text = '迪丽热巴';
+> console.log(typeof text);//string
+> console.log(text instanceof String);//false
+> ```
+> 关于new String('迪丽热巴')查看 <a href="/secondless/w-a/javascript基础.html#object-类型" target="_blank">章节2.javascript基础_4、数据类型_Object 类型</a>提到过
 
 
 
