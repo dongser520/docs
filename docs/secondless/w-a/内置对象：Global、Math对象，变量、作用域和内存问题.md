@@ -313,7 +313,140 @@ name 属性被修改了，love.name 和 text.name 输出的值都会被相应修
 > 关于new String('迪丽热巴')查看 <a href="/secondless/w-a/javascript基础.html#object-类型" target="_blank">章节2.javascript基础_4、数据类型_Object 类型</a>提到过
 
 
-
+## 4、作用域（执行环境）
+> 执行环境是 js 中最为重要的一个概念。执行环境定义了变量或函数有权访问的其他数据，决定了它们各自的行为。全局执行环境是最外围的执行环境。在 Web 浏览器中，全局执行环境被认为是 window
+对象。因此所有的全局变量和函数都是作为 window 对象的属性和方法创建的。
+> ### ① 全局执行环境
+> ``` javascript
+> var text = '迪丽热巴'; //声明一个全局变量
+> function mygirl() {
+>    console.log(text); //全局变量可以在函数里访问
+> }
+> mygirl(); //执行函数
+> ```
+> 全局的变量和函数，都是 window 对象的属性和方法。
+> ``` javascript
+> var text = '迪丽热巴'; // 注意换成let后的变化
+> function mygirl() {
+>    console.log(window.text); //全局变量，最外围，即 window 的属性
+> }
+> window.mygirl(); //全局函数，最外围，即 window 的方法
+> ```
+> 注意：当执行环境中的所有代码执行完毕后，该环境被销毁，保存在其中的所有变量和函数定义也随之销毁。如果是全局环境下，需要程序执行完毕，或者网页被关闭才会销毁。<br/>
+> ### ② 局部执行环境
+> ``` javascript
+> var text = '迪丽热巴';
+> function mygirl() {
+>    var text = '古力娜扎'; //这里是局部变量，它的范围在mygirl函数体内，出来就不认识了
+>    console.log(text); // 返回：'古力娜扎'
+>    var love = '梁咏琪';
+> }
+> mygirl();// 或者 window.mygirl();
+> console.log(text); // 返回：'迪丽热巴'
+> console.log(love); // 报错，函数里面的love外面无法访问
+> ```
+> #### 1. 那么如何将局部换成全局呢？
+> ``` javascript
+> var text = '迪丽热巴';
+> function mygirl() {
+>    text = '古力娜扎'; //去掉var  就变成全局了
+>    console.log(text); // 返回：'古力娜扎'
+> }
+> mygirl();
+> console.log(text); // 返回：'古力娜扎'
+> ```
+> #### 2. 通过传参，可以替换函数体内的局部变量，但作用域仅限在函数体内这个局部环境
+> ``` javascript
+> var text = '迪丽热巴';
+> function mygirl(text) { //通过传参，也是局部变量，作用域在mygirl函数体内
+>    console.log(text);//返回：'古力娜扎'
+> }
+> mygirl('古力娜扎');
+> console.log(text);//返回：'迪丽热巴'
+> ```
+> #### 3. 函数体内的函数
+> ``` javascript
+> function mygirl() {
+>     function mylove(){
+>        var baby = '梁咏琪';//baby的作用域在mylove的函数体内
+>        console.log('你喜欢的明星是谁');
+>        console.log(baby);//可以访问
+>     }
+>     mylove();//可以执行，mylove()的执行环境在 mygirl()内
+>     console.log(baby);//无法访问
+> }
+> //mylove();//访问不到
+> mygirl();
+> ```
+> 上面的例子形成了作用域链，它的用途是保证对执行环境中有访问权限的变量和函数进行有序访问。
+> ### ③ 没有块级作用域（var 操作符声明的变量）
+> 块级作用域表示诸如 if 语句等有花括号封闭的代码块，因为js没有块级作用域，所以，支持条件判断来定义变量
+> #### 1. if语句里面的变量是全局变量
+>> ``` javascript
+>> if(true){
+>>    var girl = '迪丽热巴';
+>> }
+>> // 因为if语句{}没有封闭作用域的功能，所以外面可以访问if语句里面的变量
+>> console.log(girl);// 返回: '迪丽热巴'
+>> console.log(window.girl);// 返回: '迪丽热巴'
+>> ```
+> #### 2.for循环里面的变量也是全局变量
+>> ``` javascript
+>> for(var i = 0; i < 10; i++){
+>>    var girl = '迪丽热巴';
+>> }
+>> console.log(i); //返回：10
+>> console.log(girl);//返回：迪丽热巴
+>> console.log(window.i); //返回：10
+>> console.log(window.girl);//返回：迪丽热巴
+>> ```
+> #### 3.var 关键字在函数里的区别
+>> ``` javascript
+>> function text(){
+>>     //如果有var, 在函数体内声明变量，就是局部的，去掉var就是全局的
+>>     var num = 100;
+>>     //num = 100;
+>> }
+>> text();
+>> console.log(num);//报错，没有被定义,去掉var就可以访问
+>> //去掉var的写法非常不建议，会出现意外问题，推荐这么写
+>> var num = 0;//先初始化一下
+>> function text(){
+>>     num = 100;
+>> }
+>> text();
+>> console.log(num);
+>> ```
+> #### 4. 变量查询中，访问局部变量要比全局变量更快，因为不需要向上搜索作用域链
+>> ``` javascript
+>> var girl = '迪丽热巴';
+>> function mygirl(){
+>>     return girl; // 显然girl就是外面的全局变量girl
+>> }
+>> console.log(mygirl());//返回: '迪丽热巴'
+>> ``` 
+>> ``` javascript
+>> var girl = '迪丽热巴';
+>> function mygirl(){
+>>     //若在函数体内定义局部变量，会优先查找同级的局部变量，没有的话，就找上一级
+>>     girl = '古力娜扎';
+>>     return girl; 
+>> }
+>> console.log(mygirl());//返回: '古力娜扎'
+>> ``` 
+## 5、 内存问题
+> js 具有自动垃圾收集机制，也就是说，执行环境会负责管理代码执行过程中使用的内存，它会自行管理内存分配及无用内存的回收，所以我们不必关心内存中的过期数据，无用数据的垃圾回收问题，一般来说，确保占用最少的内存可以让页面获得更好的性能。<br/>
+> 如果你想让页面更顺畅丝滑，那么优化内存的最佳方案，就是一旦数据不再有用，那么将其设置为 null 来释放引用，这个做法叫做解除引用。这一做法适用于大多数全局变量和全局对象。
+> ``` javascript
+> // 比如在写程序的时候，定义了一个对象user
+> var user = {
+>    name:'迪丽热巴',
+>    ip:'湖北' 
+> }
+> // .... 经过了一系列运作，后面在不需要user这个变量对象了
+> //就可以将user设置为null, 释放内存
+> user = null; // 解除对象引用，等待垃圾收集器回收
+> ```
 
 
 <br/><br/><br/><br/><br/><br/>
