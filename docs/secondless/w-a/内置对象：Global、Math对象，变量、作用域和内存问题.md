@@ -184,13 +184,78 @@ title: 章节10.内置对象：Global、Math对象，变量、作用域和内存
 >>  ```
 > 以上方法用得不多，用的时候回来查看
 
+## 3、变量
+> js的变量与其他语言的变量有很大区别，是松散型的(不强制类型)本质，决定了它只是在特定时间用于保存特定值的一个名字而已。比如说，一开始我声明的变量是整型，然后过一会我又把这个变量设置成字符串型，在过一会我又把变量设置成引用类型，比如对象，这在其他语言如java、C#等等是不行的，但是js是可以这么做的。
+> ### ① 基本类型和引用类型的值
+> 基本类型值指的是那些保存在栈内存中的简单数据段，即这种值完全保存在内存中的一个位置。而引用类型值则是指那些保存在堆内存中的对象，意思是变量中保存的实际上只是一个指针，这个指针指向内存中的另一个位置，该位置保存对象。<br/><br/>
+> 基本类型值有以下几种：Undefined、Null、Boolean、Number 和 String。这些类型在内存中分别占有固定大小的空间，他们的值保存在栈空间，<b>我们通过按值来访问的</b>。<br/><br/>
+> 如果赋值的是引用类型的值，则必须在堆内存中为这个值分配空间。<b>由于这种值的大小不固定，因此不能把它们保存到栈内存中。但内存地址大小是固定的，因此可以将内存地址保存在栈内存中。</b>这样，当查询引用类型的变量时，先从栈中读取内存地址，然后再通过地址找到堆中的值。对于这种，<b>我们把它叫做按引用访问</b>。<br/><br/>
+> <img src="/2-1-10-01.jpg" alt="变量及作用域" class="zoom-custom-imgs" style="display:inline-block;height:470px;"> <br/>
+> ### ② 动态属性
+> 基本类型值和引用类型值可以执行的操作不一样
+>  ``` javascript
+>  // 创建引用类型
+>  let text = new Object();// 或者 let text = {};
+>  text.name = '迪丽热巴'; //新增一个属性
+>  console.log(text.name); //正常输出 '迪丽热巴'
+>  
+>  //如果是基本类型的值添加属性的话，就会出现问题
+>  let love = '迪丽热巴'; //创建一个基本类型，是个字符串
+>  love.age = 31; //给基本类型添加属性
+>  console.log(love.age); //返回：undefined  不是引用类型，无法输出
+>  ```
+> ### ③ 复制变量值
+> 在变量复制方面，基本类型和引用类型也有所不同。基本类型复制的是值本身，而引用类型复制的是引用地址。也就是说，不管是基本类型还是引用类型，它们复制的都是栈内存的数据，堆内存的数据是没有办法复制的。
+>>  先看基本类型
+>>  ``` javascript
+>>  let text = '迪丽热巴'; //在栈内存生成一个变量text 值为 '迪丽热巴'
+>>  // 在声明一个变量love, 将变量text的值复制给love
+>>  let love = text; //实际情况是：在栈内存再生成一个变量love  值为'迪丽热巴'
+>>  console.log(text);// '迪丽热巴'
+>>  console.log(love);// '迪丽热巴'
+>>  
+>>  // 表面上看两个一样，实际上它们两个是独立的，也就是说，两个变量分别操作时互不影响
+>>  love = '古力娜扎';// 基本类型保持独立，love的修改不会影响到text
+>>  console.log(love);// '古力娜扎'
+>>  console.log(text);// '迪丽热巴'
+>>  ```
+>> 但如果是引用类型的对象，就不一样了
+>>  ``` javascript
+>> let text = new Object(); //创建一个引用类型
+>> text.name = '迪丽热巴'; //新增一个属性
+>> let love = text; //实际情况：把引用地址赋值给 love，对象数据是在堆内存中
+>>  ```
+> <img src="/2-1-10-02.jpg" alt="变量及作用域" class="zoom-custom-imgs" style="display:inline-block;height:400px;"> <br/>
+>>  ``` javascript
+>> console.log(love.name);//love.name就是text.name，返回：'迪丽热巴'
+>> console.log(text.name);//返回：'迪丽热巴'
+>> 
+>> // 如果此时love.name改一下
+>> love.name = '古力娜扎';
+>> console.log(love.name);// 返回：'古力娜扎'
+>> // 由于它们指向的是同一个object，同一个name, 不管修改谁，大家都修改了
+>> console.log(text.name);// 返回：'古力娜扎' 
+>>  ```
+>> 总结：在引用类型中，love 其实就是 text，因为它们指向的是同一个对象。如果这个对象中的
+name 属性被修改了，love.name 和 text.name 输出的值都会被相应修改掉了。
+
+
+
+
+
+
+
+
+
+
+
 
 
 
 <br/><br/><br/><br/><br/><br/>
 
 
-## 其它课程章节
+## 课程其它章节
 ### [章节1.课程介绍](/secondless/w-a '章节1.课程介绍')
 ### [章节2.javascript基础](/secondless/w-a/javascript基础 '章节2.javascript基础')
 ### [章节3.javascript运算符](/secondless/w-a/javascript运算符 '章节3.javascript运算符')

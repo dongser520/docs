@@ -3,7 +3,7 @@ module.exports = [
     // '',
     'aboutless',
     {
-        title: '第二期课程',   // 必要的
+        title: '第二学期课程',   // 必要的
         path: '/secondless/',      // 可选的, 标题的跳转链接，应为绝对路径且必须存在
         collapsable: false, // 可选的, 默认值是 true,
         sidebarDepth: 1,    // 可选的, 默认值是 1
