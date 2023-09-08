@@ -17,3 +17,4 @@ title: 第一季（课程学习顺序：02）
 ### <a href="/secondless/w-a/Date类型：时间和日期" target="_blank" title="点击查看课程文档">章节8.Date类型：时间和日期</a>
 ### <a href="/secondless/w-a/Function类型：函数进阶" target="_blank" title="点击查看课程文档">章节9.Function类型：函数进阶</a>
 ### <a href="/secondless/w-a/内置对象：Global、Math对象，变量、作用域和内存问题" target="_blank" title="点击查看课程文档">章节10.内置对象：Global、Math对象，变量、作用域和内存问题</a>
+### <a href="/secondless/w-a/匿名函数和闭包" target="_blank" title="点击查看课程文档">章节11.匿名函数和闭包</a>
