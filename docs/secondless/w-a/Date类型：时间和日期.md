@@ -47,22 +47,22 @@ title: 章节8.Date类型：时间和日期
 > Date.UTC()方法同样也返回表示日期的毫秒数，但是它用的是世界协调时间，会按照它的区域基准计算时间，比如在中国，会自动加上东八区（加上8个小时），我国的北京时间【就是在它的时间上，自动加上了8个小时】。(格式如下：年份：[0 表示 1 月，1 表示 2 月]，天数：[1-31]，小时数[0-23]，
 分钟，秒以及毫秒)。只有前两个参数是必须的。如果没有提供月数，则天数为 1；如果省
 略其他参数，则统统为 0.
->>> ``` javascript
->>> console.log(Date.UTC(2023,0,1));//2023年1月1日0时0分0秒0毫秒，返回毫秒数：1672531200000
->>> //它返回的北京时间是：2023年1月1日8时0分0秒0毫秒
->>> console.log(new Date(Date.UTC(2023,0,1)));//返回 Sun Jan 01 2023 08:00:00 GMT+0800 (中国标准时间)
->>> //如何不要加上8小时，直接返回我写的时间：2023年1月1日0时0分0秒0毫秒
->>> console.log(new Date(2023,0,1));//返回 Sun Jan 01 2023 00:00:00 GMT+0800 (中国标准时间)
->>> ```
-> ###  ④  Date 类型也重写了 toLocaleString()、toString()和 valueOf()方法
->>> ``` javascript
->>> //2023年1月1日12点30分45秒35毫秒
->>> let text = new Date(2023,0,1,12,30,45,35);
->>> console.log(text);                 //返回：Sun Jan 01 2023 12:30:45 GMT+0800 (中国标准时间)
->>> console.log(text.toString());      //返回：Sun Jan 01 2023 12:30:45 GMT+0800 (中国标准时间)
->>> console.log(text.toLocaleString());//返回：2023/1/1 12:30:45
->>> console.log(text.valueOf());//显示毫秒数 返回：1672547445035
->>> ```
+>> ``` javascript
+>> console.log(Date.UTC(2023,0,1));//2023年1月1日0时0分0秒0毫秒，返回毫秒数：1672531200000
+>> //它返回的北京时间是：2023年1月1日8时0分0秒0毫秒
+>> console.log(new Date(Date.UTC(2023,0,1)));//返回 Sun Jan 01 2023 08:00:00 GMT+0800 (中国标准时间)
+>> //如何不要加上8小时，直接返回我写的时间：2023年1月1日0时0分0秒0毫秒
+>> console.log(new Date(2023,0,1));//返回 Sun Jan 01 2023 00:00:00 GMT+0800 (中国标准时间)
+>> ```
+> ###  ④  Date 类型也重写了 toLocaleString()方法、toString()方法和 valueOf()时间戳方法
+>> ``` javascript
+>> //2023年1月1日12点30分45秒35毫秒
+>> let text = new Date(2023,0,1,12,30,45,35);
+>> console.log(text);                 //返回：Sun Jan 01 2023 12:30:45 GMT+0800 (中国标准时间)
+>> console.log(text.toString());      //返回：Sun Jan 01 2023 12:30:45 GMT+0800 (中国标准时间)
+>> console.log(text.toLocaleString());//返回：2023/1/1 12:30:45
+>> console.log(text.valueOf());//显示毫秒数(时间戳) 返回：1672547445035
+>> ```
 
 问：如何将上面的 <span style="color:#999999;"> Sun Jan 01 2023 12:30:45 GMT+0800 (中国标准时间)   </span>转成我们能看懂，方便使用的日期和时间？
 ## 2、格式化日期和时间
@@ -81,7 +81,7 @@ title: 章节8.Date类型：时间和日期
 > // 以特定的格式显示完整的 UTC 日期
 > console.log(text.toUTCString());         // Fri, 01 Sep 2023 03:40:56 GMT
 > ```
-### ② 单独获取想要的时间日期
+### ② 单独获取想要的时间日期、时间戳
 > ``` javascript
 > let currentDate = new Date(); 
 > console.log(currentDate);                      // Fri Sep 01 2023 12:18:00 GMT+0800 (中国标准时间)
