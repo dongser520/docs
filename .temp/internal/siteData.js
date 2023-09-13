@@ -158,6 +158,120 @@ export const siteData = {
       "lastUpdatedTimestamp": 1693293632000
     },
     {
+      "title": "关于我们html",
+      "frontmatter": {
+        "navbar": true,
+        "title": "关于我们html"
+      },
+      "regularPath": "/about.html",
+      "relativePath": "about.md",
+      "key": "v-35204b8c",
+      "path": "/about.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "PWA",
+          "slug": "pwa"
+        },
+        {
+          "level": 2,
+          "title": "基础路径图片",
+          "slug": "基础路径图片"
+        },
+        {
+          "level": 2,
+          "title": "相对路径图片",
+          "slug": "相对路径图片"
+        },
+        {
+          "level": 2,
+          "title": "测试自定义全局组件 CountUp",
+          "slug": "测试自定义全局组件-countup"
+        },
+        {
+          "level": 2,
+          "title": "一级标题1",
+          "slug": "一级标题1"
+        },
+        {
+          "level": 3,
+          "title": "1.二级标题",
+          "slug": "_1-二级标题"
+        },
+        {
+          "level": 2,
+          "title": "一级标题2",
+          "slug": "一级标题2"
+        },
+        {
+          "level": 2,
+          "title": "一级标题3",
+          "slug": "一级标题3"
+        },
+        {
+          "level": 2,
+          "title": "一级标题4",
+          "slug": "一级标题4"
+        }
+      ],
+      "lastUpdated": "2023年3月2日星期四晚上7点51分",
+      "lastUpdatedTimestamp": 1677757906000
+    },
+    {
+      "title": "p-b页面",
+      "frontmatter": {
+        "title": "p-b页面"
+      },
+      "regularPath": "/pc/p-b.html",
+      "relativePath": "pc/p-b.md",
+      "key": "v-62ea3633",
+      "path": "/pc/p-b.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "p-b页面二级标题1",
+          "slug": "p-b页面二级标题1"
+        },
+        {
+          "level": 3,
+          "title": "1.三级标题1",
+          "slug": "_1-三级标题1"
+        },
+        {
+          "level": 3,
+          "title": "2.三级标题2",
+          "slug": "_2-三级标题2"
+        },
+        {
+          "level": 3,
+          "title": "3.三级标题3",
+          "slug": "_3-三级标题3"
+        },
+        {
+          "level": 2,
+          "title": "p-b页面二级标题2",
+          "slug": "p-b页面二级标题2"
+        },
+        {
+          "level": 3,
+          "title": "1.三级标题1",
+          "slug": "_1-三级标题1-2"
+        },
+        {
+          "level": 3,
+          "title": "2.三级标题2",
+          "slug": "_2-三级标题2-2"
+        },
+        {
+          "level": 3,
+          "title": "3.三级标题3",
+          "slug": "_3-三级标题3-2"
+        }
+      ],
+      "lastUpdated": "2023年3月1日星期三下午12点33分",
+      "lastUpdatedTimestamp": 1677645233000
+    },
+    {
       "title": "markdown的基本语法示例",
       "frontmatter": {
         "navbar": true,
@@ -251,79 +365,19 @@ export const siteData = {
       "lastUpdatedTimestamp": 1677645233000
     },
     {
-      "title": "关于我们html",
+      "title": "phone-a页面",
       "frontmatter": {
-        "navbar": true,
-        "title": "关于我们html"
+        "title": "phone-a页面"
       },
-      "regularPath": "/about.html",
-      "relativePath": "about.md",
-      "key": "v-35204b8c",
-      "path": "/about.html",
+      "regularPath": "/phone/phone-a.html",
+      "relativePath": "phone/phone-a.md",
+      "key": "v-10de5a02",
+      "path": "/phone/phone-a.html",
       "headers": [
         {
           "level": 2,
-          "title": "PWA",
-          "slug": "pwa"
-        },
-        {
-          "level": 2,
-          "title": "基础路径图片",
-          "slug": "基础路径图片"
-        },
-        {
-          "level": 2,
-          "title": "相对路径图片",
-          "slug": "相对路径图片"
-        },
-        {
-          "level": 2,
-          "title": "测试自定义全局组件 CountUp",
-          "slug": "测试自定义全局组件-countup"
-        },
-        {
-          "level": 2,
-          "title": "一级标题1",
-          "slug": "一级标题1"
-        },
-        {
-          "level": 3,
-          "title": "1.二级标题",
-          "slug": "_1-二级标题"
-        },
-        {
-          "level": 2,
-          "title": "一级标题2",
-          "slug": "一级标题2"
-        },
-        {
-          "level": 2,
-          "title": "一级标题3",
-          "slug": "一级标题3"
-        },
-        {
-          "level": 2,
-          "title": "一级标题4",
-          "slug": "一级标题4"
-        }
-      ],
-      "lastUpdated": "2023年3月2日星期四晚上7点51分",
-      "lastUpdatedTimestamp": 1677757906000
-    },
-    {
-      "title": "p-c页面",
-      "frontmatter": {
-        "title": "p-c页面"
-      },
-      "regularPath": "/pc/p-c.html",
-      "relativePath": "pc/p-c.md",
-      "key": "v-4630ecb1",
-      "path": "/pc/p-c.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "p-c页面二级标题1",
-          "slug": "p-c页面二级标题1"
+          "title": "phone-a页面二级标题1",
+          "slug": "phone-a页面二级标题1"
         },
         {
           "level": 3,
@@ -342,62 +396,8 @@ export const siteData = {
         },
         {
           "level": 2,
-          "title": "p-c页面二级标题2",
-          "slug": "p-c页面二级标题2"
-        },
-        {
-          "level": 3,
-          "title": "1.三级标题1",
-          "slug": "_1-三级标题1-2"
-        },
-        {
-          "level": 3,
-          "title": "2.三级标题2",
-          "slug": "_2-三级标题2-2"
-        },
-        {
-          "level": 3,
-          "title": "3.三级标题3",
-          "slug": "_3-三级标题3-2"
-        }
-      ],
-      "lastUpdated": "2023年3月1日星期三下午12点33分",
-      "lastUpdatedTimestamp": 1677645233000
-    },
-    {
-      "title": "p-b页面",
-      "frontmatter": {
-        "title": "p-b页面"
-      },
-      "regularPath": "/pc/p-b.html",
-      "relativePath": "pc/p-b.md",
-      "key": "v-62ea3633",
-      "path": "/pc/p-b.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "p-b页面二级标题1",
-          "slug": "p-b页面二级标题1"
-        },
-        {
-          "level": 3,
-          "title": "1.三级标题1",
-          "slug": "_1-三级标题1"
-        },
-        {
-          "level": 3,
-          "title": "2.三级标题2",
-          "slug": "_2-三级标题2"
-        },
-        {
-          "level": 3,
-          "title": "3.三级标题3",
-          "slug": "_3-三级标题3"
-        },
-        {
-          "level": 2,
-          "title": "p-b页面二级标题2",
-          "slug": "p-b页面二级标题2"
+          "title": "phone-a页面二级标题2",
+          "slug": "phone-a页面二级标题2"
         },
         {
           "level": 3,
@@ -486,6 +486,144 @@ export const siteData = {
       "lastUpdatedTimestamp": 1677645233000
     },
     {
+      "title": "phone-c页面",
+      "frontmatter": {
+        "title": "phone-c页面"
+      },
+      "regularPath": "/phone/phone-c.html",
+      "relativePath": "phone/phone-c.md",
+      "key": "v-e1449282",
+      "path": "/phone/phone-c.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "phone-c页面二级标题1",
+          "slug": "phone-c页面二级标题1"
+        },
+        {
+          "level": 3,
+          "title": "1.三级标题1",
+          "slug": "_1-三级标题1"
+        },
+        {
+          "level": 3,
+          "title": "2.三级标题2",
+          "slug": "_2-三级标题2"
+        },
+        {
+          "level": 3,
+          "title": "3.三级标题3",
+          "slug": "_3-三级标题3"
+        },
+        {
+          "level": 2,
+          "title": "phone-c页面二级标题2",
+          "slug": "phone-c页面二级标题2"
+        },
+        {
+          "level": 3,
+          "title": "1.三级标题1",
+          "slug": "_1-三级标题1-2"
+        },
+        {
+          "level": 3,
+          "title": "2.三级标题2",
+          "slug": "_2-三级标题2-2"
+        },
+        {
+          "level": 3,
+          "title": "3.三级标题3",
+          "slug": "_3-三级标题3-2"
+        }
+      ],
+      "lastUpdated": "2023年3月1日星期三下午12点33分",
+      "lastUpdatedTimestamp": 1677645233000
+    },
+    {
+      "title": "p-c页面",
+      "frontmatter": {
+        "title": "p-c页面"
+      },
+      "regularPath": "/pc/p-c.html",
+      "relativePath": "pc/p-c.md",
+      "key": "v-4630ecb1",
+      "path": "/pc/p-c.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "p-c页面二级标题1",
+          "slug": "p-c页面二级标题1"
+        },
+        {
+          "level": 3,
+          "title": "1.三级标题1",
+          "slug": "_1-三级标题1"
+        },
+        {
+          "level": 3,
+          "title": "2.三级标题2",
+          "slug": "_2-三级标题2"
+        },
+        {
+          "level": 3,
+          "title": "3.三级标题3",
+          "slug": "_3-三级标题3"
+        },
+        {
+          "level": 2,
+          "title": "p-c页面二级标题2",
+          "slug": "p-c页面二级标题2"
+        },
+        {
+          "level": 3,
+          "title": "1.三级标题1",
+          "slug": "_1-三级标题1-2"
+        },
+        {
+          "level": 3,
+          "title": "2.三级标题2",
+          "slug": "_2-三级标题2-2"
+        },
+        {
+          "level": 3,
+          "title": "3.三级标题3",
+          "slug": "_3-三级标题3-2"
+        }
+      ],
+      "lastUpdated": "2023年3月1日星期三下午12点33分",
+      "lastUpdatedTimestamp": 1677645233000
+    },
+    {
+      "title": "第二学期课程总述",
+      "frontmatter": {
+        "navbar": true,
+        "title": "第二学期课程总述"
+      },
+      "regularPath": "/secondless/",
+      "relativePath": "secondless/README.md",
+      "key": "v-17cd735c",
+      "path": "/secondless/",
+      "headers": [
+        {
+          "level": 2,
+          "title": "第二学期课程",
+          "slug": "第二学期课程"
+        },
+        {
+          "level": 3,
+          "title": "第一季",
+          "slug": "第一季"
+        },
+        {
+          "level": 2,
+          "title": "睿晨网所有课程集合",
+          "slug": "睿晨网所有课程集合"
+        }
+      ],
+      "lastUpdated": "2023年9月7日星期四中午11点33分",
+      "lastUpdatedTimestamp": 1694057618000
+    },
+    {
       "title": "第一季（课程学习顺序：02）",
       "frontmatter": {
         "title": "第一季（课程学习顺序：02）"
@@ -571,146 +709,8 @@ export const siteData = {
           "slug": "章节12-javascript基本包装类型"
         }
       ],
-      "lastUpdated": "2023年9月12日星期二中午12点11分",
-      "lastUpdatedTimestamp": 1694491865000
-    },
-    {
-      "title": "phone-a页面",
-      "frontmatter": {
-        "title": "phone-a页面"
-      },
-      "regularPath": "/phone/phone-a.html",
-      "relativePath": "phone/phone-a.md",
-      "key": "v-10de5a02",
-      "path": "/phone/phone-a.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "phone-a页面二级标题1",
-          "slug": "phone-a页面二级标题1"
-        },
-        {
-          "level": 3,
-          "title": "1.三级标题1",
-          "slug": "_1-三级标题1"
-        },
-        {
-          "level": 3,
-          "title": "2.三级标题2",
-          "slug": "_2-三级标题2"
-        },
-        {
-          "level": 3,
-          "title": "3.三级标题3",
-          "slug": "_3-三级标题3"
-        },
-        {
-          "level": 2,
-          "title": "phone-a页面二级标题2",
-          "slug": "phone-a页面二级标题2"
-        },
-        {
-          "level": 3,
-          "title": "1.三级标题1",
-          "slug": "_1-三级标题1-2"
-        },
-        {
-          "level": 3,
-          "title": "2.三级标题2",
-          "slug": "_2-三级标题2-2"
-        },
-        {
-          "level": 3,
-          "title": "3.三级标题3",
-          "slug": "_3-三级标题3-2"
-        }
-      ],
-      "lastUpdated": "2023年3月1日星期三下午12点33分",
-      "lastUpdatedTimestamp": 1677645233000
-    },
-    {
-      "title": "第二学期课程总述",
-      "frontmatter": {
-        "navbar": true,
-        "title": "第二学期课程总述"
-      },
-      "regularPath": "/secondless/",
-      "relativePath": "secondless/README.md",
-      "key": "v-17cd735c",
-      "path": "/secondless/",
-      "headers": [
-        {
-          "level": 2,
-          "title": "第二学期课程",
-          "slug": "第二学期课程"
-        },
-        {
-          "level": 3,
-          "title": "第一季",
-          "slug": "第一季"
-        },
-        {
-          "level": 2,
-          "title": "睿晨网所有课程集合",
-          "slug": "睿晨网所有课程集合"
-        }
-      ],
-      "lastUpdated": "2023年9月7日星期四中午11点33分",
-      "lastUpdatedTimestamp": 1694057618000
-    },
-    {
-      "title": "phone-c页面",
-      "frontmatter": {
-        "title": "phone-c页面"
-      },
-      "regularPath": "/phone/phone-c.html",
-      "relativePath": "phone/phone-c.md",
-      "key": "v-e1449282",
-      "path": "/phone/phone-c.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "phone-c页面二级标题1",
-          "slug": "phone-c页面二级标题1"
-        },
-        {
-          "level": 3,
-          "title": "1.三级标题1",
-          "slug": "_1-三级标题1"
-        },
-        {
-          "level": 3,
-          "title": "2.三级标题2",
-          "slug": "_2-三级标题2"
-        },
-        {
-          "level": 3,
-          "title": "3.三级标题3",
-          "slug": "_3-三级标题3"
-        },
-        {
-          "level": 2,
-          "title": "phone-c页面二级标题2",
-          "slug": "phone-c页面二级标题2"
-        },
-        {
-          "level": 3,
-          "title": "1.三级标题1",
-          "slug": "_1-三级标题1-2"
-        },
-        {
-          "level": 3,
-          "title": "2.三级标题2",
-          "slug": "_2-三级标题2-2"
-        },
-        {
-          "level": 3,
-          "title": "3.三级标题3",
-          "slug": "_3-三级标题3-2"
-        }
-      ],
-      "lastUpdated": "2023年3月1日星期三下午12点33分",
-      "lastUpdatedTimestamp": 1677645233000
+      "lastUpdated": "2023年9月12日星期二下午4点07分",
+      "lastUpdatedTimestamp": 1694506052000
     },
     {
       "title": "章节8.Date类型：时间和日期",
@@ -763,6 +763,122 @@ export const siteData = {
           "level": 3,
           "title": "② 单独获取想要的时间日期、时间戳",
           "slug": "_2-单独获取想要的时间日期、时间戳"
+        },
+        {
+          "level": 2,
+          "title": "课程其它章节",
+          "slug": "课程其它章节"
+        },
+        {
+          "level": 3,
+          "title": "章节1.课程介绍",
+          "slug": "章节1-课程介绍"
+        },
+        {
+          "level": 3,
+          "title": "章节2.javascript基础",
+          "slug": "章节2-javascript基础"
+        },
+        {
+          "level": 3,
+          "title": "章节3.javascript运算符",
+          "slug": "章节3-javascript运算符"
+        },
+        {
+          "level": 3,
+          "title": "章节4.流程控制语句",
+          "slug": "章节4-流程控制语句"
+        },
+        {
+          "level": 3,
+          "title": "章节5.javascript函数",
+          "slug": "章节5-javascript函数"
+        },
+        {
+          "level": 3,
+          "title": "章节6.javascript对象",
+          "slug": "章节6-javascript对象"
+        },
+        {
+          "level": 3,
+          "title": "章节7.javascript数组",
+          "slug": "章节7-javascript数组"
+        },
+        {
+          "level": 3,
+          "title": "章节8.Date类型：时间和日期",
+          "slug": "章节8-date类型-时间和日期"
+        },
+        {
+          "level": 3,
+          "title": "章节9.Function类型：函数进阶",
+          "slug": "章节9-function类型-函数进阶"
+        },
+        {
+          "level": 3,
+          "title": "章节10.内置对象：Global、Math对象，变量、作用域和内存问题",
+          "slug": "章节10-内置对象-global、math对象-变量、作用域和内存问题"
+        },
+        {
+          "level": 3,
+          "title": "章节11.匿名函数和闭包",
+          "slug": "章节11-匿名函数和闭包"
+        }
+      ],
+      "lastUpdated": "2023年9月12日星期二中午12点11分",
+      "lastUpdatedTimestamp": 1694491865000
+    },
+    {
+      "title": "章节5.javascript函数",
+      "frontmatter": {
+        "navbar": true,
+        "sidebar": "auto",
+        "title": "章节5.javascript函数"
+      },
+      "regularPath": "/secondless/w-a/javascript%E5%87%BD%E6%95%B0.html",
+      "relativePath": "secondless/w-a/javascript函数.md",
+      "key": "v-d73347ee",
+      "path": "/secondless/w-a/javascript%E5%87%BD%E6%95%B0.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "1、函数声明",
+          "slug": "_1、函数声明"
+        },
+        {
+          "level": 3,
+          "title": "① 没有参数的函数",
+          "slug": "_1-没有参数的函数"
+        },
+        {
+          "level": 3,
+          "title": "② 带参数的函数",
+          "slug": "_2-带参数的函数"
+        },
+        {
+          "level": 2,
+          "title": "2、函数 return 返回值",
+          "slug": "_2、函数-return-返回值"
+        },
+        {
+          "level": 3,
+          "title": "① return返回值",
+          "slug": "_1-return返回值"
+        },
+        {
+          "level": 3,
+          "title": "② 函数的返回值赋给一个变量",
+          "slug": "_2-函数的返回值赋给一个变量"
+        },
+        {
+          "level": 3,
+          "title": "③ 退出当前函数",
+          "slug": "_3-退出当前函数"
+        },
+        {
+          "level": 2,
+          "title": "3、函数的arguments 对象",
+          "slug": "_3、函数的arguments-对象"
         },
         {
           "level": 2,
@@ -980,56 +1096,106 @@ export const siteData = {
       "lastUpdatedTimestamp": 1694491865000
     },
     {
-      "title": "章节5.javascript函数",
+      "title": "章节12.javascript基本包装类型",
       "frontmatter": {
         "navbar": true,
         "sidebar": "auto",
-        "title": "章节5.javascript函数"
+        "title": "章节12.javascript基本包装类型"
       },
-      "regularPath": "/secondless/w-a/javascript%E5%87%BD%E6%95%B0.html",
-      "relativePath": "secondless/w-a/javascript函数.md",
-      "key": "v-d73347ee",
-      "path": "/secondless/w-a/javascript%E5%87%BD%E6%95%B0.html",
+      "regularPath": "/secondless/w-a/javascript%E5%9F%BA%E6%9C%AC%E5%8C%85%E8%A3%85%E7%B1%BB%E5%9E%8B.html",
+      "relativePath": "secondless/w-a/javascript基本包装类型.md",
+      "key": "v-2995f9cc",
+      "path": "/secondless/w-a/javascript%E5%9F%BA%E6%9C%AC%E5%8C%85%E8%A3%85%E7%B1%BB%E5%9E%8B.html",
       "headers": [
         {
           "level": 2,
-          "title": "1、函数声明",
-          "slug": "_1、函数声明"
+          "title": "1、 Boolean 类型",
+          "slug": "_1、-boolean-类型"
         },
         {
           "level": 3,
-          "title": "① 没有参数的函数",
-          "slug": "_1-没有参数的函数"
-        },
-        {
-          "level": 3,
-          "title": "② 带参数的函数",
-          "slug": "_2-带参数的函数"
+          "title": "Boolean 类型没有特定的属性或者方法",
+          "slug": "boolean-类型没有特定的属性或者方法"
         },
         {
           "level": 2,
-          "title": "2、函数 return 返回值",
-          "slug": "_2、函数-return-返回值"
+          "title": "2、 Number 类型",
+          "slug": "_2、-number-类型"
         },
         {
           "level": 3,
-          "title": "① return返回值",
-          "slug": "_1-return返回值"
+          "title": "① Number类型静态属性:MAXVALUE、MINVALUE、NaN、NEGATIVEINFINITY、POSITIVEINFINITY、prototype",
+          "slug": "_1-number类型静态属性-max-value、min-value、nan、negative-infinity、positive-infinity、prototype"
         },
         {
           "level": 3,
-          "title": "② 函数的返回值赋给一个变量",
-          "slug": "_2-函数的返回值赋给一个变量"
+          "title": "② toString()方法-将数值转化为字符串，并且可以转换进制",
+          "slug": "_2-tostring-方法-将数值转化为字符串-并且可以转换进制"
         },
         {
           "level": 3,
-          "title": "③ 退出当前函数",
-          "slug": "_3-退出当前函数"
+          "title": "③ toLocaleString()方法-根据本地数字格式转换为字符串",
+          "slug": "_3-tolocalestring-方法-根据本地数字格式转换为字符串"
+        },
+        {
+          "level": 3,
+          "title": "④ toFixed()方法-将数字保留小数点后指定位数并转化为字符串",
+          "slug": "_4-tofixed-方法-将数字保留小数点后指定位数并转化为字符串"
+        },
+        {
+          "level": 3,
+          "title": "⑤ toExponential()方法-将数字以指数形式表示，保留小数点后指定位数并转化为字符串",
+          "slug": "_5-toexponential-方法-将数字以指数形式表示-保留小数点后指定位数并转化为字符串"
+        },
+        {
+          "level": 3,
+          "title": "⑥ toPrecision()方法-指数形式或点形式表述数，保留小数点后面指定位数并转化为字符串",
+          "slug": "_6-toprecision-方法-指数形式或点形式表述数-保留小数点后面指定位数并转化为字符串"
         },
         {
           "level": 2,
-          "title": "3、函数的arguments 对象",
-          "slug": "_3、函数的arguments-对象"
+          "title": "3、String类型",
+          "slug": "_3、string类型"
+        },
+        {
+          "level": 3,
+          "title": "① 属性:length - 返回字符串的字符长度",
+          "slug": "_1-属性-length-返回字符串的字符长度"
+        },
+        {
+          "level": 3,
+          "title": "② 属性:constructor - 返回创建 String 对象的函数",
+          "slug": "_2-属性-constructor-返回创建-string-对象的函数"
+        },
+        {
+          "level": 3,
+          "title": "③ 属性:prototype - 通过添加属性和方法扩展字符串定义",
+          "slug": "_3-属性-prototype-通过添加属性和方法扩展字符串定义"
+        },
+        {
+          "level": 3,
+          "title": "④ 通用方法：valueOf()、toLocaleString()和 toString()方法，返回字符串的基本值，写不写都一样",
+          "slug": "_4-通用方法-valueof-、tolocalestring-和-tostring-方法-返回字符串的基本值-写不写都一样"
+        },
+        {
+          "level": 3,
+          "title": "⑤ 字符方法：charAt(n) - 返回指定索引位置的字符",
+          "slug": "_5-字符方法-charat-n-返回指定索引位置的字符"
+        },
+        {
+          "level": 3,
+          "title": "⑥ 字符方法：charCodeAt(n) - 以 Unicode 编码形式返回指定索引位置的字符",
+          "slug": "_6-字符方法-charcodeat-n-以-unicode-编码形式返回指定索引位置的字符"
+        },
+        {
+          "level": 3,
+          "title": "⑦ 字符方法：数组方式截取",
+          "slug": "_7-字符方法-数组方式截取"
+        },
+        {
+          "level": 3,
+          "title": "⑧ 字符串操作方法：concat(str1...str2) - 将字符串参数串联到调用该方法的字符串",
+          "slug": "_8-字符串操作方法-concat-str1-str2-将字符串参数串联到调用该方法的字符串"
         },
         {
           "level": 2,
@@ -1092,8 +1258,8 @@ export const siteData = {
           "slug": "章节11-匿名函数和闭包"
         }
       ],
-      "lastUpdated": "2023年9月12日星期二中午12点11分",
-      "lastUpdatedTimestamp": 1694491865000
+      "lastUpdated": "2023年9月12日星期二下午4点07分",
+      "lastUpdatedTimestamp": 1694506052000
     },
     {
       "title": "章节2.javascript基础",
@@ -1835,125 +2001,6 @@ export const siteData = {
       "lastUpdatedTimestamp": 1694491865000
     },
     {
-      "title": "章节12.javascript基本包装类型",
-      "frontmatter": {
-        "navbar": true,
-        "sidebar": "auto",
-        "title": "章节12.javascript基本包装类型"
-      },
-      "regularPath": "/secondless/w-a/javascript%E5%9F%BA%E6%9C%AC%E5%8C%85%E8%A3%85%E7%B1%BB%E5%9E%8B.html",
-      "relativePath": "secondless/w-a/javascript基本包装类型.md",
-      "key": "v-2995f9cc",
-      "path": "/secondless/w-a/javascript%E5%9F%BA%E6%9C%AC%E5%8C%85%E8%A3%85%E7%B1%BB%E5%9E%8B.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "1、 Boolean 类型",
-          "slug": "_1、-boolean-类型"
-        },
-        {
-          "level": 3,
-          "title": "Boolean 类型没有特定的属性或者方法",
-          "slug": "boolean-类型没有特定的属性或者方法"
-        },
-        {
-          "level": 2,
-          "title": "2、 Number 类型",
-          "slug": "_2、-number-类型"
-        },
-        {
-          "level": 3,
-          "title": "① Number类型静态属性",
-          "slug": "_1-number类型静态属性"
-        },
-        {
-          "level": 3,
-          "title": "② toString()方法-将数值转化为字符串，并且可以转换进制",
-          "slug": "_2-tostring-方法-将数值转化为字符串-并且可以转换进制"
-        },
-        {
-          "level": 3,
-          "title": "③ toLocaleString()方法-根据本地数字格式转换为字符串",
-          "slug": "_3-tolocalestring-方法-根据本地数字格式转换为字符串"
-        },
-        {
-          "level": 3,
-          "title": "④ toFixed()方法-将数字保留小数点后指定位数并转化为字符串",
-          "slug": "_4-tofixed-方法-将数字保留小数点后指定位数并转化为字符串"
-        },
-        {
-          "level": 3,
-          "title": "⑤ toExponential()方法-将数字以指数形式表示，保留小数点后指定位数并转化为字符串",
-          "slug": "_5-toexponential-方法-将数字以指数形式表示-保留小数点后指定位数并转化为字符串"
-        },
-        {
-          "level": 3,
-          "title": "⑥ toPrecision()方法-指数形式或点形式表述数，保留小数点后面指定位数并转化为字符串",
-          "slug": "_6-toprecision-方法-指数形式或点形式表述数-保留小数点后面指定位数并转化为字符串"
-        },
-        {
-          "level": 2,
-          "title": "课程其它章节",
-          "slug": "课程其它章节"
-        },
-        {
-          "level": 3,
-          "title": "章节1.课程介绍",
-          "slug": "章节1-课程介绍"
-        },
-        {
-          "level": 3,
-          "title": "章节2.javascript基础",
-          "slug": "章节2-javascript基础"
-        },
-        {
-          "level": 3,
-          "title": "章节3.javascript运算符",
-          "slug": "章节3-javascript运算符"
-        },
-        {
-          "level": 3,
-          "title": "章节4.流程控制语句",
-          "slug": "章节4-流程控制语句"
-        },
-        {
-          "level": 3,
-          "title": "章节5.javascript函数",
-          "slug": "章节5-javascript函数"
-        },
-        {
-          "level": 3,
-          "title": "章节6.javascript对象",
-          "slug": "章节6-javascript对象"
-        },
-        {
-          "level": 3,
-          "title": "章节7.javascript数组",
-          "slug": "章节7-javascript数组"
-        },
-        {
-          "level": 3,
-          "title": "章节8.Date类型：时间和日期",
-          "slug": "章节8-date类型-时间和日期"
-        },
-        {
-          "level": 3,
-          "title": "章节9.Function类型：函数进阶",
-          "slug": "章节9-function类型-函数进阶"
-        },
-        {
-          "level": 3,
-          "title": "章节10.内置对象：Global、Math对象，变量、作用域和内存问题",
-          "slug": "章节10-内置对象-global、math对象-变量、作用域和内存问题"
-        },
-        {
-          "level": 3,
-          "title": "章节11.匿名函数和闭包",
-          "slug": "章节11-匿名函数和闭包"
-        }
-      ]
-    },
-    {
       "title": "章节10.内置对象：Global、Math对象，变量、作用域和内存问题",
       "frontmatter": {
         "navbar": true,
@@ -2248,18 +2295,13 @@ export const siteData = {
         },
         {
           "level": 3,
-          "title": "⑧ 闭包：模仿块级作用域，将变量私有化保护数据",
-          "slug": "_8-闭包-模仿块级作用域-将变量私有化保护数据"
+          "title": "⑧ 匿名函数私有化：匿名函数自我执行模仿块级作用域，将变量私有化保护数据",
+          "slug": "_8-匿名函数私有化-匿名函数自我执行模仿块级作用域-将变量私有化保护数据"
         },
         {
           "level": 3,
-          "title": "⑨ 闭包实现代替全局作用域",
-          "slug": "_9-闭包实现代替全局作用域"
-        },
-        {
-          "level": 3,
-          "title": "⑩ 私有变量、静态私有变量等",
-          "slug": "_10-私有变量、静态私有变量等"
+          "title": "⑨ 私有变量、静态私有变量等",
+          "slug": "_9-私有变量、静态私有变量等"
         },
         {
           "level": 2,
@@ -2327,8 +2369,8 @@ export const siteData = {
           "slug": "章节12-匿名函数和闭包"
         }
       ],
-      "lastUpdated": "2023年9月12日星期二中午12点11分",
-      "lastUpdatedTimestamp": 1694491865000
+      "lastUpdated": "2023年9月12日星期二下午4点07分",
+      "lastUpdatedTimestamp": 1694506052000
     },
     {
       "title": "章节4.流程控制语句",
@@ -2467,17 +2509,23 @@ export const siteData = {
       "lastUpdatedTimestamp": 1694491865000
     },
     {
-      "title": "我是web总页",
+      "title": "第二季（课程学习顺序：03）",
       "frontmatter": {
-        "navbar": true,
-        "title": "我是web总页"
+        "title": "第二季（课程学习顺序：03）"
       },
-      "regularPath": "/web/",
-      "relativePath": "web/README.md",
-      "key": "v-6de531b2",
-      "path": "/web/",
-      "lastUpdated": "2023年3月1日星期三下午12点33分",
-      "lastUpdatedTimestamp": 1677645233000
+      "regularPath": "/secondless/w-b.html",
+      "relativePath": "secondless/w-b.md",
+      "key": "v-057d6a1e",
+      "path": "/secondless/w-b.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "课程录制中....",
+          "slug": "课程录制中"
+        }
+      ],
+      "lastUpdated": "2023年8月24日星期四下午12点41分",
+      "lastUpdatedTimestamp": 1692852103000
     },
     {
       "title": "第三季（课程学习顺序：04）",
@@ -2499,23 +2547,17 @@ export const siteData = {
       "lastUpdatedTimestamp": 1692852103000
     },
     {
-      "title": "第二季（课程学习顺序：03）",
+      "title": "我是web总页",
       "frontmatter": {
-        "title": "第二季（课程学习顺序：03）"
+        "navbar": true,
+        "title": "我是web总页"
       },
-      "regularPath": "/secondless/w-b.html",
-      "relativePath": "secondless/w-b.md",
-      "key": "v-057d6a1e",
-      "path": "/secondless/w-b.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "课程录制中....",
-          "slug": "课程录制中"
-        }
-      ],
-      "lastUpdated": "2023年8月24日星期四下午12点41分",
-      "lastUpdatedTimestamp": 1692852103000
+      "regularPath": "/web/",
+      "relativePath": "web/README.md",
+      "key": "v-6de531b2",
+      "path": "/web/",
+      "lastUpdated": "2023年3月1日星期三下午12点33分",
+      "lastUpdatedTimestamp": 1677645233000
     },
     {
       "title": "w-a页面",
@@ -2572,60 +2614,6 @@ export const siteData = {
       "lastUpdatedTimestamp": 1677645233000
     },
     {
-      "title": "w-c页面",
-      "frontmatter": {
-        "title": "w-c页面"
-      },
-      "regularPath": "/web/w-c.html",
-      "relativePath": "web/w-c.md",
-      "key": "v-0de685c2",
-      "path": "/web/w-c.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "w-c页面二级标题1",
-          "slug": "w-c页面二级标题1"
-        },
-        {
-          "level": 3,
-          "title": "1.三级标题1",
-          "slug": "_1-三级标题1"
-        },
-        {
-          "level": 3,
-          "title": "2.三级标题2",
-          "slug": "_2-三级标题2"
-        },
-        {
-          "level": 3,
-          "title": "3.三级标题3",
-          "slug": "_3-三级标题3"
-        },
-        {
-          "level": 2,
-          "title": "w-c页面二级标题2",
-          "slug": "w-c页面二级标题2"
-        },
-        {
-          "level": 3,
-          "title": "1.三级标题1",
-          "slug": "_1-三级标题1-2"
-        },
-        {
-          "level": 3,
-          "title": "2.三级标题2",
-          "slug": "_2-三级标题2-2"
-        },
-        {
-          "level": 3,
-          "title": "3.三级标题3",
-          "slug": "_3-三级标题3-2"
-        }
-      ],
-      "lastUpdated": "2023年3月1日星期三下午12点33分",
-      "lastUpdatedTimestamp": 1677645233000
-    },
-    {
       "title": "w-b页面",
       "frontmatter": {
         "title": "w-b页面"
@@ -2659,6 +2647,60 @@ export const siteData = {
           "level": 2,
           "title": "w-b页面二级标题2",
           "slug": "w-b页面二级标题2"
+        },
+        {
+          "level": 3,
+          "title": "1.三级标题1",
+          "slug": "_1-三级标题1-2"
+        },
+        {
+          "level": 3,
+          "title": "2.三级标题2",
+          "slug": "_2-三级标题2-2"
+        },
+        {
+          "level": 3,
+          "title": "3.三级标题3",
+          "slug": "_3-三级标题3-2"
+        }
+      ],
+      "lastUpdated": "2023年3月1日星期三下午12点33分",
+      "lastUpdatedTimestamp": 1677645233000
+    },
+    {
+      "title": "w-c页面",
+      "frontmatter": {
+        "title": "w-c页面"
+      },
+      "regularPath": "/web/w-c.html",
+      "relativePath": "web/w-c.md",
+      "key": "v-0de685c2",
+      "path": "/web/w-c.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "w-c页面二级标题1",
+          "slug": "w-c页面二级标题1"
+        },
+        {
+          "level": 3,
+          "title": "1.三级标题1",
+          "slug": "_1-三级标题1"
+        },
+        {
+          "level": 3,
+          "title": "2.三级标题2",
+          "slug": "_2-三级标题2"
+        },
+        {
+          "level": 3,
+          "title": "3.三级标题3",
+          "slug": "_3-三级标题3"
+        },
+        {
+          "level": 2,
+          "title": "w-c页面二级标题2",
+          "slug": "w-c页面二级标题2"
         },
         {
           "level": 3,

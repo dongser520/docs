@@ -59,7 +59,7 @@ title: 章节12.javascript基本包装类型
 ##  1、 Boolean 类型
 ### Boolean 类型没有特定的属性或者方法
 ##  2、 Number 类型
-### ① Number类型静态属性
+### ① Number类型静态属性:MAX_VALUE、MIN_VALUE、NaN、NEGATIVE_INFINITY、POSITIVE_INFINITY、prototype
 > Number 类型有一些静态属性(直接通过 Number 调用的属性，而无须 new 运算符)。 
 > |  Number 静态属性            |  说 明                                  |   
 > |   :--:                     |   :--:                                 |    
@@ -118,16 +118,55 @@ title: 章节12.javascript基本包装类型
 > console.log(text.toPrecision(2));//'1.5e+3' 指数形式
 > console.log(typeof text.toPrecision());//string
 > ```
-
-
-
-
-
-
-
-
-
-
+## 3、String类型 
+1. String类型属性
+> ### ① 属性:length - 返回字符串的字符长度
+> ``` javascript
+> let text = '迪丽热巴';
+> console.log(text.length);// 4
+> ```
+> ### ② 属性:constructor - 返回创建 String 对象的函数
+> ``` javascript
+> let text = '迪丽热巴';
+> console.log(text.constructor);//String() { [native code] }
+> ```
+> ### ③ 属性:prototype - 通过添加属性和方法扩展字符串定义
+> 面向对象再讲解
+2. String类型通用方法
+> ### ④ 通用方法：valueOf()、toLocaleString()和 toString()方法，返回字符串的基本值，写不写都一样
+3. String类型字符方法
+> ### ⑤ 字符方法：charAt(n) - 返回指定索引位置的字符 
+> ``` javascript
+> let text = '迪丽热巴';
+> console.log(text.charAt(0));// '迪'
+> console.log(text.charAt(1));// '丽'
+> console.log(text.charAt(2));// '热'
+> console.log(text.charAt(3));// '巴'
+> ``` 
+> ### ⑥ 字符方法：charCodeAt(n) - 以 Unicode 编码形式返回指定索引位置的字符
+> ``` javascript
+> let text = '迪丽热巴s';
+> console.log(text.charCodeAt(0));// 36842, 返回的是 '迪'字的acssii码
+> console.log(text.charCodeAt(1));// 20029
+> console.log(text.charCodeAt(2));// 28909
+> console.log(text.charCodeAt(3));// 24052
+> console.log(text.charCodeAt(4));// 115 , 返回的是 's'字符的acssii码
+> ```
+> ### ⑦ 字符方法：数组方式截取
+> ``` javascript
+> let text = '迪丽热巴s';
+> console.log(text[0]);//'迪'
+> console.log(text[1]);//'丽'
+> console.log(text[2]);//'热'
+> console.log(text[3]);//'巴'
+> console.log(text[4]);//'s'
+> ```
+4. String类型字符串操作方法
+> ### ⑧ 字符串操作方法：concat(str1...str2) - 将字符串参数串联到调用该方法的字符串
+> ``` javascript
+> let text = '迪丽热巴';
+> console.log(text.concat('是','美女','!'));//'迪丽热巴是美女!'
+> ```
 
 
 
@@ -211,8 +250,8 @@ title: 章节12.javascript基本包装类型
 #### <a href="/secondless/w-a/javascript对象.html#_3、对象中的方法及应用" style="margin-left:50px;">3、对象中的方法及应用</a>
 ### [章节7.javascript数组](/secondless/w-a/javascript数组 '章节7.javascript数组') 
 #### <a href="/secondless/w-a/javascript数组.html#_1、创建及读取数组" style="margin-left:50px;">1、创建及读取数组</a>
-#### <a href="/secondless/w-a/javascript数组.html#_2、数组中的属性和内置方法" style="margin-left:50px;">2、数组中的属性和内置方法</a>
-#### <a href="/secondless/w-a/javascript数组.html#_3、数组中的方法" style="margin-left:50px;">3、数组中的方法</a>
+#### <a href="/secondless/w-a/javascript数组.html#_2、数组中的属性和内置方法" style="margin-left:50px;">2、数组中的属性和内置方法：toLocaleString()、valueOf()和 toString()</a>
+#### <a href="/secondless/w-a/javascript数组.html#_3、数组中的方法" style="margin-left:50px;">3、数组中的方法:join()、push()、pop()、shift()、unshift()、reverse()、sort()、concat()、slice()、splice()方法</a>
 #### <a href="/secondless/w-a/javascript数组.html#_4、数组更多操作方法" style="margin-left:50px;">4、数组更多操作方法</a>
 ### [章节8.Date类型：时间和日期](/secondless/w-a/Date类型：时间和日期 '章节8.Date类型：时间和日期')
 #### <a href="/secondless/w-a/Date类型：时间和日期.html#_1、date-类型" style="margin-left:50px;">1、Date 类型</a>
