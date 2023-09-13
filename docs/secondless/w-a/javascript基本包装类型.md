@@ -152,7 +152,7 @@ title: 章节12.javascript基本包装类型
 > console.log(text.charCodeAt(3));// 24052
 > console.log(text.charCodeAt(4));// 115 , 返回的是 's'字符的acssii码
 > ```
-> ### ⑦ 字符方法：数组方式截取
+> ### ⑦ 字符方法：数组方式截取字符串
 > ``` javascript
 > let text = '迪丽热巴s';
 > console.log(text[0]);//'迪'
@@ -162,40 +162,325 @@ title: 章节12.javascript基本包装类型
 > console.log(text[4]);//'s'
 > ```
 4. String类型字符串操作方法
-> ### ⑧ 字符串操作方法：concat(str1...str2) - 将字符串参数串联到调用该方法的字符串
+> ### ⑧ 字符串操作方法：concat(str1...str2) - 将字符串参数串联到调用该方法的字符串（拼装字符串）
 > ``` javascript
 > let text = '迪丽热巴';
-> console.log(text.concat('是','美女','!'));//'迪丽热巴是美女!'
+> console.log(text.concat('s','是美女','!'));//'迪丽热巴s是美女!'
 > ```
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+> ### ⑨ 字符串操作方法：slice(n,m) - 返回字符串 n 到 m 之间位置的字符串（截取字符串）
+> ``` javascript
+> let text = '迪丽热巴s是美女';
+> console.log(text.slice(1));    //'丽热巴s是美女'   从第1个位置全部取到
+> console.log(text.slice(1,3));  //'丽热'           从第1个位置取到第3个位置
+> console.log(text.slice(-2));   //'美女'   总长度8,8+(-2)=6,从第6个位置开始
+> console.log(text.slice(3,-2)); //'巴s是'  总长度8,8+(-2)=6,就是(3,6) 从第3个位置取到第6个位置 
+> console.log(text.slice(-3,-2));//'是'     总长度8,8+(-3)=5,8+(-2)=6,就是(5,6)从第5个位置取到第6个位置
+> ```
+> ### ⑩ 字符串操作方法：substring(n,m) - 返回字符串 n 到 m 之间位置的字符串（截取字符串）
+> ``` javascript
+> let text = '迪丽热巴s是美女';
+> console.log(text.substring(1));  // '丽热巴s是美女'    从第1个位置全部取到
+> console.log(text.substring(1,3));// '丽热'             从第1个位置取到第3个位置
+> console.log(text.substring(-2)); // '迪丽热巴s是美女'  负数返回全部字符串
+> console.log(text.substring(3,-2));// '迪丽热'  参数是负，直接返回0，就是(3,0),
+>                                   // 如果第二个参数比第一个参数小，那么第二个参数提前，就是(0,3)
+> ```
+> ### ⑪ 字符串操作方法：substr(n,m) - 返回字符串 n 开始的 m 个字符串（截取字符串）
+> ``` javascript
+> let text = '迪丽热巴s是美女';
+> console.log(text.substr(1));   // '丽热巴s是美女'   从第1个位置全部取到
+> console.log(text.substr(1,3)); // '丽热巴'          从第1个位置开始，取3个
+> console.log(text.substr(1,10));// '丽热巴s是美女'    从第1个位置开始，取10个，没那么多，取到末尾
+> console.log(text.substr(-2));  // '美女'   总长度8,8+(-2)=6,从第6个位置开始
+> console.log(text.substr(3,-2));// 空       第二个参数负，直接为0，就是(3,0),就是从第3个位置取0个字符，所以没有为空
+> ```
+5. String类型字符串位置方法
+> ### ⑫ 字符串位置方法：indexOf(str, n) - 从 n 开始搜索的第一个 str，并将搜索的索引值返回
+> ``` javascript
+> let text = '迪丽热巴是不是美女';
+> console.log(text.indexOf('是'));  //4  返回'美'的索引，索引从0开始，正向搜索'美'第一次出现的位置索引
+> console.log(text.indexOf('是',5));//6  返回'美'的索引，索引从0开始，当前从索引5开始搜索'美'第一次出现的位置，就是索引6了
+> console.log(text.indexOf(','));  // -1 找不到则返回 -1
+> ```
+> ### ⑬ 字符串位置方法：lastIndexOf(str, n) - 从 n 开始搜索的最后一个 str，并将搜索的索引值返回
+> ``` javascript
+> let text = '迪丽热巴是不是美女';
+> console.log(text.lastIndexOf('是'));//6  返回搜索'美'的索引，索引从0开始，反向数第一个出现的位置索引
+> console.log(text.lastIndexOf('是',5));//4  反向搜索，从索引5往前搜索，第一次出现'美'的位置是索引4
+> console.log(text.lastIndexOf(','));// -1 找不到则返回 -1
+> ```
+> ### ⑭ 将字符串中的某个字符索引位置全部找出放在数组中
+> 写个函数，将下面字符串中的'是'的位置全部找出来，放在数组中
+> ``` javascript
+> let text = '迪丽热巴是不是美女，你说是就是';
+> 
+> let arr = [];
+> let firstPos = text.indexOf('是');
+> console.log(firstPos);//4
+> //说明找到了，如果第一个都找不到，数组就是空数组
+> //可以使用while循环，一个一个找
+> while(firstPos > -1){
+>     //说明找到了一个，把这个先放进数组里面去
+>     arr.push(firstPos);
+>     //然后接着当前找到的位置firstPos，接着往后每次加一个位置进行查找firstPos+1
+>     firstPos = text.indexOf('是',firstPos+1);
+> }
+> console.log(arr);//[4, 6, 12, 14]
+> ```
+> 涉及的知识点：<br/>
+> while循环查看：<a href="/secondless/w-a/流程控制语句.html#_2-while-循环语句" target="_blank">章节4.流程控制语句_3、循环语句_② while 循环语句</a><br/>
+> 数组push查看：<a href="/secondless/w-a/javascript数组.html#_2-push-方法-向数组末尾添加元素-返回修改后数组的长度" target="_blank">章节7.javascript数组_3、数组中的方法_② push()方法</a><br/>
+6. String类型字符串大小写转换方法
+> ### ⑮ 大小写转换：toLowerCase(str) - 将字符串全部转换为小写
+> ``` javascript
+> let text = 'I LOVE yOU';
+> console.log(text.toLowerCase());// 'i love you'
+> ```
+> ### ⑯ 大小写转换：toUpperCase(str) - 将字符串全部转换为大写
+> ``` javascript
+> let text = 'nice to Meet you';
+> console.log(text.toUpperCase());// 'NICE TO MEET YOU'
+> ```
+> ### ⑰ 小写转换并且本地化：toLocaleLowerCase(str)、大写转换并且本地化：toLocaleUpperCase(str)
+> ``` javascript
+> let text = 'I LOVE YOU';
+> console.log(text.toLocaleLowerCase());//'i love you'
+> text = 'i Love you';
+> console.log(text.toLocaleUpperCase());//'I LOVE YOU'
+> ```
+> 说明：只有几种语言（如土耳其语）具有地方特有的大小写本地性，一般来说，是否本地化效果都是一致的。
+7. String类型字符串模式匹配方法
+> ### ⑱ match(pattern) -- 主要用于正则表达式方法
+> match(pattern)方法主要用于匹配正则表达式，具体我们在正则表达式的章节再讲，讲一下match()方法的简单匹配
+> ``` javascript
+> let text = '迪丽热巴是不是美女';
+> console.log(text.match('是'));
+> alert(text.match('是'));//返回： '是'
+> alert(text.match(','));//返回： null 没有找到返回null
+> ```
+> ### ⑲ search(pattern) -- 主要用于正则表达式方法
+> search(pattern)方法主要用于匹配正则表达式，具体我们在正则表达式的章节再讲，讲一下search()方法的简单匹配
+> ``` javascript
+> // 跟indexOf()方法类似
+> let text = '迪丽热巴是不是美女';
+> console.log(text.search('是'));//返回：4 
+> console.log(text.search(','));//返回： -1 没有找到返回 -1
+> ``` 
+> ### ⑳ replace(pattern, replacement) -- 用 replacement 替换 pattern 第一次出现的字符
+> 第二个参数字符替换第一个参数字符一次
+> ``` javascript
+> let text = '迪丽热巴是不是美女';
+> console.log(text.replace('是','确定'));// '迪丽热巴确定不是美女'
+> ```
+> ### ㉑ replaceAll(pattern, replacement) -- 用 replacement 替换 pattern 所有出现的字符
+> 第二个参数字符替换第一个参数字符出现的所有字符
+> ``` javascript
+> let text = '迪丽热巴是不是美女';
+> console.log(text.replaceAll('是','确定'));// '迪丽热巴确定不确定美女'
+> ```
+> ### ㉒ split(pattern) - 返回字符串按指定 pattern 拆分的数组
+> ``` javascript
+> let text = '迪丽热巴是不是美女';
+> console.log(text.split('是'));// ['迪丽热巴', '不', '美女']
+> //按照 '是'这个字符拆分成了数组
+> ```
+> ### ㉓ fromCharCode(ascii) - 静态方法，输出 Ascii 码对应值
+> 参数里面放一个<a href="https://www.renrendoc.com/paper/189541273.html" target="_blank">Ascii 码</a> 
+> ``` javascript
+> //静态方法：类型.方法(参数)
+> console.log(String.fromCharCode(77));//'M'
+> ```
+> ### ㉔ localeCompare(str1,str2) - 比较两个字符串，并返回相应的值
+> ``` javascript
+> let text = 'Reba';
+> console.log(text.localeCompare('Reba'));//0  两个一样返回0
+> console.log(text.localeCompare('Raba'));//1  字母相同往后比较，比较两个字母的前后顺序，前面的是1
+> console.log(text.localeCompare('Peba'));//1  比较两个字母的前后顺序，前面的是1
+> console.log(text.localeCompare('Seba'));//-1  比较两个字母的前后顺序，后面的是-1
+> ```
+8. 判断方法
+> ### ㉕ startsWith(pattern) - 判断字符串是否按 pattern 开头，返回布尔值
+> ``` javascript
+> let text = '迪丽热巴是不是美女';
+> console.log(text.startsWith('迪丽'));//true 判断是否以'迪丽'开头
+> console.log(text.startsWith('热巴'));//false
+> ```
+> ### ㉖ endsWith(pattern) - 判断字符串是否按 pattern 结尾，返回布尔值
+> ``` javascript
+> let text = '迪丽热巴是不是美女';
+> console.log(text.endsWith('美女'));//true 判断是否以'美女'结尾
+> console.log(text.endsWith('热巴'));//false
+> ```
+> ### ㉗ includes(pattern) - 判断字符串是否包含pattern字符，返回布尔值
+> ``` javascript
+> let text = '迪丽热巴是不是美女';
+> console.log(text.includes('美女'));//true 判断是否包含'美女'字符
+> console.log(text.includes('明星'));//false
+> ```
+9. 去除空白（空格）方法
+> ### ㉘ trimStart() - 去除字符串开头的空格，返回字符串
+> ``` javascript
+> let text = '  迪丽热巴是不是美女  ';
+> console.log(text.trimStart());//  '迪丽热巴是不是美女  '
+> ```
+> ### ㉙ trimStart() - 去除字符串结尾的空格，返回字符串
+> ``` javascript
+> let text = '  迪丽热巴是不是美女  ';
+> console.log(text.trimEnd());//  '  迪丽热巴是不是美女'
+> ```
+> ### ㉚ trim() - 去除字符串开头和结尾的空格，返回字符串
+> ``` javascript
+> let text = '  迪丽热巴是不是美女  ';
+> console.log(text.trim());//  '迪丽热巴是不是美女'
+> ```
+10. 其他方法
+> ### ㉛ repeat(n) - 重复字符串n次，返回字符串
+> ``` javascript
+> let text = '迪丽热巴';
+> console.log(text.repeat(3));//  '迪丽热巴迪丽热巴迪丽热巴'
+> ```
+> ### ㉜ 模板字面量（魔法字符串）
+> ``` javascript
+> let text = '迪丽热巴';
+> let str = `你好，${text}`;
+> console.log(str);//  '你好，迪丽热巴'
+> ```
+> 关于魔法字符串怎么敲出来，在 <a href="/secondless/w-a/javascript函数.html#_2-带参数的函数" target="_blank">章节5.javascript函数_1、函数声明_② 带参数的函数</a>提到过
+#### 为了方便大家查阅，方法写在一起比较查看
+> ``` javascript
+> //属性
+> let text = '迪丽热巴';
+> console.log(text.length);// 4  返回字符串长度
+> console.log(text.constructor);//String() { [native code] }  返回字符串构造方法
+> 
+> //通用方法
+> text = '迪丽热巴';
+> console.log(text.valueOf());//'迪丽热巴'  返回字符串的基本值，写不写都一样
+> console.log(text.toLocaleString());//'迪丽热巴'  返回字符串的基本值，写不写都一样
+> console.log(text.toString());//'迪丽热巴'  返回字符串的基本值，写不写都一样
+> 
+> //字符方法
+> text = '迪丽热巴';
+> console.log(text.charAt(0));// '迪'
+> console.log(text.charAt(1));// '丽'
+> console.log(text.charAt(2));// '热'
+> console.log(text.charAt(3));// '巴'
+> 
+> text = '迪丽热巴s';
+> console.log(text.charCodeAt(0));// 36842, 返回的是 '迪'字的acssii码
+> console.log(text.charCodeAt(1));// 20029
+> console.log(text.charCodeAt(2));// 28909
+> console.log(text.charCodeAt(3));// 24052
+> console.log(text.charCodeAt(4));// 115 , 返回的是 's'字符的acssii码
+> 
+> text = '迪丽热巴s';
+> console.log(text[0]);//'迪'
+> console.log(text[1]);//'丽'
+> console.log(text[2]);//'热'
+> console.log(text[3]);//'巴'
+> console.log(text[4]);//'s'
+> 
+> //操作方法
+> text = '迪丽热巴';
+> console.log(text.concat('s','是美女','!'));//'迪丽热巴s是美女!'
+> 
+> text = '迪丽热巴s是美女';
+> console.log(text.slice(1));    //'丽热巴s是美女'   从第1个位置全部取到
+> console.log(text.slice(1,3));  //'丽热'           从第1个位置取到第3个位置
+> console.log(text.slice(-2));   //'美女'   总长度8,8+(-2)=6,从第6个位置开始
+> console.log(text.slice(3,-2)); //'巴s是'  总长度8,8+(-2)=6,就是(3,6) 从第3个位置取到第6个位置 
+> console.log(text.slice(-3,-2));//'是'     总长度8,8+(-3)=5,8+(-2)=6,就是(5,6)从第5个位置取到第6个位置
+> 
+> text = '迪丽热巴s是美女';
+> console.log(text.substring(1));  // '丽热巴s是美女'    从第1个位置全部取到
+> console.log(text.substring(1,3));// '丽热'             从第1个位置取到第3个位置
+> console.log(text.substring(-2)); // '迪丽热巴s是美女'  负数返回全部字符串
+> console.log(text.substring(3,-2));// '迪丽热'  参数是负，直接返回0，就是(3,0),
+>                                   // 如果第二个参数比第一个参数小，那么第二个参数提前，就是(0,3)
+> 
+> text = '迪丽热巴s是美女';
+> console.log(text.substr(1));   // '丽热巴s是美女'   从第1个位置全部取到
+> console.log(text.substr(1,3)); // '丽热巴'          从第1个位置开始，取3个
+> console.log(text.substr(1,10));// '丽热巴s是美女'    从第1个位置开始，取10个，没那么多，取到末尾
+> console.log(text.substr(-2));  // '美女'   总长度8,8+(-2)=6,从第6个位置开始
+> console.log(text.substr(3,-2));// 空       第二个参数负，直接为0，就是(3,0),就是从第3个位置取0个字符，所以没有为空
+> 
+> //位置方法
+> text = '迪丽热巴是不是美女';
+> console.log(text.indexOf('是'));  //4  返回'美'的索引，索引从0开始，正向搜索'美'第一次出现的位置索引
+> console.log(text.indexOf('是',5));//6  返回'美'的索引，索引从0开始，当前从索引5开始搜索'美'第一次出现的位置，就是索引6了
+> console.log(text.indexOf(','));  // -1 找不到则返回 -1
+> 
+> text = '迪丽热巴是不是美女';
+> console.log(text.lastIndexOf('是'));//6  返回搜索'美'的索引，索引从0开始，反向数第一个出现的位置索引
+> console.log(text.lastIndexOf('是',5));//4  反向搜索，从索引5往前搜索，第一次出现'美'的位置是索引4
+> console.log(text.lastIndexOf(','));// -1 找不到则返回 -1
+> 
+> //大小写转换方法
+> text = 'I LOVE yOU';
+> console.log(text.toLowerCase());// 'i love you'
+> 
+> text = 'nice to Meet you';
+> console.log(text.toUpperCase());// 'NICE TO MEET YOU'
+> 
+> text = 'I LOVE YOU';
+> console.log(text.toLocaleLowerCase());//'i love you'
+> text = 'i Love you';
+> console.log(text.toLocaleUpperCase());//'I LOVE YOU'
+> 
+> //字符串模式匹配方法
+> text = '迪丽热巴是不是美女';
+> console.log(text.match('是'));
+> alert(text.match('是'));//返回： '是'
+> alert(text.match(','));//返回： null 没有找到返回null
+> 
+> text = '迪丽热巴是不是美女';
+> console.log(text.search('是'));//返回：4 
+> console.log(text.search(','));//返回： -1 没有找到返回 -1
+> 
+> text = '迪丽热巴是不是美女';
+> console.log(text.replace('是','确定'));// '迪丽热巴确定不是美女'
+> 
+> text = '迪丽热巴是不是美女';
+> console.log(text.replaceAll('是','确定'));// '迪丽热巴确定不确定美女'
+> 
+> text = '迪丽热巴是不是美女';
+> console.log(text.split('是'));// ['迪丽热巴', '不', '美女']  按照 '是'这个字符拆分成了数组
+> 
+> //静态方法：类型.方法(参数)-参数里面放一个Ascii 码
+> console.log(String.fromCharCode(77));//'M'
+> 
+> text = 'Reba';
+> console.log(text.localeCompare('Reba'));//0  两个一样返回0
+> console.log(text.localeCompare('Raba'));//1  字母相同往后比较，比较两个字母的前后顺序，前面的是1
+> console.log(text.localeCompare('Peba'));//1  比较两个字母的前后顺序，前面的是1
+> console.log(text.localeCompare('Seba'));//-1  比较两个字母的前后顺序，后面的是-1
+> 
+> 
+> //判断方法
+> text = '迪丽热巴是不是美女';
+> console.log(text.startsWith('迪丽'));//true 判断是否以'迪丽'开头
+> console.log(text.startsWith('热巴'));//false
+> console.log(text.endsWith('美女'));//true 判断是否以'美女'结尾
+> console.log(text.endsWith('热巴'));//false
+> console.log(text.includes('美女'));//true 判断是否包含'美女'字符
+> console.log(text.includes('明星'));//false
+> 
+> //去除空白（空格）方法
+> text = '  迪丽热巴是不是美女  ';
+> console.log(text.trimStart());//  '迪丽热巴是不是美女  '
+> console.log(text.trimEnd());  //  '  迪丽热巴是不是美女'
+> console.log(text.trim());     //  '迪丽热巴是不是美女'
+> 
+> 
+> //其他方法
+> text = '迪丽热巴';
+> console.log(text.repeat(3));//  '迪丽热巴迪丽热巴迪丽热巴'
+> 
+> text = '迪丽热巴';
+> let str = `你好，${text}`;
+> console.log(str);//  '你好，迪丽热巴'
+> ```
 
 
 
