@@ -323,7 +323,7 @@ title: 章节12.javascript基本包装类型
 > let text = '  迪丽热巴是不是美女  ';
 > console.log(text.trimStart());//  '迪丽热巴是不是美女  '
 > ```
-> ### ㉙ trimStart() - 去除字符串结尾的空格，返回字符串
+> ### ㉙ trimEnd() - 去除字符串结尾的空格，返回字符串
 > ``` javascript
 > let text = '  迪丽热巴是不是美女  ';
 > console.log(text.trimEnd());//  '  迪丽热巴是不是美女'
@@ -481,20 +481,126 @@ title: 章节12.javascript基本包装类型
 > let str = `你好，${text}`;
 > console.log(str);//  '你好，迪丽热巴'
 > ```
+## 4、Array数组的常用方法
+> ### ① join()方法 -- 见章节7：数组
+> 用不同的分隔符将数组分割成字符串 <a href="/secondless/w-a/javascript数组.html#_1-join-方法-用不同的分隔符将数组分割成字符串" target="_blank" title="点击打开">[详见：章节7：数组]</a> 
+> ### ② push()方法 -- 见章节7：数组
+> 向数组末尾添加元素，返回修改后数组的长度 <a href="/secondless/w-a/javascript数组.html#_2-push-方法-向数组末尾添加元素-返回修改后数组的长度" target="_blank" title="点击打开">[详见：章节7：数组]</a> 
+> ### ③ pop()方法 -- 见章节7：数组
+> 移除数组末尾元素，并返回移除的元素 <a href="/secondless/w-a/javascript数组.html#_3-pop-方法-移除数组末尾元素-并返回移除的元素" target="_blank" title="点击打开">[详见：章节7：数组]</a>
+> ### ④ shift()方法 -- 见章节7：数组 
+> 移除数组开头元素，并返回移除的元素 <a href="/secondless/w-a/javascript数组.html#_4-shift-方法-移除数组开头元素-并返回移除的元素" target="_blank" title="点击打开">[详见：章节7：数组]</a>
+> ### ⑤ unshift()方法 -- 见章节7：数组
+> 向数组开头添加元素，返回修改后数组的长度 <a href="/secondless/w-a/javascript数组.html#_5-unshift-方法-向数组开头添加元素-返回修改后数组的长度" target="_blank" title="点击打开">[详见：章节7：数组]</a>
+> ### ⑥ reverse()方法 -- 见章节7：数组
+> 反向排序，返回排序后的数组 <a href="/secondless/w-a/javascript数组.html#_6-reverse-方法-反向排序-返回排序后的数组" target="_blank" title="点击打开">[详见：章节7：数组]</a>
+> ### ⑦ sort()方法 -- 见章节7：数组
+> 从小到大排序，返回排序后的数组 <a href="/secondless/w-a/javascript数组.html#_7-sort-方法-从小到大排序-返回排序后的数组" target="_blank" title="点击打开">[详见：章节7：数组]</a>
+> ### ⑧ concat()方法 -- 见章节7：数组
+> 创建新数组，并添加新元素，原数组没有变化 <a href="/secondless/w-a/javascript数组.html#_8-concat-方法-创建新数组-并添加新元素-原数组没有变化" target="_blank" title="点击打开">[详见：章节7：数组]</a>
+> ### ⑨ slice()方法 -- 见章节7：数组
+> 指定数组部分元素组建新数组，原数组没有变化 <a href="/secondless/w-a/javascript数组.html#_9-slice-方法-指定数组部分元素组建新数组-原数组没有变化" target="_blank" title="点击打开">[详见：章节7：数组]</a>
+> ### ⑩ splice()方法 -- 见章节7：数组
+> 有删除、插入、替换数组元素的功能，原数组发生变化 <a href="/secondless/w-a/javascript数组.html#_10-splice-方法-有删除、插入、替换数组元素的功能-原数组发生变化" target="_blank" title="点击打开">[详见：章节7：数组]</a>
+### ⑪ 数组includes（searchElement，fromIndex）方法 --  判断数组是否包含一个指定的元素，返回布尔值
+> 第一个参数是要查找的元素值，必填。第二个参数是非必填，从该索引处开始查找你要查找的元素。如果为负值，则按升序从 array.length + fromIndex 的索引开始搜索。默认为 0。
+> ``` javascript
+> let arr = [10,20,30,40,50];
+> console.log(arr.includes(10)); //true
+> console.log(arr.includes(10,0)); //true  从索引0往后查找，是否包含10这个元素
+> console.log(arr.includes(10,1)); //false 从索引1往后查找，是否包含10这个元素
+> //当第二个参数是负数的时候，则按升序从 array.length（数组长度） + fromIndex 的索引开始 搜索
+> console.log(arr.includes(20,-1));//false 数组长度5+(-1)=4,相当于(20,4)
+> console.log(arr.includes(20,-4));//true  数组长度5+(-4)=1,相当于(20,1)
+> ```
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+### ⑫ 数组reduce()方法 -- 有求和、数组去重、求数组的最大值、扁平化数组的功能
+> #### 1.求和
+> 根据提示，我们可以看到reduce()方法括号里面第一个参数：callbackfn提示表示接收一个回调函数，函数里面的参数是：上一个值，当前值，当前值的下标（索引），数组，第二个参数给一个初始值(数值或者数组等你需要初始化的值)，第二个参数也可以省略，省略的话，就是数组中的第一个元素，然后回调函数需要返回一个值
+> ``` javascript
+> let arr = [1,2,3,4,5,6,7,8,9];
+> arr.reduce(function(previousValue,currentValue,currentIndex,array){
+>     console.log('上一个值：'+ previousValue);
+>     console.log('当前值：'+ currentValue);
+>     console.log('当前值下标：'+ currentIndex);
+>     console.log('数组：'+ array);
+>     //重点理解上一个值，可以理解成是return返回的一个 我们经过一系列操作之后返回的一个值
+>     //return 10;
+>     // return preValue + curValue;
+> },0);
+> //求和
+> let res = arr.reduce(function(previousValue,currentValue,currentIndex,array){
+>     return previousValue + currentValue;
+> },0);
+> console.log(res);//45
+> //箭头函数改写，用不上的参数可以不写
+> let $res = arr.reduce((previousValue,currentValue)=>{
+>     return previousValue + currentValue;
+> },0);
+> console.log($res);//45
+> //箭头函数一行代码的可以省略花括号和return，直接返回
+> //let _res = arr.reduce((preValue,curValue) => (preValue + curValue),0);
+> let _res = arr.reduce((preValue,curValue) => preValue + curValue);
+> console.log(_res);//45
+> ```
+> 涉及基础知识：
+> 1.变量声明，详见：<a href="/secondless/w-a/javascript基础.html#_3、语法构成" target="_blank">章节2.javascript基础_3、语法构成_标识符</a>
+> #### 2.数组去重
+> ``` javascript
+> let arr = [1,2,3,4,5,6,7,8,9,1,2.3,4,5];
+> let res = arr.reduce(function(previousValue,currentValue){
+>     if(!previousValue.includes(currentValue)){
+>         previousValue.push(currentValue);
+>     }
+>     return previousValue;
+> },[]);
+> console.log(res);// [1, 2, 3, 4, 5, 6, 7, 8, 9, 2.3]
+> 
+> //改成箭头函数
+> let arr = [1,2,3,4,5,6,7,8,9,1,2.3,4,5];
+> let res = arr.reduce((previousValue,currentValue)=>{
+>     !previousValue.includes(currentValue) && previousValue.push(currentValue);
+>     return previousValue;
+> },[]);
+> console.log(res);// [1, 2, 3, 4, 5, 6, 7, 8, 9, 2.3]
+> ```
+> 涉及基础知识：<br/> 
+> 1. 用到 && 符号，详见：<a href="/secondless/w-a/javascript运算符.html#_5、逻辑运算符" target="_blank">章节3.javascript运算符_5、逻辑运算符_① 逻辑与(and) ：&& [并且的意思]_第2小点</a>
+> #### 3.求数组的最大值
+> ``` javascript
+> let arr = [1,2,3,4,5,6,7,8,9];
+> let res =  arr.reduce(function(previousValue,currentValue){
+>     let i = 0;
+>     if(previousValue > currentValue){
+>         i = previousValue;
+>     }else{
+>         i = currentValue;
+>     }
+>     return i;
+> });
+> console.log(res);//9
+> 
+> //改写成箭头函数、三元运算
+> let res =  arr.reduce((previousValue,currentValue)=>{
+>     // let i = 0;
+>     // i = (previousValue > currentValue) ? previousValue : currentValue;
+>     // return i;
+>     return previousValue > currentValue ?  previousValue : currentValue;
+> });
+> console.log(res);//9
+> ```
+> 涉及基础知识：<br/> 
+> 1. 用到三元运算，详见：<a href="/secondless/w-a/javascript运算符.html#_3-三元条件运算符" target="_blank">章节3.javascript运算符_6、字符串、逗号、三元条件运算符_③ 三元条件运算符</a>
+> #### 4.扁平化数组
+> ``` javascript
+> //将二维数组转成一维数组
+> let arr = [[1,2],[3,4],[5,6],[7,8],[9,10]];
+> let res = arr.reduce((previousValue,currentValue)=>{
+>     //解构用法
+>     return [...previousValue,...currentValue];
+> });
+> console.log(res);//[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+> ```
 
 
 

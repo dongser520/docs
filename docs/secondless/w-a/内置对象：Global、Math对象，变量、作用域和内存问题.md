@@ -96,7 +96,7 @@ title: 章节10.内置对象：Global、Math对象，变量、作用域和内存
 >  console.log(Math.SQRT1_2);//0.7071067811865476
 >  console.log(Math.SQRT2);//1.4142135623730951
 >  ```
-> ### ② Math.min()和 Math.max()方法
+> ### ② Math.min()和 Math.max()方法分别求一组数值中的最小值、最大值
 > Math.min()用于确定一组数值中的最小值。Math.max()用于确定一组数值中的最大值。
 >  ``` javascript
 >  console.log(Math.min(4,7,45,842,478,115,14,15)); //返回： 4
