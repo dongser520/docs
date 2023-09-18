@@ -604,19 +604,30 @@ title: 章节12.javascript基本包装类型
 ### ⑬ 数组find()方法 -- 为数组中的每个元素都调用一次函数执行,返回通过测试（函数内判断）的数组的第一个元素的值
 > 当数组中的元素在测试条件返回 true 时, 返回符合条件的元素，之后的值不会再调用执行函数。如果没有符合条件的元素返回 undefined，对于空数组，函数是不会执行的，find()方法并没有改变数组的原始值。
 > ``` javascript
-> //获取数组中年龄大于 18 的第一个元素
+> //深入分析一下这个方法
+> //array.find(function(currentValue, index, arr), thisValue)
+> //第一个参数：函数，必填。第二个参数：可选。 传递给函数的值一般用 "this" 值。如果这个参数为空， "undefined" 会传递给 "this" 值
+> //重点看第一个参数：函数里面的参数：currentValue：必填，当前数组元素。index，可选，当前元素的索引。arr：可选。当前元素所属的数组对象
 > let arr = [3, 10, 19, 20, 35, 50,15,18 ];
+> arr.find(function(currentValue, index, arr){
+>     console.log('当前数组元素:' + currentValue);
+>     console.log('当前数组元素索引:' + index);
+>     console.log('当前元素所属的数组对象:' + arr);
+> });
+> 
+> 
+> //获取数组中年龄大于 18 的第一个元素
+> let _arr = arr.find(function(age){
+>     return age > 18;
+>  });
+> console.log(_arr);//19
+> 
+> //分离写法
 > function text(age){
 >     return age > 18;
 > }
 > let new_arr = arr.find(text);
 > console.log(new_arr);//19
-> 
-> //扩展写法
-> let _arr = arr.find(function(age){
->    return age > 18;
-> });
-> console.log(_arr);//19
 > 
 > //箭头函数写法
 > let $arr = arr.find((age)=>{
@@ -636,11 +647,56 @@ title: 章节12.javascript基本包装类型
 > 
 > //原数组没有变化
 > console.log(arr);//[3, 10, 19, 20, 35, 50,15,18 ]
+>
 > ```
 
-
-
-
+### ⑭ 数组findIndex()方法 -- 为数组中的每个元素都调用一次函数执行,返回传入一个测试条件（函数）符合条件的数组第一个元素位置
+> 当数组中的元素在测试条件时返回 true 时, findIndex() 返回符合条件的元素的索引位置，之后的值不会再调用执行函数。如果没有符合条件的元素返回 -1。findIndex() 对于空数组，函数是不会执行的。findIndex() 并没有改变数组的原始值。
+> ``` javascript
+> //深入分析一下这个方法
+> //array.findIndex(function(currentValue, index, arr), thisValue)
+> //第一个参数：函数，必填。第二个参数：可选。 传递给函数的值一般用 "this" 值。如果这个参数为空， "undefined" 会传递给 "this" 值
+> //重点看第一个参数：函数里面的参数：currentValue：必填，当前数组元素。index，可选，当前元素的索引。arr：可选。当前元素所属的数组对象
+> let arr = [3, 10, 19, 20, 35, 50,15,18 ];
+> arr.findIndex(function(currentValue, index, arr){
+>     console.log('当前数组元素:' + currentValue);
+>     console.log('当前数组元素索引:' + index);
+>     console.log('当前元素所属的数组对象:' + arr);
+> },this);
+> //获取数组中年龄大于 18 的第一个元素索引位置
+> let _arr = arr.findIndex(function(age){
+>     return age > 18;
+> });
+> console.log(_arr);//2 19对应的索引下标是2
+> 
+> //分离写法
+> function text(age){
+>     return age > 18;
+> }
+> let new_arr = arr.findIndex(text);
+> console.log(new_arr);//2  
+> 
+> 
+>  //箭头函数写法
+> let $arr = arr.findIndex((age)=>{
+>     return age > 18;
+> });
+> console.log($arr);//2
+> //箭头函数简写，参数只有一个的可以不写括号，然后代码只有一行的，省略大括号和return
+> let $arr1 = arr.findIndex(age => age > 18);
+> console.log($arr1);//2
+> 
+> //没有符合条件的元素返回 -1
+> let $arr2 = arr.findIndex(age => age > 50);
+> console.log($arr2);//-1
+> 
+> //对于空数组，函数是不会执行的 返回 -1
+> let $arr3 = [].findIndex(age => age > 50);
+> console.log($arr3);//-1
+> 
+> //原数组没有变化
+> console.log(arr);//[3, 10, 19, 20, 35, 50,15,18 ]
+> ```
 
 
 <br/><br/><br/><br/><br/><br/>
