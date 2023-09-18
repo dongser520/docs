@@ -601,6 +601,43 @@ title: 章节12.javascript基本包装类型
 > });
 > console.log(res);//[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 > ```
+### ⑬ 数组find()方法 -- 为数组中的每个元素都调用一次函数执行,返回通过测试（函数内判断）的数组的第一个元素的值
+> 当数组中的元素在测试条件返回 true 时, 返回符合条件的元素，之后的值不会再调用执行函数。如果没有符合条件的元素返回 undefined，对于空数组，函数是不会执行的，find()方法并没有改变数组的原始值。
+> ``` javascript
+> //获取数组中年龄大于 18 的第一个元素
+> let arr = [3, 10, 19, 20, 35, 50,15,18 ];
+> function text(age){
+>     return age > 18;
+> }
+> let new_arr = arr.find(text);
+> console.log(new_arr);//19
+> 
+> //扩展写法
+> let _arr = arr.find(function(age){
+>    return age > 18;
+> });
+> console.log(_arr);//19
+> 
+> //箭头函数写法
+> let $arr = arr.find((age)=>{
+>     return age > 18;
+> });
+> console.log($arr);//19
+> //箭头函数简写，参数只有一个的可以不写括号，然后代码只有一行的，省略大括号和return
+> let $arr1 = arr.find(age => age > 18);
+> console.log($arr1);//19
+> 
+> 
+> //没有符合条件的元素返回 undefined
+> console.log(arr.find(age=> age > 50));//undefined
+> 
+> //对于空数组，函数是不会执行的
+> console.log([].find(age=> age > 50));//undefined
+> 
+> //原数组没有变化
+> console.log(arr);//[3, 10, 19, 20, 35, 50,15,18 ]
+> ```
+
 
 
 
