@@ -698,6 +698,119 @@ title: 章节12.javascript基本包装类型
 > console.log(arr);//[3, 10, 19, 20, 35, 50,15,18 ]
 > ```
 
+### ⑭ 数组filter() 方法 -- 为数组中的每个元素都调用一次函数执行, 创建一个新的数组，返回传入一个测试条件（函数）符合条件的数组的所有元素
+> 当数组中的元素在测试条件时返回 true 时, 放入新的数组中，如果没有符合条件的元素则返回空数组。filter()方法对于空数组，函数是不会执行的。filter()方法并没有改变数组的原始值。
+> ``` javascript
+> //深入分析一下这个方法
+> //array.filter(function(currentValue, index, arr), thisValue)
+> //第一个参数：函数，必填。第二个参数：可选。 传递给函数的值一般用 "this" 值。如果这个参数为空， "undefined" 会传递给 "this" 值
+> //重点看第一个参数：函数里面的参数：currentValue：必填，当前数组元素。index，可选，当前元素的索引。arr：可选。当前元素所属的数组对象
+> let arr = [3, 10, 19, 20, 35, 50,15,18 ];
+> arr.filter(function(currentValue, index, arr){
+>     console.log('当前数组元素:' + currentValue);
+>     console.log('当前数组元素索引:' + index);
+>     console.log('当前元素所属的数组对象:' + arr);
+> },this);
+> //获取数组中年龄大于 18 的所有元素放入到新数组中
+> let _arr = arr.filter(function(age){
+>     return age > 18;
+> });
+> console.log(_arr);//[19, 20, 35, 50]
+> 
+> //分离写法
+> function text(age){
+>     return age > 18;
+> }
+> let new_arr = arr.filter(text);
+> console.log(new_arr);//[19, 20, 35, 50]
+> 
+> //箭头函数写法
+> let $arr = arr.filter((age)=>{
+>     return age > 18;
+> });
+> console.log($arr);//[19, 20, 35, 50]
+> //箭头函数简写，参数只有一个的可以不写括号，然后代码只有一行的，省略大括号和return
+> let $arr1 = arr.filter(age => age > 18);
+> console.log($arr1);//[19, 20, 35, 50]
+> 
+> //没有符合条件的元素返回 []
+> let $arr2 = arr.filter(age => age > 50);
+> console.log($arr2);//[]
+> 
+> //对于空数组，filter()方法是不会执行的 []
+> let $arr3 = [].filter(age =>age > 18);
+> console.log($arr3);//[]
+> 
+> //原数组没有变化
+> console.log(arr);//[3, 10, 19, 20, 35, 50, 15, 18]
+> ```
+> 我们在讲对象的时候，<a href="/secondless/w-a/javascript对象.html#_2-对象的应用" target="_blank">章节6.javascript对象_3、对象中的方法及应用_② 对象的应用</a> 我们可以把我们的网站导航栏每一项看成一个对象。我们把这些对象放进数组里面去。
+> ``` javascript
+> let menus = [
+>     { name:'网站首页',en_name:'home',href:'index.html',type:'public' },
+>     { name:'关于我们',en_name:'about',href:'about.html' ,type:'public' },
+>     { name:'工程案例',en_name:'case',href:'case.html' ,type:'public' },
+>     { name:'会员中心',en_name:'user',href:'user.html' ,type:'private' },
+>     { name:'后台管理',en_name:'admin',href:'admin.html',type:'private' }
+> ];
+> //问题：会员中心和后台管理不应该放在栏目中，请将数组中的前三个对象放在新数组中
+> let _menus = menus.filter((currentValue, index, arr)=>{
+>     // console.log('当前数组元素:' + JSON.stringify(currentValue));
+>     // console.log('当前数组元素索引:' + index);
+>     // console.log('当前元素所属的数组对象:' + arr);
+>     // console.log(currentValue.name);
+>     //console.log(currentValue.type);
+> 
+>     // if(currentValue.type === 'public'){
+>     //     return true;
+>     // }else{
+>     //     return false;
+>     // }
+> 
+>     console.log(currentValue.type === 'public');
+>     return currentValue.type == 'public';
+> });
+> console.log(_menus);
+> 
+> //简写
+> let $menus = menus.filter(item => item.type == 'public');
+> console.log($menus);
+> ```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 <br/><br/><br/><br/><br/><br/>
 
