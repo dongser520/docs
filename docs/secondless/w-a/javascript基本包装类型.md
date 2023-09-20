@@ -777,11 +777,112 @@ title: 章节12.javascript基本包装类型
 > console.log($menus);
 > ```
 
+### ⑭ 数组map() 方法 -- 为数组中的每个元素都调用一次函数执行, 创建一个新的数组，返回原始数组元素调用函数处理后的值
+> 此方法在数组映射方面用得比较多，map() 方法按照原始数组元素顺序依次处理元素， map() 不会对空数组进行检测，原数组根据处理情况会发生变化。
+> ``` javascript
+> //深入分析一下这个方法
+> //array.map(function(currentValue, index, arr), thisValue)
+> //第一个参数：函数，必填。第二个参数：可选。 传递给函数的值一般用 "this" 值。如果这个参数为空， "undefined" 会传递给 "this" 值
+> //重点看第一个参数：函数里面的参数：currentValue：必填，当前数组元素。index，可选，当前元素的索引。arr：可选。当前元素所属的数组对象
+> // let arr = [3, 10, 19, 20, 35, 50,15,18 ];
+> // arr.map(function(currentValue, index, arr){
+> //     console.log('当前数组元素:' + currentValue);
+> //     console.log('当前数组元素索引:' + index);
+> //     console.log('当前元素所属的数组对象:' + arr);
+> // },this);
+> 
+> let menus = [
+>     { name:'网站首页',en_name:'home',href:'index.html',type:'public' },
+>     { name:'关于我们',en_name:'about',href:'about.html' ,type:'public' },
+>     { name:'工程案例',en_name:'case',href:'case.html' ,type:'public' },
+>     { name:'会员中心',en_name:'user',href:'user.html' ,type:'private' },
+>     { name:'后台管理',en_name:'admin',href:'admin.html',type:'private' }
+> ];
+> menus.map(function(currentValue, index, arr){
+>     // console.log('当前数组对象元素:' + currentValue);
+>     // console.log('当前数组对象元素字符串:' + JSON.stringify(currentValue));
+>     // console.log('当前数组对象元素索引:' + index);
+>     // console.log('当前元素所属的数组对象:' + arr);
+> },this);
+> 
+> //要求给数组里面的每个元素，加一个属性site值是http://docs.51yrc.com
+> let _menus = menus.map(function(currentValue, index, arr){
+>     currentValue.site = 'http://docs.51yrc.com';
+>     //console.log(JSON.stringify(currentValue));
+>     return currentValue;
+>     //下面的写法仅仅返回每个元素对象里面site属性的值，我们需要返回每个对象
+>     //return currentValue.site = 'http://docs.51yrc.com';
+> });
+> console.log(_menus);
+> 
+> let $menus = menus.map(item => {
+>     item.site = 'http://docs.51yrc.com';
+>     return item;
+> });
+> console.log($menus);
+> 
+> //对于空数组，map()方法是不会执行的 
+> let $menus1 = [].map(item => {
+>     item.site = 'http://docs.51yrc.com';
+>     return item;
+> });
+> console.log($menus1);//返回空数组
+> 
+> //原数组根据处理情况发生了变化
+> console.log(menus);
+> ```
 
-
-
-
-
+### ⑭ 数组forEach() 方法 -- 为数组中的每个元素都调用一次函数执行，并将元素传递给回调函数，没有返回值
+> forEach()方法按照原始数组元素顺序依次处理元素， forEach()方法不会对空数组进行检测，根据处理的情况，会对原数组产生影响
+> ``` javascript
+> //深入分析一下这个方法
+> //array.forEach(function(currentValue, index, arr), thisValue)
+> //第一个参数：函数，必填。第二个参数：可选。 传递给函数的值一般用 "this" 值。如果这个参数为空， "undefined" 会传递给 "this" 值
+> //重点看第一个参数：函数里面的参数：currentValue：必填，当前数组元素。index，可选，当前元素的索引。arr：可选。当前元素所属的数组对象
+> let arr = [3, 10, 19, 20, 35, 50,15,18 ];
+> // arr.forEach(function(currentValue, index, arr){
+> //     console.log('当前数组元素:' + currentValue);
+> //     console.log('当前数组元素索引:' + index);
+> //     console.log('当前元素所属的数组对象:' + arr);
+> // },this);
+> 
+> let menus = [
+>     { name:'网站首页',en_name:'home',href:'index.html',type:'public' },
+>     { name:'关于我们',en_name:'about',href:'about.html' ,type:'public' },
+>     { name:'工程案例',en_name:'case',href:'case.html' ,type:'public' },
+>     { name:'会员中心',en_name:'user',href:'user.html' ,type:'private' },
+>     { name:'后台管理',en_name:'admin',href:'admin.html',type:'private' }
+> ];
+> menus.forEach(function(currentValue, index, arr){
+>     console.log('当前数组对象元素:' + currentValue);
+>     console.log('当前数组对象元素字符串:' + JSON.stringify(currentValue));
+>     console.log('当前数组对象元素索引:' + index);
+>     console.log('当前元素所属的数组对象:' + arr);
+> },this);
+> 
+> //没有返回值，在回调函数(匿名函数)里面处理
+> let _menus = menus.forEach(function(currentValue, index, arr){
+>     currentValue.site = 'http://docs.51yrc.com';
+>     return currentValue;
+> });
+> console.log(_menus);//undefined
+> 
+> //根据处理的情况，会对原数组产生影响
+> menus.forEach(function(currentValue, index, arr){
+>     currentValue.site = 'http://docs.51yrc.com';
+> });
+> console.log(menus);
+> 
+> 
+> //简写
+> menus.forEach(item=>item.site = 'http://docs.51yrc.com');
+> console.log(menus);
+> 
+> //对于空数组是不会执行回调函数的
+> let arr_empty = [];
+> arr_empty.forEach(item=>item.site = 'http://docs.51yrc.com');
+> console.log(arr_empty);//返回：[]
+> ```
 
 
 
