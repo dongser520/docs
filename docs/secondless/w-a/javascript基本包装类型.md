@@ -805,6 +805,17 @@ title: 章节12.javascript基本包装类型
 >     // console.log('当前元素所属的数组对象:' + arr);
 > },this);
 > 
+> //映射
+> let $_menus = menus.map(item =>{
+>     return {
+>         menu_name:item.name,
+>         href:item.href
+>     }
+> });
+> console.log($_menus);
+> //此时原数组没有变化
+> console.log(menus);
+> 
 > //要求给数组里面的每个元素，加一个属性site值是http://docs.51yrc.com
 > let _menus = menus.map(function(currentValue, index, arr){
 >     currentValue.site = 'http://docs.51yrc.com';
