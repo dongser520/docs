@@ -951,22 +951,177 @@ title: 章节12.javascript基本包装类型
 > //console.log(text.copyWithin(0,-3,-1));// ['梁咏琪', 888, 35, '华仔', '梁咏琪', 888, '梁咏琪']
 > //console.log(text.copyWithin(0,4,7));// ['梁咏琪', 888, '梁咏琪', '华仔', '梁咏琪', 888, '梁咏琪']
 > ```
+> 
 
+###  ㉓ 数组isArray() 方法 -- 判断一个对象是否为数组
+> 如果对象是数组返回 true，否则返回 false。前面我们提到判断变量属性：<a href="/secondless/w-a/内置对象：Global、Math对象，变量、作用域和内存问题.html#_6-检测变量类型-typeof-、instanceof" target="_blank">章节10_3、变量_⑥ 检测变量类型：typeof()、instanceof()</a>
+> ``` javascript
+> //是否是数组
+> let text1 = [1,2,3];
+> console.log(text1 instanceof Array); //返回： true
+> console.log(Array.isArray(text1));//返回： true
+> ```
 
+### ㉔ 合并数组：es6的扩展运算符
+> ``` javascript
+> let arr1 = [1,2,3];
+> let arr2 = ['迪丽热巴', '古力娜扎', 35];
+> console.log(arr1.concat(arr2));//[1, 2, 3, '迪丽热巴', '古力娜扎', 35]
+> console.log([...arr1,...arr2]);//[1, 2, 3, '迪丽热巴', '古力娜扎', 35]
+> ```
 
+###  ㉕ 数组every() 方法 --检测数组所有元素是否全部符合指定条件（通过函数提供），返回布尔值
+> every() 方法使用指定函数检测数组中的所有元素:如果数组中检测到有一个元素不满足，则整个表达式返回 false ，且剩余的元素不会再进行检测，如果所有元素都满足条件，则返回 true。every() 不会对空数组进行检测。every() 不会改变原始数组。
+> ``` javascript
+> //every的语法
+> //array.every(function(currentValue, index, arr), thisValue)
+> //第一个参数：函数，必填。第二个参数：可选。 传递给函数的值一般用 "this" 值。如果这个参数为空， "undefined" 会传递给 "this" 值
+> //重点看第一个参数：函数里面的参数：currentValue：必填，当前数组元素。index，可选，当前元素的索引。arr：可选。当前元素所属的数组对象
+> let arr = [30, 20, 17, 19, 20, 35, 50,15,18 ];
+> arr.every(function(currentValue, index, arr){
+>     console.log('当前数组元素:' + currentValue);
+>     console.log('当前数组元素索引:' + index);
+>     console.log('当前元素所属的数组对象:' + arr);
+> },this);
+> 
+> //检查数组中所有年龄是不是都大于18岁
+> let $arr = arr.every((currentValue)=>{
+>     //console.log('当前数组元素:' + currentValue);
+>     return currentValue > 18;
+> });
+> console.log($arr);//false
+> 
+> 
+> let $arr1 = arr.every((currentValue)=>{
+>     //console.log('当前数组元素:' + currentValue);
+>     return currentValue > 1;
+> });
+> console.log($arr1);//true
+> 
+> //简写
+> let $arr2 = arr.every(age=>age > 1);
+> console.log($arr2);//true
+> 
+> //不会对空数组进行检测
+> let $arr3 = [].every(age=>age > 1);
+> console.log($arr3);//true
+> 
+> //原数组不变
+> console.log(arr);//[30, 20, 17, 19, 20, 35, 50, 15, 18]
+> ```
 
+>  <span style="display:none;">㉓㉔㉕㉖㉗㉘㉙㉚ ㉛㉜㉝㉞㉟㊱㊲㊳㊴㊵ ㊶㊷㊸㊹㊺㊻㊼㊽㊾㊿</span>
 
+###  ㉕ 数组some() 方法 -- 检测数组所有元素，只要有一个元素通过函数检测返回真，那么就返回真，且后面的元素不在检测,否则返回 假。
+> some()方法对数组中存在的每个元素执行一次函数,如果找到函数返回真值的数组元素,返回真（并且不检查剩余值）,否则返回 false。对空数组元素不执行函数。不改变原始数组。
+> ``` javascript
+> //some()方法的语法
+> //array.some(function(currentValue, index, arr), thisValue)
+> //第一个参数：函数，必填。第二个参数：可选。 传递给函数的值一般用 "this" 值。如果这个参数为空， "undefined" 会传递给 "this" 值
+> //重点看第一个参数：函数里面的参数：currentValue：必填，当前数组元素。index，可选，当前元素的索引。arr：可选。当前元素所属的数组对象
+> let arr = [30, 20, 17, 19, 20, 35, 50,15,18 ];
+> arr.some(function(currentValue, index, arr){
+>     console.log('当前数组元素:' + currentValue);
+>     console.log('当前数组元素索引:' + index);
+>     console.log('当前元素所属的数组对象:' + arr);
+> },this);
+> 
+> //检查数组中所有年龄有没有大于18岁的
+> let $arr = arr.some((currentValue)=>{
+>     //console.log('当前数组元素:' + currentValue);
+>     return currentValue > 18;
+> });
+> console.log($arr);//true
+> 
+> 
+> let $arr1 = arr.some((currentValue)=>{
+>     //console.log('当前数组元素:' + currentValue);
+>     return currentValue > 1;
+> });
+> console.log($arr1);//true
+> 
+> //简写
+> let $arr2 = arr.some(age=>age > 1);
+> console.log($arr2);//true
+> 
+> //不会对空数组进行检测
+> let $arr3 = [].some(age=>age > 1);
+> console.log($arr3);//false
+> 
+> //原数组不变
+> console.log(arr);//[30, 20, 17, 19, 20, 35, 50, 15, 18]
+> ```
+###  ㉖ 数组 for...of遍历
+> ``` javascript
+> //普通数组
+> let arr = [3, 10, 19, 20, 35, 50,15,18 ];
+> for(let x of arr){
+>     console.log(x);//返回数组中的每个元素
+> }
+> //对象数组
+> let menus = [
+>     { name:'网站首页',en_name:'home',href:'index.html',type:'public' },
+>     { name:'关于我们',en_name:'about',href:'about.html' ,type:'public' },
+>     { name:'工程案例',en_name:'case',href:'case.html' ,type:'public' },
+>     { name:'会员中心',en_name:'user',href:'user.html' ,type:'private' },
+>     { name:'后台管理',en_name:'admin',href:'admin.html',type:'private' }
+> ];
+> for(let y of menus){
+>     console.log(y);//返回数组中的每个元素
+> }
+> //希望如下格式
+> /*
+> 索引: 0 ----3
+> 索引: 1 ----10
+> ...
+> 索引: 7 ----18
+> */
+> for(let i=0;i<arr.length;i++){
+>    console.log('索引: '+ i + '----' + arr[i]);
+> }
+> console.log(i);
+> 
+> 
+> for(let j=0;j<menus.length;j++){
+>     console.log('索引: '+ j + '----' + menus[j]);
+> }
+> 
+> //还有没有其他的方法？
+> ```
 
-
-
-
-
-
-
-
-
-
-
+###  ㉗ 数组keys()，数组values()，数组entries()方法 -- 用于遍历数组，都返回一个遍历器对象。
+> 它们都返回一个遍历器对象，可以用for…of循环进行遍历，区别是keys()是对键名的遍历、values()是对键值的遍历，entries()是对键值对的遍历.
+> ``` javascript
+> let arr = [3, 10, 19, 20, 35, 50,15,18 ];
+> console.log(arr.keys());//Array Iterator {} 数组迭代器（遍历器）对象
+> console.log(arr.values());//Array Iterator {} 数组迭代器（遍历器）对象
+> console.log(arr.entries());//Array Iterator {} 数组迭代器（遍历器）对象
+> //对应迭代器，我们使用 for...of循环进行遍历
+> for (let index of arr.keys()) {
+>     console.log('数组的索引：' +  index);//循环输出数组的索引：0到7
+> }
+> for (let value of arr.values()) {
+>     console.log('数组的元素：' + value);//循环输出数组的每个元素
+> }
+> /*
+> 索引：0----3
+> 索引：1----10
+> ....
+> 索引：7----18
+> */
+> for (let [index, value] of arr.entries()) {
+>     console.log('索引：' + index + '----' + value);
+> }
+> //如果不使用for...of循环，可以手动调用遍历器对象的next方法，进行遍历
+> let _entries = arr.entries();
+> //console.log(_entries.next().value); // [0, 3]
+> //console.log(_entries.next().value); // [1, 10]
+> 
+> let [index, value] = _entries.next().value;
+> console.log('索引：' + index + '----' + value);
+> let [index1, value1] = _entries.next().value;
+> console.log('索引：' + index1 + '----' + value1);
+> ```
 
 
 
@@ -1043,5 +1198,6 @@ title: 章节12.javascript基本包装类型
 ##### <a href="/secondless/w-a/javascript基本包装类型.html#_4-通用方法-valueof-、tolocalestring-和-tostring-方法-返回字符串的基本值-写不写都一样" style="margin-left:70px;">② String类型通用方法:valueOf()、toLocaleString()和 toString()方法</a>
 ##### <a href="/secondless/w-a/javascript基本包装类型.html#_5-字符方法-charat-n-返回指定索引位置的字符" style="margin-left:70px;">③ String类型方法:charAt(n)、charCodeAt(n)、数组方式截取字符串、concat(str1...str2)、slice(n,m)、substring、substr、indexOf、lastIndexOf、toLowerCase、toUpperCase、toLocaleLowerCase、toLocaleUpperCase、match、search、replace、replaceAll、split、fromCharCode、localeCompare、startsWith、endsWith、includes、trimStart、trimEnd、trim、repeat、魔法字符串</a>
 #### <a href="/secondless/w-a/javascript基本包装类型.html#_4、array数组的常用方法" style="margin-left:50px;">3、Array数组的常用方法</a>
-##### <a href="/secondless/w-a/javascript基本包装类型.html#_4、array数组的常用方法" style="margin-left:70px;">① join、push、pop、shift、unshift、reverse、sort、concat、slice、splice</a>
-##### <a href="/secondless/w-a/javascript基本包装类型.html#_11-数组includes-searchelement-fromindex-方法-判断数组是否包含一个指定的元素-返回布尔值" style="margin-left:70px;">② includes、reduce、find、findIndex、filter、map、forEach</a>
+##### <a href="/secondless/w-a/javascript数组.html#_2、数组中的属性和内置方法" style="margin-left:70px;">① 数组中的属性length，数组内置方法toLocaleString()、valueOf()和 toString()</a>
+##### <a href="/secondless/w-a/javascript基本包装类型.html#_4、array数组的常用方法" style="margin-left:70px;">② join、push、pop、shift、unshift、reverse、sort、concat、slice、splice</a>
+##### <a href="/secondless/w-a/javascript基本包装类型.html#_11-数组includes-searchelement-fromindex-方法-判断数组是否包含一个指定的元素-返回布尔值" style="margin-left:70px;">③ includes、reduce、find、findIndex、filter、map、forEach</a>
