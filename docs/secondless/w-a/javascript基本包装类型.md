@@ -1010,9 +1010,7 @@ title: 章节12.javascript基本包装类型
 > console.log(arr);//[30, 20, 17, 19, 20, 35, 50, 15, 18]
 > ```
 
->  <span style="display:none;">㉓㉔㉕㉖㉗㉘㉙㉚ ㉛㉜㉝㉞㉟㊱㊲㊳㊴㊵ ㊶㊷㊸㊹㊺㊻㊼㊽㊾㊿</span>
-
-###  ㉕ 数组some() 方法 -- 检测数组所有元素，只要有一个元素通过函数检测返回真，那么就返回真，且后面的元素不在检测,否则返回 假。
+###  ㉖ 数组some() 方法 -- 检测数组所有元素，只要有一个元素通过函数检测返回真，那么就返回真，且后面的元素不在检测,否则返回 假。
 > some()方法对数组中存在的每个元素执行一次函数,如果找到函数返回真值的数组元素,返回真（并且不检查剩余值）,否则返回 false。对空数组元素不执行函数。不改变原始数组。
 > ``` javascript
 > //some()方法的语法
@@ -1051,7 +1049,7 @@ title: 章节12.javascript基本包装类型
 > //原数组不变
 > console.log(arr);//[30, 20, 17, 19, 20, 35, 50, 15, 18]
 > ```
-###  ㉖ 数组 for...of遍历
+###  ㉗ 数组 for...of遍历
 > ``` javascript
 > //普通数组
 > let arr = [3, 10, 19, 20, 35, 50,15,18 ];
@@ -1089,7 +1087,7 @@ title: 章节12.javascript基本包装类型
 > //还有没有其他的方法？
 > ```
 
-###  ㉗ 数组keys()，数组values()，数组entries()方法 -- 用于遍历数组，都返回一个遍历器对象。
+###  ㉘ 数组keys()，数组values()，数组entries()方法 -- 用于遍历数组，都返回一个遍历器对象。
 > 它们都返回一个遍历器对象，可以用for…of循环进行遍历，区别是keys()是对键名的遍历、values()是对键值的遍历，entries()是对键值对的遍历.
 > ``` javascript
 > let arr = [3, 10, 19, 20, 35, 50,15,18 ];
@@ -1122,6 +1120,144 @@ title: 章节12.javascript基本包装类型
 > let [index1, value1] = _entries.next().value;
 > console.log('索引：' + index1 + '----' + value1);
 > ```
+
+###  ㉙ 数组reduceRight() 方法-- 和reduce方法刚好相反，reduce可以看成是数组元素（从左到右）依次处理，reduceRight是（从右往左处理）
+> ``` javascript
+> let arr = [1,2,3,4,5,6,7,8,9];
+> arr.reduce(function(previousValue,currentValue,currentIndex,array){
+>     //重点理解上一个值，可以理解成是return返回的一个 我们经过一系列操作之后返回的一个值
+>     console.log('reduce上一个值经过一系列操作之后返回的一个值：'+ previousValue);
+>     console.log('reduce当前值：'+ currentValue);
+>     console.log('reduce当前值下标：'+ currentIndex);
+>     console.log('reduce数组：'+ array);
+>     //return 10;
+> },0);
+> arr.reduceRight(function(previousValue,currentValue,currentIndex,array){
+>     //重点理解上一个值，可以理解成是return返回的一个 我们经过一系列操作之后返回的一个值
+>     console.log('reduceRight上一个值经过一系列操作之后返回的一个值：'+ previousValue);
+>     console.log('reduceRight当前值：'+ currentValue);
+>     console.log('reduceRight当前值下标：'+ currentIndex);
+>     console.log('reduceRight数组：'+ array);
+>     //return 10;
+> },0);
+> 
+> //求和
+> let $res = arr.reduceRight((previousValue,currentValue)=>{
+>     return previousValue + currentValue;
+> },0);
+> console.log($res);//45
+> 
+> //数组去重不合适了（返回的结果跟原数组比，元素排序相反，结果也有问题）
+> let arr1 = [1,2,3,4,5,6,7,8,9,1,2.3,4,5];
+> let $res1 = arr1.reduceRight((previousValue,currentValue)=>{
+>     !previousValue.includes(currentValue) && previousValue.push(currentValue);
+>     return previousValue;
+> },[]);
+> console.log($res1);//[5, 4, 2.3, 1, 9, 8, 7, 6, 3, 2]
+> 
+> //求数组的最大值
+> let arr2 = [1,2,3,4,5,6,7,8,9];
+> let $res2 =  arr.reduceRight((previousValue,currentValue)=>{
+>     // let i = 0;
+>     // i = (previousValue > currentValue) ? previousValue : currentValue;
+>     // return i;
+>     return previousValue > currentValue ?  previousValue : currentValue;
+> });
+> console.log($res2);//9
+> 
+> //扁平化数组（不合适）
+> //将二维数组转成一维数组
+> let arr3 = [[1,2],[3,4],[5,6],[7,8],[9,10]];
+> let $res3 = arr3.reduceRight((previousValue,currentValue)=>{
+>     //解构用法
+>     return [...previousValue,...currentValue];
+> });
+> console.log($res3);//[9, 10, 7, 8, 5, 6, 3, 4, 1, 2]
+> ```
+
+>  <span style="display:none;">㉓㉔㉕㉖㉗㉘㉙㉚ ㉛㉜㉝㉞㉟㊱㊲㊳㊴㊵ ㊶㊷㊸㊹㊺㊻㊼㊽㊾㊿</span>
+
+###  ㉚ 数组flat() 方法 --按照一个可指定的深度递归遍历数组，并将所有元素与遍历到的子数组中的元素合并为一个新数组返回（将多维数组解构成一维数组）
+> 返回一个包含将数组与子数组中所有元素的新数组
+> ``` javascript
+> //语法
+> //array.flat()
+> //array.flat(depth) 指定要提取嵌套数组的结构深度，默认值为 1
+> 
+> let arr1 = [1, 2, [3, 4]];
+> console.log(arr1.flat()); // [1, 2, 3, 4]
+> 
+> let arr2 = [1, 2, [3, 4, [5, 6]]];
+> console.log(arr2.flat());// [1, 2, 3, 4, [5, 6]]
+> 
+> let arr3 = [1, 2, [3, 4, [5, 6]]];
+> console.log(arr3.flat(2));// [1, 2, 3, 4, 5, 6]
+> 
+> //使用 Infinity，可展开任意深度的嵌套数组
+> let arr4 = [1, 2, [3, 4, [5, 6, [7, 8, [9, 10]]]]];
+> console.log(arr4.flat(Infinity));// [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+> //所以我们上面的reduce用法扁平化数组，也可以这么写
+> let arr5 = [[1,2],[3,4],[5,6],[7,8],[9,10]];
+> console.log(arr5.flat(Infinity));// [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+> 
+> //flat() 方法会移除数组中的空项：
+> let arr6 = [1, 2, , 4, 5];
+> console.log(arr6.flat());// [1, 2, 4, 5]
+> ```
+
+
+###  ㉛数组flatMap() 方法 --首先使用映射函数映射每个元素，然后将结果压缩成一个新数组。创建一个新的数组，其中每个元素都是回调函数的结果，结构深度（depth）为 1 只有一层深度。
+> 它与 map 连着深度值为 1 的 flat 几乎相同，但 flatMap 通常在合并成一种方法的效率稍微高一些。
+> ``` javascript
+> //flatMap() 方法的语法：
+> //flatMap(function(currentValue, index, array),thisArg)
+> //currentValue:当前正在数组中处理的元素,index:可选的。数组中正在处理的当前元素的索引。array:可选的。被调用的数组.
+> //thisArg:可选的。执行 callback 函数时 使用的this 值
+> let arr = [3, 10, 19, 20, 35, 50,15,18 ];
+> arr.flatMap(function(currentValue, index, arr){
+>     console.log('当前数组元素:' + currentValue);
+>     console.log('当前数组元素索引:' + index);
+>     console.log('当前元素所属的数组对象:' + arr);
+> });
+> 
+> //它与 map 连着深度值为 1 的 flat 几乎相同，但 flatMap 通常在合并成一种方法的效率稍微高一些
+> let arr1 = [1, 2, 3, 4];
+> //要求返回结果：[[2], [4], [6], [8]]
+> //map()方法怎么写：
+> // let arr1_map = arr1.map((currentValue, index, arr)=>{
+> //     return [currentValue * 2];
+> // });
+> // console.log(arr1_map);//[[2], [4], [6], [8]]
+> let $arr1_map = arr1.map(a=>[a*2]);
+> console.log($arr1_map);//[[2], [4], [6], [8]]
+> 
+> //flatMap()怎么写呢？
+> let $arr1_flatmap = arr1.flatMap(a=>[a*2]);
+> console.log($arr1_flatmap);//[2, 4, 6, 8]
+> 
+> let $arr1_flatmap1 = arr1.flatMap(a=>[[a*2]]);
+> console.log($arr1_flatmap1);//[[2], [4], [6], [8]]
+> 
+> //虽然上面的代码使用 map 和 flatMap 好像都可以, 现在看一下区别
+> let arr2 = ['I LOVE YOU', '', 'china'];
+> //将上面数组拆分成单个词组成的新数组
+> // let arr2_map = arr2.map((currentValue, index, arr)=>{
+> //     return currentValue.split(' ');
+> // });
+> // console.log(arr2_map);// [['I', 'LOVE', 'YOU'],[''],['china']] 
+> let $arr2_map = arr2.map(a=>a.split(' '));
+> console.log($arr2_map);// [['I', 'LOVE', 'YOU'],[''],['china']] 
+> 
+> let $arr2_flatmap = arr2.flatMap(a=>a.split(' '));
+> console.log($arr2_flatmap);//['I', 'LOVE', 'YOU', '', 'china']
+> 
+> let $arr3_flatmap = arr2.flatMap(a=>[a.split(' ')]);
+> console.log($arr3_flatmap);//[['I', 'LOVE', 'YOU'],[''],['china']] 
+> ```
+
+
+
+
 
 
 
@@ -1201,3 +1337,4 @@ title: 章节12.javascript基本包装类型
 ##### <a href="/secondless/w-a/javascript数组.html#_2、数组中的属性和内置方法" style="margin-left:70px;">① 数组中的属性length，数组内置方法toLocaleString()、valueOf()和 toString()</a>
 ##### <a href="/secondless/w-a/javascript基本包装类型.html#_4、array数组的常用方法" style="margin-left:70px;">② join、push、pop、shift、unshift、reverse、sort、concat、slice、splice</a>
 ##### <a href="/secondless/w-a/javascript基本包装类型.html#_11-数组includes-searchelement-fromindex-方法-判断数组是否包含一个指定的元素-返回布尔值" style="margin-left:70px;">③ includes、reduce、find、findIndex、filter、map、forEach</a>
+##### <a href="/secondless/w-a/javascript基本包装类型.html#_18-数组indexof-方法-返回数组中某个指定的元素位置-从头到尾查找数组元素" style="margin-left:70px;">④ indexOf、lastIndexOf、at、fill、copyWithin、isArray、es6的扩展运算符、every、some、for...of遍历、keys()、values()、entries()、reduceRight、flat、flatMap</a>
