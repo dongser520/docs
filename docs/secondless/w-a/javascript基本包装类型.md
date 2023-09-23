@@ -953,7 +953,7 @@ title: 章节12.javascript基本包装类型
 > ```
 > 
 
-###  ㉓ 数组isArray() 方法 -- 判断一个对象是否为数组
+###  ㉓ 数组isArray() 方法 -- 静态方法，判断一个对象是否为数组
 > 如果对象是数组返回 true，否则返回 false。前面我们提到判断变量属性：<a href="/secondless/w-a/内置对象：Global、Math对象，变量、作用域和内存问题.html#_6-检测变量类型-typeof-、instanceof" target="_blank">章节10_3、变量_⑥ 检测变量类型：typeof()、instanceof()</a>
 > ``` javascript
 > //是否是数组
@@ -1175,7 +1175,6 @@ title: 章节12.javascript基本包装类型
 > console.log($res3);//[9, 10, 7, 8, 5, 6, 3, 4, 1, 2]
 > ```
 
->  <span style="display:none;">㉓㉔㉕㉖㉗㉘㉙㉚ ㉛㉜㉝㉞㉟㊱㊲㊳㊴㊵ ㊶㊷㊸㊹㊺㊻㊼㊽㊾㊿</span>
 
 ###  ㉚ 数组flat() 方法 --按照一个可指定的深度递归遍历数组，并将所有元素与遍历到的子数组中的元素合并为一个新数组返回（将多维数组解构成一维数组）
 > 返回一个包含将数组与子数组中所有元素的新数组
@@ -1254,17 +1253,127 @@ title: 章节12.javascript基本包装类型
 > let $arr3_flatmap = arr2.flatMap(a=>[a.split(' ')]);
 > console.log($arr3_flatmap);//[['I', 'LOVE', 'YOU'],[''],['china']] 
 > ```
+>
+>  <span style="display:none;">㉓㉔㉕㉖㉗㉘㉙㉚㉛㉜㉝㉞㉟㊱㊲㊳㊴㊵ ㊶㊷㊸㊹㊺㊻㊼㊽㊾㊿</span>
+>
+###  ㉜ 数组from()方法 -- 静态方法，将一个类数组对象转为数组
+> 类数组对象就是类似于数组的对象，如我们之前学习的arguments对象[详见：<a href="/secondless/w-a/javascript函数.html#_3、函数的arguments-对象" target="_blank">章节5.javascript函数_3、函数的arguments 对象</a>] ，它是一个对象，但是它的取值可以arguments[0],就是说它能像数组一样取值操作，像这种类似数组的对象，我们称之为：类数组对象，但是它毕竟不是数组。所以，我们可以用from()方法，将一个类数组对象转为数组。
+> ``` javascript
+> //语法：它是一个静态方法：类型.方法(参数)
+> //Array.from(类数组对象);
+> function text(){
+>     //return arguments[0];
+>     //return arguments[1];
+>     //return arguments[0] + ',胸围：'+arguments[1]+',体重：'+arguments[2]+',升高：'+arguments[3];
+>     //参数不够则是undefined
+>     //return arguments[0] + ',胸围：'+arguments[1]+',体重：'+arguments[2]+',升高：'+arguments[3]+arguments[4];
+> 
+>     //return arguments;
+>     return Array.from(arguments);//['迪丽热巴', '85cm', '52kg', '172cm']
+> }
+> console.log(text('迪丽热巴','85cm','52kg','172cm'));// '迪丽热巴,胸围：85cm,体重：52kg,升高：172cm'
+> ```
+###  ㉝ 数组of()方法 -- 静态方法，将一组数据转为数组
+> 这个方法主要是为了解决一个缺陷：使用 new Array()创建数组时，括号内传一个参数，默认会将该数据认为是数据长度的问题。[详见：<a href="/secondless/w-a/javascript数组.html#_2-使用-new-关键字创建-array-数组-new-关键字可以省略" target="_blank">章节7.javascript数组_1、创建及读取数组_使用 new 关键字创建 Array（数组）</a>]
+> ``` javascript
+> //静态方法，语法：Array.of(数据1,数据2，数据3...)，如：Array.of(100,123,305)
+> console.log(Array.of(100,123,305));// [100, 123, 305]
+> 
+> //这个方法主要是为了解决一个缺陷：使用 new Array()创建数组时，括号内传一个参数，默认会将该数据认为是数据长度的问题。
+> console.log(new Array(1,2,3));//[1, 2, 3]
+> 
+> let text = new Array(5);//let text = Array(5);
+> alert(text);// ,,,, 4个逗号，需要赋值 
+> 
+> //如果此时，我认为就是数组 [5],可以这么写
+> console.log(Array.of(5));//[5] 但一般我们用字面量声明： let arr = [5];
+> ```
 
 
-
-
-
-
-
-
-
-
-
+##  5、集合类型: Set()方法 
+Set()方法 : 是一组唯一值的集合(数组去重),每个值只能在 Set 中出现一次,可以容纳任何数据类型的值.
+> es6新增的 Set 是一种新集合类型（它可以用来处理数组，所以我们在数组用法这章也讲一下这个方法）。
+> ### 1. 创建Set集合实例(使用new关键词，可以类比于之前学习的Date，时间日期对象，说明Set也是对象的一种)
+> 使用 new 关键字和 Set 构造函数可以创建一个空集合：
+> ``` javascript
+> let s = new Set();
+> console.log(typeof s);//'object'
+> ```
+> ### 2. 如果想在创建的同时初始化实例，则可以给 Set 构造函数传入一个可迭代对象，其中需要包含插入到新集合实例中的元素(Set 可以包含任何js数据类型作为值)：
+> ``` javascript
+> let s1 = new Set(["val1", 1, true, {}, undefined, function fun() {}]);
+> console.log(s1);
+> ```
+> ### 3. Set集合实例转数组，Set结构不会添加重复的值（处理数组去重等问题）
+> ``` javascript
+> // Set实例转数组
+> let _set = new Set([1, 2, 3]);
+> console.log(Array.from(_set)); // [1, 2, 3]
+> // Set集合结构不会添加重复的值
+> let s = new Set([1, 1, 2, 3, 4, 4, 5, 6, 7, 4, 2, 1]);
+> console.log(Array.from(s)); //  [1, 2, 3, 4, 5, 6, 7]
+> //经常用Set集合解决数组去重问题
+> let arr = [1, 2, 3, 3, 4, 5, 4, 4, 2, 1, 3];
+> console.log(Array.from(new Set(arr))); // [1, 2, 3, 4, 5]
+> ```
+> ### 4. Set集合size属性：获取Set集合实例的元素个数
+> ``` javascript
+> let s = new Set([1, 2, 3]);
+> console.log(s.size); // 3
+> ```
+> ### 5. Set集合add()方法：添加元素
+> ``` javascript
+> let s = new Set();
+> s.add(1).add(2).add(3);
+> console.log(Array.from(s)); // [1, 2, 3]
+> ```
+> ### 6. Set集合has()方法：查询Set实例是否存在某元素(返回布尔值)
+> ``` javascript
+> let s = new Set();
+> s.add(1).add(2).add(3);
+> console.log(s.has(1)); // true
+> ```
+> ### 7. Set集合delete()方法：删除Set实例中某个元素(返回布尔值)
+> ``` javascript
+> let s = new Set();
+> s.add(1).add(2);
+> console.log(s.delete(1));//true
+> console.log(Array.from(s)); // [2]
+> ```
+> ### 8. Set集合clear()方法：清空Set实例
+> ``` javascript
+> let s = new Set();
+> s.add(1).add(2).add(3);
+> console.log(Array.from(s)); // [1, 2, 3]
+> console.log(s.clear());//undefined 没有返回值，所以直接写：s.clear()
+> console.log(Array.from(s)); // []
+> ```
+> ### 9. Set集合迭代遍历数据：keys():返回键名，values(): 返回键值，entries(): 返回键值对, 注意它的键名=键值
+> ``` javascript
+> let s = new Set();
+> s.add(1).add(2).add('迪丽热巴').add({age:31});
+> console.log(s);
+> console.log(Array.from(s.keys()));
+> console.log(Array.from(s.values()));
+> console.log(Array.from(s.entries()));
+> ```
+> ### 10.Set集合迭代遍历数据：for...of遍历，forEach遍历
+> ``` javascript
+> let s = new Set();
+> s.add(1).add(2).add('迪丽热巴').add({age:31});
+> 
+> //for..of遍历
+> for (let i of s) {
+> 	console.log('for..of遍历结果：' + i);
+> }
+> 
+> //forEach遍历
+> s.forEach(function(currentValue,index){
+>    console.log('当前值：'+currentValue+'----索引键：'+index);
+> });
+> 
+> s.forEach((value,key)=>console.log('当前值：'+value+'----索引键：'+key));
+> ```
 
 
 <br/><br/><br/><br/><br/><br/>
