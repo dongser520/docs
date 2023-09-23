@@ -128,7 +128,7 @@ title: 章节6.javascript对象
 > alert(girl.Cando); //调用方法（函数），如果没有圆括号，会打印代码
 > alert(girl.Cando()); //调用对象中的方法，打印返回值
 > ```
-### ③ 枚举对象属性和值（键值对）
+### ③ 枚举对象属性和值（键值对）---for...in(遍历对象)
 > ``` javascript
 > for (const key in girl) {
 >     console.log('对象的属性名：'+ key);
