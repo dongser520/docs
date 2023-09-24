@@ -1376,6 +1376,74 @@ Set()方法 : 是一组唯一值的集合(数组去重),每个值只能在 Set �
 > ```
 
 
+## 6、小结及拓展
+###  ① 求两个数组的并集、交集、差集，得到的结果是一个新数组
+> ``` javascript
+> let arr1 = [10,21,35,54,10,35,3];
+> let arr2 = [21,35,77,61,14,77];
+> 
+> // 求并集（就是两个数组合并之后，不能有重复的元素）
+> let $arr = [...arr1,...arr2];
+> console.log($arr);//[10, 21, 35, 54, 10, 35, 3, 21, 35, 77, 61, 14, 77]
+> $arr = new Set($arr);
+> console.log($arr);//Set集合，然后转成新数组
+> console.log(Array.from($arr));// [10, 21, 35, 54, 3, 77, 61, 14]
+> //简写
+> let _$arr = Array.from(new Set([...arr1,...arr2]));
+> console.log(_$arr);// [10, 21, 35, 54, 3, 77, 61, 14]
+> //new Set集合可以用扩展运算符展开
+> console.log([...new Set([...arr1,...arr2])]);// [10, 21, 35, 54, 3, 77, 61, 14]
+>
+>
+> //求交集（两个数组中都有的元素）
+> let arr1 = [10,21,35,54,10,35,3];
+> let arr2 = [21,35,77,61,14,77];
+> let arr = arr1.filter((currentValue,index,array)=>{
+>     return arr2.includes(currentValue);
+> });
+> console.log(arr);//[21, 35, 35] 去重
+> let _arr = Array.from(new Set(arr));
+> console.log(_arr);//[21, 35]
+> //简写
+> let $arr = [...new Set(arr1.filter(item => arr2.includes(item)))];
+> console.log($arr);//[21, 35]
+> 
+> 
+> //求差集（就是两个数组合并之后，不能有重复的元素：并集 -- 去掉两个数组中都有的元素：交集）
+> //即：并集里面去掉交集的元素
+> let arr1 = [10,21,35,54,10,35,3];
+> let arr2 = [21,35,77,61,14,77];
+> //并集
+> let union = [...new Set([...arr1,...arr2])];//[10, 21, 35, 54, 3, 77, 61, 14]
+> //交集
+> let cross = [...new Set(arr1.filter(item => arr2.includes(item)))];//[21, 35]
+> let arr = union.filter(a => !cross.includes(a));
+> console.log(arr);// [10, 54, 3, 77, 61, 14]
+> ```
+
+###  ② 获取数组中的随机项（验证码参考）
+> ``` javascript
+> let loves = ['黑丝空姐','性感车模','迪丽热巴','古力娜扎','梁咏琪','华仔','古巨基'];
+> //console.log(loves[1]);
+> //重点需要获取数组下标，随机下标
+> let i = Math.floor(Math.random() * loves.length);
+> console.log(loves[i]);
+> 
+> 
+> //获取四位验证码的简易模型
+> function getCode(codeLength){
+>     let code = '';
+>     let arr = new Array(0,1,2,3,4,5,6,7,8,9,'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R',
+>     'S','T','U','V','W','X','Y','Z');//36个随机数
+>     for(let i=0;i<codeLength;i++){
+>         let index = Math.floor(Math.random() * arr.length);
+>         code += arr[index];
+>     }
+>     return code;
+> }
+> console.log(getCode(4));
+> ```
+
 <br/><br/><br/><br/><br/><br/>
 
 
