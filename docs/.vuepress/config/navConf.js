@@ -3,15 +3,22 @@ module.exports = [
     { text: '第一学期课程', link: '/aboutless' },
     { text: '第二学期课程', link: '/secondless/' },
     {
-        text: '单列表',
-        ariaLabel: '单列表 Menu',
+        text: '实用方法',
+        ariaLabel: '实用方法菜单',
         items: [
-            { text: 'Chinese', link: '/language/chinese/' },
-            { text: 'Japanese', link: '/language/japanese/' }
+            { text: '定位相关', link: '/web/methods/定位相关' },
+            { text: '地图相关', link: '/web/methods/地图相关' }
         ]
     },
     {
-        text: '列表分组',
+        text: '实用网站',
+        ariaLabel: '实用网站菜单',
+        items: [
+            { text: '实用接口', link: '/web/methods/实用接口' },
+        ]
+    },
+    {
+        text: '关于',
         items: [
             {
                 text: '栏目',
@@ -23,7 +30,7 @@ module.exports = [
                 ]
             },
             {
-                text: '外部链接',
+                text: '友情链接',
                 items: [
                     { text: '百度', link: 'https://www.baidu.com', target: '_blank' },
                     { text: '谷歌', link: 'https://google.com', target: '_self', rel: '' },
