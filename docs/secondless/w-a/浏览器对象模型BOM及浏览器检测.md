@@ -10,42 +10,342 @@ title: 章节14.浏览器对象模型BOM及浏览器检测
 ## 1、window 对象
 > BOM 的核心对象是 window，它表示浏览器的一个实例。window 对象处于js结构的最顶层，对于每个打开的窗口，系统都会自动为其定义 window 对象。
 > <img src="/2-1-14-01.jpg" alt="window 对象" class="zoom-custom-imgs" style="display:inline-block;"> <br/>
+> 总结一下：<br/>
+> 1. window对象是最顶层的对象；
+> 2. window对象有六大属性，这六大属性本身也是对象；
+> 3. window对象旗下的document属性，本身也是对象，并且document对象旗下有五大属性
+> 4. document对象旗下这5大属性也是对象
 > ### ① window 对象的属性和方法
-> window 对象有一系列的属性，这些属性本身也是对象。
+> window 对象有一系列的属性，这些属性本身也是对象。<br/><br/>
+> <b>window 对象的属性</b>
+> |  属性                          |  说 明                                  |   
+> |   :--:                         |   :--:                                 |    
+> |  closed                        |  当窗口关闭时为真                        | 
+> |  defaultStatus                 |  窗口底部状态栏显示的默认状态消息          | 
+> |  document                      |  窗口中当前显示的文档对象                 | 
+> |  frames                        |  窗口中的框架对象数组                     | 
+> |  history                       |  保存有窗口最近加载的 URL                 | 
+> |  length                        |  窗口中的框架数                           | 
+> |  location                      |  当前窗口的 URL                        | 
+> |  name                          |  窗口名                                 | 
+> |  offscreenBuffering            |  用于绘制新窗口内容并在完成后复制已存在的内容，控制屏幕更新                        | 
+> |  opener                        |  打开当前窗口的窗口                        | 
+> |  parent                        |  指向包含另一个窗口的窗口（由框架使用）                        | 
+> |  screen                        |  显示屏幕相关信息，如高度、宽度（以像素为单位）                        | 
+> |  self                          |  指示当前窗口                            | 
+> |  status                        |  描述由用户交互导致的状态栏的临时消息                        | 
+> |  top                           |  包含特定窗口的最顶层窗口（由框架使用）                       | 
+> |  window                        |  指示当前窗口，与 self 等效                        | 
+> <b>window 对象的方法</b>
+> |  方法                           |  功能                                   |   
+> |   :--:                          |   :--:                                 |  
+> |  alert(text)                    |  创建一个警告对话框，显示一条信息          |   
+> |  blur()                         |  将焦点从窗口移除          |
+> |  clearInterval(interval)        |  清除之前设置的定时器间隔                 |
+> |  clearTimeOut(timer)            |  清除之前设置的超时                       |
+> |  close()                        |  关闭窗口                                |
+> |  confirm()                      |  创建一个需要用户确认的对话框              |
+> |  focus()                        |  将焦点移至窗口                          |
+> |  open(url,name,[options])       |  打开一个新窗口并返回新 window 对象        |
+> |  prompt(text,defaultInput)      |  创建一个对话框要求用户输入信息          |
+> |  scroll(x,y)                    |  在窗口中滚动到一个像素点的位置          |
+> |  setInterval(expression,milliseconds)  |  经过指定时间间隔计算一个表达式          |
+> |  setInterval(function,millisenconds,[arguments])  |  经过指定时间间隔后调用一个函数          |
+> |  setTimeout(expression,milliseconds)              |  在定时器超过后计算一个表达式          |
+> |  setTimeout(expression,milliseconds,[arguments])  |  在定时器超过时后计算一个函数          |
+> |  print()                        |  调出打印对话框          |
+> |  find()                         |  调出查找对话框          |
+> <b>window对象下的属性和方法的调用</b> <br/>
+> 可以使用 window.属性、window.方法()或者直接属性、方法()
+的方式调用。例如：window.alert()和 alert()是一个意思。
 
 
+## 2、window对象：系统对话框
+> 浏览器通过 alert()、confirm()和 prompt()方法可以调用系统对话框向用户显示信息。系
+统对话框与浏览器中显示的网页没有关系，也不包含 HTML。
+> ### ① 弹出警告:alert()
+> ``` javascript
+> alert('迪丽热巴');
+> window.alert('迪丽热巴');
+> ```
+> ### ② 确定和取消:confirm()
+> ``` javascript
+> confirm('请确定或者取消'); //这里按哪个都无效
+> //confirm 本身有返回值，返回的是布尔值,点击确定返回true,点击取消返回false
+> if (confirm('是否提交数据')) { 
+>     console.log('您按了确定！'); //按确定返回 true
+> } else {
+>     console.log('您按了取消！'); //按取消返回 false
+> }
+> ```
+> ### ③ 输入提示框:prompt()
+> 两个参数，一个提示，一个默认值，本身返回输入的值
+> ``` javascript
+> let num = prompt('请输入一个数字', 0); 
+> console.log(num); //返回值可以得到
+> 
+> let num = prompt('请输入一个数字', 0);
+> if(num != null){
+>     console.log(num);
+> }
+> ```
+> 
+## 3、window对象：调出打印机print()
+> ``` javascript
+> print(); //打印  window.print();
+> ```
+
+## 4、window对象：网页新建窗口open()
+> 使用 window.open()方法可以导航到一个特定的 URL，也可以打开一个新的浏览器窗口。它可以接受四个参数：1.要加载的 URL；2.窗口的名称或窗口目标；3.一个特性字符串；4.一个表示新页面是否取代浏览器记录中当前加载页面的布尔值。
+> ``` javascript
+> open('https://www.baidu.com'); //新建页面并打开百度
+> //不命名会每次打开新窗口，命名的第一次打开新窗口，之后在这个窗口中加载。
+> open('https://www.baidu.com','baidu'); //新建页面并命名窗口并打开百度
+> //窗口目标是提供页面的打开的方式，比如本页面，还是新建。
+> open('https://www.baidu.com','_parent'); //在本页窗口打开百度,_blank 是新建
+> ```
+> 第三个是字符串参数
+> |  设置                           |  值                            |   说明                                   |   
+> |   :--:                          |   :--:                        |  :--:                                   | 
+> |  width                          |  数值                         |   新窗口的宽度。不能小于 100               |
+> |  height                         |  数值                         |   新窗口的高度。不能小于 100               |
+> |  top                            |  数值                         |   新窗口的 Y 坐标。不能是负值               |
+> |  left                           |  数值                         |   新窗口的 X 坐标。不能是负值               |
+> |  location                       |  yes 或 no                    |   是否在浏览器窗口中显示地址栏。不同浏览器默认值不同         |
+> |  menubar                        |  yes 或 no                    |   是否在浏览器窗口显示菜单栏。默认为 no               |
+> |  resizable                      |  yes 或 no                    |   是否可以通过拖动浏览器窗口的边框改变大小。默认为 no               |
+> |  scrollbars                      |  yes 或 no                    |   如果内容在页面中显示不下，是否允许滚动。默认为 no               |
+> |  status                         |  yes 或 no                    |   是否可以通过拖动浏览器窗口的边框改变大小。默认为 no               |
+> |  toolbar                      |  yes 或 no                    |   是否在浏览器窗口中显示工具栏。默认为 no               |
+> |  fullscreen                      |  yes 或 no                    |   浏览器窗口是否最大化，仅限 IE             |
+> ``` javascript
+> open('http://www.baidu.com','baidu','width=400,height=400,top=200,left=200,scrollbars=yes');
+> ```
+> <b>open 本身返回子窗口的window对象</b>
+> ``` javascript
+> let win = open('http://www.baidu.com','baidu','width=400,height=400,top=200,left=200,scrollbars=yes');
+> win.alert(123);
+> ```
+
+## 5、window对象：窗口页面的位置和大小
+> ### ① 窗口页面的位置：screenX（screenLeft）和 screenY（screenTop）
+> 用于表示窗口相对于屏幕左边和上边的位置的属性，在以前的老版本浏览器上，提供了如下方法：
+> 1. screenLeft 和 screenTop 属性：支持的浏览器有：IE、Safari、Opera 和 Chrome（就火狐不支持）
+> 2. screenX 和 screenY 属性：支持的浏览器有：Firefox、Safari 和 Chrome
+> 所以，我们以前的程序员要为浏览器做兼容处理
+> ``` javascript
+> console.log(screenLeft);
+> console.log(screenTop);
+> console.log(screenX);
+> console.log(screenY);
+> ```
+> 说明：由于浏览器的不断升级以及微软抛弃了IE浏览器，现在的浏览器标准逐渐统一，我们采用screenX 和 screenY 属性即可。另外，我们常用的搜狗浏览器、360浏览器、QQ浏览器等，都是谷歌内核，所以按照的也是谷歌的标准，即谷歌浏览器支持的属性，它们也支持。
+> ### ② 窗口页面的大小：innerWidth和 innerHeight，outerWidth 和 outerHeight，document.documentElement.clientWidth和document.documentElement.clientHeight
+> ``` javascript
+> //所有浏览器都支持（性能稍差）
+> console.log('页面长度（可视宽度）:' +  document.documentElement.clientWidth);
+> console.log('页面高度（可视高度）:' +  document.documentElement.clientHeight);
+> 
+> //除IE都支持
+> console.log('页面长度（可视宽度）:' + innerWidth); //页面长度（可视宽度）
+> console.log('页面高度（可视高度）:' + innerHeight); //页面高度（可视高度）
+> console.log('页面长度+边框:' + outerWidth); //页面长度+边框
+> console.log('页面高度+边框:' + outerHeight); //页面高度+边框
+> ```
+> 说明：由于浏览器的不断升级以及微软抛弃了IE浏览器，现在的浏览器标准逐渐统一，我们采用innerWidth和 innerHeight，outerWidth 和 outerHeight
+
+## 6、window对象：定时器（超时调用和间歇调用）
+> js是单线程语言，但它允许通过设置超时值和间歇时间值来调度代码在特定的时刻执行。
+> ### ① 超时调用：setTimeout()方法
+> setTimeout()方法在指定的时间过后执行代码，接受两个参数：第一个参数可以是字符串，里面可以是代码块，因为它有解析功能。第二个参数是毫秒数的超时时间。
+> ``` javascript
+> //写法1：不建议直接使用字符串:容易写错，不容易扩展
+> console.log(100);
+> setTimeout("console.log(100)", 3000);
+> //写法2：先写函数，在传入函数名
+> function text(){
+>     console.log(100);
+> }
+> setTimeout(text, 3000);
+> //写法3：
+> setTimeout(function(){
+>    console.log(100);
+> },3000);
+> setTimeout(() => {
+>     console.log(100);
+> }, 3000);
+> ```
+> 
+> ### ② 取消超时调用：clearTimeout()方法
+> 调用 setTimeout()之后，该方法会返回一个数值 ID，表示超时调用。这个超时调用的 ID是计划执行代码的唯一标识符，可以通过它来取消超时调用。要取消尚未执行的超时调用计划，可以调用 clearTimeout()方法并将相应的超时调用 ID作为参数传递给它。
+> ``` javascript
+> //把超时调用的 ID 复制给 text
+> let time = setTimeout(() => {
+>     console.log(100);
+> }, 1000);
+> console.log(time);
+> clearTimeout(time); //把 ID 传入，取消超时调用
+> ```
+> ### ③ 间歇调用：setInterval()方法
+> setInterval()方法是每隔指定的时间就执行一次代码,写法和超时调用类似
+> ``` javascript
+> let n = 0;
+> setInterval(function(){
+>     console.log(n++);
+> },1000);
+> ```
+> 上面的代码按照1秒不停的执行下去，只有页面卸载关闭或者被取消，才会从内存移除。因此，取消间歇调用的重要性要远远高于取消超时调用，因为在不加干涉的情况下，间歇调用将会一直执行到页面关闭，那么怎么取消间歇调用呢？
+> ### ④ 取消间歇调用：clearInterval()方法
+> 它和超时调用取消方法类似
+> ``` javascript
+> let n = 0;
+> let _time =  setInterval(function(){
+>     console.log(n++);
+> },1000);
+> clearInterval(_time);
+> ```
+> ### ⑤ 模拟定时器功能，超时调用模拟间歇调用
+> ``` javascript
+> let num = 0;
+> let max = 5;
+> setInterval(function(){
+>     num++;
+>     console.log(num); 
+>     if(num == max){
+>         clearInterval(this); 
+>         console.log('加到5了，停止输出');
+>     }
+> },1000);
+>
+> //事实上到了5秒之后，仍然在打印，this无法指向本身ID,也就是定时器ID不明确，无法取消
+> let num = 0;
+> let max = 5;
+> let ID = null;
+> function text(){
+>     num++;
+>     console.log(num); 
+>     if(num == max){
+>         clearInterval(ID);
+>         console.log('加到5了，停止输出');
+>     }
+> }
+> ID = setInterval(text,1000);
+>
+> //通过上面的例子可以看出，在开发环境下，很少使用真正的间歇调用，因为需要根据情况来取消 ID，
+> //并且可能造成同步的一些问题，我们建议不使用间歇调用，而去使用超时调用。
+> //一般，使用超时调用来模拟间歇调用是一种最佳模式
+> let num = 0;
+> let max = 5;
+> setTimeout(text, 1000);
+> //text();
+> function text(){
+>     num++;
+>     console.log(num);
+>     if(num == max){
+>         console.log('5秒到了，停止打印')
+>     }else{
+>         setTimeout(text,1000);
+>     }
+> }
+> //在使用超时调用时，没必要跟踪超时调用 ID，因为每次执行代码之后，如果不再设置另一次超时调用，调用就会自行停止。
+> ```
+
+## 7、location 对象 
+> location 是 BOM 对象之一，它提供了与当前窗口中加载的文档有关的信息，还提供了一些导航功能。事实上，location 对象是 window 对象的属性，也是 document 对象的属性；所以 window.location 和 document.location 等效。<br/>
+> 这个对象获取的是网址相关信息，在本地不方便观察，老师将一个test.html这个网页放到了服务器上给大家介绍。访问：https://www.51yrc.com:443/test.html?id=5&name=reba#锚点
+> ### ① location 对象：获取网址相关信息
+> ``` javascript
+> //获取当前的 URL信息
+> console.log(location);
+> console.log(window.location);
+> console.log(document.location);
+> 
+> //https://www.51yrc.com:443/test.html?id=5&name=reba#锚点
+> 
+> //hash  如果该部分存在，表示锚点部分
+> console.log(location.hash); //#锚点
+> //同样，也可以设置
+> location.hash = '#哈哈哈';
+> //跳转到新的网址： https://www.51yrc.com:443/test.html?id=5&name=reba#哈哈哈
+> 
+> //host 主机名：端口号
+> console.log(location.host); //www.51yrc.com:443
+> //hostname 主机名(域名)
+> console.log(location.hostname);//www.51yrc.com
+> //href  整个 URL(完整网址)
+> console.log(location.href);//https://www.51yrc.com:443/test.html#锚点
+> //origin 
+> console.log(location.origin);//https://www.51yrc.com:443
+> //pathname 路径名
+> console.log(location.pathname);// /test.html
+> //port 端口号
+> console.log(location.port); // 443
+> //protocol 协议: http https ftp 等等
+> console.log(location.protocol); // https:
+> //search 查询字符串
+> console.log(location.search); // ?id=5&name=reba
+> ```
+> 说明：location对象多用于动态生成二维码网址的时候使用，获取相关网址数据。同学们不需要记，用的时候，可以通过console.log(location);查看获取你想要的相应部分数据。
+
+> ### ② location 对象：assign()方法跳转到指定页面，与 href 等效
+> ``` javascript
+> // location.href = 'https://www.baidu.com';
+> location.assign('https://www.baidu.com');
+> ```
+> ### ③ location 对象：reload()方法，刷新页面
+> ``` javascript
+> location.reload();//最有效的重新加载，有可能从缓存加载，可能不会更新页面数据
+> location.reload(true);//强制加载，从服务器源头重新加载, 加载会慢一些，但是如果有数据更新会更新页面数据
+> ```
+> ### ④ location 对象：repalce()方法，用新的 URL 替换当前页面
+> ``` javascript
+> 
+> location.replace('test.html?id=5');
+> location.href = 'https://www.baidu.com';//部分浏览器会有后退按钮，返回上一页
+> location.replace('https://www.baidu.com');//没有后退按钮
+> //以上两种跳转，根据自己的业务确定哪一种，href用的较多
+> ```
+> ### ⑤ 获取网址url参数中的键值对
+> ``` javascript
+> //https://www.51yrc.com:443/test.html?id=5&name=reba#锚点
+> function getArgs(){
+>     console.log(location.search);// ?id=5&name=reba
+>     console.log(location.search.substring(1));//id=5&name=reba
+>     let search = location.search.length > 0 ? location.search.substring(1):'';
+>     console.log(search);//id=5&name=reba
+>     let items = search.split('&');
+>     console.log(items);// [id=5,name=reba]
+> 
+>     let item=null,name=null,value=null;
+>     let arr = [];
+>     for(let i=0;i<items.length;i++){
+>          console.log(items[i]); //id=5  name=reba
+>          item = items[i].split('=');
+>          console.log(item);//['id', '5']  ['name', 'reba']
+>          name = item[0];
+>          value = item[1];
+>          console.log(name);// id   name
+>          console.log(value);// 5   reba
+>          arr[name] = value;
+>     }
+>     return arr;//[id: '5', name: 'reba']
+> }
+> 
+> console.log(getArgs());//[id: '5', name: 'reba']
+> let arrs = getArgs();
+> console.log(arrs['id']);//5
+> console.log(arrs['name']);//reba
+> ```
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+## 8、history 对象 : 属性:length，方法：back()、forward()、go(num)
+> history 对象是 window 对象的属性，它保存着用户上网的记录，从窗口被打开的那一刻算起。
+> ``` javascript
+> console.log(history.length);//历史记录条数
+> //history.back();//历史记录前一条网址
+> //history.forward();//历史记录后一条网址
+> //history.go(2);//跳转指定历史记录的 URL  2上两页 -2下两页
+> ```
 
 
 
