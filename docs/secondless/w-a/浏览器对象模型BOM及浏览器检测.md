@@ -348,22 +348,159 @@ title: 章节14.浏览器对象模型BOM及浏览器检测
 > ```
 
 
+## 9、navigator 对象：浏览器检测对象
+> navigator 对象最早由 Netscape Navigator2.0 引入的 navigator 对象。在微软抛弃IE浏览器以前，各家浏览器都有自己独有的一些属性和扩展，给我们程序员开发造成了很多不便，需要给各个浏览器做兼容，那么如何判断用户使用的是哪一款浏览器，比如，用户使用的是谷歌浏览器，还是苹果浏览器，还是火狐浏览器，还是IE浏览器等等，而且同一款浏览器不同版本，它的功能和扩展性也有不同，因此，在以前的开发中，我们使用navigator 对象来判断用户使用的是哪一款浏览器，使用的是哪个版本等等，来相应做兼容处理。随着现代浏览器的不断升级、微软也过渡到了Edge浏览器，各家浏览器的标准逐渐统一，我们现在开发网页，做兼容处理的情况就比较少了，所以，关于浏览器检测对象navigator，我们本节课做一个了解，如果需要用到的时候，大家在回来查看。
+> ### ① 获取浏览器相关信息
+> ``` javascript
+> console.log(navigator);//window.navigator
+> console.log('浏览器名称：' + navigator.appName);//Netscape  这个属性不能精确取到浏览器名称
+> console.log('浏览器版本：' + navigator.appVersion);
+> //浏览器用户代理字符串:就是将用户使用的浏览器各方面信息给展示出来
+> console.log('浏览器用户代理字符串：' + navigator.userAgent);
+> console.log('浏览器所在的系统平台（非系统版本）：' + navigator.platform);
+> ```
+> ### ② 浏览器插件检测
+> 插件是一类特殊的程序，可以扩展浏览器的功能，相信每个同学浏览器上或多或少安装过插件，如：flash插件，翻译插件，下载文件插件等，navigator 对象的 plugins 属性可以得到用户安装的插件信息，它是一个数组。
+> ``` javascript
+> console.log('插件信息: ' , navigator.plugins);
+> console.log('插件数量:' + navigator.plugins.length);
+> for (let i = 0; i < navigator.plugins.length; i ++) {
+>     console.log('插件名字：' + navigator.plugins[i].name);
+> }
+> 
+> //模拟场景：判断用户浏览器是否安装PDF插件，有的话就直接打开pdf文件，没有的话就转到你开发的在线阅读pdf页面打开pdf文件
+> function hasPlugin(name) {
+>     name = name.toLowerCase();
+>     for (var i = 0; i < navigator.plugins.length; i ++) {
+>         if (navigator.plugins[i].name.toLowerCase().indexOf(name) > -1) {
+>             return true;
+>         }
+>     }
+>     return false;
+> }
+> console.log(hasPlugin('PDF'));
+> if(hasPlugin('PDF')){
+>    console.log('直接打开pdf文件');
+> }else{
+>     console.log('转到网页打开pdf');
+> }
+> ```
 
+> ### ③ MIME 类型检测
+> navigator 对象的 mimeTypes 属性可以得到浏览器支持访问的文件类型（MIME 类型），它是一个数组。这个我们在配置服务器的时候，还会讲到，这里做了解。
+> ``` javascript
+> console.log('MIME 类型信息: ' , navigator.mimeTypes);
+> for (var i = 0; i < navigator.mimeTypes.length; i++) {
+>     if (navigator.mimeTypes[i].enabledPlugin != null) {
+>     document.write('<dl>');
+>     document.write('<dd>类型名称：' + navigator.mimeTypes[i].type + '</dd>');
+>     document.write('<dd>类型引用：' + navigator.mimeTypes[i].enabledPlugin.name +
+>     '</dd>');
+>     document.write('<dd>类型描述：' + navigator.mimeTypes[i].description + '</dd>');
+>     document.write('<dd>类型后缀：' + navigator.mimeTypes[i].suffixes + '</dd>');
+>     document.write('</dl>')
+>     }
+> }
+> ```
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+> ## 10、navigator 对象：浏览器检测场景使用
+> ### ① 用户代理检测
+> ``` javascript
+> console.log('浏览器用户代理字符串：' + navigator.userAgent);
+> //谷歌
+> //Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/117.0.0.0 Safari/537.36
+> //Edge浏览器
+> //Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/117.0.0.0 Safari/537.36 Edg/117.0.2045.60
+> //搜狗
+> //Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.87 Safari/537.36 SE 2.X MetaSr 1.0
+> //安卓手机——Samsung Galaxy S8+ 为代表
+> //Mozilla/5.0 (Linux; Android 8.0.0; SM-G955U Build/R16NW) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.141 Mobile Safari/537.36
+> //苹果手机——iPhoneX代表
+> //Mozilla/5.0 (iPhone; CPU iPhone OS 13_2_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Mobile/15E148 Safari/604.1
+> ```
+> ### ② 判断设备是不是安卓系统
+> ``` javascript
+> function isAndroid() {
+>     let u = navigator.userAgent;
+>     let isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1; 
+>     return  isAndroid ? true : false;
+> }
+> console.log('是否安卓设备：'+ isAndroid());
+> ```
+> ### ③ 判断设备是不是苹果系统
+> ``` javascript
+> function isIos() {
+>     var u = navigator.userAgent;
+>     var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); 
+>     return isiOS ? true : false;
+> }
+> console.log('是否苹果设备：' + isIos());
+> ```
+> ### ④ 判断用户是否在微信上面浏览网页
+> ``` javascript
+> //针对在微信上面查看网页，安卓手机和苹果手机表现有些不同，有时候需要判断用户是否在微信上面看网页
+> function isWeiXin(){
+>     let ua = window.navigator.userAgent.toLowerCase();
+>     return ua.match(/MicroMessenger/i) == 'micromessenger' ? true : false;
+> }
+> console.log(isWeiXin());
+> ```
+> ### ⑤ 获取操作系统，判断用户查看网页的设备是电脑设备，还是手机设备
+> ``` javascript
+> console.log(navigator.platform);
+> let system = { //操作系统
+>     win : false, //windows
+>     mac : false, //Mac
+>     x11 : false //Unix、Linux
+> };
+> let p = navigator.platform; //获取系统 
+> system.win = p.indexOf('Win') == 0; //判断是否是 windows
+> system.mac = p.indexOf('Mac') == 0; //判断是否是 mac
+> system.x11 = (p == 'X11') || (p.indexOf('Linux') == 0) //判断是否是 Unix、Linux
+> 
+> console.log('系统情况：' ,  system);
+> ```
+> 如果手机设备就跳转到手机端网站（响应式网站除外），用户只记住你的电脑端网站是www.abc.com开头的，你的手机网站是wap.abc.com, 用户用手机打开www.abc.com会自动跳转到手机网站wap.abc.com
+> ``` javascript
+> var machine={
+> 	the_machine:function(){
+> 		var system = {win: false,mac: false,xll: false};
+>         var p = navigator.platform;
+>         var oMeta = document.createElement('meta');
+>         oMeta.charset = 'utf-8';
+>         document.getElementsByTagName('head')[0].appendChild(oMeta);
+>         oMeta.setAttribute('name','Currentmachine');
+>         system.win = p.indexOf("Win") == 0;
+>         system.mac = p.indexOf("Mac") == 0;
+>         system.x11 = (p == "X11") || (p.indexOf("Linux") == 0);
+>         var device="";
+>         if (system.win || system.mac || system.xll) {
+>             oMeta.setAttribute('machine','pc');
+>             let w = window.innerWidth;
+>             if(w<768) oMeta.setAttribute('machine','phone');
+>         } else {
+>             oMeta.setAttribute('machine','phone');
+>         }
+>         machine.the_ie(oMeta);
+> 	},
+> 	the_ie:function(oMeta){
+> 		//var ie;
+> 		if (/msie [6|7|8]/i.test(navigator.userAgent)){
+> 			oMeta.setAttribute('ie','8');
+> 		}else if(/msie [9]/i.test(navigator.userAgent)){
+> 		    oMeta.setAttribute('ie','9');//alert(oMeta.getAttribute('ie'));
+> 		}else if(/msie [10]/i.test(navigator.userAgent)){
+> 		    oMeta.setAttribute('ie','10');
+> 		}else if(/msie [11]/i.test(navigator.userAgent)){
+> 		    oMeta.setAttribute('ie','11');
+> 		}else{
+> 			oMeta.setAttribute('ie','false');
+> 		}
+> 		
+> 	}
+> }
+> machine.the_machine();
+> ```
 
 <br/><br/><br/><br/><br/><br/>
 
