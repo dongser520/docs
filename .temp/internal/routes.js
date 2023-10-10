@@ -9,23 +9,31 @@ import GlobalLayout from "E:\\vuepress\\vuepress-github\\docs\\node_modules\\@vu
 injectComponentOption(GlobalLayout, 'mixins', rootMixins)
 export const routes = [
   {
-    name: "v-7ba60f92",
-    path: "/pc/",
+    name: "v-1215a3cf",
+    path: "/",
     component: GlobalLayout,
     beforeEnter: (to, from, next) => {
-      ensureAsyncComponentsLoaded("Layout", "v-7ba60f92").then(next)
+      ensureAsyncComponentsLoaded("Layout", "v-1215a3cf").then(next)
     },
   },
   {
-    path: "/pc/index.html",
-    redirect: "/pc/"
+    path: "/index.html",
+    redirect: "/"
   },
   {
-    name: "v-7fa37fb5",
-    path: "/pc/p-a.html",
+    name: "v-5387826c",
+    path: "/aboutless.html",
     component: GlobalLayout,
     beforeEnter: (to, from, next) => {
-      ensureAsyncComponentsLoaded("Layout", "v-7fa37fb5").then(next)
+      ensureAsyncComponentsLoaded("Layout", "v-5387826c").then(next)
+    },
+  },
+  {
+    name: "v-35204b8c",
+    path: "/about.html",
+    component: GlobalLayout,
+    beforeEnter: (to, from, next) => {
+      ensureAsyncComponentsLoaded("Layout", "v-35204b8c").then(next)
     },
   },
   {
@@ -41,6 +49,18 @@ export const routes = [
     redirect: "/about/"
   },
   {
+    name: "v-7ba60f92",
+    path: "/pc/",
+    component: GlobalLayout,
+    beforeEnter: (to, from, next) => {
+      ensureAsyncComponentsLoaded("Layout", "v-7ba60f92").then(next)
+    },
+  },
+  {
+    path: "/pc/index.html",
+    redirect: "/pc/"
+  },
+  {
     name: "v-4630ecb1",
     path: "/pc/p-c.html",
     component: GlobalLayout,
@@ -54,6 +74,14 @@ export const routes = [
     component: GlobalLayout,
     beforeEnter: (to, from, next) => {
       ensureAsyncComponentsLoaded("Layout", "v-62ea3633").then(next)
+    },
+  },
+  {
+    name: "v-7fa37fb5",
+    path: "/pc/p-a.html",
+    component: GlobalLayout,
+    beforeEnter: (to, from, next) => {
+      ensureAsyncComponentsLoaded("Layout", "v-7fa37fb5").then(next)
     },
   },
   {
@@ -113,20 +141,20 @@ export const routes = [
     },
   },
   {
-    name: "v-d73347ee",
-    path: "/secondless/w-a/javascript%E5%87%BD%E6%95%B0.html",
+    name: "v-74767873",
+    path: "/secondless/w-a/Date%E7%B1%BB%E5%9E%8B%EF%BC%9A%E6%97%B6%E9%97%B4%E5%92%8C%E6%97%A5%E6%9C%9F.html",
     component: GlobalLayout,
     beforeEnter: (to, from, next) => {
-      ensureAsyncComponentsLoaded("Layout", "v-d73347ee").then(next)
+      ensureAsyncComponentsLoaded("Layout", "v-74767873").then(next)
     },
   },
   {
-    path: "/secondless/w-a/javascript函数.html",
-    redirect: "/secondless/w-a/javascript%E5%87%BD%E6%95%B0.html"
+    path: "/secondless/w-a/Date类型：时间和日期.html",
+    redirect: "/secondless/w-a/Date%E7%B1%BB%E5%9E%8B%EF%BC%9A%E6%97%B6%E9%97%B4%E5%92%8C%E6%97%A5%E6%9C%9F.html"
   },
   {
-    path: "/secondless/w-a/javascript函数.html",
-    redirect: "/secondless/w-a/javascript%E5%87%BD%E6%95%B0.html"
+    path: "/secondless/w-a/Date类型：时间和日期.html",
+    redirect: "/secondless/w-a/Date%E7%B1%BB%E5%9E%8B%EF%BC%9A%E6%97%B6%E9%97%B4%E5%92%8C%E6%97%A5%E6%9C%9F.html"
   },
   {
     name: "v-5622dfda",
@@ -145,20 +173,20 @@ export const routes = [
     redirect: "/secondless/w-a/Function%E7%B1%BB%E5%9E%8B%EF%BC%9A%E5%87%BD%E6%95%B0%E8%BF%9B%E9%98%B6.html"
   },
   {
-    name: "v-74767873",
-    path: "/secondless/w-a/Date%E7%B1%BB%E5%9E%8B%EF%BC%9A%E6%97%B6%E9%97%B4%E5%92%8C%E6%97%A5%E6%9C%9F.html",
+    name: "v-d73347ee",
+    path: "/secondless/w-a/javascript%E5%87%BD%E6%95%B0.html",
     component: GlobalLayout,
     beforeEnter: (to, from, next) => {
-      ensureAsyncComponentsLoaded("Layout", "v-74767873").then(next)
+      ensureAsyncComponentsLoaded("Layout", "v-d73347ee").then(next)
     },
   },
   {
-    path: "/secondless/w-a/Date类型：时间和日期.html",
-    redirect: "/secondless/w-a/Date%E7%B1%BB%E5%9E%8B%EF%BC%9A%E6%97%B6%E9%97%B4%E5%92%8C%E6%97%A5%E6%9C%9F.html"
+    path: "/secondless/w-a/javascript函数.html",
+    redirect: "/secondless/w-a/javascript%E5%87%BD%E6%95%B0.html"
   },
   {
-    path: "/secondless/w-a/Date类型：时间和日期.html",
-    redirect: "/secondless/w-a/Date%E7%B1%BB%E5%9E%8B%EF%BC%9A%E6%97%B6%E9%97%B4%E5%92%8C%E6%97%A5%E6%9C%9F.html"
+    path: "/secondless/w-a/javascript函数.html",
+    redirect: "/secondless/w-a/javascript%E5%87%BD%E6%95%B0.html"
   },
   {
     name: "v-57c86994",
@@ -177,20 +205,20 @@ export const routes = [
     redirect: "/secondless/w-a/javascript%E5%9F%BA%E7%A1%80.html"
   },
   {
-    name: "v-2995f9cc",
-    path: "/secondless/w-a/javascript%E5%9F%BA%E6%9C%AC%E5%8C%85%E8%A3%85%E7%B1%BB%E5%9E%8B.html",
+    name: "v-596307a2",
+    path: "/secondless/w-a/javascript%E6%95%B0%E7%BB%84.html",
     component: GlobalLayout,
     beforeEnter: (to, from, next) => {
-      ensureAsyncComponentsLoaded("Layout", "v-2995f9cc").then(next)
+      ensureAsyncComponentsLoaded("Layout", "v-596307a2").then(next)
     },
   },
   {
-    path: "/secondless/w-a/javascript基本包装类型.html",
-    redirect: "/secondless/w-a/javascript%E5%9F%BA%E6%9C%AC%E5%8C%85%E8%A3%85%E7%B1%BB%E5%9E%8B.html"
+    path: "/secondless/w-a/javascript数组.html",
+    redirect: "/secondless/w-a/javascript%E6%95%B0%E7%BB%84.html"
   },
   {
-    path: "/secondless/w-a/javascript基本包装类型.html",
-    redirect: "/secondless/w-a/javascript%E5%9F%BA%E6%9C%AC%E5%8C%85%E8%A3%85%E7%B1%BB%E5%9E%8B.html"
+    path: "/secondless/w-a/javascript数组.html",
+    redirect: "/secondless/w-a/javascript%E6%95%B0%E7%BB%84.html"
   },
   {
     name: "v-2353c608",
@@ -209,20 +237,20 @@ export const routes = [
     redirect: "/secondless/w-a/javascript%E5%AF%B9%E8%B1%A1.html"
   },
   {
-    name: "v-596307a2",
-    path: "/secondless/w-a/javascript%E6%95%B0%E7%BB%84.html",
+    name: "v-2995f9cc",
+    path: "/secondless/w-a/javascript%E5%9F%BA%E6%9C%AC%E5%8C%85%E8%A3%85%E7%B1%BB%E5%9E%8B.html",
     component: GlobalLayout,
     beforeEnter: (to, from, next) => {
-      ensureAsyncComponentsLoaded("Layout", "v-596307a2").then(next)
+      ensureAsyncComponentsLoaded("Layout", "v-2995f9cc").then(next)
     },
   },
   {
-    path: "/secondless/w-a/javascript数组.html",
-    redirect: "/secondless/w-a/javascript%E6%95%B0%E7%BB%84.html"
+    path: "/secondless/w-a/javascript基本包装类型.html",
+    redirect: "/secondless/w-a/javascript%E5%9F%BA%E6%9C%AC%E5%8C%85%E8%A3%85%E7%B1%BB%E5%9E%8B.html"
   },
   {
-    path: "/secondless/w-a/javascript数组.html",
-    redirect: "/secondless/w-a/javascript%E6%95%B0%E7%BB%84.html"
+    path: "/secondless/w-a/javascript基本包装类型.html",
+    redirect: "/secondless/w-a/javascript%E5%9F%BA%E6%9C%AC%E5%8C%85%E8%A3%85%E7%B1%BB%E5%9E%8B.html"
   },
   {
     name: "v-fe8bdd96",
@@ -281,6 +309,14 @@ export const routes = [
     },
   },
   {
+    name: "v-0a109b22",
+    path: "/secondless/w-c.html",
+    component: GlobalLayout,
+    beforeEnter: (to, from, next) => {
+      ensureAsyncComponentsLoaded("Layout", "v-0a109b22").then(next)
+    },
+  },
+  {
     name: "v-de1c72cc",
     path: "/secondless/w-a/%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6%E8%AF%AD%E5%8F%A5.html",
     component: GlobalLayout,
@@ -297,12 +333,32 @@ export const routes = [
     redirect: "/secondless/w-a/%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6%E8%AF%AD%E5%8F%A5.html"
   },
   {
-    name: "v-0a109b22",
-    path: "/secondless/w-c.html",
+    name: "v-12e6c9f7",
+    path: "/secondless/w-a/%E5%8C%BF%E5%90%8D%E5%87%BD%E6%95%B0%E5%92%8C%E9%97%AD%E5%8C%85.html",
     component: GlobalLayout,
     beforeEnter: (to, from, next) => {
-      ensureAsyncComponentsLoaded("Layout", "v-0a109b22").then(next)
+      ensureAsyncComponentsLoaded("Layout", "v-12e6c9f7").then(next)
     },
+  },
+  {
+    path: "/secondless/w-a/匿名函数和闭包.html",
+    redirect: "/secondless/w-a/%E5%8C%BF%E5%90%8D%E5%87%BD%E6%95%B0%E5%92%8C%E9%97%AD%E5%8C%85.html"
+  },
+  {
+    path: "/secondless/w-a/匿名函数和闭包.html",
+    redirect: "/secondless/w-a/%E5%8C%BF%E5%90%8D%E5%87%BD%E6%95%B0%E5%92%8C%E9%97%AD%E5%8C%85.html"
+  },
+  {
+    name: "v-6de531b2",
+    path: "/web/",
+    component: GlobalLayout,
+    beforeEnter: (to, from, next) => {
+      ensureAsyncComponentsLoaded("Layout", "v-6de531b2").then(next)
+    },
+  },
+  {
+    path: "/web/index.html",
+    redirect: "/web/"
   },
   {
     name: "v-60b499ec",
@@ -319,6 +375,22 @@ export const routes = [
   {
     path: "/web/methods/地图相关.html",
     redirect: "/web/methods/%E5%9C%B0%E5%9B%BE%E7%9B%B8%E5%85%B3.html"
+  },
+  {
+    name: "v-34d69c74",
+    path: "/web/methods/%E5%AE%9E%E7%94%A8%E6%8E%A5%E5%8F%A3.html",
+    component: GlobalLayout,
+    beforeEnter: (to, from, next) => {
+      ensureAsyncComponentsLoaded("Layout", "v-34d69c74").then(next)
+    },
+  },
+  {
+    path: "/web/methods/实用接口.html",
+    redirect: "/web/methods/%E5%AE%9E%E7%94%A8%E6%8E%A5%E5%8F%A3.html"
+  },
+  {
+    path: "/web/methods/实用接口.html",
+    redirect: "/web/methods/%E5%AE%9E%E7%94%A8%E6%8E%A5%E5%8F%A3.html"
   },
   {
     name: "v-355562ac",
@@ -353,32 +425,12 @@ export const routes = [
     redirect: "/web/methods/%E5%AE%9A%E4%BD%8D%E7%9B%B8%E5%85%B3.html"
   },
   {
-    name: "v-34d69c74",
-    path: "/web/methods/%E5%AE%9E%E7%94%A8%E6%8E%A5%E5%8F%A3.html",
+    name: "v-544f4fdf",
+    path: "/web/w-a.html",
     component: GlobalLayout,
     beforeEnter: (to, from, next) => {
-      ensureAsyncComponentsLoaded("Layout", "v-34d69c74").then(next)
+      ensureAsyncComponentsLoaded("Layout", "v-544f4fdf").then(next)
     },
-  },
-  {
-    path: "/web/methods/实用接口.html",
-    redirect: "/web/methods/%E5%AE%9E%E7%94%A8%E6%8E%A5%E5%8F%A3.html"
-  },
-  {
-    path: "/web/methods/实用接口.html",
-    redirect: "/web/methods/%E5%AE%9E%E7%94%A8%E6%8E%A5%E5%8F%A3.html"
-  },
-  {
-    name: "v-6de531b2",
-    path: "/web/",
-    component: GlobalLayout,
-    beforeEnter: (to, from, next) => {
-      ensureAsyncComponentsLoaded("Layout", "v-6de531b2").then(next)
-    },
-  },
-  {
-    path: "/web/index.html",
-    redirect: "/web/"
   },
   {
     name: "v-b2a3f302",
@@ -389,36 +441,12 @@ export const routes = [
     },
   },
   {
-    name: "v-544f4fdf",
-    path: "/web/w-a.html",
-    component: GlobalLayout,
-    beforeEnter: (to, from, next) => {
-      ensureAsyncComponentsLoaded("Layout", "v-544f4fdf").then(next)
-    },
-  },
-  {
     name: "v-0de685c2",
     path: "/web/w-c.html",
     component: GlobalLayout,
     beforeEnter: (to, from, next) => {
       ensureAsyncComponentsLoaded("Layout", "v-0de685c2").then(next)
     },
-  },
-  {
-    name: "v-12e6c9f7",
-    path: "/secondless/w-a/%E5%8C%BF%E5%90%8D%E5%87%BD%E6%95%B0%E5%92%8C%E9%97%AD%E5%8C%85.html",
-    component: GlobalLayout,
-    beforeEnter: (to, from, next) => {
-      ensureAsyncComponentsLoaded("Layout", "v-12e6c9f7").then(next)
-    },
-  },
-  {
-    path: "/secondless/w-a/匿名函数和闭包.html",
-    redirect: "/secondless/w-a/%E5%8C%BF%E5%90%8D%E5%87%BD%E6%95%B0%E5%92%8C%E9%97%AD%E5%8C%85.html"
-  },
-  {
-    path: "/secondless/w-a/匿名函数和闭包.html",
-    redirect: "/secondless/w-a/%E5%8C%BF%E5%90%8D%E5%87%BD%E6%95%B0%E5%92%8C%E9%97%AD%E5%8C%85.html"
   },
   {
     name: "v-1ead3dbc",
@@ -435,34 +463,6 @@ export const routes = [
   {
     path: "/开发记录.html",
     redirect: "/%E5%BC%80%E5%8F%91%E8%AE%B0%E5%BD%95.html"
-  },
-  {
-    name: "v-5387826c",
-    path: "/aboutless.html",
-    component: GlobalLayout,
-    beforeEnter: (to, from, next) => {
-      ensureAsyncComponentsLoaded("Layout", "v-5387826c").then(next)
-    },
-  },
-  {
-    name: "v-35204b8c",
-    path: "/about.html",
-    component: GlobalLayout,
-    beforeEnter: (to, from, next) => {
-      ensureAsyncComponentsLoaded("Layout", "v-35204b8c").then(next)
-    },
-  },
-  {
-    name: "v-1215a3cf",
-    path: "/",
-    component: GlobalLayout,
-    beforeEnter: (to, from, next) => {
-      ensureAsyncComponentsLoaded("Layout", "v-1215a3cf").then(next)
-    },
-  },
-  {
-    path: "/index.html",
-    redirect: "/"
   },
   {
     path: '*',
