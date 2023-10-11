@@ -22,10 +22,52 @@ title: 章节15.网页文档对象模型DOM
 
 我们了解了节点树以及节点种类之后呢，在我们网页开发中，我们就需要来查找这些节点信息，那该怎么查找呢？
 
-
-
-
-
+## 2、查找节点信息方法
+> ### ① getElementById()方法
+> getElementById()方法，接受一个参数：获取元素的 ID。如果找到相应的元素则返回该元素的 HTMLDivElement 对象，如果不存在，则返回 null。
+> ``` javascript
+> let main_business = document.getElementById('main_business');
+> console.log(main_business);
+> //为什么查找不到元素？
+> //DOM操作必须等待HTML文档加载完毕，才可以获取到。
+> //如何获取到呢？
+> //1. 把js执行的代码放到DOM节点渲染的后面
+> //2. 用后面学习到的onload事件加载html文档，把代码放在onload事件里面
+> window.onload = function () { //预加载 html 后执行
+>     console.log(document.getElementById('main_business'));
+> };
+> ```
+> ### ② getElementById()方法获取的元素节点属性：tagName、innerHTML等
+> ``` javascript
+> let main_business = document.getElementById('main_business');
+> console.log(main_business);
+> console.log(main_business.tagName);// DIV
+> console.log(main_business.innerHTML);
+> console.log(main_business.innerText);
+> console.log(main_business.localName);//div
+> console.log(main_business.nodeName);//DIV
+> ```
+> ### ③ 获取及设置元素html属性：id,title,style,className等
+> ``` javascript
+> let main_business = document.getElementById('main_business');
+> console.log(main_business);
+> console.log(main_business.id);//main_business
+> //设置id名
+> //document.getElementById('main_business').id = 'main_business_11';
+> // main_business.id = 'main_business_11';
+> 
+> console.log(main_business.title); //获取 title
+> main_business.title = '栏目标题：工程案例'; //设置 title
+> console.log(main_business.title);
+> 
+> console.log(main_business.style); //获取 CSSStyleDeclaration 对象
+> console.log(main_business.style.color); //获取 style 对象中 color 的值
+> main_business.style.color = 'red'; //设置 style 对象中 color 的值
+> 
+> 
+> console.log(main_business.className); //获取class 得到：flex justify-center py-5
+> main_business.className = 'box'; //设置 class
+> ``` 
 
 
 
