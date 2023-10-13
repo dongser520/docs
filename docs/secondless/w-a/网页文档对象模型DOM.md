@@ -67,8 +67,46 @@ title: 章节15.网页文档对象模型DOM
 > 
 > console.log(main_business.className); //获取class 得到：flex justify-center py-5
 > main_business.className = 'box'; //设置 class
+>
+> main_business.innerText = '主营业务---哈哈哈哈';
+> main_business.innerHTML = '<strong>主营业务</strong>---哈哈哈哈';
+>
+> //深入理解：就是操作元素节点对象，对里面的属性进行获取或修改，核心还是在操作对象。
 > ``` 
-
+> ### ④ getElementsByTagName()方法 - 获取相同元素名的节点列表对象数组
+> getElementsByTagName()方法将返回一个对象<b>数组</b> HTMLCollection(NodeList)集合，这个数组保存着所有相同元素名的节点列表，参数传递标签名。
+> ``` javascript
+> let element_a = document.getElementsByTagName('a');
+> console.log(element_a);//返回页面上所以a元素的数组集合节点信息 
+> console.log(element_a.length);
+> console.log(element_a[0]);//集合第一个节点对象
+> console.log(element_a.item(0));//用的较少，集合第一个节点对象
+> console.log(element_a[0].innerText);
+> console.log(typeof element_a);//object
+> console.log(Array.isArray(element_a));//false 类比Set()集合
+> 
+> //方式一：for循环遍历
+> for(let i=0;i<element_a.length;i++){
+>     console.log('a元素的文本内容',element_a[i].innerText);//函数剩余参数(章节13第6个知识点)
+> }
+> 
+> //方式二：展开运算符
+> [...element_a].forEach(element => {
+>     // console.log('a元素信息',element);
+>     console.log('a元素的文本内容',element.innerText);
+> });
+> 
+> 
+> //获取body节点信息对象
+> let body = document.getElementsByTagName('body');
+> // console.log(body);// HTMLCollection [body]
+> console.log(body[0]);// 返回body的节点信息对象
+> console.log(document.getElementsByTagName('body')[0]);
+> 
+> //通配符 * 
+> let $elements = document.getElementsByTagName('*');
+> console.log('获取所有元素节点信息',$elements);
+> ```
 
 
 
