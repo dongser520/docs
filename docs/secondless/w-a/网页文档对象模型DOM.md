@@ -23,6 +23,7 @@ title: 章节15.网页文档对象模型DOM
 我们了解了节点树以及节点种类之后呢，在我们网页开发中，我们就需要来查找这些节点信息，那该怎么查找呢？
 
 ## 2、查找节点信息方法
+### Ⅰ、 getElement系列
 > ### ① getElementById()方法
 > getElementById()方法，接受一个参数：获取元素的 ID。如果找到相应的元素则返回该元素的 HTMLDivElement 对象，如果不存在，则返回 null。
 > ``` javascript
@@ -73,7 +74,7 @@ title: 章节15.网页文档对象模型DOM
 >
 > //深入理解：就是操作元素节点对象，对里面的属性进行获取或修改，核心还是在操作对象。
 > ``` 
-> ### ④ getElementsByTagName()方法 - 获取相同元素名的节点列表对象数组
+> ### ④ getElementsByTagName()方法 - 获取相同元素名的节点列表对象数组HTMLCollection(NodeList)
 > getElementsByTagName()方法将返回一个对象<b>数组</b> HTMLCollection(NodeList)集合，这个数组保存着所有相同元素名的节点列表，参数传递标签名。
 > ``` javascript
 > let element_a = document.getElementsByTagName('a');
@@ -107,16 +108,89 @@ title: 章节15.网页文档对象模型DOM
 > let $elements = document.getElementsByTagName('*');
 > console.log('获取所有元素节点信息',$elements);
 > ```
+> ### ⑤ getElementsByName()方法 - 获取相同名称(name)的元素，返回一个对象数组HTMLCollection(NodeList)
+> ``` javascript
+> let elename  = document.getElementsByName('viewport');
+> console.log(elename);
+> 
+> //给导航栏a元素加上name="navigate"
+> let ele_a = document.getElementsByName('navigate');
+> console.log(ele_a);
+> //操作方式和上面的getElementsByTagName一样
+> console.log(ele_a[0].innerText);
+> ```
+> 此方法多用于表单组件
+> 
+> ### ⑥ getElementsByClassName()方法 - 获取class类名称的元素，返回一个对象数组HTMLCollection(NodeList)
+> ``` javascript
+> let ele_classname = document.getElementsByClassName('flex');
+> console.log(ele_classname);
+> //操作方式和上面的getElementsByTagName一样
+> ```
+> 小结：<br/>
+> getElementById() 返回指定id属性的元素节点对象
+> getElementsByTagName()/getElementsByName()/getElementsByClassName()方法，返回一个类似数组的对象节点集合
+
+### Ⅱ、querySelector系列
+> ### ① querySelector()方法 - 接受一个 CSS 选择器作为参数，返回匹配该选择器的元素节点
+> 关于css的选择器，我们在第一学期（上一套课程已经重点讲了），我们这里看一下怎么操作
+> ``` javascript
+> let ele_id = document.querySelector('#main_business');
+> console.log(ele_id);
+> let ele_classname = document.querySelector('.flex');
+> console.log(ele_classname);//获取了一个
+> ```
+> ### ② querySelectorAll()方法 - 接受一个 CSS 选择器作为参数，返回一个NodeList对象，包含所有匹配给定选择器的节点
+> ``` javascript
+> let ele_classname = document.querySelectorAll('.flex');
+> console.log(ele_classname);//获取所有
+> let ele_tagname = document.querySelectorAll('a');
+> console.log(ele_tagname);
+>
+> let ele_name1 = document.querySelectorAll('[name="navigate"]');
+> console.log(ele_name1);
+> let ele_name2 = document.querySelectorAll('#nav a');
+> console.log(ele_name2);
+> ```
+getElement系列与querySelector系列区别：<br/>
+> 1、两者的W3C标准不同 <br/>
+>    querySelector系列属于W3C中的Selectors API(JS)规范<br/>
+>    getElementsBy系列则属于 W3C的DOM 规范。<br/>
+> 2、两者浏览器的兼容不同<br/>
+>    getElementsBy系列基本能被所有浏览器支持。<br/>
+>    querySelector系列IE8以下浏览器不支持（尽管现在已经无需考虑兼容性了，这个区别还是要知道）<br/>
+> 3、针对我们开发者，重点需要知道：<br/>
+>    ① getElement返回动态集合，是document的方法；性能较好，一般情况下优先使用；接收的参数只能是简单的className、tagName,name,id；<br/>
+>    ② querySelector返回静态集合，是element的方法，css Selector的API，接收的参数是一个CSS选择器<br/>
+>    ③ getElement比querySelector的性能好，优先使用，但是当选择器比较复杂(多层嵌套的)再考虑使用querySelector；<br/>
+关于getElement系列与querySelector系列更多区别，我们在实际开发中，根据实际开发体验，在给大家进一步讲解，让大家更好的理解。
 
 
 
-
-
-
-
-
-
-
+### Ⅲ、属性操作系列
+> ### ① getAttribute()方法 - 属性操作方法：获取元素中某个属性的值
+> ``` javascript
+> let ele = document.getElementById('nav');
+> //给元素加上data="123"
+> console.log(ele);
+> console.log(ele.data);//undefined
+> console.log(ele.getAttribute('data'));
+> console.log(ele.style);//CSSStyleDeclaration css样式声明（对象）
+> console.log(ele.getAttribute('style'));//字符串 推荐使用自定义获取元素属性值
+> ```
+> ### ② setAttribute()方法 - 属性操作方法：将设置元素中某个属性和值，要接受两个参数：属性名和值
+> ``` javascript
+> let ele = document.getElementById('nav');
+> ele.setAttribute('data',456);
+> console.log(ele.getAttribute('data'));//456
+> ele.setAttribute('class','mystyle');
+> ```
+> ### ③ removeAttribute()方法 - 属性操作方法：以移除元素属性
+> ``` javascript
+> let ele = document.getElementById('nav');
+> ele.removeAttribute('class');
+> ```
+> 关于属性操作方法，重点需要理解元素属性是什么，不需要记，重在理解，理解了元素属性那么操作元素属性的获取、设置、移除就容易理解了。
 
 
 
