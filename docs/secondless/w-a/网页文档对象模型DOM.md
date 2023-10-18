@@ -237,15 +237,77 @@ getElement系列与querySelector系列区别：<br/>
 > //由此可见，innerHTML比nodeValue用得多一些
 > //childNodes主要用于分析子节点，然后用于操作子节点，这个下节课讲
 > ```
-
-
-
-
-
-
-
-
-
+> ### ② firstChild 和 lastChild 属性
+> firstChild 用于获取当前元素节点的第一个子节点，相当于 childNodes[0]；lastChild 用于获取当前元素节点的最后一个子节点，相当于 childNodes[xxx.childNodes.length - 1]
+> ``` javascript
+> //第一个
+> console.log($div.childNodes[0].nodeValue);
+> console.log($div.firstChild);
+> console.log($div.firstChild.nodeValue);
+> 
+> //最后一个
+> console.log($div.childNodes[3-1].nodeValue);
+> console.log($div.lastChild);
+> console.log($div.lastChild.nodeValue);
+> //可类比我们的css选择器，但是注意写法
+> ```
+> 
+> ### ③ ownerDocument 属性：返回该节点的文档对象根节点，返回的对象相当于 document
+> ``` javascript
+> console.log($div.ownerDocument === document); //true，根节点
+> console.log($div.ownerDocument);
+> ``` 
+> 
+> ### ④ parentNode 属性返回该节点的父节点，previousSibling 属性返回该节点的前一个同级节点，nextSibling 属性返回该节点的后一个同级节点
+> ``` javascript
+> //parentNode 属性返回该节点的父节点
+> console.log($div.parentNode.nodeName);//BODY
+> //previousSibling 属性返回该节点的前一个同级节点
+> console.log($div.previousSibling);
+> console.log($div.previousSibling.innerHTML);
+> //nextSibling 属性返回该节点的后一个同级节点
+> console.log($div.nextSibling);
+> console.log($div.nextSibling.innerHTML);
+> ```
+> 注意空白文本节点
+> ### ⑤ 忽略空白文本节点
+> 如果 firstChild、lastChild、previousSibling 和 nextSibling 在获取节点的过程中遇到空白节点，我们该怎么处理掉呢？
+> ``` javascript
+> <div id="mydiv" class="bbb">
+>         <p>测试Div</p>
+>         <span>我是span</span>
+>         <strong>老三</strong>
+> </div>
+> console.log($div.childNodes.length);
+> console.log($div.childNodes[0].innerText);//undefined 因为第一个子节点是空白字符节点
+> console.log($div.firstChild.innerText);
+> 
+> //移除空白文本节点方法
+> function removeWhiteNode(nodes) {
+>     for (var i = 0; i < nodes.childNodes.length; i ++) {
+>         if (nodes.childNodes[i].nodeType === 3 &&
+>            /^\s+$/.test(nodes.childNodes[i].nodeValue)) {
+>                nodes.childNodes[i].parentNode.removeChild(nodes.childNodes[i]);
+>         }
+>      }
+>      return nodes;
+>  }
+> 
+>  let _$div = removeWhiteNode($div);
+>  console.log(_$div.childNodes.length);
+>  console.log(_$div.childNodes[0].innerText);
+> ``` 
+> ### ⑥ attributes 属性：返回该节点的属性节点集合
+> ``` javascript
+> console.log($div.attributes); //NamedNodeMap,属性节点集合
+> console.log($div.attributes.length);//返回属性节点个数  1
+> console.log($div.attributes[0]); //第一个属性节点
+> console.log($div.attributes[0].nodeType); //2，节点类型
+> console.log($div.attributes[0].nodeValue); //mydiv  属性值
+> console.log($div.attributes['id']); // 返回属性为 id 的节点
+> console.log($div.attributes.getNamedItem('id')); // 返回属性为 id 的节点
+> //注意跟我们之前讲的：属性操作系列：getAttribute()方法有相同功能，所以这两个方法大家根据自己的喜好使用
+> ```
 
 
 
