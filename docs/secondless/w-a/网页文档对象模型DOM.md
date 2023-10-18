@@ -192,11 +192,51 @@ getElement系列与querySelector系列区别：<br/>
 > ```
 > 关于属性操作方法，重点需要理解元素属性是什么，不需要记，重在理解，理解了元素属性那么操作元素属性的获取、设置、移除就容易理解了。
 
-
-
-
-
-
+### Ⅳ、 node节点属性: nodeName、nodeType、nodeValue
+> 节点可以分为元素节点、属性节点和文本节点，而这些节点又有三个非常有用的属性，分别为：nodeName、nodeType 和 nodeValue。<br/><br/>
+> <b>节点属性</b>
+> |  节点类型              |  nodeName                              |   nodeType              |  nodeValue              |   
+> |   :--:                |   :--:                                 |    :--:                 | :--:                    | 
+> |  元素                 |  元素名称                               |    1                    | null                    |
+> |  属性                 |  属性名称                               |    2                    | 属性值                   |
+> |  文本                 |  #text                                 |    3                    | 文本内容(不包含 html)      |
+> ``` javascript
+> let ele  =  document.getElementById('nav');
+> console.log(ele);
+> console.log(ele.nodeName);//获取元素节点的标签名，和tagName等价
+> console.log(ele.nodeType);//获取元素节点的类型值，1
+> console.log(ele.nodeValue);//元素节点本身没有内容，null
+> //node本身把节点指针放在元素<div>xxx</div>上，也就是说，本身是没有value
+> //如果要输出<div>xxx</div>里面的文本内容，用前面讲的innerText
+> console.log(ele.innerText);//获取元素节点里面的文本内容
+> //也就是说，node只能获取当前节点的信息，不能获取它里面的信息
+> ```
+### Ⅴ、 层次节点属性
+> 节点的层次结构可以划分为：父节点与子节点、兄弟节点这两种。当我们获取其中一个元素节点的时候，就可以使用层次节点属性来获取它相关层次的节点。
+> ### ① childNodes：获取当前元素节点的所有子节点，包含元素子节点和文本子节点
+> ``` javascript
+> <div title="属性节点" id="mydiv">测试Div<span>我是span</span>老三</div>
+> let $div = document.getElementById('mydiv');
+> console.log('$div信息', $div);
+> console.log($div.innerHTML);
+> console.log($div.innerText);
+> // console.log($div.childNodes);//NodeList集合，返回当前元素节点所有的子节点列表
+> // console.log($div.childNodes.length);//3个子节点
+> // 第一个子节点：测试Div，这个节点称为：文本节点
+> // 第二个子节点：<span>我是span</span>，这个节点称为：元素节点
+> // 第三个子节点：老三，这个节点称为：文本节点
+> 
+> console.log($div.childNodes[0]);
+> console.log($div.childNodes[0].nodeValue);//"测试Div"
+> console.log($div.childNodes[0].nodeName);//"#text"
+> console.log($div.childNodes[0].nodeType);//3
+> 
+> //赋值
+> $div.innerHTML = '测试Div<b>OK啦</b><span>我是span</span>老三';
+> $div.childNodes[0].nodeValue = '测试Div<b>OK啦</b>';//不能解析html
+> //由此可见，innerHTML比nodeValue用得多一些
+> //childNodes主要用于分析子节点，然后用于操作子节点，这个下节课讲
+> ```
 
 
 
