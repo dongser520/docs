@@ -309,6 +309,89 @@ getElement系列与querySelector系列区别：<br/>
 > //注意跟我们之前讲的：属性操作系列：getAttribute()方法有相同功能，所以这两个方法大家根据自己的喜好使用
 > ```
 
+## 3、操作节点
+> ### ① document.write()方法[非节点操作方法]：可以把任意字符串插入到文档中去
+> ``` javascript
+> let t = `<div id="mydiv" data="123">
+> <p>测试Div</p>
+> <span>我是span</span>
+> <strong>老三</strong>
+> </div>`;
+> document.write(t);//一般用于测试
+> ```
+> ### ② createElement()方法：创建一个元素节点，appendChild()方法：将一个新节点添加到某个节点的子节点列表的末尾上
+> ``` javascript
+> let p = document.createElement('p');//只是创建了一个元素p,还没有添加到文档中去，只是驻留在内存中
+> let $div = document.getElementById('mydiv');
+> $div.appendChild(p);//把新元素节点<p>添加子节点末尾
+> //只是添加了一个空元素p，怎么往里面添加内容呢？
+> ```
+> ### ③ createTextNode()方法：创建一个文本节点
+> ``` javascript
+> let p = document.createElement('p');//只是创建了一个元素p,还没有添加到文档中去，只是驻留在内存中
+> let $div = document.getElementById('mydiv');
+> $div.appendChild(p);//把新元素节点<p>添加子节点末尾
+> let text = document.createTextNode('你个老六');//创建一个文本节点
+> p.appendChild(text);//将文本节点添加到p元素里面节点末尾
+> $div.appendChild(text);//将文本节点添加到元素节点末尾
+> ```
+> ### ④ insertBefore()方法：可以把节点创建到指定节点的前面（先找到它的父节点再操作）
+> ``` javascript
+> let $div = document.getElementById('mydiv');
+> let p = document.createElement('p');
+> //注意写法：将新增的p元素放到div元素前面，首先找到div的父节点，在操作
+> $div.parentNode.insertBefore(p,$div);//参数1：新节点，参数2：放在谁的前面
+> ```
+> ### ⑤ 模拟在指定节点的后面添加一个节点
+> ``` javascript
+> function insertAfter(newElement, targetElement) {
+>     //得到父节点
+>     let parent = targetElement.parentNode;
+>     //如果最后一个子节点是当前元素，那么直接添加即可
+>     if (parent.lastChild === targetElement) {
+>         parent.appendChild(newElement);
+>     } else {
+>         //否则，在当前节点的下一个节点之前添加
+>         parent.insertBefore(newElement, targetElement.nextSibling);
+>     }
+> }
+> let $div = document.getElementById('mydiv');
+> let p = document.createElement('p');
+> insertAfter(p,$div);
+> ```
+> ### ⑥ repalceChild()方法：把节点替换成指定的节点（先找到它的父节点再操作）
+> ``` javascript
+> let $div = document.getElementById('mydiv');
+> let p = document.createElement('p');
+> //同样需要先找到父节点，然后再操作替换
+> $div.parentNode.replaceChild(p,$div);//参数1：新节点，参数2：替换谁
+> ```
+> ### ⑦ cloneNode()方法：把节点复制一份，放到指定地方
+> ``` javascript
+> let banner = document.getElementById('banner');
+> let banner_clone = banner.cloneNode(true);//true 表示复制内容，false只复制标签
+> let $div = document.getElementById('mydiv');
+> // $div.appendChild(banner_clone);
+> $div.parentNode.replaceChild(banner_clone,$div);
+> ```
+
+> ### ⑧ removeChild()方法：删除指定节点（先找到它的父节点再操作）
+> ``` javascript
+> function removeWhiteNode(nodes) {
+>     for (var i = 0; i < nodes.childNodes.length; i ++) {
+>         if (nodes.childNodes[i].nodeType === 3 &&
+>            /^\s+$/.test(nodes.childNodes[i].nodeValue)) {
+>                nodes.childNodes[i].parentNode.removeChild(nodes.childNodes[i]);
+>         }
+>      }
+>      return nodes;
+>  }
+> 
+> let $div = document.getElementById('mydiv');
+> // $div.parentNode.removeChild($div);
+> $div.removeChild(removeWhiteNode($div).lastChild);
+> ```
+
 
 
 
