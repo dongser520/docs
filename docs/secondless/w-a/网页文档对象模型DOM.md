@@ -391,6 +391,128 @@ getElement系列与querySelector系列区别：<br/>
 > // $div.parentNode.removeChild($div);
 > $div.removeChild(removeWhiteNode($div).lastChild);
 > ```
+## 4、DOM 类型、扩展、操作内容
+> 本知识点主要是让大家了解一些概念问题，以了解为准。DOM 自身存在很多类型，在我们前面几节课大部分都有所接触，比如 Element 类型：表示的是元素节点，再比如 Text 类型：表示的是文本节点。DOM 也提供了一些扩展功能。
+### Ⅰ、DOM 类型
+> |  类型名                |  说明                                  | 
+> |   :--:                |   :--:                                 |    
+> |  Document             |  表示文档类型                           | 
+> |  Element              |  表示元素节点类型                       | 
+> |  Text                 |  表示文本节点类型                       | 
+> |  Comment              |  表示文档中的注释类型                   | 
+> |  CDATASection         |  表示 CDATA 区域类型                   | 
+> |  DocumentType         |  表示文档声明类型                      | 
+> |  DocumentFragment     |  表示文档片段类型                      | 
+> |  Attr                 |  表示属性节点类型                      |   
+> |  Node                 |  表示所有类型值的统一接口，IE 不支持      |  
+> ### ① Document类型补充
+> Document 类型表示文档，或文档的根节点，而这个节点是隐藏的，没有具体的元素标签。
+> ``` javascript
+> console.log(document);
+> console.log(document.childNodes[0]);//DocumentType，第一个子节点对象
+> console.log(document.childNodes[1]); //HTMLHtmlElement
+> console.log(document.childNodes[1].nodeName); //HTML
+> ``` 
+> ### 获取html节点对象
+> ``` javascript
+> console.log(document.childNodes[1]);
+> //还有一种获取<html>标签的元素节点对象 HTMLHtmlElement的方式
+> console.log(document.documentElement);
+> ```
+> ### 获取body节点对象
+> ``` javascript
+> console.log(document.getElementsByTagName('body')[0]);
+> console.log(document.body);
+> ```
+> ### 获取文档声明：DOCTYPE对象
+> ``` javascript
+> console.log(document.doctype);
+> ```
+> ### 其他属性:document.title-获取和设置title标签的值
+> ``` javascript
+> console.log(document.title);
+> document.title = '睿晨电网建设网站标题'; 
+> ```
+> ### 其他属性:document.URL-获取 URL 路径
+> ``` javascript
+> console.log(document.URL);
+> ```
+> ### 其他属性:document.domain-获取域名，服务器端
+> ``` javascript
+> console.log(document.domain);
+> ```
+> ### 其他属性:document.referrer-获取上一个 URL，服务器端
+> ``` javascript
+> console.log(document.referrer);
+> ```
+> ### 对象集合:document.anchors-获取带name属性的a元素集合
+> ### 对象集合:document.links-获取带 href 属性的a元素集合
+> ### 对象集合:document.forms-获取文档中form元素集合
+> ### 对象集合:document.images-获取文档中img元素集合
+> ``` javascript
+> //属性
+> console.log(document);
+> // console.log(document.title); //获取和设置<title>标签的值
+> // console.log(document.URL); //获取 URL 路径
+> // console.log(document.domain); //获取域名，服务器端
+> // console.log(document.referrer); //获取上一个 URL，服务器端
+> 
+> //对象集合
+> document.anchors; //获取文档中带name属性的<a>元素集合
+> document.links; //获取文档中带 href 属性的<a>元素集合
+> document.forms; //获取文档中<form>元素集合
+> document.images; //获取文档中<img>元素集合
+> ```
+>
+> ### ② Text类型补充
+> ### 1. normalize()方法：把两个同邻的文本节点合并在一起
+> ``` javascript
+> <div id="mydiv">迪丽热巴迪力木拉提</div>
+> let mydiv = document.getElementById('mydiv');
+> //console.log(mydiv.childNodes.length);
+> let text1 = document.createTextNode('迪丽热巴');
+> let text2 = document.createTextNode('迪力木拉提');
+> mydiv.appendChild(text1);
+> mydiv.appendChild(text2);
+> console.log(mydiv.childNodes.length);
+> //把两个同邻的文本节点合并在一起使用 normalize()即可
+> mydiv.normalize();
+> console.log(mydiv.childNodes.length);
+> ```
+> ### 2.splitText(num)方法：实现节点分离
+> ``` javascript
+> //分离
+> console.log(mydiv.childNodes[0]);
+> let sp = mydiv.childNodes[0].splitText(2);
+> console.log(sp);
+> console.log(mydiv.childNodes[0].nodeValue);//迪丽
+> console.log(mydiv.childNodes[1].nodeValue);//热巴迪力木拉提
+> ```
+> ### 3. deleteData删除字符，insertData插入字符，replaceData替换字符，substringData获取字符
+> ``` javascript
+> <div id="mydiv">迪丽热巴迪力木拉提</div>
+> let mydiv = document.getElementById('mydiv');//迪丽热巴迪力木拉提
+> //console.log(mydiv.childNodes[0]);
+> console.log(mydiv.firstChild);
+> //删除从 0 位置的 2 个字符
+> mydiv.firstChild.deleteData(0,2);
+> console.log(mydiv.firstChild.nodeValue); //热巴迪力木拉提
+> //从 0 位置添加指定字符
+> mydiv.firstChild.insertData(0,'Hello.')
+> console.log(mydiv.firstChild.nodeValue);//Hello.热巴迪力木拉提
+> //从 0 位置替换掉 2 个指定字符
+> mydiv.firstChild.replaceData(0,2,'Miss')
+> console.log(mydiv.firstChild.nodeValue);//Missllo.热巴迪力木拉提
+> //从 0 位置获取 2 个字符，直接输出
+> console.log(mydiv.firstChild.substringData(0,2)); //Mi
+> ```
+
+
+
+
+
+
+
 
 
 
