@@ -507,14 +507,59 @@ getElement系列与querySelector系列区别：<br/>
 > console.log(mydiv.firstChild.substringData(0,2)); //Mi
 > ```
 
+### Ⅱ、DOM 扩展
+> DOM 扩展部分提供了一些前面没有讲到的属性和方法，用来扩展我们的DOM的功能
+> ### ① document.compatMode：返回 CSS1Compat（标准模式）
+> 混杂模式IE浏览器则返回 BackCompat（之前为了区别IE8之前的浏览器）了解一下即可，现在用不上了。
+> ### ② scrollIntoView() 让指定节点滚动到可见区域内（一般和滚动事件一起使用）
+> ``` javascript
+> <div id="mydiv" style="height: 500px;background-color: red;">迪丽热巴迪力木拉提</div>
+> document.getElementById('mydiv').scrollIntoView();
+> ```
+> ### ③ children 属性：过滤掉空白节点，得到有效子节点
+> 前面之所以没有讲，是因为在以前这个属性不兼容，现在已经全部兼容了，所以这个属性也非常好用。
+> ``` javascript
+> <div id="mydiv">
+>     <p>迪丽热巴</p>
+>     <strong>迪力木拉提</strong>
+> </div>
+> let mydiv = document.getElementById('mydiv');
+> console.log(mydiv);
+> console.log(mydiv.childNodes.length);
+> console.log(mydiv.children);
+> console.log(mydiv.children.length);
+> console.log(mydiv.children[0].innerText);
+> ``` 
+> ### ④ contains()方法：判断一个节点是不是另一个节点的后代,用于子节点和父节点的判断
+> ``` javascript
+> <div id="mydiv">
+>     <p>迪丽热巴</p>
+>     <strong>迪力木拉提</strong>
+> </div>
+> let mydiv = document.getElementById('mydiv');
+> let _p = mydiv.children[0];
+> console.log(mydiv.contains(_p));//true
+> let body = document.body;
+> console.log(mydiv.contains(body));//false
+> ``` 
 
-
-
-
-
-
-
-
+### Ⅲ、DOM操作网页内容：innerText、innerHTML、outerText、outerHTML
+> ``` javascript
+> <div id="mydiv">
+>     <p>迪丽热巴</p>
+>     <strong>迪力木拉提</strong>
+> </div>
+> let mydiv = document.getElementById('mydiv');
+> console.log(mydiv);
+> console.log('innerText的结果：', mydiv.innerText);
+> console.log('innerHTML的结果：', mydiv.innerHTML);
+> console.log('outerText的结果：',mydiv.outerText);
+> console.log('outerHTML的结果：',mydiv.outerHTML);
+> 
+> //赋值
+> mydiv.innerHTML = '<b>老六</b>';
+> ```
+说明：最常用的使用innerHTML，因为在设置 innerHTML 时，会创建一个 HTML 解析器。这个解析器是浏览器级别的(C++编写)，因此执行 JavaScript 会快的多。
 
 
 
