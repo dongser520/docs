@@ -562,6 +562,7 @@ getElement系列与querySelector系列区别：<br/>
 说明：最常用的使用innerHTML，因为在设置 innerHTML 时，会创建一个 HTML 解析器。这个解析器是浏览器级别的(C++编写)，因此执行 JavaScript 会快的多。
 
 ##  5、DOM实战：操作表格和样式 
+### Ⅰ、DOM创建表格
 > ``` javascript
 > //表格html---更为复杂的表格，我们实战中在讲解
 > // <table border="边框线的宽度" align="表格在页面中的对齐方式:left/center/right" 
@@ -608,6 +609,8 @@ getElement系列与querySelector系列区别：<br/>
 > let table = document.createElement('table');
 > table.setAttribute('border',1);
 > table.setAttribute('align','center');
+> table.setAttribute('cellpadding',10);
+> table.setAttribute('cellspacing',0);
 > 
 > //设置表格标题
 > let caption = document.createElement('caption');
@@ -662,18 +665,111 @@ getElement系列与querySelector系列区别：<br/>
 > tbody_tr_2.appendChild(td3_2);
 > td3_2.appendChild(document.createTextNode('110斤'));
 > 
+> //底部
+> let tfoot = document.createElement('tfoot');
+> table.appendChild(tfoot);
+> let tfoot_tr = document.createElement('tr');
+> tfoot.appendChild(tfoot_tr);
+> let tfoot_td = document.createElement('td');
+> tfoot_td.setAttribute('colspan',3);
+> tfoot_tr.appendChild(tfoot_td);
+> tfoot_td.appendChild(document.createTextNode('总计：2人'));
+> 
 > //放到主营业务前面
 > let main_business = document.getElementById('main_business');
 > document.body.insertBefore(table,main_business);
 > ```
+说明：在一个表格中\<thead\>和\<tfoot\>是唯一的，只能有一个。而\<tbody\>不是唯一的可以有多个，这样导致最后返回的\<thead\>和\<tfoot\>是元素引用，而\<tbody\>返回的是元素集合。
 
-
-
-
-
-
-
-
+### Ⅱ、 HTML DOM 来操作表格
+> \<table>标签是 HTML 中结构最为复杂的一个，我们可以通过 DOM 来创建生成它，或者 HTML DOM 来操作它.
+> ### ① 获取表格元素对象
+> ``` javascript
+> //获取表格元素对象
+> let table = document.getElementsByTagName('table')[0];
+> console.log(table);
+> ```
+> ### ② 获取表格的标题对象\<caption>
+> ``` javascript
+> let table = document.getElementsByTagName('table')[0];
+> console.log(table.children[0]);
+> console.log(table.children[0].innerHTML); //获取 caption 的内容
+> console.log(table.caption.innerHTML);
+> ``` 
+> ### ③ 获取表头表尾\<thead>、\<tfoot>、\<tbody>
+> ``` javascript
+> console.log(table.tHead); //获取表头
+> console.log(table.tFoot); //获取表尾
+> console.log(table.tBodies); //获取表体的集合
+> ```
+> ### ④ 获取表格的行数
+> ``` javascript
+> console.log(table.rows);
+> console.log(table.rows.length); //获取行数的集合，数量
+> ```
+> ### ⑤ 获取表格主体里的行数
+> ``` javascript
+> console.log(table.tBodies[0].rows.length); //获取主体的行数的集合，数量
+> ```
+> ### ⑥ 获取表格主体内第一行的单元格数量(tr)
+> ``` javascript
+> console.log(table.tBodies[0].rows[0].cells.length); //获取第一行单元格的数量（列数）
+> ```
+> ### ⑦ 获取表格主体内第一行第一个单元格的内容(td)
+> ``` javascript
+> console.log(table.tBodies[0].rows[0].cells[0].innerHTML); //获取第一行第一个单元格的内容
+> ```
+> ### ⑧ 删除标题、表头、表尾、行、单元格
+> ``` javascript
+> table.deleteCaption(); //删除标题
+> table.deleteTHead(); //删除<thead>
+> table.deleteTFoot(); //删除<tfoot>元素
+> table.tBodies[0].deleteRow(0); //删除<tr>一行
+> table.tBodies[0].rows[0].deleteCell(0); //删除<td>一个单元格
+> ```
+> ### ⑨ HTML DOM 创建一个表格
+> ``` javascript
+> let table = document.createElement('table');
+> table.setAttribute('border',1);
+> table.setAttribute('align','center');
+> table.setAttribute('cellpadding',10);
+> table.setAttribute('cellspacing',0);
+> 
+> //表格标题
+> table.createCaption().innerHTML = '人员表';
+> 
+> //表格头部
+> let thead = table.createTHead();
+> let tr = thead.insertRow(0);//插入一行
+> let td = tr.insertCell(0);//插入一列
+> td.appendChild(document.createTextNode('姓名'));
+> let td2 = tr.insertCell(1);
+> td2.appendChild(document.createTextNode('性别'));
+> let td3 = tr.insertCell(2);
+> td3.appendChild(document.createTextNode('体重'));
+> 
+> //主体部分
+> let tbody = table.createTBody();
+> let tbody_tr = tbody.insertRow(0);//插入一行
+> let tbody_td = tbody_tr.insertCell(0);//插入一列
+> tbody_td.appendChild(document.createTextNode('迪丽热巴'));
+> let tbody_td2 = tbody_tr.insertCell(1);
+> tbody_td2.appendChild(document.createTextNode('女'));
+> let tbody_td3 = tbody_tr.insertCell(2);
+> tbody_td3.appendChild(document.createTextNode('100斤'));
+> 
+> //表格底部
+> let tfoot = table.createTFoot();
+> let tfoot_tr = tfoot.insertRow(0);//插入一行
+> let tfoot_td = tfoot_tr.insertCell(0);//插入一列
+> tfoot_td.setAttribute('colspan',3);
+> tfoot_td.appendChild(document.createTextNode('总计：2人'));
+> 
+> //放到主营业务前面
+> let main_business = document.getElementById('main_business');
+> document.body.insertBefore(table,main_business);
+> ```
+> 关于创建表格，DOM和 HTML DOM，我们都讲了，大家觉得哪种简单用哪种。  
 
 
 
