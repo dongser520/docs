@@ -561,7 +561,111 @@ getElement系列与querySelector系列区别：<br/>
 > ```
 说明：最常用的使用innerHTML，因为在设置 innerHTML 时，会创建一个 HTML 解析器。这个解析器是浏览器级别的(C++编写)，因此执行 JavaScript 会快的多。
 
-
+##  5、DOM实战：操作表格和样式 
+> ``` javascript
+> //表格html---更为复杂的表格，我们实战中在讲解
+> // <table border="边框线的宽度" align="表格在页面中的对齐方式:left/center/right" 
+> // bgcolor="表格的背景色" background="背景图片" 
+> // cellpadding="单元格内容和边框之间的距离" cellspacing="单元格之间的距离"></table>
+> //<caption></caption>：表示表格的标题
+> //<thead></thead>：语义标签，表示表格的头部
+> //<tr align="行的对齐方式:left/center/right"  bgcolor="行的背景色" background="设置背景图片"></tr>：表示表格的行，一个tr代表一行
+> //<th width="列宽"></th>：表示列头，文字会自动加粗、自动居中，是特殊的单元格
+> //<tbody></tbody>：语义标签，表示表格的主体部分
+> //<td align="单元格的水平对齐方式:left/center/right" valign="单元格的垂直对齐方式:top/bottom"></td>：表示表格中的单元格
+> //<td colspan="单元格要合并几列"  rowspan="单元格要合并几行"></td>
+> //<tfoot></tfoot>: 语义标签，表示表格的底部
+> <table border="1" align="center" cellspacing="0" cellpadding="10">
+>     <caption>人员表</caption>
+>     <thead>
+>         <tr>
+>             <th>姓名</th>
+>             <th>性别</th>
+>             <th>体重</th>
+>         </tr>
+>     </thead>
+>     <tbody>
+>         <tr>
+>             <td>迪丽热巴</td>
+>             <td>女</td>
+>             <td>100斤</td>
+>         </tr>
+>         <tr>
+>             <td>梁咏琪</td>
+>             <td>女</td>
+>             <td>110斤</td>
+>         </tr>
+>     </tbody>
+>     <tfoot>
+>         <tr>
+>             <td colspan="3">合计：3</td>
+>         </tr>
+>     </tfoot>
+> </table>
+> 
+> //使用 DOM 来创建这个表格
+> // 创建表格
+> let table = document.createElement('table');
+> table.setAttribute('border',1);
+> table.setAttribute('align','center');
+> 
+> //设置表格标题
+> let caption = document.createElement('caption');
+> table.appendChild(caption);
+> caption.appendChild(document.createTextNode('人员表'));
+> 
+> //表格头部
+> let thead = document.createElement('thead');
+> table.appendChild(thead);
+> //头部行
+> let tr = document.createElement('tr');
+> thead.appendChild(tr);
+> //头部列头
+> let th1 = document.createElement('th');
+> let th2 = document.createElement('th');
+> let th3 = document.createElement('th');
+> tr.appendChild(th1);
+> th1.appendChild(document.createTextNode('姓名'));
+> tr.appendChild(th2);
+> th2.appendChild(document.createTextNode('年龄'));
+> tr.appendChild(th3);
+> th3.appendChild(document.createTextNode('体重'));
+> 
+> //主体部分
+> let tbody = document.createElement('tbody');
+> table.appendChild(tbody);
+> //主体部分第一行
+> let tbody_tr = document.createElement('tr');
+> tbody.appendChild(tbody_tr);
+> //每行数据
+> let td1 = document.createElement('td');
+> let td2 = document.createElement('td');
+> let td3 = document.createElement('td');
+> tbody_tr.appendChild(td1);
+> td1.appendChild(document.createTextNode('迪丽热巴'));
+> tbody_tr.appendChild(td2);
+> td2.appendChild(document.createTextNode('女'));
+> tbody_tr.appendChild(td3);
+> td3.appendChild(document.createTextNode('100斤'));
+> 
+> //主体部分第二行（实际开发我们会使用for循环遍历数据库数据）
+> let tbody_tr_2 = document.createElement('tr');
+> tbody.appendChild(tbody_tr_2);
+> //每行数据
+> let td1_2 = document.createElement('td');
+> let td2_2 = document.createElement('td');
+> let td3_2 = document.createElement('td');
+> tbody_tr_2.appendChild(td1_2);
+> td1_2.appendChild(document.createTextNode('梁咏琪'));
+> tbody_tr_2.appendChild(td2_2);
+> td2_2.appendChild(document.createTextNode('女'));
+> tbody_tr_2.appendChild(td3_2);
+> td3_2.appendChild(document.createTextNode('110斤'));
+> 
+> //放到主营业务前面
+> let main_business = document.getElementById('main_business');
+> document.body.insertBefore(table,main_business);
+> ```
 
 
 
