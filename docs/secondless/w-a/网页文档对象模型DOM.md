@@ -561,7 +561,7 @@ getElement系列与querySelector系列区别：<br/>
 > ```
 说明：最常用的使用innerHTML，因为在设置 innerHTML 时，会创建一个 HTML 解析器。这个解析器是浏览器级别的(C++编写)，因此执行 JavaScript 会快的多。
 
-##  5、DOM实战：操作表格和样式 
+##  5、DOM实战：操作表格
 ### Ⅰ、DOM创建表格
 > ``` javascript
 > //表格html---更为复杂的表格，我们实战中在讲解
@@ -770,6 +770,66 @@ getElement系列与querySelector系列区别：<br/>
 > document.body.insertBefore(table,main_business);
 > ```
 > 关于创建表格，DOM和 HTML DOM，我们都讲了，大家觉得哪种简单用哪种。  
+
+##  6、操作CSS样式
+### ① 检测浏览器是否支持css1/css2/css3级的能力
+> ``` javascript
+> console.log(document);
+> console.log('DOM1 级 CSS 能力：' + document.implementation.hasFeature('CSS', '2.0'));
+> console.log('DOM2 级 CSS 能力：' + document.implementation.hasFeature('CSS2', '2.0'));
+> console.log('DOM3 级 CSS 能力：' + document.implementation.hasFeature('CSS3', '2.0'));
+> ```
+### ② 行内样式style的获取、赋值、移除属性removeProperty
+> ``` javascript
+> let banner = document.getElementById('banner');
+> //获取行内样式
+> console.log(banner);
+> console.log(banner.style);//CSSStyleDeclaration css样式对象
+> console.log(banner.style.margin-top); //  NaN 
+> //写法一：对象写法，但注意：-去掉，后面的字母大写（驼峰式写法）
+> console.log(banner.style.marginTop);  //  100px
+> //写法二：类数组写法：
+> console.log(banner.style['margin-top']);
+> 
+> console.log(banner.style.cssText);    // "margin-top: 100px;"
+> 
+> //赋值行内样式
+> banner.style.paddingTop = '300px';
+> banner.style['padding-top'] = '500px';
+> banner.style.background = 'red';
+> 
+> //移除一个行内样式属性removeProperty
+> banner.style.removeProperty('background');
+> ```
+
+### ③ 计算后的样式获取(行内、内联、外联样式)：window 对象下getComputedStyle()方法
+> 接受两个参数，需要计算的样式元素，第二个伪类(:hover)，如果没有伪类，就填 null。
+> ``` javascript
+> let banner = document.getElementById('banner');
+> console.log(banner.style.fontSize);//空
+> //事实上，我们页面呈现的样式，都是计算后的样式，虽然获取不到字体大小样式
+> //但是如果你写了文字，文字默认大小是16px
+> banner.appendChild(document.createTextNode('我是文字'));
+> //可以看到文字大小是16px,它为啥不是20px,不是10px，这个就是计算后的样式
+> //那么怎么获取呢？
+> let style = window.getComputedStyle(banner,null);
+> console.log(style);
+> console.log(style.fontSize);//16px
+> 
+> //当然你可以赋值
+> banner.style.fontSize = '200px';
+> //计算后的样式，你可以理解成最终呈现的样式，如果你不设置字体大小，就按默认样式16px
+> //你设置了字体大小，就按设置的字体大小展示
+> console.log(style.fontSize);//200px
+> ```
+
+总结：样式获取与设置 <br/>
+> 1. 设置样式，可以使用 元素.style.样式 = '样式值'; 如： banner.style.background = 'red';<br/>
+> 2. 获取样式，如果你写了行内样式，想获取，可以直接：banner.style.background <br/>
+> 3. 更多时候，我们获取样式，是获取计算后的样式，因为它不仅能获取默认样式，还可以获取行内、内联、外联样式表的样式；<br/>
+> 为什么能获取内联和外联样式表的样式呢？因为你不管在哪里设置了css，最终都会驻留在浏览器的计算样式里面，所以可以获取.
+
+
 
 
 
