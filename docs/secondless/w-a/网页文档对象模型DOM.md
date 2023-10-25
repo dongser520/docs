@@ -830,10 +830,133 @@ getElement系列与querySelector系列区别：<br/>
 > 为什么能获取内联和外联样式表的样式呢？因为你不管在哪里设置了css，最终都会驻留在浏览器的计算样式里面，所以可以获取.
 
 
+## 7、操作页面样式
+> 上一节课，我们讲了如何获取行内、及计算后的样式，以及赋值行内样式，移除某个行内样式，本节课我们看一下在我们常规开发中，如何操作我们的页面样式。
+### ① className关键字设置样式
+> className赋值，会清空之前元素class里面的所有类样式
+> ``` javascript
+> let spanch = document.querySelectorAll('.span-ch');
+> console.log(spanch);
+> console.log(spanch[0].className);//span-ch
+> spanch[0].className = 'py-5';//发现py-5类名加上了，以前的类名没有了
+> //我们知道，类名是可以叠加使用的 'span-ch py-5'
+> spanch[0].className = 'span-ch py-5';
+> spanch[0].className = 'span-ch py-5 bg-light';
+> //发现这样写，会非常冗余，当类名多的时候，越写越冗余，能不能我只想添加bg-light，以前的span-ch py-5不要写了
+> //同样，删除那个类名，比如bg-light，还要在写 span-ch py-5，能不能我想添加那个就写哪个，删除那个就写哪个
+> //之前写的不要带着写？比如添加：addClass('py-5');addClass('bg-light');
+> //比如移除: removeClass('bg-light'); removeClass('py-5');
+> ```
+我们可以写几个函数，完成上面的功能：
+> 以下函数不需要记，只需要知道，我们后面也有其他方式做这件事情，同学们只需要先知道
+### ② hasClass() 判断是否存在某个类名
+> ``` javascript
+> function hasClass(element, className) {
+>     return !!element.className.match(new RegExp('(\\s|^)'+className+'(\\s|$)'));
+> }
+> let spanch = document.querySelectorAll('.span-ch')[0];
+> console.log(hasClass(spanch,'span-ch'));//true
+> console.log(hasClass(spanch,'py-5'));//false
+> ```
+### ③ addClass() 如果不存在的这个类名，添加这个类名
+> ``` javascript
+> function hasClass(element, className) {
+>     return !!element.className.match(new RegExp('(\\s|^)'+className+'(\\s|$)'));
+> }
+> function addClass(element, className) {
+>     if (!hasClass(element, className)) {
+>         element.className += " "+className;
+>     }
+> }
+> 
+> let spanch = document.querySelectorAll('.span-ch')[0];
+> addClass(spanch,'py-5');
+> addClass(spanch,'mb-5');
+> ```
+### ④ removeClass() 如果存在的这个类名，删除这个类名
+> ``` javascript
+> function hasClass(element, className) {
+>     return !!element.className.match(new RegExp('(\\s|^)'+className+'(\\s|$)'));
+> }
+> function removeClass(element, className) {
+>     if (hasClass(element, className)) {
+>         element.className = element.className.replace(
+>         new RegExp('(\\s|^)'+className+'(\\s|$)'),' ');
+>      }
+> }
+> 
+> let spanch = document.querySelectorAll('.span-ch')[0];
+> removeClass(spanch,'span-ch');
+> ```
 
 
+## 8、操作CSS外联样式表.css文件
+> 我们了解了一般开发中，操作页面样式，一般是改变元素的类名className,动态添加类名，删除类名等操作，接下来我们看一下，如何来操作我们的外联样式表，也就是我们的.css文件 <br/>
+> 通过\<link>元素(外联样式表)和\<style>元素（内联样式表）包含的样式表，它的类型是：CSSStyleSheet 类型。获取方式如下：
+> ``` javascript
+> console.log(document.getElementsByTagName('link'));//HTMLCollection
+> console.log(document.getElementsByTagName('style'));//HTMLCollection
+> //获取第一个外联样式表
+> console.log(document.getElementsByTagName('link')[0]); //HTMLLinkElement
+> //获取第一个内联样式
+> console.log(document.getElementsByTagName('style')[0]); //HTMLStyleElement
+> ```
+### ① 获取CSSStyleSheet，外联的css样式表对象
+> ``` javascript
+> //方式一：
+> let link =  document.getElementsByTagName('link')[0];
+> console.log(link);
+> let sheet = link.sheet;
+> console.log(sheet);//CSSStyleSheet 外联的css样式表对象
+> 
+> //方式二：推荐这个
+> console.log(document.styleSheets);//StyleSheetList集合
+> let _sheet = document.styleSheets[0];
+> console.log(_sheet);//CSSStyleSheet 外联的css样式表对象
+> ```
+> 对照中控台打印的对象看一下属性方法
+> ``` javascript
+> _sheet.disabled; //false，可设置为 true，获取和设置样式表是否被禁用
+> _sheet.href; //css 的 URL，如果是通过<link>包含的，则样式表为 URL，否则为 null
+> _sheet.ownerNode;//指向拥有当前样式表节点的指针
+> _sheet.title; //ownerNode 中 title 属性的值
+> _sheet.media; //MediaList，集合，样式表支持的所有媒体类型的集合
+> _sheet.media[0]; //第一个 media 的值
+> _sheet.cssRules //CSSRuleList，样式表包含样式规则的集合
+> _sheet.deleteRule(0); //删除第一个样式规则
+> _sheet.insertRule("body {background-color:red}", 0); //在第一个位置添加一个样式规则
+> ```
+> 常用的几个
+> ``` javascript
+> let _sheet = document.styleSheets[0];
+> console.log(_sheet);
+> //_sheet.disabled = true;//禁用公共样式，页面错乱了
+> 
+> //http://192.168.0.147:81/2-1/index.html
+> console.log(_sheet.cssRules);
+> // console.log(_sheet.cssRules[0]);
+> // console.log(_sheet.cssRules[0].cssText);//第一个样式规则
+> // console.log(_sheet.cssRules[0].selectorText);//第一个样式规则的选择器
+> // console.log(_sheet.cssRules[0].style);
+> // console.log(_sheet.cssRules[0].style.cssText);//第一个样式规则的样式文本
+> // console.log(_sheet.cssRules[0].style.display);
+> //动态给第一个规则添加一个样式规则
+> //_sheet.cssRules[0].style.background = 'red';
+> //_sheet.cssRules[3].style.background = 'red';
+> 
+> //删除第一个样式规则
+> //_sheet.deleteRule(0);
+> //删除第三个样式规则
+> //_sheet.deleteRule(2);
+> 
+> //插入第一个规则
+> //第一个参数是样式，第二个参数是位置
+> //_sheet.insertRule('body{background-color:red}',0);
+> ```
+> 在实际开发中，动态操作外联样式表.css文件里面的样式的，用得比较少，很多时候还是操作我们的行内样式，动态改变类名达到操作页面的效果。
 
-
+但需要知道：三种操作 CSS 的方法，第一种 style 行内，可读取可设置；第二种行内、内联和外部链接，使用 getComputedStyle 可读取不可设置（因为它驻留浏览器计算样式里面）；第三种 cssRules，内联和外部链接
+可读取可设置。
 
 
 
