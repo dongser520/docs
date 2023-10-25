@@ -958,10 +958,116 @@ getElement系列与querySelector系列区别：<br/>
 但需要知道：三种操作 CSS 的方法，第一种 style 行内，可读取可设置；第二种行内、内联和外部链接，使用 getComputedStyle 可读取不可设置（因为它驻留浏览器计算样式里面）；第三种 cssRules，内联和外部链接
 可读取可设置。
 
+## 9、DOM元素尺寸和位置
+我们在前面几节课已经讲了css是怎么获取和设置的，那么css可以获取到这个元素它设置的时候的css的大小，它并不能够获取到元素本身的实际大小，比如说这个css设置的是宽200px，那么你给它加了内边距或者边框，或者其它的一些属性，其实它的css的大小还是200px，那么并没有获取到元素的实际大小，所以本知识点需要理解页面中的某一个元素它的各种大小和各种位置的计算方式，以方便我们在页面上进行操作。
+### Ⅰ、获取元素 CSS 大小回顾
+> ### ① 通过 style 内联获取元素的大小
+> ``` javascript
+> let banner = document.getElementById('banner');
+> //style 获取行内css大小
+> console.log(banner.style.width);//空  设置值
+> console.log(banner.style.height);//空 设置值
+> ```
+> ### ② 通过计算getComputedStyle()方法获取元素大小 
+> ``` javascript
+> let banner = document.getElementById('banner');
+> //通过计算getComputedStyle()方法获取元素大小
+> let style = window.getComputedStyle(banner,null);
+> console.log(style.width);
+> console.log(style.height);
+> //通过计算方法获取的宽度，不管你写还是没有写宽度，也不管你写在行内，内联，外联都可以获取
+> ```
+> ### ③ 通过 CSSStyleSheet 对象中的 cssRules属性获取元素大小（需将网页放到服务器上查看）
+> ``` javascript
+> //方式一：
+> let link =  document.getElementsByTagName('link')[0];
+> let sheet = link.sheet;
+> console.log(sheet);//CSSStyleSheet 外联的css样式表对象
+> 
+> //方式二：推荐这个
+> console.log(document.styleSheets);//StyleSheetList集合
+> let _sheet = document.styleSheets[0];
+> console.log(_sheet);//CSSStyleSheet 外联的css样式表对象
+> 
+> let rule = _sheet.cssRules[0];
+> // rule.style.width
+> // rule.style.height
+> ```
+以上的三种 CSS 获取元素大小的方法，只能获取元素的 CSS 大小，无法获取元素本身实际的大小。比如加上了内边距、滚动条、边框之类的。那么如何获取元素实际大小呢？
+
+### Ⅱ、获取元素实际大小
+> 回顾 <a href="/secondless/w-a/浏览器对象模型BOM及浏览器检测.html#_5、window对象-窗口页面的位置和大小" target="blank">14章_5、window对象：窗口页面的位置和大小_② 窗口页面的大小</a>
+### ① clientWidth 和 clientHeight：获取元素可视区的大小，可以得到元素内容及内边距所占据的空间大小
+> ``` javascript
+>     <style>
+>        
+>         #banner{
+>             /* overflow: scroll; */
+>             padding: 20px;
+>             width: 1200px;
+>         }
+>     </style>
+> let banner = document.getElementById('banner');
+> console.log(banner.clientWidth);//如：1200
+> console.log(banner.clientHeight);//如：567
+> console.log(typeof banner.clientHeight);//number
+> ```
+①、说明：<br/>
+1、返回了元素大小，但没有单位，默认单位是 px<br/>
+2、返回的数据类型是number，是数值，不是字符串<br/>
+3、如果你强行设置了单位，比如 100em之类，它还是会返回 px 的大小。(CSS 获取的话，是照着你设置的样式获取)。<br/>
+②、理解方式 ： 对于元素的实际大小，clientWidth 和 clientHeight 理解方式如下：<br/>
+1.增加边框，无变化；<br/>
+2.增加外边距，无变化；<br/>
+3.<b>增加滚动条，最终值等于原本大小减去滚动条的大小（滚动条会减少元素的大小，不把滚动条的宽度高度算进去）</b>；<br/>
+4.<b>增加内边距，最终值等于原本大小加上内边距的大小（内边距会增加元素的大小）</b>；<br/>
+
+
+
+
+
+### Ⅲ、获取元素周边大小
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 <br/><br/><br/><br/><br/><br/>
-
 
 ## 课程其它章节
 ### [章节1.课程介绍](/secondless/w-a '章节1.课程介绍')
