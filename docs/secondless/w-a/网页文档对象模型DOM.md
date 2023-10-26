@@ -1184,21 +1184,61 @@ getElement系列与querySelector系列区别：<br/>
 > },50);
 > ```
 
+### ④ getBoundingClientRect()方法：返回一个矩形对象，包含四个属性：left、top、right和 bottom，分别表示元素各边与页面上边和左边的距离
+> ``` javascript
+> #box{
+>     width: 200px;
+>     height: 200px;
+>     background: red;
+>     /* margin: 100px; */
+>     overflow: scroll;
+> 
+>     position: absolute;
+>     top: 50px;
+>     left: 50px;
+> }
+> 
+> let box = document.getElementById('box'); //获取元素
+> console.log('元素上边距离页面上边的距离', box.getBoundingClientRect().top); //元素上边距离页面上边的距离
+> console.log('元素右边距离页面左边的距离', box.getBoundingClientRect().right); //元素右边距离页面左边的距离
+> console.log('元素下边距离页面上边的距离', box.getBoundingClientRect().bottom); //元素下边距离页面上边的距离
+> console.log('元素左边距离页面左边的距离', box.getBoundingClientRect().left); //元素左边距离页面左边的距离
+> ```
 
+## 10、动态加载脚本
+> 当网站需求变大，脚本的需求也逐步变大。我们就不得不引入太多的 JS 脚本而降低了整站的性能，所以就出现了动态脚本的概念，在适时的时候加载相应的脚本。也就是有些页面我们要用到某个js,有些页面不需要用到这个js,我们可以利用动态加载js文件，满足我们的需求，最大可能的提高我们网站的性能。
+### ① 动态加载js文件
+> ``` javascript
+> //动态添加js文件
+> let script = document.createElement('script');
+> script.type = 'text/javascript';
+> script.src = './static/js/test.js';
+> //document.head.appendChild(script); //document.head 表示<head>
+> document.getElementsByTagName('head')[0].appendChild(script);
+> 
+> //写成一个方法
+> function loadScript(url) {
+>     var script = document.createElement('script');
+>     script.type = 'text/javascript';
+>     script.src = url;
+>     //document.head.appendChild(script); //document.head 表示<head>
+>     document.getElementsByTagName('head')[0].appendChild(script);
+> }
+> loadScript('./static/js/test.js');
+> ```
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+### ② 动态加载样式表
+> 为了动态的加载样式表，比如切换网站皮肤有两套样式表css文件，根据需求加载，我们就可以动态加载我们的\<link>标签。
+> ``` javascript
+> function loadStyles(url) {
+>     let link = document.createElement('link');
+>     link.rel = 'stylesheet';
+>     link.type = 'text/css';
+>     link.href = url;
+>     document.getElementsByTagName('head')[0].appendChild(link);
+> }
+> loadStyles('./static/css/common.1.0.css');
+> ```
 
 
 
