@@ -958,10 +958,10 @@ getElement系列与querySelector系列区别：<br/>
 但需要知道：三种操作 CSS 的方法，第一种 style 行内，可读取可设置；第二种行内、内联和外部链接，使用 getComputedStyle 可读取不可设置（因为它驻留浏览器计算样式里面）；第三种 cssRules，内联和外部链接
 可读取可设置。
 
-## 9、DOM元素尺寸和位置
+## 9、DOM元素尺寸（元素大小）和位置（元素位置）
 我们在前面几节课已经讲了css是怎么获取和设置的，那么css可以获取到这个元素它设置的时候的css的大小，它并不能够获取到元素本身的实际大小，比如说这个css设置的是宽200px，那么你给它加了内边距或者边框，或者其它的一些属性，其实它的css的大小还是200px，那么并没有获取到元素的实际大小，所以本知识点需要理解页面中的某一个元素它的各种大小和各种位置的计算方式，以方便我们在页面上进行操作。
 ### Ⅰ、获取元素 CSS 大小回顾
-> ### ① 通过 style 内联获取元素的大小
+> ### ① 通过 style 内联获取元素大小
 > ``` javascript
 > let banner = document.getElementById('banner');
 > //style 获取行内css大小
@@ -997,7 +997,7 @@ getElement系列与querySelector系列区别：<br/>
 
 ### Ⅱ、获取元素实际大小
 > 回顾 <a href="/secondless/w-a/浏览器对象模型BOM及浏览器检测.html#_5、window对象-窗口页面的位置和大小" target="blank">14章_5、window对象：窗口页面的位置和大小_② 窗口页面的大小</a>
-### ① clientWidth 和 clientHeight：获取元素可视区的大小，可以得到元素内容及内边距所占据的空间大小
+### ① clientWidth 和 clientHeight：获取可视区的元素大小，可以得到元素内容及内边距所占据的空间大小
 > ``` javascript
 >     <style>
 >        
@@ -1022,27 +1022,167 @@ getElement系列与querySelector系列区别：<br/>
 3.<b>增加滚动条，最终值等于原本大小减去滚动条的大小（滚动条会减少元素的大小，不把滚动条的宽度高度算进去）</b>；<br/>
 4.<b>增加内边距，最终值等于原本大小加上内边距的大小（内边距会增加元素的大小）</b>；<br/>
 
+### ② scrollWidth 和 scrollHeight：获取滚动内容的元素大小
+> ``` javascript
+> <style>
+>     #banner{
+>         width: 200px;
+>         border: 100px solid red;
+>         margin: 100px;
+>         padding: 100px;
+>         overflow: scroll;
+> 
+>         height: 200px;
+>     }
+> </style>
+> let banner = document.getElementById('banner');
+> console.log(banner.scrollWidth);
+> console.log(banner.scrollHeight);
+> ```
+①、说明：<br/>
+1、返回了元素大小，但没有单位，默认单位是 px<br/>
+2、返回的数据类型是number，是数值，不是字符串<br/>
+3、如果没有设置任何 CSS 的宽和高度，它会得到计算后的宽度和高度（与getComputedStyle()方法获取元素大小一样）。<br/>
+②、理解方式 ： 对于元素的实际大小，scrollWidth 和 scrollHeight 理解方式如下：<br/>
+1.增加边框，无变化；<br/>
+2.增加外边距，无变化；<br/>
+3.<b>增加滚动条，最终值等于原本大小减去滚动条的大小（滚动条会减少元素的大小，不把滚动条的宽度高度算进去）</b>；<br/>
+4.<b>增加内边距，最终值等于原本大小加上内边距的大小（内边距会增加元素的大小）</b>；<br/>
+5. 增加内容溢出（出现滚动条），获取实际内容高度；<br/>
+即，当元素出现滚动条的时候，用scrollWidth 和 scrollHeight：获取滚动内容的元素大小。
 
+### ③ offsetWidth 和 offsetHeight：获取元素大小，包含边框、内边距和滚动条
+> ``` javascript
+> let banner = document.getElementById('banner');
+> console.log(banner.offsetWidth);
+> console.log(banner.offsetHeight);
+> ```
+①、说明：<br/>
+1、返回了元素大小，但没有单位，默认单位是 px<br/>
+2、返回的数据类型是number，是数值，不是字符串<br/>
+3、如果没有设置任何 CSS 的宽和高度，它会得到计算后的宽度和高度（与getComputedStyle()方法获取元素大小一样）。<br/>
+②、理解方式 ： 对于元素的实际大小，offsetWidth 和 offsetHeight 理解方式如下：<br/>
+1.增加边框，最终值会等于原本大小加上边框大小<br/>
+2.增加外边距，无变化；<br/>
+3.增加内边距，最终值会等于原本大小加上内边距大小<br/>
+4.增加滚动条，无变化，不会减小;<br/>
 
+<b>说明：</b><br/>
+对于元素大小的获取，一般是块级(block)元素并且以设置了 CSS 大小的元素较为方便。如果是内联元素(inline)或者没有设置大小的元素就尤为麻烦，所以，建议使用的时候注意。<br/>
+<b style="color:#00A5F7;">在实际开发中，我们常用的是offsetWidth 和 offsetHeight。但是其他两组，还是需要了解一下。</b>
 
 
 ### Ⅲ、获取元素周边大小
+### ① clientLeft 和 clientTop:获取元素设置了左边框和上边框的大小
+> ``` javascript
+> let banner = document.getElementById('banner');
+> console.log('左边框', banner.clientLeft);
+> console.log('上边框',banner.clientTop);
+> //没有提供下边框和有边框，可以采用计算后的样式获取
+> let style = window.getComputedStyle(banner,null);
+> console.log('下边框',style.borderBottomWidth);
+> console.log('右边框',style.borderRightWidth);
+> ```
 
+### ② offsetLeft 和 offsetTop：获取当前元素相对于父元素的位置
+> 获取元素当前相对于父元素的位置，一般是当前元素使用了position:absolute;绝对定位使用这组属性。关于相对定位，绝对定位，我们在第一学期开发网页的时候已经讲得很清楚了，跟着我们一起学习过来的同学，对这个已经很了解了，不了解的同学，建议回去看一下我们第一学期的课程。
 
+注意offsetLeft 和 offsetTop 加上边框和内边距不会影响它的位置，但加上外边据会累加。
+> ``` javascript
+> <style>
+>     #banner{
+>         width: 200px;
+>         border: 100px solid red;
+>         margin: 100px;
+>         padding: 100px;
+>         overflow: scroll;
+> 
+>         height: 200px;
+> 
+>         position: absolute;
+>         top: 200px;
+>         left: 200px;
+>     }
+> </style>
+> 
+> let banner = document.getElementById('banner');
+> console.log(banner.offsetTop);
+> console.log(banner.offsetLeft);
+> //得到它的父元素
+> console.log(banner.offsetParent);
+> console.log(banner.offsetParent.tagName);//body
+> ```
+延伸一下：嵌套问题
+> ``` javascript
+> <style>
+>     #pox{
+>         width: 400px;
+>         height: 400px;
+>         background:blue;
+>         position: absolute;
+>         top: 50px;
+>         left: 50px;
+>     }
+>     #box{
+>         width: 200px;
+>         height: 200px;
+>         background: red;
+>         margin: 10px;
+>     }
+> </style>
+> <div id="pox">
+>         <div id="box"></div>
+> </div>
+> let box = document.getElementById('box');
+> console.log(box.offsetTop);//10
+> console.log(box.offsetLeft);//10
+> console.log(box.offsetParent.id);//pox
+> //现在需要获取box距离body（页面口）的距离？10+50
+> // 50 = box父元素pox距离它父元素的body距离
+> console.log(box.offsetParent.offsetTop);//50
+> 
+> //两层我们好处理，如果嵌套了很多层，如何求最里面层距离页面口的距离呢？
+> //以距离左边为例
+> function offsetLeft(element) {
+>     let left = element.offsetLeft; //得到第一层距离
+>     let parent = element.offsetParent; //得到第一个父元素
+>     while (parent !== null) { //如果还有上一层父元素
+>         left += parent.offsetLeft; //把本层的距离累加
+>         parent = parent.offsetParent; //得到本层的父元素
+>     } //然后继续循环
+>     
+>     return left;
+> }
+> console.log(offsetLeft(box));
+> ```
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+### ③ scrollTop 和 scrollLeft：这组属性可以获取滚动条被隐藏的区域大小（滚动条滚动高度宽度），也可设置定位到该区域（定位滚动条）
+> ``` javascript
+> #box{
+>     width: 200px;
+>     height: 200px;
+>     overflow: scroll;
+>     margin: 100px;
+>     background-color: red;
+> }
+> let box = document.getElementById('box');
+> console.log(box.scrollTop);//滚动条距离上边距离
+> console.log(box.scrollLeft);//滚动条距离左边距离
+> 
+> //设置
+> box.scrollTop = 100;
+> 
+> 
+> //常用场景：获取页面滚动条
+> //console.log(document.documentElement.scrollTop);
+> 
+> //设置页面滚动条
+> // document.documentElement.scrollTop = 2000;
+> // document.body.scrollTop = 2000;
+> setTimeout(()=>{
+>     document.documentElement.scrollTop = 2000;
+> },50);
+> ```
 
 
 
