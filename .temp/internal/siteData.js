@@ -722,10 +722,15 @@ export const siteData = {
           "level": 3,
           "title": "",
           "slug": "章节15-网页文档对象模型dom"
+        },
+        {
+          "level": 3,
+          "title": "",
+          "slug": "章节16-事件"
         }
       ],
-      "lastUpdated": "2023年10月11日星期三下午3点02分",
-      "lastUpdatedTimestamp": 1697007732000
+      "lastUpdated": "2023年10月26日星期四下午4点31分",
+      "lastUpdatedTimestamp": 1698309090000
     },
     {
       "title": "章节8.Date类型：时间和日期",
@@ -858,10 +863,156 @@ export const siteData = {
           "level": 3,
           "title": "章节15.网页文档对象模型DOM",
           "slug": "章节15-网页文档对象模型dom"
+        },
+        {
+          "level": 3,
+          "title": "章节16.事件",
+          "slug": "章节16-事件"
         }
       ],
-      "lastUpdated": "2023年10月11日星期三下午3点02分",
-      "lastUpdatedTimestamp": 1697007732000
+      "lastUpdated": "2023年10月26日星期四下午4点31分",
+      "lastUpdatedTimestamp": 1698309090000
+    },
+    {
+      "title": "章节5.javascript函数",
+      "frontmatter": {
+        "navbar": true,
+        "sidebar": "auto",
+        "title": "章节5.javascript函数"
+      },
+      "regularPath": "/secondless/w-a/javascript%E5%87%BD%E6%95%B0.html",
+      "relativePath": "secondless/w-a/javascript函数.md",
+      "key": "v-d73347ee",
+      "path": "/secondless/w-a/javascript%E5%87%BD%E6%95%B0.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "1、函数声明",
+          "slug": "_1、函数声明"
+        },
+        {
+          "level": 3,
+          "title": "① 没有参数的函数",
+          "slug": "_1-没有参数的函数"
+        },
+        {
+          "level": 3,
+          "title": "② 带参数的函数",
+          "slug": "_2-带参数的函数"
+        },
+        {
+          "level": 2,
+          "title": "2、函数 return 返回值",
+          "slug": "_2、函数-return-返回值"
+        },
+        {
+          "level": 3,
+          "title": "① return返回值",
+          "slug": "_1-return返回值"
+        },
+        {
+          "level": 3,
+          "title": "② 函数的返回值赋给一个变量",
+          "slug": "_2-函数的返回值赋给一个变量"
+        },
+        {
+          "level": 3,
+          "title": "③ 退出当前函数",
+          "slug": "_3-退出当前函数"
+        },
+        {
+          "level": 2,
+          "title": "3、函数的arguments 对象",
+          "slug": "_3、函数的arguments-对象"
+        },
+        {
+          "level": 2,
+          "title": "课程其它章节",
+          "slug": "课程其它章节"
+        },
+        {
+          "level": 3,
+          "title": "章节1.课程介绍",
+          "slug": "章节1-课程介绍"
+        },
+        {
+          "level": 3,
+          "title": "章节2.javascript基础",
+          "slug": "章节2-javascript基础"
+        },
+        {
+          "level": 3,
+          "title": "章节3.javascript运算符",
+          "slug": "章节3-javascript运算符"
+        },
+        {
+          "level": 3,
+          "title": "章节4.流程控制语句",
+          "slug": "章节4-流程控制语句"
+        },
+        {
+          "level": 3,
+          "title": "章节5.javascript函数",
+          "slug": "章节5-javascript函数"
+        },
+        {
+          "level": 3,
+          "title": "章节6.javascript对象",
+          "slug": "章节6-javascript对象"
+        },
+        {
+          "level": 3,
+          "title": "章节7.javascript数组",
+          "slug": "章节7-javascript数组"
+        },
+        {
+          "level": 3,
+          "title": "章节8.Date类型：时间和日期",
+          "slug": "章节8-date类型-时间和日期"
+        },
+        {
+          "level": 3,
+          "title": "章节9.Function类型：函数进阶",
+          "slug": "章节9-function类型-函数进阶"
+        },
+        {
+          "level": 3,
+          "title": "章节10.内置对象：Global、Math对象，变量、作用域和内存问题",
+          "slug": "章节10-内置对象-global、math对象-变量、作用域和内存问题"
+        },
+        {
+          "level": 3,
+          "title": "章节11.匿名函数和闭包",
+          "slug": "章节11-匿名函数和闭包"
+        },
+        {
+          "level": 3,
+          "title": "章节12.javascript基本包装类型",
+          "slug": "章节12-javascript基本包装类型"
+        },
+        {
+          "level": 3,
+          "title": "章节13.函数对象数组小结",
+          "slug": "章节13-函数对象数组小结"
+        },
+        {
+          "level": 3,
+          "title": "章节14.浏览器对象模型BOM及浏览器检测",
+          "slug": "章节14-浏览器对象模型bom及浏览器检测"
+        },
+        {
+          "level": 3,
+          "title": "章节15.网页文档对象模型DOM",
+          "slug": "章节15-网页文档对象模型dom"
+        },
+        {
+          "level": 3,
+          "title": "章节16.事件",
+          "slug": "章节16-事件"
+        }
+      ],
+      "lastUpdated": "2023年10月26日星期四下午4点31分",
+      "lastUpdatedTimestamp": 1698309090000
     },
     {
       "title": "章节9.Function类型：函数进阶",
@@ -1029,146 +1180,15 @@ export const siteData = {
           "level": 3,
           "title": "章节15.网页文档对象模型DOM",
           "slug": "章节15-网页文档对象模型dom"
+        },
+        {
+          "level": 3,
+          "title": "章节16.事件",
+          "slug": "章节16-事件"
         }
       ],
-      "lastUpdated": "2023年10月11日星期三下午3点02分",
-      "lastUpdatedTimestamp": 1697007732000
-    },
-    {
-      "title": "章节5.javascript函数",
-      "frontmatter": {
-        "navbar": true,
-        "sidebar": "auto",
-        "title": "章节5.javascript函数"
-      },
-      "regularPath": "/secondless/w-a/javascript%E5%87%BD%E6%95%B0.html",
-      "relativePath": "secondless/w-a/javascript函数.md",
-      "key": "v-d73347ee",
-      "path": "/secondless/w-a/javascript%E5%87%BD%E6%95%B0.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "1、函数声明",
-          "slug": "_1、函数声明"
-        },
-        {
-          "level": 3,
-          "title": "① 没有参数的函数",
-          "slug": "_1-没有参数的函数"
-        },
-        {
-          "level": 3,
-          "title": "② 带参数的函数",
-          "slug": "_2-带参数的函数"
-        },
-        {
-          "level": 2,
-          "title": "2、函数 return 返回值",
-          "slug": "_2、函数-return-返回值"
-        },
-        {
-          "level": 3,
-          "title": "① return返回值",
-          "slug": "_1-return返回值"
-        },
-        {
-          "level": 3,
-          "title": "② 函数的返回值赋给一个变量",
-          "slug": "_2-函数的返回值赋给一个变量"
-        },
-        {
-          "level": 3,
-          "title": "③ 退出当前函数",
-          "slug": "_3-退出当前函数"
-        },
-        {
-          "level": 2,
-          "title": "3、函数的arguments 对象",
-          "slug": "_3、函数的arguments-对象"
-        },
-        {
-          "level": 2,
-          "title": "课程其它章节",
-          "slug": "课程其它章节"
-        },
-        {
-          "level": 3,
-          "title": "章节1.课程介绍",
-          "slug": "章节1-课程介绍"
-        },
-        {
-          "level": 3,
-          "title": "章节2.javascript基础",
-          "slug": "章节2-javascript基础"
-        },
-        {
-          "level": 3,
-          "title": "章节3.javascript运算符",
-          "slug": "章节3-javascript运算符"
-        },
-        {
-          "level": 3,
-          "title": "章节4.流程控制语句",
-          "slug": "章节4-流程控制语句"
-        },
-        {
-          "level": 3,
-          "title": "章节5.javascript函数",
-          "slug": "章节5-javascript函数"
-        },
-        {
-          "level": 3,
-          "title": "章节6.javascript对象",
-          "slug": "章节6-javascript对象"
-        },
-        {
-          "level": 3,
-          "title": "章节7.javascript数组",
-          "slug": "章节7-javascript数组"
-        },
-        {
-          "level": 3,
-          "title": "章节8.Date类型：时间和日期",
-          "slug": "章节8-date类型-时间和日期"
-        },
-        {
-          "level": 3,
-          "title": "章节9.Function类型：函数进阶",
-          "slug": "章节9-function类型-函数进阶"
-        },
-        {
-          "level": 3,
-          "title": "章节10.内置对象：Global、Math对象，变量、作用域和内存问题",
-          "slug": "章节10-内置对象-global、math对象-变量、作用域和内存问题"
-        },
-        {
-          "level": 3,
-          "title": "章节11.匿名函数和闭包",
-          "slug": "章节11-匿名函数和闭包"
-        },
-        {
-          "level": 3,
-          "title": "章节12.javascript基本包装类型",
-          "slug": "章节12-javascript基本包装类型"
-        },
-        {
-          "level": 3,
-          "title": "章节13.函数对象数组小结",
-          "slug": "章节13-函数对象数组小结"
-        },
-        {
-          "level": 3,
-          "title": "章节14.浏览器对象模型BOM及浏览器检测",
-          "slug": "章节14-浏览器对象模型bom及浏览器检测"
-        },
-        {
-          "level": 3,
-          "title": "章节15.网页文档对象模型DOM",
-          "slug": "章节15-网页文档对象模型dom"
-        }
-      ],
-      "lastUpdated": "2023年10月11日星期三下午3点02分",
-      "lastUpdatedTimestamp": 1697007732000
+      "lastUpdated": "2023年10月26日星期四下午4点31分",
+      "lastUpdatedTimestamp": 1698309090000
     },
     {
       "title": "章节12.javascript基本包装类型",
@@ -1711,10 +1731,15 @@ export const siteData = {
           "level": 3,
           "title": "章节15.网页文档对象模型DOM",
           "slug": "章节15-网页文档对象模型dom"
+        },
+        {
+          "level": 3,
+          "title": "章节16.事件",
+          "slug": "章节16-事件"
         }
       ],
-      "lastUpdated": "2023年10月11日星期三下午3点02分",
-      "lastUpdatedTimestamp": 1697007732000
+      "lastUpdated": "2023年10月26日星期四下午4点31分",
+      "lastUpdatedTimestamp": 1698309090000
     },
     {
       "title": "章节2.javascript基础",
@@ -1907,10 +1932,15 @@ export const siteData = {
           "level": 3,
           "title": "章节15.网页文档对象模型DOM",
           "slug": "章节15-网页文档对象模型dom"
+        },
+        {
+          "level": 3,
+          "title": "章节16.事件",
+          "slug": "章节16-事件"
         }
       ],
-      "lastUpdated": "2023年10月11日星期三下午3点02分",
-      "lastUpdatedTimestamp": 1697007732000
+      "lastUpdated": "2023年10月26日星期四下午4点31分",
+      "lastUpdatedTimestamp": 1698309090000
     },
     {
       "title": "章节6.javascript对象",
@@ -2068,10 +2098,15 @@ export const siteData = {
           "level": 3,
           "title": "章节15.网页文档对象模型DOM",
           "slug": "章节15-网页文档对象模型dom"
+        },
+        {
+          "level": 3,
+          "title": "章节16.事件",
+          "slug": "章节16-事件"
         }
       ],
-      "lastUpdated": "2023年10月11日星期三下午3点02分",
-      "lastUpdatedTimestamp": 1697007732000
+      "lastUpdated": "2023年10月26日星期四下午4点31分",
+      "lastUpdatedTimestamp": 1698309090000
     },
     {
       "title": "章节7.javascript数组",
@@ -2269,10 +2304,15 @@ export const siteData = {
           "level": 3,
           "title": "章节15.网页文档对象模型DOM",
           "slug": "章节15-网页文档对象模型dom"
+        },
+        {
+          "level": 3,
+          "title": "章节16.事件",
+          "slug": "章节16-事件"
         }
       ],
-      "lastUpdated": "2023年10月11日星期三下午3点02分",
-      "lastUpdatedTimestamp": 1697007732000
+      "lastUpdated": "2023年10月26日星期四下午4点31分",
+      "lastUpdatedTimestamp": 1698309090000
     },
     {
       "title": "章节3.javascript运算符",
@@ -2530,10 +2570,15 @@ export const siteData = {
           "level": 3,
           "title": "章节15.网页文档对象模型DOM",
           "slug": "章节15-网页文档对象模型dom"
+        },
+        {
+          "level": 3,
+          "title": "章节16.事件",
+          "slug": "章节16-事件"
         }
       ],
-      "lastUpdated": "2023年10月11日星期三下午3点02分",
-      "lastUpdatedTimestamp": 1697007732000
+      "lastUpdated": "2023年10月26日星期四下午4点31分",
+      "lastUpdatedTimestamp": 1698309090000
     },
     {
       "title": "章节16.事件",
@@ -2547,6 +2592,26 @@ export const siteData = {
       "key": "v-1b1d0af0",
       "path": "/secondless/w-a/%E4%BA%8B%E4%BB%B6.html",
       "headers": [
+        {
+          "level": 2,
+          "title": "1、事件处理函数列表",
+          "slug": "_1、事件处理函数列表"
+        },
+        {
+          "level": 2,
+          "title": "2、内联模型",
+          "slug": "_2、内联模型"
+        },
+        {
+          "level": 3,
+          "title": "① 事件处理函数作为属性执行 JS 代码",
+          "slug": "_1-事件处理函数作为属性执行-js-代码"
+        },
+        {
+          "level": 2,
+          "title": "3、脚本模型",
+          "slug": "_3、脚本模型"
+        },
         {
           "level": 2,
           "title": "课程其它章节",
@@ -2632,7 +2697,9 @@ export const siteData = {
           "title": "章节16.事件",
           "slug": "章节16-事件"
         }
-      ]
+      ],
+      "lastUpdated": "2023年10月26日星期四下午4点31分",
+      "lastUpdatedTimestamp": 1698309090000
     },
     {
       "title": "章节10.内置对象：Global、Math对象，变量、作用域和内存问题",
@@ -2860,10 +2927,15 @@ export const siteData = {
           "level": 3,
           "title": "章节15.网页文档对象模型DOM",
           "slug": "章节15-网页文档对象模型dom"
+        },
+        {
+          "level": 3,
+          "title": "章节16.事件",
+          "slug": "章节16-事件"
         }
       ],
-      "lastUpdated": "2023年10月11日星期三下午3点02分",
-      "lastUpdatedTimestamp": 1697007732000
+      "lastUpdated": "2023年10月26日星期四下午4点31分",
+      "lastUpdatedTimestamp": 1698309090000
     },
     {
       "title": "章节13.函数对象数组小结",
@@ -3161,10 +3233,15 @@ export const siteData = {
           "level": 3,
           "title": "章节15.网页文档对象模型DOM",
           "slug": "章节15-网页文档对象模型dom"
+        },
+        {
+          "level": 3,
+          "title": "章节16.事件",
+          "slug": "章节16-事件"
         }
       ],
-      "lastUpdated": "2023年10月11日星期三下午3点02分",
-      "lastUpdatedTimestamp": 1697007732000
+      "lastUpdated": "2023年10月26日星期四下午4点31分",
+      "lastUpdatedTimestamp": 1698309090000
     },
     {
       "title": "章节11.匿名函数和闭包",
@@ -3337,10 +3414,15 @@ export const siteData = {
           "level": 3,
           "title": "章节15.网页文档对象模型DOM",
           "slug": "章节15-网页文档对象模型dom"
+        },
+        {
+          "level": 3,
+          "title": "章节16.事件",
+          "slug": "章节16-事件"
         }
       ],
-      "lastUpdated": "2023年10月11日星期三下午3点02分",
-      "lastUpdatedTimestamp": 1697007732000
+      "lastUpdated": "2023年10月26日星期四下午4点31分",
+      "lastUpdatedTimestamp": 1698309090000
     },
     {
       "title": "章节4.流程控制语句",
@@ -3493,10 +3575,15 @@ export const siteData = {
           "level": 3,
           "title": "章节15.网页文档对象模型DOM",
           "slug": "章节15-网页文档对象模型dom"
+        },
+        {
+          "level": 3,
+          "title": "章节16.事件",
+          "slug": "章节16-事件"
         }
       ],
-      "lastUpdated": "2023年10月11日星期三下午3点02分",
-      "lastUpdatedTimestamp": 1697007732000
+      "lastUpdated": "2023年10月26日星期四下午4点31分",
+      "lastUpdatedTimestamp": 1698309090000
     },
     {
       "title": "章节14.浏览器对象模型BOM及浏览器检测",
@@ -3759,10 +3846,15 @@ export const siteData = {
           "level": 3,
           "title": "章节15.网页文档对象模型DOM",
           "slug": "章节15-网页文档对象模型dom"
+        },
+        {
+          "level": 3,
+          "title": "章节16.事件",
+          "slug": "章节16-事件"
         }
       ],
-      "lastUpdated": "2023年10月11日星期三下午3点02分",
-      "lastUpdatedTimestamp": 1697007732000
+      "lastUpdated": "2023年10月26日星期四下午4点31分",
+      "lastUpdatedTimestamp": 1698309090000
     },
     {
       "title": "章节15.网页文档对象模型DOM",
@@ -4357,8 +4449,8 @@ export const siteData = {
           "slug": "章节16-事件"
         }
       ],
-      "lastUpdated": "2023年10月26日星期四下午2点50分",
-      "lastUpdatedTimestamp": 1698303040000
+      "lastUpdated": "2023年10月26日星期四下午4点31分",
+      "lastUpdatedTimestamp": 1698309090000
     },
     {
       "title": "第二季（课程学习顺序：03）",
