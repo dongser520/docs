@@ -1,7 +1,7 @@
 ---
 navbar: true
 sidebar: auto
-title: 章节18.数据Cookie、XML、JSON
+title: 章节18.数据Cookie、sessionStorage、localStorage、XML、JSON
 ---
 
 前言 <br/>
@@ -26,23 +26,77 @@ title: 章节18.数据Cookie、XML、JSON
 > console.log(document.cookie);
 > //发现还是空的,原因是谷歌浏览器需要将网页放到服务器上进行查看
 > ```
+> 
+> 搭建本地网页服务器，查看课程视频 <br/>
+### ② cookie编码和解码
+> 为防止写入错误，需要对写入的Cookie内容进行编码和解码
+> ```javascript
+> //编码
+> document.cookie = 'user=' + encodeURIComponent('迪丽热巴') ; //已经写入磁盘了
+> // CTRL + F5 深度刷新页面
+> console.log(document.cookie);// user=%E8%BF%AA%E4%B8%BD%E7%83%AD%E5%B7%B4
+> 
+> //解码
+> console.log(decodeURIComponent(document.cookie));
+> ```
 
+### ③ cookie的失效时间
+> ```javascript
+> console.log(document.cookie); //不再写入也能获取了
+> //关闭浏览器，在打开浏览器，页面则不能获取了，说明关闭浏览器后，cookie会被自动清理掉
+> //那么如果想关闭浏览器，下次打开cookie还在，则涉及到cookie的失效时间的设置
+> //cookie的完整格式设置：
+> //document.cookie = name=value; [expires=date]; [path=path]; [domain=somewhere.com]; [secure]
+> //document.cookie = 'user=值;expires=失效时间;path=路径访问;domain=域名访问;secure安全的https设置';
+> //希望设置了cookie后，7天内有效（7天内任何时候打开浏览器都可以访问到这个cookie）
+> let date = new Date(); //console.log(date);
+> //7天后
+> date.setDate(date.getDate() + 7);//console.log(date.setDate(date.getDate() + 7));
+> //设置cookie及失效时间
+> document.cookie = 'user=' + encodeURIComponent('迪丽热巴') + ';expires=' + date ;
+> //即7天后这个时候，cookie才会失效
+>
+> //如何手动清理cookie？
+> 
+> ```
+### ④ 手动清理cookie
+> ```javascript
+> //方法1：设置过期时间为当前时间之前，即可清理掉
+> let date = new Date();
+> date.setDate(date.getDate() - 1);
+> document.cookie = 'user=' + encodeURIComponent('迪丽热巴') + ';expires=' + date ;
+> //方法2：
+> /*
+> let date = new Date();
+> date.setDate(date.getDate() + 7);
+> document.cookie = 'user=' + encodeURIComponent('迪丽热巴') + ';expires=' + date ;
+> */
+> console.log(new Date(0));//Thu Jan 01 1970 08:00:00 GMT+0800 (中国标准时间)
+> document.cookie = 'user=' + encodeURIComponent('迪丽热巴') + ';expires=' + new Date(0) ;
+> ```
 
+### ⑤ cookie路径访问
+> 指定路径才可以访问
+> ```javascript
+> let date = new Date();
+> date.setDate(date.getDate() + 7);
+> document.cookie = 'user=' + encodeURIComponent('迪丽热巴') + ';expires=' + date + ';path=/demo/contact.html' ;
+> ```
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+### ⑥ cookie限制域名访问
+> ```javascript
+> let date = new Date();
+> date.setDate(date.getDate() + 7);
+> document.cookie = 'user=' + encodeURIComponent('迪丽热巴') + ';expires=' + date + ';domain=php.com' ;
+> //一般情况不设置，默认当前域名，如果定义了二级域名：test.php.com，就只能在二级域名访问，主域名和其他二级域名则不能访问
+> ```
+### ⑦ cookie指定访问协议 http https
+> secure 安全设置，指明必须通过安全的通信通道来传输(HTTPS)才能获取 cookie
+> ```javascript
+> let date = new Date();
+> date.setDate(date.getDate() + 7);
+> document.cookie = 'user=' + encodeURIComponent('迪丽热巴') + ';expires=' + date + ';secure' ;
+> ``` 
 
 
 
