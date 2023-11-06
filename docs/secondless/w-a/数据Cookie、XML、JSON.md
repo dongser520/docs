@@ -98,11 +98,144 @@ title: 章节18.数据Cookie、sessionStorage、localStorage、XML、JSON
 > document.cookie = 'user=' + encodeURIComponent('迪丽热巴') + ';expires=' + date + ';secure' ;
 > ``` 
 
+### ⑧ 封装cookie(创建，获取，删除)
+> ```javascript
+> //创建 cookie
+> function setCookie(name, value, expires, path, domain, secure) {
+>   let cookieText = encodeURIComponent(name) + '=' + encodeURIComponent(value);
+>   if (expires && typeof expires == 'number' && expires > 0) {
+>     let date = new Date();
+>     date.setDate(date.getDate() + expires);
+>     cookieText += '; expires=' + date;
+>   }
+>   if (path) {
+>     cookieText += '; path=' + path;
+>   }
+>   if (domain) {
+>     cookieText += '; domain=' + domain;
+>   }
+>   if (secure) {
+>     cookieText += '; secure';
+>   }
+>   document.cookie = cookieText;
+> }
+> 
+> setCookie('user', '迪丽热巴');
+> setCookie('email', '51yrc@gmail.com', 3);
+> setCookie('phone', '13545585858', 7);
+> 
+> console.log(document.cookie);
+> ``` 
+> ```javascript
+> //user=%E8%BF%AA%E4%B8%BD%E7%83%AD%E5%B7%B4; phone=13545585858; email=51yrc@gmail.com
+> //获取 cookie
+> function getCookie(name) {
+>   let cookieName = encodeURIComponent(name) + '=';
+>   //找到cookie名开始位置
+>   let cookieStart = document.cookie.indexOf(cookieName);
+>   let cookieValue = null;
+>   //如果cookie名存在
+>   if (cookieStart > -1) {
+>     //存在分号的情况 user  phone 
+>     let cookieEnd = document.cookie.indexOf(';', cookieStart);
+>     //不存在分号，最后一个,结束位置就是cookie的长度了
+>     if (cookieEnd == -1) {
+>       cookieEnd = document.cookie.length;
+>     }
+>     cookieValue = decodeURIComponent(
+>       //通过开始位置和结束位置，截取对应的cookie值
+>       document.cookie.substring(cookieStart + cookieName.length, cookieEnd));
+>   }
+>   return cookieValue;
+> }
+> 
+> console.log(getCookie('phone'));
+> console.log(getCookie('email'));
+> console.log(getCookie('user'));
+> ``` 
+> ```javascript
+> //删除 cookie
+> function removeCookie(name) {
+>   document.cookie = name + "= ; expires=" + new Date(0);
+> }
+> 
+> removeCookie('phone');
+> console.log(document.cookie);
+> ``` 
+说明：<br/>
+1. cookie 虽然在持久保存客户端用户数据提供了方便，分担了服务器存储的负担，但是注意cookie 的最大大约为 4096 字节(4k)，为了更好的兼容性，一般不能超过 4095 字节即可（4k）。<br/>
+2. cookie 存储在客户端的文本文件，所以特别重要和敏感的数据是不建议保存在cookie 的。比如银行卡号，用户密码等。<br/><br/>
 
+那么知道了cookie只能存储4Kb的数据在本地，有没有其他方案，可以存储比较多的数据在本地呢？
 
+## Ⅱ、sessionStorage、localStorage
+> ```javascript
+> //1. sessionStorage
+> //setItem()方法存储
+> sessionStorage.setItem('name', '迪丽热巴');
+> console.log(sessionStorage.getItem('name'));
+> //通过属性存储和获取
+> sessionStorage.phone = 13545585858;
+> console.log(sessionStorage.phone);
+> //删除存储
+> //sessionStorage.removeItem('name');
+> ```
+> ```javascript
+> //2. localStorage
+> //setItem()方法存储
+> localStorage.setItem('name', '迪丽热巴');
+> console.log(localStorage.getItem('name'));
+> //通过属性存储和获取
+> localStorage.phone = 13545585858;
+> console.log(localStorage.phone);
+> //删除存储
+> //localStorage.removeItem('name');
+> ```
+说明：<br/>
+1. 相同点：都是本地化存储，都可存储5M的数据，存储、删除用法一样，存储对象都转成字符串存储JSON.stringify(obj)
+> ```javascript
+> let user = {
+>   name:'迪丽热巴',
+>   age:33,
+>   weight:'55kg',
+>   sex:'女'
+> }
+> //存储
+> localStorage.setItem('user', JSON.stringify(user));
+> 
+> //读取
+> let _user = localStorage.getItem('user');
+> console.log(_user.name);//undefined
+> //先转成对象
+> let $user = JSON.parse(localStorage.getItem('user'));
+> console.log($user.name);//迪丽热巴
+> 
+> //移除
+> localStorage.removeItem('user');
+> ```
+2. 不同点：sessionStorage关闭页面或浏览器后被清除，localStorage持久化存储，不手动清理就会一直存储着。
 
+## Ⅲ、cookie 和 localStorage的对比
+> 一、可允许的最大存储量 <br/>
+> 1. localStorage的最大存储为5M。如果大于这个最大限制浏览器提示出错<br/>
+> 2. cookie单个的最大存储为4k，如果大于4k，则存储失败，浏览器中找不到对应的cookie信息<br/>
+> 
+> 二、存储时间 <br/>
+> 1. localStorage是持久化存储，除非主动清除掉 <br/>
+> 2. cookie默认是会话级存储，可以设置过期时间 <br/>
+> 
+> 三、可操行 <br/>
+> 1. localStorage只是存储数据 <br/>
+> 2. cookie不仅仅只是存储数据，还有其他多个属性可供其操作设置：<br/>
+>     domain与path一起决定了cookie的作用范围 <br/>
+>     expires决定了过期时间 <br/>
+>     secure如果设为true，那么cookie只能用https协议发送给服务器等 <br/>
+> 
+> 四、使用场景 <br/>
+> 1. localStorage一般仅用作客户端的数据存储，如存储一个异步请求的结果数据，然后在页面重渲染时，可以直接读取storage中的数据，减少一次请求的发送 <br/>
+> 2. cookie的使用场景一般是作为客户端与服务端的一种信息传递，当添加了cookie，默认的同源的cookie信息会自动作为请求头的一部分被发送到服务端 <br/>
 
-
+我们会在后面的课程实际开发项目中，再给大家体验这三种存储方式的使用场景。
 
 
 
