@@ -237,26 +237,246 @@ title: 章节18.数据Cookie、sessionStorage、localStorage、XML、JSON
 
 我们会在后面的课程实际开发项目中，再给大家体验这三种存储方式的使用场景。
 
+## Ⅳ、XML
+前言
+> 目前大家可以浅显的认为，XML可以认为是一个微型的结构化的小型数据库，我们数据库里面保存的是一张二维表，XML也算是一种小型的表格，来保存我们的数据，然后再通过我们的js来获取到它的数据，这个是我们目前需要的一些功能。
+> ```javascript
+> //跟我们的html一样，用标签将里面的值包裹起来
+> //根标签
+> <root>
+>    <user>迪丽热巴</user>
+>    <email>51yrc@gmail.com</email>
+>    <phone>13545585858</phone>
+> </root>
+> ```
+感兴趣了解
+> IE9之前的浏览器创建XMLDOM 对象使用的是微软自带的MSXML 库，共有六个版本，微软推荐使用的是：1.MSXML2.DOMDocument.6.0 最可靠最新的版本，2.MSXML2.DOMDocument.3.0 兼容性较好的版本，3.MSXML2.DOMDocument 仅针对 IE5.5 之前的版本，这三个版本在不同的 windows 平台和浏览器下会有不同的支持，那么为了实现兼容，我们应该考虑这样操作：从 6.0->3.0->备用版本这条路线进行实现。感兴趣的同学自己看一下我们文档，现在这些已经没有意义了。
+> ```javascript
+> function createXMLDOM() {
+>    var version = [
+>         'MSXML2.DOMDocument.6.0',
+>         'MSXML2.DOMDocument.3.0',
+>         'MSXML2.DOMDocument'
+>    ];
+>    for (var i = 0; i < version.length; i ++) {
+>        try {
+>             var xmlDom = new ActiveXObject(version[i]);
+>             return xmlDom;
+>        } catch (e) {
+>           //跳过
+>        }
+>     }
+>     throw new Error('您的系统或浏览器不支持 MSXML！'); //循环后抛出错误
+> }
+> ```
+### ① 创建 XMLDOM 对象（DOM2 级在 document.implementaion 中引入了 createDocument()方法）
+> ```javascript
+> console.log(document.implementation);
+> //创建 XMLDOM 对象
+> //三个参数：命名空间，根标签名，文档声明（用不到）
+> let xmlDom = document.implementation.createDocument('','root',null); //创建 xmlDom
+> console.log(xmlDom);
+> //按照传统DOM方法创建元素节点
+> let user = xmlDom.createElement('user'); //创建 user 元素
+> xmlDom.getElementsByTagName('root')[0].appendChild(user); //添加到 root 下
+> let value = xmlDom.createTextNode('迪丽热巴'); //创建文本
+> xmlDom.getElementsByTagName('user')[0].appendChild(value); //添加到 user 下
+> console.log(xmlDom);
+> 
+> //上面的创建很繁琐，我们看一下第二种方法创建
+> ```
 
+### ② 创建 XMLDOM 对象（DOMParser类型来创建，XMLSerializer类型进行序列化成字符串）
+> ```javascript
+> let xmlParser = new DOMParser(); //创建 DOMParser 对象
+> let xmlStr = '<root><user>迪丽热巴</user></root>'; //XML 字符串
+> let xmlDom = xmlParser.parseFromString(xmlStr, 'text/xml'); //创建 XML DOM 对象
+> console.log(xmlDom);
+> 
+> console.log(xmlDom.getElementsByTagName('user')[0].tagName); //获取 user 元素标签名
+> console.log(xmlDom.getElementsByTagName('user')[0].firstChild.nodeValue);//迪丽热巴
+>
+> //序列化成字符串
+> let serializer = new XMLSerializer(); //创建 XMLSerializer 对象
+> let xml = serializer.serializeToString(xmlDom); //序列化 XML
+> console.log(xml);
+> ```
 
+### ③ 解析错误
+> ```javascript
+> let xmlParser = new DOMParser(); //创建 DOMParser 对象
+> let xmlStr = '<root><user>迪丽热巴</user></root>'; //XML 字符串
+> let xmlDom = xmlParser.parseFromString(xmlStr, 'text/xml'); //创建 XML DOM 对象
+> console.log(xmlDom);
+> 
+> console.log(xmlDom.getElementsByTagName('user')[0].tagName); //获取 user 元素标签名
+> console.log(xmlDom.getElementsByTagName('user')[0].firstChild.nodeValue);//迪丽热巴
+> 
+> //序列化成字符串
+> let serializer = new XMLSerializer(); //创建 XMLSerializer 对象
+> let xml = serializer.serializeToString(xmlDom); //序列化 XML
+> console.log(xml);
+> 
+> //解析错误
+> let errors = xmlDom.getElementsByTagName('parsererror');
+> if (errors.length > 0) {
+>     throw new Error('XML 格式有误：' + errors[0].textContent);
+> }
+> ```
 
+### ④ 加载读取外部xml文件
+> ```javascript
+> //加载外部xml文件
+> //创建XMLHttpRequest对象
+> let xmlhttp = new XMLHttpRequest();
+> //使用 open() 方法打开 XML 文件
+> xmlhttp.open("GET", "./demo.xml", true);
+> //设置 XMLHttpRequest 的 responseType 属性为 "document"，表示返回的数据类型是 XML 文档
+> xmlhttp.responseType = "document";
+> //使用 onload 事件处理程序处理返回的 XML 数据
+> xmlhttp.onload = function() {
+>    let xmlDoc = xmlhttp.responseXML;
+>    // 在这里对 xmlDoc 进行处理
+>    let user = xmlDoc.getElementsByTagName("user")[0].firstChild.nodeValue;
+>    console.log(user);
+> }
+> //发送 XMLHttpRequest 请求
+> xmlhttp.send();
+> ```
 
+### ⑤ XPath操作XML
+> ```javascript
+> <root>
+>    <user>迪丽热巴</user>
+>    <user>古力娜扎</user>
+>    <email>51yrc@gmail.com</email>
+>    <phone>13545585858</phone>
+> </root>
+> 
+> let xmlhttp = new XMLHttpRequest();
+> xmlhttp.open("GET", "./demo.xml", true);
+> xmlhttp.responseType = "document";
+> xmlhttp.onload = function() {
+>    let xmlDoc = xmlhttp.responseXML;
+>    xpath(xmlDoc);
+> }
+> xmlhttp.send();
+> 
+> //XPath操作xml
+> function xpath(xmldata){
+>    //console.log(xmldata);
+>    //创建XPathResult对象
+>    //1.使用 XPathEvaluator 对象创建 XPathResult
+>    let eva = new XPathEvaluator();
+>    //evaluate方法5个参数：1.XPath 路径、2.上下文节点对象、
+>    //3.命名空间求解器(通常是 null)、4.返回结果类型、5 保存结果的 XPathResult对象(通常是 null)。
+>    //返回类型：FIRST_ORDERED_NODE_TYPE，单一节点
+>    //相同节点名使用下标，从1开始 'root/user[1]' 'root/user[2]'
+>    let result = eva.evaluate('root/user[2]', xmldata, null,XPathResult.FIRST_ORDERED_NODE_TYPE, null);
+>    console.log(result);
+>    if (result !== null) {
+>      console.log(result.singleNodeValue);//singleNodeValue 属性得到节点对象
+>      //console.log(result.singleNodeValue.tagName); 
+>      console.log(result.singleNodeValue.textContent);
+>    }
+> 
+>    //2.使用上下文节点对象创建 XPathResult(推荐)
+>    let _result = xmldata.evaluate('root/user[1]', xmldata, null,XPathResult.FIRST_ORDERED_NODE_TYPE, null);
+>    if (_result !== null) {
+>      console.log(_result.singleNodeValue);
+>      //console.log(_result.singleNodeValue.tagName); 
+>      console.log(_result.singleNodeValue.textContent);
+>    }
+>    //以上是单一节点获取方式，推荐第二种
+> 
+> 
+>    //节点集合获取：参数4类型：ORDERED_NODE_ITERATOR_TYPE
+>     let $result = xmldata.evaluate('root/user', xmldata, null,XPathResult.ORDERED_NODE_ITERATOR_TYPE, null);
+>     console.log($result);
+>     // console.log($result.iterateNext());//得到第一个节点，可以进行遍历，获取所有user节点
+>     let nodes = [];
+>     if ($result !== null) {
+>       // while ((node = $result.iterateNext()) !== null) {
+>       //   nodes.push(node);
+>       // }
+>       let node = $result.iterateNext();
+>       while(node != null){
+>          nodes.push(node);
+>          node = $result.iterateNext();
+>       }
+>     }
+>     console.log(nodes);// 两个user集合
+>     console.log(nodes[1].textContent);
+> }
+> ```
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+### ⑥ 封装XPath操作xml文件
+> ```javascript
+> //单一节点
+> function selectSingleNode(xmlDom, xpath) {
+>   var node = null;
+>   if (typeof xmlDom.evaluate != 'undefined') {
+>     var patten = /\[(\d+)\]/g;
+>     var flag = xpath.match(patten);
+>     var num = 0;
+>     if (flag !== null) {
+>       num = parseInt(RegExp.$1) + 1;
+>       xpath = xpath.replace(patten, '[' + num + ']');
+>     }
+>     var result = xmlDom.evaluate(xpath, xmlDom, null,
+>       XPathResult.FIRST_ORDERED_NODE_TYPE, null);
+>     if (result !== null) {
+>       node = result.singleNodeValue;
+>     }
+>   } else if (typeof xmlDom.selectSingleNode != 'undefined') {
+>     node = xmlDom.selectSingleNode(xpath);
+>   }
+>   return node;
+> }
+> 
+> //节点集合
+> function selectNodes(xmlDom, xpath) {
+>   var nodes = [];
+>   if (typeof xmlDom.evaluate != 'undefined') {
+>     var patten = /\[(\d+)\]/g;
+>     var flag = xpath.match(patten);
+>     var num = 0;
+>     if (flag !== null) {
+>       num = parseInt(RegExp.$1) + 1;
+>       xpath = xpath.replace(patten, '[' + num + ']');
+>     }
+>     var node = null;
+>     var result = xmlDom.evaluate(xpath, xmlDom, null,
+>       XPathResult.ORDERED_NODE_ITERATOR_TYPE, null);
+>     if (result !== null) {
+>       while ((node = result.iterateNext()) !== null) {
+>         nodes.push(node);
+>       }
+>     }
+>   } else if (typeof xmlDom.selectNodes != 'undefined') {
+>     nodes = xmlDom.selectNodes(xpath);
+>   }
+>   return nodes;
+> }
+> 
+> //获取外部xml
+> let xmlhttp = new XMLHttpRequest();
+> xmlhttp.open("GET", "./demo.xml", true);
+> xmlhttp.responseType = "document";
+> xmlhttp.onload = function() {
+>    let xmlDoc = xmlhttp.responseXML;
+>    //操作
+>    //单一节点: 封装函数，节点从0算起来
+>    let single = selectSingleNode(xmlDoc, 'root/user[1]');
+>    console.log(single);
+>    console.log(single.textContent);
+>    //节点结合
+>    let nodes = selectNodes(xmlDoc, 'root/user');
+>    console.log(nodes);
+>    console.log(nodes[0].textContent);
+> }
+> xmlhttp.send();
+> ```
 
 
 
