@@ -470,13 +470,288 @@ title: 章节18.数据Cookie、sessionStorage、localStorage、XML、JSON
 >    let single = selectSingleNode(xmlDoc, 'root/user[1]');
 >    console.log(single);
 >    console.log(single.textContent);
->    //节点结合
+>    //节点集合
 >    let nodes = selectNodes(xmlDoc, 'root/user');
 >    console.log(nodes);
 >    console.log(nodes[0].textContent);
 > }
 > xmlhttp.send();
 > ```
+
+## Ⅴ、JSON
+> JSON 和 XML 类型，都是一种结构化的数据表示方式。JSON 并不是JS独有的数据格式，其他很多语言都可以对 JSON 进行解析和序列化。因此json是一种用途非常广泛的数据类型。
+### ① JSON 语法，可以表示三种类型的值
+> 1.简单值：可以在 JSON 中表示字符串、数值、布尔值和 null。但 JSON 不支持 JavaScript中的特殊值 undefined。<br/>
+> ```javascript
+> 100
+> '迪丽热巴'
+> true
+> null
+> ```
+> 2.对象 <br/>
+> ```javascript
+> //js对象字面量表示法：
+> let box = {
+>      name : '迪丽热巴',
+>      age : 33
+> };
+> //JSON 中的对象表示法需要加上双引号，并且不存在赋值运算和分号：
+> {
+>     "name" : "迪丽热巴", //使用双引号，否则转换会出错
+>     "age" : 33
+> }
+>
+>
+> '{"name" : "迪丽热巴","age" : 33}'
+>  //json其实就是字符串，所以任何表示都应该加上字符串引号
+> ```
+> 
+> 3.数组 <br/>
+> ```javascript
+> //js数组字面量表示法：普通数组
+> let box = [33, '迪丽热巴', true];
+> //JSON数组
+> '[33,"迪丽热巴", true]'
+> 
+> //JSON对象和数组比普通对象和数组，少了分号，少了变量赋值，而且本身应该是字符串表示
+> ```
+> 
+> 4.最常用的JSON结构（数组结合对象） <br/>
+> ```javascript
+> [
+>     {
+>         "name":"网站首页",
+>         "href":"index.html",
+>         "id":1,
+>         "en_name":"index",
+>         "active":true
+>     },
+>     {
+>         "name":"资讯中心",
+>         "href":"news.html",
+>         "id":2,
+>         "en_name":"news",
+>         "active":false
+>     },
+>     {
+>         "name":"工程案例",
+>         "href":"case.html",
+>         "id":3,
+>         "en_name":"case",
+>         "active":false
+>     }
+> ]
+> //一般情况下，我们可以把 JSON 结构数据保存到一个文本文件里
+> //然后通过XMLHttpRequest 对象去加载它，得到这串结构数据字符串
+> //获取外部JSON，跟XML一样，创建XMLHttpRequest对象然后发送请求
+> ```
+### ② 获取外部json文件
+> ```javascript
+> let json = new XMLHttpRequest();
+> json.open("GET", "./demo1.json", true);
+> json.responseType = "json";
+> json.onload = function() {
+>   console.log(json);
+>   console.log(json.response);
+>   
+>   console.log(this);
+>   console.log(this.response);
+> 
+>   if(this.status == 200){
+>     let res = this.response;
+>     console.log(res[0].name);//第一项name值
+>   
+>     res.forEach(element => { 
+>        console.log('name:',element.name);//每一项的name
+>     });
+>   }else{
+>     console.log('请求失败');
+>   }
+>   
+> }
+> json.send();
+>
+> ```
+> 很多时候，向服务器发送请求数据，服务器返回的不一定是json格式的数据，需要处理
+> ```javascript
+> let json = new XMLHttpRequest();
+> json.open("GET", "./demo.json", true);
+> json.responseType = "text";
+> json.onload = function() {
+>   // console.log(json);
+>   // console.log(json.response);
+>   
+>   console.log(this);
+>   console.log(this.response);
+>   console.log(typeof this.response);//字符串
+>   
+>   
+>   if(this.status == 200){
+>     let res = this.response;
+>     console.log(res[0].name);//字符串无法获取name
+>   
+>     //字符串没有forEach方法，导致获取里面的每一项失败
+>     res.forEach(element => { 
+>       console.log('name:',element.name);
+>     });
+>   }else{
+>     console.log('请求失败');
+>   }
+>   
+> }
+> json.send();
+> ```
+> 那么，如何将json字符串转成数组对象\[json结构数据\]进行操作呢?
+
+### ③ 解析json字符串（将json字符串转成数组对象——json结构数据）：JSON.parse()方法
+> ```javascript
+> let json = new XMLHttpRequest();
+> json.open("GET", "./demo.json", true);
+> json.responseType = "text";
+> json.onload = function() {
+>   // console.log(json);
+>   // console.log(json.response);
+>   
+>   console.log(this);
+>   console.log(this.response);
+>   console.log(typeof this.response);//字符串
+>   
+>   
+>   if(this.status == 200){
+>     //JSON.parse()将json字符串转成数组对象（json结构数据）
+>     let res = JSON.parse(this.response);
+> 
+>     console.log(typeof res);
+> 
+>     console.log(res);
+> 
+>     console.log(res[0].name);
+> 
+>     res.forEach(element => { 
+>       console.log('name:',element.name);
+>     });
+>  
+>      //第二个参数：匿名函数
+>      let _res = JSON.parse(this.response,function(key,value){
+>          if(key == 'name'){
+>             return '我是' + value;
+>          }else{
+>             return value;
+>          }
+>      });
+>      console.log(_res);
+>  
+>  
+>   }else{
+>     console.log('请求失败');
+>   }
+>   
+> }
+> json.send();
+> ```
+
+### ④ js原生值数组、对象转成json字符串--JSON.stringify()
+> 我们讲<a href="/secondless/w-a/数据Cookie、XML、JSON.html#ii、sessionstorage、localstorage">sessionStorage、localStorage</a>提到过
+> ```javascript
+> let data = [
+>   {
+>       name:"网站首页",
+>       href:"index.html",
+>       id:1,
+>       en_name:"index",
+>       active:true
+>   },
+>   {
+>       name:"资讯中心",
+>       href:"news.html",
+>       id:2,
+>       en_name:"news",
+>       active:false
+>   },
+>   {
+>       name:"工程案例",
+>       href:"case.html",
+>       id:3,
+>       en_name:"case",
+>       active:false
+>   }
+> ];
+> // console.log(data);
+> // console.log(JSON.stringify(data));//字符串，且属性名（键）也加上双引号了
+> // console.log(typeof JSON.stringify(data));
+> 
+> //第二个参数：指定生成的键（属性名）
+> console.log(JSON.stringify(data,['name','en_name']));
+> //第二个参数：写一个匿名函数
+> let json = JSON.stringify(data,function(key,value){
+>     if(key == 'name'){
+>        return '我是' + value;
+>     }else{
+>       return value;
+>     }
+> });
+> console.log(json);
+> 
+> //第三个参数：保留缩进增加可读性
+> console.log(JSON.stringify(data,['name','en_name'],2));
+> console.log(JSON.stringify(data,['name','en_name'],'-----'));
+> 
+> //第三个缩进需要，第二个不需要
+> console.log(JSON.stringify(data,null,2));
+> ```
+
+### ⑤ toJSON
+> ```javascript
+> let data = [
+>   {
+>       name:"网站首页",
+>       href:"index.html",
+>       id:1,
+>       en_name:"index",
+>       active:true,
+>       toJSON:function(){
+>          return this.name;
+>       }
+>   },
+>   {
+>       name:"资讯中心",
+>       href:"news.html",
+>       id:2,
+>       en_name:"news",
+>       active:false,
+>       toJSON:function(){
+>          return this.name;
+>       }
+>   },
+>   {
+>       name:"工程案例",
+>       href:"case.html",
+>       id:3,
+>       en_name:"case",
+>       active:false,
+>       toJSON:function(){
+>         return this.name;
+>       }
+>   }
+> ];
+> // let json = JSON.stringify(data,null,2);
+> // console.log(json);
+> 
+> let json1 = JSON.stringify(data,['name','en_name'],2);
+> console.log(json1);
+> 
+> //说明 toJSON的优先级高于第二个参数，即：
+> //首先先执行 toJSON()方法,如果应用了第二个过滤参数，则执行这个方法
+> //然后执行序列化过程,比如将键值对组成合法的 JSON 字符串，比如加上双引号
+> //最后如果提供了缩进，再执行缩进操作
+> ```
+
+
+
+
+
+
+
 
 
 
