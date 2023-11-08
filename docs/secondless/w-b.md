@@ -8,3 +8,4 @@ title: 第二季（课程学习顺序：03）
 [学习课程完整视频](https://study.163.com/course/courseMain.htm?courseId=1213374826&share=2&shareId=480000002289674 '点击学习课程完整视频')
 ## 3.查看课程文档
 ### 章节1.第二季课程介绍 
+### <a href="/secondless/w-b/面向对象与原型" target="_blank" title="点击查看课程文档">章节2.面向对象与原型</a>
