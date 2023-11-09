@@ -87,6 +87,59 @@ export const siteData = {
   ],
   "pages": [
     {
+      "title": "第一学期课程",
+      "frontmatter": {
+        "navbar": true,
+        "title": "第一学期课程"
+      },
+      "regularPath": "/aboutless.html",
+      "relativePath": "aboutless.md",
+      "key": "v-5387826c",
+      "path": "/aboutless.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "1.完整课程学习",
+          "slug": "_1-完整课程学习"
+        },
+        {
+          "level": 2,
+          "title": "2.课程免费试看（1-13课）",
+          "slug": "_2-课程免费试看-1-13课"
+        },
+        {
+          "level": 2,
+          "title": "3.第一学期课程效果图",
+          "slug": "_3-第一学期课程效果图"
+        },
+        {
+          "level": 2,
+          "title": "4.课程体系介绍",
+          "slug": "_4-课程体系介绍"
+        },
+        {
+          "level": 2,
+          "title": "5.睿晨网所有课程集合",
+          "slug": "_5-睿晨网所有课程集合"
+        }
+      ],
+      "lastUpdated": "2023年9月7日星期四中午11点33分",
+      "lastUpdatedTimestamp": 1694057618000
+    },
+    {
+      "title": "我是pc总页",
+      "frontmatter": {
+        "navbar": true,
+        "title": "我是pc总页"
+      },
+      "regularPath": "/pc/",
+      "relativePath": "pc/README.md",
+      "key": "v-7ba60f92",
+      "path": "/pc/",
+      "lastUpdated": "2023年3月1日星期三下午12点33分",
+      "lastUpdatedTimestamp": 1677645233000
+    },
+    {
       "title": "首页",
       "frontmatter": {
         "home": true,
@@ -176,85 +229,6 @@ export const siteData = {
       ],
       "lastUpdated": "2023年3月2日星期四晚上7点51分",
       "lastUpdatedTimestamp": 1677757906000
-    },
-    {
-      "title": "第一学期课程",
-      "frontmatter": {
-        "navbar": true,
-        "title": "第一学期课程"
-      },
-      "regularPath": "/aboutless.html",
-      "relativePath": "aboutless.md",
-      "key": "v-5387826c",
-      "path": "/aboutless.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "1.完整课程学习",
-          "slug": "_1-完整课程学习"
-        },
-        {
-          "level": 2,
-          "title": "2.课程免费试看（1-13课）",
-          "slug": "_2-课程免费试看-1-13课"
-        },
-        {
-          "level": 2,
-          "title": "3.第一学期课程效果图",
-          "slug": "_3-第一学期课程效果图"
-        },
-        {
-          "level": 2,
-          "title": "4.课程体系介绍",
-          "slug": "_4-课程体系介绍"
-        },
-        {
-          "level": 2,
-          "title": "5.睿晨网所有课程集合",
-          "slug": "_5-睿晨网所有课程集合"
-        }
-      ],
-      "lastUpdated": "2023年9月7日星期四中午11点33分",
-      "lastUpdatedTimestamp": 1694057618000
-    },
-    {
-      "title": "我是pc总页",
-      "frontmatter": {
-        "navbar": true,
-        "title": "我是pc总页"
-      },
-      "regularPath": "/pc/",
-      "relativePath": "pc/README.md",
-      "key": "v-7ba60f92",
-      "path": "/pc/",
-      "lastUpdated": "2023年3月1日星期三下午12点33分",
-      "lastUpdatedTimestamp": 1677645233000
-    },
-    {
-      "title": "markdown的基本语法示例",
-      "frontmatter": {
-        "navbar": true,
-        "sidebar": "auto",
-        "title": "markdown的基本语法示例"
-      },
-      "regularPath": "/about/",
-      "relativePath": "about/README.md",
-      "key": "v-2c6c8e00",
-      "path": "/about/",
-      "headers": [
-        {
-          "level": 2,
-          "title": "二级标题",
-          "slug": "二级标题"
-        },
-        {
-          "level": 3,
-          "title": "三级标题",
-          "slug": "三级标题"
-        }
-      ],
-      "lastUpdated": "2023年3月3日星期五晚上8点31分",
-      "lastUpdatedTimestamp": 1677846686000
     },
     {
       "title": "p-a页面",
@@ -365,58 +339,30 @@ export const siteData = {
       "lastUpdatedTimestamp": 1677645233000
     },
     {
-      "title": "phone-a页面",
+      "title": "markdown的基本语法示例",
       "frontmatter": {
-        "title": "phone-a页面"
+        "navbar": true,
+        "sidebar": "auto",
+        "title": "markdown的基本语法示例"
       },
-      "regularPath": "/phone/phone-a.html",
-      "relativePath": "phone/phone-a.md",
-      "key": "v-10de5a02",
-      "path": "/phone/phone-a.html",
+      "regularPath": "/about/",
+      "relativePath": "about/README.md",
+      "key": "v-2c6c8e00",
+      "path": "/about/",
       "headers": [
         {
           "level": 2,
-          "title": "phone-a页面二级标题1",
-          "slug": "phone-a页面二级标题1"
+          "title": "二级标题",
+          "slug": "二级标题"
         },
         {
           "level": 3,
-          "title": "1.三级标题1",
-          "slug": "_1-三级标题1"
-        },
-        {
-          "level": 3,
-          "title": "2.三级标题2",
-          "slug": "_2-三级标题2"
-        },
-        {
-          "level": 3,
-          "title": "3.三级标题3",
-          "slug": "_3-三级标题3"
-        },
-        {
-          "level": 2,
-          "title": "phone-a页面二级标题2",
-          "slug": "phone-a页面二级标题2"
-        },
-        {
-          "level": 3,
-          "title": "1.三级标题1",
-          "slug": "_1-三级标题1-2"
-        },
-        {
-          "level": 3,
-          "title": "2.三级标题2",
-          "slug": "_2-三级标题2-2"
-        },
-        {
-          "level": 3,
-          "title": "3.三级标题3",
-          "slug": "_3-三级标题3-2"
+          "title": "三级标题",
+          "slug": "三级标题"
         }
       ],
-      "lastUpdated": "2023年3月1日星期三下午12点33分",
-      "lastUpdatedTimestamp": 1677645233000
+      "lastUpdated": "2023年3月3日星期五晚上8点31分",
+      "lastUpdatedTimestamp": 1677846686000
     },
     {
       "title": "p-c页面",
@@ -473,15 +419,56 @@ export const siteData = {
       "lastUpdatedTimestamp": 1677645233000
     },
     {
-      "title": "我是phone总页",
+      "title": "phone-a页面",
       "frontmatter": {
-        "navbar": true,
-        "title": "我是phone总页"
+        "title": "phone-a页面"
       },
-      "regularPath": "/phone/",
-      "relativePath": "phone/README.md",
-      "key": "v-4f90747e",
-      "path": "/phone/",
+      "regularPath": "/phone/phone-a.html",
+      "relativePath": "phone/phone-a.md",
+      "key": "v-10de5a02",
+      "path": "/phone/phone-a.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "phone-a页面二级标题1",
+          "slug": "phone-a页面二级标题1"
+        },
+        {
+          "level": 3,
+          "title": "1.三级标题1",
+          "slug": "_1-三级标题1"
+        },
+        {
+          "level": 3,
+          "title": "2.三级标题2",
+          "slug": "_2-三级标题2"
+        },
+        {
+          "level": 3,
+          "title": "3.三级标题3",
+          "slug": "_3-三级标题3"
+        },
+        {
+          "level": 2,
+          "title": "phone-a页面二级标题2",
+          "slug": "phone-a页面二级标题2"
+        },
+        {
+          "level": 3,
+          "title": "1.三级标题1",
+          "slug": "_1-三级标题1-2"
+        },
+        {
+          "level": 3,
+          "title": "2.三级标题2",
+          "slug": "_2-三级标题2-2"
+        },
+        {
+          "level": 3,
+          "title": "3.三级标题3",
+          "slug": "_3-三级标题3-2"
+        }
+      ],
       "lastUpdated": "2023年3月1日星期三下午12点33分",
       "lastUpdatedTimestamp": 1677645233000
     },
@@ -536,6 +523,19 @@ export const siteData = {
           "slug": "_3-三级标题3-2"
         }
       ],
+      "lastUpdated": "2023年3月1日星期三下午12点33分",
+      "lastUpdatedTimestamp": 1677645233000
+    },
+    {
+      "title": "我是phone总页",
+      "frontmatter": {
+        "navbar": true,
+        "title": "我是phone总页"
+      },
+      "regularPath": "/phone/",
+      "relativePath": "phone/README.md",
+      "key": "v-4f90747e",
+      "path": "/phone/",
       "lastUpdated": "2023年3月1日星期三下午12点33分",
       "lastUpdatedTimestamp": 1677645233000
     },
@@ -1135,567 +1135,6 @@ export const siteData = {
           "level": 2,
           "title": "3、函数的arguments 对象",
           "slug": "_3、函数的arguments-对象"
-        },
-        {
-          "level": 2,
-          "title": "课程其它章节",
-          "slug": "课程其它章节"
-        },
-        {
-          "level": 3,
-          "title": "章节1.课程介绍",
-          "slug": "章节1-课程介绍"
-        },
-        {
-          "level": 3,
-          "title": "章节2.javascript基础",
-          "slug": "章节2-javascript基础"
-        },
-        {
-          "level": 3,
-          "title": "章节3.javascript运算符",
-          "slug": "章节3-javascript运算符"
-        },
-        {
-          "level": 3,
-          "title": "章节4.流程控制语句",
-          "slug": "章节4-流程控制语句"
-        },
-        {
-          "level": 3,
-          "title": "章节5.javascript函数",
-          "slug": "章节5-javascript函数"
-        },
-        {
-          "level": 3,
-          "title": "章节6.javascript对象",
-          "slug": "章节6-javascript对象"
-        },
-        {
-          "level": 3,
-          "title": "章节7.javascript数组",
-          "slug": "章节7-javascript数组"
-        },
-        {
-          "level": 3,
-          "title": "章节8.Date类型：时间和日期",
-          "slug": "章节8-date类型-时间和日期"
-        },
-        {
-          "level": 3,
-          "title": "章节9.Function类型：函数进阶",
-          "slug": "章节9-function类型-函数进阶"
-        },
-        {
-          "level": 3,
-          "title": "章节10.内置对象：Global、Math对象，变量、作用域和内存问题",
-          "slug": "章节10-内置对象-global、math对象-变量、作用域和内存问题"
-        },
-        {
-          "level": 3,
-          "title": "章节11.匿名函数和闭包",
-          "slug": "章节11-匿名函数和闭包"
-        },
-        {
-          "level": 3,
-          "title": "章节12.javascript基本包装类型",
-          "slug": "章节12-javascript基本包装类型"
-        },
-        {
-          "level": 3,
-          "title": "章节13.函数对象数组小结",
-          "slug": "章节13-函数对象数组小结"
-        },
-        {
-          "level": 3,
-          "title": "章节14.浏览器对象模型BOM及浏览器检测",
-          "slug": "章节14-浏览器对象模型bom及浏览器检测"
-        },
-        {
-          "level": 3,
-          "title": "章节15.网页文档对象模型DOM",
-          "slug": "章节15-网页文档对象模型dom"
-        },
-        {
-          "level": 3,
-          "title": "章节16.事件",
-          "slug": "章节16-事件"
-        },
-        {
-          "level": 3,
-          "title": "章节17.表单处理及错误处理与调试",
-          "slug": "章节17-表单处理及错误处理与调试"
-        },
-        {
-          "level": 3,
-          "title": "章节18.数据Cookie、XML、JSON",
-          "slug": "章节18-数据cookie、xml、json"
-        }
-      ],
-      "lastUpdated": "2023年11月8日星期三下午1点52分",
-      "lastUpdatedTimestamp": 1699422737000
-    },
-    {
-      "title": "章节12.javascript基本包装类型",
-      "frontmatter": {
-        "navbar": true,
-        "sidebar": "auto",
-        "title": "章节12.javascript基本包装类型"
-      },
-      "regularPath": "/secondless/w-a/javascript%E5%9F%BA%E6%9C%AC%E5%8C%85%E8%A3%85%E7%B1%BB%E5%9E%8B.html",
-      "relativePath": "secondless/w-a/javascript基本包装类型.md",
-      "key": "v-2995f9cc",
-      "path": "/secondless/w-a/javascript%E5%9F%BA%E6%9C%AC%E5%8C%85%E8%A3%85%E7%B1%BB%E5%9E%8B.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "1、 Boolean 类型",
-          "slug": "_1、-boolean-类型"
-        },
-        {
-          "level": 3,
-          "title": "Boolean 类型没有特定的属性或者方法",
-          "slug": "boolean-类型没有特定的属性或者方法"
-        },
-        {
-          "level": 2,
-          "title": "2、 Number 类型",
-          "slug": "_2、-number-类型"
-        },
-        {
-          "level": 3,
-          "title": "① Number类型静态属性:MAXVALUE、MINVALUE、NaN、NEGATIVEINFINITY、POSITIVEINFINITY、prototype",
-          "slug": "_1-number类型静态属性-max-value、min-value、nan、negative-infinity、positive-infinity、prototype"
-        },
-        {
-          "level": 3,
-          "title": "② toString()方法-将数值转化为字符串，并且可以转换进制",
-          "slug": "_2-tostring-方法-将数值转化为字符串-并且可以转换进制"
-        },
-        {
-          "level": 3,
-          "title": "③ toLocaleString()方法-根据本地数字格式转换为字符串",
-          "slug": "_3-tolocalestring-方法-根据本地数字格式转换为字符串"
-        },
-        {
-          "level": 3,
-          "title": "④ toFixed()方法-将数字保留小数点后指定位数并转化为字符串",
-          "slug": "_4-tofixed-方法-将数字保留小数点后指定位数并转化为字符串"
-        },
-        {
-          "level": 3,
-          "title": "⑤ toExponential()方法-将数字以指数形式表示，保留小数点后指定位数并转化为字符串",
-          "slug": "_5-toexponential-方法-将数字以指数形式表示-保留小数点后指定位数并转化为字符串"
-        },
-        {
-          "level": 3,
-          "title": "⑥ toPrecision()方法-指数形式或点形式表述数，保留小数点后面指定位数并转化为字符串",
-          "slug": "_6-toprecision-方法-指数形式或点形式表述数-保留小数点后面指定位数并转化为字符串"
-        },
-        {
-          "level": 2,
-          "title": "3、String类型",
-          "slug": "_3、string类型"
-        },
-        {
-          "level": 3,
-          "title": "① 属性:length - 返回字符串的字符长度",
-          "slug": "_1-属性-length-返回字符串的字符长度"
-        },
-        {
-          "level": 3,
-          "title": "② 属性:constructor - 返回创建 String 对象的函数",
-          "slug": "_2-属性-constructor-返回创建-string-对象的函数"
-        },
-        {
-          "level": 3,
-          "title": "③ 属性:prototype - 通过添加属性和方法扩展字符串定义",
-          "slug": "_3-属性-prototype-通过添加属性和方法扩展字符串定义"
-        },
-        {
-          "level": 3,
-          "title": "④ 通用方法：valueOf()、toLocaleString()和 toString()方法，返回字符串的基本值，写不写都一样",
-          "slug": "_4-通用方法-valueof-、tolocalestring-和-tostring-方法-返回字符串的基本值-写不写都一样"
-        },
-        {
-          "level": 3,
-          "title": "⑤ 字符方法：charAt(n) - 返回指定索引位置的字符",
-          "slug": "_5-字符方法-charat-n-返回指定索引位置的字符"
-        },
-        {
-          "level": 3,
-          "title": "⑥ 字符方法：charCodeAt(n) - 以 Unicode 编码形式返回指定索引位置的字符",
-          "slug": "_6-字符方法-charcodeat-n-以-unicode-编码形式返回指定索引位置的字符"
-        },
-        {
-          "level": 3,
-          "title": "⑦ 字符方法：数组方式截取字符串",
-          "slug": "_7-字符方法-数组方式截取字符串"
-        },
-        {
-          "level": 3,
-          "title": "⑧ 字符串操作方法：concat(str1...str2) - 将字符串参数串联到调用该方法的字符串（拼装字符串）",
-          "slug": "_8-字符串操作方法-concat-str1-str2-将字符串参数串联到调用该方法的字符串-拼装字符串"
-        },
-        {
-          "level": 3,
-          "title": "⑨ 字符串操作方法：slice(n,m) - 返回字符串 n 到 m 之间位置的字符串（截取字符串）",
-          "slug": "_9-字符串操作方法-slice-n-m-返回字符串-n-到-m-之间位置的字符串-截取字符串"
-        },
-        {
-          "level": 3,
-          "title": "⑩ 字符串操作方法：substring(n,m) - 返回字符串 n 到 m 之间位置的字符串（截取字符串）",
-          "slug": "_10-字符串操作方法-substring-n-m-返回字符串-n-到-m-之间位置的字符串-截取字符串"
-        },
-        {
-          "level": 3,
-          "title": "⑪ 字符串操作方法：substr(n,m) - 返回字符串 n 开始的 m 个字符串（截取字符串）",
-          "slug": "_11-字符串操作方法-substr-n-m-返回字符串-n-开始的-m-个字符串-截取字符串"
-        },
-        {
-          "level": 3,
-          "title": "⑫ 字符串位置方法：indexOf(str, n) - 从 n 开始搜索的第一个 str，并将搜索的索引值返回",
-          "slug": "_12-字符串位置方法-indexof-str-n-从-n-开始搜索的第一个-str-并将搜索的索引值返回"
-        },
-        {
-          "level": 3,
-          "title": "⑬ 字符串位置方法：lastIndexOf(str, n) - 从 n 开始搜索的最后一个 str，并将搜索的索引值返回",
-          "slug": "_13-字符串位置方法-lastindexof-str-n-从-n-开始搜索的最后一个-str-并将搜索的索引值返回"
-        },
-        {
-          "level": 3,
-          "title": "⑭ 将字符串中的某个字符索引位置全部找出放在数组中",
-          "slug": "_14-将字符串中的某个字符索引位置全部找出放在数组中"
-        },
-        {
-          "level": 3,
-          "title": "⑮ 大小写转换：toLowerCase(str) - 将字符串全部转换为小写",
-          "slug": "_15-大小写转换-tolowercase-str-将字符串全部转换为小写"
-        },
-        {
-          "level": 3,
-          "title": "⑯ 大小写转换：toUpperCase(str) - 将字符串全部转换为大写",
-          "slug": "_16-大小写转换-touppercase-str-将字符串全部转换为大写"
-        },
-        {
-          "level": 3,
-          "title": "⑰ 小写转换并且本地化：toLocaleLowerCase(str)、大写转换并且本地化：toLocaleUpperCase(str)",
-          "slug": "_17-小写转换并且本地化-tolocalelowercase-str-、大写转换并且本地化-tolocaleuppercase-str"
-        },
-        {
-          "level": 3,
-          "title": "⑱ match(pattern) -- 主要用于正则表达式方法",
-          "slug": "_18-match-pattern-主要用于正则表达式方法"
-        },
-        {
-          "level": 3,
-          "title": "⑲ search(pattern) -- 主要用于正则表达式方法",
-          "slug": "_19-search-pattern-主要用于正则表达式方法"
-        },
-        {
-          "level": 3,
-          "title": "⑳ replace(pattern, replacement) -- 用 replacement 替换 pattern 第一次出现的字符",
-          "slug": "_20-replace-pattern-replacement-用-replacement-替换-pattern-第一次出现的字符"
-        },
-        {
-          "level": 3,
-          "title": "㉑ replaceAll(pattern, replacement) -- 用 replacement 替换 pattern 所有出现的字符",
-          "slug": "_21-replaceall-pattern-replacement-用-replacement-替换-pattern-所有出现的字符"
-        },
-        {
-          "level": 3,
-          "title": "㉒ split(pattern) - 返回字符串按指定 pattern 拆分的数组",
-          "slug": "_22-split-pattern-返回字符串按指定-pattern-拆分的数组"
-        },
-        {
-          "level": 3,
-          "title": "㉓ fromCharCode(ascii) - 静态方法，输出 Ascii 码对应值",
-          "slug": "_23-fromcharcode-ascii-静态方法-输出-ascii-码对应值"
-        },
-        {
-          "level": 3,
-          "title": "㉔ localeCompare(str1,str2) - 比较两个字符串，并返回相应的值",
-          "slug": "_24-localecompare-str1-str2-比较两个字符串-并返回相应的值"
-        },
-        {
-          "level": 3,
-          "title": "㉕ startsWith(pattern) - 判断字符串是否按 pattern 开头，返回布尔值",
-          "slug": "_25-startswith-pattern-判断字符串是否按-pattern-开头-返回布尔值"
-        },
-        {
-          "level": 3,
-          "title": "㉖ endsWith(pattern) - 判断字符串是否按 pattern 结尾，返回布尔值",
-          "slug": "_26-endswith-pattern-判断字符串是否按-pattern-结尾-返回布尔值"
-        },
-        {
-          "level": 3,
-          "title": "㉗ includes(pattern) - 判断字符串是否包含pattern字符，返回布尔值",
-          "slug": "_27-includes-pattern-判断字符串是否包含pattern字符-返回布尔值"
-        },
-        {
-          "level": 3,
-          "title": "㉘ trimStart() - 去除字符串开头的空格，返回字符串",
-          "slug": "_28-trimstart-去除字符串开头的空格-返回字符串"
-        },
-        {
-          "level": 3,
-          "title": "㉙ trimEnd() - 去除字符串结尾的空格，返回字符串",
-          "slug": "_29-trimend-去除字符串结尾的空格-返回字符串"
-        },
-        {
-          "level": 3,
-          "title": "㉚ trim() - 去除字符串开头和结尾的空格，返回字符串",
-          "slug": "_30-trim-去除字符串开头和结尾的空格-返回字符串"
-        },
-        {
-          "level": 3,
-          "title": "㉛ repeat(n) - 重复字符串n次，返回字符串",
-          "slug": "_31-repeat-n-重复字符串n次-返回字符串"
-        },
-        {
-          "level": 3,
-          "title": "㉜ 模板字面量（魔法字符串）",
-          "slug": "_32-模板字面量-魔法字符串"
-        },
-        {
-          "level": 2,
-          "title": "4、Array数组的常用方法",
-          "slug": "_4、array数组的常用方法"
-        },
-        {
-          "level": 3,
-          "title": "① join()方法 -- 见章节7：数组",
-          "slug": "_1-join-方法-见章节7-数组"
-        },
-        {
-          "level": 3,
-          "title": "② push()方法 -- 见章节7：数组",
-          "slug": "_2-push-方法-见章节7-数组"
-        },
-        {
-          "level": 3,
-          "title": "③ pop()方法 -- 见章节7：数组",
-          "slug": "_3-pop-方法-见章节7-数组"
-        },
-        {
-          "level": 3,
-          "title": "④ shift()方法 -- 见章节7：数组",
-          "slug": "_4-shift-方法-见章节7-数组"
-        },
-        {
-          "level": 3,
-          "title": "⑤ unshift()方法 -- 见章节7：数组",
-          "slug": "_5-unshift-方法-见章节7-数组"
-        },
-        {
-          "level": 3,
-          "title": "⑥ reverse()方法 -- 见章节7：数组",
-          "slug": "_6-reverse-方法-见章节7-数组"
-        },
-        {
-          "level": 3,
-          "title": "⑦ sort()方法 -- 见章节7：数组",
-          "slug": "_7-sort-方法-见章节7-数组"
-        },
-        {
-          "level": 3,
-          "title": "⑧ concat()方法 -- 见章节7：数组",
-          "slug": "_8-concat-方法-见章节7-数组"
-        },
-        {
-          "level": 3,
-          "title": "⑨ slice()方法 -- 见章节7：数组",
-          "slug": "_9-slice-方法-见章节7-数组"
-        },
-        {
-          "level": 3,
-          "title": "⑩ splice()方法 -- 见章节7：数组",
-          "slug": "_10-splice-方法-见章节7-数组"
-        },
-        {
-          "level": 3,
-          "title": "⑪ 数组includes（searchElement，fromIndex）方法 --  判断数组是否包含一个指定的元素，返回布尔值",
-          "slug": "_11-数组includes-searchelement-fromindex-方法-判断数组是否包含一个指定的元素-返回布尔值"
-        },
-        {
-          "level": 3,
-          "title": "⑫ 数组reduce()方法 -- 有求和、数组去重、求数组的最大值、扁平化数组的功能",
-          "slug": "_12-数组reduce-方法-有求和、数组去重、求数组的最大值、扁平化数组的功能"
-        },
-        {
-          "level": 3,
-          "title": "⑬ 数组find()方法 -- 为数组中的每个元素都调用一次函数执行,返回通过测试（函数内判断）的数组的第一个元素的值",
-          "slug": "_13-数组find-方法-为数组中的每个元素都调用一次函数执行-返回通过测试-函数内判断-的数组的第一个元素的值"
-        },
-        {
-          "level": 3,
-          "title": "⑭ 数组findIndex()方法 -- 为数组中的每个元素都调用一次函数执行,返回传入一个测试条件（函数）符合条件的数组第一个元素位置",
-          "slug": "_14-数组findindex-方法-为数组中的每个元素都调用一次函数执行-返回传入一个测试条件-函数-符合条件的数组第一个元素位置"
-        },
-        {
-          "level": 3,
-          "title": "⑮ 数组filter() 方法 -- 为数组中的每个元素都调用一次函数执行, 创建一个新的数组，返回传入一个测试条件（函数）符合条件的数组的所有元素",
-          "slug": "_15-数组filter-方法-为数组中的每个元素都调用一次函数执行-创建一个新的数组-返回传入一个测试条件-函数-符合条件的数组的所有元素"
-        },
-        {
-          "level": 3,
-          "title": "⑯ 数组map() 方法 -- 为数组中的每个元素都调用一次函数执行, 创建一个新的数组，返回原始数组元素调用函数处理后的值",
-          "slug": "_16-数组map-方法-为数组中的每个元素都调用一次函数执行-创建一个新的数组-返回原始数组元素调用函数处理后的值"
-        },
-        {
-          "level": 3,
-          "title": "⑰ 数组forEach() 方法 -- 为数组中的每个元素都调用一次函数执行，并将元素传递给回调函数，没有返回值",
-          "slug": "_17-数组foreach-方法-为数组中的每个元素都调用一次函数执行-并将元素传递给回调函数-没有返回值"
-        },
-        {
-          "level": 3,
-          "title": "⑱ 数组indexOf() 方法 -- 返回数组中某个指定的元素位置，从头到尾查找数组元素",
-          "slug": "_18-数组indexof-方法-返回数组中某个指定的元素位置-从头到尾查找数组元素"
-        },
-        {
-          "level": 3,
-          "title": "⑲  数组lastIndexOf() 方法 -- 返回一个指定的元素在数组中最后出现的位置，从后面向前查找数组元素",
-          "slug": "_19-数组lastindexof-方法-返回一个指定的元素在数组中最后出现的位置-从后面向前查找数组元素"
-        },
-        {
-          "level": 3,
-          "title": "⑳ 数组at() 方法 -- 接收一个整数值并返回该索引对应的数组元素",
-          "slug": "_20-数组at-方法-接收一个整数值并返回该索引对应的数组元素"
-        },
-        {
-          "level": 3,
-          "title": "㉑ 数组fill() 方法 -- 用于将一个固定值替换数组的元素，返回原数组，原数组会发生变化",
-          "slug": "_21-数组fill-方法-用于将一个固定值替换数组的元素-返回原数组-原数组会发生变化"
-        },
-        {
-          "level": 3,
-          "title": "㉒ 数组copyWithin() 方法 -- 将指定位置的元素复制到其他位置，返回原数组，原数组会发生变化",
-          "slug": "_22-数组copywithin-方法-将指定位置的元素复制到其他位置-返回原数组-原数组会发生变化"
-        },
-        {
-          "level": 3,
-          "title": "㉓ 数组isArray() 方法 -- 静态方法，判断一个对象是否为数组",
-          "slug": "_23-数组isarray-方法-静态方法-判断一个对象是否为数组"
-        },
-        {
-          "level": 3,
-          "title": "㉔ 合并数组：es6的扩展运算符",
-          "slug": "_24-合并数组-es6的扩展运算符"
-        },
-        {
-          "level": 3,
-          "title": "㉕ 数组every() 方法 --检测数组所有元素是否全部符合指定条件（通过函数提供），返回布尔值",
-          "slug": "_25-数组every-方法-检测数组所有元素是否全部符合指定条件-通过函数提供-返回布尔值"
-        },
-        {
-          "level": 3,
-          "title": "㉖ 数组some() 方法 -- 检测数组所有元素，只要有一个元素通过函数检测返回真，那么就返回真，且后面的元素不在检测,否则返回 假。",
-          "slug": "_26-数组some-方法-检测数组所有元素-只要有一个元素通过函数检测返回真-那么就返回真-且后面的元素不在检测-否则返回-假。"
-        },
-        {
-          "level": 3,
-          "title": "㉗ 数组 for...of遍历",
-          "slug": "_27-数组-for-of遍历"
-        },
-        {
-          "level": 3,
-          "title": "㉘ 数组keys()，数组values()，数组entries()方法 -- 用于遍历数组，都返回一个遍历器对象。",
-          "slug": "_28-数组keys-数组values-数组entries-方法-用于遍历数组-都返回一个遍历器对象。"
-        },
-        {
-          "level": 3,
-          "title": "㉙ 数组reduceRight() 方法-- 和reduce方法刚好相反，reduce可以看成是数组元素（从左到右）依次处理，reduceRight是（从右往左处理）",
-          "slug": "_29-数组reduceright-方法-和reduce方法刚好相反-reduce可以看成是数组元素-从左到右-依次处理-reduceright是-从右往左处理"
-        },
-        {
-          "level": 3,
-          "title": "㉚ 数组flat() 方法 --按照一个可指定的深度递归遍历数组，并将所有元素与遍历到的子数组中的元素合并为一个新数组返回（将多维数组解构成一维数组）",
-          "slug": "_30-数组flat-方法-按照一个可指定的深度递归遍历数组-并将所有元素与遍历到的子数组中的元素合并为一个新数组返回-将多维数组解构成一维数组"
-        },
-        {
-          "level": 3,
-          "title": "㉛数组flatMap() 方法 --首先使用映射函数映射每个元素，然后将结果压缩成一个新数组。创建一个新的数组，其中每个元素都是回调函数的结果，结构深度（depth）为 1 只有一层深度。",
-          "slug": "_31数组flatmap-方法-首先使用映射函数映射每个元素-然后将结果压缩成一个新数组。创建一个新的数组-其中每个元素都是回调函数的结果-结构深度-depth-为-1-只有一层深度。"
-        },
-        {
-          "level": 3,
-          "title": "㉜ 数组from()方法 -- 静态方法，将一个类数组对象转为数组",
-          "slug": "_32-数组from-方法-静态方法-将一个类数组对象转为数组"
-        },
-        {
-          "level": 3,
-          "title": "㉝ 数组of()方法 -- 静态方法，将一组数据转为数组",
-          "slug": "_33-数组of-方法-静态方法-将一组数据转为数组"
-        },
-        {
-          "level": 2,
-          "title": "5、集合类型: Set()方法",
-          "slug": "_5、集合类型-set-方法"
-        },
-        {
-          "level": 3,
-          "title": "1. 创建Set集合实例(使用new关键词，可以类比于之前学习的Date，时间日期对象，说明Set也是对象的一种)",
-          "slug": "_1-创建set集合实例-使用new关键词-可以类比于之前学习的date-时间日期对象-说明set也是对象的一种"
-        },
-        {
-          "level": 3,
-          "title": "2. 如果想在创建的同时初始化实例，则可以给 Set 构造函数传入一个可迭代对象，其中需要包含插入到新集合实例中的元素(Set 可以包含任何js数据类型作为值)：",
-          "slug": "_2-如果想在创建的同时初始化实例-则可以给-set-构造函数传入一个可迭代对象-其中需要包含插入到新集合实例中的元素-set-可以包含任何js数据类型作为值"
-        },
-        {
-          "level": 3,
-          "title": "3. Set集合实例转数组，Set结构不会添加重复的值（处理数组去重等问题）",
-          "slug": "_3-set集合实例转数组-set结构不会添加重复的值-处理数组去重等问题"
-        },
-        {
-          "level": 3,
-          "title": "4. Set集合size属性：获取Set集合实例的元素个数",
-          "slug": "_4-set集合size属性-获取set集合实例的元素个数"
-        },
-        {
-          "level": 3,
-          "title": "5. Set集合add()方法：添加元素",
-          "slug": "_5-set集合add-方法-添加元素"
-        },
-        {
-          "level": 3,
-          "title": "6. Set集合has()方法：查询Set实例是否存在某元素(返回布尔值)",
-          "slug": "_6-set集合has-方法-查询set实例是否存在某元素-返回布尔值"
-        },
-        {
-          "level": 3,
-          "title": "7. Set集合delete()方法：删除Set实例中某个元素(返回布尔值)",
-          "slug": "_7-set集合delete-方法-删除set实例中某个元素-返回布尔值"
-        },
-        {
-          "level": 3,
-          "title": "8. Set集合clear()方法：清空Set实例",
-          "slug": "_8-set集合clear-方法-清空set实例"
-        },
-        {
-          "level": 3,
-          "title": "9. Set集合迭代遍历数据：keys():返回键名，values(): 返回键值，entries(): 返回键值对, 注意它的键名=键值",
-          "slug": "_9-set集合迭代遍历数据-keys-返回键名-values-返回键值-entries-返回键值对-注意它的键名-键值"
-        },
-        {
-          "level": 3,
-          "title": "10.Set集合迭代遍历数据：for...of遍历，forEach遍历",
-          "slug": "_10-set集合迭代遍历数据-for-of遍历-foreach遍历"
-        },
-        {
-          "level": 2,
-          "title": "6、小结及拓展",
-          "slug": "_6、小结及拓展"
-        },
-        {
-          "level": 3,
-          "title": "① 求两个数组的并集、交集、差集，得到的结果是一个新数组",
-          "slug": "_1-求两个数组的并集、交集、差集-得到的结果是一个新数组"
-        },
-        {
-          "level": 3,
-          "title": "② 获取数组中的随机项（验证码参考）",
-          "slug": "_2-获取数组中的随机项-验证码参考"
         },
         {
           "level": 2,
@@ -2400,316 +1839,466 @@ export const siteData = {
       "lastUpdatedTimestamp": 1699422737000
     },
     {
-      "title": "章节16.事件",
+      "title": "章节12.javascript基本包装类型",
       "frontmatter": {
         "navbar": true,
         "sidebar": "auto",
-        "title": "章节16.事件"
+        "title": "章节12.javascript基本包装类型"
       },
-      "regularPath": "/secondless/w-a/%E4%BA%8B%E4%BB%B6.html",
-      "relativePath": "secondless/w-a/事件.md",
-      "key": "v-1b1d0af0",
-      "path": "/secondless/w-a/%E4%BA%8B%E4%BB%B6.html",
+      "regularPath": "/secondless/w-a/javascript%E5%9F%BA%E6%9C%AC%E5%8C%85%E8%A3%85%E7%B1%BB%E5%9E%8B.html",
+      "relativePath": "secondless/w-a/javascript基本包装类型.md",
+      "key": "v-2995f9cc",
+      "path": "/secondless/w-a/javascript%E5%9F%BA%E6%9C%AC%E5%8C%85%E8%A3%85%E7%B1%BB%E5%9E%8B.html",
       "headers": [
         {
           "level": 2,
-          "title": "Ⅰ、事件基础知识",
-          "slug": "i、事件基础知识"
+          "title": "1、 Boolean 类型",
+          "slug": "_1、-boolean-类型"
         },
         {
           "level": 3,
-          "title": "1、事件处理函数列表",
-          "slug": "_1、事件处理函数列表"
-        },
-        {
-          "level": 3,
-          "title": "2、内联模型",
-          "slug": "_2、内联模型"
-        },
-        {
-          "level": 3,
-          "title": "① 事件处理函数作为属性执行 JS 代码",
-          "slug": "_1-事件处理函数作为属性执行-js-代码"
-        },
-        {
-          "level": 3,
-          "title": "3、脚本模型",
-          "slug": "_3、脚本模型"
+          "title": "Boolean 类型没有特定的属性或者方法",
+          "slug": "boolean-类型没有特定的属性或者方法"
         },
         {
           "level": 2,
-          "title": "Ⅱ、事件处理函数分类",
-          "slug": "ii、事件处理函数分类"
+          "title": "2、 Number 类型",
+          "slug": "_2、-number-类型"
         },
         {
           "level": 3,
-          "title": "1、 鼠标事件",
-          "slug": "_1、-鼠标事件"
+          "title": "① Number类型静态属性:MAXVALUE、MINVALUE、NaN、NEGATIVEINFINITY、POSITIVEINFINITY、prototype",
+          "slug": "_1-number类型静态属性-max-value、min-value、nan、negative-infinity、positive-infinity、prototype"
         },
         {
           "level": 3,
-          "title": "① 鼠标事件click：当用户单击鼠标按钮或按下回车键时触发",
-          "slug": "_1-鼠标事件click-当用户单击鼠标按钮或按下回车键时触发"
+          "title": "② toString()方法-将数值转化为字符串，并且可以转换进制",
+          "slug": "_2-tostring-方法-将数值转化为字符串-并且可以转换进制"
         },
         {
           "level": 3,
-          "title": "② 鼠标事件dblclick：当用户双击主鼠标按钮时触发",
-          "slug": "_2-鼠标事件dblclick-当用户双击主鼠标按钮时触发"
+          "title": "③ toLocaleString()方法-根据本地数字格式转换为字符串",
+          "slug": "_3-tolocalestring-方法-根据本地数字格式转换为字符串"
         },
         {
           "level": 3,
-          "title": "③ 鼠标事件mousedown：当用户按下了鼠标还未弹起时触发",
-          "slug": "_3-鼠标事件mousedown-当用户按下了鼠标还未弹起时触发"
+          "title": "④ toFixed()方法-将数字保留小数点后指定位数并转化为字符串",
+          "slug": "_4-tofixed-方法-将数字保留小数点后指定位数并转化为字符串"
         },
         {
           "level": 3,
-          "title": "④ 鼠标事件mouseup：当用户释放鼠标按钮时触发",
-          "slug": "_4-鼠标事件mouseup-当用户释放鼠标按钮时触发"
+          "title": "⑤ toExponential()方法-将数字以指数形式表示，保留小数点后指定位数并转化为字符串",
+          "slug": "_5-toexponential-方法-将数字以指数形式表示-保留小数点后指定位数并转化为字符串"
         },
         {
           "level": 3,
-          "title": "⑤ 鼠标事件mouseover：当鼠标移到某个元素上方时触发",
-          "slug": "_5-鼠标事件mouseover-当鼠标移到某个元素上方时触发"
-        },
-        {
-          "level": 3,
-          "title": "⑥ 鼠标事件mouseout：当鼠标移出某个元素上方时触发",
-          "slug": "_6-鼠标事件mouseout-当鼠标移出某个元素上方时触发"
-        },
-        {
-          "level": 3,
-          "title": "⑦ 鼠标事件mousemove：当鼠标指针在元素上移动时触发",
-          "slug": "_7-鼠标事件mousemove-当鼠标指针在元素上移动时触发"
-        },
-        {
-          "level": 3,
-          "title": "2、 键盘事件",
-          "slug": "_2、-键盘事件"
-        },
-        {
-          "level": 3,
-          "title": "① 键盘事件keydown：当用户按下键盘上任意键触发，如果按住不放，会重复触发",
-          "slug": "_1-键盘事件keydown-当用户按下键盘上任意键触发-如果按住不放-会重复触发"
-        },
-        {
-          "level": 3,
-          "title": "② 键盘事件keypress：当用户按下键盘上的字符键触发，如果按住不放，会重复触发。",
-          "slug": "_2-键盘事件keypress-当用户按下键盘上的字符键触发-如果按住不放-会重复触发。"
-        },
-        {
-          "level": 3,
-          "title": "③ 键盘事件keyup：当用户释放键盘上的键触发",
-          "slug": "_3-键盘事件keyup-当用户释放键盘上的键触发"
-        },
-        {
-          "level": 3,
-          "title": "3、HTML事件（包括表单事件）",
-          "slug": "_3、html事件-包括表单事件"
-        },
-        {
-          "level": 3,
-          "title": "① HTML事件load：当页面完全加载后在 window 上面触发，或当框架集加载完毕后在框架集上触发",
-          "slug": "_1-html事件load-当页面完全加载后在-window-上面触发-或当框架集加载完毕后在框架集上触发"
-        },
-        {
-          "level": 3,
-          "title": "② HTML事件unload：当页面完全卸载后在 window 上面触发，或当框架集卸载后在框架集上触发。",
-          "slug": "_2-html事件unload-当页面完全卸载后在-window-上面触发-或当框架集卸载后在框架集上触发。"
-        },
-        {
-          "level": 3,
-          "title": "③ HTML事件resize：当窗口或框架的大小变化时在 window 或框架上触发",
-          "slug": "_3-html事件resize-当窗口或框架的大小变化时在-window-或框架上触发"
-        },
-        {
-          "level": 3,
-          "title": "④ HTML事件scroll：当用户滚动带滚动条的元素时触发",
-          "slug": "_4-html事件scroll-当用户滚动带滚动条的元素时触发"
-        },
-        {
-          "level": 3,
-          "title": "① 表单事件select：当用户选择文本框(input 或 textarea)中的一个或多个字符触发",
-          "slug": "_1-表单事件select-当用户选择文本框-input-或-textarea-中的一个或多个字符触发"
-        },
-        {
-          "level": 3,
-          "title": "② 表单事件change：当文本框(input 或 textarea)内容改变且失去焦点后触发",
-          "slug": "_2-表单事件change-当文本框-input-或-textarea-内容改变且失去焦点后触发"
-        },
-        {
-          "level": 3,
-          "title": "③ 表单事件input：当文本框(input 或 textarea)内容改变就触发",
-          "slug": "_3-表单事件input-当文本框-input-或-textarea-内容改变就触发"
-        },
-        {
-          "level": 3,
-          "title": "④ 表单事件submit：当用户点击提交按钮在<form>元素上触发",
-          "slug": "_4-表单事件submit-当用户点击提交按钮在-form-元素上触发"
-        },
-        {
-          "level": 3,
-          "title": "⑤ 表单事件reset：当用户点击重置按钮在<form>元素上触发",
-          "slug": "_5-表单事件reset-当用户点击重置按钮在-form-元素上触发"
-        },
-        {
-          "level": 3,
-          "title": "⑥ focus：当页面或者元素获得焦点时在 window 及相关元素上面触发",
-          "slug": "_6-focus-当页面或者元素获得焦点时在-window-及相关元素上面触发"
-        },
-        {
-          "level": 3,
-          "title": "⑦ blur：当页面或元素失去焦点时在 window 及相关元素上触发",
-          "slug": "_7-blur-当页面或元素失去焦点时在-window-及相关元素上触发"
+          "title": "⑥ toPrecision()方法-指数形式或点形式表述数，保留小数点后面指定位数并转化为字符串",
+          "slug": "_6-toprecision-方法-指数形式或点形式表述数-保留小数点后面指定位数并转化为字符串"
         },
         {
           "level": 2,
-          "title": "Ⅲ、事件对象",
-          "slug": "iii、事件对象"
+          "title": "3、String类型",
+          "slug": "_3、string类型"
         },
         {
           "level": 3,
-          "title": "1、 this 关键字和上下文",
-          "slug": "_1、-this-关键字和上下文"
+          "title": "① 属性:length - 返回字符串的字符长度",
+          "slug": "_1-属性-length-返回字符串的字符长度"
         },
         {
           "level": 3,
-          "title": "2、 获取事件对象",
-          "slug": "_2、-获取事件对象"
+          "title": "② 属性:constructor - 返回创建 String 对象的函数",
+          "slug": "_2-属性-constructor-返回创建-string-对象的函数"
         },
         {
           "level": 3,
-          "title": "3、鼠标事件",
-          "slug": "_3、鼠标事件"
+          "title": "③ 属性:prototype - 通过添加属性和方法扩展字符串定义",
+          "slug": "_3-属性-prototype-通过添加属性和方法扩展字符串定义"
         },
         {
           "level": 3,
-          "title": "① 获取鼠标按钮（左键、右键、中间滚轮）",
-          "slug": "_1-获取鼠标按钮-左键、右键、中间滚轮"
+          "title": "④ 通用方法：valueOf()、toLocaleString()和 toString()方法，返回字符串的基本值，写不写都一样",
+          "slug": "_4-通用方法-valueof-、tolocalestring-和-tostring-方法-返回字符串的基本值-写不写都一样"
         },
         {
           "level": 3,
-          "title": "4、可视区及屏幕坐标",
-          "slug": "_4、可视区及屏幕坐标"
+          "title": "⑤ 字符方法：charAt(n) - 返回指定索引位置的字符",
+          "slug": "_5-字符方法-charat-n-返回指定索引位置的字符"
         },
         {
           "level": 3,
-          "title": "① clientX：可视区 X 坐标，距离左边框的位置",
-          "slug": "_1-clientx-可视区-x-坐标-距离左边框的位置"
+          "title": "⑥ 字符方法：charCodeAt(n) - 以 Unicode 编码形式返回指定索引位置的字符",
+          "slug": "_6-字符方法-charcodeat-n-以-unicode-编码形式返回指定索引位置的字符"
         },
         {
           "level": 3,
-          "title": "② clientY：可视区 Y 坐标，距离上边框的位置",
-          "slug": "_2-clienty-可视区-y-坐标-距离上边框的位置"
+          "title": "⑦ 字符方法：数组方式截取字符串",
+          "slug": "_7-字符方法-数组方式截取字符串"
         },
         {
           "level": 3,
-          "title": "③ screenX：屏幕区 X 坐标，距离左屏幕的位置",
-          "slug": "_3-screenx-屏幕区-x-坐标-距离左屏幕的位置"
+          "title": "⑧ 字符串操作方法：concat(str1...str2) - 将字符串参数串联到调用该方法的字符串（拼装字符串）",
+          "slug": "_8-字符串操作方法-concat-str1-str2-将字符串参数串联到调用该方法的字符串-拼装字符串"
         },
         {
           "level": 3,
-          "title": "④ screenY：屏幕区 Y 坐标，距离上屏幕的位置",
-          "slug": "_4-screeny-屏幕区-y-坐标-距离上屏幕的位置"
+          "title": "⑨ 字符串操作方法：slice(n,m) - 返回字符串 n 到 m 之间位置的字符串（截取字符串）",
+          "slug": "_9-字符串操作方法-slice-n-m-返回字符串-n-到-m-之间位置的字符串-截取字符串"
         },
         {
           "level": 3,
-          "title": "⑤ 鼠标点击位置距离页面顶部距离（带滚动条）",
-          "slug": "_5-鼠标点击位置距离页面顶部距离-带滚动条"
+          "title": "⑩ 字符串操作方法：substring(n,m) - 返回字符串 n 到 m 之间位置的字符串（截取字符串）",
+          "slug": "_10-字符串操作方法-substring-n-m-返回字符串-n-到-m-之间位置的字符串-截取字符串"
         },
         {
           "level": 3,
-          "title": "5、修改键",
-          "slug": "_5、修改键"
+          "title": "⑪ 字符串操作方法：substr(n,m) - 返回字符串 n 开始的 m 个字符串（截取字符串）",
+          "slug": "_11-字符串操作方法-substr-n-m-返回字符串-n-开始的-m-个字符串-截取字符串"
         },
         {
           "level": 3,
-          "title": "① 属性：shiftKey对应Shfit 键，ctrlKey对应 Ctrl 键，altKey 对应 Alt 键，metaKey 对应 windows 键，判断是否按下了它们",
-          "slug": "_1-属性-shiftkey对应shfit-键-ctrlkey对应-ctrl-键-altkey-对应-alt-键-metakey-对应-windows-键-判断是否按下了它们"
+          "title": "⑫ 字符串位置方法：indexOf(str, n) - 从 n 开始搜索的第一个 str，并将搜索的索引值返回",
+          "slug": "_12-字符串位置方法-indexof-str-n-从-n-开始搜索的第一个-str-并将搜索的索引值返回"
         },
         {
           "level": 3,
-          "title": "6、键盘事件",
-          "slug": "_6、键盘事件"
+          "title": "⑬ 字符串位置方法：lastIndexOf(str, n) - 从 n 开始搜索的最后一个 str，并将搜索的索引值返回",
+          "slug": "_13-字符串位置方法-lastindexof-str-n-从-n-开始搜索的最后一个-str-并将搜索的索引值返回"
         },
         {
           "level": 3,
-          "title": "① 键码（键盘上的任意键）keyCode",
-          "slug": "_1-键码-键盘上的任意键-keycode"
+          "title": "⑭ 将字符串中的某个字符索引位置全部找出放在数组中",
+          "slug": "_14-将字符串中的某个字符索引位置全部找出放在数组中"
         },
         {
           "level": 3,
-          "title": "② 字符编码（键盘上可以输出字符的键）charCode",
-          "slug": "_2-字符编码-键盘上可以输出字符的键-charcode"
+          "title": "⑮ 大小写转换：toLowerCase(str) - 将字符串全部转换为小写",
+          "slug": "_15-大小写转换-tolowercase-str-将字符串全部转换为小写"
         },
         {
           "level": 3,
-          "title": "7、event 事件对象的常用属性和方法",
-          "slug": "_7、event-事件对象的常用属性和方法"
+          "title": "⑯ 大小写转换：toUpperCase(str) - 将字符串全部转换为大写",
+          "slug": "_16-大小写转换-touppercase-str-将字符串全部转换为大写"
         },
         {
           "level": 3,
-          "title": "① 属性：target（只读不可设置）：事件目标（获取你所点击的那个目标元素对象）",
-          "slug": "_1-属性-target-只读不可设置-事件目标-获取你所点击的那个目标元素对象"
+          "title": "⑰ 小写转换并且本地化：toLocaleLowerCase(str)、大写转换并且本地化：toLocaleUpperCase(str)",
+          "slug": "_17-小写转换并且本地化-tolocalelowercase-str-、大写转换并且本地化-tolocaleuppercase-str"
         },
         {
           "level": 3,
-          "title": "② 事件流",
-          "slug": "_2-事件流"
+          "title": "⑱ match(pattern) -- 主要用于正则表达式方法",
+          "slug": "_18-match-pattern-主要用于正则表达式方法"
         },
         {
           "level": 3,
-          "title": "③ 事件冒泡，取消：e.stopPropagation()",
-          "slug": "_3-事件冒泡-取消-e-stoppropagation"
+          "title": "⑲ search(pattern) -- 主要用于正则表达式方法",
+          "slug": "_19-search-pattern-主要用于正则表达式方法"
+        },
+        {
+          "level": 3,
+          "title": "⑳ replace(pattern, replacement) -- 用 replacement 替换 pattern 第一次出现的字符",
+          "slug": "_20-replace-pattern-replacement-用-replacement-替换-pattern-第一次出现的字符"
+        },
+        {
+          "level": 3,
+          "title": "㉑ replaceAll(pattern, replacement) -- 用 replacement 替换 pattern 所有出现的字符",
+          "slug": "_21-replaceall-pattern-replacement-用-replacement-替换-pattern-所有出现的字符"
+        },
+        {
+          "level": 3,
+          "title": "㉒ split(pattern) - 返回字符串按指定 pattern 拆分的数组",
+          "slug": "_22-split-pattern-返回字符串按指定-pattern-拆分的数组"
+        },
+        {
+          "level": 3,
+          "title": "㉓ fromCharCode(ascii) - 静态方法，输出 Ascii 码对应值",
+          "slug": "_23-fromcharcode-ascii-静态方法-输出-ascii-码对应值"
+        },
+        {
+          "level": 3,
+          "title": "㉔ localeCompare(str1,str2) - 比较两个字符串，并返回相应的值",
+          "slug": "_24-localecompare-str1-str2-比较两个字符串-并返回相应的值"
+        },
+        {
+          "level": 3,
+          "title": "㉕ startsWith(pattern) - 判断字符串是否按 pattern 开头，返回布尔值",
+          "slug": "_25-startswith-pattern-判断字符串是否按-pattern-开头-返回布尔值"
+        },
+        {
+          "level": 3,
+          "title": "㉖ endsWith(pattern) - 判断字符串是否按 pattern 结尾，返回布尔值",
+          "slug": "_26-endswith-pattern-判断字符串是否按-pattern-结尾-返回布尔值"
+        },
+        {
+          "level": 3,
+          "title": "㉗ includes(pattern) - 判断字符串是否包含pattern字符，返回布尔值",
+          "slug": "_27-includes-pattern-判断字符串是否包含pattern字符-返回布尔值"
+        },
+        {
+          "level": 3,
+          "title": "㉘ trimStart() - 去除字符串开头的空格，返回字符串",
+          "slug": "_28-trimstart-去除字符串开头的空格-返回字符串"
+        },
+        {
+          "level": 3,
+          "title": "㉙ trimEnd() - 去除字符串结尾的空格，返回字符串",
+          "slug": "_29-trimend-去除字符串结尾的空格-返回字符串"
+        },
+        {
+          "level": 3,
+          "title": "㉚ trim() - 去除字符串开头和结尾的空格，返回字符串",
+          "slug": "_30-trim-去除字符串开头和结尾的空格-返回字符串"
+        },
+        {
+          "level": 3,
+          "title": "㉛ repeat(n) - 重复字符串n次，返回字符串",
+          "slug": "_31-repeat-n-重复字符串n次-返回字符串"
+        },
+        {
+          "level": 3,
+          "title": "㉜ 模板字面量（魔法字符串）",
+          "slug": "_32-模板字面量-魔法字符串"
         },
         {
           "level": 2,
-          "title": "IV、事件绑定",
-          "slug": "iv、事件绑定"
+          "title": "4、Array数组的常用方法",
+          "slug": "_4、array数组的常用方法"
         },
         {
           "level": 3,
-          "title": "① 传统事件绑定的问题1：同名事件后者覆盖前者",
-          "slug": "_1-传统事件绑定的问题1-同名事件后者覆盖前者"
+          "title": "① join()方法 -- 见章节7：数组",
+          "slug": "_1-join-方法-见章节7-数组"
         },
         {
           "level": 3,
-          "title": "② 传统事件绑定的问题2：事件切换器问题",
-          "slug": "_2-传统事件绑定的问题2-事件切换器问题"
+          "title": "② push()方法 -- 见章节7：数组",
+          "slug": "_2-push-方法-见章节7-数组"
         },
         {
           "level": 3,
-          "title": "③ 事件绑定处理函数：添加事件addEventListener()，删除事件removeEventListener()",
-          "slug": "_3-事件绑定处理函数-添加事件addeventlistener-删除事件removeeventlistener"
+          "title": "③ pop()方法 -- 见章节7：数组",
+          "slug": "_3-pop-方法-见章节7-数组"
         },
         {
           "level": 3,
-          "title": "④ 冒泡和捕获",
-          "slug": "_4-冒泡和捕获"
+          "title": "④ shift()方法 -- 见章节7：数组",
+          "slug": "_4-shift-方法-见章节7-数组"
+        },
+        {
+          "level": 3,
+          "title": "⑤ unshift()方法 -- 见章节7：数组",
+          "slug": "_5-unshift-方法-见章节7-数组"
+        },
+        {
+          "level": 3,
+          "title": "⑥ reverse()方法 -- 见章节7：数组",
+          "slug": "_6-reverse-方法-见章节7-数组"
+        },
+        {
+          "level": 3,
+          "title": "⑦ sort()方法 -- 见章节7：数组",
+          "slug": "_7-sort-方法-见章节7-数组"
+        },
+        {
+          "level": 3,
+          "title": "⑧ concat()方法 -- 见章节7：数组",
+          "slug": "_8-concat-方法-见章节7-数组"
+        },
+        {
+          "level": 3,
+          "title": "⑨ slice()方法 -- 见章节7：数组",
+          "slug": "_9-slice-方法-见章节7-数组"
+        },
+        {
+          "level": 3,
+          "title": "⑩ splice()方法 -- 见章节7：数组",
+          "slug": "_10-splice-方法-见章节7-数组"
+        },
+        {
+          "level": 3,
+          "title": "⑪ 数组includes（searchElement，fromIndex）方法 --  判断数组是否包含一个指定的元素，返回布尔值",
+          "slug": "_11-数组includes-searchelement-fromindex-方法-判断数组是否包含一个指定的元素-返回布尔值"
+        },
+        {
+          "level": 3,
+          "title": "⑫ 数组reduce()方法 -- 有求和、数组去重、求数组的最大值、扁平化数组的功能",
+          "slug": "_12-数组reduce-方法-有求和、数组去重、求数组的最大值、扁平化数组的功能"
+        },
+        {
+          "level": 3,
+          "title": "⑬ 数组find()方法 -- 为数组中的每个元素都调用一次函数执行,返回通过测试（函数内判断）的数组的第一个元素的值",
+          "slug": "_13-数组find-方法-为数组中的每个元素都调用一次函数执行-返回通过测试-函数内判断-的数组的第一个元素的值"
+        },
+        {
+          "level": 3,
+          "title": "⑭ 数组findIndex()方法 -- 为数组中的每个元素都调用一次函数执行,返回传入一个测试条件（函数）符合条件的数组第一个元素位置",
+          "slug": "_14-数组findindex-方法-为数组中的每个元素都调用一次函数执行-返回传入一个测试条件-函数-符合条件的数组第一个元素位置"
+        },
+        {
+          "level": 3,
+          "title": "⑮ 数组filter() 方法 -- 为数组中的每个元素都调用一次函数执行, 创建一个新的数组，返回传入一个测试条件（函数）符合条件的数组的所有元素",
+          "slug": "_15-数组filter-方法-为数组中的每个元素都调用一次函数执行-创建一个新的数组-返回传入一个测试条件-函数-符合条件的数组的所有元素"
+        },
+        {
+          "level": 3,
+          "title": "⑯ 数组map() 方法 -- 为数组中的每个元素都调用一次函数执行, 创建一个新的数组，返回原始数组元素调用函数处理后的值",
+          "slug": "_16-数组map-方法-为数组中的每个元素都调用一次函数执行-创建一个新的数组-返回原始数组元素调用函数处理后的值"
+        },
+        {
+          "level": 3,
+          "title": "⑰ 数组forEach() 方法 -- 为数组中的每个元素都调用一次函数执行，并将元素传递给回调函数，没有返回值",
+          "slug": "_17-数组foreach-方法-为数组中的每个元素都调用一次函数执行-并将元素传递给回调函数-没有返回值"
+        },
+        {
+          "level": 3,
+          "title": "⑱ 数组indexOf() 方法 -- 返回数组中某个指定的元素位置，从头到尾查找数组元素",
+          "slug": "_18-数组indexof-方法-返回数组中某个指定的元素位置-从头到尾查找数组元素"
+        },
+        {
+          "level": 3,
+          "title": "⑲  数组lastIndexOf() 方法 -- 返回一个指定的元素在数组中最后出现的位置，从后面向前查找数组元素",
+          "slug": "_19-数组lastindexof-方法-返回一个指定的元素在数组中最后出现的位置-从后面向前查找数组元素"
+        },
+        {
+          "level": 3,
+          "title": "⑳ 数组at() 方法 -- 接收一个整数值并返回该索引对应的数组元素",
+          "slug": "_20-数组at-方法-接收一个整数值并返回该索引对应的数组元素"
+        },
+        {
+          "level": 3,
+          "title": "㉑ 数组fill() 方法 -- 用于将一个固定值替换数组的元素，返回原数组，原数组会发生变化",
+          "slug": "_21-数组fill-方法-用于将一个固定值替换数组的元素-返回原数组-原数组会发生变化"
+        },
+        {
+          "level": 3,
+          "title": "㉒ 数组copyWithin() 方法 -- 将指定位置的元素复制到其他位置，返回原数组，原数组会发生变化",
+          "slug": "_22-数组copywithin-方法-将指定位置的元素复制到其他位置-返回原数组-原数组会发生变化"
+        },
+        {
+          "level": 3,
+          "title": "㉓ 数组isArray() 方法 -- 静态方法，判断一个对象是否为数组",
+          "slug": "_23-数组isarray-方法-静态方法-判断一个对象是否为数组"
+        },
+        {
+          "level": 3,
+          "title": "㉔ 合并数组：es6的扩展运算符",
+          "slug": "_24-合并数组-es6的扩展运算符"
+        },
+        {
+          "level": 3,
+          "title": "㉕ 数组every() 方法 --检测数组所有元素是否全部符合指定条件（通过函数提供），返回布尔值",
+          "slug": "_25-数组every-方法-检测数组所有元素是否全部符合指定条件-通过函数提供-返回布尔值"
+        },
+        {
+          "level": 3,
+          "title": "㉖ 数组some() 方法 -- 检测数组所有元素，只要有一个元素通过函数检测返回真，那么就返回真，且后面的元素不在检测,否则返回 假。",
+          "slug": "_26-数组some-方法-检测数组所有元素-只要有一个元素通过函数检测返回真-那么就返回真-且后面的元素不在检测-否则返回-假。"
+        },
+        {
+          "level": 3,
+          "title": "㉗ 数组 for...of遍历",
+          "slug": "_27-数组-for-of遍历"
+        },
+        {
+          "level": 3,
+          "title": "㉘ 数组keys()，数组values()，数组entries()方法 -- 用于遍历数组，都返回一个遍历器对象。",
+          "slug": "_28-数组keys-数组values-数组entries-方法-用于遍历数组-都返回一个遍历器对象。"
+        },
+        {
+          "level": 3,
+          "title": "㉙ 数组reduceRight() 方法-- 和reduce方法刚好相反，reduce可以看成是数组元素（从左到右）依次处理，reduceRight是（从右往左处理）",
+          "slug": "_29-数组reduceright-方法-和reduce方法刚好相反-reduce可以看成是数组元素-从左到右-依次处理-reduceright是-从右往左处理"
+        },
+        {
+          "level": 3,
+          "title": "㉚ 数组flat() 方法 --按照一个可指定的深度递归遍历数组，并将所有元素与遍历到的子数组中的元素合并为一个新数组返回（将多维数组解构成一维数组）",
+          "slug": "_30-数组flat-方法-按照一个可指定的深度递归遍历数组-并将所有元素与遍历到的子数组中的元素合并为一个新数组返回-将多维数组解构成一维数组"
+        },
+        {
+          "level": 3,
+          "title": "㉛数组flatMap() 方法 --首先使用映射函数映射每个元素，然后将结果压缩成一个新数组。创建一个新的数组，其中每个元素都是回调函数的结果，结构深度（depth）为 1 只有一层深度。",
+          "slug": "_31数组flatmap-方法-首先使用映射函数映射每个元素-然后将结果压缩成一个新数组。创建一个新的数组-其中每个元素都是回调函数的结果-结构深度-depth-为-1-只有一层深度。"
+        },
+        {
+          "level": 3,
+          "title": "㉜ 数组from()方法 -- 静态方法，将一个类数组对象转为数组",
+          "slug": "_32-数组from-方法-静态方法-将一个类数组对象转为数组"
+        },
+        {
+          "level": 3,
+          "title": "㉝ 数组of()方法 -- 静态方法，将一组数据转为数组",
+          "slug": "_33-数组of-方法-静态方法-将一组数据转为数组"
         },
         {
           "level": 2,
-          "title": "Ⅴ、事件对象其他属性方法",
-          "slug": "v、事件对象其他属性方法"
+          "title": "5、集合类型: Set()方法",
+          "slug": "_5、集合类型-set-方法"
         },
         {
           "level": 3,
-          "title": "① 属性：relatedTarget；这个属性可以在 mouseover 和 mouseout 事件中获取从哪里移入和从哪里移出的 DOM 对象。",
-          "slug": "_1-属性-relatedtarget-这个属性可以在-mouseover-和-mouseout-事件中获取从哪里移入和从哪里移出的-dom-对象。"
+          "title": "1. 创建Set集合实例(使用new关键词，可以类比于之前学习的Date，时间日期对象，说明Set也是对象的一种)",
+          "slug": "_1-创建set集合实例-使用new关键词-可以类比于之前学习的date-时间日期对象-说明set也是对象的一种"
         },
         {
           "level": 3,
-          "title": "② 阻止事件的默认行为：e.preventDefault()",
-          "slug": "_2-阻止事件的默认行为-e-preventdefault"
+          "title": "2. 如果想在创建的同时初始化实例，则可以给 Set 构造函数传入一个可迭代对象，其中需要包含插入到新集合实例中的元素(Set 可以包含任何js数据类型作为值)：",
+          "slug": "_2-如果想在创建的同时初始化实例-则可以给-set-构造函数传入一个可迭代对象-其中需要包含插入到新集合实例中的元素-set-可以包含任何js数据类型作为值"
         },
         {
           "level": 3,
-          "title": "③ 上下文菜单事件：contextmenu，取消鼠标右击弹出的菜单",
-          "slug": "_3-上下文菜单事件-contextmenu-取消鼠标右击弹出的菜单"
+          "title": "3. Set集合实例转数组，Set结构不会添加重复的值（处理数组去重等问题）",
+          "slug": "_3-set集合实例转数组-set结构不会添加重复的值-处理数组去重等问题"
         },
         {
           "level": 3,
-          "title": "④ 鼠标滚轮：mousewheel事件对象，用于获取鼠标上下滚轮的距离，事件作用在document上",
-          "slug": "_4-鼠标滚轮-mousewheel事件对象-用于获取鼠标上下滚轮的距离-事件作用在document上"
+          "title": "4. Set集合size属性：获取Set集合实例的元素个数",
+          "slug": "_4-set集合size属性-获取set集合实例的元素个数"
+        },
+        {
+          "level": 3,
+          "title": "5. Set集合add()方法：添加元素",
+          "slug": "_5-set集合add-方法-添加元素"
+        },
+        {
+          "level": 3,
+          "title": "6. Set集合has()方法：查询Set实例是否存在某元素(返回布尔值)",
+          "slug": "_6-set集合has-方法-查询set实例是否存在某元素-返回布尔值"
+        },
+        {
+          "level": 3,
+          "title": "7. Set集合delete()方法：删除Set实例中某个元素(返回布尔值)",
+          "slug": "_7-set集合delete-方法-删除set实例中某个元素-返回布尔值"
+        },
+        {
+          "level": 3,
+          "title": "8. Set集合clear()方法：清空Set实例",
+          "slug": "_8-set集合clear-方法-清空set实例"
+        },
+        {
+          "level": 3,
+          "title": "9. Set集合迭代遍历数据：keys():返回键名，values(): 返回键值，entries(): 返回键值对, 注意它的键名=键值",
+          "slug": "_9-set集合迭代遍历数据-keys-返回键名-values-返回键值-entries-返回键值对-注意它的键名-键值"
+        },
+        {
+          "level": 3,
+          "title": "10.Set集合迭代遍历数据：for...of遍历，forEach遍历",
+          "slug": "_10-set集合迭代遍历数据-for-of遍历-foreach遍历"
+        },
+        {
+          "level": 2,
+          "title": "6、小结及拓展",
+          "slug": "_6、小结及拓展"
+        },
+        {
+          "level": 3,
+          "title": "① 求两个数组的并集、交集、差集，得到的结果是一个新数组",
+          "slug": "_1-求两个数组的并集、交集、差集-得到的结果是一个新数组"
+        },
+        {
+          "level": 3,
+          "title": "② 获取数组中的随机项（验证码参考）",
+          "slug": "_2-获取数组中的随机项-验证码参考"
         },
         {
           "level": 2,
@@ -3087,252 +2676,6 @@ export const siteData = {
       "lastUpdatedTimestamp": 1699422737000
     },
     {
-      "title": "章节10.内置对象：Global、Math对象，变量、作用域和内存问题",
-      "frontmatter": {
-        "navbar": true,
-        "sidebar": "auto",
-        "title": "章节10.内置对象：Global、Math对象，变量、作用域和内存问题"
-      },
-      "regularPath": "/secondless/w-a/%E5%86%85%E7%BD%AE%E5%AF%B9%E8%B1%A1%EF%BC%9AGlobal%E3%80%81Math%E5%AF%B9%E8%B1%A1%EF%BC%8C%E5%8F%98%E9%87%8F%E3%80%81%E4%BD%9C%E7%94%A8%E5%9F%9F%E5%92%8C%E5%86%85%E5%AD%98%E9%97%AE%E9%A2%98.html",
-      "relativePath": "secondless/w-a/内置对象：Global、Math对象，变量、作用域和内存问题.md",
-      "key": "v-1d6f685a",
-      "path": "/secondless/w-a/%E5%86%85%E7%BD%AE%E5%AF%B9%E8%B1%A1%EF%BC%9AGlobal%E3%80%81Math%E5%AF%B9%E8%B1%A1%EF%BC%8C%E5%8F%98%E9%87%8F%E3%80%81%E4%BD%9C%E7%94%A8%E5%9F%9F%E5%92%8C%E5%86%85%E5%AD%98%E9%97%AE%E9%A2%98.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "1、内置对象： Global对象",
-          "slug": "_1、内置对象-global对象"
-        },
-        {
-          "level": 3,
-          "title": "① Global对象",
-          "slug": "_1-global对象"
-        },
-        {
-          "level": 3,
-          "title": "② Global对象内置的属性和方法：URI 编码方法",
-          "slug": "_2-global对象内置的属性和方法-uri-编码方法"
-        },
-        {
-          "level": 3,
-          "title": "③ URI 编码方法：encodeURI()、encodeURIComponent()",
-          "slug": "_3-uri-编码方法-encodeuri-、encodeuricomponent"
-        },
-        {
-          "level": 3,
-          "title": "④ URI 解码方法：decodeURI()、decodeURIComponent()",
-          "slug": "_4-uri-解码方法-decodeuri-、decodeuricomponent"
-        },
-        {
-          "level": 3,
-          "title": "⑤ eval()方法",
-          "slug": "_5-eval-方法"
-        },
-        {
-          "level": 3,
-          "title": "⑥ Global对象的属性",
-          "slug": "_6-global对象的属性"
-        },
-        {
-          "level": 3,
-          "title": "⑦ window 对象",
-          "slug": "_7-window-对象"
-        },
-        {
-          "level": 2,
-          "title": "2、内置对象： Math 对象",
-          "slug": "_2、内置对象-math-对象"
-        },
-        {
-          "level": 3,
-          "title": "① Math 对象的属性",
-          "slug": "_1-math-对象的属性"
-        },
-        {
-          "level": 3,
-          "title": "② Math.min()和 Math.max()方法分别求一组数值中的最小值、最大值",
-          "slug": "_2-math-min-和-math-max-方法分别求一组数值中的最小值、最大值"
-        },
-        {
-          "level": 3,
-          "title": "③ Math.ceil()向上舍入、Math.floor()向下舍入、Math.round()四舍五入",
-          "slug": "_3-math-ceil-向上舍入、math-floor-向下舍入、math-round-四舍五入"
-        },
-        {
-          "level": 3,
-          "title": "④ Math.random() 产生一个0 到 1 之间随机数，不包括 0 和 1",
-          "slug": "_4-math-random-产生一个0-到-1-之间随机数-不包括-0-和-1"
-        },
-        {
-          "level": 3,
-          "title": "⑤ 取任意两个数之间的随机整数通用函数（方法）",
-          "slug": "_5-取任意两个数之间的随机整数通用函数-方法"
-        },
-        {
-          "level": 3,
-          "title": "⑥ 其他方法",
-          "slug": "_6-其他方法"
-        },
-        {
-          "level": 2,
-          "title": "3、变量",
-          "slug": "_3、变量"
-        },
-        {
-          "level": 3,
-          "title": "① 基本类型和引用类型的值",
-          "slug": "_1-基本类型和引用类型的值"
-        },
-        {
-          "level": 3,
-          "title": "② 动态属性",
-          "slug": "_2-动态属性"
-        },
-        {
-          "level": 3,
-          "title": "③ 复制变量值",
-          "slug": "_3-复制变量值"
-        },
-        {
-          "level": 3,
-          "title": "④ 传递参数： 按值传参",
-          "slug": "_4-传递参数-按值传参"
-        },
-        {
-          "level": 3,
-          "title": "⑤ 传递参数： 传递一个引用类型的参数（对象），但是它不是按引用传递，它是按值传递的",
-          "slug": "_5-传递参数-传递一个引用类型的参数-对象-但是它不是按引用传递-它是按值传递的"
-        },
-        {
-          "level": 3,
-          "title": "⑥ 检测变量类型：typeof()、instanceof()",
-          "slug": "_6-检测变量类型-typeof-、instanceof"
-        },
-        {
-          "level": 2,
-          "title": "4、作用域（执行环境）",
-          "slug": "_4、作用域-执行环境"
-        },
-        {
-          "level": 3,
-          "title": "① 全局执行环境",
-          "slug": "_1-全局执行环境"
-        },
-        {
-          "level": 3,
-          "title": "② 局部执行环境",
-          "slug": "_2-局部执行环境"
-        },
-        {
-          "level": 3,
-          "title": "③ 没有块级作用域（var 操作符声明的变量）",
-          "slug": "_3-没有块级作用域-var-操作符声明的变量"
-        },
-        {
-          "level": 2,
-          "title": "5、 内存问题",
-          "slug": "_5、-内存问题"
-        },
-        {
-          "level": 2,
-          "title": "课程其它章节",
-          "slug": "课程其它章节"
-        },
-        {
-          "level": 3,
-          "title": "章节1.课程介绍",
-          "slug": "章节1-课程介绍"
-        },
-        {
-          "level": 3,
-          "title": "章节2.javascript基础",
-          "slug": "章节2-javascript基础"
-        },
-        {
-          "level": 3,
-          "title": "章节3.javascript运算符",
-          "slug": "章节3-javascript运算符"
-        },
-        {
-          "level": 3,
-          "title": "章节4.流程控制语句",
-          "slug": "章节4-流程控制语句"
-        },
-        {
-          "level": 3,
-          "title": "章节5.javascript函数",
-          "slug": "章节5-javascript函数"
-        },
-        {
-          "level": 3,
-          "title": "章节6.javascript对象",
-          "slug": "章节6-javascript对象"
-        },
-        {
-          "level": 3,
-          "title": "章节7.javascript数组",
-          "slug": "章节7-javascript数组"
-        },
-        {
-          "level": 3,
-          "title": "章节8.Date类型：时间和日期",
-          "slug": "章节8-date类型-时间和日期"
-        },
-        {
-          "level": 3,
-          "title": "章节9.Function类型：函数进阶",
-          "slug": "章节9-function类型-函数进阶"
-        },
-        {
-          "level": 3,
-          "title": "章节10.内置对象：Global、Math对象，变量、作用域和内存问题",
-          "slug": "章节10-内置对象-global、math对象-变量、作用域和内存问题"
-        },
-        {
-          "level": 3,
-          "title": "章节11.匿名函数和闭包",
-          "slug": "章节11-匿名函数和闭包"
-        },
-        {
-          "level": 3,
-          "title": "章节12.javascript基本包装类型",
-          "slug": "章节12-javascript基本包装类型"
-        },
-        {
-          "level": 3,
-          "title": "章节13.函数对象数组小结",
-          "slug": "章节13-函数对象数组小结"
-        },
-        {
-          "level": 3,
-          "title": "章节14.浏览器对象模型BOM及浏览器检测",
-          "slug": "章节14-浏览器对象模型bom及浏览器检测"
-        },
-        {
-          "level": 3,
-          "title": "章节15.网页文档对象模型DOM",
-          "slug": "章节15-网页文档对象模型dom"
-        },
-        {
-          "level": 3,
-          "title": "章节16.事件",
-          "slug": "章节16-事件"
-        },
-        {
-          "level": 3,
-          "title": "章节17.表单处理及错误处理与调试",
-          "slug": "章节17-表单处理及错误处理与调试"
-        },
-        {
-          "level": 3,
-          "title": "章节18.数据Cookie、XML、JSON",
-          "slug": "章节18-数据cookie、xml、json"
-        }
-      ],
-      "lastUpdated": "2023年11月8日星期三下午1点52分",
-      "lastUpdatedTimestamp": 1699422737000
-    },
-    {
       "title": "章节13.函数对象数组小结",
       "frontmatter": {
         "navbar": true,
@@ -3548,6 +2891,252 @@ export const siteData = {
           "level": 3,
           "title": "⑤ 展开运算符和函数剩余参数的对比及混用",
           "slug": "_5-展开运算符和函数剩余参数的对比及混用"
+        },
+        {
+          "level": 2,
+          "title": "课程其它章节",
+          "slug": "课程其它章节"
+        },
+        {
+          "level": 3,
+          "title": "章节1.课程介绍",
+          "slug": "章节1-课程介绍"
+        },
+        {
+          "level": 3,
+          "title": "章节2.javascript基础",
+          "slug": "章节2-javascript基础"
+        },
+        {
+          "level": 3,
+          "title": "章节3.javascript运算符",
+          "slug": "章节3-javascript运算符"
+        },
+        {
+          "level": 3,
+          "title": "章节4.流程控制语句",
+          "slug": "章节4-流程控制语句"
+        },
+        {
+          "level": 3,
+          "title": "章节5.javascript函数",
+          "slug": "章节5-javascript函数"
+        },
+        {
+          "level": 3,
+          "title": "章节6.javascript对象",
+          "slug": "章节6-javascript对象"
+        },
+        {
+          "level": 3,
+          "title": "章节7.javascript数组",
+          "slug": "章节7-javascript数组"
+        },
+        {
+          "level": 3,
+          "title": "章节8.Date类型：时间和日期",
+          "slug": "章节8-date类型-时间和日期"
+        },
+        {
+          "level": 3,
+          "title": "章节9.Function类型：函数进阶",
+          "slug": "章节9-function类型-函数进阶"
+        },
+        {
+          "level": 3,
+          "title": "章节10.内置对象：Global、Math对象，变量、作用域和内存问题",
+          "slug": "章节10-内置对象-global、math对象-变量、作用域和内存问题"
+        },
+        {
+          "level": 3,
+          "title": "章节11.匿名函数和闭包",
+          "slug": "章节11-匿名函数和闭包"
+        },
+        {
+          "level": 3,
+          "title": "章节12.javascript基本包装类型",
+          "slug": "章节12-javascript基本包装类型"
+        },
+        {
+          "level": 3,
+          "title": "章节13.函数对象数组小结",
+          "slug": "章节13-函数对象数组小结"
+        },
+        {
+          "level": 3,
+          "title": "章节14.浏览器对象模型BOM及浏览器检测",
+          "slug": "章节14-浏览器对象模型bom及浏览器检测"
+        },
+        {
+          "level": 3,
+          "title": "章节15.网页文档对象模型DOM",
+          "slug": "章节15-网页文档对象模型dom"
+        },
+        {
+          "level": 3,
+          "title": "章节16.事件",
+          "slug": "章节16-事件"
+        },
+        {
+          "level": 3,
+          "title": "章节17.表单处理及错误处理与调试",
+          "slug": "章节17-表单处理及错误处理与调试"
+        },
+        {
+          "level": 3,
+          "title": "章节18.数据Cookie、XML、JSON",
+          "slug": "章节18-数据cookie、xml、json"
+        }
+      ],
+      "lastUpdated": "2023年11月8日星期三下午1点52分",
+      "lastUpdatedTimestamp": 1699422737000
+    },
+    {
+      "title": "章节10.内置对象：Global、Math对象，变量、作用域和内存问题",
+      "frontmatter": {
+        "navbar": true,
+        "sidebar": "auto",
+        "title": "章节10.内置对象：Global、Math对象，变量、作用域和内存问题"
+      },
+      "regularPath": "/secondless/w-a/%E5%86%85%E7%BD%AE%E5%AF%B9%E8%B1%A1%EF%BC%9AGlobal%E3%80%81Math%E5%AF%B9%E8%B1%A1%EF%BC%8C%E5%8F%98%E9%87%8F%E3%80%81%E4%BD%9C%E7%94%A8%E5%9F%9F%E5%92%8C%E5%86%85%E5%AD%98%E9%97%AE%E9%A2%98.html",
+      "relativePath": "secondless/w-a/内置对象：Global、Math对象，变量、作用域和内存问题.md",
+      "key": "v-1d6f685a",
+      "path": "/secondless/w-a/%E5%86%85%E7%BD%AE%E5%AF%B9%E8%B1%A1%EF%BC%9AGlobal%E3%80%81Math%E5%AF%B9%E8%B1%A1%EF%BC%8C%E5%8F%98%E9%87%8F%E3%80%81%E4%BD%9C%E7%94%A8%E5%9F%9F%E5%92%8C%E5%86%85%E5%AD%98%E9%97%AE%E9%A2%98.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "1、内置对象： Global对象",
+          "slug": "_1、内置对象-global对象"
+        },
+        {
+          "level": 3,
+          "title": "① Global对象",
+          "slug": "_1-global对象"
+        },
+        {
+          "level": 3,
+          "title": "② Global对象内置的属性和方法：URI 编码方法",
+          "slug": "_2-global对象内置的属性和方法-uri-编码方法"
+        },
+        {
+          "level": 3,
+          "title": "③ URI 编码方法：encodeURI()、encodeURIComponent()",
+          "slug": "_3-uri-编码方法-encodeuri-、encodeuricomponent"
+        },
+        {
+          "level": 3,
+          "title": "④ URI 解码方法：decodeURI()、decodeURIComponent()",
+          "slug": "_4-uri-解码方法-decodeuri-、decodeuricomponent"
+        },
+        {
+          "level": 3,
+          "title": "⑤ eval()方法",
+          "slug": "_5-eval-方法"
+        },
+        {
+          "level": 3,
+          "title": "⑥ Global对象的属性",
+          "slug": "_6-global对象的属性"
+        },
+        {
+          "level": 3,
+          "title": "⑦ window 对象",
+          "slug": "_7-window-对象"
+        },
+        {
+          "level": 2,
+          "title": "2、内置对象： Math 对象",
+          "slug": "_2、内置对象-math-对象"
+        },
+        {
+          "level": 3,
+          "title": "① Math 对象的属性",
+          "slug": "_1-math-对象的属性"
+        },
+        {
+          "level": 3,
+          "title": "② Math.min()和 Math.max()方法分别求一组数值中的最小值、最大值",
+          "slug": "_2-math-min-和-math-max-方法分别求一组数值中的最小值、最大值"
+        },
+        {
+          "level": 3,
+          "title": "③ Math.ceil()向上舍入、Math.floor()向下舍入、Math.round()四舍五入",
+          "slug": "_3-math-ceil-向上舍入、math-floor-向下舍入、math-round-四舍五入"
+        },
+        {
+          "level": 3,
+          "title": "④ Math.random() 产生一个0 到 1 之间随机数，不包括 0 和 1",
+          "slug": "_4-math-random-产生一个0-到-1-之间随机数-不包括-0-和-1"
+        },
+        {
+          "level": 3,
+          "title": "⑤ 取任意两个数之间的随机整数通用函数（方法）",
+          "slug": "_5-取任意两个数之间的随机整数通用函数-方法"
+        },
+        {
+          "level": 3,
+          "title": "⑥ 其他方法",
+          "slug": "_6-其他方法"
+        },
+        {
+          "level": 2,
+          "title": "3、变量",
+          "slug": "_3、变量"
+        },
+        {
+          "level": 3,
+          "title": "① 基本类型和引用类型的值",
+          "slug": "_1-基本类型和引用类型的值"
+        },
+        {
+          "level": 3,
+          "title": "② 动态属性",
+          "slug": "_2-动态属性"
+        },
+        {
+          "level": 3,
+          "title": "③ 复制变量值",
+          "slug": "_3-复制变量值"
+        },
+        {
+          "level": 3,
+          "title": "④ 传递参数： 按值传参",
+          "slug": "_4-传递参数-按值传参"
+        },
+        {
+          "level": 3,
+          "title": "⑤ 传递参数： 传递一个引用类型的参数（对象），但是它不是按引用传递，它是按值传递的",
+          "slug": "_5-传递参数-传递一个引用类型的参数-对象-但是它不是按引用传递-它是按值传递的"
+        },
+        {
+          "level": 3,
+          "title": "⑥ 检测变量类型：typeof()、instanceof()",
+          "slug": "_6-检测变量类型-typeof-、instanceof"
+        },
+        {
+          "level": 2,
+          "title": "4、作用域（执行环境）",
+          "slug": "_4、作用域-执行环境"
+        },
+        {
+          "level": 3,
+          "title": "① 全局执行环境",
+          "slug": "_1-全局执行环境"
+        },
+        {
+          "level": 3,
+          "title": "② 局部执行环境",
+          "slug": "_2-局部执行环境"
+        },
+        {
+          "level": 3,
+          "title": "③ 没有块级作用域（var 操作符声明的变量）",
+          "slug": "_3-没有块级作用域-var-操作符声明的变量"
+        },
+        {
+          "level": 2,
+          "title": "5、 内存问题",
+          "slug": "_5、-内存问题"
         },
         {
           "level": 2,
@@ -4523,6 +4112,109 @@ export const siteData = {
       "lastUpdatedTimestamp": 1699422737000
     },
     {
+      "title": "第三季（课程学习顺序：04）",
+      "frontmatter": {
+        "title": "第三季（课程学习顺序：04）"
+      },
+      "regularPath": "/secondless/w-c.html",
+      "relativePath": "secondless/w-c.md",
+      "key": "v-0a109b22",
+      "path": "/secondless/w-c.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "课程录制中....",
+          "slug": "课程录制中"
+        }
+      ],
+      "lastUpdated": "2023年8月24日星期四下午12点41分",
+      "lastUpdatedTimestamp": 1692852103000
+    },
+    {
+      "title": "章节2.面向对象与原型",
+      "frontmatter": {
+        "navbar": true,
+        "sidebar": "auto",
+        "title": "章节2.面向对象与原型"
+      },
+      "regularPath": "/secondless/w-b/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E4%B8%8E%E5%8E%9F%E5%9E%8B.html",
+      "relativePath": "secondless/w-b/面向对象与原型.md",
+      "key": "v-84f6a38e",
+      "path": "/secondless/w-b/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E4%B8%8E%E5%8E%9F%E5%9E%8B.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "Ⅰ、创建对象",
+          "slug": "i、创建对象"
+        },
+        {
+          "level": 3,
+          "title": "① 创建对象，剖析问题",
+          "slug": "_1-创建对象-剖析问题"
+        },
+        {
+          "level": 3,
+          "title": "② 传统面向对象：工厂模式",
+          "slug": "_2-传统面向对象-工厂模式"
+        },
+        {
+          "level": 3,
+          "title": "③ 构造函数(构造方法)创建特定的对象",
+          "slug": "_3-构造函数-构造方法-创建特定的对象"
+        },
+        {
+          "level": 2,
+          "title": "【第二学期第2季课程】其它章节",
+          "slug": "【第二学期第2季课程】其它章节"
+        },
+        {
+          "level": 3,
+          "title": "章节1.课程介绍",
+          "slug": "章节1-课程介绍"
+        },
+        {
+          "level": 3,
+          "title": "章节2.面向对象与原型",
+          "slug": "章节2-面向对象与原型"
+        },
+        {
+          "level": 2,
+          "title": "其它学期课程",
+          "slug": "其它学期课程"
+        },
+        {
+          "level": 3,
+          "title": "第一学期（学习顺序：01）",
+          "slug": "第一学期-学习顺序-01"
+        },
+        {
+          "level": 3,
+          "title": "第二学期【第1季】（学习顺序：02）",
+          "slug": "第二学期【第1季】-学习顺序-02"
+        },
+        {
+          "level": 3,
+          "title": "第二学期【第2季】（学习顺序：03）",
+          "slug": "第二学期【第2季】-学习顺序-03"
+        }
+      ],
+      "lastUpdated": "2023年11月9日星期四上午10点17分",
+      "lastUpdatedTimestamp": 1699496234000
+    },
+    {
+      "title": "我是web总页",
+      "frontmatter": {
+        "navbar": true,
+        "title": "我是web总页"
+      },
+      "regularPath": "/web/",
+      "relativePath": "web/README.md",
+      "key": "v-6de531b2",
+      "path": "/web/",
+      "lastUpdated": "2023年3月1日星期三下午12点33分",
+      "lastUpdatedTimestamp": 1677645233000
+    },
+    {
       "title": "章节15.网页文档对象模型DOM",
       "frontmatter": {
         "navbar": true,
@@ -5129,6 +4821,20 @@ export const siteData = {
       "lastUpdatedTimestamp": 1699422737000
     },
     {
+      "title": "地图相关实用方法",
+      "frontmatter": {
+        "navbar": true,
+        "sidebar": "auto",
+        "title": "地图相关实用方法"
+      },
+      "regularPath": "/web/methods/%E5%9C%B0%E5%9B%BE%E7%9B%B8%E5%85%B3.html",
+      "relativePath": "web/methods/地图相关.md",
+      "key": "v-60b499ec",
+      "path": "/web/methods/%E5%9C%B0%E5%9B%BE%E7%9B%B8%E5%85%B3.html",
+      "lastUpdated": "2023年9月28日星期四中午12点22分",
+      "lastUpdatedTimestamp": 1695874932000
+    },
+    {
       "title": "章节17.表单处理及错误处理与调试",
       "frontmatter": {
         "navbar": true,
@@ -5460,157 +5166,6 @@ export const siteData = {
       "lastUpdatedTimestamp": 1699422737000
     },
     {
-      "title": "第二季（课程学习顺序：03）",
-      "frontmatter": {
-        "title": "第二季（课程学习顺序：03）"
-      },
-      "regularPath": "/secondless/w-b.html",
-      "relativePath": "secondless/w-b.md",
-      "key": "v-057d6a1e",
-      "path": "/secondless/w-b.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "1.第二季课程介绍",
-          "slug": "_1-第二季课程介绍"
-        },
-        {
-          "level": 2,
-          "title": "2.课程视频学习",
-          "slug": "_2-课程视频学习"
-        },
-        {
-          "level": 2,
-          "title": "3.查看课程文档",
-          "slug": "_3-查看课程文档"
-        },
-        {
-          "level": 3,
-          "title": "章节1.第二季课程介绍",
-          "slug": "章节1-第二季课程介绍"
-        },
-        {
-          "level": 3,
-          "title": "",
-          "slug": "章节2-面向对象与原型"
-        }
-      ],
-      "lastUpdated": "2023年11月8日星期三下午4点22分",
-      "lastUpdatedTimestamp": 1699431756000
-    },
-    {
-      "title": "第三季（课程学习顺序：04）",
-      "frontmatter": {
-        "title": "第三季（课程学习顺序：04）"
-      },
-      "regularPath": "/secondless/w-c.html",
-      "relativePath": "secondless/w-c.md",
-      "key": "v-0a109b22",
-      "path": "/secondless/w-c.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "课程录制中....",
-          "slug": "课程录制中"
-        }
-      ],
-      "lastUpdated": "2023年8月24日星期四下午12点41分",
-      "lastUpdatedTimestamp": 1692852103000
-    },
-    {
-      "title": "章节2.面向对象与原型",
-      "frontmatter": {
-        "navbar": true,
-        "sidebar": "auto",
-        "title": "章节2.面向对象与原型"
-      },
-      "regularPath": "/secondless/w-b/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E4%B8%8E%E5%8E%9F%E5%9E%8B.html",
-      "relativePath": "secondless/w-b/面向对象与原型.md",
-      "key": "v-84f6a38e",
-      "path": "/secondless/w-b/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E4%B8%8E%E5%8E%9F%E5%9E%8B.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "Ⅰ、创建对象",
-          "slug": "i、创建对象"
-        },
-        {
-          "level": 3,
-          "title": "① 创建对象，剖析问题",
-          "slug": "_1-创建对象-剖析问题"
-        },
-        {
-          "level": 3,
-          "title": "② 传统面向对象：工厂模式",
-          "slug": "_2-传统面向对象-工厂模式"
-        },
-        {
-          "level": 2,
-          "title": "【第二学期第2季课程】其它章节",
-          "slug": "【第二学期第2季课程】其它章节"
-        },
-        {
-          "level": 3,
-          "title": "章节1.课程介绍",
-          "slug": "章节1-课程介绍"
-        },
-        {
-          "level": 3,
-          "title": "章节2.面向对象与原型",
-          "slug": "章节2-面向对象与原型"
-        },
-        {
-          "level": 2,
-          "title": "其它学期课程",
-          "slug": "其它学期课程"
-        },
-        {
-          "level": 3,
-          "title": "第一学期（学习顺序：01）",
-          "slug": "第一学期-学习顺序-01"
-        },
-        {
-          "level": 3,
-          "title": "第二学期【第1季】（学习顺序：02）",
-          "slug": "第二学期【第1季】-学习顺序-02"
-        },
-        {
-          "level": 3,
-          "title": "第二学期【第2季】（学习顺序：03）",
-          "slug": "第二学期【第2季】-学习顺序-03"
-        }
-      ],
-      "lastUpdated": "2023年11月8日星期三下午4点22分",
-      "lastUpdatedTimestamp": 1699431756000
-    },
-    {
-      "title": "我是web总页",
-      "frontmatter": {
-        "navbar": true,
-        "title": "我是web总页"
-      },
-      "regularPath": "/web/",
-      "relativePath": "web/README.md",
-      "key": "v-6de531b2",
-      "path": "/web/",
-      "lastUpdated": "2023年3月1日星期三下午12点33分",
-      "lastUpdatedTimestamp": 1677645233000
-    },
-    {
-      "title": "地图相关实用方法",
-      "frontmatter": {
-        "navbar": true,
-        "sidebar": "auto",
-        "title": "地图相关实用方法"
-      },
-      "regularPath": "/web/methods/%E5%9C%B0%E5%9B%BE%E7%9B%B8%E5%85%B3.html",
-      "relativePath": "web/methods/地图相关.md",
-      "key": "v-60b499ec",
-      "path": "/web/methods/%E5%9C%B0%E5%9B%BE%E7%9B%B8%E5%85%B3.html",
-      "lastUpdated": "2023年9月28日星期四中午12点22分",
-      "lastUpdatedTimestamp": 1695874932000
-    },
-    {
       "title": "定位相关实用方法",
       "frontmatter": {
         "navbar": true,
@@ -5635,6 +5190,27 @@ export const siteData = {
       ],
       "lastUpdated": "2023年9月29日星期五上午9点12分",
       "lastUpdatedTimestamp": 1695949951000
+    },
+    {
+      "title": "网站实用接口",
+      "frontmatter": {
+        "navbar": true,
+        "sidebar": "auto",
+        "title": "网站实用接口"
+      },
+      "regularPath": "/web/methods/%E5%AE%9E%E7%94%A8%E6%8E%A5%E5%8F%A3.html",
+      "relativePath": "web/methods/实用接口.md",
+      "key": "v-34d69c74",
+      "path": "/web/methods/%E5%AE%9E%E7%94%A8%E6%8E%A5%E5%8F%A3.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "1. 随机获取一些网络图片",
+          "slug": "_1-随机获取一些网络图片"
+        }
+      ],
+      "lastUpdated": "2023年9月28日星期四中午12点22分",
+      "lastUpdatedTimestamp": 1695874932000
     },
     {
       "title": "w-a页面",
@@ -5689,27 +5265,6 @@ export const siteData = {
       ],
       "lastUpdated": "2023年3月1日星期三下午12点33分",
       "lastUpdatedTimestamp": 1677645233000
-    },
-    {
-      "title": "网站实用接口",
-      "frontmatter": {
-        "navbar": true,
-        "sidebar": "auto",
-        "title": "网站实用接口"
-      },
-      "regularPath": "/web/methods/%E5%AE%9E%E7%94%A8%E6%8E%A5%E5%8F%A3.html",
-      "relativePath": "web/methods/实用接口.md",
-      "key": "v-34d69c74",
-      "path": "/web/methods/%E5%AE%9E%E7%94%A8%E6%8E%A5%E5%8F%A3.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "1. 随机获取一些网络图片",
-          "slug": "_1-随机获取一些网络图片"
-        }
-      ],
-      "lastUpdated": "2023年9月28日星期四中午12点22分",
-      "lastUpdatedTimestamp": 1695874932000
     },
     {
       "title": "w-b页面",
@@ -5828,6 +5383,456 @@ export const siteData = {
       "path": "/%E5%BC%80%E5%8F%91%E8%AE%B0%E5%BD%95.html",
       "lastUpdated": "2023年7月27日星期四中午12点19分",
       "lastUpdatedTimestamp": 1690431553000
+    },
+    {
+      "title": "第二季（课程学习顺序：03）",
+      "frontmatter": {
+        "title": "第二季（课程学习顺序：03）"
+      },
+      "regularPath": "/secondless/w-b.html",
+      "relativePath": "secondless/w-b.md",
+      "key": "v-057d6a1e",
+      "path": "/secondless/w-b.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "1.第二季课程介绍",
+          "slug": "_1-第二季课程介绍"
+        },
+        {
+          "level": 2,
+          "title": "2.课程视频学习",
+          "slug": "_2-课程视频学习"
+        },
+        {
+          "level": 2,
+          "title": "3.查看课程文档",
+          "slug": "_3-查看课程文档"
+        },
+        {
+          "level": 3,
+          "title": "章节1.第二季课程介绍",
+          "slug": "章节1-第二季课程介绍"
+        },
+        {
+          "level": 3,
+          "title": "",
+          "slug": "章节2-面向对象与原型"
+        }
+      ],
+      "lastUpdated": "2023年11月8日星期三下午4点22分",
+      "lastUpdatedTimestamp": 1699431756000
+    },
+    {
+      "title": "章节16.事件",
+      "frontmatter": {
+        "navbar": true,
+        "sidebar": "auto",
+        "title": "章节16.事件"
+      },
+      "regularPath": "/secondless/w-a/%E4%BA%8B%E4%BB%B6.html",
+      "relativePath": "secondless/w-a/事件.md",
+      "key": "v-1b1d0af0",
+      "path": "/secondless/w-a/%E4%BA%8B%E4%BB%B6.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "Ⅰ、事件基础知识",
+          "slug": "i、事件基础知识"
+        },
+        {
+          "level": 3,
+          "title": "1、事件处理函数列表",
+          "slug": "_1、事件处理函数列表"
+        },
+        {
+          "level": 3,
+          "title": "2、内联模型",
+          "slug": "_2、内联模型"
+        },
+        {
+          "level": 3,
+          "title": "① 事件处理函数作为属性执行 JS 代码",
+          "slug": "_1-事件处理函数作为属性执行-js-代码"
+        },
+        {
+          "level": 3,
+          "title": "3、脚本模型",
+          "slug": "_3、脚本模型"
+        },
+        {
+          "level": 2,
+          "title": "Ⅱ、事件处理函数分类",
+          "slug": "ii、事件处理函数分类"
+        },
+        {
+          "level": 3,
+          "title": "1、 鼠标事件",
+          "slug": "_1、-鼠标事件"
+        },
+        {
+          "level": 3,
+          "title": "① 鼠标事件click：当用户单击鼠标按钮或按下回车键时触发",
+          "slug": "_1-鼠标事件click-当用户单击鼠标按钮或按下回车键时触发"
+        },
+        {
+          "level": 3,
+          "title": "② 鼠标事件dblclick：当用户双击主鼠标按钮时触发",
+          "slug": "_2-鼠标事件dblclick-当用户双击主鼠标按钮时触发"
+        },
+        {
+          "level": 3,
+          "title": "③ 鼠标事件mousedown：当用户按下了鼠标还未弹起时触发",
+          "slug": "_3-鼠标事件mousedown-当用户按下了鼠标还未弹起时触发"
+        },
+        {
+          "level": 3,
+          "title": "④ 鼠标事件mouseup：当用户释放鼠标按钮时触发",
+          "slug": "_4-鼠标事件mouseup-当用户释放鼠标按钮时触发"
+        },
+        {
+          "level": 3,
+          "title": "⑤ 鼠标事件mouseover：当鼠标移到某个元素上方时触发",
+          "slug": "_5-鼠标事件mouseover-当鼠标移到某个元素上方时触发"
+        },
+        {
+          "level": 3,
+          "title": "⑥ 鼠标事件mouseout：当鼠标移出某个元素上方时触发",
+          "slug": "_6-鼠标事件mouseout-当鼠标移出某个元素上方时触发"
+        },
+        {
+          "level": 3,
+          "title": "⑦ 鼠标事件mousemove：当鼠标指针在元素上移动时触发",
+          "slug": "_7-鼠标事件mousemove-当鼠标指针在元素上移动时触发"
+        },
+        {
+          "level": 3,
+          "title": "2、 键盘事件",
+          "slug": "_2、-键盘事件"
+        },
+        {
+          "level": 3,
+          "title": "① 键盘事件keydown：当用户按下键盘上任意键触发，如果按住不放，会重复触发",
+          "slug": "_1-键盘事件keydown-当用户按下键盘上任意键触发-如果按住不放-会重复触发"
+        },
+        {
+          "level": 3,
+          "title": "② 键盘事件keypress：当用户按下键盘上的字符键触发，如果按住不放，会重复触发。",
+          "slug": "_2-键盘事件keypress-当用户按下键盘上的字符键触发-如果按住不放-会重复触发。"
+        },
+        {
+          "level": 3,
+          "title": "③ 键盘事件keyup：当用户释放键盘上的键触发",
+          "slug": "_3-键盘事件keyup-当用户释放键盘上的键触发"
+        },
+        {
+          "level": 3,
+          "title": "3、HTML事件（包括表单事件）",
+          "slug": "_3、html事件-包括表单事件"
+        },
+        {
+          "level": 3,
+          "title": "① HTML事件load：当页面完全加载后在 window 上面触发，或当框架集加载完毕后在框架集上触发",
+          "slug": "_1-html事件load-当页面完全加载后在-window-上面触发-或当框架集加载完毕后在框架集上触发"
+        },
+        {
+          "level": 3,
+          "title": "② HTML事件unload：当页面完全卸载后在 window 上面触发，或当框架集卸载后在框架集上触发。",
+          "slug": "_2-html事件unload-当页面完全卸载后在-window-上面触发-或当框架集卸载后在框架集上触发。"
+        },
+        {
+          "level": 3,
+          "title": "③ HTML事件resize：当窗口或框架的大小变化时在 window 或框架上触发",
+          "slug": "_3-html事件resize-当窗口或框架的大小变化时在-window-或框架上触发"
+        },
+        {
+          "level": 3,
+          "title": "④ HTML事件scroll：当用户滚动带滚动条的元素时触发",
+          "slug": "_4-html事件scroll-当用户滚动带滚动条的元素时触发"
+        },
+        {
+          "level": 3,
+          "title": "① 表单事件select：当用户选择文本框(input 或 textarea)中的一个或多个字符触发",
+          "slug": "_1-表单事件select-当用户选择文本框-input-或-textarea-中的一个或多个字符触发"
+        },
+        {
+          "level": 3,
+          "title": "② 表单事件change：当文本框(input 或 textarea)内容改变且失去焦点后触发",
+          "slug": "_2-表单事件change-当文本框-input-或-textarea-内容改变且失去焦点后触发"
+        },
+        {
+          "level": 3,
+          "title": "③ 表单事件input：当文本框(input 或 textarea)内容改变就触发",
+          "slug": "_3-表单事件input-当文本框-input-或-textarea-内容改变就触发"
+        },
+        {
+          "level": 3,
+          "title": "④ 表单事件submit：当用户点击提交按钮在<form>元素上触发",
+          "slug": "_4-表单事件submit-当用户点击提交按钮在-form-元素上触发"
+        },
+        {
+          "level": 3,
+          "title": "⑤ 表单事件reset：当用户点击重置按钮在<form>元素上触发",
+          "slug": "_5-表单事件reset-当用户点击重置按钮在-form-元素上触发"
+        },
+        {
+          "level": 3,
+          "title": "⑥ focus：当页面或者元素获得焦点时在 window 及相关元素上面触发",
+          "slug": "_6-focus-当页面或者元素获得焦点时在-window-及相关元素上面触发"
+        },
+        {
+          "level": 3,
+          "title": "⑦ blur：当页面或元素失去焦点时在 window 及相关元素上触发",
+          "slug": "_7-blur-当页面或元素失去焦点时在-window-及相关元素上触发"
+        },
+        {
+          "level": 2,
+          "title": "Ⅲ、事件对象",
+          "slug": "iii、事件对象"
+        },
+        {
+          "level": 3,
+          "title": "1、 this 关键字和上下文",
+          "slug": "_1、-this-关键字和上下文"
+        },
+        {
+          "level": 3,
+          "title": "2、 获取事件对象",
+          "slug": "_2、-获取事件对象"
+        },
+        {
+          "level": 3,
+          "title": "3、鼠标事件",
+          "slug": "_3、鼠标事件"
+        },
+        {
+          "level": 3,
+          "title": "① 获取鼠标按钮（左键、右键、中间滚轮）",
+          "slug": "_1-获取鼠标按钮-左键、右键、中间滚轮"
+        },
+        {
+          "level": 3,
+          "title": "4、可视区及屏幕坐标",
+          "slug": "_4、可视区及屏幕坐标"
+        },
+        {
+          "level": 3,
+          "title": "① clientX：可视区 X 坐标，距离左边框的位置",
+          "slug": "_1-clientx-可视区-x-坐标-距离左边框的位置"
+        },
+        {
+          "level": 3,
+          "title": "② clientY：可视区 Y 坐标，距离上边框的位置",
+          "slug": "_2-clienty-可视区-y-坐标-距离上边框的位置"
+        },
+        {
+          "level": 3,
+          "title": "③ screenX：屏幕区 X 坐标，距离左屏幕的位置",
+          "slug": "_3-screenx-屏幕区-x-坐标-距离左屏幕的位置"
+        },
+        {
+          "level": 3,
+          "title": "④ screenY：屏幕区 Y 坐标，距离上屏幕的位置",
+          "slug": "_4-screeny-屏幕区-y-坐标-距离上屏幕的位置"
+        },
+        {
+          "level": 3,
+          "title": "⑤ 鼠标点击位置距离页面顶部距离（带滚动条）",
+          "slug": "_5-鼠标点击位置距离页面顶部距离-带滚动条"
+        },
+        {
+          "level": 3,
+          "title": "5、修改键",
+          "slug": "_5、修改键"
+        },
+        {
+          "level": 3,
+          "title": "① 属性：shiftKey对应Shfit 键，ctrlKey对应 Ctrl 键，altKey 对应 Alt 键，metaKey 对应 windows 键，判断是否按下了它们",
+          "slug": "_1-属性-shiftkey对应shfit-键-ctrlkey对应-ctrl-键-altkey-对应-alt-键-metakey-对应-windows-键-判断是否按下了它们"
+        },
+        {
+          "level": 3,
+          "title": "6、键盘事件",
+          "slug": "_6、键盘事件"
+        },
+        {
+          "level": 3,
+          "title": "① 键码（键盘上的任意键）keyCode",
+          "slug": "_1-键码-键盘上的任意键-keycode"
+        },
+        {
+          "level": 3,
+          "title": "② 字符编码（键盘上可以输出字符的键）charCode",
+          "slug": "_2-字符编码-键盘上可以输出字符的键-charcode"
+        },
+        {
+          "level": 3,
+          "title": "7、event 事件对象的常用属性和方法",
+          "slug": "_7、event-事件对象的常用属性和方法"
+        },
+        {
+          "level": 3,
+          "title": "① 属性：target（只读不可设置）：事件目标（获取你所点击的那个目标元素对象）",
+          "slug": "_1-属性-target-只读不可设置-事件目标-获取你所点击的那个目标元素对象"
+        },
+        {
+          "level": 3,
+          "title": "② 事件流",
+          "slug": "_2-事件流"
+        },
+        {
+          "level": 3,
+          "title": "③ 事件冒泡，取消：e.stopPropagation()",
+          "slug": "_3-事件冒泡-取消-e-stoppropagation"
+        },
+        {
+          "level": 2,
+          "title": "IV、事件绑定",
+          "slug": "iv、事件绑定"
+        },
+        {
+          "level": 3,
+          "title": "① 传统事件绑定的问题1：同名事件后者覆盖前者",
+          "slug": "_1-传统事件绑定的问题1-同名事件后者覆盖前者"
+        },
+        {
+          "level": 3,
+          "title": "② 传统事件绑定的问题2：事件切换器问题",
+          "slug": "_2-传统事件绑定的问题2-事件切换器问题"
+        },
+        {
+          "level": 3,
+          "title": "③ 事件绑定处理函数：添加事件addEventListener()，删除事件removeEventListener()",
+          "slug": "_3-事件绑定处理函数-添加事件addeventlistener-删除事件removeeventlistener"
+        },
+        {
+          "level": 3,
+          "title": "④ 冒泡和捕获",
+          "slug": "_4-冒泡和捕获"
+        },
+        {
+          "level": 2,
+          "title": "Ⅴ、事件对象其他属性方法",
+          "slug": "v、事件对象其他属性方法"
+        },
+        {
+          "level": 3,
+          "title": "① 属性：relatedTarget；这个属性可以在 mouseover 和 mouseout 事件中获取从哪里移入和从哪里移出的 DOM 对象。",
+          "slug": "_1-属性-relatedtarget-这个属性可以在-mouseover-和-mouseout-事件中获取从哪里移入和从哪里移出的-dom-对象。"
+        },
+        {
+          "level": 3,
+          "title": "② 阻止事件的默认行为：e.preventDefault()",
+          "slug": "_2-阻止事件的默认行为-e-preventdefault"
+        },
+        {
+          "level": 3,
+          "title": "③ 上下文菜单事件：contextmenu，取消鼠标右击弹出的菜单",
+          "slug": "_3-上下文菜单事件-contextmenu-取消鼠标右击弹出的菜单"
+        },
+        {
+          "level": 3,
+          "title": "④ 鼠标滚轮：mousewheel事件对象，用于获取鼠标上下滚轮的距离，事件作用在document上",
+          "slug": "_4-鼠标滚轮-mousewheel事件对象-用于获取鼠标上下滚轮的距离-事件作用在document上"
+        },
+        {
+          "level": 2,
+          "title": "课程其它章节",
+          "slug": "课程其它章节"
+        },
+        {
+          "level": 3,
+          "title": "章节1.课程介绍",
+          "slug": "章节1-课程介绍"
+        },
+        {
+          "level": 3,
+          "title": "章节2.javascript基础",
+          "slug": "章节2-javascript基础"
+        },
+        {
+          "level": 3,
+          "title": "章节3.javascript运算符",
+          "slug": "章节3-javascript运算符"
+        },
+        {
+          "level": 3,
+          "title": "章节4.流程控制语句",
+          "slug": "章节4-流程控制语句"
+        },
+        {
+          "level": 3,
+          "title": "章节5.javascript函数",
+          "slug": "章节5-javascript函数"
+        },
+        {
+          "level": 3,
+          "title": "章节6.javascript对象",
+          "slug": "章节6-javascript对象"
+        },
+        {
+          "level": 3,
+          "title": "章节7.javascript数组",
+          "slug": "章节7-javascript数组"
+        },
+        {
+          "level": 3,
+          "title": "章节8.Date类型：时间和日期",
+          "slug": "章节8-date类型-时间和日期"
+        },
+        {
+          "level": 3,
+          "title": "章节9.Function类型：函数进阶",
+          "slug": "章节9-function类型-函数进阶"
+        },
+        {
+          "level": 3,
+          "title": "章节10.内置对象：Global、Math对象，变量、作用域和内存问题",
+          "slug": "章节10-内置对象-global、math对象-变量、作用域和内存问题"
+        },
+        {
+          "level": 3,
+          "title": "章节11.匿名函数和闭包",
+          "slug": "章节11-匿名函数和闭包"
+        },
+        {
+          "level": 3,
+          "title": "章节12.javascript基本包装类型",
+          "slug": "章节12-javascript基本包装类型"
+        },
+        {
+          "level": 3,
+          "title": "章节13.函数对象数组小结",
+          "slug": "章节13-函数对象数组小结"
+        },
+        {
+          "level": 3,
+          "title": "章节14.浏览器对象模型BOM及浏览器检测",
+          "slug": "章节14-浏览器对象模型bom及浏览器检测"
+        },
+        {
+          "level": 3,
+          "title": "章节15.网页文档对象模型DOM",
+          "slug": "章节15-网页文档对象模型dom"
+        },
+        {
+          "level": 3,
+          "title": "章节16.事件",
+          "slug": "章节16-事件"
+        },
+        {
+          "level": 3,
+          "title": "章节17.表单处理及错误处理与调试",
+          "slug": "章节17-表单处理及错误处理与调试"
+        },
+        {
+          "level": 3,
+          "title": "章节18.数据Cookie、XML、JSON",
+          "slug": "章节18-数据cookie、xml、json"
+        }
+      ],
+      "lastUpdated": "2023年11月8日星期三下午1点52分",
+      "lastUpdatedTimestamp": 1699422737000
     }
   ],
   "themeConfig": {
