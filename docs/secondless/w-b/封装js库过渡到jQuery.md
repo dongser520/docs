@@ -1,14 +1,86 @@
 ---
-title: 第二季（课程学习顺序：03） 
+navbar: true
+sidebar: auto
+title: 章节3.封装js库过渡到jQuery
 ---
-# html + css + javascript + jquery + vue.js 开发企业网站
-## 1.第二季课程介绍
-[![](/hear.jpg '第二学期第二季课程介绍，点击查看')](https://www.bilibili.com/video/BV1YY411679o/?vd_source=9a6ee0d7e6c1657e4a7381c1f8f18f4b)
-## 2.课程视频学习
-[学习课程完整视频](https://study.163.com/course/courseMain.htm?courseId=1213374826&share=2&shareId=480000002289674 '点击学习课程完整视频')
-## 3.查看课程文档
-### 章节1.第二季课程介绍 
-### <a href="/secondless/w-b/面向对象与原型" target="_blank" title="点击查看课程文档">章节2.面向对象与原型</a>
+
+理解 JavaScript 库
+> 什么是 JavaScript 库？就是把各种常用的代码片段，组织起来放在一个 js 文件里，组成一个包，这个包就是 JavaScript 库。现如今有太多优秀的开源 JavaScript 库，比如：jQuery、Swiper、 Prototype、Dojo、Extjs、Zepto 等等。这些 JavaScript 库已经把最常用的代码进行了有效的封装，以方便我们开发，从而提高效率。本章节，我们尝试自己封装一个js库，主要目的是提升我们的编程能力和面向对象的思维。<br/><br/>
+
+## 1. 对象字面量形式执行对象里面的方法达到简化获取对象节点的操作
+> 新建一个/static/js/myBase.js文件，在里面编写最常用的代码，然后不断的扩展封装。
+> ```javascript
+> // let menu = document.getElementById('banner');
+> // console.log(menu.innerHTML);
+> 
+> var myBase = { //整个库可以是一个对象
+>     getId: function (id) { //方法尽可能简短而富有含义
+>         return document.getElementById(id);
+>     },
+>     getName: function (name) {
+>         return document.getElementsByName(name);
+>     },
+>     getTagName: function (tag) {
+>         return document.getElementsByTagName(tag);
+>     }
+> }
+> 
+> let menu = myBase.getId('banner');
+> menu.setAttribute('data',456);
+> menu.onclick = function(){
+>     console.log('我是广告栏');
+> }
+> 
+> //那么现在有新的需求了
+> menu.setAttribute('data',456).onclick = function(){
+>     console.log('我是广告栏');
+> }
+> //发现报错了
+> //console.log(menu.setAttribute('data',456));//undefined
+> //那么如何进行连缀操作呢？连缀操作: 一个或者多个节点同时进行两个或以上的操作
+> ```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<br/><br/><br/><br/><br/><br/>
+
+## 【第二学期第2季课程】其它章节
+### [章节1.课程介绍](/secondless/w-b '章节1.课程介绍')
+<!-- <LessList  /> -->
+### [章节2.面向对象与原型](/secondless/w-b/面向对象与原型 '章节2.面向对象与原型')
 ####  <a href="/secondless/w-b/面向对象与原型.html#i、创建对象" style="margin-left:40px;">1、创建对象</a>
 ##### <a href="/secondless/w-b/面向对象与原型.html#_1-创建对象-剖析问题" style="margin-left:70px;">① 创建对象，剖析问题：传统创建对象方法代码重复冗余，对象无法识别从属于哪个函数</a>
 ##### <a href="/secondless/w-b/面向对象与原型.html#_2-传统面向对象-工厂模式" style="margin-left:70px;">② 传统创建对象：工厂模式（没有办法识别某一个对象的引用）</a>
@@ -48,4 +120,25 @@ title: 第二季（课程学习顺序：03）
 ##### <a href="/secondless/w-b/面向对象与原型.html#_7-子类继承父类方法同时扩展自己的方法-子类在构造函数中使用super-必须放到this前面" style="margin-left:70px;">⑦ 子类继承父类方法同时扩展自己的方法，子类在构造函数中使用super,必须放到this前面</a>
 ##### <a href="/secondless/w-b/面向对象与原型.html#_8-类和对象的几个注意点" style="margin-left:70px;">⑧ 类和对象的几个注意点：</a>
 ####  <a href="/secondless/w-b/面向对象与原型.html#v、面向对象、原型、继承、类小结" style="margin-left:40px;">5、面向对象、原型、继承、类小结</a>
-### <a href="/secondless/w-b/封装js库过渡到jQuery" target="_blank" title="点击查看课程文档">章节3.封装js库过渡到jQuery</a>
+### [章节3.封装js库过渡到jQuery](/secondless/w-b/封装js库过渡到jQuery '章节3.封装js库过渡到jQuery')
+
+<br/><br/>
+## 其它学期课程
+### [第一学期（学习顺序：01）](/aboutless.html '第一学期课程')
+> 第一学期课程专为零基础的学员定制录制的，纯html+css做企业网站的网页，主讲html和css的相关基础知识，flex布局相关知识，封装css基础样式库，引入字体图标及网页开发基础布局思维，完成企业网站网页的开发过程。<br/><br/>
+<b><a href="https://study.163.com/course/courseMain.htm?courseId=1213374826&share=2&shareId=480000002289674" target="_blank">[第一学期学习视频]</a>
+</b>
+
+### [第二学期【第1季】（学习顺序：02）](/secondless/w-a '第二学期第1季课程')
+> 主讲JavaScript的基础，建议所有学员观看。<br/>
+<b>
+   <a href="/secondless/w-a.html" target="_blank">[第1季学习文档]</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+   <a style="margin-left:20px;">[第1季学习视频]</a>
+</b>
+
+### [第二学期【第2季】（学习顺序：03）](/secondless/w-b '第二学期第2季课程')
+> JavaScript中的面向对象，类，ajax，封装js库过渡到jQuery， vue.js基础配置网站页面，建议所有学员观看。<br/>
+<b>
+   <a href="/secondless/w-b.html" target="_blank">[第2季学习文档]</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+   <a style="margin-left:20px;">[第2季学习视频]</a>
+</b>
