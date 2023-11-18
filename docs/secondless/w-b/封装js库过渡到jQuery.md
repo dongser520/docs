@@ -40,14 +40,76 @@ title: 章节3.封装js库过渡到jQuery
 > //那么如何进行连缀操作呢？连缀操作: 一个或者多个节点同时进行两个或以上的操作
 > ```
 
-
-
-
-
-
-
-
-
+## 2. 改写库对象
+> 我们上节课提到要实现连缀功能，我们来分析一下：<br/>
+> 1. myBase是一个基础库的核心对象，menu.setAttribute('data',456)返回的是什么？<br/>
+> 2. 返回的是一个undefined，没有onclick事件可以执行，那思考什么可以返回执行？；<br/>
+> 3. 有的同学会想到，就是我们上节课刚讲的面向对象，将menu.setAttribute('data',456)返回的结果改成myBase对象；<br/>
+> 4. myBase对象在添加一个click事件不就可以了吗？<br/>
+> 5. 即在myBase对象中添加html方法，click方法，setAttribute方法，css方法等等，就可以一直进行连缀操作了。即menu.setAttribute('data',456)应该返回myBase对象，不应该是undefined，menu.setAttribute('data',456).onclick 返回的也应该是myBase对象对象，这样就可以一直连缀下去。
+> ```javascript
+> menu.setAttribute('data',456).click(function(){
+>     console.log('我是广告栏');
+> }).css('backgroundColor','red');
+> ```
+那么很明显，我们上面的库返回的是节点对象，没有机会了，因此我们要改写我们的基础库。我们需要返回一个对象，然后可以调用里面的方法，而创建一个对象，我们很容易想到我们上一个章节的面向对象与原型还有继承，创建对象我们可以用构造函数、原型还有类来创建，由于我们本季主要是教大家面向对象的编程思维和策略，因此我们不用类创建，关于类创建对象，我们后面有大型项目，在使用类，类里面的知识很多，我们上一章节只是讲了类的基础知识。回到我们的问题，我们先尝试通过构造函数来创建对象。
+> ```javascript
+> <div id="box">我是用来测试的</div>
+> function Mybase(){
+>     this.getId = function(id){ 
+>         return  document.getElementById(id);
+>     }
+> }
+> 
+> let mybase = new Mybase();
+> console.log(mybase.getId('box'));//还是节点对象
+> //我们需要mybase.getId('box')返回的是mybase对象，才能继续调用，那该如何写？
+> ```
+> ```javascript
+> //我们先用正常程序写一下这些功能
+> mybase.getId('box').style.color = 'red';
+> mybase.getId('box').style.backgroundColor = 'green';
+> mybase.getId('box').innerHTML = '我是box';
+> mybase.getId('box').setAttribute('data',123);
+> mybase.getId('box').onclick = function(){
+>     console.log('我被点了');
+> };
+> //我们现在希望通过连缀来完成：
+> // mybase.getId('box').css('color','red').css('backgroundColor','green')
+> // .html('我是box').attr('data',123).click(function(){
+> //     console.log('我被点了');
+> // })
+> //因此，我们上面的程序，不应该返回document.getElementById(id)；而应该返回this,this不就是我们的Mybase构造函数对象吗？
+> ```
+因此，我们需要创建一个数组，来保存获取的节点（id获取的是节点）和节点数组（其他方式获取的是节点数组）
+> ```javascript
+> function Mybase(){
+>     //创建一个数组,来保存获取的节点和节点数组
+>     this.elements = [];
+>     //获取id节点
+>     this.getId = function(id){ 
+>         //return  document.getElementById(id);
+>         this.elements.push(document.getElementById(id));
+>         return this;
+>     };
+>     // this.css = function(){} 这是操作，写这里不好管理，可以写在外面，写外面可以用原型方法
+> }
+> Mybase.prototype.css = function(attribute,value){
+>     //mybase.getId('box').style.color = 'red';
+>     //mybase.getId('box').style.backgroundColor = 'green';
+>     this.elements[0].style[attribute] = value;
+>     return this;
+> }
+> 
+> 
+> let mybase = new Mybase();
+> console.log(mybase.getId('box'));//返回mybase实例对象
+> //通过输出结果，我们可以看到可以在里面继续添加方法，如css方法，attr方法，html方法，click方法等
+> //接下来完成这步：mybase.getId('box').css('color','red')
+> //mybase.getId('box').css('color','red');
+> mybase.getId('box').css('color','red').css('backgroundColor','green');
+> //同学们听完应该豁然开朗了，但是，我们的写法不够完美，因为数组用的下标，如果多个元素就不好办了
+> ```
 
 
 
