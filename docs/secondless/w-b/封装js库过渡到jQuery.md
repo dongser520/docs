@@ -40,7 +40,7 @@ title: 章节3.封装js库过渡到jQuery
 > //那么如何进行连缀操作呢？连缀操作: 一个或者多个节点同时进行两个或以上的操作
 > ```
 
-## 2. 改写库对象
+## 2. 改写库对象：通过构造函数和原型改写库对象
 > 我们上节课提到要实现连缀功能，我们来分析一下：<br/>
 > 1. myBase是一个基础库的核心对象，menu.setAttribute('data',456)返回的是什么？<br/>
 > 2. 返回的是一个undefined，没有onclick事件可以执行，那思考什么可以返回执行？；<br/>
@@ -82,6 +82,7 @@ title: 章节3.封装js库过渡到jQuery
 > //因此，我们上面的程序，不应该返回document.getElementById(id)；而应该返回this,this不就是我们的Mybase构造函数对象吗？
 > ```
 因此，我们需要创建一个数组，来保存获取的节点（id获取的是节点）和节点数组（其他方式获取的是节点数组）
+### ① 获取id节点，返回实例对象mybase，给构造函数原型添加css方法
 > ```javascript
 > function Mybase(){
 >     //创建一个数组,来保存获取的节点和节点数组
@@ -109,10 +110,74 @@ title: 章节3.封装js库过渡到jQuery
 > //mybase.getId('box').css('color','red');
 > mybase.getId('box').css('color','red').css('backgroundColor','green');
 > //同学们听完应该豁然开朗了，但是，我们的写法不够完美，因为数组用的下标，如果多个元素就不好办了
+> ```  
+
+### ② 改写构造函数原型css方法，处理多个节点存放问题，html方法按照css方法进行扩展测试，扩展click方法
+> ```javascript
+> //获取元素节点
+>    this.getTagName = function (tag) {
+>       //this.elements.push(document.getElementsByTagName(tag));
+>       let tags = document.getElementsByTagName(tag);
+>       for(let i=0;i<tags.length;i++){
+>         this.elements.push(tags[i]);
+>       }
+>       return this;
+>    }
+> //执行元素节点
+> console.log(mybase.getTagName('p'));
+> 
+> mybase.getTagName('p').css('color','blue');//发现只改了一个p
+> //改写css方法
+> Mybase.prototype.css = function(attribute,value){
+>    // mybase.getId('box').style.color = 'red';
+>    // mybase.getId('box').style.backgroundColor = 'green';
+>    //this.elements[0].style[attribute] = value;
+>    for(let i=0;i<this.elements.length;i++){
+>      this.elements[i].style[attribute] = value;
+>    }
+>    return this;
+> }
+> 
+> //接着写html方法
+> Mybase.prototype.html = function(str){
+>     // mybase.getId('box').innerHTML = '我是box';
+>     for(let i=0;i<this.elements.length;i++){
+>         this.elements[i].innerHTML = str;
+>     }
+>     return this;
+> }
+> 
+> mybase.getTagName('p').css('color','blue').html('我是段落p');
+>
+> //接着扩展click方法
+> mybase.getTagName('p').css('color','blue').html('我是段落p').click(function(){
+>     console.log('我被点了')
+> }).css('backgroundColor','black');
+> 
+> Mybase.prototype.click = function(fn){
+>     for(let i=0;i<this.elements.length;i++){
+>         this.elements[i].onclick = fn;
+>     }
+>     return this;
+> }
 > ```
-
-
-
+> ```javascript
+> //同时执行 mybase.getId('box').css('color','red').css('backgroundColor','green');有问题了
+> //发现我们执行的代码被后面的代码替代了，我们可以查看一下中控台 console.log(mybase);
+> // this.elements[i]包含了id='box' 还有p的元素，因此设置p元素样式时候，会覆盖id='box'的元素
+> // 那么该怎么解决呢？此时我们应该想到，我们实例化的时候，就不该只实例化一个对象，因为我们操作的元素不同
+> // 我们应该实例化两个对象，分别来处理我们的div#box,p元素
+> //实例化多个对象
+> // let mybase1 = new Mybase();
+> // let mybase2 = new Mybase();
+> let $ = function(){
+>     return new Mybase();
+> }
+> $().getId('box').css('color','red').css('backgroundColor','green');
+> $().getTagName('p').css('color','blue').html('我是段落p').click(function(){
+>     console.log('我被点了')
+> }).css('backgroundColor','black');
+> ```
 
 
 
