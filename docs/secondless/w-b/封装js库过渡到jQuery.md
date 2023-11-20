@@ -179,22 +179,132 @@ title: 章节3.封装js库过渡到jQuery
 > }).css('backgroundColor','black');
 > ```
 
+### ③ 改造html方法，可以设置或者获取内容
+> 在上一节课我们通过 html()方法和 css()方法可以设置内容和 CSS 样式，但我们如何通过这两个方法来获取内容或样式呢？比如：
+> ```javascript
+> console.log($().getId('box').html()); //获取内容
+> console.log($().getId('box').css('fontSize')); //获取 CSS 样式
+> ```
+> 要实现获取内容，只要判断传递过来的参数即可
+> ```javascript
+> //设置或者获取内容
+> Mybase.prototype.html = function (str) {
+>     // mybase.getId('box').innerHTML = '我是box';
+>     for (let i = 0; i < this.elements.length; i++) {
+>         //判断传参 arguments.length
+>         if (arguments.length == 0) { //没有传参
+>             return this.elements[i].innerHTML;//返回内容
+>         } else {
+>             this.elements[i].innerHTML = str;
+>         }
+>     }
+>     return this;
+> }
+> // console.log($().getId('box').html());//获取内容
+> // console.log($().getId('box').html('我是p标签'));//设置内容
+> ```
+> 关联知识：<a href="/secondless/w-a/javascript函数.html#_3、函数的arguments-对象" target="_blank">第二学期_第1季——章节5_3、函数的arguments 对象</a>
 
+### ④ 改造css方法，可以设置获取css样式
+> ```javascript
+> <div id="box" style="font-size: 20px;">我是测试的</div>
+> // $().getId('box').css('fontSize','100px');
+> // console.log($().getId('box').css('fontSize')); //获取 CSS 样式
+> Mybase.prototype.css = function (attribute, value) {
+>     for (let i = 0; i < this.elements.length; i++) {
+>         if(arguments.length == 1){
+>            //return  this.elements[i].style[attribute];
+>            return window.getComputedStyle(this.elements[i], null)[attribute];
+>         }
+>         this.elements[i].style[attribute] = value;
+>     }
+>     return this;
+> }
+> //但无法获取计算后的样式
+> console.log($().getId('box').css('height'));//计算后的样式
+> ```
+> 计算后的样式：<a href="/secondless/w-a/网页文档对象模型DOM.html#_3-计算后的样式获取-行内、内联、外联样式-window-对象下getcomputedstyle-方法">第二学期_第1季——章节15_6.操作css样式_③计算后的样式</a>
 
+### ⑤ 封装js库总结
+> ```javascript
+> //实例化多个对象
+> // let mybase = new Mybase();
+> // let mybase1 = new Mybase();
+> let $ = function () {
+>     return new Mybase();
+> }
+> //基础库
+> function Mybase() {
+>     //创建一个数组,来保存获取的节点和节点数组
+>     this.elements = [];
+> }
+> //获取id节点
+> Mybase.prototype.getId = function (id) {
+>     this.elements.push(document.getElementById(id));
+>     return this;
+> }
+> //执行元素节点
+> Mybase.prototype.getTagName = function (tag) {
+>     let tags = document.getElementsByTagName(tag);
+>     for (let i = 0; i < tags.length; i++) {
+>         this.elements.push(tags[i]);
+>     }
+>     return this;
+> }
+> //设置或获取css
+> Mybase.prototype.css = function (attribute, value) {
+>     for (let i = 0; i < this.elements.length; i++) {
+>         if(arguments.length == 1){
+>            //return  this.elements[i].style[attribute];
+>            return window.getComputedStyle(this.elements[i], null)[attribute];
+>         }
+>         this.elements[i].style[attribute] = value;
+>     }
+>     return this;
+> }
+> //设置或者获取内容
+> Mybase.prototype.html = function (str) {
+>     // mybase.getId('box').innerHTML = '我是box';
+>     for (let i = 0; i < this.elements.length; i++) {
+>         //判断传参 arguments.length
+>         if (arguments.length == 0) { //没有传参
+>             return this.elements[i].innerHTML;//返回内容
+>         } else {
+>             this.elements[i].innerHTML = str;
+>         }
+>     }
+>     return this;
+> }
+> //触发点击事件
+> Mybase.prototype.click = function (fn) {
+>     for (let i = 0; i < this.elements.length; i++) {
+>         this.elements[i].onclick = fn;
+>     }
+>     return this;
+> }
+> 
+> 
+> /*
+> $().getId('box').css('color','red').css('backgroundColor','green');
+> $().getTagName('p').css('color','blue').html('我是段落p').click(function(){
+>     console.log('我被点了');
+> }).css('backgroundColor','black');
+> 
+> console.log($().getId('box').html());//获取内容
+> 
+> console.log($().getId('box').css('fontSize')); //获取 CSS 样式
+> $().getId('box').css('fontSize','100px');
+> console.log($().getId('box').css('height'));//计算后的样式
+> */
+> 
+> ```
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+以上，是我们通过简单封装js库，让大家进一步理解面向对象、原型在开发中的思维和重要性，主要目的是拓宽大家的面向对象思维能力。然后，顺便通过封装我们DOM章节的知识点，让大家回忆一下我们第二学期第1季DOM章节操作我们节点的一些方法，做到一个前后呼应。<br/><br/>
+当然：<br/><br/>
+回到我们目前封装的js库本身，还有很多的方法没有封装，比如：获取class类名、设置class类名、添加class类名、移除class类名等等很多功能，而且我们的库还需要进一步的改进。<br/><br/>
+那么：<br/><br/>
+在我们实际开发中，有没有我们IT界的前辈或者大佬，帮我们写好了操作我们js的库呢，功能和我们上面自己封装的功能一样呢，而且功能更加完善呢？<br/><br/>
+答案是：有的。回到我们本章的开头，现如今有太多优秀的开源 JavaScript 库，比如：jQuery、Swiper、 Prototype、Dojo、Extjs、Zepto 等等。而这里面最为优秀，被封神的 JavaScript 库就是我们的：jQuery库，那么我们下一章节将学习如何使用jQuery库。
 
 
 
