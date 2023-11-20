@@ -1,14 +1,250 @@
 ---
-title: 第二季（课程学习顺序：03） 
+navbar: true
+sidebar: auto
+title: 章节4.jQuery
 ---
-# html + css + javascript + jquery + vue.js 开发企业网站
-## 1.第二季课程介绍
-[![](/hear.jpg '第二学期第二季课程介绍，点击查看')](https://www.bilibili.com/video/BV1YY411679o/?vd_source=9a6ee0d7e6c1657e4a7381c1f8f18f4b)
-## 2.课程视频学习
-[学习课程完整视频](https://study.163.com/course/courseMain.htm?courseId=1213374826&share=2&shareId=480000002289674 '点击学习课程完整视频')
-## 3.查看课程文档
-### 章节1.第二季课程介绍 
-### <a href="/secondless/w-b/面向对象与原型" target="_blank" title="点击查看课程文档">章节2.面向对象与原型</a>
+
+前言
+> 1. 关于jQuery <br/><br/>
+> 我们在上一章节简单封装了一个js库，便于我们操作DOM节点，在web前端实际开发中，被封神用得最多的开源js库，便于我们进行DOM操作的库就是：jQuery。<br/><br/>
+> 2. jQuery介绍 <a href="https://baike.baidu.com/item/jQuery/5385065?fr=ge_ala" target="_blank">[jQuery百度百科]</a><br/><br/>
+> 简单说就是：它是2006年就发布的快速、简洁的JavaScript框架库，封装JavaScript常用的功能代码，提供一种简便的JavaScript设计模式，优化HTML文档操作、事件处理、动画设计和Ajax交互，依托这个库开发的插件数量超过了百万个，极大的提高了我们的开发项目的效率，它最大的优势就是提供了一系列的方法，解决了早期各个浏览器之间属性方法不兼容的问题，因此被封为神。<br/><br/>
+> 但随着现代浏览器的差异越来越小，IE浏览器退出市场，浏览器之间的兼容性问题也逐渐不再被大家关注，因此jQuery的市场份额也在下降。但是，作为web开发中，非常重要的框架库，在实际开发中，
+还是会被用到。<br/><br/>
+> 3. 学习jQuery最终效果<br/><br/>
+> 我们作为初学者，重点只需要掌握jQuery提供给我们的常用方法，方便我们便捷操作DOM，提高我们的开发效率即可。<span style="color:#00A5F7;">不需要死记硬背，更不能学习了jQuery之后，我们在获取id节点的时候，你连最基本的document.getElementById这种最基本的方法都忘记了，那就得不偿失了，我们的宗旨是最基本的原生js方法你必须得掌握，jQuery作为工具库，你会使用它帮你解决问题就行，它作为辅助工具使用，把握好这个原则。</span><br/><br/>
+> 4. jQuery的下载<br/>
+> 下载途径很多，建议去<a href="https://www.bootcdn.cn/" target="_blank">BootCDN官网:https://www.bootcdn.cn/</a> 下载，它里面有jQuery发布的所有版本：<a href="https://www.bootcdn.cn/jquery/" target="_blank">下载jQuery</a> （比较懒的同学，直接去下载本节课课件，里面就有jQuery）<br/><br/>
+> 5. jQuery参考文档(非常多)<br/>
+> <a href="http://t.mb5u.com/jquery/" target="_blank" style="margin-right:60px">jQuery在线手册</a> <a href="http://api.jquery.com/" target="_blank">jQuery最新文档(英文版)</a><br/><br/>
+> 6. 关于版本学习 <br/>
+> 通过csdn可以看到，版本号有：1.x.x，2.x.x，3.x.x，马上4.x.x也会出来，而我们学习的原则就是能给我们快速解决问题就可以了，而且它们遵循高版本兼容低版本。升级版本只是在原来基础上升级一些新的功能方法，而我们实际开发大部分需要的功能，它在前面的版本都提供了，因此我们选择学习一个版本就可以了。<br/><br/>
+> 7. 测试一下<br/>
+> 新建/static/js/index.jquery.js (移除上一章节的封装库，重新测试我们上一节需要的功能)
+> ```javascript
+> /*
+> $().getId('box').css('color','red').css('backgroundColor','green');
+> $().getTagName('p').css('color','blue').html('我是段落p').click(function(){
+>     console.log('我被点了')
+> }).css('backgroundColor','black');
+> 
+> console.log($().getId('box').html());
+> console.log($().getId('box').css('fontSize')); 
+> */
+> 
+> $(function(){
+>    $('#box').css('color','red').css('backgroundColor','green');
+>    $('p').css('color','blue').html('我是段落p').click(function(){
+>     console.log('我被点了')
+>    }).css('backgroundColor','black');
+>    console.log($('#box').html());
+>    console.log($('#box').css('height')); 
+> });
+> ```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<br/><br/><br/><br/><br/><br/>
+
+## 【第二学期第2季课程】其它章节
+### [章节1.课程介绍](/secondless/w-b '章节1.课程介绍')
+<!-- <LessList  /> -->
+### [章节2.面向对象与原型](/secondless/w-b/面向对象与原型 '章节2.面向对象与原型')
 ####  <a href="/secondless/w-b/面向对象与原型.html#i、创建对象" style="margin-left:40px;">1、创建对象</a>
 ##### <a href="/secondless/w-b/面向对象与原型.html#_1-创建对象-剖析问题" style="margin-left:70px;">① 创建对象，剖析问题：传统创建对象方法代码重复冗余，对象无法识别从属于哪个函数</a>
 ##### <a href="/secondless/w-b/面向对象与原型.html#_2-传统面向对象-工厂模式" style="margin-left:70px;">② 传统创建对象：工厂模式（没有办法识别某一个对象的引用）</a>
@@ -48,5 +284,26 @@ title: 第二季（课程学习顺序：03）
 ##### <a href="/secondless/w-b/面向对象与原型.html#_7-子类继承父类方法同时扩展自己的方法-子类在构造函数中使用super-必须放到this前面" style="margin-left:70px;">⑦ 子类继承父类方法同时扩展自己的方法，子类在构造函数中使用super,必须放到this前面</a>
 ##### <a href="/secondless/w-b/面向对象与原型.html#_8-类和对象的几个注意点" style="margin-left:70px;">⑧ 类和对象的几个注意点：</a>
 ####  <a href="/secondless/w-b/面向对象与原型.html#v、面向对象、原型、继承、类小结" style="margin-left:40px;">5、面向对象、原型、继承、类小结</a>
-### <a href="/secondless/w-b/封装js库过渡到jQuery" target="_blank" title="点击查看课程文档">章节3.封装js库过渡到jQuery</a>
-### <a href="/secondless/w-b/jQuery" target="_blank" title="点击查看课程文档">章节4.jQuery</a>
+### [章节3.封装js库过渡到jQuery](/secondless/w-b/封装js库过渡到jQuery '章节3.封装js库过渡到jQuery')
+### [章节4.jQuery](/secondless/w-b/jQuery '章节4.jQuery')
+
+<br/><br/>
+## 其它学期课程
+### [第一学期（学习顺序：01）](/aboutless.html '第一学期课程')
+> 第一学期课程专为零基础的学员定制录制的，纯html+css做企业网站的网页，主讲html和css的相关基础知识，flex布局相关知识，封装css基础样式库，引入字体图标及网页开发基础布局思维，完成企业网站网页的开发过程。<br/><br/>
+<b><a href="https://study.163.com/course/courseMain.htm?courseId=1213374826&share=2&shareId=480000002289674" target="_blank">[第一学期学习视频]</a>
+</b>
+
+### [第二学期【第1季】（学习顺序：02）](/secondless/w-a '第二学期第1季课程')
+> 主讲JavaScript的基础，建议所有学员观看。<br/>
+<b>
+   <a href="/secondless/w-a.html" target="_blank">[第1季学习文档]</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+   <a style="margin-left:20px;">[第1季学习视频]</a>
+</b>
+
+### [第二学期【第2季】（学习顺序：03）](/secondless/w-b '第二学期第2季课程')
+> JavaScript中的面向对象，类，ajax，封装js库过渡到jQuery， vue.js基础配置网站页面，建议所有学员观看。<br/>
+<b>
+   <a href="/secondless/w-b.html" target="_blank">[第2季学习文档]</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+   <a style="margin-left:20px;">[第2季学习视频]</a>
+</b>
