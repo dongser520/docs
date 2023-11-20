@@ -225,7 +225,7 @@ title: 章节3.封装js库过渡到jQuery
 > ```
 > 计算后的样式：<a href="/secondless/w-a/网页文档对象模型DOM.html#_3-计算后的样式获取-行内、内联、外联样式-window-对象下getcomputedstyle-方法">第二学期_第1季——章节15_6.操作css样式_③计算后的样式</a>
 
-### ⑤ 封装js库总结
+## 3. 封装js库总结
 > ```javascript
 > //实例化多个对象
 > // let mybase = new Mybase();
@@ -358,6 +358,7 @@ title: 章节3.封装js库过渡到jQuery
 ##### <a href="/secondless/w-b/面向对象与原型.html#_8-类和对象的几个注意点" style="margin-left:70px;">⑧ 类和对象的几个注意点：</a>
 ####  <a href="/secondless/w-b/面向对象与原型.html#v、面向对象、原型、继承、类小结" style="margin-left:40px;">5、面向对象、原型、继承、类小结</a>
 ### [章节3.封装js库过渡到jQuery](/secondless/w-b/封装js库过渡到jQuery '章节3.封装js库过渡到jQuery')
+### [章节4.jQuery](/secondless/w-b/jQuery '章节4.jQuery')
 
 <br/><br/>
 ## 其它学期课程
