@@ -2,6 +2,7 @@ module.exports = [
     { text: '主页', link: '/' },
     { text: '第一学期课程', link: '/aboutless' },
     { text: '第二学期课程', link: '/secondless/' },
+    { text: '课程所需软件', link: '/web/software/' },
     {
         text: '实用方法',
         ariaLabel: '实用方法菜单',

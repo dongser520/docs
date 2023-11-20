@@ -6,7 +6,7 @@ title: 章节4.jQuery
 
 前言
 > 1. 关于jQuery <br/><br/>
-> 我们在上一章节简单封装了一个js库，便于我们操作DOM节点，在web前端实际开发中，被封神用得最多的开源js库，便于我们进行DOM操作的库就是：jQuery。<br/><br/>
+> 我们在上一章节简单封装了一个js库，便于我们操作DOM节点，在web前端实际开发中，被封神的开源js库，便于我们进行DOM操作的库：jQuery。<br/><br/>
 > 2. jQuery介绍 <a href="https://baike.baidu.com/item/jQuery/5385065?fr=ge_ala" target="_blank">[jQuery百度百科]</a><br/><br/>
 > 简单说就是：它是2006年就发布的快速、简洁的JavaScript框架库，封装JavaScript常用的功能代码，提供一种简便的JavaScript设计模式，优化HTML文档操作、事件处理、动画设计和Ajax交互，依托这个库开发的插件数量超过了百万个，极大的提高了我们的开发项目的效率，它最大的优势就是提供了一系列的方法，解决了早期各个浏览器之间属性方法不兼容的问题，因此被封为神。<br/><br/>
 > 但随着现代浏览器的差异越来越小，IE浏览器退出市场，浏览器之间的兼容性问题也逐渐不再被大家关注，因此jQuery的市场份额也在下降。但是，作为web开发中，非常重要的框架库，在实际开发中，
@@ -42,26 +42,88 @@ title: 章节4.jQuery
 > });
 > ```
 
+## 1、代码风格：$包裹
+> 在jQuery程序中，不管是页面元素的选择、内置的功能函数，都是美元符号“$”来起始的。而这个“$”就是jQuery当中最重要且独有的对象：jQuery对象（这个对象是JavaScript封装起来的对象，类似我们封装的MyBase对象），所以我们在页面元素选择或执行功能函数的时候可以这么写：
+> ```javascript
+> $(function () {}); //执行一个匿名函数
+> $('#box'); //进行执行的ID元素选择
+> $('#box').css('color', 'red'); //执行功能函数
+> ```
+> 由于$本身就是jQuery对象的缩写形式，那么也就是说上面的三段代码也可以写成如下形式：
+> ```javascript
+> jQuery(function () {});
+> jQuery('#box');
+> jQuery('#box').css('color', 'red');
+> console.log(jQuery === $);//相等，恒等
+> ```
+只需要注意，每次返回的是jQuery对象，因此可以进行连缀操作。
+> ```javascript
+> console.log($());//可以查看jQuery库里面所有给我们写好的原型方法及属性
+> ```
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+## 2、加载模式：$(function () {})
+> 在第1季基础课程我们讲过，网页自上而下执行，如果把js代码写在头部，需要等页面渲染完了再执行，JavaScript提供了一个事件为load，方法如下：
+> ```javascript
+> window.onload = function () {}; //JavaScript等待加载
+> ```
+> 在实际应用中，我们都很少直接去使用window.onload，因为它需要等待图片之类的大型元素加载完毕后才能执行JS代码。所以，最头疼的就是网速较慢的情况下，页面已经全面展开，图片还在缓慢加载，这时页面上任何的JS交互功能全部处在假死状态（页面卡在那里了，点了没反应，用户以为网站中毒了）。并且只能执行单次在多次开发和团队开发中会带来困难。
+而jQuery只需要执行：
+> ```javascript
+> $(document).ready(function () {}); //jQuery等待加载 
+> //简写：
+> $(function () {
+> //执行代码放在这里面
+> });
+> ```
+> 只需要等待网页中的DOM结构加载完毕，就能执行包裹的代码，无需等待网页图片视频加载完毕就可以进行交互了，解决了页面卡顿问题。<br/>
+> 另外我们在第二期第1季已经学过了，window.onload = function () {} 如果写多次，后面一次会覆盖前面的一次的内容，也就是只能执行一次，如果第二次，那么第一次的执行会被覆盖。而jQuery则避免了这个问题，可写很多这种 $(function () {}); 并且不会覆盖干扰。
+> ```javascript
+> window.onload = function(){
+>     console.log(1);
+> }
+> window.onload = function(){
+>     console.log(2);//执行这个覆盖前面一个
+> }
+> 
+> $(function(){
+>     console.log('jq1');//都执行
+> });
+> $(function(){
+>     console.log('jq2');//都执行
+> });
+> ```
+## 3、对象互换
+### ① 获取元素DOM对象：get(索引)方法
+> ```javascript
+> $(function(){
+>     //返回jquery对象
+>     console.log($('#box'));
+>     //原生js节点对象
+>     console.log(document.getElementById('box'));
+>     //jquery获取元素js节点对象
+>     console.log($('#box').get(0));
+>     console.log($('p').get(1));
+> 
+>     //jquery对象和dom对象的互换
+>     console.log($(document.getElementById('box')).css('color','red'));
+> });
+> ```
+## 4、多个库之间的冲突
+> 我们实际开发中，可能会用到多个库帮我们解决问题，比如，我们前面封装的myBase库，用的$来实例化，产生了冲突，解决办法有两种：
+> 1. 将 jQuery 库在 Base 库之前引入，那么“$”的所有权就归 myBase 库所有，而jQuery 可以直接用 jQuery 对象调用，或者创建一个“$$”符给 jQuery 使用。
+> ```javascript
+> var $$ = jQuery; //创建一个$$的 jQuery 对象
+> console.log($().getId('box').css('color','red')); //这是 myBase 的$
+> console.log($$('#box').css('color','red')); //这是 jQuery 的$$
+> ```
+> 2. 如果将 jQuery 库在 Base 库之后引入，那么“$”的所有权就归jQuery 库所有，而myBase库将会冲突而失去作用。这里，jQuery 提供了一个方法：
+> ```javascript
+> jQuery.noConflict(); //将$符所有权剔除
+> var $$ = jQuery;
+> console.log($().getId('box').css('color','red'));
+> console.log($$('#box').css('color','red'));
+> ```
+> 反正其他库不管是在jQuery之前还是之后，jQuery都提出了折中方案，如果大家以后再开发中，碰到这种情况，可以来看一下这种操作方案。
 
 
 
