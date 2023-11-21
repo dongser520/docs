@@ -125,23 +125,104 @@ title: 章节4.jQuery
 > ```
 > 反正其他库不管是在jQuery之前还是之后，jQuery都提出了折中方案，如果大家以后再开发中，碰到这种情况，可以来看一下这种操作方案。
 
+## 5、选择器
+> 本节课开始我们来学习一下jQuery的选择器，<strong style="color:#00A5F7;">注意：jQuery的选择器写法和我们的css选择器写法基本一致，只是在其外层用<span style="color:red">$();</span> 做了一层包裹，便于连缀操作。因此我们在讲jQuery选择器的时候，也是顺便给大家讲了一下CSS选择器的用法，大家可以顺便回顾一下我们第一学期CSS选择器的相关知识。</strong>
+### ① ID 选择器、元素选择器、类(class)选择器，属性 length 或 size()方法来查看返回的元素个数
+> ```javascript
+> //CSS模式
+> // div { background-color：red; }   元素选择器：  获取所有 div 元素的DOM对象
+> // #box { background-color：red; }  ID选择器:    获取一个 ID 为 box 元素的DOM对象
+> // .flex{ background-color：red; }   类(class):  获取所有 class 为 box 的所有DOM对象
+> 
+> //注意语法规范，id选择器只写一个
+> 
+> //jQuery 模式
+> $(function(){
+>    $('div').css('background-color', 'red'); //元素选择器，返回多个元素，进行连缀操作
+>    $('#box').css('background-color', 'red'); //ID 选择器，返回单个元素，进行连缀操作
+>    $('.flex').css('background-color', 'red'); //类(class)选择器，返回多个元素，进行连缀操作
+> });
+> ```
+> 查看返回的元素个数：属性 length 或 size()方法
+> ```javascript
+> $(function(){
+>     console.log($('div'));//jquery对象查看
+>     console.log($('div').length);//111
+>     console.log($('div').size());//111
+>
+>    $('p').css('backgroundColor', 'red');//支持驼峰式写法
+> });
+> ```
+### ② jQuery对象转成DOM对象：get方法或下标获取
+> ```javascript
+> $(function(){
+>     console.log(document.getElementById('box'));//js元素dom对象
+>     console.log($('#box').get(0));//jQuery对象转dom对象 get方法
+>     console.log($('#box')[0]);//数组下标获取dom对象
+> });
+> ```
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+### ③ 群组选择器、后代选择器、通配选择器、指定元素前缀选择器
+> ```javascript
+> //CSS模式
+> // span,p,.flex { background-color：red;}   群组选择器：  获取多个选择器的DOM对象
+> // ul li a { background-color：red;}        后代选择器:   获取追溯到的多个DOM对象
+> // * { background-color：red;}              通配选择器:  获取所有元素标签的DOM对象
+> 
+> //jQuery 模式
+> $(function(){
+>     $('span,p,.flex').css('background-color', 'red'); //群组选择器
+>     $('ul li a').css('background-color', 'red'); //后代选择器
+>     $('*').css('background-color', 'red'); //通配选择器
+>  });
+> 
+> //目前介绍的六种选择器，在实际应用中，我们可以灵活的搭配，使得选择器更加的精准和快速：
+> $(function(){
+>     $('#box, div a, .flex').css('background-color', 'red'); //组合了多种选择器
+> });
+> ```
+> 警告：在实际使用上，<span style="color:red">通配选择器一般用的并不多，尤其是在全局整个页面上，比如：$('*')，这种使用方法效率很低，影响性能，建议尽可能少用。</span>
+> ```javascript
+> <ul>
+>    <li><a href="#">我是a</a></li>
+>    <li><a href="#">我是a</a></li>
+>    <li><em>我是em</em></li>
+>    <li><strong>我是strong</strong></li>
+> </ul>
+> $(function(){
+>     //群组选择器
+>     //$('ul li a,ul li em,ul li strong').css('color','red');
+>     //后代选择器
+>     //$('ul li').css('color','red');//发现a元素没变色，使用浏览器默认颜色
+>     //采用通配符比较简单
+>     $('ul li *').css('color','red');
+>     //通配符一般要用，用在局部范围内
+>     console.log($('ul li *').size());//4个  没有查多余的
+>     console.log($('*')[0].nodeName);//html 没必要查询的节点，浪费资源
+> });
+> ```
+指定元素前缀选择器
+> ```javascript
+> $(function(){
+>     //在 ID 和类(class)中指明元素前缀
+>     $('a.active').css('font-size','80px').css('background-color','red');
+>     //我们写的页面上更加精确：#nav .right-div>a.active{}
+>     $('#nav1 .right-div>a.active').css('font-size','80px').css('background-color','red');
+> });
+> ```
+> ```javascript
+> //多class选择器
+> $(function(){
+>     $('.flex.py-5').css('background-color','red');
+> });
+> ```
+注意：在构造选择器时，有一个通用的优化原则：只追求必要的确定性。
+> ```javascript
+> $(function(){
+>     $('div#box ul li a#link'); //让 jQuery 内部处理了不必要的字符串
+>     $('#link'); //ID 是唯一性的，准确度不变，性能提升
+> });
+> ```
 
 
 
