@@ -224,20 +224,167 @@ title: 章节4.jQuery
 > });
 > ```
 
+### ④ 层次选择器：后代选择器find、子选择器children、next 选择器、nextAll 选择器
+> ```javascript
+> <div id="box">
+>       <p>儿子p0</p>
+>       <p>儿子p1</p>
+>       <p class="p">儿子p2</p>
+>       <p>儿子p3</p>
+>       <div>
+>          <p>孙子p4</p>
+>          <p>孙子p5</p>
+>          <p>孙子p6</p>
+>       </div>
+>    </div>
+> 
+> //CSS模式
+> // #box p { background-color：red;}        后代选择器:   获取追溯到的DOM对象
+> // #box > p { background-color：red;}        子选择器:  只获取子类节点的DOM对象
+> // #box>p.p + p { background-color：red;}     next 选择器: 只获取某节点后一个同级DOM对象
+> // #box>p.p ~ div { background-color：red;}     nextAll 选择器: 获取某节点后面所有同级DOM对象
+> 
+> //jQuery 模式
+> $(function(){    
+>     //后代选择器
+>     $('#box p').css('background-color', 'red'); 
+>     //find方法等价
+>     $('#box').find('p').css('background-color', 'red');     
+> 
+>     //子选择器:子类节点的DOM对象
+>     $('#box > p').css('background-color', 'red'); 
+>     //children方法等价
+>     $('#box').children('p').css('background-color', 'red'); 
+>    
+>     // next 选择器:后一个符合要求同级DOM对象
+>     $('#box>p.p + p').css('background-color', 'red'); 
+>     //next方法等价
+>     $('#box>p.p').next('p').css('background-color', 'red');
+> 
+>     //nextAll 选择器:后面符合要求所有同级DOM对象
+>     $('#box>p.p ~ div').css('background-color', 'red');
+>     //nextAll方法等价
+>     $('#box>p.p').nextAll('div').css('background-color', 'red');
+> });
+> ```
+> 回忆一下js原生：<br/>
+> parentNode 属性返回该节点的父节点<br/>
+> previousSibling 属性返回该节点的前一个同级节点<br/>
+> nextSibling 属性返回该节点的后一个同级节点<br/>
+> 详见： <a href="/secondless/w-a/网页文档对象模型DOM.html#_4-parentnode-属性返回该节点的父节点-previoussibling-属性返回该节点的前一个同级节点-nextsibling-属性返回该节点的后一个同级节点"     target="_blank">第二学期第1季_章节15网页文档对象模型DOM_Ⅴ、 层次节点属性_④点</a>
+> ```javascript
+> //回忆一下js原生：
+> //parentNode 属性返回该节点的父节点
+> //previousSibling 属性返回该节点的前一个同级节点
+> //nextSibling 属性返回该节点的后一个同级节点
+> $(function(){
+>     let $p = document.getElementsByClassName('p');
+>     console.log($p);
+>     //前一个同级节点是文本节点，文本节点的前一个是p元素
+>     let prev_p = $p[0].previousSibling.previousSibling;
+>     console.log('前一个同级节点的前一个同级节点',prev_p);
+>     //同样，后一个同级节点是文本节点，文本节点的后一个是p元素
+>     let next_p = $p[0].nextSibling.nextSibling;
+>     console.log('后一个同级节点的后一个同级节点',next_p);
+>     //元素dom操作css样式
+>     next_p.style.backgroundColor = 'red';
+> });
+> ```
+虽然说元素js获取DOM对象操作样式非常痛苦，但是你不能忘了！
 
+### ⑤ jQuery提供：prev同级上一个元素，prevAll同级所有上面的元素
+> ```javascript
+> $(function(){
+>     //prev同级上一个元素
+>     $('#box>p.p').prev('p').css('background-color', 'red');
+>     //prevAll同级所有上面的元素
+>     $('#box>p.p').prevAll('p').css('background-color', 'red');
+> });
+> ```
 
+### ⑥ jQuery提供：siblings()方法：上下同级所有元素，正好集成了 prevAll()和 nextAll()两个功能的效果
+> ```javascript
+> $(function(){
+>     /*
+>     //prevAll同级所有上面的元素
+>     $('#box>p.p').prevAll('p').css('background-color', 'red');
+>     //nextAll 选择器:后面符合要求所有同级DOM对象
+>     $('#box>p.p ~ p,#box>p.p ~ div').css('background-color', 'red');
+>     */
+> 
+>      //siblings()方法等价上面两个
+>      $('#box>p.p').siblings().css('background-color', 'red');
+> });
+> ```
 
+### ⑦ jQuery提供：nextUntil()方法：查找同级后面的节点，遇到指定元素停止选定，prevUntil()方法：查找同级前面的节点，遇到指定元素停止选定
+> ```javascript
+> <stong>stong0</stong>
+> <stong>stong1</stong>
+> <stong>stong2</stong>
+> <p>p0</p>
+> <stong>stong3</stong>
+> <stong>stong4</stong>
+> <stong>stong5</stong>
+> <div id="box">div</div>
+> <stong>stong6</stong>
+> <stong>stong7</stong>
+> <stong>stong8</stong>
+> <p>p1</p>
+> <stong>stong9</stong>
+> <stong>stong10</stong>
+> <stong>stong11</stong>
+> 
+> $(function(){
+>     //nextUntil()方法：查找同级后面的节点，遇到指定元素停止选定
+>     $('#box').nextUntil('p').css('background-color','red');
+>     //prevUntil()方法：查找同级前面的节点，遇到指定元素停止选定
+>     $('#box').prevUntil('p').css('background-color','red');
+> });
+> ```
+选择器使用总结：<br/>
+<strong style="color:#00A5F7;">非要推荐，优先推荐使用jQuery提供的选择器方法</strong>，如：后代选择器：css模式 $('#box p')  与  jQuery方法$('#box').find('p')，优先使用jQuery方法：$('#box').find('p'); 因为它的性能比css模式写法更高，而且灵活性和扩展性更好；但并不是说css模式的写法就不行，它们的性能比较也是相对的，其实都是非常快的，性能差异几乎忽略不计，所以大家可以自由选择。如果非要推荐一种，那么优先使用jQuery提供的选择器方法。
 
-
-
-
-
-
-
-
-
-
-
+### ⑧ 属性选择器：一般超链接用得多点
+> ```javascript
+> <a href="#" title="a1">a1</a>
+> <a href="#">a2</a>
+> <a href="#" title="a31 bbb ccc">a3</a>
+> <a href="#" title="abcccbb">a4</a>
+> <a href="#" title="a5" data="123">a5</a>
+> <a href="#" title="a-6">a6</a>
+> <a href="#" title="a">a7</a>
+> 
+> $(function(){
+>     //a[title] css也是这样写 意思是：a元素中有title属性的被选中
+>     // $('a[title]').css('color','red');
+> 
+>     //a[title=a1] css也是这样写 意思是:a元素中有title属性，且值等于a1
+>     // $('a[title=a1]').css('color','red');
+> 
+>     //a[title!=a1] css也是这样写 意思是:a元素中title值不等于a1的全部选中
+>     // $('a[title!=a1]').css('color','red');
+> 
+>     //a[title|=a] 意思是:a元素中title值,且值等于a,或者值等于 a- 后面跟一个“-”号
+>     //$('a[title|=a]').css('color','red');
+> 
+>     //a[title^=a] 意思是:a元素中有title属性，且值是以a开头的
+>     // $('a[title^=a]').css('color','red');
+> 
+>     //a[title$=1] 意思是:a元素中有title属性，且值是以1结尾的
+>     // $('a[title$=1]').css('color','red');
+> 
+>     //a[title~=bbb] 意思是:a元素中有title属性，且值用空格隔开 里面包含 bbb
+>     // $('a[title~=bbb]').css('color','red');
+> 
+>     //a[title*=ccc] 意思是:a元素中有title属性，且值里面包含 ccc
+>     // $('a[title*=ccc]').css('color','red');
+> 
+>     //a[data][title=a5] 意思是:a元素中有title属性，且值等于a5，并且同时还有data属性
+>     // $('a[data][title=a5]').css('color','red');
+> 
+> });
+> ```
 
 
 
