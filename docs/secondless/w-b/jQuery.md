@@ -224,7 +224,7 @@ title: 章节4.jQuery
 > });
 > ```
 
-### ④ 层次选择器：后代选择器find、子选择器children、next 选择器、nextAll 选择器
+### ④ 层次选择器：jQuery提供后代选择器find、子选择器children、next 选择器、nextAll 选择器
 > ```javascript
 > <div id="box">
 >       <p>儿子p0</p>
@@ -386,33 +386,220 @@ title: 章节4.jQuery
 > });
 > ```
 
+## 6、过滤器（伪类选择器）
+> 参考：<a href="http://t.mb5u.com/css3/" target="_blank">http://t.mb5u.com/css3/</a>里面的：选择符---伪类选择符。<br/>
+> 我们在第一学期开发网页的时候，也用过一些伪类选择器，比如： :first-child,:last-child,:hover,:not等等。
+> ```javascript
+> <h2>我是h2</h2>
+> <ul>
+>    <li>迪丽热巴</li>
+>    <li>古力娜扎</li>
+>    <li class="active">黑丝空姐</li>
+>    <li>性感车模</li>
+>    <li>富家千金</li>
+>    <li>梁咏琪</li>
+>    <li>古天乐</li>
+> </ul>
+> <ul>
+>    <li>梅赛德斯奔驰</li>
+>    <li>宝马</li>
+>    <li>大众</li>
+>    <li>红旗</li>
+>    <li>吉利汽车</li>
+>    <li>长城汽车</li>
+>    <li>长安汽车</li>
+> </ul>
+>  <ul>
+>    <li>河北</li>
+>    <li>
+>        湖北 
+>        <p>
+>          <span class="active">武汉</span>
+>        </p>
+>    </li>
+>    <li>湖南</li>
+> </ul>
+> <div></div>
+> <input type="text" />
+> <div>
+>    <h2>我是div里面的h2</h2>
+>    <h3>我是div里面的h3</h3>
+> </div>
+> ```
+### ① :first，选取第一个元素，返回单个元素，jQuery提供first()方法
+> ```javascript
+> $(function(){ 
+>     //css模式
+>     // li:first{ background-color:red }
+>     //jQuery模式
+>     $('li:first').css('background-color','red');
+>     //jQuery提供first()方法
+>     $('li').first().css('background-color','red');
+> });
+> ```
+### ② :last，选取最后一个元素，返回单个元素，jQuery提供last()方法
+> ```javascript
+> $(function(){ 
+>     //css模式
+>     // li:last{ background-color:red }
+>     //jQuery模式
+>     $('li:last').css('background-color','red');
+>     //jQuery提供last()方法
+>     $('li').last().css('background-color','red');
+>
+>     //第一个ul的最后一个li
+>     // $('ul:first li:last').css('background-color','red');
+>     $('ul').first().children('li').last().css('background-color','red');
+> });
+> ```
+### ③:not(selector)， :not(.active)选取class不是active的元素，返回元素集合，jQuery提供not(selector)方法
+> ```javascript
+> $(function(){ 
+>     //css模式
+>     // li:not(.active){ background-color:red }
+>     //jQuery模式
+>     $('li:not(.active)').css('background-color','red');
+>     //jQuery提供not()方法
+>     $('li').not('.active').css('background-color','red');
+> });
+> ```
+### ④ :eq(index)，选择索引(0 开始)等于 index 的元素，返回单个元素，jQuery提供eq()方法
+> ```javascript
+> $(function(){ 
+>     //css模式
+>     // li:eq(1){ background-color:red }
+>     //jQuery模式
+>     $('li:eq(1)').css('background-color','red');
+>     //jQuery提供eq()方法
+>     $('li').eq(1).css('background-color','red');
+>  
+>     //也可以传负数，负数从末尾往上数，从-1开始数，正数从0开始数
+>     // $('li:eq(-1)').css('background-color','red');
+>     // $('li:eq(-3)').css('background-color','red');
+> });
+> ```
+### ⑤ :gt(index)，选择索引(0 开始)大于 index 的元素，返回元素集合
+> ```javascript
+> $(function(){ 
+>     //css模式
+>     // li:gt(1){ background-color:red }
+>     //jQuery模式
+>     $('li:gt(1)').css('background-color','red');
+> });
+> ```
+### ⑥ :lt(index)，选择索引(0 开始)小于 index 的元素，返回元素集合
+> ```javascript
+> $(function(){ 
+>     //css模式
+>     // li:lt(1){ background-color:red }
+>     //jQuery模式
+>     $('li:lt(1)').css('background-color','red');
+> });
+> ```
+### ⑦ :even，选择索引(0 开始)是偶数的所有元素，返回元素集合
+> ```javascript
+> $(function(){ 
+>     //css模式
+>     // li:even{ background-color:red }
+>     //jQuery模式
+>     $('li:even').css('background-color','red');
+> });
+> ```
+### ⑧ :odd，选择索引(0 开始)是奇数的所有元素，返回元素集合
+> ```javascript
+> $(function(){ 
+>     //css模式
+>     // li:odd{ background-color:red }
+>     //jQuery模式
+>     $('li:odd').css('background-color','red');
+> });
+> ```
+### ⑨ :header，选择标题元素，h1 ~ h6，返回元素集合
+> ```javascript
+> $(function(){ 
+>     //css模式
+>     // :header{ background-color:red }
+>     //jQuery模式
+>     $(':header').css('background-color','red');
+> 
+>     //指定范围 div里面的
+>     // $('div :header').css('background-color','red');
+>     //不写空格就要指定元素
+>     // $('h3:header').css('background-color','red');
+> });
+> ```
+### ⑩ :focus，选择当前被焦点的元素，一般用在表单元素上
+> ```javascript
+> $(function(){ 
+>   //js原生提供了一个focus()方法，聚焦输入框，基础里面讲过
+>   $('input').get(0).focus(); //首先得有一个元素聚焦，才能选择
+>   //jQuery也有提供了一个focus()方法
+>   // $('input').eq(0).focus();
+>   $(':focus').css('background', 'red'); //被焦点的元素
+> });
+> ```
 
+## 7、内容过滤器
+> 内容过滤器的过滤规则主要是包含的子元素或文本内容上
+### ① :contains(text)，选取含有text文本的元素，返回元素集合
+> ```javascript
+> $(function(){ 
+>     //在整个页面li元素里面找：文本含有“古天乐”的元素的父节点
+>     $('li:contains("古天乐")').css('background-color','red');
+> 
+>     // $('h2:contains("div里面")').css('background-color','red');
+>     // $('div :contains("h2")').css('background-color','red');
+> });
+> ```
+### ② :empty，选取不包含子元素或空文本的元素，返回元素集合
+> ```javascript
+> $(function(){ 
+>     console.log($(':empty'));
+>     $('div:empty').css('background-color','red').css('height','50px');
+> });
+> ```
 
+### ③ :has(selector)，如：:has(.active) 选择后代元素含有class 是active 的元素，jQuery提供has()方法
+> ```javascript
+> $(function(){ 
+>     //选择后代元素含有class 是active 的元素
+>     $('ul:has(.active)').css('background-color','red');
+>     // $('li:has(.active)').css('background-color','red');
+>
+>     //jQuery提供has()方法
+>     $('li').has('.active').css('background-color','red');
+> });
+> ```
+### ④ :parent，与:empty刚好相反，选取含有子元素或文本的元素，返回元素集合
+> ```javascript
+> $(function(){ 
+>     // $('div:empty').css('background-color','red').css('height','50px');
+>     $('div:parent').css('background-color','red');
+> });
+> ```
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+## 8、jQuery提供：parent()、parents()、parentsUntil方法特别说明
+### ① jQuery提供：parent()方法：选取当前元素的父元素，注意与 :parent的区别
+> ```javascript
+> $(function(){ 
+>     //首先是span元素，并且span元素的class="active",找到这个元素的父元素，就是p
+>     $('span.active').parent().css('background-color','red');
+> });
+> ```
+### ② jQuery提供：parents()方法：选择当前元素的父元素及祖先元素
+> ```javascript
+> $(function(){ 
+>     //首先是span元素，并且span元素的class="active",找到这个元素的父元素及祖先元素body
+>     $('span.active').parents().css('background-color','red');
+> });
+> ```
+### ③ jQuery提供：parentsUntil方法，如：parentsUntil('ul') 选择当前元素往上一层级查找，遇到ul元素停止
+> ```javascript
+> $(function(){ 
+>     //首先是span元素，并且span元素的class="active",依次找这个元素的上一层元素，直到遇到ul停止
+>     $('span.active').parentsUntil('ul').css('background-color','red');
+> });
+> ```
 
 
 

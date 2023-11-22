@@ -15,6 +15,9 @@ title: 课程所需软件下载
 > 注意：若下载失败，请去群文件里面下载 <br/>
 > 本软件用于搭建本地服务器，下载完成后解压安装并搭建本地服务器，具体看第二学期第1季课程视频：<a href="javascipt(void:0);" target="_blank" title="搭建本地服务器点击查看">搭建本地服务器</a> <br/>
 
+####  ② 第二季
+### jQuery <a href="https://www.bootcdn.cn/jquery/" title="下载和课程同一版本的jQuery.1.11.3" target="_blank">[下载]</a>
+> 课程用的版本是：1.11.3的版本，大家可以去下载，也可以群里面下载课程课件，里面有这个版本的jQuery库。
 
 
 
