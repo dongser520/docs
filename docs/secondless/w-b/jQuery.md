@@ -601,34 +601,153 @@ title: 章节4.jQuery
 > });
 > ```
 
+## 9、可见性过滤器
+> 可见性过滤器根据元素的可见性和不可见性来选择相应的元素
+### ① :hidden，选取所有不可见元素，返回元素集合，一般包含：CSS 样式为 display:none、input 表单类型为type="hidden"和 visibility:hidden 的元素
+> ```javascript
+> <h2 style="display: none;">我是h2</h2>
+> ```
+> ```javascript
+> $(function(){ 
+>   //:hidden  选取所有不可见元素
+>   // console.log($(':hidden'));
+>   // console.log($('h2:hidden'));
+>   $('h2:hidden').css('background-color','red');
+> });
+> ```
+### ② :visible，选取所有可见元素
+> ```javascript
+> $(function(){ 
+>   //可见的元素
+>   $('h2:visible').css('background-color','red');
+> });
+> ```
+## 10、子元素过滤器
+> 是通过父元素和子元素的关系来获取相应的元素
+### ① :first-child，获取每个父元素的第一个子元素，返回元素集合
+> ```javascript
+> $(function(){
+> //css模式
+> //找到所有的li元素，先把这些li元素返回到它的父元素，然后依次找每个父元素第一个子元素li
+> // li:first-child{ background-color:red }
+> //jQuery模式
+> // $('li:first').css('background-color','red');
+> $('li:first-child').css('background-color','red');
+> //第一个ul的第一个子元素
+> // $('ul:first li:first-child').css('background-color','red');
+> // $('ul:first li:first').css('background-color','red');
+> });
+> ```
+### ② :last-child，获取每个父元素的最后一个子元素，返回元素集合
+> ```javascript
+> $(function(){
+> //css模式
+> // li:last-child{ background-color:red }
+> //jQuery模式
+> $('li:last-child').css('background-color','red');
+> //第一个ul的最后一个子元素
+> // $('ul:first li:last-child').css('background-color','red');
+> // $('ul:first li:last').css('background-color','red');
+> });
+> ```
+### ③ :only-child，获取只有一个子元素的元素，返回元素集合
+> ```javascript
+> <ul>
+>    <li>只有一个li</li>
+> </ul>
+> ```
+> ```javascript
+> //css模式
+> // li:only-child{ background-color:red }
+> //jQuery模式
+> $('li:only-child').css('background-color','red');
+> ```
 
+### ④ :nth-child(odd/even/eq(index))，获取每个自定义子元素的元素(索引值从 1 开始计算)
+> ```javascript
+> //css模式 索引从1开始的
+> // li:nth-child(1){ background-color:red }
+> // li:nth-child(3n+1){ background-color:red }
+> // li:nth-child(odd){ background-color:red } //奇数
+> // li:nth-child(even){ background-color:red } //偶数
+> //jQuery模式
+> // $('li:nth-child(1)').css('background-color','red');
+> $('li:nth-child(3n+1)').css('background-color','red');
+> // $('li:nth-child(odd)').css('background-color','red');
+> // $('li:nth-child(even)').css('background-color','red');
+> ```
 
+## 11、jQuery提供选择器和过滤器方法
+### ① is()方法：传递选择器、DOM、jquery 对象、函数
+> ```javascript
+> //传递的是：选择器，检测class="active" 是否是li元素
+> console.log($('.active').is('li'));//true
+> //传递的是：jquery 对象
+> console.log($('.active').is($('li')));//true
+> console.log($('.active').is($('li').eq(2)));//true
+> //传递的是：dom元素对象
+> console.log($('.active').is($('li').get(2)));//true
+> //传递一个匿名函数
+> let flag = $('.active').is(function(){
+>    // console.log($(this).text())
+>    //判断一下class="active"的元素中，有没有文本值为'黑丝空姐'的
+>    //$(this) 代表class="active"的元素
+>    return $(this).text() == '黑丝空姐';
+> });
+> console.log(flag);//true
+> ```
 
+### ② hasClass方法，hasClass(); hasClass(class)，判断某个元素是否有某个class，比较常用，和 is 一样，只不过只能传递class
+> js基础课程里面，我们通过原生js方法封装了一个函数hasClass()：<a href="/secondless/w-a/网页文档对象模型DOM.html#_2-hasclass-判断是否存在某个类名" target="_blank">第二学期第1季——章节15-7、操作页面样式-②点</a>，这里jQuery给我们也封装了这个方法hasClass()
+> ```javascript
+> //判断整个页面上，索引为2也就是第3个li元素是否含有 class="active"
+> console.log($('li').eq(2).hasClass('active'));//true
+> ```
+### ③ slice方法，slice(start, end)，选择从 start 到 end 位置的元素，如果是负数，则从后开始
+> ```javascript
+> // $('li').slice(2).css('background-color','red');;//从索引2的位置往后选
+> // $('li').slice(-2).css('background-color','red');;//负数从后面开始选，最后一个是-1，选到-2
+> // $('li').slice(0,2).css('background-color','red');;//从索引0的位置取到索引2的位置
+> // $('li').slice(2,4).css('background-color','red');;//从索引2的位置取到索引4的位置
+> // $('li').slice(0,-2).css('background-color','red');//从0的位置往下选，从-2的位置往上选
+> ```
+### ④ end方法，end()，获取当前元素前一次状态：可以找它的父节点，也可以找它的相邻前一个兄弟节点
+> ```javascript
+> //通过li元素找它的父元素
+> // $('ul:first').find('li').end().css('background-color','red');
+> //等同于
+> // $('ul:first').find('li').parent().css('background-color','red');
+> 
+> //找它的同级节点
+> $('ul:first').next().end().css('background-color','red');
+> ```
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+### ⑤ contents方法，contents()，获取某元素下面所有元素节点，包括文本节点，如果是 iframe，则可以查找文本内容
+> ```javascript
+> <div id="box">
+>    我是文本1
+>    <strong>我是文本2</strong>
+>    我是文本3
+> </div>
+> 
+> //children()方法获取的是子节点，不包括文本节点
+> console.log($('#box').children().length);//1
+> //contents()方法获取的是子节点，包括文本节点
+> console.log($('#box').contents());
+> let contentnode = $('#box').contents();
+> console.log(contentnode[0].textContent);
+> ```
+### ⑥ filter方法，filter()，比较灵活的选择器，扩展性较好
+> ```javascript
+> //整个页面选择第一个li,最后一个li,class="active"的li元素
+> // $('li.active,li:first,li:last').css('background','red');
+> //还可以
+> // $('li').filter('.active,:first,:last').css('background','red');
+> //用函数判断返回
+> $('li').filter(function () {
+>    return $(this).attr('class') == 'active' && $(this).text() == '黑丝空姐';
+> }).css('background', 'red');
+> ```
 
 
 
