@@ -125,6 +125,7 @@ title: 章节4.jQuery
 > ```
 > 反正其他库不管是在jQuery之前还是之后，jQuery都提出了折中方案，如果大家以后再开发中，碰到这种情况，可以来看一下这种操作方案。
 
+## 一、jQuery中的选择器过滤器
 ## 5、选择器
 > 本节课开始我们来学习一下jQuery的选择器，<strong style="color:#00A5F7;">注意：jQuery的选择器写法和我们的css选择器写法基本一致，只是在其外层用<span style="color:red">$();</span> 做了一层包裹，便于连缀操作。因此我们在讲jQuery选择器的时候，也是顺便给大家讲了一下CSS选择器的用法，大家可以顺便回顾一下我们第一学期CSS选择器的相关知识。</strong>
 ### ① ID 选择器、元素选择器、类(class)选择器，属性 length 或 size()方法来查看返回的元素个数
@@ -926,7 +927,7 @@ title: 章节4.jQuery
 > ```javascript
 > $(':text[name=username]).size(); //获取单行文本框name=username 的元素
 > ```
-> <b>2、原生js获取表单提交数据</b> 
+> <b>3、jQuery获取表单提交数据</b> 
 > ```javascript
 > $(function(){
 >    $('#sub').click(function(){
@@ -968,36 +969,193 @@ title: 章节4.jQuery
 > });
 > ```
 
+## 二、jQuery操作DOM及CSS
+> 在<a href="/secondless/w-a/网页文档对象模型DOM.html#_3、操作节点" target="_blank">第二学期第1季课程-章节15-3.操作节点</a> 我们已经讲了js原生操作DOM和CSS的一些方法，接下来我们看一下jQuery给我们提供的操作DOM及CSS的一些方法，注意：<span style="color:#00A5F7">jQuery给我们提供的方法固然全面好用，但是也不能忘了原生js提供的方法</span>
+## 1、设置元素及内容：html(),html(value),text(),text(value)
+> ```javascript
+> <div id="box">
+>   我是div里面的文本1
+>   <span>我是div里面的span</span>
+>   我是div里面的文本2
+> </div>
+> $(function(){
+>     //原生js操作
+>     /*
+>     let box = document.getElementById('box');
+>     //获取元素中 HTML 内容
+>     console.log(box.innerHTML);
+>     //设置元素中 HTML 内容
+>     box.innerHTML = `大哥<strong>二弟</strong>三弟`;
+>     //获取元素中文本内容，会自动清理html 标签
+>     console.log(box.innerText);
+>     //设置元素中文本内容，不会转义html标签，原样输出
+>     box.innerText ='<b>古天乐刘德华</b>';
+>     */
+> 
+>     //jQuery操作
+>     //获取元素中 HTML 内容
+>     console.log($('#box').html());
+>     //设置元素中 HTML 内容
+>     $('#box').html('大哥<strong>二弟</strong>三弟');
+>     //获取元素中文本内容，会自动清理html 标签
+>     console.log($('#box').text());
+>     //设置元素中文本内容，不会转义html标签，原样输出
+>     $('#box').text('<b>古天乐刘德华</b>');;
+> });
+> ```
+## 2、获取或设置表单内容：val()，val(value)
+> ```javascript
+> <input type="text" name="username" value="123" />
+> $(function(){
+>     //获取表单文本框内容
+>     console.log($('input[name=username]').val());
+>     //设置表单内容
+>     $('input[name=username]').val('迪丽热巴');
+> });
+> ```
+## 3、设置单选框、复选框默认选中状态val()，非常好用
+> ```javascript
+> <input type="radio" name="sex" value="男" > 男
+> <input type="radio" name="sex" value="女" > 女
+> <input type="checkbox" name="loves" value="篮球" > 篮球
+> <input type="checkbox" name="loves" value="足球" >  足球
+> <input type="checkbox" name="loves" value="乒乓球" >  乒乓球
+> $(function(){
+>     $("input").val(["女","足球", "乒乓球" ]); //value 值是这些的将被选定
+> });
+> ```
+## 4、元素属性操作：attr()和 removeAttr()
+> ```javascript
+> <div id="box">
+>    我是div里面的文本1
+>    <span>我是div里面的span</span>
+>    我是div里面的文本2
+> </div>
+> $(function(){
+>     /*
+>     //原生js获取属性
+>     let box = document.getElementById('box');
+>     console.log(box.getAttribute('id'));
+>     //原生js设置属性
+>     box.setAttribute('data',123);
+>     //元素js移除属性
+>     box.removeAttribute('data');
+>     */
+> 
+>     //jQuery
+>     // console.log($('#box').attr('id'));//获取
+>     // $('#box').attr('data',123);//设置
+>     // $('#box').removeAttr('data');//移除
+>     //多个div设置
+>     // $('div').attr('data','456');
+>     
+>     //传递对象，设置多个属性
+>     $('#box').attr({
+>         'class':'red', //举个例子，class有专门的方法设置
+>         'title':'迪丽热巴',
+>         'data':789
+>     });
+> 
+>     //传函数，index就是div的索引，从0开始的，value表示该元素原来的属性值，没有这个属性就是undefined
+>     $('div').attr('title',function(index,value){
+>         return "原来title:"+ value + ", 现在title：我是页面上索引是" + index + "的div";
+>     });
+> });
+> ```
+> 延伸：jQuery中的很多方法，如：html()、text()、val()，及前面讲的is()、filter()方法都可以传递函数（removeAttr()方法不行）
+> ```javascript
+> $(function(){
+>     //以html方法为例
+>     // $('#box').html('大哥<strong>二弟</strong>三弟');
+>     // $('#box').html($('#box').html() +  '大哥<strong>二弟</strong>三弟');
+>     //写成函数
+>     $('#box').html(function(index,value){
+>       return  value + '大哥<strong>二弟</strong>三弟';
+>     });
+> });
+> ```
+## 5、元素CSS样式操作：css()方法
+### ① css()方法获取、设置元素样式
+> ```javascript
+> <div id="box">
+>    我是div里面的文本1
+>    <span>我是div里面的span</span>
+>    我是div里面的文本2
+> </div>
+> ```
+> 回忆原生js获取元素样式(行内、内联、外联样式) 参考：<a href="/secondless/w-a/网页文档对象模型DOM.html#_3-计算后的样式获取-行内、内联、外联样式-window-对象下getcomputedstyle-方法" target="_blank">第二学期第1季——章节15——6、操作CSS样式-③ 计算后的样式获取</a>
+> ```javascript
+> $(function(){
+>     //原生获取css属性，包括计算后的属性、行内属性、外联属性
+>     let box = document.getElementById('box');
+>     let style = window.getComputedStyle(box,null);
+>     console.log(style.fontSize);
+>     console.log(style.height);
+>     //设置样式
+>     box.style.background = 'red';
+> });
+> ```
+> ```javascript
+> $(function(){
+>     //jQuery的css()方法直接获取行内、内联、外联，计算后的样式
+>     console.log($('#box').css('font-size'));
+>     console.log($('#box').css('height'));
+>     //设置
+>     $('#box').css('background','red');
+> });
+> ```
+### ② css()方法传递多个样式属性的数组，得到样式属性值对象数组，$.each(box,function(attr,value){})遍历原生态对象数组，jQuery对象数组采用$(selector).each(function(index,element){})方法遍历
+> ```javascript
+> $(function(){
+>     //得到多个 CSS 样式的对象数组
+>     let box = $('#box').css(['color','font-size','height']);
+>     console.log(box);
+>     //对象数组采用for...in 循环遍历
+>     for(let i in box){
+>         //console.log(i);
+>         console.log('属性：' + i + '--值：' + box[i]);
+>     }
+>  
+>     //$.each()方法遍历对象数组
+>     $.each(box,function(attr,value){
+>         console.log('遍历属性：' + attr + '--值：' + value);
+>     });
+> });
+> ```
+> jQuery对象数组采用$(selector).each(function(index,element){})方法遍历
+> ```javascript
+> $(function(){
+>     $('div').each(function(index,element){
+>         console.log('每个对象索引', index);
+>         console.log('每个div元素对象',element)
+>     });
+> });
+> ```
 
+### ③ css()方法传递多个 CSS 样式的键值对
+> ```javascript
+> $(function(){
+>     //连缀
+>     // $('#box').css('color','red').css('font-size','50px').css('background-color','blue');
+>     //传对象，类似css样式表的写法
+>     $('#box').css({
+>         'color':'red',
+>         'font-size':'50px',
+>         'background-color':'blue'
+>     });
+> });
+> ```
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+### ④ css()方法可以传匿名函数
+> ```javascript
+> $(function(){
+>     console.log($('#box').css('height'));
+>     $('#box').css('height',function(index, value){
+>         //在匿名函数里面计算代码很清晰
+>         return (parseInt(value) + 100) + 'px';
+>     });
+> });
+> ```
 
 
 
