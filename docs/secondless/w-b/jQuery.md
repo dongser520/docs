@@ -749,15 +749,224 @@ title: 章节4.jQuery
 > }).css('background', 'red');
 > ```
 
-
-
-
-
-
-
-
-
-
+## 12、表单选择器
+> 关于表单选择器，我们在<a href="/secondless/w-a/表单处理及错误处理与调试.html#i、表单基础知识" target="_blank">第二学期第1季课程——章节17</a> 已经给大家详细讲过了，我们可以采用js原生dom对象获取表单组件，也可以使用HTML DOM对象获取表单组件，具体大家可以回去查看章节17的内容。由于我们现在要讲的是利用jQuery获取表单组件，所以，为了避免大家学了jQuery忘记了js的基本操作，我们这里就对比讲，我们先用原生js方式来获取表单组件，然后我们讲用jQuery方式来获取表单组件。
+> ```javascript
+> <form id="myForm" name="yourForm" style="padding: 50px;">
+>    <!-- 下拉列表 -->
+>    <p>
+>          <select name="usertype">
+>             <option value="学生value">学生text</option>
+>             <option value="老师value">老师text</option>
+>             <option value="管理员value">管理员text</option>
+>             <option>无</option>
+>          </select>
+>    </p>
+>    <!-- 文本框 -->
+>    <p>
+>       账号：<input type="text" name="user" value="abc" />
+>    </p>
+>    <!-- 单选 -->
+>    <p>
+>          <input type="radio" name="sex" value="男" checked="checked"> 男
+>          <input type="radio" name="sex" value="女" >  女
+>    </p>
+>    <!-- 多选 -->
+>    <p>
+>          <input type="checkbox" name="loves" value="篮球" checked="checked"> 篮球
+>          <input type="checkbox" name="loves" value="足球" >  足球
+>          <input type="checkbox" name="loves" value="乒乓球" >  乒乓球
+>    </p>
+>    <!-- 多行文本框 -->
+>    <p>
+>          <textarea name="content"  cols="30" rows="10">我是多行文本</textarea>
+>    </p>
+>    <!-- 提交按钮 -->
+>    <p>
+>          <input type="button" value="输入框类型换button提交" id="sub">
+>          <input type="submit" value="输入框类型换submit可以自动提交">
+>          <button>普通button按钮可以自动提交</button>
+>    </p>
+> </form>
+> ```
+> <b>1、先分析一下按钮</b> <br/>
+> 在form表单中，普通button按钮 和 type="submit"类型的组件，可以触发表单的自动提交行为<br/>
+> 我们这里采用第一个按钮的点击事件来处理，因为我们重点是回忆表单数据的获取情况：<br/><br/>
+> <b>2、原生js获取表单提交数据</b> 
+> ```javascript
+> window.onload = function () {
+>     //为了方便大家回忆，我们以对象形式获取各个表单组件及数据
+>     //声明一个变量接收这些组件的值
+>     let obj = {
+>         //下拉列表想得到value值和页面上展示的文本值
+>         usertype: {},
+>     };
+>     let form = {
+>         //下拉列表usertype
+>         usertypefn: function () {
+>             let fm = document.getElementById('myForm');
+>             //HTML DOM方式获取下拉列表组件
+>             let usertypeSelect = fm.elements['usertype'];//name属性值获取
+>             //获取下拉列表选择的value值和文本值，通过监听下拉列表的change事件
+>             usertypeSelect.addEventListener('change', function () {
+>                 //console.log(this.selectedIndex);//得到当前选项的索引，从0开始
+>                 console.log('当前选择的项的文本', this.options[this.selectedIndex].text);
+>                 console.log('当前选择的项的值', this.options[this.selectedIndex].value);
+>                 obj.usertype.value = this.options[this.selectedIndex].value;
+>                 obj.usertype.text = this.options[this.selectedIndex].text;
+>             }, false);
+>         },
+>         //文本框username
+>         usernamefn: function () {
+>             let fm = document.getElementById('myForm');
+>             //HTML DOM方式获取文本框组件
+>             let username_input = fm.elements['username'];//name属性值获取
+>             //通过value属性获取，获取的值赋值给obj最后查看
+>             username_input.oninput = function () {
+>                 console.log('文本框username的值', this.value);
+>                 obj.username = this.value;
+>             }
+>         },
+>         //单选框sex
+>         sexfn: function () {
+>             //得到单选框选择的值
+>             function radioSelect() {
+>                 let select = '';
+>                 let fm = document.getElementById('myForm');
+>                 let radios = fm.elements['sex'];
+>                 for (let i = 0; i < radios.length; i++) { //循环单选按钮
+>                     //if(radios[i].defaultChecked == true){ //遍历每一个找出页面上默认设置了checked属性的选项
+>                     if (radios[i].checked == true) { //遍历每一个找出选中的那个
+>                         select = radios[i].value; //把选中的那个单选按钮值赋值给变量select
+>                         break;//退出for循环，终止后面的循环
+>                     }
+>                 }
+>                 return select;
+>             }
+>             //赋值给obj变量
+>             obj.sex = radioSelect();
+>         },
+>         //多选框loves
+>         lovesfn: function () {
+>             //得到多选框的值
+>             function checkBoxSelect() {
+>                 let select = '';
+>                 let fm = document.getElementById('myForm');
+>                 let checkBox = fm.elements['loves'];
+>                 for (let i = 0; i < checkBox.length; i++) { //循环多选按钮
+>                     //if(checkBox[i].defaultChecked == true){ //遍历每一个找出页面上默认设置了checked属性的选项
+>                     if (checkBox[i].checked == true) { //遍历每一个找出选中的那个
+>                         if (select) {
+>                             select += ',' + checkBox[i].value; //把选中的那个单选按钮值赋值给变量select
+>                         } else {
+>                             select = checkBox[i].value;
+>                         }
+>                         //select += ',' +  checkBox[i].value; //把选中的那个单选按钮值赋值给变量select
+>                     }
+>                 }
+>                 return select;
+>             }
+>             //赋值给obj变量
+>             obj.loves = checkBoxSelect();
+>         },
+>         //多行文本框content
+>         contentfn:function(){
+>             let fm = document.getElementById('myForm');
+>             //HTML DOM方式获取多行文本框组件
+>             let content_textarea = fm.elements['content'];//name属性值获取
+>             //通过value属性获取，获取的值赋值给obj最后查看
+>             content_textarea.oninput = function () {
+>                 console.log('多行文本框content的值', this.value);
+>                 obj.content = this.value;
+>             }
+>         }
+>     };
+>     //执行一下form对象里面的这些方法
+>     form.usertypefn();
+>     form.usernamefn();
+>     form.contentfn();
+> 
+>     //提交信息查看
+>     let sub = document.getElementById('sub');
+>     let fm = document.getElementById('myForm');
+>     sub.addEventListener('click', function (e) {
+>         //alert('提交按钮');
+>         //fm.submit();//让form执行submit方法提交数据
+>         //看一下提交的值
+>         form.sexfn();//找一下最终单选的结果
+>         form.lovesfn();//找一下最终多选的结果
+>         console.log(obj);
+> 
+>     }, false);
+> }
+> ```
+> ### ① jQuery方法：通过type类型或者name字段获取表单组件，通过val()方法获取表单组件的值
+> ```javascript
+> //表单选择器
+> $(':input').size(); //获取所有表单字段元素
+> $(':text).size(); //获取单行文本框元素
+> $(':password').size(); //获取密码栏元素
+> $(':radio).size(); //获取单选框元素
+> $(':checkbox).size(); //获取复选框元素
+> $(':submit).size(); //获取提交按钮元素
+> $(':reset).size(); //获取重置按钮元素
+> $(':image).size(); //获取图片按钮元素
+> $(':file).size(); //获取文件按钮元素
+> $(':button).size(); //获取普通按钮元素
+> $(':hidden).size(); //获取隐藏字段元素
+> //限定范围
+> $('#myForm :hidden).size(); //获取myForm表单下面隐藏字段元素
+> //表单过滤器
+> $(':enabled').size(); //获取可用元素
+> $(':disabled).size(); //获取不可用元素
+> $(':checked).size(); //获取单选、复选框中被选中的元素
+> $(':selected).size(); //获取下拉列表中被选中的元素
+> ```
+> 这些选择器都是返回元素集合，如果想获取某一个指定的元素，最好结合一下属性选择器
+> ```javascript
+> $(':text[name=username]).size(); //获取单行文本框name=username 的元素
+> ```
+> <b>2、原生js获取表单提交数据</b> 
+> ```javascript
+> $(function(){
+>    $('#sub').click(function(){
+>         //alert('提交按钮');
+>         let obj = {
+>             usertype: {},
+>         };
+>         //文本框： 选择 name 为 username 的字段
+>         let username = $('input[name=username]').val();
+>         obj.username = username;
+>         //多行文本框： 选择 name 为 content 的字段
+>         let content = $('textarea[name=content]').val();
+>         obj.content = content;
+>         //下拉列表name=usertype被选中的项值
+>         // console.log($(':selected'));
+>         obj.usertype.value = $(':selected')[0].value; 
+>         obj.usertype.text = $(':selected')[0].text; 
+>         //单选框name=sex被选中的项值
+>         // console.log($(':checked'));
+>         // console.log($(':checked[name=sex]'));
+>         obj.sex = $(':checked[name=sex]')[0].value;
+>         //多选框name="loves"被选中的项值
+>         // console.log($(':checked[name=loves]'));
+>         // console.log($(':checked[name=loves]').length);
+>         //选中的结果逗号隔开
+>         let loves = $(':checked[name=loves]');
+>         obj.loves = '';
+>         for(let i=0;i<loves.length;i++){
+>             if(!obj.loves){
+>                 obj.loves = loves[i].value;
+>             }else{
+>                 obj.loves += ',' + loves[i].value;
+>             }
+>         }
+>         
+>         //最终提交结果
+>         console.log(obj);
+>    });
+> });
+> ```
 
 
 
