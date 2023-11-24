@@ -1330,17 +1330,108 @@ title: 章节4.jQuery
 > ```
 > 关于元素偏移方法，我们在第1季基础里面已经讲的非常清楚了，所以这里就不再细讲了，jQuery提供这些方法，本质上是在我们第1季讲的js原生方法的基础上，进行了封装，使得我们操作更加好用，这里大家可以用原生的，也可以用jQuery提供的，没有硬性要求，关于这些方法的具体用法，我们在后面的项目中，再给大家体验。
 
-
-
-
-
-
-
-
-
-
-
-
+## Ⅳ、jQuery提供的DOM节点操作方法
+> 我们在第1季课程：<a href="/secondless/w-a/网页文档对象模型DOM.html#_3、操作节点" target="_blank">章节15-3、操作节点</a>给大家讲了js原生提供给我们的操作节点的方法：createElement()、appendChild()、createTextNode()、insertBefore()、模拟在指定节点的后面添加一个节点、repalceChild()、cloneNode()、removeChild()方法，我们本节课看一下jQuery通过封装这些原生的js方法，给我们提供了哪些好用的操作我们DOM节点的方法。
+## 1、创建节点
+> ```javascript
+> $(function(){
+>     //js原生
+>     // let p = document.createElement('p');//只是创建了一个元素p,还没有添加到文档中去，只是驻留在内存中
+>     // let $div = document.getElementById('box');
+>     // $div.appendChild(p);//把新元素节点<p>添加子节点末尾
+>     // let text = document.createTextNode('迪丽热巴');//创建一个文本节点
+>     // p.appendChild(text);//将文本节点添加到p元素里面节点末尾
+>     // $div.appendChild(p);//将p元素添加到box元素节点末尾
+> 
+>     //jQuery
+>     let p = $('<p>迪丽热巴</p>'); //创建一个节点
+>     $('#box').append(p); //将节点插入到box元素内部末尾
+> });
+> ```
+## 2、插入节点
+### ① 内部插入节点 append(content)：向指定元素内部后面插入节点content
+> ```javascript
+> $(function(){
+>     let p = $('<p>迪丽热巴</p>'); //创建一个节点
+>     $('#box').append(p); //将节点插入到box元素内部末尾
+>     //也可以写一个匿名函数插入
+>     $('#box').append(function (index, html) { //使用匿名函数插入节点，html 是原节点
+>        return '<p>古力娜扎</p>';
+>     });
+> });
+> ```
+### ② 内部移入节点（不需要创建节点） appendTo(content)：将指定元素移入到指定元素content 内部后面
+> ```javascript
+> $(function(){
+>     //appendTo(content),注意用法：
+>     //前面写要移动的元素，后面是移到哪个元素内部后面
+>     $('#box').appendTo('#main_business');
+> });
+> ```
+### ③ 内部插入节点 prepend(content)：向指定元素 content 内部的前面插入节点
+> ```javascript
+> $(function(){
+>     let p = $('<p>迪丽热巴</p>'); //创建一个节点
+>     $('#box').prepend(p); //将节点插入到box元素内部前面
+>     //也可以写一个匿名函数插入
+>     $('#box').prepend(function (index, html) { //使用匿名函数插入节点，html 是原节点
+>         return '<p>古力娜扎</p>';
+>     });
+> });
+> ```
+### ④ 内部移入节点（不需要创建节点） prependTo(content)：将指定元素移入到指定元素content 内部前面
+> ```javascript
+> $(function(){
+>     //prependTo(content),注意用法：
+>     //前面写要移动的元素，后面是移到哪个元素内部前面
+>     $('#box').prependTo('#main_business');
+> });
+> ```
+### ⑤ 外部（同级）插入节点 before(content)：向指定元素的外部前面插入节点content
+> ```javascript
+> $(function(){
+>     //js原生外部（同级）插入
+>     //同级前面：insertBefore()
+>     // let $div = document.getElementById('box');
+>     // let p = document.createElement('p');
+>     //注意写法：将新增的p元素放到div元素前面，首先找到div的父节点，在操作
+>     // $div.parentNode.insertBefore(p,$div);//参数1：新节点，参数2：放在谁的前面
+>     //js原生没有提供在同级后面插入的操作，模拟了一个方法
+> 
+>     //jQuery提供同级前面插入before(content)
+>     $('#box').before('<p></p>');
+>     //写函数
+>     $('#box').before(function (index, html) { 
+>         return '<p></p>';
+>     });
+> });
+> ```
+### ⑥ 外部（同级）移到节点 （不需要创建节点）insertBefore(content)：将指定节点移到指定元素content 外部的前面
+> ```javascript
+> $(function(){
+>     //将存在的box元素移到#main_business的同级前面
+>     $('#box').insertBefore('#main_business');
+> });
+> ```
+### ⑦ 外部（同级）插入节点 after(content)：向指定元素的外部后面插入节点content
+> ```javascript
+> $(function(){
+>     //js原生没有提供同级后面插入一个节点，当时是模拟了一个
+>     //jQuery提供了after方法
+>     // $('#box').after('<p></p>');
+>     //写函数
+>     $('#box').after(function (index, html) { 
+>         return '<p></p>';
+>     });
+> });
+> ```
+### ⑧ 外部（同级）移到节点 （不需要创建节点）insertAfter(content)：将指定节点移到指定元素content 外部的后面
+> ```javascript
+> $(function(){
+>     //将存在的box元素移到#main_business的同级后面
+>     $('#box').insertAfter('#main_business');
+> });
+> ```
 
 
 
