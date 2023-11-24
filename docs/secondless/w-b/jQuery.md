@@ -1074,7 +1074,8 @@ title: 章节4.jQuery
 >     });
 > });
 > ```
-## 5、元素CSS样式操作：css()方法
+## 5、元素CSS样式操作：
+## Ⅰ、css()方法
 ### ① css()方法获取、设置元素样式
 > ```javascript
 > <div id="box">
@@ -1157,20 +1158,177 @@ title: 章节4.jQuery
 > });
 > ```
 
+## Ⅱ、addClass()方法、removeClass()方法、toggleClass()方法
+### ① addClass()方法、removeClass()方法
+> 关于addClass()方法、removeClass()方法我们在基础课程已经封装过了，详见：<a href="/secondless/w-a/网页文档对象模型DOM.html#_3-addclass-如果不存在的这个类名-添加这个类名" target="_blank">addClass()方法、removeClass()方法</a>
+> ```javascript
+> $(function(){
+>     //addClass添加单个class，可连缀
+>     // $('#box').addClass('bg-danger').addClass('font-lg');
+>     //多个class
+>     $('#box').addClass('bg-danger font-lg py-2 text-white ');
+>     //removeClass删除单个class，可连缀
+>     $('#box').removeClass('text-white');
+>     //删除多个
+>     $('#box').removeClass('bg-danger font-lg py-2');
+> });
+> ```
+### ② toggleClass()方法：切换class
+> ```javascript
+> //以结合事件来实现 CSS 类的样式切换功能
+> $(function(){
+>     $('#box').click(function () { //当点击后触发
+>         //默认样式和点击之后样式的切换
+>         $(this).toggleClass('bg-danger font-lg'); //单个样式多个样式均可
+>     });
+> });
+> ```
+> toggleClass()方法的第二个参数可以传入一个布尔值，true 表示执行切换到class 类，false表示执行回默认 class 类(默认的是空 class)，运用这个特性，我们可以设置切换的频率。
+> ```javascript
+> $(function(){
+>     //第二个参数，true表示可以切换到'bg-danger font-lg'，false表示执行回默认 class 类(默认的是空 class)
+>     // $('#box').click(function () { 
+>     //     $(this).toggleClass('bg-danger font-lg', true);
+>     // });
+> 
+>     // 每点击两次切换一次bg-danger，第一次点击内部机制除外
+>     let count = 0;
+>     $('#box').click(function () { 
+>        // % 求余数，第1季基础知识
+>        $(this).toggleClass('bg-danger font-lg', count++ % 3 == 0);
+>     });
+> });
+> ```
+> 默认的 CSS 类切换只能是无样式和指定样式之间的切换，如果想实现样式1 和样式2之间的切换须写一些逻辑
+> ```javascript
+> $(function(){
+>     //先给div设置一个bg-success，叫样式1，或者叫默认样式
+>     $('#box').addClass('bg-success');
+>     //实现div在样式1：bg-success和样式2：bg-danger之间切换
+>     $('#box').click(function () { 
+>         //逻辑写在click事件里面
+>         if ($(this).hasClass('bg-success')) { 
+>             $(this).removeClass('bg-success').addClass('bg-danger'); 
+>         } else {
+>             $(this).removeClass('bg-danger').addClass('bg-success'); 
+>         }
+>     });
+> });
+> 
+> //看一下toggleClass怎么写
+> $(function () {
+>     //先给div设置一个bg-success，叫样式1，或者叫默认样式
+>     $('#box').addClass('bg-success');
+>     //toggleClass传一个匿名函数，讲逻辑写在匿名函数里面
+>     $('#box').click(function () {
+>         $(this).toggleClass(function (index, className, switchBool) {
+>             console.log('索引index',index);
+>             console.log('class 类名',className);
+>             console.log('频率布尔值',switchBool);
+>             if ($(this).hasClass('bg-success')) {
+>                 $(this).removeClass('bg-success');
+>                 return 'bg-danger';
+>             } else {
+>                 $(this).removeClass('bg-danger');
+>                 return 'bg-success';
+>             }
+>         });
+>     });
+> });
+> //感觉toggleClass写起来还麻烦一点，理解有点麻烦，作为了解
+> //如果介意局部作用域和全局作用域的同学，可以采用toggleClass，一般我们采用上面的判断
+> //感兴趣的同学了解一下toggleClass里面的参数
+> ```
 
+## Ⅲ、jQuery提供其他css操作方法
+> 我们在第二学期第1季：<a href="/secondless/w-a/网页文档对象模型DOM.html#_9、dom元素尺寸-元素大小-和位置-元素位置" target="_blank">章节15-9、DOM元素尺寸（元素大小）和位置（元素位置）</a>讲了js提供给我们的关于DOM元素尺寸、位置、周边大小、滚动条的方法，我们来看一下jQuery在这些方法的基础上，给我们封装的的方法
+### ① jQuery提供：width()、width(value)、width(function (index, width) {})方法：获取、设置、通过匿名函数设置某个元素的长度
+> ```javascript
+> $(function () {
+>     //js原生，具体看第1季章节15：9、DOM元素尺寸（元素大小）
+>     let banner = document.getElementById('banner');
+>     //style 获取行内css大小
+>     console.log(banner.style.width);//空  设置值
+>     //通过计算getComputedStyle()方法获取元素大小
+>     let style = window.getComputedStyle(banner,null);
+>     console.log(style.width);
+>     banner.style.width = '500px';//设置
+>     
+>     //jQuery
+>     // console.log($('#banner').css('width'));
+>     // console.log($('#banner').width());//获取元素的长度，返回的类型为number
+>     // $('#banner').width(500); //设置元素长度，直接传数值，默认加px
+>     // $('#banner').width('500pt'); //同上，设置了 pt 单位
+>     // $('#banner').width(function (index, value) { 
+>     //     //index 是索引，value 是原本值
+>     //     console.log(value);
+>     //     return value - 500; //无须调整类型，直接计算
+>     // });
+> });
+> ```
+### ② jQuery提供：height()、height(value)、height(function (index, width) {})方法：获取、设置、通过匿名函数设置某个元素的高度
+> ```javascript
+> $(function () {
+>     //js原生，具体看第1季章节15
+>     let banner = document.getElementById('banner');
+>     //style 获取行内css大小
+>     console.log(banner.style.height);//空  设置值
+>     //通过计算getComputedStyle()方法获取元素大小
+>     let style = window.getComputedStyle(banner,null);
+>     console.log(style.height);
+>     banner.style.height = '500px';//设置
+>     
+>     //jQuery
+>     // console.log($('#banner').css('height'));
+>     // console.log($('#banner').height());//获取元素的长度，返回的类型为number
+>     // $('#banner').height(500); //设置元素长度，直接传数值，默认加px
+>     // $('#banner').height('500pt'); //同上，设置了 pt 单位
+>     // $('#banner').height(function (index, value) { 
+>     //     //index 是索引，value 是原本值
+>     //     return value - 100; //无须调整类型，直接计算
+>     // });
+> });
+> ```
 
-
-
-
-
-
-
-
-
-
-
-
-
+### ③ jQuery提供内外边距和边框尺寸方法：innerWidth()，innerHeight()，outerWidth()，outerHeight()，outerWidth(ture)，outerHeight(true)
+> 学习之前，我们先回顾一下第1季：获取元素实际大小，js提供的原生属性方法，关于它们的区别写得非常清楚 <br/>
+> #### 1. clientWidth 和 clientHeight：获取可视区的元素大小，可以得到元素内容及内边距所占据的空间大小;<br/>
+> #### 2. scrollWidth 和 scrollHeight：获取滚动内容的元素大小;<br/>
+> #### 3. offsetWidth 和 offsetHeight：获取元素大小，包含边框、内边距和滚动条<br/><br/>
+> 看一下jQuery提供的方法，代表的意思：<br/>
+> 以宽度为例，高度是一样
+> ```javascript
+> $(function () {
+>     console.log($('#box').width()); //不包含
+>     console.log($('#box').innerWidth()); //包含内边距 padding
+>     console.log($('#box').outerWidth()); //包含内边距 padding+边框border
+>     console.log($('#box').outerWidth(true)); //包含内边距 padding+边框border+外边距margin
+>     //高度是一样
+> });
+> ```
+### ④ jQuery提供元素偏移方法：offset()、position()、scrollTop()、scrollTop(value)、scrollLeft()、scrollLeft(value)
+> 学习之前，我们先回顾一下第1季：获取元素周边大小，js提供的原生属性方法，关于它们的区别写得非常清楚<br/>
+> #### 1. clientLeft 和 clientTop:获取元素设置了左边框和上边框的大小<br/>
+> #### 2. offsetLeft 和 offsetTop：获取当前元素相对于父元素的位置;<br/>
+> #### 3. scrollTop 和 scrollLeft：这组属性可以获取滚动条被隐藏的区域大小（滚动条滚动高度宽度），也可设置定位到该区域（定位滚动条）<br/>
+> #### 4. getBoundingClientRect()方法：返回一个矩形对象，包含四个属性：left、top、right和 bottom，分别表示元素各边与页面上边和左边的距离<br/><br/><br/>
+> 
+> 看一下jQuery提供的方法，代表的意思：<br/>
+> #### 1. offset()：获取某个元素相对于视口（浏览器左上角不包括浏览器的收藏栏地址栏）的偏移位置<br/>
+> #### 2. position()：获取某个元素相对于父元素的偏移位置<br/>
+> #### 3. scrollTop()：获取垂直滚动条的值<br/>
+> #### 4. scrollTop(value)：设置垂直滚动条的值<br/>
+> #### 5. scrollLeft()：获取水平滚动条的值<br/>
+> #### 6. scrollLeft(value)：设置水平滚动条的值<br/>
+> 
+> 示例：
+> ```javascript
+> $('#box').offset().left; //相对于视口（浏览器左上角不包括浏览器的收藏栏地址栏）的偏移
+> $('#box').position().left; //相对于父元素的偏移
+> $(window).scrollTop(); //获取当前滚动条的位置
+> $(window).scrollTop(300); //设置当前滚动条的位置
+> ```
+> 关于元素偏移方法，我们在第1季基础里面已经讲的非常清楚了，所以这里就不再细讲了，jQuery提供这些方法，本质上是在我们第1季讲的js原生方法的基础上，进行了封装，使得我们操作更加好用，这里大家可以用原生的，也可以用jQuery提供的，没有硬性要求，关于这些方法的具体用法，我们在后面的项目中，再给大家体验。
 
 
 
