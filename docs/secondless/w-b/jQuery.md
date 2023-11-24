@@ -1341,7 +1341,6 @@ title: 章节4.jQuery
 >     // $div.appendChild(p);//把新元素节点<p>添加子节点末尾
 >     // let text = document.createTextNode('迪丽热巴');//创建一个文本节点
 >     // p.appendChild(text);//将文本节点添加到p元素里面节点末尾
->     // $div.appendChild(p);//将p元素添加到box元素节点末尾
 > 
 >     //jQuery
 >     let p = $('<p>迪丽热巴</p>'); //创建一个节点
@@ -1432,14 +1431,129 @@ title: 章节4.jQuery
 >     $('#box').insertAfter('#main_business');
 > });
 > ```
+## 3、包裹节点
+> jQuery 提供了一系列方法用于包裹节点，那包裹节点是什么意思呢？其实就是使用字符串代码将指定元素的代码包含着的意思。
+### ① wrap(html)：向指定元素包裹一层html 代码
+> ```javascript
+> $(function(){
+>     //在 div 外层包裹一层strong
+>     $('#box').wrap('<strong></strong>'); 
+>     //在 div 外层包裹多层节点
+>     $('#box').wrap('<p><strong></strong></p>');
+>     //包裹的元素可以带内容 
+>     $('#box').wrap('<strong class="b">123</strong>'); 
+> });
+> ```
+### ② wrap(element)：向指定元素包裹一层 DOM对象节点
+> ```javascript
+> $(function(){
+>     //向指定元素包裹一层 DOM对象节点,类似于在当前位置将别的元素复制了一份
+>     //然后将当前节点插入到别的元素内部的末尾
+>     $('#box').wrap($('#main_business').get(0)); 
+>     //获取创建一个临时dom元素
+>     $('#box').wrap(document.createElement('p')); 
+> });
+> ```
+### ③ wrap(function (index) {})：使用匿名函数向指定元素包裹一层自定义内容
+> ```javascript
+> $(function(){
+>     $('#box').wrap(function(index){
+>        return '<p>'+index+'</p>';
+>     });
+> });
+> ```
+### ④ unwrap()：移除一层指定元素包裹的内容
+> ```javascript
+> $(function(){
+>     //找div的子元素，然后移除一层，相当于移除了外面的div
+>     $('#box').children('span').unwrap();//多层就写连缀
+> });
+> ```
+### ⑤ wrapAll(html)：用 html 将所有元素包裹到一起
+> ```javascript
+> $(function(){
+>     // $('input').wrap('<p></p>');//每个input都被p元素包裹
+>     $('input').wrapAll('<p></p>');//所有input被一个p元素包裹
+> });
+> ```
+### ⑥ wrapAll(element)：用 DOM 对象将所有元素包裹在一起
+> ```javascript
+> $(function(){
+>     // $('input').wrap('<p></p>');//每个input都被p元素包裹
+>     // $('input').wrapAll('<p></p>');//所有input被一个p元素包裹
+>     $('input').wrapAll(document.createElement('p'));//所有input被一个p元素包裹
+> });
+> ```
+### ⑦ wrapInner(html)、wrapInner(element)、wrapInner(function (index) {})：向指定元素的子内容包裹一层
+> ```javascript
+> <div class="d">节点1</div>
+> <div class="d">节点2</div>
+> $(function(){
+>     //wrapInner(html)
+>     // $('div.d').wrapInner('<strong></strong>');
+>     //wrapInner(element)
+>     // $('#box').wrapInner(document.createElement('p'));
+>     //wrapInner(function (index) {})
+>     $('#box').wrapInner(function(index){
+>         return '<p>'+index+'</p>';
+>     });
+> });
+> ```
 
+## 4、节点操作
+> js原生提供的节点操作：<a href="/secondless/w-a/网页文档对象模型DOM.html#_3、操作节点" target="_blank">章节15-3、操作节点</a>有：repalceChild()、cloneNode()、removeChild()方法，我们看一下jQuery提供的方法。
+### ① 复制节点 clone(true)、替换节点：replaceWith、replaceAll
+> ```javascript
+> $(function(){
+>     //js原生：cloneNode()方法：把节点复制一份，放到指定地方
+>     let banner = document.getElementById('banner');
+>     let banner_clone = banner.cloneNode(true);//true 表示复制内容，false只复制标签
+>     let $div = document.getElementById('box');
+>     $div.appendChild(banner_clone);
+>     // $div.parentNode.replaceChild(banner_clone,$div);//原生替换
+> 
+>     //jQuery的复制：clone()
+>     //clone(true)参数可以为空，表示只复制元素和内容，不复制事件行为。
+>     $('#banner').click(function(){
+>         alert('点击了广告图');
+>     });
+>     //而加上true参数的话，这个元素附带的事件处理行为也复制出来
+>     //$div.appendChild(banner_clone);翻译一下
+>     $('#box').append($('#banner').clone(true));
+> 
+>     //jQuery的替换：replaceWith
+>     $('#box').replaceWith($('#banner').clone(true));
+>     //或者 replaceAll
+>     $('#banner').clone(true).replaceAll('#box');
+>     //节点被替换后，所包含的事件行为就全部消失了。
+> });
+> ```
+### ② 删除节点：remove() 或者 detach()
+> ```javascript
+> $(function(){
+>     //js原生：removeChild()方法：删除指定节点（先找到它的父节点再操作）
+>     //需要封装函数，比较麻烦
+>     //jQuery则简单很多
+>     // $('div').remove(); //直接删除 所有div 元素
+>     $('#box').click(function(){
+>         alert('我是box');
+>     });
+>     // $('div').remove('#box');//只删除 id=box 的 div
+>     // console.log($('#box').remove('#box'));//返回的是jQuery对象
+>     //把删除的这个div重新添加到页面上
+>     $('#box').remove('#box').appendTo('body');//发现没有点击事件了
+>     $('#box').detach('#box').appendTo('body');//有点击事件
+> });
+> ```
+注意：.remove()和.detach()都是删除节点，而删除后本身方法可以返回当前被删除的节点对象，但区别在于前者remove在恢复时不保留事件行为，后者detach则保留。
 
-
-
-
-
-
-
+### ③ 删除掉节点里的内容empty()
+> ```javascript
+> $(function(){
+>     // $('div').empty(); //删除掉节点里的内容
+>     $('#box').empty();//删除掉节点里的内容
+> });
+> ```
 
 
 
