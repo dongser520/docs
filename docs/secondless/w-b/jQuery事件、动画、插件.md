@@ -1,14 +1,200 @@
 ---
-title: 第二季（课程学习顺序：03） 
+navbar: true
+sidebar: auto
+title: 章节5.jQuery事件、动画、插件
 ---
-# html + css + javascript + jquery + vue.js 开发企业网站
-## 1.第二季课程介绍
-[![](/hear.jpg '第二学期第二季课程介绍，点击查看')](https://www.bilibili.com/video/BV1YY411679o/?vd_source=9a6ee0d7e6c1657e4a7381c1f8f18f4b)
-## 2.课程视频学习
-[学习课程完整视频](https://study.163.com/course/courseMain.htm?courseId=1213374826&share=2&shareId=480000002289674 '点击学习课程完整视频')
-## 3.查看课程文档
-### 章节1.第二季课程介绍 
-### <a href="/secondless/w-b/面向对象与原型" target="_blank" title="点击查看课程文档">章节2.面向对象与原型</a>
+
+前言
+> 我们在第二学期第1季课程学习了js中的事件：<a href="/secondless/w-a/事件.html" target="_blank">第二学期第1季-章节16.事件</a>，掌握了常用的事件：click、dblclick、mousedown、mouseup、mousemove、mouseover、mouseout、change、select、submit、keydown、keypress、keyup、blur、focus、load、resize、scroll、error。那么jQuery给我封装了什么方法，让我们处理事件更好好用，本章了解一下。
+
+## 一、事件
+### 1、简写事件
+> jQuery对常用的事件都进行了封装，可以使用简写形式 <br/>
+> 简写事件绑定方法
+> |  方法名             |  触发条件     |  描述                                 |   
+> |   :--:             |   :--:       |   :--:                               | 
+> |  click(fn)         |  鼠标        |   触发每一个匹配元素的 click(单击)事件  |
+> |  dblclick(fn)      |  鼠标        |   触发每一个匹配元素的 dblclick(双击)事件  |
+> |  mousedown(fn)     |  鼠标        |   触发每一个匹配元素的 mousedown(点击后)事件  |
+> |  mouseup(fn)       |  鼠标        |   触发每一个匹配元素的 mouseup(点击弹起)事件  |
+> |  mouseover(fn)     |  鼠标        |   触发每一个匹配元素的 mouseover(鼠标移入)事件  |
+> |  mouseout(fn)      |  鼠标        |   触发每一个匹配元素的 mouseout(鼠标移出)事件  |
+> |  mousemove(fn)     |  鼠标        |   触发每一个匹配元素的 mousemove(鼠标移动)事件  |
+> |  mouseenter(fn)    |  鼠标        |   触发每一个匹配元素的 mouseenter(鼠标穿过)事件  |
+> |  mouseleave(fn)    |  鼠标        |   触发每一个匹配元素的 mouseleave(鼠标穿出)事件  |
+> |  keydown(fn)       |  键盘        |   触发每一个匹配元素的 keydown(键盘按下)事件  |
+> |  keyup(fn)         |  键盘        |   触发每一个匹配元素的 keyup(键盘按下弹起)事件  |
+> |  keypress(fn)      |  键盘        |   触发每一个匹配元素的 keypress(键盘按下)事件  |
+> |  unload(fn)        |  文档        |   当卸载本页面时绑定一个要执行的函数  |
+> |  resize(fn)        |  文档        |   触发每一个匹配元素的 resize(文档改变大小)事件  |
+> |  scroll(fn)        |  文档        |   触发每一个匹配元素的 scroll(滚动条拖动)事件  |
+> |  focus(fn)         |  表单        |   触发每一个匹配元素的 focus(焦点激活)事件  |
+> |  blur(fn)          |  表单        |   触发每一个匹配元素的 blur(焦点丢失)事件  |
+> |  focusin(fn)       |  表单        |   触发每一个匹配元素的 focusin(焦点激活)事件  |
+> |  focusout(fn)      |  表单        |   触发每一个匹配元素的 focusout(焦点丢失)事件  |
+> |  select(fn)        |  表单        |   触发每一个匹配元素的 select(文本选定)事件  |
+> |  change(fn)        |  表单        |   触发每一个匹配元素的 change(值改变)事件  |
+> |  submit(fn)        |  表单        |   触发每一个匹配元素的 submit(表单提交)事件  |
+> 演示一个简写形式，其它都一样
+> ```javascript
+> $(function(){
+>     $('#box').click(function(){
+>         alert('点击了box');
+>     });
+> });
+> ```
+> 回忆原生js的事件写法
+> ```javascript
+> //原生js
+> window.onload = function(){
+>     //函数式
+>     let box = document.querySelector('#box');
+>     box.onclick = function(){
+>          alert('点击了box')
+>     }
+>     //现代事件绑定
+>     //现代浏览器自带这两个事件处理函数，添加事件addEventListener()删除removeEventListener()
+>     //所有 DOM 节点中都包含这两个方法，并且它们都接受 3 个参数；
+>     //事件名、函数、冒泡或捕获的布尔值(true 表示捕获，false 表示冒泡)
+>     let box = document.querySelector('#box');
+>     //box.addEventListener('click',function(){},false);
+>     box.addEventListener('click',function(){
+>         alert('点击了box');
+>     },false);
+> }
+> ```
+> <b>说明一下focus、blur 与 focusin、focusout的区别：都表示光标激活和丢失，只是触发的元素不同</b> <br/>
+> .focus()和.blur()分别表示光标激活和丢失，事件触发时机是当前元素。而.focusin()和.focusout()也表示光标激活和丢失，但事件触发时机可以是子元素。<br/>
+> ```javascript
+> <div id="pox" style="background-color: red;width: 200px;height: 200px;">
+>     <input type="text" name="test" value="123" />
+> </div>
+> $(function(){
+>     // .focus()和.blur(): 事件触发时机是当前元素
+>     $('input[name=test]').focus(function(){
+>         console.log('focus');
+>     });
+>     $('input[name=test]').blur(function(){
+>         console.log('blur');
+>     });
+>     //.focusin()和.focusout():事件触发时机可以是子元素
+>     $('#pox').focusin(function(){
+>         console.log('focusin');
+>     });
+>     $('#pox').focusout(function(){
+>         console.log('focusout');
+>     });
+> });
+> ```
+
+
+### 2、复合事件：hover([fn1,]fn2)
+> ```javascript
+> //.hover()方法是结合了.mouseenter()方法和.mouseleva()方法
+> $(function () {
+>     //背景移入移出切换效果
+>     $('#box').hover(function () {
+>         $(this).css('background', 'black'); //mouseenter 效果
+>     }, function () {
+>         $(this).css('background', 'red'); //mouseleave 效果，可省略
+>     });
+> });
+> ```
+### 3、jQuery中的事件对象：target、currentTarget、e.stopPropagation()、e.preventDefault()、return false
+> 我们已经在<a href="/secondless/w-a/事件.html#iii、事件对象" target="_blank">第二学期第1季-章节16.事件-Ⅲ、事件对象</a>详细讲解了事件对象，我们看一下jQuery中的事件对象给我们提供的方法和属性。
+> ```javascript
+> //原生js
+> window.onload = function(){
+>     //函数式
+>     let box = document.querySelector('#box');
+>     box.onclick = function(e){
+>         console.log('函数式点击了box',e)
+>     }
+>     box.addEventListener('click',function(e){
+>         console.log('现代事件绑定点击了box',e);
+>     },false);
+> }
+> //jQuery
+> $(function(){
+>    $('#box').click(function(e){
+>       console.log('jQuery点击box', e);
+>    });
+> });
+> ```
+> jQuery将原生js的事件对象信息保存到了originalEvent属性里面了，另外额外提供了一些属性方法供我们使用。<br/>
+> 主要理解一下下面几个属性：
+> 1. target：获取你点击的 DOM 元素
+> 2. currentTarget: 获取绑定的DOM 元素，等同与this
+> ```javascript
+> <div id="pox" style="background-color: red;width: 200px;height: 200px;">
+>     <input type="text" name="test" value="123" />
+> </div>
+> $(function(){
+>    $('#pox').click(function(e){
+>       //input在div里面，点input和div会返回相应的dom元素
+>       console.log('target', e.target);
+>       //看currentTarget: 获取绑定的 DOM 元素，等同与this
+>       console.log('currentTarget',e.currentTarget);
+>    });
+> });
+> ```
+关于事件对象的学习，和我们第1季一样，里面的属性不需要大家记忆，用的时候，打印出事件对象e，然后去查看你需要的属性。<br/>
+> 关于冒泡和阻止默认行为，我们在第1季也讲得非常清楚，jQuery提供了下面几个
+> |  方法名                                |  描述                                   | 
+> |   :--:                                |   :--:                                   |  
+> |  e.preventDefault()                   |  取消某个元素的默认行为                     |  
+> |  e.isDefaultPrevented()               |  判断是否调用了 e.preventDefault()方法       | 
+> |  e.stopPropagation()                  |  取消事件冒泡                              | 
+> |  e.isPropagationStopped()             |  判断是否调用了 e.stopPropagation()方法     | 
+> |  e.stopImmediatePropagation()         |  取消事件冒泡，并取消该事件的后续事件处理函数       | 
+> |  e.isImmediatePropagationStopped()    |  判断是否调用了 e.stopImmediatePropagation()方法       | 
+return false;是e.preventDefault();e.stopPropagation();阻止冒泡和默认行为的简写形式。
+
+### 4、jQuery中的高级事件：on、off 和 one
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<br/><br/><br/><br/><br/><br/>
+
+## 【第二学期第2季课程】其它章节
+### [章节1.课程介绍](/secondless/w-b '章节1.课程介绍')
+<!-- <LessList  /> -->
+### [章节2.面向对象与原型](/secondless/w-b/面向对象与原型 '章节2.面向对象与原型')
 ####  <a href="/secondless/w-b/面向对象与原型.html#i、创建对象" style="margin-left:40px;">1、创建对象</a>
 ##### <a href="/secondless/w-b/面向对象与原型.html#_1-创建对象-剖析问题" style="margin-left:70px;">① 创建对象，剖析问题：传统创建对象方法代码重复冗余，对象无法识别从属于哪个函数</a>
 ##### <a href="/secondless/w-b/面向对象与原型.html#_2-传统面向对象-工厂模式" style="margin-left:70px;">② 传统创建对象：工厂模式（没有办法识别某一个对象的引用）</a>
@@ -48,8 +234,8 @@ title: 第二季（课程学习顺序：03）
 ##### <a href="/secondless/w-b/面向对象与原型.html#_7-子类继承父类方法同时扩展自己的方法-子类在构造函数中使用super-必须放到this前面" style="margin-left:70px;">⑦ 子类继承父类方法同时扩展自己的方法，子类在构造函数中使用super,必须放到this前面</a>
 ##### <a href="/secondless/w-b/面向对象与原型.html#_8-类和对象的几个注意点" style="margin-left:70px;">⑧ 类和对象的几个注意点：</a>
 ####  <a href="/secondless/w-b/面向对象与原型.html#v、面向对象、原型、继承、类小结" style="margin-left:40px;">5、面向对象、原型、继承、类小结</a>
-### <a href="/secondless/w-b/封装js库过渡到jQuery" target="_blank" title="点击查看课程文档">章节3.封装js库过渡到jQuery</a>
-### <a href="/secondless/w-b/jQuery" target="_blank" title="点击查看课程文档">章节4.jQuery</a>
+### [章节3.封装js库过渡到jQuery](/secondless/w-b/封装js库过渡到jQuery '章节3.封装js库过渡到jQuery')
+### [章节4.jQuery](/secondless/w-b/jQuery '章节4.jQuery')
 ####  <a href="/secondless/w-b/jQuery.html#_1、代码风格-包裹" style="margin-left:40px;">1、代码风格：$包裹，加载模式：$(function () {})，获取元素DOM对象：get(索引)方法，多个库之间的冲突</a>
 ####  <a href="/secondless/w-b/jQuery.html#一、jquery中的选择器过滤器" style="margin-left:40px;">2、选择器：</a>
 ##### <a href="/secondless/w-b/jQuery.html#_1-id-选择器、元素选择器、类-class-选择器-属性-length-或-size-方法来查看返回的元素个数" style="margin-left:70px;">① ID 选择器、元素选择器、类(class)选择器，属性 length 或 size()方法来查看返回的元素个数</a>
@@ -139,4 +325,26 @@ title: 第二季（课程学习顺序：03）
 ##### <a href="/secondless/w-b/jQuery.html#_1-复制节点-clone-true-、替换节点-replacewith、replaceall" style="margin-left:100px;">① 复制节点 clone(true)、替换节点：replaceWith、replaceAll</a>
 ##### <a href="/secondless/w-b/jQuery.html#_2-删除节点-remove-或者-detach" style="margin-left:100px;">② 删除节点：remove() 或者 detach()</a>
 ##### <a href="/secondless/w-b/jQuery.html#_3-删除掉节点里的内容empty" style="margin-left:100px;">③ 删除掉节点里的内容empty()</a>
-### <a href="/secondless/w-b/jQuery事件、动画、插件" target="_blank" title="点击查看课程文档">章节5.jQuery事件、动画、插件</a>
+### [章节5.jQuery事件、动画、插件](/secondless/w-b/jQuery事件、动画、插件 '章节5.jQuery事件、动画、插件')
+
+
+<br/><br/>
+## 其它学期课程
+### [第一学期（学习顺序：01）](/aboutless.html '第一学期课程')
+> 第一学期课程专为零基础的学员定制录制的，纯html+css做企业网站的网页，主讲html和css的相关基础知识，flex布局相关知识，封装css基础样式库，引入字体图标及网页开发基础布局思维，完成企业网站网页的开发过程。<br/><br/>
+<b><a href="https://study.163.com/course/courseMain.htm?courseId=1213374826&share=2&shareId=480000002289674" target="_blank">[第一学期学习视频]</a>
+</b>
+
+### [第二学期【第1季】（学习顺序：02）](/secondless/w-a '第二学期第1季课程')
+> 主讲JavaScript的基础，建议所有学员观看。<br/>
+<b>
+   <a href="/secondless/w-a.html" target="_blank">[第1季学习文档]</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+   <a style="margin-left:20px;">[第1季学习视频]</a>
+</b>
+
+### [第二学期【第2季】（学习顺序：03）](/secondless/w-b '第二学期第2季课程')
+> JavaScript中的面向对象，类，ajax，封装js库过渡到jQuery， vue.js基础配置网站页面，建议所有学员观看。<br/>
+<b>
+   <a href="/secondless/w-b.html" target="_blank">[第2季学习文档]</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+   <a style="margin-left:20px;">[第2季学习视频]</a>
+</b>
