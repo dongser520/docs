@@ -151,27 +151,125 @@ title: 章节5.jQuery事件、动画、插件
 return false;是e.preventDefault();e.stopPropagation();阻止冒泡和默认行为的简写形式。
 
 ### 4、jQuery中的高级事件：on、off 和 one
+> jQuery 不但封装了大量常用的事件处理，还提供了不少高级事件方便开发者使用，并以on、off 和 one三个事件函数，统一处理我们开发中的复杂事件。
+### ① on方法
+> #### 1.基本写法 
+> ```javascript
+> $(function(){
+>     $('#pox').on('click', function () {
+>         console.log('点击了pox')
+>     });
+> });
+> ```
+> #### 2.使用额外数据
+> ```javascript
+> $(function(){
+>     $('#pox').on('click', {username : '迪丽热巴'}, function (e) {
+>         console.log('点击了pox并传递了额外数据',e.data.username);
+>     });
+> });
+> ```
+> #### 3.绑定多个事件
+> ```javascript
+> $(function(){
+>     $('#pox').on('mouseover mouseout', function () {
+>         console.log('鼠标移入移出都触发');
+>     });
+> });
+> ```
+> #### 4.以对象模式绑定多个事件
+> ```javascript
+> $(function(){
+>     $('#pox').on({
+>         mouseover : function () {
+>             console.log('鼠标移入触发')
+>         },
+>         mouseout : function () {
+>             console.log('鼠标移出触发')
+>         }
+>     });
+> });
+> ```
+> #### 5. 阻止默认行为并取消冒泡
+> ```javascript
+> <form>
+>    <input type="text" name="username" value="123" />
+>    <input type="submit" value="提交">
+> </form>
+> $(function(){
+>     // $('form').on('submit',false);//阻止默认行为并取消冒泡
+>     $('form').on('submit', function (e) {
+>         return false;
+>         //e.preventDefault();//阻止默认行为
+>         //e.stopPropagation();;//取消冒泡
+>     });
+>  });
+> ```
+> #### 6.处理事件委托（绑定父元素，执行子元素方法）
+> ```javascript
+> $(function(){
+>     //事件委托参数：事件名，委托的子元素，执行的匿名函数
+>     $('#box').on('click','span',function(e){
+>         //注意事件委托中的this
+>         console.log($(this).get(0));//this代表的是span
+>     });
+>     //事件委托一般是：子元素刚开始没有，动态生成的，可以委托绑定它的父元素执行
+> 
+>     //移除事件委托
+>     $('#box').off('click','span');
+> });
+> ```
+
+### ② off方法:移除事件
+> ```javascript
+> $(function(){
+>   /*
+>   $('#pox').on('click',function(){
+>      alert('点了弹窗');
+>   });
+>   //移除点击事件
+>   $('#pox').off('click');
+>   */
+> 
+>   function test(){
+>     alert('点了弹窗');
+>   }
+>   $('#pox').on('click',test);
+>   $('#pox').off('click',test);
+> });
+> ```
+绑定事件后都不是自动移除事件的，需要通过off()来手工移除。jQuery 提供了.one()方法，绑定元素执行完毕后自动移除事件，可以方法仅触发一次的事件。
+### ③ one方法:仅触发一次的事件
+> ```javascript
+> $(function(){
+>     $('#box').one('click',function(){
+>         alert('点击了box');//执行完一次就自动销毁了
+>     });
+> });
+> $(function(){
+>     $('#box').one('click','span',function(e){
+>         console.log($(this).get(0));//this代表的是span
+>     });
+> });
+> ```
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+### 5、jQuery中的模拟操作
+> ```javascript
+> $(function(){
+>     //正常情况需要用户点击才弹窗
+>     // $('#pox').click(function(){
+>     //     alert('pox')
+>     // });
+>     //模拟用户操作：不需要用户点击，页面打开就弹窗
+>     // $('#pox').trigger('click');
+>     //另外一种模拟写法
+>     $('#pox').click(function(){
+>         alert('pox')
+>     }).click();
+>     //我们常用的事件都可以这么写，在后面连缀执行一次就是模拟操作了
+> });
+> ```
 
 
 
