@@ -16,6 +16,7 @@ module.exports = [
         ariaLabel: '实用网站菜单',
         items: [
             { text: '实用接口', link: '/web/methods/实用接口' },
+            { text: 'echarts图表', link: '/web/echarts/' },
         ]
     },
     {
