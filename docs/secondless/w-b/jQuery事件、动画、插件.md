@@ -408,7 +408,7 @@ return false;是e.preventDefault();e.stopPropagation();阻止冒泡和默认行�
 >     });
 > });
 > ```
-### 3、 淡入：fadeIn、淡出：fadeOut、切换淡入淡出：fadeToggle
+### 3、 淡入：fadeIn、淡出：fadeOut、切换淡入淡出：fadeToggle、指定透明度：fadeTo
 > 这是一组专门用于透明度变化的方法，注意用法和上面的show/hide/toggle一样，只是动画效果不同
 > ```javascript
 > $(function(){
@@ -423,6 +423,10 @@ return false;是e.preventDefault();e.stopPropagation();阻止冒泡和默认行�
 >     //切换淡入淡出
 >     $('#box span.text-danger').click(function(){
 >         $('#pox').fadeToggle('slow');
+>     });
+>     //指定透明度
+>     $('#box span.text-dark').click(function(){
+>         $('#pox').fadeTo('slow',0.38);
 >     });
 > });
 > ```
