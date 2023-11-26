@@ -271,18 +271,161 @@ return false;是e.preventDefault();e.stopPropagation();阻止冒泡和默认行�
 > });
 > ```
 
+## 二、动画
+### 1、 显示：show、隐藏：hide
+> ```javascript
+> <div id="box" >
+>    <span class="text-success">显示</span>
+>    <span class="text-dark">隐藏</span>
+> </div>
+> <div id="pox" style="background-color: red;width: 200px;height: 200px;">
+>    <input type="text" name="test" value="123" />
+> </div>
+> ```
+> ### ① 直接调用：显示show()、隐藏：hide()
+> ```javascript
+> $(function(){
+>     $('#box span.text-success').click(function(){
+>         $('#pox').show();//显示
+>     });
+>     $('#box span.text-dark').click(function(){
+>         $('#pox').hide();//隐藏
+>     });
+> });
+> ```
+> 注意：.hide()方法其实就是在行内设置 CSS 代码：display:none; 而.show()方法要根据原来元素是区块还是内联来决定，如果是区块，则设置 CSS 代码：display:block; 如果是内联，则设置 CSS 代码：display:inline;。
+> ### ② 传递一个参数（毫秒）：显示show(1000)、隐藏：hide(1000)
+> ```javascript
+> $(function(){
+>     $('#box span.text-success').click(function(){
+>         $('#pox').show(1000);//显示
+>     });
+>     $('#box span.text-dark').click(function(){
+>         $('#pox').hide(1000);//隐藏
+>     });
+> });
+> ```
+> ### ③ 传递一个预设参数：显示show(slow|normal|fast)，隐藏：hide(slow|normal|fast)，slow：600 毫秒，normal：默认 400 毫秒，fast：200 毫秒
+> ```javascript
+> $(function(){
+>     $('#box span.text-success').click(function(){
+>         $('#pox').show('slow');//600毫秒
+>         // $('#pox').show('normal');//默认 400毫秒 传错参数执行这个
+>         // $('#pox').show('fast');//200毫秒
+>     });
+>     $('#box span.text-dark').click(function(){
+>         // $('#pox').hide('slow');//600毫秒
+>         // $('#pox').hide('normal');//默认 400毫秒 传错参数执行这个
+>         $('#pox').hide('fast');//200毫秒
+>         //$('#pox').hide('fast1');//传错参数了，默认执行400毫秒
+>     });
+> });
+> ```
+> ### ④ 传递第二个参数回调函数，实现列队动画（排队动画）：show(毫秒数|slow|normal|fast，function(){})，hide(毫秒数|slow|normal|fast，function(){})
+> ```javascript
+> $(function(){
+>     $('#box span.text-success').click(function(){
+>         $('#pox').show('slow',function(){
+>             $('#main_business').show(1000);
+>         });
+>     });
+>     $('#box span.text-dark').click(function(){
+>         $('#pox').hide('fast',function(){
+>             $('#main_business').hide(2000);
+>         });
+>     });
+> });
+> ```
+> ### ⑤ 列队动画，可以使用函数名调用自身或者arguments.callee 匿名函数自调用
+> ```javascript
+> <div id="test">
+>    <span style="padding: 10px;background-color: orange;color: white;font-size: 20px;">迪</span>
+>    <span style="padding: 10px;background-color: orange;color: white;font-size: 20px;">丽</span>
+>    <span style="padding: 10px;background-color: orange;color: white;font-size: 20px;">热</span>
+>    <span style="padding: 10px;background-color: orange;color: white;font-size: 20px;">巴</span>
+> </div>
+> $(function(){
+>     $('#box span.text-dark').click(function(){
+>         // $('#test span').hide('slow');//同步动画
+> 
+>         // $('#test').children().first().hide('fast', function() {
+>         //     $(this).next().hide('fast', function(){
+>         //         $(this).next().hide('fast',function(){
+>         //             $(this).next().hide('fast');
+>         //         });
+>         //     });
+>         // });        
+> 
+>         //函数名调用自身
+>         // $('#test').children().first().hide('fast', function hideSpan() {
+>         //     $(this).next().hide('fast', hideSpan);
+>         // });
+> 
+>         //arguments.callee 不用传函数名，匿名递归调用
+>         // $('#test').children().first().hide('fast', function() {
+>         //     $(this).next().hide('fast', arguments.callee);
+>         // });
+>     });
+>     $('#box span.text-success').click(function(){
+>         // $('#test span').show('slow');//同步动画
+>         // $('#test').children().first().show('fast', function showSpan() {
+>         //     $(this).next().show('fast', showSpan);
+>         // });
+>         //arguments.callee 不用传函数名，匿名递归调用
+>         $('#test').children().first().show('fast', function() {
+>             $(this).next().show('fast', arguments.callee);
+>         });
+>     });
+> });
+> ```
+> ### ⑥ toggle()切换show()和hide()
+> ```javascript
+> <div id="box" >
+>    <span class="text-danger">切换</span>
+> </div>
+> $(function(){
+>     $('#box span.text-danger').click(function(){
+>         $('#pox').toggle('fast');
+>     });
+> });
+> ```
 
-
-
-
-
-
-
-
-
-
-
-
+### 2、 滑动：slideUp、卷动：slideDown、切换滑动卷动：slideToggle
+> 这是一组改变元素高度的方法，注意用法和上面的show/hide/toggle一样，只是动画效果不同
+> ```javascript
+> $(function(){
+>     //向上收缩(卷动)，类似隐藏：slideUp
+>     $('#box span.text-dark').click(function(){
+>         $('#pox').slideUp('slow');
+>     });
+>     //向下展开(滑动)，类似显示：slideDown
+>     $('#box span.text-success').click(function(){
+>         $('#pox').slideDown('slow');
+>     });
+>     //切换滑动卷动
+>     $('#box span.text-danger').click(function(){
+>         $('#pox').slideToggle('slow');
+>     });
+> });
+> ```
+### 3、 淡入：fadeIn、淡出：fadeOut、切换淡入淡出：fadeToggle
+> 这是一组专门用于透明度变化的方法，注意用法和上面的show/hide/toggle一样，只是动画效果不同
+> ```javascript
+> $(function(){
+>     //淡出，类似隐藏：fadeOut
+>     $('#box span.text-dark').click(function(){
+>         $('#pox').fadeOut('slow');
+>     });
+>     //淡入，类似显示：fadeIn
+>     $('#box span.text-success').click(function(){
+>         $('#pox').fadeIn('slow');
+>     });
+>     //切换淡入淡出
+>     $('#box span.text-danger').click(function(){
+>         $('#pox').fadeToggle('slow');
+>     });
+> });
+> ```
 
 
 
