@@ -566,6 +566,84 @@ return false;是e.preventDefault();e.stopPropagation();阻止冒泡和默认行�
 > });
 > ```
 
+### 5、 动画相关方法：stop()强制停止动画，delay()延迟动画执行
+> 它有两个可选参数：.stop(clearQueue, gotoEnd)；clearQueue 传递一个布尔值，代表是否清空未执行完的动画列队，gotoEnd 代表是否直接将正在执行的动画跳转到末状态。
+> ```javascript
+> <span class="text-primary">停止动画</span>
+> $(function () {
+>     //执行动画
+>     $('#box span.text-info').click(function(){
+>         // $('#pox').animate({
+>         //     left:'800px'
+>         // },2000);
+>         //列队动画分析下这两个参数
+>         // $('#pox').animate({left : '600px'},2000).animate({top : '300px'}).animate({width : '500px'});
+>         //动画延迟delay
+>         $('#pox').animate({left : '600px'},2000).delay(1500).animate({top : '300px'}).animate({width : '500px'});
+>     });
+>     //停止动画
+>     $('#box span.text-primary').click(function(){
+>         // $('#pox').stop();//相当于：$('#pox').stop(false,false);
+>         //第一个参数表示是否取消列队动画，默认为 false。如果参数为true，当有列队动画的时候，会取消后面的列队动画。
+>         //第二参数表示是否到达当前动画结尾，默认为false。如果参数为 true，则停止后立即到达末尾处。
+>         // $('#pox').stop();//如果是列队动画，停止的话只停止第一个动画，后面继续
+>         // $('#pox').stop(true);//如果第一个参数是true,则是停止并清除后面的列队动画，即动画完全停止，默认false
+>         // $('#pox').stop(true,true);//如果第二个参数是true,停止后会跳转到末尾的位置上，不是说停止后跳转到最后的效果
+>     });
+>     
+> });
+> ```
+### 6、判断在运动的动画，通过过滤器:animated
+> ```javascript
+> $(function () {
+>     //执行循环运动动画
+>     $('#box span.text-info').click(function(){
+>         $('#pox').slideToggle('slow',function(){
+>             $('#pox').slideToggle('slow',arguments.callee);
+>         });
+>     });
+>     //停止动画
+>     $('#box span.text-primary').click(function(){
+>         //停止正在运动的动画，并且设置黑色背景
+>         $('div:animated').stop().css('background', 'black');
+>     });
+>     
+> });
+> ```
+### 7、动画全局属性：$.fx.interval（设置每秒运行的帧数），$.fx.off（关闭页面上所有的动画），默认swing(缓动)，linear(匀速运动)
+> $.fx.interval 属性可以调整动画每秒的运行帧数，默认为 13 毫秒。数字越小越流畅，但可能影响浏览器性能，一般不建议设置，就用默认的即可
+> ```javascript
+> <div id="pox" style="background-color: red;width: 200px;height: 200px;position: relative;">
+>    <input type="text" name="test" value="123" />
+> </div>
+> <div id="pox1" style="background-color: black;width: 200px;height: 200px;position: relative;">
+>    <input type="text" name="test" value="123" />
+> </div>
+> $(function () {
+>     //设置运行帧数为 1000 毫秒
+>     // $.fx.interval = 1000; //默认为 13，不要自己设置，就用默认的
+>     //执行循环动画
+>     $('#box span.text-info').click(function(){
+>         // $('#pox').slideToggle('slow',function(){
+>         //     $('#pox').slideToggle('slow',arguments.callee);
+>         // });
+>         //默认swing(缓动) 
+>         $('#pox').animate({left : '800px'},'slow','swing',function(){});
+>         //改成匀速运动
+>         $('#pox1').animate({left : '800px'},'slow','linear',function(){});
+>     });
+>     //停止动画
+>     $('#box span.text-primary').click(function(){
+>         //停止正在运动的动画，并且设置黑色背景
+>         $('div:animated').stop().css('background', 'black');
+>     });
+>     //全局关闭动画（遇到低版本老旧浏览器的用户，就不要给它动画了，卡的不行）
+>     // $.fx.off = true; //默认为 false
+> 
+>     //动画运动方式：默认swing(缓动)、还有一个：linear(匀速)，
+> });
+> ```
+
 
 <br/><br/><br/><br/><br/><br/>
 
