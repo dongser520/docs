@@ -431,7 +431,140 @@ return false;是e.preventDefault();e.stopPropagation();阻止冒泡和默认行�
 > });
 > ```
 
-
+### 4、 自定义动画 animate
+> jQuery 提供了上面几种简单常用的固定动画方便我们使用。但有些时候，这些简单动画无法满足我们更加复杂的需求。这个时候，jQuery 提供了一个.animate()方法来创建我们的自定
+义动画，满足更多复杂多变的要求。
+### ① animate基本用法：css样式自定义，同步动画
+> ```javascript
+> <div id="box" >
+>    <span class="text-info">自定义</span>      
+> </div>
+> $(function(){
+>     $('#box span.text-info').click(function(){
+>         $('#test span').animate({
+>             'width' : '300px',
+>             'height' : '300px',
+>             'fontSize' : '100px',
+>             'opacity' : 0.5
+>         });
+>     });
+> });
+> //一个 CSS 变化就是一个动画效果，上面的例子中，已经有四个CSS 变化，
+> //已经实现了多重动画同步运动的效果
+> ```
+### ② animate用法：animate(css,动画时间,回调函数)
+> ```javascript
+> $(function(){
+>     $('#box span.text-info').click(function(){
+>         $('#test span').animate({
+>             'width' : '300px',
+>             'height' : '300px',
+>             'fontSize' : '100px',
+>             'opacity' : 0.5
+>         },1500,function(){
+>             //执行其他代码
+>             $('#pox').animate({
+>                 width : '300px',
+>                 height : '300px'
+>             });
+>         });
+>     });
+> });
+> ```
+### ③ animate位移动画（将元素设置绝对定位或相对定位）
+> ```javascript
+> $(function(){
+>     // $('#box span.text-info').click(function(){
+>     //     $('#pox').animate({
+>     //         left : '300px',
+>     //         // top : '300px'
+>     //     },'slow');
+>     // });
+>     //发现再点没有效果，如果继续往右移动，可以使用累加、累减功能
+>     $('#box span.text-info').click(function(){
+>         $('#pox').animate({
+>             left : '+=300px',
+>             //top : '-=300px',
+>         },'slow');
+>     });
+> });
+> ```
+### ④ 列队动画方法:queue()方法，连缀执行下一个dequeue()方法，clearQueue()清理列队动画后面还没有执行的
+> ```javascript
+> $(function(){
+>     //自定义实现列队动画的方式，有两种：
+>     //1.通过顺序或连缀来实现列队动画 2.在回调函数中再执行一个动画；
+>     //顺序执行
+>     // $('#box span.text-info').click(function(){
+>     //     $('#pox').animate({left : '300px'},'slow');
+>     //     $('#pox').animate({top : '300px'});
+>     //     $('#pox').animate({width : '500px'});
+>     // });
+>     //连缀执行
+>     // $('#box span.text-info').click(function(){
+>     //     $('#pox').animate({left : '300px'},'slow').animate({top : '300px'}).animate({width : '500px'});
+>     //     //当然不同元素仍然是同步的
+>     //     $('#test span').animate({fontSize : '200px'});
+>     // });
+>     //回调执行
+>     // $('#box span.text-info').click(function(){
+>     //     $('#pox').animate({left : '300px'},'slow',function(){
+>     //         $('#pox').animate({top : '300px'},function(){
+>     //             $('#pox').animate({width : '500px'},function(){
+>     //                 $('#test span').animate({fontSize : '200px'});
+>     //             });
+>     //         });
+>     //     });
+>     // });
+>     //动画太多，可读性大大降低
+> 
+>     //问题2：连缀执行动画和css方法一起使用，css方法会提前
+>     $('#box span.text-info').click(function(){
+>         // $('#pox').slideUp('slow').slideDown('slow').css('background', 'orange');
+>         // 发现css方法提前执行了
+>         //回调
+>         $('#pox').slideUp('slow').slideDown('slow',function(){
+>             $(this).css('background', 'orange');
+>         });
+>         //回调又回到了上面一个问题，就是动画多了，代码凌乱可读性降低，同时污染了slideDown方法
+>     });
+> });
+> ```
+> 列队动画方法:queue()方法，连缀执行下一个dequeue()方法
+> ```javascript
+> $(function(){
+>     //queue()方法，执行列队动画，代替在前一个动画里执行回调，可继续连缀，代码清晰很多
+>     $('#box span.text-info').click(function(){
+>         $('#pox').slideUp('slow').slideDown('slow').queue(function(){
+>             $(this).css('background', 'orange');
+>             $(this).dequeue();//执行后面的连缀加上$(this).dequeue();
+>         }).hide('slow');
+>     });
+>    //也可以写成顺序调用的列队，逐个执行，非常清晰
+>    $('#box span.text-info').click(function(){
+>        $('#pox').slideUp('slow');
+>        $('#pox').slideDown('slow');
+>        $('#pox').queue(function(){
+>            $(this).css('background', 'orange');
+>            $(this).dequeue();//执行后面的连缀加上$(this).dequeue();
+>        });
+>        $('#pox').hide('slow');
+>    });
+> });
+> ```
+> 清理后面的动画clearQueue()
+> ```javascript
+> $(function(){
+>     $('#box span.text-info').click(function(){
+>         $('#pox').slideUp('slow').slideDown('slow',function(){
+>             $(this).clearQueue();//清理后面的动画
+>         }).queue(function(){
+>             $(this).css('background', 'orange');
+>             $(this).dequeue();//执行后面的连缀加上$(this).dequeue();
+>         }).hide('slow');
+>     });
+> });
+> ```
 
 
 <br/><br/><br/><br/><br/><br/>
