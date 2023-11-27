@@ -1,707 +1,95 @@
 ---
 navbar: true
 sidebar: auto
-title: 章节5.jQuery事件、动画、插件
+title: 章节6.Ajax
 ---
 
+
 前言
-> 我们在第二学期第1季课程学习了js中的事件：<a href="/secondless/w-a/事件.html" target="_blank">第二学期第1季-章节16.事件</a>，掌握了常用的事件：click、dblclick、mousedown、mouseup、mousemove、mouseover、mouseout、change、select、submit、keydown、keypress、keyup、blur、focus、load、resize、scroll、error。那么jQuery给我封装了什么方法，让我们处理事件更好好用，本章了解一下。
+> Ajax：AsynchronousJavaScript + XML 的简写，是一种技术，这种技术能够向服务器请求额外的数据而无须刷新页面。Ajax 技术核心是 XMLHttpRequest 对象(简称 XHR)。<br/><br/>关于Ajax，我们将分两部分进行讲解，一部分是：原生js进行讲解，另外一部分是jQuery将原生js进行封装之后的方法进行讲解，即jQuery中ajax的应用。
 
-## 一、事件
-### 1、简写事件
-> jQuery对常用的事件都进行了封装，可以使用简写形式 <br/>
-> 简写事件绑定方法
-> |  方法名             |  触发条件     |  描述                                 |   
-> |   :--:             |   :--:       |   :--:                               | 
-> |  click(fn)         |  鼠标        |   触发每一个匹配元素的 click(单击)事件  |
-> |  dblclick(fn)      |  鼠标        |   触发每一个匹配元素的 dblclick(双击)事件  |
-> |  mousedown(fn)     |  鼠标        |   触发每一个匹配元素的 mousedown(点击后)事件  |
-> |  mouseup(fn)       |  鼠标        |   触发每一个匹配元素的 mouseup(点击弹起)事件  |
-> |  mouseover(fn)     |  鼠标        |   触发每一个匹配元素的 mouseover(鼠标移入)事件  |
-> |  mouseout(fn)      |  鼠标        |   触发每一个匹配元素的 mouseout(鼠标移出)事件  |
-> |  mousemove(fn)     |  鼠标        |   触发每一个匹配元素的 mousemove(鼠标移动)事件  |
-> |  mouseenter(fn)    |  鼠标        |   触发每一个匹配元素的 mouseenter(鼠标穿过)事件  |
-> |  mouseleave(fn)    |  鼠标        |   触发每一个匹配元素的 mouseleave(鼠标穿出)事件  |
-> |  keydown(fn)       |  键盘        |   触发每一个匹配元素的 keydown(键盘按下)事件  |
-> |  keyup(fn)         |  键盘        |   触发每一个匹配元素的 keyup(键盘按下弹起)事件  |
-> |  keypress(fn)      |  键盘        |   触发每一个匹配元素的 keypress(键盘按下)事件  |
-> |  unload(fn)        |  文档        |   当卸载本页面时绑定一个要执行的函数  |
-> |  resize(fn)        |  文档        |   触发每一个匹配元素的 resize(文档改变大小)事件  |
-> |  scroll(fn)        |  文档        |   触发每一个匹配元素的 scroll(滚动条拖动)事件  |
-> |  focus(fn)         |  表单        |   触发每一个匹配元素的 focus(焦点激活)事件  |
-> |  blur(fn)          |  表单        |   触发每一个匹配元素的 blur(焦点丢失)事件  |
-> |  focusin(fn)       |  表单        |   触发每一个匹配元素的 focusin(焦点激活)事件  |
-> |  focusout(fn)      |  表单        |   触发每一个匹配元素的 focusout(焦点丢失)事件  |
-> |  select(fn)        |  表单        |   触发每一个匹配元素的 select(文本选定)事件  |
-> |  change(fn)        |  表单        |   触发每一个匹配元素的 change(值改变)事件  |
-> |  submit(fn)        |  表单        |   触发每一个匹配元素的 submit(表单提交)事件  |
-> 演示一个简写形式，其它都一样
+## 一、原生js中的Ajax
+## 1、XMLHttpRequest 
+回顾之前获取外部json文件
+> 我们在<a href="/secondless/w-a/数据Cookie、XML、JSON.html#_2-获取外部json文件" target="_blank">第二学期第1季-章节18-Ⅴ、JSON-② 获取外部json文件</a> 
 > ```javascript
-> $(function(){
->     $('#box').click(function(){
->         alert('点击了box');
->     });
-> });
-> ```
-> 回忆原生js的事件写法
-> ```javascript
-> //原生js
-> window.onload = function(){
->     //函数式
->     let box = document.querySelector('#box');
->     box.onclick = function(){
->          alert('点击了box')
->     }
->     //现代事件绑定
->     //现代浏览器自带这两个事件处理函数，添加事件addEventListener()删除removeEventListener()
->     //所有 DOM 节点中都包含这两个方法，并且它们都接受 3 个参数；
->     //事件名、函数、冒泡或捕获的布尔值(true 表示捕获，false 表示冒泡)
->     let box = document.querySelector('#box');
->     //box.addEventListener('click',function(){},false);
->     box.addEventListener('click',function(){
->         alert('点击了box');
->     },false);
-> }
-> ```
-> <b>说明一下focus、blur 与 focusin、focusout的区别：都表示光标激活和丢失，只是触发的元素不同</b> <br/>
-> .focus()和.blur()分别表示光标激活和丢失，事件触发时机是当前元素。而.focusin()和.focusout()也表示光标激活和丢失，但事件触发时机可以是子元素。<br/>
-> ```javascript
-> <div id="pox" style="background-color: red;width: 200px;height: 200px;">
->     <input type="text" name="test" value="123" />
-> </div>
-> $(function(){
->     // .focus()和.blur(): 事件触发时机是当前元素
->     $('input[name=test]').focus(function(){
->         console.log('focus');
->     });
->     $('input[name=test]').blur(function(){
->         console.log('blur');
->     });
->     //.focusin()和.focusout():事件触发时机可以是子元素
->     $('#pox').focusin(function(){
->         console.log('focusin');
->     });
->     $('#pox').focusout(function(){
->         console.log('focusout');
->     });
-> });
-> ```
-
-
-### 2、复合事件：hover([fn1,]fn2)
-> ```javascript
-> //.hover()方法是结合了.mouseenter()方法和.mouseleva()方法
-> $(function () {
->     //背景移入移出切换效果
->     $('#box').hover(function () {
->         $(this).css('background', 'black'); //mouseenter 效果
->     }, function () {
->         $(this).css('background', 'red'); //mouseleave 效果，可省略
->     });
-> });
-> ```
-### 3、jQuery中的事件对象：target、currentTarget、e.stopPropagation()、e.preventDefault()、return false
-> 我们已经在<a href="/secondless/w-a/事件.html#iii、事件对象" target="_blank">第二学期第1季-章节16.事件-Ⅲ、事件对象</a>详细讲解了事件对象，我们看一下jQuery中的事件对象给我们提供的方法和属性。
-> ```javascript
-> //原生js
-> window.onload = function(){
->     //函数式
->     let box = document.querySelector('#box');
->     box.onclick = function(e){
->         console.log('函数式点击了box',e)
->     }
->     box.addEventListener('click',function(e){
->         console.log('现代事件绑定点击了box',e);
->     },false);
-> }
-> //jQuery
-> $(function(){
->    $('#box').click(function(e){
->       console.log('jQuery点击box', e);
->    });
-> });
-> ```
-> jQuery将原生js的事件对象信息保存到了originalEvent属性里面了，另外额外提供了一些属性方法供我们使用。<br/>
-> 主要理解一下下面几个属性：
-> 1. target：获取你点击的 DOM 元素
-> 2. currentTarget: 获取绑定的DOM 元素，等同与this
-> ```javascript
-> <div id="pox" style="background-color: red;width: 200px;height: 200px;">
->     <input type="text" name="test" value="123" />
-> </div>
-> $(function(){
->    $('#pox').click(function(e){
->       //input在div里面，点input和div会返回相应的dom元素
->       console.log('target', e.target);
->       //看currentTarget: 获取绑定的 DOM 元素，等同与this
->       console.log('currentTarget',e.currentTarget);
->    });
-> });
-> ```
-关于事件对象的学习，和我们第1季一样，里面的属性不需要大家记忆，用的时候，打印出事件对象e，然后去查看你需要的属性。<br/>
-> 关于冒泡和阻止默认行为，我们在第1季也讲得非常清楚，jQuery提供了下面几个
-> |  方法名                                |  描述                                   | 
-> |   :--:                                |   :--:                                   |  
-> |  e.preventDefault()                   |  取消某个元素的默认行为                     |  
-> |  e.isDefaultPrevented()               |  判断是否调用了 e.preventDefault()方法       | 
-> |  e.stopPropagation()                  |  取消事件冒泡                              | 
-> |  e.isPropagationStopped()             |  判断是否调用了 e.stopPropagation()方法     | 
-> |  e.stopImmediatePropagation()         |  取消事件冒泡，并取消该事件的后续事件处理函数       | 
-> |  e.isImmediatePropagationStopped()    |  判断是否调用了 e.stopImmediatePropagation()方法       | 
-return false;是e.preventDefault();e.stopPropagation();阻止冒泡和默认行为的简写形式。
-
-### 4、jQuery中的高级事件：on、off 和 one
-> jQuery 不但封装了大量常用的事件处理，还提供了不少高级事件方便开发者使用，并以on、off 和 one三个事件函数，统一处理我们开发中的复杂事件。
-### ① on方法
-> #### 1.基本写法 
-> ```javascript
-> $(function(){
->     $('#pox').on('click', function () {
->         console.log('点击了pox')
->     });
-> });
-> ```
-> #### 2.使用额外数据
-> ```javascript
-> $(function(){
->     $('#pox').on('click', {username : '迪丽热巴'}, function (e) {
->         console.log('点击了pox并传递了额外数据',e.data.username);
->     });
-> });
-> ```
-> #### 3.绑定多个事件
-> ```javascript
-> $(function(){
->     $('#pox').on('mouseover mouseout', function () {
->         console.log('鼠标移入移出都触发');
->     });
-> });
-> ```
-> #### 4.以对象模式绑定多个事件
-> ```javascript
-> $(function(){
->     $('#pox').on({
->         mouseover : function () {
->             console.log('鼠标移入触发')
->         },
->         mouseout : function () {
->             console.log('鼠标移出触发')
->         }
->     });
-> });
-> ```
-> #### 5. 阻止默认行为并取消冒泡
-> ```javascript
-> <form>
->    <input type="text" name="username" value="123" />
->    <input type="submit" value="提交">
-> </form>
-> $(function(){
->     // $('form').on('submit',false);//阻止默认行为并取消冒泡
->     $('form').on('submit', function (e) {
->         return false;
->         //e.preventDefault();//阻止默认行为
->         //e.stopPropagation();;//取消冒泡
->     });
->  });
-> ```
-> #### 6.处理事件委托（绑定父元素，执行子元素方法）
-> ```javascript
-> $(function(){
->     //事件委托参数：事件名，委托的子元素，执行的匿名函数
->     $('#box').on('click','span',function(e){
->         //注意事件委托中的this
->         console.log($(this).get(0));//this代表的是span
->     });
->     //事件委托一般是：子元素刚开始没有，动态生成的，可以委托绑定它的父元素执行
+> window.onload = function () {
+>     let json = new XMLHttpRequest();
+>     json.open("GET", "./demo.json", true);
+>     json.responseType = "json";
+>     json.onload = function () {
+>         console.log(json);
+>         console.log(json.response);
 > 
->     //移除事件委托
->     $('#box').off('click','span');
-> });
-> ```
-
-### ② off方法:移除事件
-> ```javascript
-> $(function(){
->   /*
->   $('#pox').on('click',function(){
->      alert('点了弹窗');
->   });
->   //移除点击事件
->   $('#pox').off('click');
->   */
+>         console.log(this);
+>         console.log(this.response);
 > 
->   function test(){
->     alert('点了弹窗');
->   }
->   $('#pox').on('click',test);
->   $('#pox').off('click',test);
-> });
-> ```
-绑定事件后都不是自动移除事件的，需要通过off()来手工移除。jQuery 提供了.one()方法，绑定元素执行完毕后自动移除事件，可以方法仅触发一次的事件。
-### ③ one方法:仅触发一次的事件
-> ```javascript
-> $(function(){
->     $('#box').one('click',function(){
->         alert('点击了box');//执行完一次就自动销毁了
->     });
-> });
-> $(function(){
->     $('#box').one('click','span',function(e){
->         console.log($(this).get(0));//this代表的是span
->     });
-> });
-> ```
-
-
-### 5、jQuery中的模拟操作
-> ```javascript
-> $(function(){
->     //正常情况需要用户点击才弹窗
->     // $('#pox').click(function(){
->     //     alert('pox')
->     // });
->     //模拟用户操作：不需要用户点击，页面打开就弹窗
->     // $('#pox').trigger('click');
->     //另外一种模拟写法
->     $('#pox').click(function(){
->         alert('pox')
->     }).click();
->     //我们常用的事件都可以这么写，在后面连缀执行一次就是模拟操作了
-> });
-> ```
-
-## 二、动画
-### 1、 显示：show、隐藏：hide
-> ```javascript
-> <div id="box" >
->    <span class="text-success">显示</span>
->    <span class="text-dark">隐藏</span>
-> </div>
-> <div id="pox" style="background-color: red;width: 200px;height: 200px;">
->    <input type="text" name="test" value="123" />
-> </div>
-> ```
-> ### ① 直接调用：显示show()、隐藏：hide()
-> ```javascript
-> $(function(){
->     $('#box span.text-success').click(function(){
->         $('#pox').show();//显示
->     });
->     $('#box span.text-dark').click(function(){
->         $('#pox').hide();//隐藏
->     });
-> });
-> ```
-> 注意：.hide()方法其实就是在行内设置 CSS 代码：display:none; 而.show()方法要根据原来元素是区块还是内联来决定，如果是区块，则设置 CSS 代码：display:block; 如果是内联，则设置 CSS 代码：display:inline;。
-> ### ② 传递一个参数（毫秒）：显示show(1000)、隐藏：hide(1000)
-> ```javascript
-> $(function(){
->     $('#box span.text-success').click(function(){
->         $('#pox').show(1000);//显示
->     });
->     $('#box span.text-dark').click(function(){
->         $('#pox').hide(1000);//隐藏
->     });
-> });
-> ```
-> ### ③ 传递一个预设参数：显示show(slow|normal|fast)，隐藏：hide(slow|normal|fast)，slow：600 毫秒，normal：默认 400 毫秒，fast：200 毫秒
-> ```javascript
-> $(function(){
->     $('#box span.text-success').click(function(){
->         $('#pox').show('slow');//600毫秒
->         // $('#pox').show('normal');//默认 400毫秒 传错参数执行这个
->         // $('#pox').show('fast');//200毫秒
->     });
->     $('#box span.text-dark').click(function(){
->         // $('#pox').hide('slow');//600毫秒
->         // $('#pox').hide('normal');//默认 400毫秒 传错参数执行这个
->         $('#pox').hide('fast');//200毫秒
->         //$('#pox').hide('fast1');//传错参数了，默认执行400毫秒
->     });
-> });
-> ```
-> ### ④ 传递第二个参数回调函数，实现列队动画（排队动画）：show(毫秒数|slow|normal|fast，function(){})，hide(毫秒数|slow|normal|fast，function(){})
-> ```javascript
-> $(function(){
->     $('#box span.text-success').click(function(){
->         $('#pox').show('slow',function(){
->             $('#main_business').show(1000);
->         });
->     });
->     $('#box span.text-dark').click(function(){
->         $('#pox').hide('fast',function(){
->             $('#main_business').hide(2000);
->         });
->     });
-> });
-> ```
-> ### ⑤ 列队动画，可以使用函数名调用自身或者arguments.callee 匿名函数自调用
-> ```javascript
-> <div id="test">
->    <span style="padding: 10px;background-color: orange;color: white;font-size: 20px;">迪</span>
->    <span style="padding: 10px;background-color: orange;color: white;font-size: 20px;">丽</span>
->    <span style="padding: 10px;background-color: orange;color: white;font-size: 20px;">热</span>
->    <span style="padding: 10px;background-color: orange;color: white;font-size: 20px;">巴</span>
-> </div>
-> $(function(){
->     $('#box span.text-dark').click(function(){
->         // $('#test span').hide('slow');//同步动画
+>         if (this.status == 200) {
+>             let res = this.response;
+>             console.log(res[0].name);//第一项name值
 > 
->         // $('#test').children().first().hide('fast', function() {
->         //     $(this).next().hide('fast', function(){
->         //         $(this).next().hide('fast',function(){
->         //             $(this).next().hide('fast');
->         //         });
->         //     });
->         // });        
-> 
->         //函数名调用自身
->         // $('#test').children().first().hide('fast', function hideSpan() {
->         //     $(this).next().hide('fast', hideSpan);
->         // });
-> 
->         //arguments.callee 不用传函数名，匿名递归调用
->         // $('#test').children().first().hide('fast', function() {
->         //     $(this).next().hide('fast', arguments.callee);
->         // });
->     });
->     $('#box span.text-success').click(function(){
->         // $('#test span').show('slow');//同步动画
->         // $('#test').children().first().show('fast', function showSpan() {
->         //     $(this).next().show('fast', showSpan);
->         // });
->         //arguments.callee 不用传函数名，匿名递归调用
->         $('#test').children().first().show('fast', function() {
->             $(this).next().show('fast', arguments.callee);
->         });
->     });
-> });
-> ```
-> ### ⑥ toggle()切换show()和hide()
-> ```javascript
-> <div id="box" >
->    <span class="text-danger">切换</span>
-> </div>
-> $(function(){
->     $('#box span.text-danger').click(function(){
->         $('#pox').toggle('fast');
->     });
-> });
-> ```
-
-### 2、 滑动：slideUp、卷动：slideDown、切换滑动卷动：slideToggle
-> 这是一组改变元素高度的方法，注意用法和上面的show/hide/toggle一样，只是动画效果不同
-> ```javascript
-> $(function(){
->     //向上收缩(卷动)，类似隐藏：slideUp
->     $('#box span.text-dark').click(function(){
->         $('#pox').slideUp('slow');
->     });
->     //向下展开(滑动)，类似显示：slideDown
->     $('#box span.text-success').click(function(){
->         $('#pox').slideDown('slow');
->     });
->     //切换滑动卷动
->     $('#box span.text-danger').click(function(){
->         $('#pox').slideToggle('slow');
->     });
-> });
-> ```
-### 3、 淡入：fadeIn、淡出：fadeOut、切换淡入淡出：fadeToggle、指定透明度：fadeTo
-> 这是一组专门用于透明度变化的方法，注意用法和上面的show/hide/toggle一样，只是动画效果不同
-> ```javascript
-> $(function(){
->     //淡出，类似隐藏：fadeOut
->     $('#box span.text-dark').click(function(){
->         $('#pox').fadeOut('slow');
->     });
->     //淡入，类似显示：fadeIn
->     $('#box span.text-success').click(function(){
->         $('#pox').fadeIn('slow');
->     });
->     //切换淡入淡出
->     $('#box span.text-danger').click(function(){
->         $('#pox').fadeToggle('slow');
->     });
->     //指定透明度
->     $('#box span.text-dark').click(function(){
->         $('#pox').fadeTo('slow',0.38);
->     });
-> });
-> ```
-
-### 4、 自定义动画 animate
-> jQuery 提供了上面几种简单常用的固定动画方便我们使用。但有些时候，这些简单动画无法满足我们更加复杂的需求。这个时候，jQuery 提供了一个.animate()方法来创建我们的自定
-义动画，满足更多复杂多变的要求。
-### ① animate基本用法：css样式自定义，同步动画
-> ```javascript
-> <div id="box" >
->    <span class="text-info">自定义</span>      
-> </div>
-> $(function(){
->     $('#box span.text-info').click(function(){
->         $('#test span').animate({
->             'width' : '300px',
->             'height' : '300px',
->             'fontSize' : '100px',
->             'opacity' : 0.5
->         });
->     });
-> });
-> //一个 CSS 变化就是一个动画效果，上面的例子中，已经有四个CSS 变化，
-> //已经实现了多重动画同步运动的效果
-> ```
-### ② animate用法：animate(css,动画时间,回调函数)
-> ```javascript
-> $(function(){
->     $('#box span.text-info').click(function(){
->         $('#test span').animate({
->             'width' : '300px',
->             'height' : '300px',
->             'fontSize' : '100px',
->             'opacity' : 0.5
->         },1500,function(){
->             //执行其他代码
->             $('#pox').animate({
->                 width : '300px',
->                 height : '300px'
+>             res.forEach(element => {
+>                 console.log('name:', element.name);//每一项的name
 >             });
->         });
->     });
-> });
-> ```
-### ③ animate位移动画（将元素设置绝对定位或相对定位）
-> ```javascript
-> $(function(){
->     // $('#box span.text-info').click(function(){
->     //     $('#pox').animate({
->     //         left : '300px',
->     //         // top : '300px'
->     //     },'slow');
->     // });
->     //发现再点没有效果，如果继续往右移动，可以使用累加、累减功能
->     $('#box span.text-info').click(function(){
->         $('#pox').animate({
->             left : '+=300px',
->             //top : '-=300px',
->         },'slow');
->     });
-> });
-> ```
-### ④ 列队动画方法:queue()方法，连缀执行下一个dequeue()方法，clearQueue()清理列队动画后面还没有执行的
-> ```javascript
-> $(function(){
->     //自定义实现列队动画的方式，有两种：
->     //1.通过顺序或连缀来实现列队动画 2.在回调函数中再执行一个动画；
->     //顺序执行
->     // $('#box span.text-info').click(function(){
->     //     $('#pox').animate({left : '300px'},'slow');
->     //     $('#pox').animate({top : '300px'});
->     //     $('#pox').animate({width : '500px'});
->     // });
->     //连缀执行
->     // $('#box span.text-info').click(function(){
->     //     $('#pox').animate({left : '300px'},'slow').animate({top : '300px'}).animate({width : '500px'});
->     //     //当然不同元素仍然是同步的
->     //     $('#test span').animate({fontSize : '200px'});
->     // });
->     //回调执行
->     // $('#box span.text-info').click(function(){
->     //     $('#pox').animate({left : '300px'},'slow',function(){
->     //         $('#pox').animate({top : '300px'},function(){
->     //             $('#pox').animate({width : '500px'},function(){
->     //                 $('#test span').animate({fontSize : '200px'});
->     //             });
->     //         });
->     //     });
->     // });
->     //动画太多，可读性大大降低
+>         } else {
+>             console.log('请求失败');
+>         }
 > 
->     //问题2：连缀执行动画和css方法一起使用，css方法会提前
->     $('#box span.text-info').click(function(){
->         // $('#pox').slideUp('slow').slideDown('slow').css('background', 'orange');
->         // 发现css方法提前执行了
->         //回调
->         $('#pox').slideUp('slow').slideDown('slow',function(){
->             $(this).css('background', 'orange');
->         });
->         //回调又回到了上面一个问题，就是动画多了，代码凌乱可读性降低，同时污染了slideDown方法
->     });
-> });
+>     }
+>     json.send();
+> }
 > ```
-> 列队动画方法:queue()方法，连缀执行下一个dequeue()方法
-> ```javascript
-> $(function(){
->     //queue()方法，执行列队动画，代替在前一个动画里执行回调，可继续连缀，代码清晰很多
->     $('#box span.text-info').click(function(){
->         $('#pox').slideUp('slow').slideDown('slow').queue(function(){
->             $(this).css('background', 'orange');
->             $(this).dequeue();//执行后面的连缀加上$(this).dequeue();
->         }).hide('slow');
->     });
->    //也可以写成顺序调用的列队，逐个执行，非常清晰
->    $('#box span.text-info').click(function(){
->        $('#pox').slideUp('slow');
->        $('#pox').slideDown('slow');
->        $('#pox').queue(function(){
->            $(this).css('background', 'orange');
->            $(this).dequeue();//执行后面的连缀加上$(this).dequeue();
->        });
->        $('#pox').hide('slow');
->    });
-> });
-> ```
-> 清理后面的动画clearQueue()
-> ```javascript
-> $(function(){
->     $('#box span.text-info').click(function(){
->         $('#pox').slideUp('slow').slideDown('slow',function(){
->             $(this).clearQueue();//清理后面的动画
->         }).queue(function(){
->             $(this).css('background', 'orange');
->             $(this).dequeue();//执行后面的连缀加上$(this).dequeue();
->         }).hide('slow');
->     });
-> });
-> ```
+> 我们通过new XMLHttpRequest();对象请求数据或文件，实际上我们用的就是ajax。接下来我们对XMLHttpRequest对象做一个深度分析。
 
-### 5、 动画相关方法：stop()强制停止动画，delay()延迟动画执行
-> 它有两个可选参数：.stop(clearQueue, gotoEnd)；clearQueue 传递一个布尔值，代表是否清空未执行完的动画列队，gotoEnd 代表是否直接将正在执行的动画跳转到末状态。
-> ```javascript
-> <span class="text-primary">停止动画</span>
-> $(function () {
->     //执行动画
->     $('#box span.text-info').click(function(){
->         // $('#pox').animate({
->         //     left:'800px'
->         // },2000);
->         //列队动画分析下这两个参数
->         // $('#pox').animate({left : '600px'},2000).animate({top : '300px'}).animate({width : '500px'});
->         //动画延迟delay
->         $('#pox').animate({left : '600px'},2000).delay(1500).animate({top : '300px'}).animate({width : '500px'});
->     });
->     //停止动画
->     $('#box span.text-primary').click(function(){
->         // $('#pox').stop();//相当于：$('#pox').stop(false,false);
->         //第一个参数表示是否取消列队动画，默认为 false。如果参数为true，当有列队动画的时候，会取消后面的列队动画。
->         //第二参数表示是否到达当前动画结尾，默认为false。如果参数为 true，则停止后立即到达末尾处。
->         // $('#pox').stop();//如果是列队动画，停止的话只停止第一个动画，后面继续
->         // $('#pox').stop(true);//如果第一个参数是true,则是停止并清除后面的列队动画，即动画完全停止，默认false
->         // $('#pox').stop(true,true);//如果第二个参数是true,停止后会跳转到末尾的位置上，不是说停止后跳转到最后的效果
->     });
->     
-> });
-> ```
-### 6、判断在运动的动画，通过过滤器:animated
-> ```javascript
-> $(function () {
->     //执行循环运动动画
->     $('#box span.text-info').click(function(){
->         $('#pox').slideToggle('slow',function(){
->             $('#pox').slideToggle('slow',arguments.callee);
->         });
->     });
->     //停止动画
->     $('#box span.text-primary').click(function(){
->         //停止正在运动的动画，并且设置黑色背景
->         $('div:animated').stop().css('background', 'black');
->     });
->     
-> });
-> ```
-### 7、动画全局属性：$.fx.interval（设置每秒运行的帧数），$.fx.off（关闭页面上所有的动画），默认swing(缓动)，linear(匀速运动)
-> $.fx.interval 属性可以调整动画每秒的运行帧数，默认为 13 毫秒。数字越小越流畅，但可能影响浏览器性能，一般不建议设置，就用默认的即可
-> ```javascript
-> <div id="pox" style="background-color: red;width: 200px;height: 200px;position: relative;">
->    <input type="text" name="test" value="123" />
-> </div>
-> <div id="pox1" style="background-color: black;width: 200px;height: 200px;position: relative;">
->    <input type="text" name="test" value="123" />
-> </div>
-> $(function () {
->     //设置运行帧数为 1000 毫秒
->     // $.fx.interval = 1000; //默认为 13，不要自己设置，就用默认的
->     //执行循环动画
->     $('#box span.text-info').click(function(){
->         // $('#pox').slideToggle('slow',function(){
->         //     $('#pox').slideToggle('slow',arguments.callee);
->         // });
->         //默认swing(缓动) 
->         $('#pox').animate({left : '800px'},'slow','swing',function(){});
->         //改成匀速运动
->         $('#pox1').animate({left : '800px'},'slow','linear',function(){});
->     });
->     //停止动画
->     $('#box span.text-primary').click(function(){
->         //停止正在运动的动画，并且设置黑色背景
->         $('div:animated').stop().css('background', 'black');
->     });
->     //全局关闭动画（遇到低版本老旧浏览器的用户，就不要给它动画了，卡的不行）
->     // $.fx.off = true; //默认为 false
-> 
->     //动画运动方式：默认swing(缓动)、还有一个：linear(匀速)，
-> });
-> ```
-
-<br/>
-<b>关于动画的说明：</b> <br/>
-
-> 1、大家可以去群里面下载本节课的课件，课件里面有一个文件夹animatejs（jQuery操作dom动画等小案例），里面有一个小案例，大家可以看一下，看一下我们jQuery操作DOM对象、动画等，看一下哪些代码你能看懂（都做了注释了）;<br/><br/>
-> 2、关于动画，随着我们现代浏览器标准的统一和支持CSS3的属性，我们的css已经可以完成许多复杂的动画效果了，关于css动画，我们会在后面的课程给大家讲解；<br/><br/>
-> 3、另外，关于css动画，网上也有很多开源的动画库，如：<a href="https://animate.style/" target="_blank">Animate.css</a>
-<a href="https://www.bootcdn.cn/animate.css/" target="_blank" style="margin-left:20px">[下载]</a> <br/>
+###  ① 第一步：须调用 open()方法：三个参数：要发送的请求类型(get、post)、请求的 URL 和表示是否异步
 
 
-## 三、jQuery插件
-> 我们在<a href="/secondless/w-b/jQuery.html" target="_blank">jQuery介绍</a>中就说了：依托这个库开发的插件数量超过了百万个。那么这些插件可以在哪里查看下载呢？<a href="https://www.bootcdn.cn/" target="_blank">[下载jQuery插件]</a>。<br/>
-> jQuery插件的种类很多，主要大致可以分为：UI 类、表单及验证类、输入类、特效类、Ajax类、滑动类、图形图像类、导航类、综合工具类、动画类等等。<br/>
-> 那么这些插件既然是依赖jQuery开发的，那么也就是在使用的时候注意：<br/>
-> 1. 必须先引入 jquery库文件，而且在所有插件之前引入；
-> 2. 引入插件；
-> 3. 引入插件的周边，比如皮肤、中文包等。
 
-举个例子，我们在页面登录成功后，如果下次想不输入账号密码也可以登录，我们在第二学期第1季课程里面讲了数据cookie <a href="/secondless/w-a/数据Cookie、XML、JSON.html" target="_blank">第二学期第1季-章节18数据cookie</a>，存储用户登录信息。<br/><br/>学习过的同学都知道，我们原生js给我们提供的cookie用法，稍微有些复杂，那么，既然说jQuery是js优秀的开源封装库，那么针对cookie，jQuery有没有做些封装呢，答案是：有的。<br/><br/>虽然说，我们的jQuery源码里面没有提供关于cookie的方法，但是，依托于jQuery库，在其百万级别的插件中，有一款插件就是专门处理数据cookie的，接下来我们通过学习这个插件，举一反三，大家学会如何使用jQuery库的百万插件。
 
-下载jquery的cookie插件：<a href="https://www.bootcdn.cn/jquery-cookie/" target="_blank">[下载：jquery.cookie.min.js]</a>  <br/>
 
-### jQuery插件：cookie插件
-### 1、引入：下载本地引入、或在线引入
-> ```javascript
-> <script src="https://cdn.bootcdn.net/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
-> ```
-### 2、使用插件方法
-> ```javascript
-> $(function () {
->     // 回忆：js原生cookie，最终我们是封装了三个方法
->     //jQuery的cookie插件
->     //1、生成一个 cookie：
->     // $.cookie('user', '迪丽热巴');
-> 
->     //3、关闭编码/解码，默认为 false
->     // $.cookie.raw = true;
-> 
->     //2、读取 cookie 数据
->     // alert($.cookie('user'));
-> 
->     //4、读取所有 cookie 数据
->     // console.log('所有 cookie',$.cookie());
->     // console.log($.cookie().user);
-> 
->     //5、删除 cookie
->     // $.removeCookie('user');
->     // console.log($.cookie().user);
-> 
->     //6、设置 cookie 参数
->     // $.cookie('username', '古力娜扎', {
->     //     expires : 7, //过期时间，7 天后
->     //     path : '/animatejs/', //设置路径，一般不要设置路径，获取删除都麻烦
->     //     // domain : 'www.net.com', //设置域名
->     //     // secure : true, //默认为 false，需要使用安全协议https
->     // });
->     
-> });
-> ```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 <br/><br/><br/><br/><br/><br/>
 
@@ -873,6 +261,7 @@ return false;是e.preventDefault();e.stopPropagation();阻止冒泡和默认行�
 ### [章节6.Ajax](/secondless/w-b/Ajax '章节6.Ajax')
 
 <br/><br/>
+
 ## 其它学期课程
 ### [第一学期（学习顺序：01）](/aboutless.html '第一学期课程')
 > 第一学期课程专为零基础的学员定制录制的，纯html+css做企业网站的网页，主讲html和css的相关基础知识，flex布局相关知识，封装css基础样式库，引入字体图标及网页开发基础布局思维，完成企业网站网页的开发过程。<br/><br/>
