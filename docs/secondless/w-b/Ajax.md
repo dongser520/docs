@@ -114,10 +114,40 @@ title: 章节6.Ajax
 > }
 > ```
 
-
-
-
-
+## 2、理解get、post请求
+> 在提供服务器请求的过程中，有两种方式，分别是：GET（get） 和 POST（post）。<br/><br/>
+> 在web程序上：<br/>get一般是URL提交请求，比如：http://www.net.com/domo.js?username=迪丽热巴&sex=女 <br/>
+> post提交一般是表单提交，提交内容不写在网址上面 （更多区别我们总结的时候再讲）                <br/><br/>
+> 在了解这两种请求方式前，我们先了解一下 HTTP 头部信息，包含服务器返回的响应头信息和客户端发送出去的请求头信息。我们可以获取响应头信息或者设置请求头信息。
+### ① getAllResponseHeaders()获取整个响应头信息，getResponseHeader()获取单个响应头信息，setRequestHeader()设置请求头信息
+> ```javascript
+> //两种头信息：
+> //1、响应头信息：服务器返回的信息，客户端可以获取，但是不可以设置
+> //2、请求头信息：客户端发送的信息，客户端可以设置，但不可以获取
+> window.onload = function(){
+>     let xhr = new XMLHttpRequest();
+>     xhr.onreadystatechange = function(){
+>         if(xhr.readyState == 4){
+>            if(xhr.status == 200){
+>                 console.log('获取成功数据',xhr);
+>                 //1、响应头信息：服务器返回的信息，客户端可以获取，但是不可以设置
+>                 //使用 getAllResponseHeaders()获取整个响应头信息
+>                 console.log('获取整个响应头信息',xhr.getAllResponseHeaders());
+>                 //使用 getResponseHeader()获取单个响应头信息
+>                 console.log('获取单个响应头信息【Content-Type】',xhr.getResponseHeader('Content-Type'));
+>            }else{
+>                console.log('获取数据失败')
+>            }
+>         }
+>     }
+>     xhr.open('get','./demo.json',true);
+>     //2、请求头信息：客户端发送的信息，客户端可以设置，但不可以获取
+>     xhr.setRequestHeader('username',encodeURIComponent('迪丽热巴'));//设置请求头信息，中文需转码
+>     //在get方式提交用处不大，一般post提交数据的时候，携带cookie或者token给服务器用得比较多
+> 
+>     // xhr.responseType = 'json';
+>     xhr.send(null);
+> }
 
 
 
