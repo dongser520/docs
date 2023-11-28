@@ -6,7 +6,7 @@ title: 章节6.Ajax
 
 
 前言
-> Ajax：AsynchronousJavaScript + XML 的简写，是一种技术，这种技术能够向服务器请求额外的数据而无须刷新页面。Ajax 技术核心是 XMLHttpRequest 对象(简称 XHR)。<br/><br/>关于Ajax，我们将分两部分进行讲解，一部分是：原生js进行讲解，另外一部分是jQuery将原生js进行封装之后的方法进行讲解，即jQuery中ajax的应用。
+> Ajax：Asynchronous JavaScript + XML 的简写，是一种技术，这种技术能够向服务器请求额外的数据而无须刷新页面。Ajax 技术核心是 XMLHttpRequest 对象(简称 XHR)。<br/><br/>关于Ajax，我们将分两部分进行讲解，一部分是：原生js进行讲解，另外一部分是jQuery将原生js进行封装之后的方法进行讲解，即jQuery中ajax的应用。
 
 ## 一、原生js中的Ajax
 ## 1、XMLHttpRequest 
@@ -41,12 +41,78 @@ title: 章节6.Ajax
 > ```
 > 我们通过new XMLHttpRequest();对象请求数据或文件，实际上我们用的就是ajax。接下来我们对XMLHttpRequest对象做一个深度分析。
 
-###  ① 第一步：须调用 open()方法：三个参数：要发送的请求类型(get、post)、请求的 URL 和表示是否异步
+###  ① 第一步：调用 open()方法准备发送请求（发送请求前的准备工作）：三个参数：要发送的请求类型(get、post)、请求的 URL 和表示是否异步
+> ```javascript
+> window.onload = function(){
+>     //创建XMLHttpRequest对象，可以理解成XMLHttpRequest是一个构造函数，实例化一个对象
+>     let xhr = new XMLHttpRequest();
+>     console.log('初始化时候的xhr对象', xhr);
+> }
+> ```
+> 创建完XMLHttpRequest 对象后，先调用open方法，这个方法在它的原型上
+> ```javascript
+> window.onload = function(){
+>     //创建XMLHttpRequest对象，可以理解成XMLHttpRequest是一个构造函数，实例化一个对象
+>     let xhr = new XMLHttpRequest();
+>     console.log('初始化时候的xhr对象', xhr);
+>     //第一步：须调用 open()方法：三个参数：要发送的请求类型(get、post)、请求的 URL 和表示是否异步
+>     //1、请求类型(get、post、put、delete等等)，关于请求类型，后面会说，常用的是get/post两种方式
+>     //2、关于get/post 区别，我们在后面总结的时候会讲
+>     //3、请求的 URL: 就是一个网络地址（网址、接口地址）
+>     //4、是否异步：异步就是跟同步相反的意思，同步大家知道就是发出去立刻返回无需等待
+>     //异步：就是发送请求出去要等一会，哪怕是1ms，这里可以使用异步也可以使用同步，我们先讲异步 true
+>     //意思就是：我请求这个json文件，我等了20ms服务器才返回这个json文件数据给我，而这20ms
+>     //是由于我的网络不通畅导致的，如果你此时在山区，网络信号更差，那需要等待的时间更长
+>     //所以需要异步,就是发完请求之后要等一会（同步我们后面会讲）
+> 
+>     xhr.open('get','./demo.json',true);//意思是准备发送请求,发送前的准备工作，还没有发送
+> }
+> ```
+###  ② 第二步：通过 send()方法进行发送请求：一个参数：作为请求主体发送的数据，如果不需要则，必须填 null
+> 执行 send()方法之后，请求就会发送到服务器上。
+> ```javascript
+> window.onload = function(){
+>     let xhr = new XMLHttpRequest();
+>     xhr.open('get','./demo.json',true);//意思是准备发送请求,发送前的准备工作，还没有发送
+>     xhr.send(null); //发送请求
+> }
+> ```
+###  ③ 第三步：发送完了之后，得监听结果（监听服务器给你的请求结果），通过readystatechange 事件监听服务器给你的结果
+<strong style="color:#00A5F7;"> 特别注意：监听事件readystatechange必须要写在准备发送之前</strong>
 
-
-
-
-
+> ```javascript
+> window.onload = function(){
+>     let xhr = new XMLHttpRequest();
+>     //监听服务器返回的结果
+>     xhr.onreadystatechange = function(){
+>         console.log('在查看一下xhr',xhr);
+>         //发现执行了4次，通过readyState 属性得到1,2,3,4
+>         //1:状态:启动  已经调用 open()方法，但尚未调用 send()方法
+>         //2:状态:发送  已经调用 send()方法，但尚未接受响应
+>         //3:状态:接受  已经接受到服务器部分响应数据 
+>         //4:状态:完成  已经接受到全部响应数据，而且可以使用
+>         if(xhr.readyState == 4){
+>            console.log('已经全部接收完数据了',xhr);
+>            console.log('response',xhr.response);//请求返回的数据
+>            console.log('response类型',typeof xhr.response);
+>            console.log('responseText', xhr.responseText);//请求返回的文本数据
+>            console.log('responseText类型', typeof xhr.responseText);
+>            console.log('responseType',xhr.responseType);//请求返回的数据类型
+>            console.log('responseURL',xhr.responseURL);//请求地址
+>            console.log('status',xhr.status);//200获取成功
+>            if(xhr.status == 200){
+>               console.log('获取成功数据',xhr.response)
+>            }else{
+>               console.log('获取数据失败')
+>            }
+>         } 
+> 
+>     }
+>     xhr.open('get','./demo.json',true);//意思是准备发送请求,发送前的准备工作，还没有发送
+>     // xhr.responseType = 'json';
+>     xhr.send(null); //发送请求
+> }
+> ```
 
 
 
