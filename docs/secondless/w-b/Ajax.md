@@ -9,7 +9,7 @@ title: 章节6.Ajax
 > Ajax：Asynchronous JavaScript + XML 的简写，是一种技术，这种技术能够向服务器请求额外的数据而无须刷新页面。Ajax 技术核心是 XMLHttpRequest 对象(简称 XHR)。<br/><br/>关于Ajax，我们将分两部分进行讲解，一部分是：原生js进行讲解，另外一部分是jQuery将原生js进行封装之后的方法进行讲解，即jQuery中ajax的应用。
 
 ## 一、原生js中的Ajax
-## 1、XMLHttpRequest 
+## 1、XMLHttpRequest (简称 XHR，XHR API)
 回顾之前获取外部json文件
 > 我们在<a href="/secondless/w-a/数据Cookie、XML、JSON.html#_2-获取外部json文件" target="_blank">第二学期第1季-章节18-Ⅴ、JSON-② 获取外部json文件</a> 
 > ```javascript
@@ -115,8 +115,8 @@ title: 章节6.Ajax
 > ```
 
 ## 2、理解get、post请求
-> 在提供服务器请求的过程中，有两种方式，分别是：GET（get） 和 POST（post）。<br/><br/>
-> 在web程序上：<br/>get一般是URL提交请求，比如：http://www.net.com/domo.js?username=迪丽热巴&sex=女 <br/>
+> 在提供服务器请求的过程中，有两种最常用的方式，分别是：GET（get） 和 POST（post）。<br/><br/>
+> 在web程序上：<br/>get一般是URL提交请求，比如：http://www.net.com/domo.json?username=迪丽热巴&sex=女 <br/>
 > post提交一般是表单提交，提交内容不写在网址上面 （更多区别我们总结的时候再讲）                <br/><br/>
 > 在了解这两种请求方式前，我们先了解一下 HTTP 头部信息，包含服务器返回的响应头信息和客户端发送出去的请求头信息。我们可以获取响应头信息或者设置请求头信息。
 ### ① getAllResponseHeaders()获取整个响应头信息，getResponseHeader()获取单个响应头信息，setRequestHeader()设置请求头信息
@@ -149,29 +149,145 @@ title: 章节6.Ajax
 >     xhr.send(null);
 > }
 
+### ② get请求
+> 最常用于向服务器查询某些信息。必要时，可以将查询字符串参数追加到 URL 的末尾，以便提交给服务器。
+> ```javascript
+> xhr.open('get','./demo.json?username=123&sex=女',true);
+> ```
+> 一般传参的时候，比如上面的sex=女，这个值：女，传递之前，需要encodeURIComponent('女')编码一下，以免乱码。
+
+### ③ post请求
+> 当我们请求或者提交的数据量比较大的时候，我们一般采用post请求，而发送 POST 请求的数据，不会跟在 URL 的尾巴上，而是通过 send()方法向服务器提交数据。
+> ```javascript
+> window.onload = function(){
+>     let xhr = new XMLHttpRequest();
+>     xhr.onreadystatechange = function(){
+>         if(xhr.readyState == 4){
+>            if(xhr.status == 200){
+>                 console.log('获取成功数据',xhr)
+>                 
+>            }else{
+>                console.log('获取数据失败')
+>            }
+>         }
+>     }
+>     xhr.open('post','./demo.json',true);
+>     // xhr.responseType = 'json';
+>     //一般来说，向服务器发送 POST 请求由于解析机制的原因，需要进行特别的处理
+>     //因为POST 请求和 Web 表单提交是不同的，需要使用 XHR 来模仿表单提交
+>     xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+>     xhr.send('username=123&sex=女');//send方法里面加一些内容
+> }
+> ```
+> <br/>
+### ④ 小结get和post请求
+> <b>简单小结get和post请求：</b><span style="color:#00A5F7"> (更多区别会在后面的项目中，给大家讲解)</span><br/><br/>
+> 1. <b style="color:green">参数传递方式</b>：GET请求将参数附加在URL的查询字符串中，例如：`http://www.net.com/demo.json?username=123&sex=女`。而POST请求将参数放在请求的消息体中，不会直接暴露在URL中。
+> <br/><br/>
+> 2. <b style="color:green">请求长度限制</b>：GET请求对URL长度有限制，不同浏览器和服务器对长度限制的具体要求有所不同，一般在几千个字符左右`(通常在2KB到8KB之间)`。`POST方法将数据放在HTTP请求体中，因此数据大小不受限制`。但是，Web服务器和Web应用程序可能会对POST请求的大小进行限制。这是为了避免网络拥塞和服务器过载等问题。`通常，Web服务器和Web应用程序对POST请求的大小限制在1MB到2MB之间`。
+> <br/><br/>
+> 3. <b style="color:green">安全性</b>：GET请求的参数暴露在URL中，容易被拦截和篡改，因此不适合传输敏感信息。POST请求的参数在消息体中，相对安全一些，但仍然可以被拦截和修改。
+> <br/><br/>
+> 4. <b style="color:green">缓存处理</b>：GET请求会被浏览器缓存，如果再次发送相同的GET请求，浏览器可能直接返回缓存的结果，不会再向服务器发送请求。而POST请求不会被缓存，每次发送都会向服务器请求最新的数据。
+> <br/><br/>
+> 5. <b style="color:green">使用场景</b>：GET请求适合获取数据，例如获取文章列表、查询信息等。POST请求适合提交数据，例如提交表单、创建资源等。
+> <br/><br/>
+> <b>总结来说，GET请求适合获取数据，参数在URL中，有长度限制，不安全；而POST请求适合提交数据，参数在消息体中，没有长度限制，相对安全。根据具体的需求和场景，选择适合的请求方法。</b>
 
 
+## 3、Fetch API
+前言
+> 在早期，IE浏览器率先提出了一套API来完成请求的发送（其它浏览器紧随其后跟进），这套API主要依靠一个构造函数完成，该构造函数的名称为：`XMLHttpRequest`，`简称XHR`，也就是我们上面讲的内容。所以这套API又称之为`XHR API`。<br/><br/>
+> 由于`XHR API`存在一些缺陷，写起来也麻烦，于是在HTML5和ES6发布后，产生了一套更完善的API来发送请求，这套API使用的是一个叫做 `fetch()的函数`，因此这套API又称为 `Fetch API`。<br/><br/>
+> 也就是说，不论是`XHR API` 或者 `Fetch API`，它们都是实现ajax的技术手段，只是API用法不同。并且，由于都是浏览器提供的原生方法，因此，它们两套API都是原生api，所有现代浏览器默认都支持。
 
+> ### ① Fetch API基本用法介绍
+> ```javascript
+> window.onload = function(){
+>     //console.log(window.fetch);//原生内置方法，所有浏览器都支持
+>     //默认get请求，返回的是一个Promise(关于什么是Promise我们后面会讲到)
+>     //当收到服务器的响应头之后，类似上面 xhr.readyState == 3，接收服务器部分数据了，Promise就完成了
+>     //完成之后，怎么获取结果.then()方法
+>     fetch('./demo.json').then(function(response){
+>         console.log('看一下response',response);//此时这里已经可以拿到服务器的响应头了
+>         //查看里面的headers，它这个里面有get()方法拿响应头，has()方法判断有没有某一个响应头
+>         console.log(response.headers.get('Content-Type'));
+>         //那我们看一下如何获取响应体，就是返回给我们的数据
+>         //注意我们刚刚说了，我们then()方法 相当于 xhr.readyState == 3，此时响应体数据还没有接收完
+>         //也就是说需要它继续接收响应体，直到接收完毕，类似我们上面的 xhr.readyState == 4
+>         //response原型里面有两个函数方法：json() text() 表达的意思都是继续接收响应体
+>         //json() text()方法的区别在于怎么看待这个响应体，类似与我们上面的：response 、 responseText
+>         //当成json格式看待用：json()  当成纯文本看待用：text()
+>         //当成json格式看待，当我们接收完响应体之后，它得到的就是一个json对象，或者叫js对象
+>         //如果当初纯文本格式看待，当我们接收完响应体之后，它得到的就是一个字符串
+>         // console.log(response.json());//返回的是promise 
+>         //那么既然返回的是promise，那么就可以继续用then()方法
+>         return response.json();//返回接收的响应体数据，在下一个then里面打印即可，因为当前then只是状态3
+>     }).then(function(response){
+>         console.log('看一下接收完数据的response',response);
+>     })
+> }
+> ```
+> ```javascript
+> window.onload = function(){
+>     // fetch('./demo.json').then(function(response){
+>     //     return response.json();
+>     // }).then(function(response){
+>     //     console.log('看一下接收完数据的response',response);
+>     // })
+>     fetch('./demo.json',{
+>         method: 'post',//默认get
+>         headers: {
+>             'Content-Type': 'application/json'
+>         },
+>         body:{
+>             username:encodeURIComponent('迪丽热巴'),
+>             sex:'女'
+>         }
+>         //更多参数我们项目开发中再讲
+>     }).then(res => res.json()).then(res =>{
+>         console.log('看一下接收完数据的response',res);
+>     })
+> }
+> ```
+### ② XHR 与 Fetch 中的Content-Type(或者小写content-type)
+> ```javascript
+> content-type 请求携带的数据的类型
+> 
+> application/x-www-form-urlencoded：表示数据被编码成以 ‘&’ 分隔的键 - 值对，同时以 ‘=’ 分隔键和值
+> 
+> application/json：表示是一个json类型
+> 
+> text/plain：表示是文本类型
+> 
+> application/xml：表示是xml类型
+> 
+> multipart/form-data：表示是上传文件
+> ```
+> 参考<a href="https://blog.csdn.net/ximing020714/article/details/129326246" target="_blank">https://blog.csdn.net/ximing020714/article/details/129326246</a>  
 
+## 4、 XHR（xhr） 与 Fetch（fetch）的区别 （包括：jQuery、Axios、umi-request的说明）
+> 那么有的同学不禁要问，那是不是以后就可以完全抛弃XHR，只用Fetch就可以了呢？我们来看一下对比
+> |  功能                        |  XHR                            |  Fetch                           |   
+> |   :--:                      |   :--:                           |   :--:                           | 
+> |  基本的请求能力               |   <b style="color:green;">√</b> |   <b style="color:green;">√</b>  |
+> |  基本的获取响应能力            |   <b style="color:green;">√</b> |   <b style="color:green;">√</b>  |
+> |  <b>监控请求进度</b>          |   <b style="color:green;">√</b> |   <b style="color:red;">×</b>  |
+> |  监控响应进度                 |   <b style="color:green;">√</b> |   <b style="color:green;">√</b>  |
+> |  Service Worker中是否可用     |   <b style="color:red;">×</b>   |   <b style="color:green;">√</b>  |
+> |  控制cookie的携带             |   <b style="color:red;">×</b>   |   <b style="color:green;">√</b>  |
+> |  控制重定向                   |   <b style="color:red;">×</b>   |   <b style="color:green;">√</b>  |
+> |  请求取消                     |   <b style="color:green;">√</b> |   <b style="color:green;">√</b>  |
+> |  自定义referrer               |   <b style="color:red;">×</b>   |   <b style="color:green;">√</b>  |
+> |  流                           |   <b style="color:red;">×</b>  |   <b style="color:green;">√</b>  |
+> |  API风格                      |   <b style="color:green;">Event</b> |   <b style="color:green;">√</b>  |
+> |  活跃度                       |  停止更新                            |   还在更新                       |
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+从表格可以看到，XHR能做的事情，Fetch都能做，只有一样做不了，就是`监控请求进度`。这也就意味着，`如果你要做文件的上传的进度监控的话，那么Fetch就不合适了`，只能用XHR。<br/><br/>
+因此，我们在学习的时候，两个都要学习。这是浏览器原生支持的，它是写入了HTML5的标准的。<br/><br/>除了原生之外呢，有些开发者觉得原生的不好用，所以需要对原生的做一些封装。于是产生了一些第三方库，诸如：`jQuery中的ajax`，Axios <a href="http://www.axios-js.com/" target="_blank">打开Axios中文官网</a>，`umi-request`这些第三方库 <br/><br/>
+但是注意：<br/><br/>
+所有的第三方库，它的功能边界一定是原生决定的。也就是，`原生能做到的事情，你封装过后也可能做到`，`而原生做不到的事情，你封装过后一定做不到`。原生的能力，决定了库和框架的边界，所有的第三方库都是基于原生写的封装的，原生能做的它才有机会做，否则是不可能做到的。<br/><br/>这也就意味着：像`Axios`这样的库，它在浏览器端，是使用XHR封装的，因此`Axios`就继承了XHR的所有优点和缺点，也就意味着，表格中XHR打叉叉的地方，`Axios`它也一定做不到。<br/><br/> 同理，`umi-request`这个库是用Fetch封装的，也就意味着，Fetch做不到的`监控请求进度`，`umi-request`这个库也是一样做不到，除非，针对`监控请求进度`，`umi-request`又用`XHR`来实现一遍。而且，像这些第三方库的封装，由于它们是用原生写的，而原生的代码它所运行的环境，也就决定了这些第三方库所运行的环境，比方说，AJAX运行的环境是什么？是浏览器，你脱离了浏览器就谈不上AJAX，这就决定了那些第三方库，用XHR 或者Fetch 封装的时候，它也只能在浏览器环境里面运行，除非你加入了其他环境的代码，比如说像`Axios`它有两套代码，一套是针对浏览器的代码，一套是针对Node环境的代码。<br/><br/>
+所以，希望通过老师的讲解，同学们搞清楚它们的关系。
 
 
 
