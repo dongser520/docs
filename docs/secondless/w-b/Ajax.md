@@ -290,17 +290,101 @@ title: 章节6.Ajax
 所以，希望通过老师的讲解，同学们搞清楚它们的关系。
 
 
+## 二、jQuery中的Ajax
+> 我们上一节课已经讲了，`jQuery中的Ajax` 还有 `Axios` 是对我们原生js中的`XHR`对象做了封装，对于封装的方式，jQuery 采用了三层封装：最底层的封装方法为：`$.ajax()`，而通过这层封装了第二层有三种方法：`.load()`、`$.get()`和`$.post()`，最高层是`$.getScript()`和`$.getJSON()`方法。接下来我们将围绕着三层封装进行学习使用。
+## 1、第二层封装：load()方法，$.get()和$.post()方法
+### ① load()方法是局部方法 ： 异步加载静态文件如：html文件、json文件等
+> load()方法是局部方法，因为它需要一个包含元素的 jQuery 对象作为前缀，对于用途而言，load()方法适合做静态文件的异步获取。<br/><br/>
+> `关于异步和同步再举个例子说明一下区别`：先说同步，我们普通的 Web 程序开发基本都是同步的，因为执行一段程序才能执行下一段，类似电话中的通话，一个电话接完才能接听下个电话；而异步可以同时执行多条任务，感觉有多条线路，类似于短信，不会因为看一条短信而停止接受另一条短信。Ajax 也可以使用同步模式执行，但同步的模式属于阻塞模式，这样会导致多条线路执行时又必须一条一条执行，会让 Web 页面出现假死状态，所以，一般 Ajax 大部分采用异步模式。<br/><br/>
+> 新建 /1.html文件
+> ```html
+> <div title="属性节点" class="text-danger">测试Div</div>
+> <div class="text-success">我在1.html</div>
+> ```
+> ```javascript
+> <div id="box" >
+>    <span class="text-success">异步加载json</span>
+>    <span class="text-dark">异步加载html</span> 
+>    <span class="text-danger">$.get方法</span>
+>    <span class="text-info">$.post方法</span>   
+> </div>
+> <div id="pox" class="bg-light"></div>
+> $(function(){
+>     //加载json
+>     $('#box .text-success').click(function(){
+>        $('#pox').load('./demo.json')
+>     });
+>     //加载html
+>     // $('#box .text-dark').click(function(){
+>     //     $('#pox').load('./1.html')
+>     // });
+>     //筛选加载的html，只需要在 url 参数后面跟着一个选择器即可
+>     $('#box .text-dark').click(function(){
+>         $('#pox').load('./1.html .text-success')
+>     });
+>  });
+> ```
 
-
-
-
-
-
-
-
-
-
-
+### ② $.get()和$.post()方法：是全局方法，无须指定某个元素，适合传递参数到服务器请求数据
+> $.get()和$.post()是全局方法，无须指定某个元素。对于用途而言，适合传递参数到服务器请求数据。
+> ```javascript
+> $(function(){
+>     //$.get方法：get请求
+>     $('#box .text-danger').click(function(){
+>         //参数：url地址，额外参数(条件)data，回调函数fn，[服务器返回的内容格式type，一般默认不填程序会自动判断]
+>         //内容格式:包括 xml、html、script、json、jsonp 和 text
+>         //第一个参数必填，后面的选填
+>         // $.get('./demo.json',{
+>         //     username:'123',
+>         //     sex:'女'
+>         // },function(response, status, xhr){
+>         //     //response 服务器返回的响应结果
+>         //     //status:响应的 HTTP 状态,success 获取 error
+>         //     //xhr: 都知道XMLHttpRequest对象
+>         //     console.log('response:',response);
+>         //     console.log('response类型:',typeof response);
+>         //     console.log('status:',status);
+>         //     console.log('xhr:',xhr);
+>         // },'json');
+> 
+>         $.get('./demo.json',function(response, status, xhr){
+>             console.log('response:',response);
+>             console.log('response类型:',typeof response);
+>             console.log('status:',status);
+>         });
+> 
+>     });
+>  });
+> ```
+> ```javascript
+> $(function(){
+>     //$.post方法：post请求
+>     $('#box .text-info').click(function(){
+>         //参数：url地址，额外参数(条件)data，回调函数fn，[服务器返回的内容格式type，一般默认不填程序会自动判断]
+>         //内容格式:包括 xml、html、script、json、jsonp 和 text
+>         //第一个参数必填，后面的选填
+>         // $.post('./demo.json',{
+>         //     username:'123',
+>         //     sex:'女'
+>         // },function(response, status, xhr){
+>         //     //response 服务器返回的响应结果
+>         //     //status:响应的 HTTP 状态,success 获取 error
+>         //     //xhr: 都知道XMLHttpRequest对象
+>         //     console.log('response:',response);
+>         //     console.log('response类型:',typeof response);
+>         //     console.log('status:',status);
+>         //     console.log('xhr:',xhr);
+>         // },'json');
+> 
+>         $.post('./demo.json',function(response, status, xhr){
+>             console.log('response:',response);
+>             console.log('response类型:',typeof response);
+>             console.log('status:',status);
+>         });
+> 
+>     });
+>  });
+> ```
 
 
 <br/><br/><br/><br/><br/><br/>
