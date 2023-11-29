@@ -386,6 +386,70 @@ title: 章节6.Ajax
 >  });
 > ```
 
+## 2、最高层封装：$.getJSON() 和 $.getScript()
+> jQuery 提供了一组用于特定异步加载的方法：`$.getScript()`，用于加载特定的接口或者 JS 文件；`$.getJSON()`，用于专门加载 JSON 文件。
+### ① $.getJSON()方法：专门用于加载 JSON 文件的
+> $.getJSON()方法是专门用于加载 JSON 文件的
+> ```javascript
+> $(function(){
+>     //$.getJSON()方法是专门用于加载 JSON 文件的
+>     //和 $.get()方法，$.post()方法用法类似，但是没有第四个参数，安全性相对高点
+>     $.getJSON('./demo.json',{
+>         username:123,
+>         sex:'女'
+>     },function(response, status, xhr){
+>         console.log('response:',response);
+>         console.log('status:',status);
+>         console.log('xhr:',xhr);
+>     });
+> });
+> ```
+### ② $.getScript()方法：按需加载接口或js文件
+1、比如说：客户在提交留言的时候，我想知道客户所在的城市用来甄别他的留言请求真伪，他不提交留言我也懒得知道他在哪`（因为这个免费接口每天有访问次数限制，以免浪费次数）`，这个时候就可以考虑按需加载接口 <br/>
+> ① 获取所在城市接口：<a href="https://whois.pconline.com.cn/ipJson.jsp" target="_blank">https://whois.pconline.com.cn/ipJson.jsp</a> <a href="https://whois.pconline.com.cn/" target="_blank" style="margin-left:20px">[接口具体介绍]</a>  <br/>
+> ② 搜狐提供的免费接口获取所在城市（时灵时不灵）<a href="http://pv.sohu.com/cityjson" target="_blank">http://pv.sohu.com/cityjson</a>  <br/>
+> ③ 淘宝获取ip: <a href="https://www.taobao.com/help/getip.php" target="_blank">https://www.taobao.com/help/getip.php</a>  <br/>
+`特别说明：上面的接口只是作为演示用，讲解一下$.getScript()方法按需加载逻辑而已，若真有这方面的需求，可以采用百度、腾讯、高德地图给我们提供的定位服务，后面的课程有关于这方面知识的讲解，大家不用着急。`
+> ```javascript
+> $.getScript('http://pv.sohu.com/cityjson',function(){
+>    //回调函数获取接口返回结果，本接口返回的结果是：
+>    //var returnCitySN = {"cip": "xxx.xx.xx.x", "cid": "00", "cname": "未知"};
+>    //这个结果 returnCitySN 通过var声明，说明是全局变量，属于window的属性，因此可以直接打印
+>    console.log(returnCitySN);
+>    console.log(returnCitySN.cname);
+> });
+> ```    
+2、再比如说：基于jQuery的网页上，开发了一百个功能，需要用到一百个jQuery插件，那是不是要在网页head里面引入一百个插件呢？很明显很多功能，是需要用户操作在去实现这个功能，很多功能没必要一开始，页面一打开就全部引入这些插件，插件一开始全部引入，不仅影响页面性能，而且有可能插件之间产生方法的互斥等等可能，那么这个时候可以考虑按需引入插件js文件。<br/><br/>
+`举个例子`，jQuery中有一款插件是生成网页二维码的：<a href="https://www.bootcdn.cn/jquery.qrcode/" target="_blank">jquery.qrcode</a> <a href="https://www.jianshu.com/p/f2bf33e0fcb2" target="_blank" style="margin-left:20px">[使用说明]</a>
+> ```javascript
+> <div id="box" >
+>   <span class="text-warning">$.getScript方法</span>
+> </div>
+> <div id="pox" class="bg-light"></div>
+> $(function(){ 
+>     $('#box .text-warning').click(function(){
+>         $.getScript('https://cdn.bootcdn.net/ajax/libs/jquery.qrcode/1.0/jquery.qrcode.min.js',function(){
+>             //先加载二维码插件，在执行里面的方法
+>             //render        绘制方式 canvas(绘制成一张图片) table(绘制成一个表格) 默认 canvas
+>             //width         二维码宽度  默认 256
+>             //height        二维码高度  默认 256
+>             //correctLevel  容错等级    1(L),0(M),3(Q),2(H)    1 最低, 2 最高  默认为 2
+>             //background    背景颜色    默认白色    #ffffff
+>             //foreground    前景颜色    默认黑色    #000000
+>             // 使用示例
+>             $("#pox").qrcode({ 
+>                 render: "table", //table方式 默认 canvas
+>                 width: 200, //宽度 
+>                 height:200, //高度 
+>                 //background: "#eceadb",//背景颜色
+>                 //foreground: "#444",//前景颜色
+>                 text: "https://docs.51yrc.com/secondless/w-b/Ajax.html" //任意内容 
+>             }); 
+>         });
+>     });
+>  });
+> ```
+
 
 <br/><br/><br/><br/><br/><br/>
 
