@@ -475,7 +475,7 @@ title: 章节6.Ajax
 |  processData                |   Boolean                        |   默认为 true，数据被处理为 URL 编码格式。如果为 false，则阻止将传入的数据处理为 URL 编码的格式。    |
 |  dataFilter                 |   Function                       |   用来筛选响应数据的回调函数。                                                                   |
 |  ifModified                 |   Boolean                        |   默认为 false，不进行头检测。如果为 true，进行头检测，当相应内容与上次请求改变时，请求被认为是成功的。|
-|  jsonp                      |   String                         |   指定一个查询参数名称来覆盖默认的 jsonp 回调参数名 callback。                                      |
+|  jsonpCallback              |   String                         |   指定一个查询参数名称来覆盖默认的 jsonp 回调参数名 callback。                                      |
 |  username                   |   String                         |   在 HTTP 认证请求中使用的用户名                                                                 |
 |  password                   |   String                         |   在 HTTP 认证请求中使用的密码                                                                  |
 |  scriptCharset              |   String                         |   当远程和本地内容使用不同的字符集时，用来设置 script 和 jsonp 请求所使用的字符集。                  |
@@ -636,6 +636,74 @@ title: 章节6.Ajax
 >    //使用$.param()将对象形式的键值对转为 URL 地址的字符串键值对，可以更加稳定准确的传递表单内容
 > });
 > ```
+
+### ④ jQuery中的跨域jsonp使用
+> 关于什么是跨域，我们后面课程会给大家讲解。
+> ```javascript
+> //初略理解跨域：当前服务器域名和你访问的服务器域名不同（更多理解后面会讲）
+> //远程另外一台服务器
+> $.ajax({
+>    url:'https://www.taobao.com/help/getip.php',
+>    type:'get',
+>    dataType:'jsonp',//处理跨域问题
+>    jsonpCallback:'ipCallback',//根据另外一台服务器回调的名字确定（没有则不填）
+>    success:function(response){
+>       console.log(response);
+>    }
+> });
+> //1、远程另外一台服务器公开的api接口
+> //2、处理域名不一致问题，可用jsonp尝试
+> ```
+### ⑤ 延伸一下：jQuery中的跨域jsonp模拟百度搜索提示数据
+> ```html
+> <div id="jsonp" style="margin-left: 100px;">
+>    <input type="text" style="width: 500px;height: 50px;" >
+>    <button style="height: 50px;margin-left: 30px;">模拟百度提示</button>
+>    <ul id="response"></ul>
+> </div>
+> ```
+> ```javascript
+> //常用参数
+> // $.ajax({
+> //     url:'',//请求地址
+> //     datatype:'jsonp',//发送jsonp请求必须指定数据类型为jsonp
+> //     jsonp:'参数名',//服务器接收回调函数的参数名如callback ,cb等等默认callback
+> //     jsonpCallback:'回调函数名',//默认jQuery123545_43456。。。。的随机字符串，可以自定义
+> //     success:function(){}
+> // });
+> //模拟一下百度搜索输入关键词提示效果
+> //看一下请求地址：https://www.baidu.com/sugrec?pre=1&p=3&ie=utf-8&json=1&prod=pc&from=pc_web&
+> //sugsid=39676,39712,39764,39779,39790,39703,39795,39688,39662,39678,39817,39664,39784,39840&
+> //wd=jquery%20&his=%5B%7B%22time%22%3A1701315176%2C%22kw%22%3A%22%24.> > ajax%20beforesend%22%2C%22fq%22%3A2%7D%2C%7B%22time%22%3A1701326047%2C%22kw%22%3A%22jq%20datatype%3A%27jsonp%27%22%2C%22fq%22%3A2%7D%2C%7B%22time%22%3A1701328395%2C%22kw%22%3A%22%E7%BE%8E%E5%A5%B3%22%2C%22fq%22%3A4%7D%2C%7B%22time%22%3A1701328453%2C%22kw%22%3A%22jquery%22%2C%22fq%22%3A2%7D%5D&req=2&bs=jquery&pbs=jquery&csor=7
+> //&pwd=jquery&cb=jQuery1102013659887251776048_1701328381053&_=1701328381078
+> //我们只需提取有用的参数 wd对应搜索的值，cb对应回调函数的名称基于这两个参数就可以实现我们的功能 
+> //压缩一下url地址 ---- https://www.baidu.com/sugrec?pre=1&p=3&ie=utf-8&json=1&prod=pc
+> //于是可以：当键盘抬起时发送请求，并将请求的结果显示在输入框下面
+> $('#jsonp input').keyup(function(){
+>    let word = $(this).val();
+>    $.ajax({
+>       url:'https://www.baidu.com/sugrec?pre=1&p=3&ie=utf-8&json=1&prod=pc',
+>       dataType:'jsonp',
+>       jsonp:'cb',//回调函数参数
+>       data:{//发送的数据
+>             wd:word
+>       },
+>       success:function(msg){
+>             console.log(msg)
+>             let data = msg.g;
+>             let html =  '<ul>';
+>             $.each(data,function(i,e){
+>                // console.log(e.q)e.q就是文本数据
+>                html += "<li>"+e.q+"</li>";
+>             })
+>             html+='</ul>';
+>             console.log(html);
+>             $('#response').html(html);
+>       }
+>    })
+> });
+> ```
+
 
 <br/><br/><br/><br/><br/><br/>
 
