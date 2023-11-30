@@ -450,6 +450,192 @@ title: 章节6.Ajax
 >  });
 > ```
 
+## 3、最底层的封装：$.ajax()
+> `$.ajax()`是jQuery封装的所有ajax方法中最底层的方法，所有其它方法都是基于`$.ajax()`方法的封装。这个方法只有一个参数，传递一个各个功能键值对的对象。<br/><br/>
+> 简单点说：就是，`$.ajax()`可以替代上面讲的所有方法，因为上面讲的方法，都是在这个方法的基础上再次做的封装。
+
+<p style="text-align:left">$.ajax()方法传递的对象参数表</p> 
+
+|  参数                        |  类型                            |  说明                                                                          |   
+|   :--:                      |   :--:                           |   :--:                                                                         | 
+|  url                        |   String                         |   发送请求的地址                                                                |
+|  type                       |   String                         |   请求方式：POST 或 GET，默认 GET                                               |
+|  timeout                    |   Number                         |   设置请求超时的时间（毫秒）                                                     |
+|  data                       |   Object 或 String               |   发送到服务器的数据，键值对字符串或对象                                          |
+|  dataType                   |   String                         |   返回的数据类型，比如 html、xml、json 等                                        |
+|  beforeSend                 |   Function                       |   发送请求前可修改 XMLHttpRequest 对象的函数                                     |
+|  complete                   |   Function                       |   请求完成后调用的回调函数                                                       |
+|  success                    |   Function                       |   请求成功后调用的回调函数                                                       |
+|  error                      |   Function                       |   请求失败时调用的回调函数                                                       |
+|  global                     |   Boolean                        |   默认为 true，表示是否触发全局 Ajax                                             |
+|  cache                      |   Boolean                        |   设置浏览器缓存响应，默认为 true。如果 dataType类型为 script 或 jsonp 则为 false。|
+|  content                    |   DOM                            |   指定某个元素为与这个请求相关的所有回调函数的上下文。                              |
+|  contentType                |   String                         |   指定请求内容的类型 , 默认为 application/x-www-form-urlencoded。                |
+|  async                      |   Boolean                        |   是否异步处理。默认为 true，false 为同步处理                                    |
+|  processData                |   Boolean                        |   默认为 true，数据被处理为 URL 编码格式。如果为 false，则阻止将传入的数据处理为 URL 编码的格式。    |
+|  dataFilter                 |   Function                       |   用来筛选响应数据的回调函数。                                                                   |
+|  ifModified                 |   Boolean                        |   默认为 false，不进行头检测。如果为 true，进行头检测，当相应内容与上次请求改变时，请求被认为是成功的。|
+|  jsonp                      |   String                         |   指定一个查询参数名称来覆盖默认的 jsonp 回调参数名 callback。                                      |
+|  username                   |   String                         |   在 HTTP 认证请求中使用的用户名                                                                 |
+|  password                   |   String                         |   在 HTTP 认证请求中使用的密码                                                                  |
+|  scriptCharset              |   String                         |   当远程和本地内容使用不同的字符集时，用来设置 script 和 jsonp 请求所使用的字符集。                  |
+|  xhr                        |   Function                       |   用来提供 XHR 实例自定义实现的回调函数                                                           |
+|  traditional                |   Boolean                        |   默认为 false，不使用传统风格的参数序列化。如为 true，则使用。                                     |
+简单示例
+> ```javascript
+> //$.ajax()用法
+> $.ajax({
+>    type: 'POST', //这里可以换成 GET
+>    url: './demo.json',
+>    data: {
+>       username:123,
+>       sex:'女'
+>    },
+>    success: function (response, stutas, xhr) {
+>       console.log(response)
+>    }
+> });
+> ```
+更详细的用法会在我们后面的实战案例里面给大家展示和讲解。
+
+## 4、表单序列化
+> ```html
+> <form id="myForm" name="yourForm" class="my-5 flex justify-center">
+>    <select name="usertype">
+>       <option value="学生value">学生text</option>
+>       <option value="老师value">老师text</option>
+>       <option value="管理员value">管理员text</option>
+>       <option>无</option>
+>    </select>
+>    <input type="radio" name="sex" value="男" > 男
+>    <input type="radio" name="sex" value="女" checked="checked">  女
+>    <input type="checkbox" name="loves" value="篮球" checked="checked"> 篮球
+>    <input type="checkbox" name="loves" value="足球" checked="checked">  足球
+>    <input type="checkbox" name="loves" value="乒乓球" >  乒乓球
+>    账号：<input type="text" name="username" value="abc">
+>    <input id="sub"  type="submit" value="提交"  >
+> </form>
+> ```
+### ① 常规形式的表单提交（表单提交数据）
+> 注意：<br/>`直接按提交按钮，回顾前面的知识我们说过：form表单中的 `type="submit"`会自动进行表单数据的提交，采用的是GET方式提交，将提交数据放在网址的后面。`<br/>
+> `我们可以采用阻止默认行为，或者将提交按钮类型改成 `type="button"` 通过点击事件提交。`
+> ```javascript
+> $('form input[type=button]').click(function(){
+>    // console.log($('input:checked[name=loves]'));//集合
+>    $.ajax({
+>       type: 'POST', //表单提交我们采用post
+>       url: './xxx',//提交给服务器的接口地址，一般后端程序员给你一个接口（当然你可以自己写一个接口）
+>       data: { // 搜索文档：表单提交数据，传递的是对象键值对参数object
+>             username : $('input[name=username]').val(),
+>             usertype : $(':selected')[0].value,
+>             sex : $('input:checked[name=sex]')[0].value,
+>             loves : function(){
+>                let loves = $('input:checked[name=loves]');
+>                let str = '';
+>                for(let i=0;i<loves.length;i++){
+>                   if(!str){
+>                         str = loves[i].value;
+>                   }else{
+>                         str += ',' + loves[i].value;
+>                   }
+>                }
+>                return str;
+>             }
+>       },
+>       beforeSend:function(xhr){
+>             // console.log(this);
+>             $('form input[type=button]').val('提交中，请稍后...');
+>       },
+>       success: function (response, stutas, xhr) {
+>             $('form input[type=button]').val('提交');
+>             console.log(response)
+>       }
+>    });
+> });
+> ```
+我们发现，如果表单字段多了的话，处理起来非常麻烦
+
+### ② jQuery中的表单序列化提交数据（表单提交数据）
+> ```javascript
+> $('form input[type=button]').click(function(){
+>    // console.log($('input:checked[name=loves]'));//集合
+>    $.ajax({
+>       type: 'POST', //表单提交我们采用post
+>       url: './xxx',//提交给服务器的接口地址，一般后端程序员给你一个接口（当然你可以自己写一个接口）
+>       data:$('form').serialize(),//表单序列化，以字符串的形式传递String
+>       beforeSend:function(xhr){
+>             // console.log(this);
+>             $('form input[type=button]').val('提交中，请稍后...');
+>       },
+>       success: function (response, stutas, xhr) {
+>             $('form input[type=button]').val('提交');
+>             console.log(response)
+>       }
+>    });
+> });
+> ```
+### ③ $.param()方法将对象转换为字符串键值对格式
+> ```javascript
+> $('form input[type=button]').click(function(){
+>    // console.log($('input:checked[name=loves]'));//集合
+>    $.ajax({
+>       type: 'POST', //表单提交我们采用post
+>       url: './xxx',//提交给服务器的接口地址，一般后端程序员给你一个接口（当然你可以自己写一个接口）
+>       //data:$('form').serialize(),//表单序列化
+>       /*
+>       data: { // 传递的是对象键值对参数object
+>             username : $('input[name=username]').val(),
+>             usertype : $(':selected')[0].value,
+>             sex : $('input:checked[name=sex]')[0].value,
+>             loves : function(){
+>                let loves = $('input:checked[name=loves]');
+>                let str = '';
+>                for(let i=0;i<loves.length;i++){
+>                   if(!str){
+>                         str = loves[i].value;
+>                   }else{
+>                         str += ',' + loves[i].value;
+>                   }
+>                }
+>                return str;
+>             }
+>       },
+>       */
+>       //使用$.param()将对象形式的键值对转为 URL 地址的字符串键值对，可以更加稳定准确的传递表单内容
+>       data:$.param({ 
+>             username : $('input[name=username]').val(),
+>             usertype : $(':selected')[0].value,
+>             sex : $('input:checked[name=sex]')[0].value,
+>             loves : function(){
+>                let loves = $('input:checked[name=loves]');
+>                let str = '';
+>                for(let i=0;i<loves.length;i++){
+>                   if(!str){
+>                         str = loves[i].value;
+>                   }else{
+>                         str += ',' + loves[i].value;
+>                   }
+>                }
+>                return str;
+>             }
+>       }),
+>       beforeSend:function(xhr){
+>             // console.log(this);
+>             $('form input[type=button]').val('提交中，请稍后...');
+>       },
+>       success: function (response, stutas, xhr) {
+>             $('form input[type=button]').val('提交');
+>          console.log(response)
+>       }
+>    });
+>    //查看一下表单序列化得到的是什么
+>    console.log($('form').serialize());//字符串形式的键值对，并对URL进行了编码
+>    
+>    //当传递的data是对象键值对传递的时候，键值对过多，有时程序对于复杂的序列化解析能力有限
+>    //此时可以提前对对象键值对序列化
+>    //使用$.param()将对象形式的键值对转为 URL 地址的字符串键值对，可以更加稳定准确的传递表单内容
+> });
+> ```
 
 <br/><br/><br/><br/><br/><br/>
 
