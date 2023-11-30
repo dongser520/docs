@@ -927,7 +927,7 @@ title: 章节4.jQuery
 > ```javascript
 > $(':text[name=username]).size(); //获取单行文本框name=username 的元素
 > ```
-> <b>3、jQuery获取表单提交数据</b> 
+> ### ② jQuery获取表单提交数据
 > ```javascript
 > $(function(){
 >    $('#sub').click(function(){
