@@ -658,7 +658,6 @@ title: 章节6.Ajax
 > ```html
 > <div id="jsonp" style="margin-left: 100px;">
 >    <input type="text" style="width: 500px;height: 50px;" >
->    <button style="height: 50px;margin-left: 30px;">模拟百度提示</button>
 >    <ul id="response"></ul>
 > </div>
 > ```
@@ -680,29 +679,69 @@ title: 章节6.Ajax
 > //压缩一下url地址 ---- https://www.baidu.com/sugrec?pre=1&p=3&ie=utf-8&json=1&prod=pc
 > //于是可以：当键盘抬起时发送请求，并将请求的结果显示在输入框下面
 > $('#jsonp input').keyup(function(){
+>    // console.log($(this).val());
 >    let word = $(this).val();
 >    $.ajax({
->       url:'https://www.baidu.com/sugrec?pre=1&p=3&ie=utf-8&json=1&prod=pc',
->       dataType:'jsonp',
->       jsonp:'cb',//回调函数参数
->       data:{//发送的数据
->             wd:word
+>       url:'https://www.baidu.com/sugrec?pre=1&p=3&ie=utf-8&json=1&prod=pc',//请求地址
+>       data:{
+>          wd:word
 >       },
->       success:function(msg){
->             console.log(msg)
->             let data = msg.g;
->             let html =  '<ul>';
->             $.each(data,function(i,e){
->                // console.log(e.q)e.q就是文本数据
->                html += "<li>"+e.q+"</li>";
->             })
->             html+='</ul>';
->             console.log(html);
->             $('#response').html(html);
+>       dataType:'jsonp',//发送jsonp请求必须指定数据类型为jsonp
+>       jsonp:'cb',//服务器接收回调函数的参数名如callback ,cb等等默认callback
+>       // jsonpCallback:'回调函数名',//默认jQuery123545_43456。。。。的随机字符串，可以自定义
+>       success:function(response, status, xhr){
+>             // console.log('response:',response);
+>             let data = response.g;
+>             // console.log(data);
+>             let str = '';
+>             $.each(data,function(index,value){
+>                str += "<li>"+value.q+"</li>"
+>             });
+>             $('#response').html(str);
 >       }
->    })
+>       
+>    });
 > });
 > ```
+
+### ⑥ jqXHR 对象: when()方法、done()方法、always()方法和fail()方法
+> ```javascript
+> //它是原生对象 XHR 的一个超集
+> //jqXHR就是$.ajax()返回的对象
+> let jqXHR = $.ajax({
+>    url:'./demo.json',
+>    type:'post',
+>    // success:function(){}, //外面连缀用done()
+>    // error:function(){},//外面连缀用fail()
+>    // complete:function(){},//外面连缀用always()
+> });
+> console.log(jqXHR);
+> jqXHR.done(function(response){
+>    console.log('response',response  + '第一次');
+> }).done(function(response){
+>    console.log('response2',response + '第二次');
+> });
+> 
+> //另外，方便同时执行多个成功后的回调函数
+> let jqXHR2 = $.ajax({
+>    url:'https://www.taobao.com/help/getip.php',
+>    dataType:'jsonp',
+>    jsonpCallback:'ipCallback',
+> });
+> //when可以理解成当两个jqXHR, jqXHR2都执行请求之后，在处理后面
+> //意思是可以同时处理两个或者多个jqXHR对象
+> $.when(jqXHR, jqXHR2).done(function (r1,r2) {
+>    console.log('第一个ajax的response',r1)
+>    console.log('第二个ajax的response',r2)
+> });
+> ```
+
+总结：<br/><br/>
+以上就是本章节关于Ajax请求服务器的基本知识了，通过对以上方法的学习，大家需要大体理解ajax请求服务器数据的流程，更多关于ajax方法的知识，我们会在后面实战中跟大家讲解。<br/><br/>
+`在本章节最后，有同学提出疑问，说老师，我们向服务器提交表单数据，需要后端程序员给我接口，或者我自己写接口，那接口我不会写啊！另外，在我们的印象中，后端程序一般用的语言非常复杂，比如：php、java、c#、Asp.net、Jsp、Python、Perl、Ruby等等，用它们这些语言来处理前端的请求，这些语言好难，有没有我们前端不需要学这些语言，一样可以处理服务器请求的呢？`<br/><br/>
+答案是：有的。就是我们的 `Node.js`，它可以像我们后端的这些语言一样，帮我们处理复杂的服务器请求，我们将在下一章节，给大家讲node的基础知识。
+
+
 
 
 <br/><br/><br/><br/><br/><br/>
