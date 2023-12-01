@@ -109,16 +109,91 @@ style="display:inline-block;" />
 > nvm ls //在查看一下安装的版本，看是否卸载了
 > ```
 
+## 三、NPM包管理（npm包管理工具）
+> 我们上一节课讲nvm的时候，提到了npm包下载源，那什么是npm呢？全称：`Node Package Manager`，是一个NodeJS包管理和分发工具。那它有什么用呢？它可以帮我们去管理我们项目中引用的第三方库、插件、模块等等。我们来回顾一下，我们前端网页怎么引入第三方库和插件的.
+> ```html
+> <script src="./static/js/jquery.1.11.3.min.js"></script>
+> <script src="https://cdn.bootcdn.net/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+> <script src="./static/js/index.jquery.js"></script>
+> ```
+> 我们先引入jquery库，然后在它的基础上引入jquery的插件，最后利用jquery库和插件，写我们自己的代码。如果到后期库和插件非常多，我们也不敢随便删，管理起来特别不方便。那么在我们的node中，就有这个npm，它可以来管理我们这些库、插件、模块等等。<br/>
+> 这个npm包管理中有一个非常重要的文件，是`package.json`，它会帮你记录你用了哪些库，插件，模块，以及它们之间的依赖。<br/>
+### ① package.json 文件如何生成
+> 依旧在`D:\mynode\`文件夹下，打开命令行窗口：`先按住键盘SHIFT(shift)键不要松手`，`然后点鼠标右键`，鼠标左键点击：`在此处打开Powershell 窗口` <br/>
+> `为了方便我们学习，我们统一将node版本设置到：18.12.1`
+> ```javascript
+> nvm use 18.12.1 //指定使用node的版本是： 18.12.1
+> node -v  //看一下是否切换过来了
+> ```
+> ```javascript
+> npm init //初始化项目的意思(发现有一堆英文，不用去管)
+> 
+> package name: (mynode) 包名字叫什么，默认显示的是文件夹的名字 mynode 可以直接回车，不用写，也可以自己写一个英文名字
+> version: (1.0.0) 版本号是多少，可以直接回车按这个默认的即可
+> description: 描述是什么 不想填可以空着，回车
+> entry point: (a.js) 问你入口文件是哪一个 默认找我们写的a.js文件，可以回车，要是写index.js 需要创建一个index.js文件
+> test command: 测试命名是什么，不懂可以先回车
+> git repository: github仓库地址是哪里，不懂先回车
+> keywords: 关键字是什么，别人通过什么关键字搜索你的包，不懂先回车
+> author: 作者是谁 51yrc 也可以不写
+> license: (ISC) 协议是什么，默认ISC ，不懂先回车
+>
+> Is this OK? (yes) 问你是否ok是上面这些东西? 回车即可
+> //然后去`D:\mynode\`文件夹下看一下是否有`package.json`文件
+> ```
+可以直接将 `D:\mynode\`文件夹拖到vscode
+> `package.json`文件内容
+> ```javascript
+> {
+>   "name": "mynode",
+>   "version": "1.0.0",
+>   "description": "",
+>   "main": "a.js",
+>   "scripts": { //多了这个脚本
+>     //输入test 相当于输入了后面这段内容，就是帮你少些一些代码，这个后面会讲
+>     "test": "echo \"Error: no test specified\" && exit 1"
+>   },
+>   "author": "51yrc",
+>   "license": "ISC"
+> }
+> ```
 
-
-
-
-
-
-
-
-
-
+### ② NPM (npm)  、 CNPM (cnpm) 
+#### npm
+> 接下来我们看一下npm如何帮我们管理第三方的包、库、插件、模块、依赖等等
+> ```javascript
+> cls //清理一下屏幕
+> //比如：安装一下 jquery
+> //传统网页引入jquery：去cdn网站：https://www.bootcdn.cn/ 搜索jquery
+> //然后在线引入 后者 下载到本地引入
+> 
+> //在我们node中，是通过 npm install jquery 来下载安装
+> //下载包的地址，就是我们上面讲nvm的时候，指定的淘宝镜像地址：https://npm.taobao.org/mirrors/npm/
+> npm install jquery 
+> //此时发现多了一个文件夹：node_modules 专门用于存放第三方的包、库、插件、模块、依赖等等
+> //看一下`package.json`文件：
+> "dependencies": { //多了依赖项
+>     "jquery": "^3.7.1"  //表明目前项目用的jquery版本是：3.7.1
+> }
+> //也就意味着：你不用关系你下载了多少库、插件等等，它都帮你记录好了，后面如果你把项目给你同事
+> //他只需要看一下这个`package.json`文件，就知道你项目引入的库、插件等等
+> ```
+> ```javascript
+> //安装jquery
+> npm install jquery 
+> //删除jquery
+> npm uninstall jquery 
+> ```
+总结一下：
+> ```javascript
+> npm init             //初始化`package.json`文件
+>
+> npm install 包名     //安装
+> npm i 包名           //安装简写
+>
+> npm uninstall 包名   //移除
+> npm un 包名          //移除简写
+> ```
 
 
 
