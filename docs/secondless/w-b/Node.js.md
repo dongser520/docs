@@ -1,14 +1,166 @@
 ---
-title: 第二季（课程学习顺序：03） 
+navbar: true
+sidebar: auto
+title: 章节7.Node.js基础
 ---
-# html + css + javascript + jquery + vue.js 开发企业网站
-## 1.第二季课程介绍
-[![](/hear.jpg '第二学期第二季课程介绍，点击查看')](https://www.bilibili.com/video/BV1YY411679o/?vd_source=9a6ee0d7e6c1657e4a7381c1f8f18f4b)
-## 2.课程视频学习
-[学习课程完整视频](https://study.163.com/course/courseMain.htm?courseId=1213374826&share=2&shareId=480000002289674 '点击学习课程完整视频')
-## 3.查看课程文档
-### 章节1.第二季课程介绍 
-### <a href="/secondless/w-b/面向对象与原型" target="_blank" title="点击查看课程文档">章节2.面向对象与原型</a>
+
+前言
+> 1. 关于Node.js<br/><br/>
+> 我们在上一章节最后总结的时候提到，如果我们想往服务器提交表单数据，由于我们没有后端程序员给你接口，那么只有自己写一个接口，作为我们前端开发，存在一门和后端语言：PHP、Python、Perl、Ruby等服务端语言平起平坐的脚本语言，就是 `node.js`。<br/><br/>
+> 2. Node.js介绍 <a href="https://baike.baidu.com/item/node.js/7567977?fr=ge_ala" target="_blank">[node.js百度百科]</a><br/><br/>
+> 概述：<br/><br/>
+> ①、 Node.js 是一个开源、跨平台的 JavaScript 运行时环境。<br/><br/>
+> 作用、应用、优势：<br/><br/>
+> ① Node.js是脱离浏览器运行JS：我们知道我们之前的课程不管是原生js还是我们刚刚学习的jQuery，都是在浏览器运行的js代码，脱离了浏览器，我们的js就没办法运行了。而我们的node.js可以运行在别的终端上，那么它就可以帮你调用你想要的东西，比如：你想获取一下你电脑现在的CPU配置，内存配置，往电脑磁盘上写入一个如json文件，修改json文件等等，这些功能以前是后端程序做的事情，现在node.js也可以做。<br/><br/>
+> ② 后台API编写：就是我们说的接口的编写，我们前端的工作大部分不是写页面，就是调接口了。在你不懂的情况下， 还以为接口多神奇，学完node之后，我们也可以写接口。<br/><br/>
+> ③ Webpack,Gulp,Npm等等，这些工具是依赖node的，也就是前端工程化的这些工具，没有node玩不了。<br/><br/>
+> ④ （重要应用）中间层：服务器中复杂IO读写的中间层服务器，你可以粗俗的认为一个文件的读写、数据库的查询，这些都是由中间层node来做好一些。<br/><br/>
+> ⑤ 优势：1、便于前端开发入门，因为node的语法和对象，和我们写js基本上一样，你有了前面的js基础，写node代码非常容易。2、单纯比性能，node的性能比java、php等等语言高出非常多。每年双11，天猫淘宝能抗住一波又一波海量数据请求，node起了非常大的作用。主要是它运行在`Chrome V8 JavaScript engine`这么一个引擎上面，这个引擎非常强大。3、由于node的写法和前端js非常像，所以相比于其它语言，node更利于前端代码的整合，前端写代码，有的可以直接给node用，比如说表单校验等等。
+
+## 一、Node环境搭建（安装node.js）
+## 1、 安装
+> 安装非常简单，在官网上下载 node-v-xx.msi(window系统)傻瓜式的安装包，一直下一步就可以完成安装。
+<a herf="https://www.nodejs.com.cn/" target="_blank">nodejs中文官网</a>  <a herf="https://nodejs.org/en" target="_blank" style="margin-left:20px">nodejs英文官网</a> <br/><br/>
+> 
+> `LTS 长期支持版`建议下载这个，`Current 尝鲜版`版本较高，还未普及，尝鲜使用新功能可以试试 <br/><br/>
+> <img src="https://docs-51yrc-com.oss-cn-hangzhou.aliyuncs.com/docs-imgs/2-2-7-01.jpg" alt="下载node" class="zoom-custom-imgs" 
+style="display:inline-block;" /> 
+> 选择自己的操作系统 windows Mac Linux windows需要区分64位和32位 Mac需要区分64位还是ARM芯片 Linux同上。 其中msi 和 pkg 可以直接安装较为简单<br/>
+> `如果不想下载的同学，可以去群里面下载本节课的课件，里面有安装包`
+
+## 2、 检查是否安装成功
+> ### ① 命令行：node -v npm -v npx -v
+> window系统：快捷键` window键 + R键（开始-->运行）` 输入：`cmd` 打开命令行工具，苹果系统也是找到你电脑上的命令行工具
+> ```javascript
+> node -v
+> // v18.12.1 (不同的同学，不同的时期下载的node版本号不一样，重点看一下能不能输出)
+> npm -v
+> npx -v
+> ```
+> ### ② 命令行：node 运行js代码
+> 可以通过 node 回车，在命令行运行js代码
+> ```javascript
+> node
+> // 此时光标换行在闪，就是你可以输入js代码
+> let a = 1 (回车)
+> a + 10  (返回11 回车)
+> ```
+> ### ③ 命令行：运行js文件代码，清屏命令: cls
+> 在D盘创建一个文件夹：mynode(名字随意取最好是英文便于输入)，D:\mynode\a.js文件，写入 `console.log("迪丽热巴");` <br/><br/>
+> 运行a.js文件方式一：(打开命令行工具，因为当前的命令行工具在运行js代码，需要重新打开新的命令行工具)
+> ```javascript
+> //进入D盘（因为文件在D盘）
+> D: (注意冒号英文状态 回车)
+> //进入mynode文件夹
+> cd mynode (进入文件夹cd空格文件夹名字  回车)
+> //运行a.js文件
+> node a.js  (或者)
+> node a
+> ```
+> 运行a.js文件方式二：（感觉方式一很麻烦）<br/>
+> 直接在a.js文件夹里面，`先按住键盘SHIFT(shift)键不要松手`，`然后点鼠标右键`，鼠标左键点击：`在此处打开Powershell 窗口`，就可以跳过方式一里面的找文件路径的操作了
+> ```javascript
+> //运行a.js文件
+> node a.js  (或者)
+> node a
+> ```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<br/><br/><br/><br/><br/><br/>
+
+## 【第二学期第2季课程】其它章节
+### [章节1.课程介绍](/secondless/w-b '章节1.课程介绍')
+<!-- <LessList  /> -->
+### [章节2.面向对象与原型](/secondless/w-b/面向对象与原型 '章节2.面向对象与原型')
 ####  <a href="/secondless/w-b/面向对象与原型.html#i、创建对象" style="margin-left:40px;">1、创建对象</a>
 ##### <a href="/secondless/w-b/面向对象与原型.html#_1-创建对象-剖析问题" style="margin-left:70px;">① 创建对象，剖析问题：传统创建对象方法代码重复冗余，对象无法识别从属于哪个函数</a>
 ##### <a href="/secondless/w-b/面向对象与原型.html#_2-传统面向对象-工厂模式" style="margin-left:70px;">② 传统创建对象：工厂模式（没有办法识别某一个对象的引用）</a>
@@ -48,8 +200,8 @@ title: 第二季（课程学习顺序：03）
 ##### <a href="/secondless/w-b/面向对象与原型.html#_7-子类继承父类方法同时扩展自己的方法-子类在构造函数中使用super-必须放到this前面" style="margin-left:70px;">⑦ 子类继承父类方法同时扩展自己的方法，子类在构造函数中使用super,必须放到this前面</a>
 ##### <a href="/secondless/w-b/面向对象与原型.html#_8-类和对象的几个注意点" style="margin-left:70px;">⑧ 类和对象的几个注意点：</a>
 ####  <a href="/secondless/w-b/面向对象与原型.html#v、面向对象、原型、继承、类小结" style="margin-left:40px;">5、面向对象、原型、继承、类小结</a>
-### <a href="/secondless/w-b/封装js库过渡到jQuery" target="_blank" title="点击查看课程文档">章节3.封装js库过渡到jQuery</a>
-### <a href="/secondless/w-b/jQuery" target="_blank" title="点击查看课程文档">章节4.jQuery</a>
+### [章节3.封装js库过渡到jQuery](/secondless/w-b/封装js库过渡到jQuery '章节3.封装js库过渡到jQuery')
+### [章节4.jQuery](/secondless/w-b/jQuery '章节4.jQuery')
 ####  <a href="/secondless/w-b/jQuery.html#_1、代码风格-包裹" style="margin-left:40px;">1、代码风格：$包裹，加载模式：$(function () {})，获取元素DOM对象：get(索引)方法，多个库之间的冲突</a>
 ####  <a href="/secondless/w-b/jQuery.html#一、jquery中的选择器过滤器" style="margin-left:40px;">2、选择器：</a>
 ##### <a href="/secondless/w-b/jQuery.html#_1-id-选择器、元素选择器、类-class-选择器-属性-length-或-size-方法来查看返回的元素个数" style="margin-left:70px;">① ID 选择器、元素选择器、类(class)选择器，属性 length 或 size()方法来查看返回的元素个数</a>
@@ -139,7 +291,7 @@ title: 第二季（课程学习顺序：03）
 ##### <a href="/secondless/w-b/jQuery.html#_1-复制节点-clone-true-、替换节点-replacewith、replaceall" style="margin-left:100px;">① 复制节点 clone(true)、替换节点：replaceWith、replaceAll</a>
 ##### <a href="/secondless/w-b/jQuery.html#_2-删除节点-remove-或者-detach" style="margin-left:100px;">② 删除节点：remove() 或者 detach()</a>
 ##### <a href="/secondless/w-b/jQuery.html#_3-删除掉节点里的内容empty" style="margin-left:100px;">③ 删除掉节点里的内容empty()</a>
-### <a href="/secondless/w-b/jQuery事件、动画、插件" target="_blank" title="点击查看课程文档">章节5.jQuery事件、动画、插件</a>
+### [章节5.jQuery事件、动画、插件](/secondless/w-b/jQuery事件、动画、插件 '章节5.jQuery事件、动画、插件')
 ####  <a href="/secondless/w-b/jQuery事件、动画、插件.html#一、事件" style="margin-left:40px;">一、事件</a>
 ####  <a href="/secondless/w-b/jQuery事件、动画、插件.html#_1、简写事件" style="margin-left:70px;">1、简写事件</a>
 ####  <a href="/secondless/w-b/jQuery事件、动画、插件.html#_2、复合事件-hover-fn1-fn2" style="margin-left:70px;">2、复合事件：hover([fn1,]fn2)</a>
@@ -170,7 +322,7 @@ title: 第二季（课程学习顺序：03）
 ####  <a href="/secondless/w-b/jQuery事件、动画、插件.html#三、jquery插件" style="margin-left:40px;">三、jQuery插件</a>
 ####  <a href="/secondless/w-b/jQuery事件、动画、插件.html#jquery插件-cookie插件" style="margin-left:70px;">1、引入：下载本地引入、或在线引入</a>
 ####  <a href="/secondless/w-b/jQuery事件、动画、插件.html#_2、使用插件方法" style="margin-left:70px;">2、使用插件方法</a>
-### <a href="/secondless/w-b/Ajax" target="_blank" title="点击查看课程文档">章节6.Ajax</a>
+### [章节6.Ajax](/secondless/w-b/Ajax '章节6.Ajax')
 ####  <a href="/secondless/w-b/Ajax.html#一、原生js中的ajax" style="margin-left:40px;">一、原生js中的Ajax</a>
 ####  <a href="/secondless/w-b/Ajax.html#_1、xmlhttprequest-简称-xhr-xhr-api" style="margin-left:70px;">1、XMLHttpRequest (简称 XHR，XHR API)</a>
 #####  <a href="/secondless/w-b/Ajax.html#_1-第一步-调用-open-方法准备发送请求-发送请求前的准备工作-三个参数-要发送的请求类型-get、post-、请求的-url-和表示是否异步" style="margin-left:100px;">① 第一步：调用 open()方法准备发送请求（发送请求前的准备工作）：三个参数：要发送的请求类型(get、post)、请求的 URL 和表示是否异步</a>
@@ -201,4 +353,27 @@ title: 第二季（课程学习顺序：03）
 #####  <a href="/secondless/w-b/Ajax.html#_1-jquery中的跨域jsonp使用" style="margin-left:100px;"> ① jQuery中的跨域jsonp使用</a>
 #####  <a href="/secondless/w-b/Ajax.html#_2-延伸一下-jquery中的跨域jsonp模拟百度搜索提示数据" style="margin-left:100px;"> ② 延伸一下：jQuery中的跨域jsonp模拟百度搜索提示数据</a>
 ####  <a href="/secondless/w-b/Ajax.html#_6、-jqxhr-对象-when-方法、done-方法、always-方法和fail-方法" style="margin-left:70px;">6、 jqXHR 对象: when()方法、done()方法、always()方法和fail()方法</a>
-### <a href="/secondless/w-b/Node.js" target="_blank" title="点击查看课程文档">章节7.Node.js基础</a>
+### [章节7.Node.js](/secondless/w-b/Node.js '章节7.Node.js')
+
+
+<br/><br/>
+
+## 其它学期课程
+### [第一学期（学习顺序：01）](/aboutless.html '第一学期课程')
+> 第一学期课程专为零基础的学员定制录制的，纯html+css做企业网站的网页，主讲html和css的相关基础知识，flex布局相关知识，封装css基础样式库，引入字体图标及网页开发基础布局思维，完成企业网站网页的开发过程。<br/><br/>
+<b><a href="https://study.163.com/course/courseMain.htm?courseId=1213374826&share=2&shareId=480000002289674" target="_blank">[第一学期学习视频]</a>
+</b>
+
+### [第二学期【第1季】（学习顺序：02）](/secondless/w-a '第二学期第1季课程')
+> 主讲JavaScript的基础，建议所有学员观看。<br/>
+<b>
+   <a href="/secondless/w-a.html" target="_blank">[第1季学习文档]</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+   <a style="margin-left:20px;">[第1季学习视频]</a>
+</b>
+
+### [第二学期【第2季】（学习顺序：03）](/secondless/w-b '第二学期第2季课程')
+> JavaScript中的面向对象，类，ajax，封装js库过渡到jQuery， vue.js基础配置网站页面，建议所有学员观看。<br/>
+<b>
+   <a href="/secondless/w-b.html" target="_blank">[第2季学习文档]</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+   <a style="margin-left:20px;">[第2季学习视频]</a>
+</b>
