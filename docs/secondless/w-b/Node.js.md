@@ -18,9 +18,9 @@ title: 章节7.Node.js基础
 > ⑤ 优势：1、便于前端开发入门，因为node的语法和对象，和我们写js基本上一样，你有了前面的js基础，写node代码非常容易。2、单纯比性能，node的性能比java、php等等语言高出非常多。每年双11，天猫淘宝能抗住一波又一波海量数据请求，node起了非常大的作用。主要是它运行在`Chrome V8 JavaScript engine`这么一个引擎上面，这个引擎非常强大。3、由于node的写法和前端js非常像，所以相比于其它语言，node更利于前端代码的整合，前端写代码，有的可以直接给node用，比如说表单校验等等。
 
 ## 一、Node环境搭建（安装node.js）
-## 1、 安装
+## 1、 下载安装node.js
 > 安装非常简单，在官网上下载 node-v-xx.msi(window系统)傻瓜式的安装包，一直下一步就可以完成安装。
-<a herf="https://www.nodejs.com.cn/" target="_blank">nodejs中文官网</a>  <a herf="https://nodejs.org/en" target="_blank" style="margin-left:20px">nodejs英文官网</a> <br/><br/>
+<a href="https://www.nodejs.com.cn/" target="_blank">nodejs中文官网</a>  <a href="https://nodejs.org/en" target="_blank" style="margin-left:20px">nodejs英文官网</a> <br/><br/>
 > 
 > `LTS 长期支持版`建议下载这个，`Current 尝鲜版`版本较高，还未普及，尝鲜使用新功能可以试试 <br/><br/>
 > <img src="https://docs-51yrc-com.oss-cn-hangzhou.aliyuncs.com/docs-imgs/2-2-7-01.jpg" alt="下载node" class="zoom-custom-imgs" 
@@ -28,7 +28,7 @@ style="display:inline-block;" />
 > 选择自己的操作系统 windows Mac Linux windows需要区分64位和32位 Mac需要区分64位还是ARM芯片 Linux同上。 其中msi 和 pkg 可以直接安装较为简单<br/>
 > `如果不想下载的同学，可以去群里面下载本节课的课件，里面有安装包`
 
-## 2、 检查是否安装成功
+## 2、 检查node.js是否安装成功
 > ### ① 命令行：node -v npm -v npx -v
 > window系统：快捷键` window键 + R键（开始-->运行）` 输入：`cmd` 打开命令行工具，苹果系统也是找到你电脑上的命令行工具
 > ```javascript
@@ -65,21 +65,49 @@ style="display:inline-block;" />
 > node a
 > ```
 
+## 二、NVM（node版本管理工具，切换node版本）
+> 在我们实际开发中，公司或者个人可能有多个项目，由于开发时期的不同，导致使用的node版本也不同，于是我们在运行项目的时候，需要切换到不同的node版本运行不同的项目，这个时候就需要一个管理node版本的工具：NVM。比如说：就以我们本节课而言，不同的同学学习的时候，由于nodejs的更新，你下载的nodejs版本都不同，不利于我们统一学习调试，所以我们也需要安装一下NVM，统一切换到某一个版本来学习。
+## 1、 下载安装nvm
+> ① 访问NVM的github仓库：<a href="https://github.com/coreybutler/nvm-windows/releases" target="_blank">下载github仓库中的nvm</a>  <span style="margin-left:15px"> ② 去群里面下载本节课的课件，里面有安装包</span> <br/>
+> 安装非常简单，跟上面安装nodejs一样，下一步下一步（next）直到安装完成。
 
+## 2、检查nvm是否安装成功：nvm -v
+> 跟上面检查node方式一样：window系统为例，快捷键` window键 + R键（开始-->运行）` 输入：`cmd` 打开命令行工具，输入命令：
+> ```javascript
+> nvm -v 或者 nvm version  (能输出版本号则安装成功)
+> ```
 
+## 3、设置nodejs、npm下载源（可选）
+> 我们用nvm来管理和下载nodejs各个版本，在安装完的nvm文件夹里面（一般是这个路径）：`C:\Users\Administrator\AppData\Roaming\nvm` 有一个文件 `settings.txt` <br/>
+> 默认情况下，也就是你不往这个里面指定node的下载源地址，那么：<br/>
+> ① node的默认下载源地址是：<a href="https://nodejs.org/dist/" target="_blank">https://nodejs.org/dist/</a> (国外地址) <br/><br/>
+> 如果你感觉到时候下载nodejs非常慢，可以在`settings.txt`写入以下代码，指定nodejs和npm包的下载源，它们是国内的淘宝镜像地址，下载会非常快
+> ```txt
+> node_mirror: https://npm.taobao.org/mirrors/node/
+> npm_mirror: https://npm.taobao.org/mirrors/npm/
+> ```
+> <a href="https://npm.taobao.org/mirrors/node/" target="_blank">https://npm.taobao.org/mirrors/node/</a> 淘宝nodejs下载源<br/>
+> <a href="https://npm.taobao.org/mirrors/npm/" target="_blank">https://npm.taobao.org/mirrors/npm/</a> 淘宝npm包下载源<br/>
 
-
-
-
-
-
-
-
-
-
-
-
-
+## 4、使用NVM包管理器
+> 以下是常见命令，不需要记忆，用的时候回来看一下（最好是记住）
+> ```javascript
+> nvm ls 或者 nvm list      //查看安装的所有node.js的版本
+> 
+> nvm list available        //查看显示可以安装的所有node.js的版本
+> 
+> nvm install 20.10.0       //安装20.10.0版本的node.js包 (你们可以安装：18.12.1 和 12.16.1)
+> 
+> nvm use 20.10.0           //指定使用node的版本是： 20.10.0 （如果报错是权限不够，切换成管理员模式重新cmd）
+> node -v  //看一下是否切换过来了
+> 
+> nvm list installed       //查看已经安装的node.js版本
+> 
+> nvm current              //显示当前使用的node.js版本
+> 
+> nvm uninstall 12.16.1    //卸载node.js版本号为：12.16.1的包
+> nvm ls //在查看一下安装的版本，看是否卸载了
+> ```
 
 
 
