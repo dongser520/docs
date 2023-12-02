@@ -159,7 +159,7 @@ style="display:inline-block;" />
 > ```
 
 ### ② NPM (npm)  、 CNPM (cnpm) 
-#### npm
+### Ⅰ、 npm
 > 接下来我们看一下npm如何帮我们管理第三方的包、库、插件、模块、依赖等等
 > ```javascript
 > cls //清理一下屏幕
@@ -195,14 +195,38 @@ style="display:inline-block;" />
 > npm un 包名          //移除简写
 > ```
 
+### Ⅱ、 cnpm (可选)
+> 你可以理解成国内版的npm，也就是下载的镜像在国内。我们上面讲nvm的时候，已经将npm包的下载源切换到了国内淘宝镜像了，因此使用npm命令和cnpm命令没有区别。<br/> 但是别的很多老师不会跟你讲nvm切换node版本，所以`在没有安装nvm的情况下，在没有指定npm下载源的情况下，npm包默认的下载地址是在国外，下载会很慢` 我们上面的jQuery包文件就会去国外网站下载，下载会很慢。<br/>
+> 这个时候可以考虑用cnpm命名下载，下载国内的包资源，如： <a href="https://npm.taobao.org" target="_blank">npm淘宝镜像</a> 
+### ① 安装cnpm
+> ```javascript
+> npm install -g cnpm --registry=https://registry.npmmirror.com
+> //通过install 安装cnpm 方式是 -g, -g表示：global,全局的意思
+> //如果不要-g，相当于只是在我们的mynode文件夹里面装，出了这个文件夹，cnpm命令就失效了
+> //所以全局装，哪里都可以用cnpm命令，后面这串：--registry=https://registry.npmmirror.com
+> //就是下载源的意思，比如你要下载jquery,就到这个网站里面来下载，非常快
+> ```
+### ② 接下来就可以使用cnpm命令安装各个包、插件、模块等等
+> 说明：老师这里报错，是因为老师安装了别的命令，同学们第一次安装可以正常使用的，老师就用git命令工具给大家演示，不用powershell了，具体报错参考：<a href="https://zhuanlan.zhihu.com/p/617284262" target="_blank">https://zhuanlan.zhihu.com/p/617284262</a> 解决方案参考：<a href="https://blog.csdn.net/dreaming317/article/details/128163873" target="_blank">https://blog.csdn.net/dreaming317/article/details/128163873 </a> <br/>
+`1、开始-->所有程序-->Windows PowerShell-->展开选第一个-->鼠标右键-->以管理员身份运行；`<br/>
+`2、输入“set-ExecutionPolicy RemoteSigned”回车；`<br/>
+`3、根据提示，输入A，回车;`<br/>
+`4、再次回到控制台 输入cnpm --version 执行就成功，若不成功，关闭vscode软件重新打开执行就好了`<br/><br/>
+> ```javascript
+> cnpm install jquery     //安装jquery
+> cnpm install 包名     //安装
+> cnpm i 包名           //安装简写
+>
+> cnpm uninstall jquery  //移除jquery
+> cnpm uninstall 包名   //移除
+> cnpm un 包名          //移除简写
+> ```
 
-
-
-
-
-
-
-
+### ③ 在vscode中运行命令
+> 大家如果觉得在文件夹打开PowerShell非常麻烦，也可以直接在vscode运行命令：<br/><br/>
+快捷键：<br/> `CTRL` + `SHIFT` + \` <br/>
+或者 <br/>
+`终端-->新建终端-->选择你的项目文件夹-->回车`即可
 
 
 
