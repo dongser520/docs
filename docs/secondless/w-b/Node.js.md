@@ -417,11 +417,52 @@ fs模块：用于文件读写操作（这里做个简单介绍，后面会详细
 > ```
 
 
-
-
-
-
-
+### ④ 重要系统模块：http模块，搭建网页服务器
+> http模块可以帮我们快速搭建一个web服务器，通过服务器对象： http.createServer()
+> ```javascript
+> let http = require('http');
+> // console.log(http);
+> http.createServer((request,response)=>{
+>     // console.log('搭建了一个web服务器了')
+> 
+>     response.setHeader('Content-Type','text/html; charset=utf-8');
+>     // response.write('首页');
+>     // response.end();//结束
+>     //直接向服务器响应一些内容
+>     //response.end('首页');
+> 
+>     //看一下request ，浏览器输入：localhost:8888/index.html
+>     //console.log(request);
+>     //console.log(request.url);//  /index.html
+> 
+> }).listen(8888);//给一个端口号
+> //端口号的范围是0-65536之间，测试过程中，如果设置的端口被占用，就换一个
+> //如何执行：在浏览器输入： localhost:8888
+> 
+> //重新执行重启服务器： Ctrl + C
+> ```
+搭建一个简单的网页服务器
+> 把我们做的网页复制过来，搭建网页服务器
+> ```javascript
+> let http = require('http');
+> let fs = require('fs');
+> http.createServer((request,response)=>{
+>     //异步读
+>     let url = request.url;
+>     // fs.readFile('./' + url,()=>{});
+>     fs.readFile(`./${url}`,(err,data)=>{
+>        if(err){
+>           // throw err;
+>           response.setHeader('Content-Type','text/html; charset=utf-8');
+>           response.writeHead(404);//网页状态码
+>           response.end('404页面');
+>        }else{
+>           response.writeHead(200);
+>           response.end(data);
+>        }
+>     });
+> }).listen(8888);//给一个端口号
+> ```
 
 
 
