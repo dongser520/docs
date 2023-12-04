@@ -196,7 +196,7 @@ style="display:inline-block;" />
 > ```
 
 ### Ⅱ、 cnpm (可选)
-> 你可以理解成国内版的npm，也就是下载的镜像在国内。我们上面讲nvm的时候，已经将npm包的下载源切换到了国内淘宝镜像了，因此使用npm命令和cnpm命令没有区别。<br/> 但是别的很多老师不会跟你讲nvm切换node版本，所以`在没有安装nvm的情况下，在没有指定npm下载源的情况下，npm包默认的下载地址是在国外，下载会很慢` 我们上面的jQuery包文件就会去国外网站下载，下载会很慢。<br/>
+> 你可以理解成国内版的npm，也就是下载的镜像在国内。我们上面讲nvm的时候，已经将npm包的下载源切换到了国内淘宝镜像了，因此使用npm命令和cnpm命令没有区别。<br/> 但是别的很多老师不会跟你讲nvm切换node版本，或者nrm管理npm下载源等，所以`在没有安装nvm、nrm等管理工具的情况下，在没有指定npm下载源的情况下，npm包默认的下载地址是在国外，下载会很慢` 我们上面的jQuery包文件就会去国外网站下载，下载会很慢。<br/>
 > 这个时候可以考虑用cnpm命名下载，下载国内的包资源，如： <a href="https://npm.taobao.org" target="_blank">npm淘宝镜像</a> 
 ### ① 安装cnpm
 > ```javascript
@@ -207,10 +207,10 @@ style="display:inline-block;" />
 > //就是下载源的意思，比如你要下载jquery,就到这个网站里面来下载，非常快
 > ```
 ### ② 接下来就可以使用cnpm命令安装各个包、插件、模块等等
-> 说明：老师这里报错，是因为老师安装了别的命令，同学们第一次安装可以正常使用的，老师就用git命令工具给大家演示，不用powershell了，具体报错参考：<a href="https://zhuanlan.zhihu.com/p/617284262" target="_blank">https://zhuanlan.zhihu.com/p/617284262</a> 解决方案参考：<a href="https://blog.csdn.net/dreaming317/article/details/128163873" target="_blank">https://blog.csdn.net/dreaming317/article/details/128163873 </a> <br/>
+> 说明：如果出现报错，是系统的安全策略问题导致的，认为cnpm命令不安全，需要设置安全策略，具体报错参考：<a href="https://zhuanlan.zhihu.com/p/617284262" target="_blank">https://zhuanlan.zhihu.com/p/617284262</a> 解决方案参考：<a href="https://blog.csdn.net/dreaming317/article/details/128163873" target="_blank">https://blog.csdn.net/dreaming317/article/details/128163873 </a> <br/>
 `1、开始-->所有程序-->Windows PowerShell-->展开选第一个-->鼠标右键-->以管理员身份运行；`<br/>
-`2、输入“set-ExecutionPolicy RemoteSigned”回车；`<br/>
-`3、根据提示，输入A，回车;`<br/>
+`2、输入“Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser”回车；`<br/>
+`3、根据提示，输入Y，回车;`<br/>
 `4、再次回到控制台 输入cnpm --version 执行就成功，若不成功，关闭vscode软件重新打开执行就好了`<br/><br/>
 > ```javascript
 > cnpm install jquery     //安装jquery
@@ -228,13 +228,69 @@ style="display:inline-block;" />
 或者 <br/>
 `终端-->新建终端-->选择你的项目文件夹-->回车`即可
 
+总结：<br/>
+1. 不管你通过npm还是cnpm安装第三方的包、库、插件、模块、依赖等等，都会自动生成这个文件夹：`node_modules`，所有安装的包都在这个文件夹里面，实际项目上线或者给别的程序员用的时候，只需要查看你的`package.json`文件，就知道你安装了多少第三方的包、库、插件、模块、依赖等等，所以上线的时候，不需要将`node_modules`文件夹给别人，别人也不需要，它会根据你的`package.json`文件，自行进行安装，从侧面印证了`package.json`文件的重要性及node的运行模式。
 
+### ④ npm 或 cnpm 常用命令
+> 以npm为例，cnpm是一个意思
+> ```javascript
+> npm init             //初始化`package.json`文件
+>
+> npm install 包名     //安装
+> npm i 包名           //安装简写
+>
+> npm uninstall 包名   //移除
+> npm un 包名          //移除简写
+>
+> npm update 包名     //更新某个包到最新版，如：npm update jquery
+>
+> //重要，别人拿到你的项目或者你项目上线，都不会要你的`node_modules`文件夹
+> //都会先把你`package.json`文件里面的所有包安装一下
+> npm i 或者 npm install 
+> ```
 
+## 四、Node的模块
+> Node的模块是nodejs中非常重要的部分，把模块学清楚了，咱们对nodejs就相当于已经入门了。node的模块分为三种：全局模块、系统模块、自定义模块。<br/>
+> 我们的学习方式是先易后难，先总体讲一下这三种模块，大家先有个了解，然后针对每个模块在进行细致的讲解。
+### ① 全局模块
+> 粗俗的理解：你可以看成是我们js中的window对象、document对象，不管你的什么作用域，不管你层级有多深，这两个对象都可以直接进行调用。我们node中的全局模块也是这个意思。<br/>
+> 全局模块我们随时随地都能够访问，不需要引用
 
+以：process为例，做一个讲解
+> process字面意思，你可以理解成进程，它下面有很多属性，常用属性env、argv
+> ```javascript
+> //process.env  环境变量
+> //开始->此电脑（右键属性）-> 高级系统设置-> 高级->环境变量
+> //用户变量: 当前用户(比如管理员)设置的变量  
+> //系统变量：不管哪个用户都可以访问的变量
+> //每个电脑的环境变量，用户变量都不一样，你们也可以自己设置
+> //那它的作用是什么呢：比如设置一个：dev:true
+> //可以理解成这个电脑是开发用的，如果是false, 那么你可以理解成这个电脑是服务器用的
+> //那么你可以通过环境变量来判断，你的电脑是开发的电脑还是当服务器的电脑，反正用途非常多
+> 
+> // console.log(process);
+> // console.log(process.env);
+> // console.log(process.env.dev);
+> if(process.env.dev){
+>    console.log('我是开发电脑')
+> }else{
+>     console.log('我是服务器电脑')
+> }
+> ```
+> ```javascript
+> // console.log(process.argv) // node index a b c d e //node index node -vnode
+> //简易计算
+> //console.log(process.argv[2]); //node index 1 2
+> let num1 = parseInt(process.argv[2]);
+> let num2 = parseInt(process.argv[3]);
+> console.log(num1 + num2);//node index 1 2
+> //process功能其实非常多，这里只是简单举个例子，让大家知道什么是全局模块，后面我们会细讲
+> ```
 
-
-
-
+### ② 系统模块
+> 粗俗的理解：就是系统内置好的模块，你只需要引入进来就可以使用，不需要去下载
+### ③ 自定义模块
+> 粗俗的理解：就是我们自己写好的，把这些模块暴漏出去
 
 
 
