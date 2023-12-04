@@ -252,7 +252,7 @@ style="display:inline-block;" />
 ## 四、Node的模块
 > Node的模块是nodejs中非常重要的部分，把模块学清楚了，咱们对nodejs就相当于已经入门了。node的模块分为三种：全局模块、系统模块、自定义模块。<br/>
 > 我们的学习方式是先易后难，先总体讲一下这三种模块，大家先有个了解，然后针对每个模块在进行细致的讲解。
-### ① 全局模块
+### ① 全局模块 ：process为例
 > 粗俗的理解：你可以看成是我们js中的window对象、document对象，不管你的什么作用域，不管你层级有多深，这两个对象都可以直接进行调用。我们node中的全局模块也是这个意思。<br/>
 > 全局模块我们随时随地都能够访问，不需要引用
 
@@ -287,8 +287,106 @@ style="display:inline-block;" />
 > //process功能其实非常多，这里只是简单举个例子，让大家知道什么是全局模块，后面我们会细讲
 > ```
 
-### ② 系统模块
-> 粗俗的理解：就是系统内置好的模块，你只需要引入进来就可以使用，不需要去下载
+### ② 系统模块 ： path为例
+> 粗俗的理解：就是系统内置好的模块，你只需要通过 require()方法进行引入，但是不需要去下载的模块。也就是我们在安装nodejs的时候，它已经帮我们内置好了的模块。<br/>
+> 同样，nodejs中的系统模块也是非常的多，我们下面举几个例子给大家介绍一下 <br/>
+
+path模块：用于处理文件路径和目录路径的模块工具
+> ```javascript
+> //path：用于处理文件路径和目录路径的模块工具
+> let path = require('path');//那么它有很多的属性方法
+> console.log(path);
+> 
+> //解析文件或目录路径
+> console.log(path.dirname('/mynode/index.js'));//打印文件所在目录 /mynode
+> console.log(path.basename('/mynode/index.js'));//打印文件名字 index.js
+> console.log(path.extname('/mynode/index.js'));//打印文件扩展名 .js
+> //那么可以通过这个判断前端给你上传的文件是js文件还是图片文件还是视频文件等等
+> 
+> //比如说path里面还有一个方法resolve，看一下
+> console.log(path.resolve('/mynode/a/b/c','../../','d'));//D:\mynode\a\d
+> //也就是resolve方法会根据你的想法走，最后返回你想要的结果路径
+> //我们上一节课讲了全局模块process, 比如我们在举例一个全局模块
+> console.log(__dirname);//D:\mynode 得到我们当前文件所在物理路径（绝对路径）
+> console.log(path.resolve(__dirname,'index.js'));//D:\mynode\index.js
+> ```
+fs模块：用于文件读写操作（这里做个简单介绍，后面会详细介绍）  <br/>
+> 我们以文件读写为例，简单给大家先介绍一下，有两种操作方式：异步和同步 <br/>
+先看异步
+> ```javascript
+> let fs = require('fs');
+> //简单读
+> // fs.readFile('./demo.json',(err,data)=>{
+> //     if(err){
+> //         console.log(err);
+> //     }else{
+> //         //console.log(data);//Buffer的一串字符，node中类似于二进制的东西
+> //         //我们知道电脑底层都是二进制数据，但是数据量非常庞大，于是用更高进制比如十进制十六进制展示
+> //         //那么如何转成我们能看得懂的数据呢，字符串的.toString()方法即可
+> //         console.log(data.toString());
+> //     }
+> // });
+> //简单写
+> let o = {
+>     "name":"联系我们",
+>     "href":"contact.html",
+>     "id":5,
+>     "en_name":"contact",
+>     "active":false
+> }
+> // fs.writeFile('./demo.json',JSON.stringify(o),(err)=>{
+> //     if(err){
+> //         throw err;
+> //     }
+> //     //把之前的干没有了，覆盖了
+> // })
+> 
+> //追加
+> fs.writeFile('./demo.json',JSON.stringify(o),{
+>    flag:'a', //追加的意思
+> },(err)=>{
+>     if(err){
+>         throw err;
+>     }
+> });
+> ```
+> 再看同步
+> ```javascript
+> let fs = require('fs');
+> //同步读
+> // let data = fs.readFileSync('./demo.json');//同步没有回调函数
+> // console.log(data.toString());
+> //同步写
+> let o = {
+>     "name":"联系我们",
+>     "href":"contact.html",
+>     "id":5,
+>     "en_name":"contact",
+>     "active":false
+> }
+> //fs.writeFileSync('./demo.json',JSON.stringify(o));//覆盖了
+> //fs.writeFileSync('./demo.json',JSON.stringify(o),{flag:'a'});//追加
+> ```
+以上只是非常简单的举个例子，演示一下读和写文件，并且简单展示了异步操作和同步操作，更多操作我们会在后面给大家详细讲。
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ### ③ 自定义模块
 > 粗俗的理解：就是我们自己写好的，把这些模块暴漏出去
 
