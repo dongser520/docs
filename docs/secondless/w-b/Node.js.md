@@ -287,7 +287,7 @@ style="display:inline-block;" />
 > //process功能其实非常多，这里只是简单举个例子，让大家知道什么是全局模块，后面我们会细讲
 > ```
 
-### ② 系统模块 ： path为例
+### ② 系统模块 ： path、fs模块为例
 > 粗俗的理解：就是系统内置好的模块，你只需要通过 require()方法进行引入，但是不需要去下载的模块。也就是我们在安装nodejs的时候，它已经帮我们内置好了的模块。<br/>
 > 同样，nodejs中的系统模块也是非常的多，我们下面举几个例子给大家介绍一下 <br/>
 
@@ -369,32 +369,52 @@ fs模块：用于文件读写操作（这里做个简单介绍，后面会详细
 > ```
 以上只是非常简单的举个例子，演示一下读和写文件，并且简单展示了异步操作和同步操作，更多操作我们会在后面给大家详细讲。
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-### ③ 自定义模块
-> 粗俗的理解：就是我们自己写好的，把这些模块暴漏出去
-
-
-
-
-
-
+### ③ 自定义模块： exports、module输出、require引入
+> 粗俗的理解：就是我们自己封装的模块，通过 exports、module输出、require引入。<br/>
+> 简单举例： 新建/mynode/mod.js，简单导出
+> ```javascript
+> exports.a = 1;
+> //exports粗俗理解成一个对象，类似json，你往它里面设置一个属性a,然后暴漏出去
+> exports.b = 2;
+> let c = 3;
+> ```
+> /mynode/index.js
+先看：require
+> ```javascript
+> let mod =  require('./mod');//不加./ 就去node_modules文件夹找
+> console.log(mod);
+> console.log(mod.a);//1
+> console.log(mod.b);//2
+> console.log(mod.c);//undefined
+> 
+> //require查找模块说明
+> //1. 如果有路径，如：./ 表示同级目录，就去路径里面找；
+> //2. 没有路径就去node_modules文件夹找
+> //3. 即没有路径也没有node_modules文件夹，就去nodejs安装目录里面找
+> //   nodejs安装目录里面也有一个node_modules文件夹，但是它里面装的都是全局模块
+> // 找不到则报错
+> ```
+再看：module （粗俗理解批量导出）
+> /mynode/mod.js
+> ```javascript
+> module.exports = {
+>     name:'迪丽热巴',
+>     age:31,
+>     sex:'女'
+> }
+> module.exports = {
+>     name:'古力娜扎',
+>     age:35
+> }
+> //还可以导出 函数、对象、类等等，后面案例再讲
+> ```
+> ```javascript
+> let mod =  require('./mod');
+> console.log(mod);
+> console.log(mod.name);
+> console.log(mod.age);
+> //注意：两个module.exports，后者覆盖前者，也覆盖了exports的导出
+> ```
 
 
 
