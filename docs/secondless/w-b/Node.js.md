@@ -465,10 +465,102 @@ fs模块：用于文件读写操作（这里做个简单介绍，后面会详细
 > ```
 
 
+## 五、Node中的数据交互，重要系统模块：url模块
+<img src="https://docs-51yrc-com.oss-cn-hangzhou.aliyuncs.com/docs-imgs/2-2-7-02.jpg" alt="交互原理" class="zoom-custom-imgs" 
+style="display:inline-block;" /> 
+> 关于数据请求方式有很多，我们在前面的Ajax、jQuery章节已经给大家讲了，用得最多的就是我们的GET、POST请求，具体查看：<a href="/secondless/w-b/Ajax.html#_2%E3%80%81%E7%90%86%E8%A7%A3get%E3%80%81post%E8%AF%B7%E6%B1%82" target="_blank">章节6-2、理解get、post请求</a> <br/>
+> 通过上面的图片可以看出：<br/>
+> GET请求，一般是将数据放在请求头里面，通过url方式传递数据，传输的数据量较小；<br/>
+> POST请求，一般是将数据放在请求体里面进行传递。
 
+html代码具体查看： <a href="/secondless/w-b/Ajax.html#_4、表单序列化" target="_blank">章节6-二、jQuery中的Ajax-4、表单序列化</a>
+> ```html
+> <form id="myForm" name="yourForm" class="my-5 flex justify-center">
+>    <select name="usertype">
+>          <option value="学生value">学生text</option>
+>          <option value="老师value">老师text</option>
+>          <option value="管理员value">管理员text</option>
+>          <option>无</option>
+>    </select>
+>    <input type="radio" name="sex" value="男" > 男
+>    <input type="radio" name="sex" value="女" checked="checked">  女
+>    <input type="checkbox" name="loves" value="篮球" checked="checked"> 篮球
+>    <input type="checkbox" name="loves" value="足球" checked="checked">  足球
+>    <input type="checkbox" name="loves" value="乒乓球" >  乒乓球
+>    账号：<input type="text" name="username" value="abc">
+>    <input id="sub"  type="button" value="提交"  >
+> </form>
+> ```
 
+js代码具体查看： <a href="/secondless/w-b/Ajax.html#_3-param-方法将对象转换为字符串键值对格式" target="_blank">章节6-二、jQuery中的Ajax-4、表单序列化-③ $.param()方法将对象转换为字符串键值对格式</a> <br/>
+> 我们现在学习nodejs，就可以自己写一个接口了，比如说接口为：./api/test
+> ```javascript
+> $(function(){
+>     $('form input[type=button]').click(function(){
+>        // console.log($('input:checked[name=loves]'));//集合
+>        $.ajax({
+>           type: 'POST', //表单提交我们采用post , get方式数据量小也可以
+>           url: './xxx',//提交给服务器的接口地址，一般后端程序员给你一个接口（当然你可以自己写一个接口）
+>           //使用$.param()将对象形式的键值对转为 URL 地址的字符串键值对，可以更加稳定准确的传递表单内容
+>           data:$.param({ 
+>              username : $('input[name=username]').val(),
+>              usertype : $(':selected')[0].value,
+>              sex : $('input:checked[name=sex]')[0].value,
+>              loves : function(){
+>                 let loves = $('input:checked[name=loves]');
+>                 let str = '';
+>                 for(let i=0;i<loves.length;i++){
+>                    if(!str){
+>                         str = loves[i].value;
+>                    }else{
+>                         str += ',' + loves[i].value;
+>                    }
+>                 }
+>                 return str;
+>               }
+>           }),
+>           beforeSend:function(xhr){
+>              // console.log(this);
+>              $('form input[type=button]').val('提交中，请稍后...');
+>           },
+>           success: function (response, stutas, xhr) {
+>              $('form input[type=button]').val('提交');
+>              console.log(response)
+>           }
+>        });
+>     });
+> });
+> ```
 
-
+### ① url模块处理GET（get）请求
+> ```javascript
+> let http = require('http');
+> let fs = require('fs');
+> let $url = require('url');
+> http.createServer((request,response)=>{
+>     let url = request.url;
+>     // console.log(url);
+>     //  /api/test?username=abc&usertype=%E5%AD%A6%E7%94%9Fvalue&sex=%E5%A5%B3&loves=%E7%AF%AE%E7%90%83%2C%E8%B6%B3%E7%90%83
+>     // 如何拿接口地址，以及传递的数据，通过系统模块：url模块
+>     // console.log($url);
+>     // console.log($url.parse(url));
+>     // console.log($url.parse(url,true));//true 把query字符串数据转成对象
+>     let { pathname, query} = $url.parse(url,true);
+>     console.log(pathname);
+>     console.log(query);
+> 
+>     fs.readFile(`./${url}`,(err,data)=>{
+>         if(err){
+>             response.setHeader('Content-Type','text/html; charset=utf-8');
+>             response.writeHead(404);
+>             response.end('404页面');
+>         }else{
+>             response.writeHead(200);
+>             response.end(data);
+>         }
+>     });
+> }).listen(8888);
+> ```
 
 
 

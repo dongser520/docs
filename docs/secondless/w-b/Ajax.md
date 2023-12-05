@@ -513,7 +513,8 @@ title: 章节6.Ajax
 >    <input type="checkbox" name="loves" value="足球" checked="checked">  足球
 >    <input type="checkbox" name="loves" value="乒乓球" >  乒乓球
 >    账号：<input type="text" name="username" value="abc">
->    <input id="sub"  type="submit" value="提交"  >
+>    <!--<input id="sub"  type="submit" value="提交"  > -->
+>    <input id="sub"  type="button" value="提交"  >
 > </form>
 > ```
 ### ① 常规形式的表单提交（表单提交数据）
@@ -523,7 +524,7 @@ title: 章节6.Ajax
 > $('form input[type=button]').click(function(){
 >    // console.log($('input:checked[name=loves]'));//集合
 >    $.ajax({
->       type: 'POST', //表单提交我们采用post
+>       type: 'POST', //表单提交我们采用post, get方式数据量小也可以
 >       url: './xxx',//提交给服务器的接口地址，一般后端程序员给你一个接口（当然你可以自己写一个接口）
 >       data: { // 搜索文档：表单提交数据，传递的是对象键值对参数object
 >             username : $('input[name=username]').val(),
@@ -560,7 +561,7 @@ title: 章节6.Ajax
 > $('form input[type=button]').click(function(){
 >    // console.log($('input:checked[name=loves]'));//集合
 >    $.ajax({
->       type: 'POST', //表单提交我们采用post
+>       type: 'POST', //表单提交我们采用post , get方式数据量小也可以
 >       url: './xxx',//提交给服务器的接口地址，一般后端程序员给你一个接口（当然你可以自己写一个接口）
 >       data:$('form').serialize(),//表单序列化，以字符串的形式传递String
 >       beforeSend:function(xhr){
@@ -579,7 +580,7 @@ title: 章节6.Ajax
 > $('form input[type=button]').click(function(){
 >    // console.log($('input:checked[name=loves]'));//集合
 >    $.ajax({
->       type: 'POST', //表单提交我们采用post
+>       type: 'POST', //表单提交我们采用post , get方式数据量小也可以
 >       url: './xxx',//提交给服务器的接口地址，一般后端程序员给你一个接口（当然你可以自己写一个接口）
 >       //data:$('form').serialize(),//表单序列化
 >       /*
