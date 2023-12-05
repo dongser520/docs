@@ -465,7 +465,7 @@ fs模块：用于文件读写操作（这里做个简单介绍，后面会详细
 > ```
 
 
-## 五、Node中的数据交互，重要系统模块：url模块
+## 五、Node中的数据交互，重要系统模块：url模块处理get请求,querystring模块处理post请求
 <img src="https://docs-51yrc-com.oss-cn-hangzhou.aliyuncs.com/docs-imgs/2-2-7-02.jpg" alt="交互原理" class="zoom-custom-imgs" 
 style="display:inline-block;" /> 
 > 关于数据请求方式有很多，我们在前面的Ajax、jQuery章节已经给大家讲了，用得最多的就是我们的GET、POST请求，具体查看：<a href="/secondless/w-b/Ajax.html#_2%E3%80%81%E7%90%86%E8%A7%A3get%E3%80%81post%E8%AF%B7%E6%B1%82" target="_blank">章节6-2、理解get、post请求</a> <br/>
@@ -532,12 +532,13 @@ js代码具体查看： <a href="/secondless/w-b/Ajax.html#_3-param-方法将对
 > });
 > ```
 
-### ① url模块处理GET（get）请求
+### ① url模块处理GET（get）请求：url.parse(url,true)
 > ```javascript
 > let http = require('http');
 > let fs = require('fs');
 > let $url = require('url');
 > http.createServer((request,response)=>{
+>     //看一下get请求
 >     let url = request.url;
 >     // console.log(url);
 >     //  /api/test?username=abc&usertype=%E5%AD%A6%E7%94%9Fvalue&sex=%E5%A5%B3&loves=%E7%AF%AE%E7%90%83%2C%E8%B6%B3%E7%90%83
@@ -562,8 +563,53 @@ js代码具体查看： <a href="/secondless/w-b/Ajax.html#_3-param-方法将对
 > }).listen(8888);
 > ```
 
+### ② querystring模块处理POST（post）请求：querystring.parse()
+> 我们上节课说了，post请求是将数据放在请求体里面传输的，简单表单数据get/post都可以，但是文件、图片、视频等大数据，一般用post请求发送。
 
-
+我们先将上节课的get请求换成post请求：`type: 'post'` <br/>
+另外大家需要先了解，我们`get请求，数据量较小，服务器一次性拿到请求的数据url及参数`。而post请求，数据通过请求体发送，`数据量较大，服务器获取数据量的方式是分段获取，不是一次性拿到浏览器发送的数据`
+> ```javascript
+> let http = require('http');
+> let fs = require('fs');
+> let $url = require('url');//处理get请求
+> let querystring = require('querystring');//处理post请求
+> http.createServer((request,response)=>{
+>     //看一下post请求
+>     console.log(request.method);
+>     //由于是分段获取数据，通过on进行监听data事件，获取每段的数据
+>     //通过回调函数获取每段的数据结果
+>     //前面我们讲fs模块的时候说过读写数据，读的是二进制buffer数据，这里也一样
+>     let result = [];
+>     request.on('data',(buffer)=>{
+>         // console.log(buffer);//获取每段数据，特别视频大的时候，会多次执行data事件，就会有多个buffer
+>         result.push(buffer);
+>     });
+>     //通过end事件，拿到所有的数据进行处理
+>     request.on('end',()=>{
+>         // console.log(result);
+>         //通过buffer对象将每一段数据拼起来
+>         let data =  Buffer.concat(result);
+>         // console.log(data);
+>         //console.log(data.toString());//注意我们知道是字符串所以这样转，要是文件图片用其他的方式查看
+>         //username=abc&usertype=%E5%AD%A6%E7%94%9Fvalue&sex=%E5%A5%B3&loves=%E7%AF%AE%E7%90%83%2C%E8%B6%B3%E7%90%83
+>         //通过系统模块：querystring 处理
+>         console.log(querystring.parse(data.toString()));
+>         //实际开发中，我们处理post请求，比如图片视频有其他方式，大家这里先了解post请求一般处理方式
+>     });
+> 
+>     let url = request.url;
+>     fs.readFile(`./${url}`,(err,data)=>{
+>         if(err){
+>             response.setHeader('Content-Type','text/html; charset=utf-8');
+>             response.writeHead(404);
+>             response.end('404页面');
+>         }else{
+>             response.writeHead(200);
+>             response.end(data);
+>         }
+>     });
+> }).listen(8888);
+> ```
 
 
 
