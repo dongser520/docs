@@ -743,19 +743,62 @@ js代码具体查看： <a href="/secondless/w-b/Ajax.html#_3-param-方法将对
 > ```
 > 当然，你如果想监控整个项目，就没必要配置这一项了。
 
+## 七、nrm (使用nrm管理npm下载源)
+> 我们在前面讲nvm的时候，已经让大家配置过npm的下载源，在讲cnpm命令的时候，也让大家设置过npm的下载源（就是我们的淘宝镜像）。<br/>我们本节课再来看一下管理工具：nrm，它可以帮我们管理多个npm下载源地址。
+> ```javascript
+> //查看一下老师电脑
+> nrm ls //如果你电脑没有输出，则需要安装nrm
+> ```
+我们知道我们前面讲的npm源，都是我们自己手动配置的，现在通过nrm配置下载源就非常方便了。
+### ① 安装nrm
+> ```javascript
+> npm install nrm -g
+> //-g 的意思是：前面说过了，global,全局的意思，也就是命令可以在任何一个文件夹使用
+> ```
+接下来，我们就可以随意的切换各种下载源
+> ```javascript
+>  //首先看一下nrm自己内置的下载源地址
+>  nrm ls 
+>
+>  npm ---------- https://registry.npmjs.org/    //npm 官方源
+>  yarn --------- https://registry.yarnpkg.com/
+>  tencent ------ https://mirrors.cloud.tencent.com/npm/
+>  cnpm --------- https://r.cnpmjs.org/
+>  taobao ------- https://registry.npmmirror.com/
+>  npmMirror ---- https://skimdb.npmjs.com/registry/
+> ```
 
+### ② nrm内置的命令函数
+> ```javascript
+>  nrm -h
+>  //可以查看nrm提供的使用命令
+>
+>  nrm ls //nrm内置的下载源地址
+>  nrm current //查看当前使用的源下载命令
+> ```
+> 报错查看：<a href="https://blog.csdn.net/sinat_36728518/article/details/134492718" target="_blank">https://blog.csdn.net/sinat_36728518/article/details/134492718</a> 
+> 处理方式：指定一个源
+> ```javascript
+>  nrm use <registry> //registry为源名.如：taobao、npm、yarn、tencent、cnpm、npmMirror
+>  nrm use taobao //切换为taobao源
+>  nrm ls //前面就出现了一个星号，表示当前的镜像源在淘宝上
+> ```
+测试源速度： `nrm test <registry>`
+> 比如：测试官方源和淘宝源的响应时间
+> ```javascript
+> nrm test npm //测试官方源响应时间
+> nrm test taobao //测试淘宝源响应时间，很明显快很多
+> ```
 
+### ③ 查看当前正在使用的 npm 镜像源
+> ```javascript
+> npm config get registry  // https://registry.npmmirror.com/
+> ```
 
-
-
-
-
-
-
-
-
-
-
+### ④  切换 npm 镜像源
+> ```javascript
+> npm config set registry https://registry.npmmirror.com/
+> ```
 
 <br/><br/><br/><br/><br/><br/>
 
