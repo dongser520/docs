@@ -92,6 +92,8 @@ style="display:inline-block;" />
 ## 4、使用NVM包管理器
 > 以下是常见命令，不需要记忆，用的时候回来看一下（最好是记住）
 > ```javascript
+> nvm -h                  //查看所有nvm命令
+>
 > nvm ls 或者 nvm list      //查看安装的所有node.js的版本
 > 
 > nvm list available        //查看显示可以安装的所有node.js的版本
@@ -575,51 +577,171 @@ js代码具体查看： <a href="/secondless/w-b/Ajax.html#_3-param-方法将对
 > let querystring = require('querystring');//处理post请求
 > http.createServer((request,response)=>{
 >     //看一下post请求
->     console.log(request.method);
->     //由于是分段获取数据，通过on进行监听data事件，获取每段的数据
->     //通过回调函数获取每段的数据结果
->     //前面我们讲fs模块的时候说过读写数据，读的是二进制buffer数据，这里也一样
->     let result = [];
->     request.on('data',(buffer)=>{
->         // console.log(buffer);//获取每段数据，特别视频大的时候，会多次执行data事件，就会有多个buffer
->         result.push(buffer);
->     });
->     //通过end事件，拿到所有的数据进行处理
->     request.on('end',()=>{
->         // console.log(result);
->         //通过buffer对象将每一段数据拼起来
->         let data =  Buffer.concat(result);
->         // console.log(data);
->         //console.log(data.toString());//注意我们知道是字符串所以这样转，要是文件图片用其他的方式查看
->         //username=abc&usertype=%E5%AD%A6%E7%94%9Fvalue&sex=%E5%A5%B3&loves=%E7%AF%AE%E7%90%83%2C%E8%B6%B3%E7%90%83
->         //通过系统模块：querystring 处理
->         console.log(querystring.parse(data.toString()));
->         //实际开发中，我们处理post请求，比如图片视频有其他方式，大家这里先了解post请求一般处理方式
->     });
-> 
->     let url = request.url;
->     fs.readFile(`./${url}`,(err,data)=>{
->         if(err){
->             response.setHeader('Content-Type','text/html; charset=utf-8');
->             response.writeHead(404);
->             response.end('404页面');
->         }else{
->             response.writeHead(200);
->             response.end(data);
->         }
->     });
+>     // console.log(request.method);
+>     if(request.method == 'GET'){
+>         let url = request.url;
+>         if(url.indexOf('/api/') == -1){
+>             fs.readFile(`./${url}`,(err,data)=>{
+>                 if(err){
+>                     response.setHeader('Content-Type','text/html; charset=utf-8');
+>                     response.writeHead(404);
+>                     response.end('404页面');
+>                 }else{
+>                     response.writeHead(200);
+>                     response.end(data);
+>                 }
+>             });
+>         }  
+>     }else if(request.method == 'POST'){
+>         //由于是分段获取数据，通过on进行监听data事件，获取每段的数据
+>         //通过回调函数获取每段的数据结果
+>         //前面我们讲fs模块的时候说过读写数据，读的是二进制buffer数据，这里也一样
+>         let result = [];
+>         request.on('data',buffer=>{
+>            //  console.log(buffer);//获取每段数据，特别视频大的时候，会多次执行data事件，就会有多个buffer
+>            result.push(buffer);
+>         });
+>         //通过end事件，拿到所有的数据进行处理
+>         request.on('end',()=>{
+>            //console.log(result);
+>            //通过buffer对象将每一段数据拼起来
+>            let data = Buffer.concat(result);
+>            // console.log(data.toString());
+>            //username=abc&usertype=%E5%AD%A6%E7%94%9Fvalue&sex=%E5%A5%B3&loves=%E7%AF%AE%E7%90%83%2C%E8%B6%B3%E7%90%83
+>            //通过系统模块：querystring 处理
+>            console.log(querystring.parse(data.toString()));
+>            //实际开发中，我们处理post请求，比如图片视频有其他方式，大家这里先了解post请求一般处理方式
+>         });
+>     }
 > }).listen(8888);
 > ```
 
+## 六、nodejs项目监测文件变化，自动重启工具：Nodemon
+> 我们在前面的讲解中，每次修改我们的node文件，都需要重新启动nodejs服务器，很繁琐，主要是为了让大家从基础学起，一步一步了解我们nodejs的特性。那么，从本节课开始，我们学习一下如何在我们修改了js文件的情况下，不用重新启动我们的nodejs服务器，也可以更新我们修改后的内容。<br/><br/>
+> 我们需要安装一个监测nodejs项目文件变化的自动重启工具：nodemon。它会自动监测nodejs中文件的变化，帮我们重启node服务。
 
+1、我们可以将我们上节课的代码，换一种写法
+> ```javascript
+> let http = require('http');
+> let fs = require('fs');
+> let $url = require('url');
+> let querystring = require('querystring');
+> const server =  http.createServer((request,response)=>{
+>     if(request.method == 'GET'){
+>         let url = request.url;
+>         if(url.indexOf('/api/') == -1){
+>             fs.readFile(`./${url}`,(err,data)=>{
+>                 if(err){
+>                     response.setHeader('Content-Type','text/html; charset=utf-8');
+>                     response.writeHead(404);
+>                     response.end('404页面');
+>                 }else{
+>                     response.writeHead(200);
+>                     response.end(data);
+>                 }
+>             });
+>         }  
+>     }else if(request.method == 'POST'){
+>         let result = [];
+>         request.on('data',buffer=>{
+>            //  console.log(buffer);//获取每段数据，特别视频大的时候，会多次执行data事件，就会有多个buffer
+>            result.push(buffer);
+>         });
+>         //通过end事件，拿到所有的数据进行处理
+>         request.on('end',()=>{
+>            //console.log(result);
+>            //通过buffer对象将每一段数据拼起来
+>            let data = Buffer.concat(result);
+>            // console.log(data.toString());
+>            //username=abc&usertype=%E5%AD%A6%E7%94%9Fvalue&sex=%E5%A5%B3&loves=%E7%AF%AE%E7%90%83%2C%E8%B6%B3%E7%90%83
+>            //通过系统模块：querystring 处理
+>            console.log(querystring.parse(data.toString()));
+>            //实际开发中，我们处理post请求，比如图片视频有其他方式，大家这里先了解post请求一般处理方式
+>         });
+>     }
+> });
+> 
+> server.listen(8888,'127.0.0.1',()=>{
+>     console.log('服务器已启动');
+> });
+> //我们可以通过：
+> // http://localhost:8888/index.html 访问首页
+> // http://127.0.0.1:8888/index.html ip地址访问首页
+> ```
 
+2、回到我们的package.json文件
+> ```javascript
+> //我们正常情况，启动服务：
+> node index 或者 node index.js //因为index.js在我们的根目录
+> //如果index.js在根目录src文件夹里面，则：
+> node src/index 或者 node src/index.js
+> ```
+> ```javascript
+> //我们说package.json里面的script就是给我们调试用的
+> "scripts": {
+>     "start":"node index.js", //npm run start
+>     "dev":"node src/index.js", //npm run dev
+>     "test": "echo \"Error: no test specified\" && exit 1" //npm run test
+>  },
+> ```
 
+如果此时，修改我们的index.js代码，刷新没有生效，需要重启 Ctrl + C , 启动服务：npm run start <br/><br/>
+`简单说一下原因：nodejs在执行的时候，当我们把服务启动的时候，我们写的这些js代码，它会被装载到内存里面去，整个代码在执行的时候，它不会去重新解析我们的文件，这样才会提高它运行的效率，因为你启动可以时间长一点，我把你所有要执行的文件都解析出来，然后在执行的时候，效率就会变得更高。如果我在你启动的时候，没有把你要执行的文件提前做解析，等你运行的时候，当你需要这个文件的时候，我再去解析，这个时候会比较慢，因为你一运行，就想马上看效果，我在解析就会耽误时间，或者你文件丢失还会发生错误，所以这是nodejs做的提高运行效率的机制，因此，如果修改了代码，我们需要把服务先停掉，然后再重新启动，这就相当于把你的新代码重新装载到内存里面了，那么新的代码就会生效。` 这就是为什么我们每次修改了代码，都要重启的原因。<br/><br/>
+当然，`当我们在开发的时候`，我们会频繁的修改代码，就会去频繁的启动服务器，会非常累。只有我们的代码上线到服务器之后，我们才不会去更改。<strong> 因此，在我们开发期间，为了不至于频繁重启服务器，我们可以使用一个工具：nodemon，</strong>它会去监测文件的变化然后自动帮我们重启服务。
+### ① 安装nodemon
+> ```javascript
+> npm install nodemon -D
+> //加 -D 的意思是：安装在我们dev环境，就是我们的开发环境，上线之后初始化的时候无需安装
+> ```
+### ② 修改package.json 中的启动命令
+> ```javascript
+> "scripts": {
+>    "start":"nodemon index.js", //npm run start
+>    "start:node":"node index.js", //npm run start:node
+>    "dev":"node src/index.js", //npm run dev
+>    "test": "echo \"Error: no test specified\" && exit 1" //npm run test
+> },
+> ```
+> ```javascript
+> //输入命令运行
+> npm run start
+>
+> //观察终端输出信息：
+> // [nodemon] 3.0.2  表示nodemon版本号
+>
+> // [nodemon] to restart at any time, enter `rs`
+> // 表示在任何时间想要重新启动，可以输入：rs 即可重启
+>
+> // [nodemon] watching path(s): *.*
+> // 表示监测所有路径的文件变化，不管你是根目录，还是文件夹里面的文件
+>
+> // [nodemon] watching extensions: js,mjs,cjs,json
+> // 表示监测文件的类型：js,mjs,cjs,json的文件
+> ```
+也就是说，我把package.json改一下，它也会重启。但是package.json我们很少改动，没必要重启。因此，我们可以给nodemon一个配置文件，告诉它哪些文件需要监视，修改后可以重启
 
-
-
-
-
-
+### ③ 配置nodemon，告诉它哪些文件需要修改后重启服务（可选项）
+> ```javascript
+> // 根目录新建： /nodemon.json文件
+> {
+>     "watch":["./src/**/*.*"] 
+>     //表示匹配：./src/ 代表跟nodemon.json文件同级别的src文件夹里面的
+>     // ./src/**/ src文件夹里面的任何子集文件夹
+>     // ./src/**/*.* 任何子集文件夹里面的任何子集文件
+>     //说白了：就是监听src文件夹里面的所有文件的变化，包含src文件夹里面还有文件夹里面的文件
+>     
+>     "watch":["./src/**/*.js"]  //表示src文件夹里面的所有js文件
+>
+>     //配置文件改完之后，我们重新启动一下服务，之后观察变化
+>     //发现修改 src里面的index.js 会重新启动，除了src文件夹里面的文件，其他文件都不会重新启动
+>     //这个就是指定监控的文件，修改自动重启。
+>    
+> 
+>     //我们这里可以配置成
+>     "watch":["./*.js"]  //根目录下所有js文件，也可以删除nodemon.json文件不做配置
+> }
+> ```
+> 当然，你如果想监控整个项目，就没必要配置这一项了。
 
 
 
