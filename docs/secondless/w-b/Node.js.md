@@ -919,6 +919,94 @@ flag属性值，具体查看：<a href="https://juejin.cn/post/73049485225064366
 > });
 > ```
 
+### ⑦ 写入文件：writeFile、writeFileSync，追加写入文件：appendFile、appendFileSync
+> 同步异步在前面都讲过了
+> ```javascript
+> //异步
+> // fs.writeFile('./test.txt','迪丽热巴',(err) => {
+> //     if (err) throw err;
+> //     console.log('文件创建成功！');
+> // }); 
+> //同步
+> // fs.writeFileSync('./test.txt','古力娜扎');
+> //追加
+> fs.writeFileSync('./test.txt','\n古力娜扎1',{
+>     flag:'a'
+> });
+> flag的值：
+> // 'a': 打开文件进行追加。 如果文件不存在，则创建该文件。
+> // 'ax': 类似于 'a' 但如果路径存在则失败。
+> // 'a+': 打开文件进行读取和追加。 如果文件不存在，则创建该文件。
+> // 'ax+': 类似于 'a+' 但如果路径存在则失败。
+> // 'as': 以同步模式打开文件进行追加。 如果文件不存在，则创建该文件。
+> // 'as+': 以同步模式打开文件进行读取和追加。 如果文件不存在，则创建该文件。
+> // 'r': 打开文件进行读取。 如果文件不存在，则会发生异常。
+> // 'r+': 打开文件进行读写。 如果文件不存在，则会发生异常。
+> // 'rs+': 以同步模式打开文件进行读写。 指示操作系统绕过本地文件系统缓存。
+> // 这主要用于在 NFS 挂载上打开文件，因为它允许跳过可能过时的本地缓存。 它对 I/O 性能有非常实际的影响，因此除非需要，否则不建议使用此标志。
+> // 这不会将 fs.open() 或 fsPromises.open() 变成同步阻塞调用。 如果需要同步操作，应该使用类似 fs.openSync() 的东西。
+> // 'w': 打开文件进行写入。 创建（如果它不存在）或截断（如果它存在）该文件。
+> // 'wx': 类似于 'w' 但如果路径存在则失败。
+> // 'w+': 打开文件进行读写。 创建（如果它不存在）或截断（如果它存在）该文件。
+> // 'wx+': 类似于 'w+' 但如果路径存在则失败。
+> ```
+> ```javascript
+> //同步追加写appendFileSync
+> // fs.appendFileSync('./test.txt','\n刘德华');
+> //异步追加写appendFile
+> fs.appendFile('./test.txt','\n古天乐',(err)=>{
+>     console.log(err);
+> })
+> ```
+### ⑧ 写入文件：创建可写流 createWriteStream()
+> 跟上面的可读流一样的用法，也是处理大量数据使用，大量分批插入
+> ```javascript
+> let writestream = fs.createWriteStream('./test.txt');
+> let arr = [
+>     '离离原上草',
+>     '一岁一枯荣',
+>     '野火烧不尽',
+>     '春风吹又生'
+> ];
+> arr.forEach(item=>{
+>     writestream.write(item + '\n');
+> });
+> 
+> writestream.end();//关掉可写通道
+> writestream.on('finish',()=>{
+>     console.log('写完了')
+> });
+> //根据编辑器提示可以看一下其他事件
+> ```
+
+### ⑨ 软链接symlinkSync、symlink 硬链接linkSync、link
+> ```javascript
+> //硬链接：参数1：原始地址  参数2：硬链接之后的地址
+> // fs.linkSync('./test.txt','./test2.txt');
+> //1.发现会创建test2.txt文件 内容一样
+> //2.它们是共享同一个内存地址的，修改test2.txt文件，test.txt文件也修改
+> //硬链接 可做共享文件 备份文件
+> //我们删除掉原始文件 test.txt, test2.txt可以正常使用
+> 
+> //软链接(符号链接)  类似window的快捷方式
+> // fs.symlinkSync('./test.txt','./test2.txt');
+> //如果报错，说明需要管理员权限
+> //如果删除掉原始文件test.txt，则test2.txt无法打开
+> ```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <br/><br/><br/><br/><br/><br/>
 
 ## 【第二学期第2季课程】其它章节
