@@ -188,7 +188,8 @@ style="display:inline-block;" />
 > ```
 总结一下：
 > ```javascript
-> npm init             //初始化`package.json`文件
+> npm init              //初始化`package.json`文件，需手动输入一些基本信息
+> npm init -y           //初始化一个默认信息的`package.json`文件
 >
 > npm install 包名     //安装
 > npm i 包名           //安装简写
@@ -798,6 +799,124 @@ js代码具体查看： <a href="/secondless/w-b/Ajax.html#_3-param-方法将对
 ### ④  切换 npm 镜像源
 > ```javascript
 > npm config set registry https://registry.npmmirror.com/
+> ```
+
+## 八、系统模块：fs模块详解
+> 我们在前面讲系统模块的时候，给大家简单的讲解了一下fs模块，由于这个模块比较重要，本节课我们详细讲解一下fs模块的语法和使用。<br/>
+> 我们在前面的讲解中，分别用json文件和html文件，让大家通过fs模块进行了读取，本节课，我们用txt文本文件为例，给大家讲解一下fs模块的更多语法和使用。<br/>
+`根目录新建/test.txt文件，随便复制些内容，重复多复制几份，我们在终端操作讲解` 
+### ① 读取文件： 异步readFile、同步readFileSync、promise操作
+> 不加Sync的就是异步操作
+> ```javascript
+> let fs = require('node:fs');
+> fs.readFile('./test.txt',{
+>     encoding:'utf-8',//文本文档改一下编码
+>     flag:'r', //r读取文件的意思，a(打开文件进行追加。 如果文件不存在，则创建该文件)
+> },(err,data)=>{
+>    if(err) throw err;
+>    // console.log(data.toString());
+>    console.log(data);//改一下编码格式：'utf-8'
+> });
+> ```
+flag属性值，具体查看：<a href="https://juejin.cn/post/7304948522506436635" target="_blank">https://juejin.cn/post/7304948522506436635</a> 
+> 同步方式
+> ```javascript
+> let fs = require('node:fs');
+> //同步方式会阻塞代码，必须先把文件读取完了之后，在继续执行下面的代码
+> let data =  fs.readFileSync('./test.txt',{
+>     // 'encoding':'utf-8'
+> });
+> // console.log(data);//Buffer数据二进制流数据，每两个16进制字符是一个字节
+> //方式1：console.log(data.toString("utf-8")); 方式2：文本文档改一下编码：'encoding':'utf-8'
+> console.log(data.toString("utf-8"));
+> console.log(123);//发现先输出data 说明阻塞了代码的执行
+> //总结：
+> // 当文件小的时候，可以使用同步，当文件大了之后，建议使用异步
+> ```
+> promise方式（前面讲过，用then()方法接收，出错用catch()）异步方式
+> ```javascript
+> let fs = require('node:fs');
+> let fsPromise = require('node:fs/promises');
+> fsPromise.readFile('./test.txt',{}).then(data=>{
+>     console.log(data.toString('utf-8'))
+> }).catch(err=>{
+>     console.log(err);
+> });
+> ```
+
+### ② 可读流模式：createReadStream()方法
+> ```javascript
+> let fs = require('node:fs');
+> //处理大文件使用这个方式，比如你有1G的文件，它会把文件一段一段给你返回
+> const readStream = fs.createReadStream('./test.txt',{
+>     // start:3,
+>     // end:12,
+>     encoding:'utf-8'
+> });
+> //通过on方法监听事件
+> readStream.on('open',function(fd){
+>     console.log('开始读取文件');
+> });
+> readStream.on('data',function(chunk){
+>     console.log('读取到数据：',chunk);
+> });
+> readStream.on('end',function(){
+>     console.log('文件已全部读取完毕');
+> });
+> readStream.on('close',function(){
+>     console.log('文件被关闭');
+> });
+> readStream.on('error',function(err){
+>     console.log('读取文件失败'); 
+> });
+> ```
+
+### ③ 创建文件夹：mkdirSync , mkdir
+> 一般我们以同步的方式创建文件夹，因为很快
+> ```javascript
+> let fs = require('node:fs');
+> // fs.mkdirSync('./src') 报错，因为文件夹存在
+> // console.log(fs.existsSync('./src'));;//true 或者 false
+> 
+> // if(!fs.existsSync('./src')){//不存在则创建
+> //     fs.mkdirSync('./src');
+> // }
+> 
+> // if(!fs.existsSync('./demo')){
+> //     fs.mkdirSync('./demo');
+> // }
+> 
+> // fs.mkdirSync('./demo1/demo2/demo');//创建多层文件夹失败，需要递归创建
+> //递归创建多个文件夹
+> fs.mkdirSync('./demo1/demo2/demo',{
+>     recursive:true, //执行递归创建
+> });
+> ```
+
+### ④ 删除文件夹：rmSync , rm
+> ```javascript
+> let fs = require('node:fs');
+> fs.rmSync('./demo1',{
+>     recursive:true, //执行递归删除，注意传递首个文件夹即可
+> }); 
+> ```
+
+### ⑤ 重命名文件：renameSync ,  rename
+> ```javascript
+> let fs = require('node:fs');
+> //参数1：原文件名，参数2：新文件名
+> fs.renameSync('./test.txt','test2.txt');
+> ```
+
+
+### ⑥ 监听文件变化: watch
+> ```javascript
+> let fs = require('node:fs');
+> //事件类型可以是： rename 文件重命令 或 change 文件内容改变
+> fs.watch('./test1.txt',(event,filename)=>{
+>     console.log(event);// rename  change
+>     console.log(filename);
+> });
 > ```
 
 <br/><br/><br/><br/><br/><br/>
