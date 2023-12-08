@@ -994,7 +994,8 @@ flag属性值，具体查看：<a href="https://juejin.cn/post/73049485225064366
 > //如果删除掉原始文件test.txt，则test2.txt无法打开
 > ```
 
-
+## 九、node.js + jQuery完成：网页 “联系我们” 页面的留言板功能
+具体查看：<a href="/secondless/w-b/nodejs+jQuery开发留言板" target="_blank">案例：nodejs+jQuery开发企业网页的留言板功能</a>
 
 
 
