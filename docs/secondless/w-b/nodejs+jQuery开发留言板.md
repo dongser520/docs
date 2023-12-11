@@ -241,7 +241,9 @@ title: 案例：nodejs+jQuery开发企业网页的留言板功能
 >            */
 >            //箭头函数和匿名函数的区别我们会在后面讲解
 >            $('input[name=tel]').on('input',()=>{
->                this.is_tel_html();
+>               if($('input[name=tel]').val().length > 10 || tel_parent.find('span').eq(1).length){
+>                  this.is_tel_html();
+>               }               
 >            });
 >        }
 > };
@@ -262,3 +264,161 @@ title: 案例：nodejs+jQuery开发企业网页的留言板功能
 ## 三、提交数据
 > 定义提交接口：`./api/message` <br/>
 > 提交数据方式采用jQuery的ajax方式，搜索`表单序列化`
+> ```js
+> $(function(){
+>     //回顾一下面向对象
+>     let tel_parent = $('input[name=tel]').parent();
+>     let username_parent = $('input[name=username]').parent();
+>     let message = {
+>         //获取您的称呼的值
+>         username:function(){
+>             return document.getElementsByName('username')[0].value;
+>             // return $('input[name=username]').val();
+>         },
+>         tel:function(){
+>             return document.getElementsByName('tel')[0].value;
+>             // return $('input[name=tel]').val();
+>         },
+>         message:function(){
+>             return document.getElementsByName('message')[0].value;
+>             // return $('textarea[name=message]').val();
+>         },
+>         //合法性判断
+>         is_tel:function(){
+>             let tel = this.tel();
+>             if(!tel){
+>                 return {
+>                     msg:'error',
+>                     data:'请输入您的电话号码'
+>                 }
+>             }
+>             // console.log(tel);
+>             // return tel;
+>             let patter = /^((13[0-9])|(14[5,7])|(15[0-3,5-9])|(17[0,3,5-8])|(18[0-9])|166|198|199|(147))\d{8}$/;
+>             // console.log(patter.test(tel));
+>             if(patter.test(tel)){
+>                 //正确的电话号码
+>                 return {
+>                     msg:'ok',
+>                     data:tel
+>                 }
+>             }else{
+>                 return {
+>                     msg:'error',
+>                     data:'电话号码不正确'
+>                 }
+>             }
+>         },
+>         //页面提示
+>         is_tel_html:function(){
+>             let is_tel = this.is_tel();
+>             // return is_tel;
+>             // console.log(is_tel);
+>             tel_parent.find('span').eq(1).remove();
+>             if(is_tel.msg == 'error'){
+>                 let spanhtml = '<span style="color:red">'+ is_tel.data +'</span>';
+>                 tel_parent.append(spanhtml);
+>             }
+>             return is_tel;
+>         },
+>         //监听电话号码的输入值
+>         input_is_tel_html:function(){
+>             /*
+>             let _this = this;
+>             $('input[name=tel]').on('input',function(){
+>                 // console.log($(this).val());
+>                 _this.is_tel_html();
+>             })
+>             */
+>             //箭头函数和匿名函数的区别我们会在后面讲解
+>             $('input[name=tel]').on('input',()=>{
+>                 if($('input[name=tel]').val().length > 10 || tel_parent.find('span').eq(1).length){
+>                     this.is_tel_html();
+>                 }
+>             });
+>         },
+>         //称呼合法性判断
+>         is_username:function(){
+>             let username = this.username();
+>             if(!username){
+>                 return {
+>                     msg:'error',
+>                     data:'请输入您的称呼'
+>                 }
+>             }
+>             if(username.length > 0 && username.length <= 15){
+>                 return {
+>                     msg:'ok',
+>                     data:username
+>                 }
+>             }else{
+>                 return {
+>                     msg:'error',
+>                     data:'您的称呼不能超过15个字符'
+>                 }
+>             }
+>         },
+>         //称呼页面提示
+>         is_username_html:function(){
+>             let is_username = this.is_username();
+>             // console.log(is_username);
+>             username_parent.find('span').eq(1).remove();
+>             if(is_username.msg == 'error'){
+>                 //页面提示
+>                 let spanhtml = '<span style="color:red">'+ is_username.data +'</span>';
+>                 username_parent.append(spanhtml);
+>             }
+>             return is_username;
+>         },
+>         //监听称呼的输入值
+>         input_is_username_html:function(){
+>             $('input[name=username]').on('input',()=>{
+>                 if($('input[name=username]').val().length > 15 || username_parent.find('span').eq(1).length){
+>                     this.is_username_html();
+>                 }
+>             });
+>         },
+>     }
+> 
+>     //监听电话号码的输入值
+>     message.input_is_tel_html();
+>     //监听称呼的输入值
+>     message.input_is_username_html();
+> 
+>     $('.submit-div span').on('click',function(){
+>         // console.log(message.username());
+>         // console.log(message.tel());
+>         // console.log(message.message());
+> 
+>         // console.log(message.is_tel());
+> 
+>         // console.log(message.is_tel_html());
+> 
+>         let username = message.is_username_html();
+>         let tel = message.is_tel_html();
+>         console.log(username);
+>         console.log(tel);
+>         if(username.msg == 'ok' && tel.msg == 'ok'){
+>             // console.log('提交数据')
+>             _this = this;
+>             $.ajax({
+>                 type: 'POST', //表单提交我们采用post , get方式数据量小也可以
+>                 url: './api/message',//提交给服务器的接口地址，一般后端程序员给你一个接口（当然你可以自己写一个接口）
+>                 //使用$.param()将对象形式的键值对转为 URL 地址的字符串键值对，可以更加稳定准确的传递表单内容
+>                 data:$.param({ 
+>                     username : username.data,
+>                     tel : tel.data,
+>                     message : message.message(),  
+>                 }),
+>                 beforeSend:function(xhr){
+>                     $(_this).text('提交中...');
+>                 },
+>                 success: function (response, stutas, xhr) {
+>                     $(_this).text('发送')
+>                     console.log(response)
+>                 }
+>             });
+>         }
+>     });
+> });
+> ```
