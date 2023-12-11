@@ -19,6 +19,7 @@ module.exports = [
             { text: 'echarts图表', link: '/web/echarts/' },
             { text: 'Bootstrap', link: '/web/bootstrap/' },
             { text: 'IIS', link: '/web/IIS/' },
+            { text: 'Github', link: '/web/github/' },
         ]
     },
     {
