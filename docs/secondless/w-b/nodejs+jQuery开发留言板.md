@@ -176,3 +176,89 @@ title: 案例：nodejs+jQuery开发企业网页的留言板功能
 >    });
 > });
 > ``` 
+> ### ② 监听输入数据的合法性
+> 当手机号码对了之后，移除错误提示，可以监听输入框输入值的变化
+> ```js
+> let tel_parent = $('input[name=tel]').parent();
+> let message = {
+>     //合法性判断
+>        is_tel:function(){
+>            let tel = this.tel();
+>            // return tel;
+>            if(!tel){
+>                return {
+>                    msg:'error',
+>                    data:'请输入您的电话号码'
+>                }
+>            }
+>            let patter = /^((13[0-9])|(14[5,7])|(15[0-3,5-9])|(17[0,3,5-8])|(18[0-9])|166|198|199|(147))\d{8}$/;
+>            // console.log(patter.test(tel));
+>            if(patter.test(tel)){
+>                //正确的电话号码
+>                return {
+>                    msg:'ok',
+>                    data:tel
+>                }
+>            }else{
+>                return {
+>                    msg:'error',
+>                    data:'电话号码不正确'
+>                }
+>            }
+>        },
+>        //页面提示
+>        is_tel_html:function(){
+>            let is_tel = this.is_tel();
+>            console.log(is_tel);
+>            // return is_tel;
+>            let spanhtml = '<span style="color:red">'+ is_tel.data +'</span>';
+>            tel_parent.find('span').eq(1).remove();
+>            if(is_tel.msg == 'ok'){
+>                // console.log(tel_parent.find('span').eq(1).length);
+>                /*
+>                if(tel_parent.find('span').eq(1).length){
+>                    tel_parent.find('span').eq(1).remove();
+>                }
+>                */
+>                // tel_parent.find('span').eq(1).remove();
+>                return is_tel;
+>            }else{
+>                //页面提示，并终止程序
+>                // console.log(tel_parent.find('span').eq(1).length);
+>                // tel_parent.find('span').eq(1).remove();
+>                tel_parent.append(spanhtml);
+>                return;
+>            }
+>        },
+>        //监听电话画面输入框
+>        input_is_tel_html:function(){
+>            /*
+>            let _this = this;
+>            $('input[name=tel]').on('input',function(){
+>                // console.log($(this).val());
+>                _this.is_tel_html();
+>            });
+>            */
+>            //箭头函数和匿名函数的区别我们会在后面讲解
+>            $('input[name=tel]').on('input',()=>{
+>                this.is_tel_html();
+>            });
+>        }
+> };
+> //监听输入框输入内容变化
+> message.input_is_tel_html();
+> $('.submit-div span').on('click',function(){
+>     // console.log(message.username());
+>     // console.log(message.tel());
+>     // console.log(message.message());
+> 
+>     // console.log(message.is_tel());
+> 
+>     // console.log(message.is_tel_html());
+>     let tel = message.is_tel_html();
+> });
+> ```
+> 称呼我们就只判断一下是否输入，以及称呼的长度限制在15个字以内
+## 三、提交数据
+> 定义提交接口：`./api/message` <br/>
+> 提交数据方式采用jQuery的ajax方式，搜索`表单序列化`
