@@ -478,6 +478,7 @@ title: 案例：nodejs+jQuery开发企业网页的留言板功能
 >     "currentId":5
 > }
 > ```
+> ### ① 首次留言处理
 > ```js
 > //留言写入json文件
 > function addmessage(data){
@@ -497,10 +498,13 @@ title: 案例：nodejs+jQuery开发企业网页的留言板功能
 >     if(flag){
 >         //读一下再写
 >         console.log('读一下再写');
+>         readmessage('./data/message.json',data);
 >     }else{
 >         //第一次创建数据
 >         let ms = data;
 >         ms.id = 1;
+>         //加入时间,所在地等等
+>         ms.timestamp = new Date().getTime();
 >         console.log(ms);
 >         let o = {};
 >         o.data = [];
@@ -514,5 +518,36 @@ title: 案例：nodejs+jQuery开发企业网页的留言板功能
 >             console.log('写入成功');
 >         });
 >     }
+> }
+> ```
+> 时间戳参考：<a href="https://zhuanlan.zhihu.com/p/652330526" target="_blank">时间戳和时间的转化</a> 
+> ### ② 存储用户的留言
+> ```js
+> //读一下json文件在做处理
+> function readmessage(path,data) {
+>     //读取内容,同步异步promise,以及可写流
+>     fs.readFile(path, {
+>         encoding: 'utf-8'
+>     }, (err, oldmessage) => {
+>         if (err) throw err;
+>         oldmessage = JSON.parse(oldmessage);
+>         // console.log(oldmessage)
+>         // console.log(data);
+>         //处理数据
+>         data.id = oldmessage.currentId + 1;
+>         //加入时间,所在地等等
+>         data.timestamp = new Date().getTime();
+>         //新的留言放进数组
+>         oldmessage.data.push(data);
+>         //处理大对象
+>         oldmessage.total = oldmessage.data.length;
+>         oldmessage.currentId = data.id;
+>         console.log(oldmessage);
+>         //写入内容,同步异步promise,以及可写流
+>         fs.writeFile(path, JSON.stringify(oldmessage), (err) => {
+>             if (err) throw err;
+>             console.log('写入成功')
+>         });
+>     });
 > }
 > ```
