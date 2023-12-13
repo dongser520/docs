@@ -416,9 +416,103 @@ title: 案例：nodejs+jQuery开发企业网页的留言板功能
 >                 success: function (response, stutas, xhr) {
 >                     $(_this).text('发送')
 >                     console.log(response)
->                 }
+>                 },
 >             });
 >         }
 >     });
 > });
+> ```
+> ### ① 提交留言之后的页面处理
+> ```js
+> $('.submit-div span').on('click',function(){
+>     let username = message.is_username_html();
+>     let tel = message.is_tel_html();
+>     if(username.msg == 'ok' && tel.msg == 'ok'){
+>         console.log($(this).text());
+>         let _this = this;
+>         $.ajax({
+>             type: 'POST', //表单提交我们采用post , get方式数据量小也可以
+>             url: './api/message',//提交给服务器的接口地址，一般后端程序员给你一个接口（当然你可以自己写一个接口）
+>             data:$.param({ 
+>                 username : username.data,
+>                 tel:  tel.data,
+>                 message:message.message()
+>             }),
+>             beforeSend:function(xhr){
+>                 // console.log($(this).text());
+>                 //$(this)指向的是最近调用它的jquery对象,$(this)就是表示ajax对象了
+>                 // $('.submit-div span').text('提交中...');
+>                 $(_this).text('提交中...');
+>             },
+>             success: function (response, stutas, xhr) {
+>                 console.log(response)
+>                 $('input,textarea').val('');//清空输入内容
+>                 $(_this).text('您的留言已提交成功，我们会尽快和您联系！');
+>                 setTimeout(() => {
+>                     $(_this).text('发送');
+>                 }, 5000);
+>             },
+>             error:function(err){
+>                 $(_this).text('发送');
+>             },
+>             complete:function(){
+>                 // $(_this).text('发送');
+>             }
+>             });
+>     }
+> });
+> ```
+## 四、nodejs服务器端处理留言
+> `说明：由于我们目前没有学习数据库相关的内容（常用的数据库如：MySQL，Oracle，MongoDB，SQL Server等等），因此我们目前可以将用户提交的留言以json文件的形式，存放在服务器上。`<br/>
+> 留言内容 `/data/message.json` 文件数据格式
+> ```js
+> {
+>     "data":[
+>         {"username":"迪丽热巴","tel":"13545375400","message":"请问贵公司还招人吗？","id":1},
+>         {"username":"古力娜扎","tel":"13854856512","message":"","id":2},
+>         {"username":"梁咏琪","tel":"17858584587","message":"我有个业务想和贵公司合作一下，请及时联系我","id":3},
+>         {"username":"刘德华","tel":"13945444477","message":"","id":4},
+>         {"username":"古天乐","tel":"13954854477","message":"","id":5}
+>     ],
+>     "total":5,
+>     "currentId":5
+> }
+> ```
+> ```js
+> //留言写入json文件
+> function addmessage(data){
+>     data = querystring.parse(data.toString());
+>     console.log(data);
+>     //创建一个文件夹data
+>     if(!fs.existsSync('./data')){//不存在则创建
+>         fs.mkdirSync('./data');
+>     }
+>     //判断message.json文件是否存在，存在说明之前写入过了，先读一下
+>     /*
+>     let flag = false;
+>     console.log(fs.existsSync('./data/message.json'));
+>     if(fs.existsSync('./data/message.json')) flag = true;
+>     */
+>     let flag = fs.existsSync('./data/message.json') ? true : false;
+>     if(flag){
+>         //读一下再写
+>         console.log('读一下再写');
+>     }else{
+>         //第一次创建数据
+>         let ms = data;
+>         ms.id = 1;
+>         console.log(ms);
+>         let o = {};
+>         o.data = [];
+>         o.data.push(ms);
+>         o.total = 1;
+>         o.currentId = 1;
+>         console.log(o);
+>         //写入内容,同步异步promise,以及可写流
+>         fs.writeFile('./data/message.json',JSON.stringify(o),(err)=>{
+>             if(err) throw err;
+>             console.log('写入成功');
+>         });
+>     }
+> }
 > ```

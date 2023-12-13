@@ -87,6 +87,63 @@ export const siteData = {
   ],
   "pages": [
     {
+      "title": "首页",
+      "frontmatter": {
+        "home": true,
+        "title": "首页",
+        "heroText": "睿晨编程",
+        "tagline": "零基础转行学做网站、app、小程序",
+        "actionText": "查看课程文档 →",
+        "actionLink": "/aboutless",
+        "features": [
+          {
+            "title": "需求人群",
+            "details": "很多想转行，想接单做网站等需求的小白，不知道如何转行学编程的学员。"
+          },
+          {
+            "title": "课程适合人群",
+            "details": "零基础、其他行业转行学编程、想接私单(网站、小程序、app)、进一步提升自己知识能力的人。"
+          },
+          {
+            "title": "课程体系",
+            "details": "课程安排从基础入门开始，由网站开发到移动端小程序、APP的讲解。"
+          }
+        ]
+      },
+      "regularPath": "/",
+      "relativePath": "README.md",
+      "key": "v-1215a3cf",
+      "path": "/",
+      "lastUpdated": "2023年8月29日星期二下午3点20分",
+      "lastUpdatedTimestamp": 1693293632000
+    },
+    {
+      "title": "markdown的基本语法示例",
+      "frontmatter": {
+        "navbar": true,
+        "sidebar": "auto",
+        "title": "markdown的基本语法示例"
+      },
+      "regularPath": "/about/",
+      "relativePath": "about/README.md",
+      "key": "v-2c6c8e00",
+      "path": "/about/",
+      "headers": [
+        {
+          "level": 2,
+          "title": "二级标题",
+          "slug": "二级标题"
+        },
+        {
+          "level": 3,
+          "title": "三级标题",
+          "slug": "三级标题"
+        }
+      ],
+      "lastUpdated": "2023年3月3日星期五晚上8点31分",
+      "lastUpdatedTimestamp": 1677846686000
+    },
+    {
       "title": "关于我们html",
       "frontmatter": {
         "navbar": true,
@@ -147,91 +204,6 @@ export const siteData = {
       "lastUpdatedTimestamp": 1677757906000
     },
     {
-      "title": "首页",
-      "frontmatter": {
-        "home": true,
-        "title": "首页",
-        "heroText": "睿晨编程",
-        "tagline": "零基础转行学做网站、app、小程序",
-        "actionText": "查看课程文档 →",
-        "actionLink": "/aboutless",
-        "features": [
-          {
-            "title": "需求人群",
-            "details": "很多想转行，想接单做网站等需求的小白，不知道如何转行学编程的学员。"
-          },
-          {
-            "title": "课程适合人群",
-            "details": "零基础、其他行业转行学编程、想接私单(网站、小程序、app)、进一步提升自己知识能力的人。"
-          },
-          {
-            "title": "课程体系",
-            "details": "课程安排从基础入门开始，由网站开发到移动端小程序、APP的讲解。"
-          }
-        ]
-      },
-      "regularPath": "/",
-      "relativePath": "README.md",
-      "key": "v-1215a3cf",
-      "path": "/",
-      "lastUpdated": "2023年8月29日星期二下午3点20分",
-      "lastUpdatedTimestamp": 1693293632000
-    },
-    {
-      "title": "p-c页面",
-      "frontmatter": {
-        "title": "p-c页面"
-      },
-      "regularPath": "/pc/p-c.html",
-      "relativePath": "pc/p-c.md",
-      "key": "v-4630ecb1",
-      "path": "/pc/p-c.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "p-c页面二级标题1",
-          "slug": "p-c页面二级标题1"
-        },
-        {
-          "level": 3,
-          "title": "1.三级标题1",
-          "slug": "_1-三级标题1"
-        },
-        {
-          "level": 3,
-          "title": "2.三级标题2",
-          "slug": "_2-三级标题2"
-        },
-        {
-          "level": 3,
-          "title": "3.三级标题3",
-          "slug": "_3-三级标题3"
-        },
-        {
-          "level": 2,
-          "title": "p-c页面二级标题2",
-          "slug": "p-c页面二级标题2"
-        },
-        {
-          "level": 3,
-          "title": "1.三级标题1",
-          "slug": "_1-三级标题1-2"
-        },
-        {
-          "level": 3,
-          "title": "2.三级标题2",
-          "slug": "_2-三级标题2-2"
-        },
-        {
-          "level": 3,
-          "title": "3.三级标题3",
-          "slug": "_3-三级标题3-2"
-        }
-      ],
-      "lastUpdated": "2023年3月1日星期三下午12点33分",
-      "lastUpdatedTimestamp": 1677645233000
-    },
-    {
       "title": "第一学期课程",
       "frontmatter": {
         "navbar": true,
@@ -285,58 +257,19 @@ export const siteData = {
       "lastUpdatedTimestamp": 1677645233000
     },
     {
-      "title": "我是phone总页",
+      "title": "p-a页面",
       "frontmatter": {
-        "navbar": true,
-        "title": "我是phone总页"
+        "title": "p-a页面"
       },
-      "regularPath": "/phone/",
-      "relativePath": "phone/README.md",
-      "key": "v-4f90747e",
-      "path": "/phone/",
-      "lastUpdated": "2023年3月1日星期三下午12点33分",
-      "lastUpdatedTimestamp": 1677645233000
-    },
-    {
-      "title": "markdown的基本语法示例",
-      "frontmatter": {
-        "navbar": true,
-        "sidebar": "auto",
-        "title": "markdown的基本语法示例"
-      },
-      "regularPath": "/about/",
-      "relativePath": "about/README.md",
-      "key": "v-2c6c8e00",
-      "path": "/about/",
+      "regularPath": "/pc/p-a.html",
+      "relativePath": "pc/p-a.md",
+      "key": "v-7fa37fb5",
+      "path": "/pc/p-a.html",
       "headers": [
         {
           "level": 2,
-          "title": "二级标题",
-          "slug": "二级标题"
-        },
-        {
-          "level": 3,
-          "title": "三级标题",
-          "slug": "三级标题"
-        }
-      ],
-      "lastUpdated": "2023年3月3日星期五晚上8点31分",
-      "lastUpdatedTimestamp": 1677846686000
-    },
-    {
-      "title": "phone-b页面",
-      "frontmatter": {
-        "title": "phone-b页面"
-      },
-      "regularPath": "/phone/phone-b.html",
-      "relativePath": "phone/phone-b.md",
-      "key": "v-437744df",
-      "path": "/phone/phone-b.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "phone-b页面二级标题1",
-          "slug": "phone-b页面二级标题1"
+          "title": "p-a页面二级标题1",
+          "slug": "p-a页面二级标题1"
         },
         {
           "level": 3,
@@ -355,8 +288,8 @@ export const siteData = {
         },
         {
           "level": 2,
-          "title": "phone-b页面二级标题2",
-          "slug": "phone-b页面二级标题2"
+          "title": "p-a页面二级标题2",
+          "slug": "p-a页面二级标题2"
         },
         {
           "level": 3,
@@ -432,56 +365,15 @@ export const siteData = {
       "lastUpdatedTimestamp": 1677645233000
     },
     {
-      "title": "p-a页面",
+      "title": "我是phone总页",
       "frontmatter": {
-        "title": "p-a页面"
+        "navbar": true,
+        "title": "我是phone总页"
       },
-      "regularPath": "/pc/p-a.html",
-      "relativePath": "pc/p-a.md",
-      "key": "v-7fa37fb5",
-      "path": "/pc/p-a.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "p-a页面二级标题1",
-          "slug": "p-a页面二级标题1"
-        },
-        {
-          "level": 3,
-          "title": "1.三级标题1",
-          "slug": "_1-三级标题1"
-        },
-        {
-          "level": 3,
-          "title": "2.三级标题2",
-          "slug": "_2-三级标题2"
-        },
-        {
-          "level": 3,
-          "title": "3.三级标题3",
-          "slug": "_3-三级标题3"
-        },
-        {
-          "level": 2,
-          "title": "p-a页面二级标题2",
-          "slug": "p-a页面二级标题2"
-        },
-        {
-          "level": 3,
-          "title": "1.三级标题1",
-          "slug": "_1-三级标题1-2"
-        },
-        {
-          "level": 3,
-          "title": "2.三级标题2",
-          "slug": "_2-三级标题2-2"
-        },
-        {
-          "level": 3,
-          "title": "3.三级标题3",
-          "slug": "_3-三级标题3-2"
-        }
-      ],
+      "regularPath": "/phone/",
+      "relativePath": "phone/README.md",
+      "key": "v-4f90747e",
+      "path": "/phone/",
       "lastUpdated": "2023年3月1日星期三下午12点33分",
       "lastUpdatedTimestamp": 1677645233000
     },
@@ -540,6 +432,168 @@ export const siteData = {
       "lastUpdatedTimestamp": 1677645233000
     },
     {
+      "title": "p-c页面",
+      "frontmatter": {
+        "title": "p-c页面"
+      },
+      "regularPath": "/pc/p-c.html",
+      "relativePath": "pc/p-c.md",
+      "key": "v-4630ecb1",
+      "path": "/pc/p-c.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "p-c页面二级标题1",
+          "slug": "p-c页面二级标题1"
+        },
+        {
+          "level": 3,
+          "title": "1.三级标题1",
+          "slug": "_1-三级标题1"
+        },
+        {
+          "level": 3,
+          "title": "2.三级标题2",
+          "slug": "_2-三级标题2"
+        },
+        {
+          "level": 3,
+          "title": "3.三级标题3",
+          "slug": "_3-三级标题3"
+        },
+        {
+          "level": 2,
+          "title": "p-c页面二级标题2",
+          "slug": "p-c页面二级标题2"
+        },
+        {
+          "level": 3,
+          "title": "1.三级标题1",
+          "slug": "_1-三级标题1-2"
+        },
+        {
+          "level": 3,
+          "title": "2.三级标题2",
+          "slug": "_2-三级标题2-2"
+        },
+        {
+          "level": 3,
+          "title": "3.三级标题3",
+          "slug": "_3-三级标题3-2"
+        }
+      ],
+      "lastUpdated": "2023年3月1日星期三下午12点33分",
+      "lastUpdatedTimestamp": 1677645233000
+    },
+    {
+      "title": "phone-b页面",
+      "frontmatter": {
+        "title": "phone-b页面"
+      },
+      "regularPath": "/phone/phone-b.html",
+      "relativePath": "phone/phone-b.md",
+      "key": "v-437744df",
+      "path": "/phone/phone-b.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "phone-b页面二级标题1",
+          "slug": "phone-b页面二级标题1"
+        },
+        {
+          "level": 3,
+          "title": "1.三级标题1",
+          "slug": "_1-三级标题1"
+        },
+        {
+          "level": 3,
+          "title": "2.三级标题2",
+          "slug": "_2-三级标题2"
+        },
+        {
+          "level": 3,
+          "title": "3.三级标题3",
+          "slug": "_3-三级标题3"
+        },
+        {
+          "level": 2,
+          "title": "phone-b页面二级标题2",
+          "slug": "phone-b页面二级标题2"
+        },
+        {
+          "level": 3,
+          "title": "1.三级标题1",
+          "slug": "_1-三级标题1-2"
+        },
+        {
+          "level": 3,
+          "title": "2.三级标题2",
+          "slug": "_2-三级标题2-2"
+        },
+        {
+          "level": 3,
+          "title": "3.三级标题3",
+          "slug": "_3-三级标题3-2"
+        }
+      ],
+      "lastUpdated": "2023年3月1日星期三下午12点33分",
+      "lastUpdatedTimestamp": 1677645233000
+    },
+    {
+      "title": "phone-c页面",
+      "frontmatter": {
+        "title": "phone-c页面"
+      },
+      "regularPath": "/phone/phone-c.html",
+      "relativePath": "phone/phone-c.md",
+      "key": "v-e1449282",
+      "path": "/phone/phone-c.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "phone-c页面二级标题1",
+          "slug": "phone-c页面二级标题1"
+        },
+        {
+          "level": 3,
+          "title": "1.三级标题1",
+          "slug": "_1-三级标题1"
+        },
+        {
+          "level": 3,
+          "title": "2.三级标题2",
+          "slug": "_2-三级标题2"
+        },
+        {
+          "level": 3,
+          "title": "3.三级标题3",
+          "slug": "_3-三级标题3"
+        },
+        {
+          "level": 2,
+          "title": "phone-c页面二级标题2",
+          "slug": "phone-c页面二级标题2"
+        },
+        {
+          "level": 3,
+          "title": "1.三级标题1",
+          "slug": "_1-三级标题1-2"
+        },
+        {
+          "level": 3,
+          "title": "2.三级标题2",
+          "slug": "_2-三级标题2-2"
+        },
+        {
+          "level": 3,
+          "title": "3.三级标题3",
+          "slug": "_3-三级标题3-2"
+        }
+      ],
+      "lastUpdated": "2023年3月1日星期三下午12点33分",
+      "lastUpdatedTimestamp": 1677645233000
+    },
+    {
       "title": "第二学期课程总述",
       "frontmatter": {
         "navbar": true,
@@ -573,6 +627,125 @@ export const siteData = {
       ],
       "lastUpdated": "2023年11月8日星期三下午4点22分",
       "lastUpdatedTimestamp": 1699431756000
+    },
+    {
+      "title": "第一季（课程学习顺序：02）",
+      "frontmatter": {
+        "title": "第一季（课程学习顺序：02）"
+      },
+      "regularPath": "/secondless/w-a.html",
+      "relativePath": "secondless/w-a.md",
+      "key": "v-00ea391a",
+      "path": "/secondless/w-a.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "1.第一季课程介绍",
+          "slug": "_1-第一季课程介绍"
+        },
+        {
+          "level": 2,
+          "title": "2.课程视频学习",
+          "slug": "_2-课程视频学习"
+        },
+        {
+          "level": 2,
+          "title": "3.查看课程文档",
+          "slug": "_3-查看课程文档"
+        },
+        {
+          "level": 3,
+          "title": "章节1.第一季课程介绍",
+          "slug": "章节1-第一季课程介绍"
+        },
+        {
+          "level": 3,
+          "title": "",
+          "slug": "章节2-javascript基础"
+        },
+        {
+          "level": 3,
+          "title": "",
+          "slug": "章节3-javascript运算符"
+        },
+        {
+          "level": 3,
+          "title": "",
+          "slug": "章节4-流程控制语句"
+        },
+        {
+          "level": 3,
+          "title": "",
+          "slug": "章节5-javascript函数"
+        },
+        {
+          "level": 3,
+          "title": "",
+          "slug": "章节6-javascript对象"
+        },
+        {
+          "level": 3,
+          "title": "",
+          "slug": "章节7-javascript数组"
+        },
+        {
+          "level": 3,
+          "title": "",
+          "slug": "章节8-date类型-时间和日期"
+        },
+        {
+          "level": 3,
+          "title": "",
+          "slug": "章节9-function类型-函数进阶"
+        },
+        {
+          "level": 3,
+          "title": "",
+          "slug": "章节10-内置对象-global、math对象-变量、作用域和内存问题"
+        },
+        {
+          "level": 3,
+          "title": "",
+          "slug": "章节11-匿名函数和闭包"
+        },
+        {
+          "level": 3,
+          "title": "",
+          "slug": "章节12-javascript基本包装类型"
+        },
+        {
+          "level": 3,
+          "title": "",
+          "slug": "章节13-函数对象数组小结"
+        },
+        {
+          "level": 3,
+          "title": "",
+          "slug": "章节14-浏览器对象模型bom及浏览器检测"
+        },
+        {
+          "level": 3,
+          "title": "",
+          "slug": "章节15-网页文档对象模型dom"
+        },
+        {
+          "level": 3,
+          "title": "",
+          "slug": "章节16-事件"
+        },
+        {
+          "level": 3,
+          "title": "",
+          "slug": "章节17-表单处理及错误处理与调试"
+        },
+        {
+          "level": 3,
+          "title": "",
+          "slug": "章节18-数据cookie、xml、json"
+        }
+      ],
+      "lastUpdated": "2023年11月21日星期二下午4点31分",
+      "lastUpdatedTimestamp": 1700555477000
     },
     {
       "title": "章节8.Date类型：时间和日期",
@@ -719,179 +892,6 @@ export const siteData = {
         {
           "level": 3,
           "title": "章节18.数据Cookie、XML、JSON",
-          "slug": "章节18-数据cookie、xml、json"
-        }
-      ],
-      "lastUpdated": "2023年11月21日星期二下午4点31分",
-      "lastUpdatedTimestamp": 1700555477000
-    },
-    {
-      "title": "phone-c页面",
-      "frontmatter": {
-        "title": "phone-c页面"
-      },
-      "regularPath": "/phone/phone-c.html",
-      "relativePath": "phone/phone-c.md",
-      "key": "v-e1449282",
-      "path": "/phone/phone-c.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "phone-c页面二级标题1",
-          "slug": "phone-c页面二级标题1"
-        },
-        {
-          "level": 3,
-          "title": "1.三级标题1",
-          "slug": "_1-三级标题1"
-        },
-        {
-          "level": 3,
-          "title": "2.三级标题2",
-          "slug": "_2-三级标题2"
-        },
-        {
-          "level": 3,
-          "title": "3.三级标题3",
-          "slug": "_3-三级标题3"
-        },
-        {
-          "level": 2,
-          "title": "phone-c页面二级标题2",
-          "slug": "phone-c页面二级标题2"
-        },
-        {
-          "level": 3,
-          "title": "1.三级标题1",
-          "slug": "_1-三级标题1-2"
-        },
-        {
-          "level": 3,
-          "title": "2.三级标题2",
-          "slug": "_2-三级标题2-2"
-        },
-        {
-          "level": 3,
-          "title": "3.三级标题3",
-          "slug": "_3-三级标题3-2"
-        }
-      ],
-      "lastUpdated": "2023年3月1日星期三下午12点33分",
-      "lastUpdatedTimestamp": 1677645233000
-    },
-    {
-      "title": "第一季（课程学习顺序：02）",
-      "frontmatter": {
-        "title": "第一季（课程学习顺序：02）"
-      },
-      "regularPath": "/secondless/w-a.html",
-      "relativePath": "secondless/w-a.md",
-      "key": "v-00ea391a",
-      "path": "/secondless/w-a.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "1.第一季课程介绍",
-          "slug": "_1-第一季课程介绍"
-        },
-        {
-          "level": 2,
-          "title": "2.课程视频学习",
-          "slug": "_2-课程视频学习"
-        },
-        {
-          "level": 2,
-          "title": "3.查看课程文档",
-          "slug": "_3-查看课程文档"
-        },
-        {
-          "level": 3,
-          "title": "章节1.第一季课程介绍",
-          "slug": "章节1-第一季课程介绍"
-        },
-        {
-          "level": 3,
-          "title": "",
-          "slug": "章节2-javascript基础"
-        },
-        {
-          "level": 3,
-          "title": "",
-          "slug": "章节3-javascript运算符"
-        },
-        {
-          "level": 3,
-          "title": "",
-          "slug": "章节4-流程控制语句"
-        },
-        {
-          "level": 3,
-          "title": "",
-          "slug": "章节5-javascript函数"
-        },
-        {
-          "level": 3,
-          "title": "",
-          "slug": "章节6-javascript对象"
-        },
-        {
-          "level": 3,
-          "title": "",
-          "slug": "章节7-javascript数组"
-        },
-        {
-          "level": 3,
-          "title": "",
-          "slug": "章节8-date类型-时间和日期"
-        },
-        {
-          "level": 3,
-          "title": "",
-          "slug": "章节9-function类型-函数进阶"
-        },
-        {
-          "level": 3,
-          "title": "",
-          "slug": "章节10-内置对象-global、math对象-变量、作用域和内存问题"
-        },
-        {
-          "level": 3,
-          "title": "",
-          "slug": "章节11-匿名函数和闭包"
-        },
-        {
-          "level": 3,
-          "title": "",
-          "slug": "章节12-javascript基本包装类型"
-        },
-        {
-          "level": 3,
-          "title": "",
-          "slug": "章节13-函数对象数组小结"
-        },
-        {
-          "level": 3,
-          "title": "",
-          "slug": "章节14-浏览器对象模型bom及浏览器检测"
-        },
-        {
-          "level": 3,
-          "title": "",
-          "slug": "章节15-网页文档对象模型dom"
-        },
-        {
-          "level": 3,
-          "title": "",
-          "slug": "章节16-事件"
-        },
-        {
-          "level": 3,
-          "title": "",
-          "slug": "章节17-表单处理及错误处理与调试"
-        },
-        {
-          "level": 3,
-          "title": "",
           "slug": "章节18-数据cookie、xml、json"
         }
       ],
@@ -6631,115 +6631,6 @@ export const siteData = {
       "lastUpdatedTimestamp": 1701403869000
     },
     {
-      "title": "第三季（课程学习顺序：04）",
-      "frontmatter": {
-        "title": "第三季（课程学习顺序：04）"
-      },
-      "regularPath": "/secondless/w-c.html",
-      "relativePath": "secondless/w-c.md",
-      "key": "v-0a109b22",
-      "path": "/secondless/w-c.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "课程录制中....",
-          "slug": "课程录制中"
-        }
-      ],
-      "lastUpdated": "2023年8月24日星期四下午12点41分",
-      "lastUpdatedTimestamp": 1692852103000
-    },
-    {
-      "title": "IIS服务器",
-      "frontmatter": {
-        "navbar": true,
-        "sidebar": "auto",
-        "title": "IIS服务器"
-      },
-      "regularPath": "/web/IIS/",
-      "relativePath": "web/IIS/README.md",
-      "key": "v-efb17052",
-      "path": "/web/IIS/",
-      "headers": [
-        {
-          "level": 2,
-          "title": "一. IIS服务器配置.net网站上线一般步骤",
-          "slug": "一-iis服务器配置-net网站上线一般步骤"
-        },
-        {
-          "level": 3,
-          "title": "1、 Windows Server 2008 R2 企业版 64位中文版操作系统为例",
-          "slug": "_1、-windows-server-2008-r2-企业版-64位中文版操作系统为例"
-        }
-      ],
-      "lastUpdated": "2023年12月10日星期日下午5点10分",
-      "lastUpdatedTimestamp": 1702199454000
-    },
-    {
-      "title": "案例：nodejs+jQuery开发企业网页的留言板功能",
-      "frontmatter": {
-        "navbar": true,
-        "sidebar": "auto",
-        "title": "案例：nodejs+jQuery开发企业网页的留言板功能"
-      },
-      "regularPath": "/secondless/w-b/nodejs+jQuery%E5%BC%80%E5%8F%91%E7%95%99%E8%A8%80%E6%9D%BF.html",
-      "relativePath": "secondless/w-b/nodejs+jQuery开发留言板.md",
-      "key": "v-38f9c12f",
-      "path": "/secondless/w-b/nodejs+jQuery%E5%BC%80%E5%8F%91%E7%95%99%E8%A8%80%E6%9D%BF.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "一、基础准备",
-          "slug": "一、基础准备"
-        },
-        {
-          "level": 3,
-          "title": "① 搭建node服务器",
-          "slug": "_1-搭建node服务器"
-        },
-        {
-          "level": 3,
-          "title": "② contact.html页面",
-          "slug": "_2-contact-html页面"
-        },
-        {
-          "level": 2,
-          "title": "二、获取留言板输入的内容",
-          "slug": "二、获取留言板输入的内容"
-        },
-        {
-          "level": 3,
-          "title": "① 补全留言板表单信息",
-          "slug": "_1-补全留言板表单信息"
-        },
-        {
-          "level": 3,
-          "title": "② 监听输入数据的合法性",
-          "slug": "_2-监听输入数据的合法性"
-        },
-        {
-          "level": 2,
-          "title": "三、提交数据",
-          "slug": "三、提交数据"
-        }
-      ],
-      "lastUpdated": "2023年12月8日星期五下午4点35分",
-      "lastUpdatedTimestamp": 1702024555000
-    },
-    {
-      "title": "我是web总页",
-      "frontmatter": {
-        "navbar": true,
-        "title": "我是web总页"
-      },
-      "regularPath": "/web/",
-      "relativePath": "web/README.md",
-      "key": "v-6de531b2",
-      "path": "/web/",
-      "lastUpdated": "2023年3月1日星期三下午12点33分",
-      "lastUpdatedTimestamp": 1677645233000
-    },
-    {
       "title": "章节5.jQuery事件、动画、插件",
       "frontmatter": {
         "navbar": true,
@@ -6971,6 +6862,125 @@ export const siteData = {
       "lastUpdatedTimestamp": 1701403869000
     },
     {
+      "title": "IIS服务器",
+      "frontmatter": {
+        "navbar": true,
+        "sidebar": "auto",
+        "title": "IIS服务器"
+      },
+      "regularPath": "/web/IIS/",
+      "relativePath": "web/IIS/README.md",
+      "key": "v-efb17052",
+      "path": "/web/IIS/",
+      "headers": [
+        {
+          "level": 2,
+          "title": "一. IIS服务器配置.net网站上线一般步骤",
+          "slug": "一-iis服务器配置-net网站上线一般步骤"
+        },
+        {
+          "level": 3,
+          "title": "1、 Windows Server 2008 R2 企业版 64位中文版操作系统为例",
+          "slug": "_1、-windows-server-2008-r2-企业版-64位中文版操作系统为例"
+        }
+      ],
+      "lastUpdated": "2023年12月10日星期日下午5点10分",
+      "lastUpdatedTimestamp": 1702199454000
+    },
+    {
+      "title": "第三季（课程学习顺序：04）",
+      "frontmatter": {
+        "title": "第三季（课程学习顺序：04）"
+      },
+      "regularPath": "/secondless/w-c.html",
+      "relativePath": "secondless/w-c.md",
+      "key": "v-0a109b22",
+      "path": "/secondless/w-c.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "课程录制中....",
+          "slug": "课程录制中"
+        }
+      ],
+      "lastUpdated": "2023年8月24日星期四下午12点41分",
+      "lastUpdatedTimestamp": 1692852103000
+    },
+    {
+      "title": "我是web总页",
+      "frontmatter": {
+        "navbar": true,
+        "title": "我是web总页"
+      },
+      "regularPath": "/web/",
+      "relativePath": "web/README.md",
+      "key": "v-6de531b2",
+      "path": "/web/",
+      "lastUpdated": "2023年3月1日星期三下午12点33分",
+      "lastUpdatedTimestamp": 1677645233000
+    },
+    {
+      "title": "案例：nodejs+jQuery开发企业网页的留言板功能",
+      "frontmatter": {
+        "navbar": true,
+        "sidebar": "auto",
+        "title": "案例：nodejs+jQuery开发企业网页的留言板功能"
+      },
+      "regularPath": "/secondless/w-b/nodejs+jQuery%E5%BC%80%E5%8F%91%E7%95%99%E8%A8%80%E6%9D%BF.html",
+      "relativePath": "secondless/w-b/nodejs+jQuery开发留言板.md",
+      "key": "v-38f9c12f",
+      "path": "/secondless/w-b/nodejs+jQuery%E5%BC%80%E5%8F%91%E7%95%99%E8%A8%80%E6%9D%BF.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "一、基础准备",
+          "slug": "一、基础准备"
+        },
+        {
+          "level": 3,
+          "title": "① 搭建node服务器",
+          "slug": "_1-搭建node服务器"
+        },
+        {
+          "level": 3,
+          "title": "② contact.html页面",
+          "slug": "_2-contact-html页面"
+        },
+        {
+          "level": 2,
+          "title": "二、获取留言板输入的内容",
+          "slug": "二、获取留言板输入的内容"
+        },
+        {
+          "level": 3,
+          "title": "① 补全留言板表单信息",
+          "slug": "_1-补全留言板表单信息"
+        },
+        {
+          "level": 3,
+          "title": "② 监听输入数据的合法性",
+          "slug": "_2-监听输入数据的合法性"
+        },
+        {
+          "level": 2,
+          "title": "三、提交数据",
+          "slug": "三、提交数据"
+        },
+        {
+          "level": 3,
+          "title": "① 提交留言之后的页面处理",
+          "slug": "_1-提交留言之后的页面处理"
+        },
+        {
+          "level": 2,
+          "title": "四、nodejs服务器端处理留言",
+          "slug": "四、nodejs服务器端处理留言"
+        }
+      ],
+      "lastUpdated": "2023年12月11日星期一下午5点53分",
+      "lastUpdatedTimestamp": 1702288380000
+    },
+    {
       "title": "Bootstrap",
       "frontmatter": {
         "navbar": true,
@@ -6995,6 +7005,117 @@ export const siteData = {
       ],
       "lastUpdated": "2023年11月29日星期三晚上6点51分",
       "lastUpdatedTimestamp": 1701255117000
+    },
+    {
+      "title": "章节3.封装js库过渡到jQuery",
+      "frontmatter": {
+        "navbar": true,
+        "sidebar": "auto",
+        "title": "章节3.封装js库过渡到jQuery"
+      },
+      "regularPath": "/secondless/w-b/%E5%B0%81%E8%A3%85js%E5%BA%93%E8%BF%87%E6%B8%A1%E5%88%B0jQuery.html",
+      "relativePath": "secondless/w-b/封装js库过渡到jQuery.md",
+      "key": "v-7d01a454",
+      "path": "/secondless/w-b/%E5%B0%81%E8%A3%85js%E5%BA%93%E8%BF%87%E6%B8%A1%E5%88%B0jQuery.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "1. 对象字面量形式执行对象里面的方法达到简化获取对象节点的操作",
+          "slug": "_1-对象字面量形式执行对象里面的方法达到简化获取对象节点的操作"
+        },
+        {
+          "level": 2,
+          "title": "2. 改写库对象：通过构造函数和原型改写库对象",
+          "slug": "_2-改写库对象-通过构造函数和原型改写库对象"
+        },
+        {
+          "level": 3,
+          "title": "① 获取id节点，返回实例对象mybase，给构造函数原型添加css方法",
+          "slug": "_1-获取id节点-返回实例对象mybase-给构造函数原型添加css方法"
+        },
+        {
+          "level": 3,
+          "title": "② 改写构造函数原型css方法，处理多个节点存放问题，html方法按照css方法进行扩展测试，扩展click方法",
+          "slug": "_2-改写构造函数原型css方法-处理多个节点存放问题-html方法按照css方法进行扩展测试-扩展click方法"
+        },
+        {
+          "level": 3,
+          "title": "③ 改造html方法，可以设置或者获取内容",
+          "slug": "_3-改造html方法-可以设置或者获取内容"
+        },
+        {
+          "level": 3,
+          "title": "④ 改造css方法，可以设置获取css样式",
+          "slug": "_4-改造css方法-可以设置获取css样式"
+        },
+        {
+          "level": 2,
+          "title": "3. 封装js库总结",
+          "slug": "_3-封装js库总结"
+        },
+        {
+          "level": 2,
+          "title": "【第二学期第2季课程】其它章节",
+          "slug": "【第二学期第2季课程】其它章节"
+        },
+        {
+          "level": 3,
+          "title": "章节1.课程介绍",
+          "slug": "章节1-课程介绍"
+        },
+        {
+          "level": 3,
+          "title": "章节2.面向对象与原型",
+          "slug": "章节2-面向对象与原型"
+        },
+        {
+          "level": 3,
+          "title": "章节3.封装js库过渡到jQuery",
+          "slug": "章节3-封装js库过渡到jquery"
+        },
+        {
+          "level": 3,
+          "title": "章节4.jQuery",
+          "slug": "章节4-jquery"
+        },
+        {
+          "level": 3,
+          "title": "章节5.jQuery事件、动画、插件",
+          "slug": "章节5-jquery事件、动画、插件"
+        },
+        {
+          "level": 3,
+          "title": "章节6.Ajax",
+          "slug": "章节6-ajax"
+        },
+        {
+          "level": 3,
+          "title": "章节7.Node.js",
+          "slug": "章节7-node-js"
+        },
+        {
+          "level": 2,
+          "title": "其它学期课程",
+          "slug": "其它学期课程"
+        },
+        {
+          "level": 3,
+          "title": "第一学期（学习顺序：01）",
+          "slug": "第一学期-学习顺序-01"
+        },
+        {
+          "level": 3,
+          "title": "第二学期【第1季】（学习顺序：02）",
+          "slug": "第二学期【第1季】-学习顺序-02"
+        },
+        {
+          "level": 3,
+          "title": "第二学期【第2季】（学习顺序：03）",
+          "slug": "第二学期【第2季】-学习顺序-03"
+        }
+      ],
+      "lastUpdated": "2023年12月1日星期五中午12点11分",
+      "lastUpdatedTimestamp": 1701403869000
     },
     {
       "title": "echarts图表",
@@ -7023,181 +7144,6 @@ export const siteData = {
       "lastUpdatedTimestamp": 1700962776000
     },
     {
-      "title": "网站实用接口",
-      "frontmatter": {
-        "navbar": true,
-        "sidebar": "auto",
-        "title": "网站实用接口"
-      },
-      "regularPath": "/web/methods/%E5%AE%9E%E7%94%A8%E6%8E%A5%E5%8F%A3.html",
-      "relativePath": "web/methods/实用接口.md",
-      "key": "v-34d69c74",
-      "path": "/web/methods/%E5%AE%9E%E7%94%A8%E6%8E%A5%E5%8F%A3.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "1. 随机获取一些网络图片",
-          "slug": "_1-随机获取一些网络图片"
-        }
-      ],
-      "lastUpdated": "2023年9月28日星期四中午12点22分",
-      "lastUpdatedTimestamp": 1695874932000
-    },
-    {
-      "title": "地图相关实用方法",
-      "frontmatter": {
-        "navbar": true,
-        "sidebar": "auto",
-        "title": "地图相关实用方法"
-      },
-      "regularPath": "/web/methods/%E5%9C%B0%E5%9B%BE%E7%9B%B8%E5%85%B3.html",
-      "relativePath": "web/methods/地图相关.md",
-      "key": "v-60b499ec",
-      "path": "/web/methods/%E5%9C%B0%E5%9B%BE%E7%9B%B8%E5%85%B3.html",
-      "lastUpdated": "2023年9月28日星期四中午12点22分",
-      "lastUpdatedTimestamp": 1695874932000
-    },
-    {
-      "title": "w-a页面",
-      "frontmatter": {
-        "title": "w-a页面"
-      },
-      "regularPath": "/web/w-a.html",
-      "relativePath": "web/w-a.md",
-      "key": "v-544f4fdf",
-      "path": "/web/w-a.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "w-a页面二级标题1",
-          "slug": "w-a页面二级标题1"
-        },
-        {
-          "level": 3,
-          "title": "1.三级标题1",
-          "slug": "_1-三级标题1"
-        },
-        {
-          "level": 3,
-          "title": "2.三级标题2",
-          "slug": "_2-三级标题2"
-        },
-        {
-          "level": 3,
-          "title": "3.三级标题3",
-          "slug": "_3-三级标题3"
-        },
-        {
-          "level": 2,
-          "title": "w-a页面二级标题2",
-          "slug": "w-a页面二级标题2"
-        },
-        {
-          "level": 3,
-          "title": "1.三级标题1",
-          "slug": "_1-三级标题1-2"
-        },
-        {
-          "level": 3,
-          "title": "2.三级标题2",
-          "slug": "_2-三级标题2-2"
-        },
-        {
-          "level": 3,
-          "title": "3.三级标题3",
-          "slug": "_3-三级标题3-2"
-        }
-      ],
-      "lastUpdated": "2023年3月1日星期三下午12点33分",
-      "lastUpdatedTimestamp": 1677645233000
-    },
-    {
-      "title": "课程所需软件下载",
-      "frontmatter": {
-        "navbar": true,
-        "sidebar": "auto",
-        "title": "课程所需软件下载"
-      },
-      "regularPath": "/web/software/",
-      "relativePath": "web/software/README.md",
-      "key": "v-82515742",
-      "path": "/web/software/",
-      "headers": [
-        {
-          "level": 2,
-          "title": "1. 第一学期",
-          "slug": "_1-第一学期"
-        },
-        {
-          "level": 3,
-          "title": "vscode",
-          "slug": "vscode-下载"
-        },
-        {
-          "level": 2,
-          "title": "2. 第二学期",
-          "slug": "_2-第二学期"
-        },
-        {
-          "level": 3,
-          "title": "UPUPW 搭建本地服务器",
-          "slug": "upupw-搭建本地服务器-下载"
-        },
-        {
-          "level": 3,
-          "title": "jQuery",
-          "slug": "jquery-下载"
-        },
-        {
-          "level": 3,
-          "title": "jQuery的插件：cookie",
-          "slug": "jquery的插件-cookie-下载"
-        },
-        {
-          "level": 3,
-          "title": "表单选择器",
-          "slug": "表单选择器"
-        },
-        {
-          "level": 3,
-          "title": "表单序列化",
-          "slug": "表单序列化"
-        },
-        {
-          "level": 3,
-          "title": "跨域jsonp",
-          "slug": "跨域jsonp"
-        },
-        {
-          "level": 3,
-          "title": "下载安装node.js",
-          "slug": "下载安装node-js"
-        },
-        {
-          "level": 3,
-          "title": "下载安装nvm",
-          "slug": "下载安装nvm"
-        },
-        {
-          "level": 3,
-          "title": "安装nodemon",
-          "slug": "安装nodemon"
-        },
-        {
-          "level": 3,
-          "title": "安装nrm",
-          "slug": "安装nrm"
-        },
-        {
-          "level": 3,
-          "title": "小案例：node.js + jQuery完成：网页 “联系我们” 页面的留言板功能",
-          "slug": "小案例-node-js-jquery完成-网页-联系我们-页面的留言板功能"
-        }
-      ],
-      "lastUpdated": "2023年11月22日星期三下午2点36分",
-      "lastUpdatedTimestamp": 1700634976000
-    },
-    {
       "title": "Github",
       "frontmatter": {
         "navbar": true,
@@ -7219,7 +7165,23 @@ export const siteData = {
           "title": "1、 尝试修改hosts文件",
           "slug": "_1、-尝试修改hosts文件"
         }
-      ]
+      ],
+      "lastUpdated": "2023年12月11日星期一下午2点32分",
+      "lastUpdatedTimestamp": 1702276374000
+    },
+    {
+      "title": "地图相关实用方法",
+      "frontmatter": {
+        "navbar": true,
+        "sidebar": "auto",
+        "title": "地图相关实用方法"
+      },
+      "regularPath": "/web/methods/%E5%9C%B0%E5%9B%BE%E7%9B%B8%E5%85%B3.html",
+      "relativePath": "web/methods/地图相关.md",
+      "key": "v-60b499ec",
+      "path": "/web/methods/%E5%9C%B0%E5%9B%BE%E7%9B%B8%E5%85%B3.html",
+      "lastUpdated": "2023年9月28日星期四中午12点22分",
+      "lastUpdatedTimestamp": 1695874932000
     },
     {
       "title": "章节2.面向对象与原型",
@@ -7519,6 +7481,221 @@ export const siteData = {
       "lastUpdatedTimestamp": 1695949951000
     },
     {
+      "title": "网站实用接口",
+      "frontmatter": {
+        "navbar": true,
+        "sidebar": "auto",
+        "title": "网站实用接口"
+      },
+      "regularPath": "/web/methods/%E5%AE%9E%E7%94%A8%E6%8E%A5%E5%8F%A3.html",
+      "relativePath": "web/methods/实用接口.md",
+      "key": "v-34d69c74",
+      "path": "/web/methods/%E5%AE%9E%E7%94%A8%E6%8E%A5%E5%8F%A3.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "1. 随机获取一些网络图片",
+          "slug": "_1-随机获取一些网络图片"
+        }
+      ],
+      "lastUpdated": "2023年9月28日星期四中午12点22分",
+      "lastUpdatedTimestamp": 1695874932000
+    },
+    {
+      "title": "w-a页面",
+      "frontmatter": {
+        "title": "w-a页面"
+      },
+      "regularPath": "/web/w-a.html",
+      "relativePath": "web/w-a.md",
+      "key": "v-544f4fdf",
+      "path": "/web/w-a.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "w-a页面二级标题1",
+          "slug": "w-a页面二级标题1"
+        },
+        {
+          "level": 3,
+          "title": "1.三级标题1",
+          "slug": "_1-三级标题1"
+        },
+        {
+          "level": 3,
+          "title": "2.三级标题2",
+          "slug": "_2-三级标题2"
+        },
+        {
+          "level": 3,
+          "title": "3.三级标题3",
+          "slug": "_3-三级标题3"
+        },
+        {
+          "level": 2,
+          "title": "w-a页面二级标题2",
+          "slug": "w-a页面二级标题2"
+        },
+        {
+          "level": 3,
+          "title": "1.三级标题1",
+          "slug": "_1-三级标题1-2"
+        },
+        {
+          "level": 3,
+          "title": "2.三级标题2",
+          "slug": "_2-三级标题2-2"
+        },
+        {
+          "level": 3,
+          "title": "3.三级标题3",
+          "slug": "_3-三级标题3-2"
+        }
+      ],
+      "lastUpdated": "2023年3月1日星期三下午12点33分",
+      "lastUpdatedTimestamp": 1677645233000
+    },
+    {
+      "title": "w-b页面",
+      "frontmatter": {
+        "title": "w-b页面"
+      },
+      "regularPath": "/web/w-b.html",
+      "relativePath": "web/w-b.md",
+      "key": "v-b2a3f302",
+      "path": "/web/w-b.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "w-b页面二级标题1",
+          "slug": "w-b页面二级标题1"
+        },
+        {
+          "level": 3,
+          "title": "1.三级标题1",
+          "slug": "_1-三级标题1"
+        },
+        {
+          "level": 3,
+          "title": "2.三级标题2",
+          "slug": "_2-三级标题2"
+        },
+        {
+          "level": 3,
+          "title": "3.三级标题3",
+          "slug": "_3-三级标题3"
+        },
+        {
+          "level": 2,
+          "title": "w-b页面二级标题2",
+          "slug": "w-b页面二级标题2"
+        },
+        {
+          "level": 3,
+          "title": "1.三级标题1",
+          "slug": "_1-三级标题1-2"
+        },
+        {
+          "level": 3,
+          "title": "2.三级标题2",
+          "slug": "_2-三级标题2-2"
+        },
+        {
+          "level": 3,
+          "title": "3.三级标题3",
+          "slug": "_3-三级标题3-2"
+        }
+      ],
+      "lastUpdated": "2023年3月1日星期三下午12点33分",
+      "lastUpdatedTimestamp": 1677645233000
+    },
+    {
+      "title": "课程所需软件下载",
+      "frontmatter": {
+        "navbar": true,
+        "sidebar": "auto",
+        "title": "课程所需软件下载"
+      },
+      "regularPath": "/web/software/",
+      "relativePath": "web/software/README.md",
+      "key": "v-82515742",
+      "path": "/web/software/",
+      "headers": [
+        {
+          "level": 2,
+          "title": "1. 第一学期",
+          "slug": "_1-第一学期"
+        },
+        {
+          "level": 3,
+          "title": "vscode",
+          "slug": "vscode-下载"
+        },
+        {
+          "level": 2,
+          "title": "2. 第二学期",
+          "slug": "_2-第二学期"
+        },
+        {
+          "level": 3,
+          "title": "UPUPW 搭建本地服务器",
+          "slug": "upupw-搭建本地服务器-下载"
+        },
+        {
+          "level": 3,
+          "title": "jQuery",
+          "slug": "jquery-下载"
+        },
+        {
+          "level": 3,
+          "title": "jQuery的插件：cookie",
+          "slug": "jquery的插件-cookie-下载"
+        },
+        {
+          "level": 3,
+          "title": "表单选择器",
+          "slug": "表单选择器"
+        },
+        {
+          "level": 3,
+          "title": "表单序列化",
+          "slug": "表单序列化"
+        },
+        {
+          "level": 3,
+          "title": "跨域jsonp",
+          "slug": "跨域jsonp"
+        },
+        {
+          "level": 3,
+          "title": "下载安装node.js",
+          "slug": "下载安装node-js"
+        },
+        {
+          "level": 3,
+          "title": "下载安装nvm",
+          "slug": "下载安装nvm"
+        },
+        {
+          "level": 3,
+          "title": "安装nodemon",
+          "slug": "安装nodemon"
+        },
+        {
+          "level": 3,
+          "title": "安装nrm",
+          "slug": "安装nrm"
+        },
+        {
+          "level": 3,
+          "title": "小案例：node.js + jQuery完成：网页 “联系我们” 页面的留言板功能",
+          "slug": "小案例-node-js-jquery完成-网页-联系我们-页面的留言板功能"
+        }
+      ],
+      "lastUpdated": "2023年12月11日星期一下午2点32分",
+      "lastUpdatedTimestamp": 1702276374000
+    },
+    {
       "title": "w-c页面",
       "frontmatter": {
         "title": "w-c页面"
@@ -7581,171 +7758,6 @@ export const siteData = {
       "path": "/%E5%BC%80%E5%8F%91%E8%AE%B0%E5%BD%95.html",
       "lastUpdated": "2023年7月27日星期四中午12点19分",
       "lastUpdatedTimestamp": 1690431553000
-    },
-    {
-      "title": "w-b页面",
-      "frontmatter": {
-        "title": "w-b页面"
-      },
-      "regularPath": "/web/w-b.html",
-      "relativePath": "web/w-b.md",
-      "key": "v-b2a3f302",
-      "path": "/web/w-b.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "w-b页面二级标题1",
-          "slug": "w-b页面二级标题1"
-        },
-        {
-          "level": 3,
-          "title": "1.三级标题1",
-          "slug": "_1-三级标题1"
-        },
-        {
-          "level": 3,
-          "title": "2.三级标题2",
-          "slug": "_2-三级标题2"
-        },
-        {
-          "level": 3,
-          "title": "3.三级标题3",
-          "slug": "_3-三级标题3"
-        },
-        {
-          "level": 2,
-          "title": "w-b页面二级标题2",
-          "slug": "w-b页面二级标题2"
-        },
-        {
-          "level": 3,
-          "title": "1.三级标题1",
-          "slug": "_1-三级标题1-2"
-        },
-        {
-          "level": 3,
-          "title": "2.三级标题2",
-          "slug": "_2-三级标题2-2"
-        },
-        {
-          "level": 3,
-          "title": "3.三级标题3",
-          "slug": "_3-三级标题3-2"
-        }
-      ],
-      "lastUpdated": "2023年3月1日星期三下午12点33分",
-      "lastUpdatedTimestamp": 1677645233000
-    },
-    {
-      "title": "章节3.封装js库过渡到jQuery",
-      "frontmatter": {
-        "navbar": true,
-        "sidebar": "auto",
-        "title": "章节3.封装js库过渡到jQuery"
-      },
-      "regularPath": "/secondless/w-b/%E5%B0%81%E8%A3%85js%E5%BA%93%E8%BF%87%E6%B8%A1%E5%88%B0jQuery.html",
-      "relativePath": "secondless/w-b/封装js库过渡到jQuery.md",
-      "key": "v-7d01a454",
-      "path": "/secondless/w-b/%E5%B0%81%E8%A3%85js%E5%BA%93%E8%BF%87%E6%B8%A1%E5%88%B0jQuery.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "1. 对象字面量形式执行对象里面的方法达到简化获取对象节点的操作",
-          "slug": "_1-对象字面量形式执行对象里面的方法达到简化获取对象节点的操作"
-        },
-        {
-          "level": 2,
-          "title": "2. 改写库对象：通过构造函数和原型改写库对象",
-          "slug": "_2-改写库对象-通过构造函数和原型改写库对象"
-        },
-        {
-          "level": 3,
-          "title": "① 获取id节点，返回实例对象mybase，给构造函数原型添加css方法",
-          "slug": "_1-获取id节点-返回实例对象mybase-给构造函数原型添加css方法"
-        },
-        {
-          "level": 3,
-          "title": "② 改写构造函数原型css方法，处理多个节点存放问题，html方法按照css方法进行扩展测试，扩展click方法",
-          "slug": "_2-改写构造函数原型css方法-处理多个节点存放问题-html方法按照css方法进行扩展测试-扩展click方法"
-        },
-        {
-          "level": 3,
-          "title": "③ 改造html方法，可以设置或者获取内容",
-          "slug": "_3-改造html方法-可以设置或者获取内容"
-        },
-        {
-          "level": 3,
-          "title": "④ 改造css方法，可以设置获取css样式",
-          "slug": "_4-改造css方法-可以设置获取css样式"
-        },
-        {
-          "level": 2,
-          "title": "3. 封装js库总结",
-          "slug": "_3-封装js库总结"
-        },
-        {
-          "level": 2,
-          "title": "【第二学期第2季课程】其它章节",
-          "slug": "【第二学期第2季课程】其它章节"
-        },
-        {
-          "level": 3,
-          "title": "章节1.课程介绍",
-          "slug": "章节1-课程介绍"
-        },
-        {
-          "level": 3,
-          "title": "章节2.面向对象与原型",
-          "slug": "章节2-面向对象与原型"
-        },
-        {
-          "level": 3,
-          "title": "章节3.封装js库过渡到jQuery",
-          "slug": "章节3-封装js库过渡到jquery"
-        },
-        {
-          "level": 3,
-          "title": "章节4.jQuery",
-          "slug": "章节4-jquery"
-        },
-        {
-          "level": 3,
-          "title": "章节5.jQuery事件、动画、插件",
-          "slug": "章节5-jquery事件、动画、插件"
-        },
-        {
-          "level": 3,
-          "title": "章节6.Ajax",
-          "slug": "章节6-ajax"
-        },
-        {
-          "level": 3,
-          "title": "章节7.Node.js",
-          "slug": "章节7-node-js"
-        },
-        {
-          "level": 2,
-          "title": "其它学期课程",
-          "slug": "其它学期课程"
-        },
-        {
-          "level": 3,
-          "title": "第一学期（学习顺序：01）",
-          "slug": "第一学期-学习顺序-01"
-        },
-        {
-          "level": 3,
-          "title": "第二学期【第1季】（学习顺序：02）",
-          "slug": "第二学期【第1季】-学习顺序-02"
-        },
-        {
-          "level": 3,
-          "title": "第二学期【第2季】（学习顺序：03）",
-          "slug": "第二学期【第2季】-学习顺序-03"
-        }
-      ],
-      "lastUpdated": "2023年12月1日星期五中午12点11分",
-      "lastUpdatedTimestamp": 1701403869000
     }
   ],
   "themeConfig": {
