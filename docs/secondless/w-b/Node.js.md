@@ -997,16 +997,111 @@ flag属性值，具体查看：<a href="https://juejin.cn/post/73049485225064366
 ## 九、node.js + jQuery完成：网页 “联系我们” 页面的留言板功能
 具体查看：<a href="/secondless/w-b/nodejs+jQuery开发留言板" target="_blank">案例：nodejs+jQuery开发企业网页的留言板功能</a>
 
+## 十、系统模块：crypto模块详解（加密：对称加密、非对称加密、哈希函数）
+> 我们再来学习一个nodejs中的系统模块：crypto模块。讲这个模块源自于同学们提出的问题：说我们留言板存储的message.json文件，还是过于暴漏，最起码应该将用户的手机号加个密之类的，因此我们本节课来学习一个nodejs内置的系统模块crypto模块，它为我们提供通用的`加密和哈希算法`。<br/>
+> 用纯JavaScript代码实现这些功能不是不可能，但速度会非常慢。nodejs用C/C++实现这些算法后，通过crypto这个模块暴露为JavaScript接口，这样用起来方便，运行速度也快。
+### ① 对称加密
+> 简单理解就是双方协商定义一个密钥以及iv。比如我们商定一个暗号：今晚吃鸡，然后你把你的密文和密钥进行一个混合，然后发给我，因为我知道你的暗号的，所以我可以利用这个暗号去把密文给它解出来，就是双方协定的一个密钥以及iv，称之为对称加密。
+> ```javascript
+> //对称加密
+> const crypto = require('node:crypto');
+> //参数1：接收一个算法，一般是：aes-256-cbc | aes-192-cbc
+> //参数2：接收一个密钥，32位的 | 24位的
+> //参数3：接收一个iv，初始化向量，支持16位
+> 
+> let key = crypto.randomBytes(32); console.log(key);
+> //iv的作用是保证我们生成的密钥串每次是不一样的，如果密钥串多了还是少了位数，还会自动补码
+> let iv = Buffer.from(crypto.randomBytes(16)); console.log(iv);
+> let cipher = crypto.createCipheriv('aes-256-cbc',key,iv);
+> //通过cipher就可以进行加密操作
+> //参数1：密文，参数2：格式 utf-8,参数3：输出格式：比如16进制 hex
+> cipher.update('迪丽热巴','utf-8','hex');
+> //输出加密后的密文，16进制的
+> let result = cipher.final('hex');
+> console.log(result);
+> 
+> //解密 ： 相同的算法，相同的key,相同的iv
+> let decipher = crypto.createDecipheriv('aes-256-cbc',key,iv);
+> decipher.update(result,'hex','utf-8');//注意换一下位置
+> console.log(decipher.final('utf-8'));
+> ```
+> ### 封装加密函数
+> ```javascript
+> let crypto = require('crypto')
+> // data:需要加解密的内容，
+> // key: 密钥（32位的'aes-256-cbc'）（24位的'aes-192-cbc'）
+> // 初始化向量（iv）支持16位
+> function aesEncrypt(data, key, iv) {
+>   // 给定的算法，密钥和初始化向量（iv）创建并返回Cipher对象
+>   const cipher = crypto.createCipheriv('aes-256-cbc', key, iv)
+>   // 指定要摘要的原始内容,可以在摘要被输出之前使用多次update方法来添加摘要内容
+>   // 数据的编码 utf8 返回值的编码 hex
+>   var crypted = cipher.update(data, 'utf8', 'hex')
+>   crypted += cipher.final('hex')
+>   return crypted
+> }
+> 
+> function aesDecrypt(data, key, iv) {
+>   // 给定的算法，密钥和初始化向量（iv）创建并返回Cipher对象
+>   const decipher = crypto.createDecipheriv('aes-256-cbc', key, iv)
+>   // 数据的编码 hex 返回值的编码 utf8
+>   var decrypted = decipher.update(data, 'hex', 'utf8')
+>   decrypted += decipher.final('utf8')
+>   return decrypted
+> }
+> 
+> //自定义IV(16位)、key(密钥（32位的'aes-256-cbc'）（24位的'aes-192-cbc'）)
+> const iv = 'IloveYOU@520520!' // 初始化向量（iv）16位
+> let data = '迪丽热巴' // 需要加解密的内容，
+> let key = 'a123456789@!*&%bcdef@123456789&&' // 32 位秘钥密钥
+> 
+> let encryptData = aesEncrypt(data, key, iv)
+> let decryptData = aesDecrypt(encryptData, key, iv)
+> 
+> console.log(encryptData);//e8b917533cea0c134bd2b920c7a0c667
+> console.log(decryptData);//迪丽热巴 
+> ```
+> 更多封装方法：参考 <a href="https://juejin.cn/post/6844904013054345223?searchId=20231214121753AE3D3B1A25EE1E29CB4C" target="_blank">封装加密</a>
 
+### ② 非对称加密
+> 非对称加密可以生成公钥和私钥，私钥只能是管理员拥有，不能对外公开，公钥可以对外公开。比如说我们想用你的这个算法，我们可以拿到你的公钥然后去进行加密，得到加密之后的密文可以公开，然后私钥呢，管理员可以对加密之后的结果进行解密，其他人由于没有私钥，所以无法解密。
+> ```javascript
+> //非对称加密
+> const crypto = require('node:crypto');
+> const {privateKey,publicKey} = crypto.generateKeyPairSync('rsa',{
+>    modulusLength:2048,//长度越长越安全，但是执行越慢
+> });
+> //使用公钥加密
+> const encrypto = crypto.publicEncrypt(publicKey,Buffer.from('迪丽热巴'));
+> console.log(encrypto.toString('hex'));
+> //私钥解密
+> const decrypto = crypto.privateDecrypt(privateKey,encrypto);
+> console.log(decrypto.toString());
+> ```
 
-
-
-
-
-
-
-
-
+### ③ 哈希函数加密
+>不能被解密的，因为它是单向的，不可逆的，常用于用户登录密码、文件内容的比对校验
+> ```javascript
+> //哈希函数 
+> const crypto = require('node:crypto');
+> //'sha256'加密
+> /*
+> let hash = crypto.createHash('sha256'); //md5
+> hash.update('迪丽热巴');
+> let result = hash.digest('hex');
+> console.log(result); 
+> */  
+> // md5加密
+> let hash = crypto.createHash('md5');
+> hash.update('迪丽热巴');
+> let result = hash.digest('hex');
+> console.log(result); 
+> ```
+关于哈希函数，说明几点：
+1. 固定长度输出：不论输入数据的大小，哈希函数的输出长度是固定的。例如，常见的哈希函数如 MD5 和 SHA-256 生成的哈希值长度分别为 128 位和 256 位，对应的字符串长度'md5'的长度是32位，'sha256'生成的长度是64位。
+2. 不可逆性：哈希函数是单向的，意味着从哈希值推导出原始输入数据是非常困难的，几乎不可能。即使输入数据发生微小的变化，其哈希值也会完全不同。当然，这并不意味着就是百分之百安全，`虽然说加密之后的密文无法推算出原文，但是网上有很多撞库操作`。<br/>用户在注册的时候，会输入密码，我们不会把用户输入的原始密码存进数据库，一般使用'sha256'或者'md5'等方式，将用户输入的密码加密之后，存进数据库，然后用户登录的时候，在比对加密之后的密码`（后面课程讲项目的时候会详细讲）`，但是网上确有很多撞库的网站，如：<a href="https://www.cmd5.com/" target="_blank">https://www.cmd5.com/</a>。这就是为什么要求我们的密码写得复杂一些，加标点符号，特殊字符#$@!，大小写等等，就是为了防止撞库。
+3. 唯一性：哈希函数具有非常低的碰撞概率，即不同的输入数据生成相同的哈希值的可能性非常小。这有助于确保哈希值能够唯一地标识输入数据。因此可以用它来做密码和文件校验，很多时候我们可以在后端数据库读取文件或内容比如密码（已加密的md5密码），然后前端用户在登录的时候，也会输入密码，我们会将用户输入的密码转成md5，然后和后端的数据库的md5密码做比对，当两者相同时候，说明用户密码是对的，可以登录，否则不能登录。当然，也可以验证文件的一致性，原理和这个一样。<br/><br/>
+以上先简单的给大家介绍了一下nodejs中的加密解密操作，更多相关功能，我们会在后面的实战项目再给大家讲解，大家先了解这么多即可。
 
 <br/><br/><br/><br/><br/><br/>
 
