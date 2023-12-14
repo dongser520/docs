@@ -511,6 +511,61 @@ title: 章节3.封装js库过渡到jQuery
 #####  <a href="/secondless/w-b/Ajax.html#_2-延伸一下-jquery中的跨域jsonp模拟百度搜索提示数据" style="margin-left:100px;"> ② 延伸一下：jQuery中的跨域jsonp模拟百度搜索提示数据</a>
 ####  <a href="/secondless/w-b/Ajax.html#_6、-jqxhr-对象-when-方法、done-方法、always-方法和fail-方法" style="margin-left:70px;">6、 jqXHR 对象: when()方法、done()方法、always()方法和fail()方法</a>
 ### [章节7.Node.js](/secondless/w-b/Node.js '章节7.Node.js')
+####  <a href="/secondless/w-b/Node.js.html#一、node环境搭建-安装node-js" style="margin-left:40px;">一、Node环境搭建（安装node.js）</a>
+####  <a href="/secondless/w-b/Node.js.html#_1、-下载安装node-js" style="margin-left:70px;">1、 下载安装node.js</a>
+####  <a href="/secondless/w-b/Node.js.html#_2、-检查node-js是否安装成功" style="margin-left:70px;">2、 检查node.js是否安装成功</a>
+#####  <a href="/secondless/w-b/Node.js.html#_1-命令行-node-v-npm-v-npx-v" style="margin-left:100px;">① 命令行：node -v npm -v npx -v</a>
+#####  <a href="/secondless/w-b/Node.js.html#_2-命令行-node-运行js代码" style="margin-left:100px;">② 命令行：node 运行js代码</a>
+#####  <a href="/secondless/w-b/Node.js.html#_3-命令行-运行js文件代码-清屏命令-cls" style="margin-left:100px;">③ 命令行：运行js文件代码，清屏命令: cls</a>
+####  <a href="/secondless/w-b/Node.js.html#二、nvm-node版本管理工具-切换node版本" style="margin-left:40px;">二、NVM（node版本管理工具，切换node版本）</a>
+####  <a href="/secondless/w-b/Node.js.html#_1、-下载安装nvm" style="margin-left:70px;">1、 下载安装nvm</a>
+####  <a href="/secondless/w-b/Node.js.html#_2、检查nvm是否安装成功-nvm-v" style="margin-left:70px;">2、检查nvm是否安装成功：nvm -v</a>
+####  <a href="/secondless/w-b/Node.js.html#_3、设置nodejs、npm下载源-可选" style="margin-left:70px;">3、设置nodejs、npm下载源（可选）</a>
+####  <a href="/secondless/w-b/Node.js.html#_4、使用nvm包管理器" style="margin-left:70px;">4、使用NVM包管理器</a>
+####  <a href="/secondless/w-b/Node.js.html#三、npm包管理-npm包管理工具" style="margin-left:40px;">三、NPM包管理（npm包管理工具）</a>
+####  <a href="/secondless/w-b/Node.js.html#_1-package-json-文件如何生成" style="margin-left:70px;">1、 package.json 文件如何生成</a>
+####  <a href="/secondless/w-b/Node.js.html#_2-npm-npm-、-cnpm-cnpm" style="margin-left:70px;">2、 NPM (npm) 、 CNPM (cnpm)</a>
+#####  <a href="/secondless/w-b/Node.js.html#i、-npm" style="margin-left:100px;">1、npm</a>
+#####  <a href="/secondless/w-b/Node.js.html#ii、-cnpm-可选" style="margin-left:100px;">2、cnpm (可选)</a>
+#####  <a href="/secondless/w-b/Node.js.html#_1-安装cnpm" style="margin-left:130px;">① 安装cnpm</a>
+#####  <a href="/secondless/w-b/Node.js.html#_2-接下来就可以使用cnpm命令安装各个包、插件、模块等等" style="margin-left:130px;">② 接下来就可以使用cnpm命令安装各个包、插件、模块等等</a>
+#####  <a href="/secondless/w-b/Node.js.html#_3-在vscode中运行命令" style="margin-left:130px;">③ 在vscode中运行命令</a>
+#####  <a href="/secondless/w-b/Node.js.html#_4-npm-或-cnpm-常用命令" style="margin-left:130px;">④ npm 或 cnpm 常用命令</a>
+####  <a href="/secondless/w-b/Node.js.html#四、node的模块" style="margin-left:40px;">四、Node的模块</a>
+####  <a href="/secondless/w-b/Node.js.html#_1-全局模块-process为例" style="margin-left:70px;">1、全局模块 ：process为例</a>
+####  <a href="/secondless/w-b/Node.js.html#_2-系统模块-path、fs模块为例" style="margin-left:70px;">2、系统模块 ： path、fs模块为例</a>
+####  <a href="/secondless/w-b/Node.js.html#_3-自定义模块-exports、module输出、require引入" style="margin-left:70px;">3、 自定义模块： exports、module输出、require引入</a>
+####  <a href="/secondless/w-b/Node.js.html#_4-重要系统模块-http模块-搭建网页服务器" style="margin-left:70px;">4、 重要系统模块：http模块，搭建网页服务器</a>
+####  <a href="/secondless/w-b/Node.js.html#五、node中的数据交互-重要系统模块-url模块处理get请求-querystring模块处理post请求" style="margin-left:40px;">五、Node中的数据交互，重要系统模块：url模块处理get请求,querystring模块处理post请求</a>
+####  <a href="/secondless/w-b/Node.js.html#_1-url模块处理get-get-请求-url-parse-url-true" style="margin-left:70px;">1、url模块处理GET（get）请求：url.parse(url,true)</a>
+####  <a href="/secondless/w-b/Node.js.html#_2-querystring模块处理post-post-请求-querystring-parse" style="margin-left:70px;">2、querystring模块处理POST（post）请求：querystring.parse()</a>
+####  <a href="/secondless/w-b/Node.js.html#六、nodejs项目监测文件变化-自动重启工具-nodemon" style="margin-left:40px;">六、nodejs项目监测文件变化，自动重启工具：Nodemon</a>
+####  <a href="/secondless/w-b/Node.js.html#_1-安装nodemon" style="margin-left:70px;">1、安装nodemon</a>
+####  <a href="/secondless/w-b/Node.js.html#_2-修改package-json-中的启动命令" style="margin-left:70px;">2、修改package.json 中的启动命令</a>
+####  <a href="/secondless/w-b/Node.js.html#_3-配置nodemon-告诉它哪些文件需要修改后重启服务-可选项" style="margin-left:70px;">3、配置nodemon，告诉它哪些文件需要修改后重启服务（可选项）</a>
+####  <a href="/secondless/w-b/Node.js.html#七、nrm-使用nrm管理npm下载源" style="margin-left:40px;">七、nrm (使用nrm管理npm下载源)</a>
+####  <a href="/secondless/w-b/Node.js.html#_1-安装nrm" style="margin-left:70px;">1、安装nrm</a>
+####  <a href="/secondless/w-b/Node.js.html#_2-nrm内置的命令函数" style="margin-left:70px;">2、nrm内置的命令函数</a>
+####  <a href="/secondless/w-b/Node.js.html#_3-查看当前正在使用的-npm-镜像源" style="margin-left:70px;">3、查看当前正在使用的 npm 镜像源</a>
+####  <a href="/secondless/w-b/Node.js.html#_4-切换-npm-镜像源" style="margin-left:70px;">4、切换 npm 镜像源</a>
+####  <a href="/secondless/w-b/Node.js.html#八、系统模块-fs模块详解" style="margin-left:40px;">八、系统模块：fs模块详解</a>
+####  <a href="/secondless/w-b/Node.js.html#_1-读取文件-异步readfile、同步readfilesync、promise操作" style="margin-left:70px;">1、读取文件： 异步readFile、同步readFileSync、promise操作</a>
+####  <a href="/secondless/w-b/Node.js.html#_2-可读流模式-createreadstream-方法" style="margin-left:70px;">2、可读流模式：createReadStream()方法</a>
+####  <a href="/secondless/w-b/Node.js.html#_3-创建文件夹-mkdirsync-mkdir" style="margin-left:70px;">3、创建文件夹：mkdirSync , mkdir</a>
+####  <a href="/secondless/w-b/Node.js.html#_4-删除文件夹-rmsync-rm" style="margin-left:70px;">4、删除文件夹：rmSync , rm</a>
+####  <a href="/secondless/w-b/Node.js.html#_5-重命名文件-renamesync-rename" style="margin-left:70px;">5、重命名文件：renameSync , rename</a>
+####  <a href="/secondless/w-b/Node.js.html#_6-监听文件变化-watch" style="margin-left:70px;">6、监听文件变化: watch</a>
+####  <a href="/secondless/w-b/Node.js.html#_7-写入文件-writefile、writefilesync-追加写入文件-appendfile、appendfilesync" style="margin-left:70px;">7、写入文件：writeFile、writeFileSync，追加写入文件：appendFile、appendFileSync</a>
+####  <a href="/secondless/w-b/Node.js.html#_8-写入文件-创建可写流-createwritestream" style="margin-left:70px;">8、写入文件：创建可写流 createWriteStream()</a>
+####  <a href="/secondless/w-b/Node.js.html#_9-软链接symlinksync、symlink-硬链接linksync、link" style="margin-left:70px;">9、软链接symlinkSync、symlink 硬链接linkSync、link</a>
+####  <a href="/secondless/w-b/nodejs+jQuery开发留言板.html" style="margin-left:40px;" target="_blank">九、node.js + jQuery完成：网页 “联系我们” 页面的留言板功能</a>
+####  <a href="/secondless/w-b/Node.js.html#十、系统模块-crypto模块详解-加密-对称加密、非对称加密、哈希函数" style="margin-left:40px;">十、系统模块：crypto模块详解（加密：对称加密、非对称加密、哈希函数）</a>
+####  <a href="/secondless/w-b/Node.js.html#_1-对称加密" style="margin-left:70px;">1、对称加密、封装加密函数</a>
+####  <a href="/secondless/w-b/Node.js.html#_2-非对称加密" style="margin-left:70px;">2、非对称加密</a>
+####  <a href="/secondless/w-b/Node.js.html#_3-哈希函数加密" style="margin-left:70px;">3、哈希函数加密</a>
+####  <a href="/secondless/w-b/nodejs服务器端app.js文件.html" style="margin-left:70px;" target="_blank">4、对留言板的手机号做一个加密</a>
+### [章节8.Vue.js基础](/secondless/w-b/Vue.js '章节8.Vue.js基础')
+
 
 <br/><br/>
 
