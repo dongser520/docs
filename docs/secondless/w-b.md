@@ -255,4 +255,5 @@ title: 第二季（课程学习顺序：03）
 ####  <a href="/secondless/w-b/Node.js.html#_2-非对称加密" style="margin-left:70px;">2、非对称加密</a>
 ####  <a href="/secondless/w-b/Node.js.html#_3-哈希函数加密" style="margin-left:70px;">3、哈希函数加密</a>
 ####  <a href="/secondless/w-b/nodejs服务器端app.js文件.html" style="margin-left:70px;" target="_blank">4、对留言板的手机号做一个加密</a>
-### <a href="/secondless/w-b/Vue.js" target="_blank" title="点击查看课程文档">章节8.Vue.js基础</a>
+### <a href="/secondless/w-b/正则表达式" target="_blank" title="点击查看课程文档">章节8.正则表达式</a>
+### <a href="/secondless/w-b/Vue.js" target="_blank" title="点击查看课程文档">章节9.Vue.js基础</a>
