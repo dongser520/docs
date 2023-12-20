@@ -20,6 +20,7 @@ module.exports = [
             { text: 'Bootstrap', link: '/web/bootstrap/' },
             { text: 'IIS', link: '/web/IIS/' },
             { text: 'Github', link: '/web/github/' },
+            { text: 'Vanta.js网页3D背景', link: '/web/Vanta.js/' },
         ]
     },
     {
