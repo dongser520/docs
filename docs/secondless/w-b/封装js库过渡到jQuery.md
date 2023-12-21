@@ -510,7 +510,7 @@ title: 章节3.封装js库过渡到jQuery
 #####  <a href="/secondless/w-b/Ajax.html#_1-jquery中的跨域jsonp使用" style="margin-left:100px;"> ① jQuery中的跨域jsonp使用</a>
 #####  <a href="/secondless/w-b/Ajax.html#_2-延伸一下-jquery中的跨域jsonp模拟百度搜索提示数据" style="margin-left:100px;"> ② 延伸一下：jQuery中的跨域jsonp模拟百度搜索提示数据</a>
 ####  <a href="/secondless/w-b/Ajax.html#_6、-jqxhr-对象-when-方法、done-方法、always-方法和fail-方法" style="margin-left:70px;">6、 jqXHR 对象: when()方法、done()方法、always()方法和fail()方法</a>
-### [章节7.Node.js](/secondless/w-b/Node.js '章节7.Node.js')
+### [章节7.Node.js基础](/secondless/w-b/Node.js '章节7.Node.js基础')
 ####  <a href="/secondless/w-b/Node.js.html#一、node环境搭建-安装node-js" style="margin-left:40px;">一、Node环境搭建（安装node.js）</a>
 ####  <a href="/secondless/w-b/Node.js.html#_1、-下载安装node-js" style="margin-left:70px;">1、 下载安装node.js</a>
 ####  <a href="/secondless/w-b/Node.js.html#_2、-检查node-js是否安装成功" style="margin-left:70px;">2、 检查node.js是否安装成功</a>
@@ -565,6 +565,63 @@ title: 章节3.封装js库过渡到jQuery
 ####  <a href="/secondless/w-b/Node.js.html#_3-哈希函数加密" style="margin-left:70px;">3、哈希函数加密</a>
 ####  <a href="/secondless/w-b/nodejs服务器端app.js文件.html" style="margin-left:70px;" target="_blank">4、对留言板的手机号做一个加密</a>
 ### [章节8.正则表达式](/secondless/w-b/正则表达式 '章节8.正则表达式')
+####  <a href="/secondless/w-b/正则表达式.html#一、创建正则表达式" style="margin-left:40px;">一、创建正则表达式</a>
+####  <a href="/secondless/w-b/正则表达式.html#_1-new运算符创建正则表达式" style="margin-left:70px;">① new运算符创建正则表达式</a>
+####  <a href="/secondless/w-b/正则表达式.html#_2-字面量方式创建正则表达式" style="margin-left:70px;">② 字面量方式创建正则表达式</a>
+####  <a href="/secondless/w-b/正则表达式.html#二、测试正则表达式" style="margin-left:40px;">二、测试正则表达式</a>
+####  <a href="/secondless/w-b/正则表达式.html#_1-test方法-在字符串中测试模式匹配-返回-true-或-false" style="margin-left:70px;">① test方法：在字符串中测试模式匹配，返回 true 或 false</a>
+####  <a href="/secondless/w-b/正则表达式.html#_2-exec方法-在字符串中执行匹配搜索-返回结果数组-执行失败-则返回-null" style="margin-left:70px;">② exec方法：在字符串中执行匹配搜索，返回结果数组，执行失败，则返回 null</a>
+####  <a href="/secondless/w-b/正则表达式.html#三、字符串的正则表达式方法" style="margin-left:40px;">三、字符串的正则表达式方法</a>
+####  <a href="/secondless/w-b/正则表达式.html#_1-match方法-就是一个查找的功能-获取匹配的字符串-返回数组或-null" style="margin-left:70px;">① match方法：就是一个查找的功能，获取匹配的字符串，返回数组或 null</a>
+####  <a href="/secondless/w-b/正则表达式.html#_2-search方法-根据匹配的字符串-返回位置索引-从0开始" style="margin-left:70px;">② search方法：根据匹配的字符串，返回位置索引（从0开始）</a>
+####  <a href="/secondless/w-b/正则表达式.html#_3-split方法-按照匹配模式-拆分成字符串数组" style="margin-left:70px;">③ split方法：按照匹配模式，拆分成字符串数组</a>
+####  <a href="/secondless/w-b/正则表达式.html#_4-replace方法-替换匹配到的数据" style="margin-left:70px;">④ replace方法： 替换匹配到的数据</a>
+####  <a href="/secondless/w-b/正则表达式.html#小案例-模拟百度搜索-搜索的关键字设置成红色" style="margin-left:70px;">小案例：模拟百度搜索，搜索的关键字设置成红色</a>
+####  <a href="/secondless/w-b/正则表达式.html#四、正则表达式regexp对象的静态属性、实例属性-了解" style="margin-left:40px;">四、正则表达式RegExp对象的静态属性、实例属性（了解）</a>
+####  <a href="/secondless/w-b/正则表达式.html#_1、-静态属性" style="margin-left:70px;">1、 静态属性</a>
+#####  <a href="/secondless/w-b/正则表达式.html#_1-属性-input-短名-当前被匹配的字符串" style="margin-left:100px;">① 属性：input，短名：$_ ， 当前被匹配的字符串</a>
+#####  <a href="/secondless/w-b/正则表达式.html#_2-属性-leftcontext-短名-最后一次匹配前的子串" style="margin-left:100px;">② 属性：leftContext，短名：$` ， 最后一次匹配前的子串</a>
+#####  <a href="/secondless/w-b/正则表达式.html#_3-属性-rightcontext-短名-在上次匹配之后的子串" style="margin-left:100px;">③ 属性：rightContext，短名：$' ， 在上次匹配之后的子串</a>
+#####  <a href="/secondless/w-b/正则表达式.html#_4-属性-lastmatch-短名-最后一个匹配字符串" style="margin-left:100px;">④ 属性：lastMatch，短名：$& ， 最后一个匹配字符串</a>
+#####  <a href="/secondless/w-b/正则表达式.html#_5-属性-lastparen-短名-最后一对圆括号内的匹配子串" style="margin-left:100px;">⑤ 属性：lastParen，短名：$+ ， 最后一对圆括号内的匹配子串</a>
+####  <a href="/secondless/w-b/正则表达式.html#_2、-实例属性" style="margin-left:70px;">2、 实例属性</a>
+####  <a href="/secondless/w-b/正则表达式.html#五、正则表达式元字符-包含特殊含义的字符" style="margin-left:40px;">五、正则表达式元字符（包含特殊含义的字符）</a>
+####  <a href="/secondless/w-b/正则表达式.html#一、-单个字符和数字、重复字符" style="margin-left:70px;">一、 单个字符和数字、重复字符</a>
+####  <a href="/secondless/w-b/正则表达式.html#_1、-点符号匹配除了换行符-n-外的任意字符" style="margin-left:100px;">1、 点符号匹配除了换行符（\n）外的任意字符</a>
+####  <a href="/secondless/w-b/正则表达式.html#_2、-点符号和重复字符配合使用" style="margin-left:100px;">2、 点符号和重复字符配合使用</a>
+#####  <a href="/secondless/w-b/正则表达式.html#_1-重复字符-x-表示-匹配-0-个或-1-个-x-x可以换成任意字符" style="margin-left:120px;">① 重复字符：x?，表示：匹配 0 个或 1 个 x （x可以换成任意字符）</a>
+#####  <a href="/secondless/w-b/正则表达式.html#_2-重复字符-x-表示-匹配-0-个或-1-个-或者任意多个-x-x可以换成任意字符" style="margin-left:120px;">② 重复字符：x*，表示：匹配 0 个或 1 个 或者任意多个 x （x可以换成任意字符）</a>
+#####  <a href="/secondless/w-b/正则表达式.html#_3-重复字符-x-表示-匹配-至少1个-或者任意多个-x-x可以换成任意字符" style="margin-left:120px;">③ 重复字符：x+，表示：匹配 至少1个 或者任意多个 x （x可以换成任意字符）</a>
+#####  <a href="/secondless/w-b/正则表达式.html#_4-重复字符-x-m-n-表示-匹配最少-m-个、最多-n-个-x-x-m-表示-只能有m个x-x-m-表示-有m个x或者以上个x-x可以换成任意字符" style="margin-left:120px;">④ 重复字符：x{m,n}，表示：匹配最少 m 个、最多 n 个 x， x{m}表示：只能有m个x， x{m,}表示：有m个x或者以上个x （x可以换成任意字符）</a>
+#####  <a href="/secondless/w-b/正则表达式.html#_5-重复字符-xyz-表示-匹配至少一个-xyz-括号可以看成分组-分组里面的元素可以是任意多个字符" style="margin-left:120px;">⑤ 重复字符：(xyz)+，表示：匹配至少一个(xyz)，括号可以看成分组，分组里面的元素可以是任意多个字符</a>
+#####  <a href="/secondless/w-b/正则表达式.html#_6-任意一个匹配-a-z-匹配26个小写字母任意一个-a-z-匹配26个大写字母任意一个-0-9-匹配0到9的数字任意一个-a-za-z0-9-匹配混合字母和数字中的任意一个" style="margin-left:120px;">⑥ 任意一个匹配：[a-z]匹配26个小写字母任意一个，[A-Z]匹配26个大写字母任意一个，[0-9]匹配0到9的数字任意一个，[a-zA-Z0-9]匹配混合字母和数字中的任意一个</a>
+#####  <a href="/secondless/w-b/正则表达式.html#_7-任意一个不匹配-a-z-不匹配26个小写字母-a-z-不匹配26个大写字母-0-9-不匹配0到9的数字-a-za-z0-9-不匹配混合字母和数字" style="margin-left:120px;">⑦ 任意一个不匹配：[^a-z]不匹配26个小写字母，[^A-Z]不匹配26个大写字母，[^0-9]不匹配0到9的数字，[^a-zA-Z0-9]不匹配混合字母和数字</a>
+####  <a href="/secondless/w-b/正则表达式.html#_3、字符类-锚字符" style="margin-left:100px;">3、字符类：锚字符</a>
+#####  <a href="/secondless/w-b/正则表达式.html#_1-锚字符-表示-从行首开始匹配" style="margin-left:120px;">① 锚字符：^ ， 表示：从行首开始匹配</a>
+#####  <a href="/secondless/w-b/正则表达式.html#_2-锚字符-表示-从行尾开始匹配" style="margin-left:120px;">② 锚字符：$ ， 表示：从行尾开始匹配</a>
+####  <a href="/secondless/w-b/正则表达式.html#_4、字符-d-匹配数字-和字符集合-0-9-相同-字符-d-匹配非数字-同-0-9-相同" style="margin-left:100px;">4、字符：\d ， 匹配数字，和字符集合 [0-9]相同，字符：\D ， 匹配非数字，同[^0-9]相同</a>
+####  <a href="/secondless/w-b/正则表达式.html#_5、字符-w-匹配字母和数字及-和字符集合-a-za-z0-9-相同-字符-w-匹配非字母和数字及-同-a-za-z0-9-相同" style="margin-left:100px;">5、字符：\w ， 匹配字母和数字及_，和字符集合 [a-zA-Z0-9_]相同，字符：\W ， 匹配非字母和数字及_，同[^a-zA-Z0-9_]相同</a>
+####  <a href="/secondless/w-b/正则表达式.html#二、空白字符" style="margin-left:70px;">二、空白字符</a>
+####  <a href="/secondless/w-b/正则表达式.html#_1-字符-s-表示-匹配空白字符、空格、制表符和换行符" style="margin-left:100px;">① 字符：\s，表示：匹配空白字符、空格、制表符和换行符</a>
+####  <a href="/secondless/w-b/正则表达式.html#_2-字符-b-表示-到达边界" style="margin-left:100px;">② 字符：\b，表示：到达边界</a>
+####  <a href="/secondless/w-b/正则表达式.html#三、选择字符-选择模式-匹配如-jpg-png-gif-非相等包含的意思" style="margin-left:70px;">三、选择字符（|）选择模式，匹配如：jpg|png|gif，非相等包含的意思</a>
+####  <a href="/secondless/w-b/正则表达式.html#四、分组模式-做分组-1或-1匹配第一个分组中的内容-2或-2匹配第二个分组中的内容-依次类推" style="margin-left:70px;">四、分组模式：()做分组，\1或$1匹配第一个分组中的内容，\2或$2匹配第二个分组中的内容，依次类推</a>
+####  <a href="/secondless/w-b/正则表达式.html#_1-分组模式-做分组" style="margin-left:100px;">① 分组模式：()做分组</a>
+####  <a href="/secondless/w-b/正则表达式.html#_2-1可以获取到第一个分组内容" style="margin-left:100px;">② $1可以获取到第一个分组内容</a>
+####  <a href="/secondless/w-b/正则表达式.html#_3-小案例-1获取到第一个分组内容-并做替换" style="margin-left:100px;">③ 小案例：$1获取到第一个分组内容，并做替换</a>
+####  <a href="/secondless/w-b/正则表达式.html#_4-小案例-获取多个分组内容-进行替换" style="margin-left:100px;">④ 小案例：获取多个分组内容，进行替换</a>
+####  <a href="/secondless/w-b/正则表达式.html#六、正则表达式-贪婪和惰性" style="margin-left:40px;">六、正则表达式：贪婪和惰性</a>
+####  <a href="/secondless/w-b/正则表达式.html#七、正则表达式使用-exec-返回数组" style="margin-left:40px;">七、正则表达式使用 exec 返回数组</a>
+####  <a href="/secondless/w-b/正则表达式.html#八、捕获性分组和非捕获性分组" style="margin-left:40px;">八、捕获性分组和非捕获性分组</a>
+####  <a href="/secondless/w-b/正则表达式.html#九、分组嵌套、前瞻捕获、特殊字符匹配、换行模式" style="margin-left:40px;">九、分组嵌套、前瞻捕获、特殊字符匹配、换行模式</a>
+####  <a href="/secondless/w-b/正则表达式.html#十、书写常用正则表达式" style="margin-left:40px;">十、书写常用正则表达式</a>
+####  <a href="/secondless/w-b/正则表达式.html#_1-手机号正则" style="margin-left:70px;">① 手机号正则</a>
+####  <a href="/secondless/w-b/正则表达式.html#_2-邮政编码正则" style="margin-left:70px;">② 邮政编码正则</a>
+####  <a href="/secondless/w-b/正则表达式.html#_3-简单的电子邮件正则" style="margin-left:70px;">③ 简单的电子邮件正则</a>
+####  <a href="/secondless/w-b/正则表达式.html#_4-匹配图片格式" style="margin-left:70px;">④ 匹配图片格式</a>
+####  <a href="/secondless/w-b/正则表达式.html#_5-删除多余空格" style="margin-left:70px;">⑤ 删除多余空格</a>
+####  <a href="/secondless/w-b/正则表达式.html#_6-删除首尾的空格-中间的空格不删除" style="margin-left:70px;">⑥ 删除首尾的空格，中间的空格不删除</a>
+####  <a href="/secondless/w-b/正则表达式.html#_7-延伸-将11位手机号中的4-7位号码换成" style="margin-left:70px;">⑦ 延伸：将11位手机号中的4-7位号码换成 *</a>
 ### [章节9.Vue.js基础](/secondless/w-b/Vue.js '章节9.Vue.js基础')
 
 
