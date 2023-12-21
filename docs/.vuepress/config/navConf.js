@@ -2,7 +2,7 @@ module.exports = [
     { text: '主页', link: '/' },
     { text: '第一学期课程', link: '/aboutless' },
     { text: '第二学期课程', link: '/secondless/' },
-    { text: '课程所需软件', link: '/web/software/' },
+    { text: '课程软件小案例', link: '/web/software/' },
     {
         text: '实用方法',
         ariaLabel: '实用方法菜单',
@@ -16,6 +16,8 @@ module.exports = [
         ariaLabel: '实用网站菜单',
         items: [
             { text: '实用接口', link: '/web/methods/实用接口' },
+            { text: 'css', link: '/web/css/' },
+            { text: 'Vue.js', link: '/web/vue.js/' },
             { text: 'echarts图表', link: '/web/echarts/' },
             { text: 'Bootstrap', link: '/web/bootstrap/' },
             { text: 'IIS', link: '/web/IIS/' },

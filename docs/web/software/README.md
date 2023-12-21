@@ -34,12 +34,18 @@ title: 课程所需软件下载
 ### 下载安装node.js
 > 请查看对应课程视频或者<a href="/secondless/w-b/Node.js.html#_1、-下载安装node-js" title="安装：node.js" target="_blank" style="margin-right:20px;">文档安装：node.js</a> <br/>
 > <a href="https://www.nodejs.com.cn/" target="_blank">nodejs中文官网</a>  <a href="https://nodejs.org/en" target="_blank" style="margin-left:20px">nodejs英文官网</a>
-### 下载安装nvm
+### 下载安装nvm （node版本管理工具，切换node版本）
 > ① 访问NVM的github仓库：<a href="https://github.com/coreybutler/nvm-windows/releases" target="_blank">下载github仓库中的nvm</a>  <span style="margin-left:15px"> ② 去群里面下载对应的课件，里面有安装包</span> <br/>
 > 安装非常简单，跟上面安装nodejs一样，下一步下一步（next）直到安装完成。
-### 安装nodemon
+### 安装nodemon （nodejs项目监测文件变化，自动重启工具）
 > <a href="/secondless/w-b/Node.js.html#_1-安装nodemon" title="安装nodemon" target="_blank" style="margin-right:20px;">安装nodemon</a>
-### 安装nrm
+### 安装nrm （使用nrm管理npm下载源）
 > <a href="/secondless/w-b/Node.js.html#_1-安装nrm" title="安装nrm" target="_blank" style="margin-right:20px;">安装nrm</a>
 ### 小案例：node.js + jQuery完成：网页 “联系我们” 页面的留言板功能
 > 具体查看：<a href="/secondless/w-b/nodejs+jQuery开发留言板" target="_blank">案例：nodejs+jQuery开发企业网页的留言板功能</a>
+### 小案例：nodejs服务器端app.js文件，在留言板上对手机号进行加密
+> 具体查看：<a href="/secondless/w-b/nodejs服务器端app.js文件.html" target="_blank">案例：nodejs服务器端app.js文件，在留言板上对手机号进行加密</a>
+### 小案例：正则表达式：模拟百度搜索，搜索的关键字设置成红色
+> 具体查看：<a href="/secondless/w-b/正则表达式.html#小案例-模拟百度搜索-搜索的关键字设置成红色" target="_blank">案例：模拟百度搜索，搜索的关键字设置成红色</a>
+### 小案例：书写常用正则表达式
+> 具体查看：<a href="/secondless/w-b/正则表达式.html#十、书写常用正则表达式" target="_blank">案例：书写常用正则表达式</a>

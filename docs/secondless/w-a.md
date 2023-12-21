@@ -3,10 +3,20 @@ title: 第一季（课程学习顺序：02）
 ---
 # html + css + javascript开发企业网站
 ## 1.第一季课程介绍
-[![](/hear.jpg '第二学期第一季课程介绍，点击查看')](https://www.bilibili.com/video/BV1YY411679o/?vd_source=9a6ee0d7e6c1657e4a7381c1f8f18f4b)
+> <span style="color:#00A5F7">适用人群</span> <br/>
+> 1、零基础，其他行业的从业人员，从零学起 <b> <a href="https://study.163.com/course/courseMain.htm?courseId=1213374826&share=2&shareId=480000002289674" target="_blank" title="点击查看第一学期的课程">（需学完第一学期的课程）</a></b>；<br/>
+> 2、会做简单的网页，但是不会JavaScript脚本，从零开始学习JS；<br/>
+> 3、不清楚学习路线，不知道如何下手学习网页和网站开发的人；<br/>
+> <br/>
+> <span style="color:#00A5F7">课程概述</span><br/>
+> 【课程概述】<br/>
+> 本季课程作为第二学期第1季的课程，重点带大家从0开始，学习我们网页开发中，必不可少的知识环节：JavaScript，也就是我们常说的`js (脚本)`。<br/><br/>
+> 我们第1季的课程主讲js的基础知识：`javascript基础`、`javascript运算符`、`流程控制语句`、`javascript函数`、`javascript对象`、`javascript数组`、`时间和日期`、`Function类型`、`内置对象：Global、Math对象，变量、作用域和内存问题`、`匿名函数和闭包`、`javascript基本包装类型`、`函数对象数组小结`、`浏览器对象模型BOM及浏览器检测`、`网页文档对象模型DOM`、`事件`、`表单处理及错误处理与调试`、`数据Cookie、XML、JSON`，适合所有同学学习，不管你是有一定js基础，还是完全没有js基础，都需要进行学习，虽然说我们第1季讲的是基础，但是涉及的知识面很广，我们后面的课程包括将来开发项目，很多需要依赖这些基础。<br/><br/>
+> 具体课程安排，请看下面的文档目录
+
 ## 2.课程视频学习
 [学习课程完整视频](https://study.163.com/course/courseMain.htm?courseId=1213374826&share=2&shareId=480000002289674 '点击学习课程完整视频')
-## 3.查看课程文档
+## 3.查看课程文档目录
 ### 章节1.第一季课程介绍 
 ### <a href="/secondless/w-a/javascript基础" target="_blank" title="点击查看课程文档">章节2.javascript基础</a>
 #### <a href="/secondless/w-a/javascript基础.html#_1、变量" style="margin-left:50px;">1、变量</a>
@@ -190,3 +200,9 @@ title: 第一季（课程学习顺序：02）
 ##### <a href="/secondless/w-a/数据Cookie、XML、JSON.html#_3-解析json字符串-将json字符串转成数组对象-json结构数据-json-parse-方法" style="margin-left:70px;">③ 解析json字符串（将json字符串转成数组对象——json结构数据）：JSON.parse()方法</a>
 ##### <a href="/secondless/w-a/数据Cookie、XML、JSON.html#_4-js原生值数组、对象转成json字符串-json-stringify" style="margin-left:70px;">④ js原生值数组、对象转成json字符串--JSON.stringify()</a>
 ##### <a href="/secondless/w-a/数据Cookie、XML、JSON.html#_5-tojson" style="margin-left:70px;">⑤ toJSON</a>
+
+
+
+
+## 4.本季课程视频介绍
+[![](/hear.jpg '第二学期第一季课程介绍，点击查看')](https://www.bilibili.com/video/BV1YY411679o/?vd_source=9a6ee0d7e6c1657e4a7381c1f8f18f4b)
