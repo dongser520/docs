@@ -14,10 +14,59 @@ title: 章节9.Vue.js基础
 > vue.js目前有两个版本：Vue2 和  Vue3。我们作为从0开始学习过来的初学者，我们将从最简单的开始学习。介于本章内容，是为了完成我们企业网页的数据渲染问题，`因此我们采用Vue2进行入门学习，在后面季度的课程，我们将逐步过渡到Vue3`。<br/><br/>
 > 本章节，我们采用案例实战的形式，结合 <a href="https://www.runoob.com/vue2/vue-tutorial.html" target="_blank">[vue.js基础教程]</a>，来完成我们企业网页的数据渲染，带领大家初步了解vue.js的基础功能。
 
+## 一、课前准备
+### ① 启动node服务器，引入vue.js
+> 引入vue.js方式很多，如在线引入，或者本地引入 <br/>
+> 本地引入和我们前面讲jQuery一样，先下载到你电脑上然后引入到页面上，下载途径非常多，如cdn下载 <a href="https://www.bootcdn.cn/vue/" target="_blank">[vue.js下载]</a>  <br/>
+> 在线引入：  <a href="https://cdn.staticfile.org/vue/2.7.0/vue.min.js" target="_blank">[vue.js在线引入]</a><br/><br/>
+> 根目录新建 /vuetest.html，并引入vue文件（取名：vue.2.7.0.min.js）
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vuejs基础学习</title>
+    <link rel="stylesheet" href="./static/css/common.1.0.css">
+    <script src="./static/js/vue.2.7.0.min.js"></script>
+</head>
+<body>
+    <!-- 模板->vue->转成真实的dom -->
+    <div id="app">
+        <!-- <h1>vuejs基础学习页面</h1> -->
+        <h1>{{title}}</h1>
+    </div>
+    <script>
+        //vue.js给我们提供了一个构造函数 function Vue(){}，那么我们可以new出一个实例来
+        //构造函数里面有一个对象参数，表示对Vue的配置
+        new Vue({ //可以用一个变量接收，也可以不接收，重点看对象里面的配置
+           //你要创建一个vue的应用，应该控制页面的那个区域，
+           //虽然说vue可以控制整个页面，但是我们经常只控制页面中的一个小区域
+           //当然如果页面的最外层就这一个div，那么就是控制整个页面了
+           el:'#app',//css选择器，一般用id选择器
+           //接下来有个配置data,可以把它配置为对象，表示说页面中要使用的数据
+           //你可以写一些数据在页面上使用
+           data:{//对象里面的属性名自已定义
+               title:'vuejs基础学习页面',//如何将这个数据写在h1里面去
+               //传统的js方式是 Dom选择器找到h1元素，设置h1.innerText='vuejs基础学习页面'
+               //现在我们使用vuejs，当我们用vue去控制外面这个div之后，这个div里面的所有元素就变成了一个模板
+               //过程是：模板->vue->转成真实的dom
+               //这样的话，我们就可以在模板里面进行各种操作，比如，我们使用特殊的语法，将我们定义的title属性的值写到模版里面去
+               //我们可以使用两个大括号{{里面可以写js的表达式}}
+               //那么这个js读取的是什么呢，读取的是vue实例里面，可以用的东西，比如 data里面的数据可以用
+               //意义在哪里呢？当我们data里面的数据发生变化的时候，模版会自动重新生成，再次把模版渲染成真实的dom
+               //那么页面上的数据也会变化，如：title:'vuejs基础学习页面-大胡子语法mustach'
+               //这就是vue最核心的特点，我们开发的时候，只需要关注数据的变化，不用在关注页面的变化
+               //就是说我们整个页面有哪些东西变化了，比如 用户点击了或者发生了什么事件，或者隔段时间哪些数据会变化
+               //而我们的页面写出来是一个模板，模版是根据页面的数据生成的，因此我们只需要关注我们的数据，页面就会自动跟着改变
+           }
+        });
 
-
-
-
+    </script>
+</body>
+</html>
+```
 
 
 
