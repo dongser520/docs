@@ -68,7 +68,50 @@ title: 章节9.Vue.js基础
 </html>
 ```
 
+## 二、体验vue的数据响应式
+> `注意：Vue 不能挂载在 body、html 这样的根节点上` <br/>
+> 更多知识和配置项，参考：<a href="https://www.runoob.com/vue2/vue-tutorial.html" target="_blank">[vue.js基础教程]</a>
+### ① 配置项data中的数据响应性，及渲染到页面上的真实DOM效果
+> 可参考： <a href="https://www.runoob.com/vue2/vue-start.html" target="_blank">[Vue.js 起步]</a> <br/>
+```html
+<body>
+    <script src="./static/js/vue.2.7.0.min.js"></script>
+    <div id="app">
+        <div class="py-5 px-5 bg-light" style="width: 320px;margin: auto;">
+            <img :src="carimg" >
+            <h2>车型名称 : {{carname}}</h1>
+            <h3>类型 : {{caryear}}</h2>
+            <h2>指导价 : {{price}}</h2>
+            <h3>座位数 : {{seats}}</h2>
+        </div>
+    </div>
+    <script>
+        // 自定义数据对象
+        let data = {
+            carimg:'https://docs-51yrc-com.oss-cn-hangzhou.aliyuncs.com/docs-imgs/benzGlc300.jpg',
+            carname: "奔驰GLC 300 L 4MATIC 动感型 5座", 
+            caryear: "2023款", 
+            price: "47.93万",
+            seats:5
+        };
+        var vm = new Vue({
+            el: '#app',
+            data: data
+        });
+        console.log(vm);
+        // 它们引用相同的对象！
+        console.log(vm.carname === data.carname); // true
+        // 设置属性也会影响到原始数据
+        // vm.price = "45.88万";
+        // 反之亦然
+        // data.seats = 7;
 
+        //除了数据属性，Vue 实例还提供了一些有用的实例属性与方法。它们都有前缀 $，以便与用户定义的属性区分开来
+        console.log(vm.$data === data); // true
+        console.log(vm.$el === document.getElementById('app')); // true
+    </script>
+</body>
+```
 
 
 
