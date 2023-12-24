@@ -71,7 +71,7 @@ title: 章节9.Vue.js基础
 ## 二、体验vue的数据响应式
 > `注意：Vue 不能挂载在 body、html 这样的根节点上` <br/>
 > 更多知识和配置项，参考：<a href="https://www.runoob.com/vue2/vue-tutorial.html" target="_blank">[vue.js基础教程]</a>
-### ① 配置项data中的数据响应性，及渲染到页面上的真实DOM效果
+### ① 配置项data中的数据响应式，及渲染到页面上的真实DOM效果
 > 可参考： <a href="https://www.runoob.com/vue2/vue-start.html" target="_blank">[Vue.js 起步]</a> <br/>
 ```html
 <body>
@@ -112,8 +112,76 @@ title: 章节9.Vue.js基础
     </script>
 </body>
 ```
-
-
+上节课已经带大家感受了配置项data中的数据响应式，所谓数据响应式：就是数据发生变化的时候，vue会收到通知并立即作出一些响应，并对页面进行重新渲染。
+### ② 循环语句，事件处理体验
+```html
+<body>
+    <script src="./static/js/vue.2.7.0.min.js"></script>
+    <!--过程是：模板->vue->转成真实的dom -->
+    <div id="app">
+        <div class="flex justify-center">
+            <div v-for="item in cars">
+                <div class="bg-light py-5 px-5" style="width: 320px;">
+                    <img :src="item.carimg">
+                    <h2>车型名称：{{item.carname}}</h2>
+                    <h3>车型：{{item.caryear}}</h3>
+                    <h2>指导价：{{item.price}}</h2>
+                    <h3>座位数：{{item.seats}}</h3>
+                    <h2>库存数：
+                        <button style="cursor: pointer;" @click="item.stock++"> + </button>
+                        {{item.stock ? item.stock : '缺货'}} 
+                        <button style="cursor: pointer;" @click="changeStock(item,item.stock-1)"> - </button>
+                    </h2>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        // 自定义数据
+        let cardata = [
+            {
+                carimg:"https://docs-51yrc-com.oss-cn-hangzhou.aliyuncs.com/docs-imgs/benzGlc300.jpg",
+                carname:'奔驰GLC 300 L 4MATIC 动感型 5座',
+                caryear:'2023款',
+                price:'47.93万',
+                seats:5,
+                stock:10
+            },
+            {
+                carimg:"https://docs-51yrc-com.oss-cn-hangzhou.aliyuncs.com/docs-imgs/benzs.jpg",
+                carname:'奔驰S500L 4MATIC 豪华型',
+                caryear:'2024款',
+                price:'158.68万',
+                seats:5,
+                stock:7
+            },
+            {
+                carimg:"https://docs-51yrc-com.oss-cn-hangzhou.aliyuncs.com/docs-imgs/benzc.jpg",
+                carname:'奔驰C260L 皓夜版',
+                caryear:'2023款',
+                price:'25.32万',
+                seats:5,
+                stock:14
+            }
+        ];
+        var vm = new Vue({
+            el:'#app',
+            data:{
+                title:'奔驰1号仓库库存',
+                cars:cardata
+            },
+            methods:{
+                changeStock(item,newstock){
+                    if(newstock < 0){
+                        newstock = 0;
+                    }
+                    item.stock = newstock;
+                }
+            }
+        });
+    </script>
+</body>
+```
 
 
 
