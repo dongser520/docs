@@ -182,11 +182,100 @@ title: 章节9.Vue.js基础
     </script>
 </body>
 ```
+> 回顾 <br/>
+> 1. <a href="https://www.runoob.com/vue2/vue-template-syntax.html" target="_blank"> js表达式</a> <br/> 
+<a href="/secondless/w-a/javascript运算符.html" target="_blank" style="margin-left:25px;">[参考：js基础知识-js运算符]</a> <br/> 
+<a href="/secondless/w-a/javascript基本包装类型.html" target="_blank" style="margin-left:25px;">[参考：js基础知识-基本包装类型：字符串、数组、数值的处理]</a>
+ 
 
-
-
-
-
+### ③ vuejs计算属性体验
+> 可参考： <a href="https://www.runoob.com/vue2/vue-computed.html" target="_blank">[Vue.js 计算属性]</a> <br/>
+```html
+<body>
+    <script src="./static/js/vue.2.7.0.min.js"></script>
+    <!--过程是：模板->vue->转成真实的dom -->
+    <div id="app">
+        <div class="flex justify-center">
+            <div class="bg-light py-5 px-5" style="width: 320px;"
+                v-for="(item,index) in cardata">
+                <img :src="item.carimg">
+                <h2>车型名称：{{item.carname}}</h2>
+                <h3>车型：{{item.caryear}}</h3>
+                <h2>指导价：{{item.price}}</h2>
+                <h3>座位数：{{item.seats}}</h3>
+                <h2>库存数：
+                    <button style="cursor: pointer;" @click="item.stock++">
+                        + </button>
+                    {{item.stock ? item.stock : '缺货'}}
+                    <button style="cursor: pointer;"
+                        @click="changeStock(item,item.stock-1)"> - </button>
+                </h2>
+                <h1><button @click="deleteCar(index)">删除</button></h1>    
+            </div>
+        </div>
+        <h1 class="flex justify-center">总库存： {{total}} {{totalfn()}}</h1>
+    </div>
+    <script>
+    // 自定义数据对象
+    let cardata = [
+        {
+            carimg:"https://docs-51yrc-com.oss-cn-hangzhou.aliyuncs.com/docs-imgs/benzGlc300.jpg",
+            carname:'奔驰GLC 300 L 4MATIC 动感型 5座',
+            caryear:'2023款',
+            price:'47.93万',
+            seats:5,
+            stock:8
+        },
+        {
+            carimg:"https://docs-51yrc-com.oss-cn-hangzhou.aliyuncs.com/docs-imgs/benzs.jpg",
+            carname:'奔驰S500L 4MATIC 豪华型',
+            caryear:'2024款',
+            price:'158.68万',
+            seats:5,
+            stock:7
+        },
+        {
+            carimg:"https://docs-51yrc-com.oss-cn-hangzhou.aliyuncs.com/docs-imgs/benzc.jpg",
+            carname:'奔驰C260L 皓夜版',
+            caryear:'2023款',
+            price:'25.32万',
+            seats:5,
+            stock:14
+        }
+    ];
+    var vm = new Vue({
+        el:'#app',
+        data:{
+            title:'奔驰1号仓库库存',
+            cardata,
+        },
+        computed:{
+            total(){
+                return  this.cardata.reduce((a,b)=>a + b.stock,0);
+            }  
+        },
+        methods:{
+            changeStock(car,newStock){
+                console.log(newStock);
+                if(newStock < 0){
+                    newStock = 0;
+                }
+                car.stock = newStock;
+            },
+            totalfn(){
+                return  this.cardata.reduce((a,b)=>a + b.stock,0);
+            },
+            deleteCar(index){
+                this.cardata.splice(index,1);
+            }
+        }
+    });
+    
+</script>
+</body>
+```
+> 搜索：`求和` 复习一下`reduce()`的用法。<br/>
+> 数组中删除一项，搜索：`splice()方法`复习一下。
 
 
 
