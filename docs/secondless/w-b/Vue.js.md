@@ -277,10 +277,15 @@ title: 章节9.Vue.js基础
 > 搜索：`求和` 复习一下`reduce()`的用法。<br/>
 > 数组中删除一项，搜索：`splice()方法`复习一下。
 
+## 三、理解vue的注入、虚拟DOM及底层原理
+### ① vue实例成员的注入
+<img src="https://docs-51yrc-com.oss-cn-hangzhou.aliyuncs.com/docs-imgs/vue_zhuru.jpg" alt="下载node" class="zoom-custom-imgs" 
+style="display:inline-block;" /> 
 
+> 为什么vue实例自带的成员要以$开头或者以_下划线开头：`主要是由于我们在配置项中会注入新的成员，防止和我们注入的成员重名，我们注入的时候也要注入不要在写变量的时候以$开头下划线开头`. <br/>
 
-
-
+> 模板中，可以使用vue实例中的成员，包括：我们注入的还有vue实例自带的。 <br/>
+> 如： 存在vm.title 所以可以在模版中 `{{title} }`，存在 vm.$el 所以可以在模版中 `{{$el} } {{$el.tagName} }`，存在 vm.$data 所以可以在模版中 `{{$data} } {{$el.str} }`
 
 
 
