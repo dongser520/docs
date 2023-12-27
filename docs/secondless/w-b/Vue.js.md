@@ -287,31 +287,110 @@ style="display:inline-block;" />
 > 模板中，可以使用vue实例中的成员，包括：我们注入的还有vue实例自带的。 <br/>
 > 如： 存在vm.title 所以可以在模版中 `{{title} }`，存在 vm.$el 所以可以在模版中 `{{$el} } {{$el.tagName} }`，存在 vm.$data 所以可以在模版中 `{{$data} } {{$el.str} }`
 
+### ② 虚拟DOM
+> 我们在写案例的时候，已经多次说到，我们指定某个区域，这个区域就是vue的模版，写的这些元素按照我们以前的理解，它就是一个一个dom元素，但是你现在写到的是vue的模版里面，那么这些元素都不是DOM元素，vue会将这整个当做一个字符串，最终它会变成一个虚拟DOM，那为什么要这么做呢？<br/>
+> Vue认为：`如果我某个数据改变了，我去重新生成界面，也就是说我如果直接去操作真实DOM元素，那么会严重的影响效率，因为真实的dom会触发浏览器的重排啊、回流啊、绘制啊等等，会触发浏览器的重新渲染，会引发效率问题，为了提升效率呢，vue使用的是虚拟DOM的方式，来描述要渲染的内容`，那么什么叫做虚拟DOM呢？
+> 虚拟dom其实就是一个普通的js对象，操作js对象给js对象的属性赋值、更改属性值，这是整个js中执行效率最高的、执行最快的操作，因为它不涉及界面。接下来我们来举一个例子。
 
+> `页面上有一个div元素它的id为app，它里面有两个子节点h1和p，然后h1元素里面有一个子节点，该子节点是一个文本节点，文本内容为“迪丽热巴”，p元素也有一个文本节点，文本内容为“全名：迪丽热巴迪力木拉提”` （这个我们在第二学期第1季课程-章节15.网页文档对象模型DOM，这些概念讲的非常清楚） <br/>
+> 1. 看真实的DOM怎么写：
+> ``` html
+> <div id="app">
+>     <h1>迪丽热巴</h1>
+>     <p>全名：迪丽热巴迪力木拉提</p>
+> </div>
+> ```
+> 2. 那Vue怎么认为呢？Vue会用虚拟DOM，就是一个js对象来进行描述：
+> ``` js
+> {
+>     tagName:'div',
+>     children:[
+>         {tagName:'h1',children:[{text:'迪丽热巴'}]},
+>         {tagName:'p',children:[{text:'全名：迪丽热巴迪力木拉提'}]}
+>     ]
+> }
+> ```
+> 然后，vue通过内置的编译器，将我们这个js对象，就是虚拟DOM，最终编译渲染成真实的DOM.
+<img src="https://docs-51yrc-com.oss-cn-hangzhou.aliyuncs.com/docs-imgs/2-2-9-01.jpg" alt="虚拟DOM" class="zoom-custom-imgs" 
+style="display:inline-block;" /> 
+>
+> 当数据发生变化后，将引发重新渲染，vue会比较新旧两个虚拟DOM对象，找出差异，然后把差异部分应用到真实DOM中
+<img src="https://docs-51yrc-com.oss-cn-hangzhou.aliyuncs.com/docs-imgs/2-2-9-02.jpg" alt="虚拟DOM" class="zoom-custom-imgs" 
+style="display:inline-block;" /> 
 
+那么vue又是如何得到虚拟DOM的呢？
+### ③ 虚拟DOM的底层原理
+> 原因是在我们实例化Vue构造函数它里面的配置项，有一个render函数，`虚拟DOM的由来就是运行了Vue内置的render函数返回的结果，这个render函数对模版编译返回的结果就是虚拟DOM`，因此我们也可以在render函数里面写模版。
+```html
+<!-- 模版 -->
+<div id="app">
+</div>
+<script>
+    var vm = new Vue({
+        el:'#app',
+        data:{
+            h1data:'迪丽热巴',
+            pdata:'迪丽热巴迪力木拉提'
+        },
+        //内置函数，接受第一个参数：函数
+        render(vdom){
+            console.log('内置函数render');
+            //写模版，返回对模版编译的虚拟DOM
+            // return vdom('h1',[]);
+            return vdom('div',[
+                // vdom('h1','迪丽热巴')
+                vdom('h1',`${this.h1data}`),
+                vdom('p',`全名：${this.pdata}`)
+            ]);
+        }
+    });
+</script>
+```
+并且我们发现两个问题：
+1. 当数据进行改变的时候，会重新触发render函数进行重新渲染；比如在中控台：`vm.h1data = 'DilraBa';` 因此，vue的重新渲染本质其实就是调用的render函数生成虚拟DOM。
+2. 我们发现在render函数里面写了模版之后，页面上写的模版就没有了。那么这里就涉及到Vue写模版的问题：
+> 其实大家也发现了，我们在render函数里面写模版，非常麻烦，且不利于阅读，Vue既然是给我们提供便利的，那么它是怎么做的呢？<br/>
+Vue直接给我们提供了模板，模板的作用只有一个，就是Vue根据提供的模板生成render方法，也就是：你不在render里面写模版，Vue在配置项里面还有一个模板配置：template，它会去看一下template配置里面有没有写模版代码。
+```html
+<script src="./static/js/vue.2.7.0.min.js"></script>
+<!-- 模版 -->
+<div id="app">
+</div>
+<script>
+    var vm = new Vue({
+        el:'#app',
+        data:{
+            h1data:'迪丽热巴',
+            pdata:'迪丽热巴迪力木拉提'
+        },
+        //内置函数，接受第一个参数：函数
+        // render(vdom){
+        //     console.log('内置函数render');
+        //     // return vdom('h1',[]);
+        //     return vdom('div',[
+        //         // vdom('h1','迪丽热巴')
+        //         vdom('h1',`${this.h1data}`),
+        //         vdom('p',`全名：${this.pdata}`)
+        //     ]);
+        // },
+        //template配置，字符串，虚拟节点
+        template:`
+            <div>
+                <h1>{{h1data}}</h1>
+                <p>全名1：{{pdata}}</p>
+            </div>
+        `,
+    });
+</script>
+```
+将template配置，字符串，虚拟节点Dom转成render函数里面的代码形式，就是帮你写了一个render方法。<br/>当然大家发现了，在template里面写的字符串和我们在页面上写的模版代码是一样的，因此，当配置项里面既没有写render函数，也没有写template配置，那么vue就会通过el属性找一下你是否在页面上指定了模版区域，然后将这个元素区域（包括元素本身）直接作为模版进行编译成render函数。<br/>
+也就是Vue把模版编译成render函数的顺序是：
+1. 先看render函数里面有没有写模版（优先级最高），没有则；
+2. 看配置项有没有template配置（优先级其次），没有则；
+3. 看配置项里面的el属性指定的模版区域（级别最低，但最实用）<br/>
+通过把模版编译成虚拟DOM，最终在渲染成真实DOM这么一个过程。<br/>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+说明：Vue2中的虚拟DOM树，要求是单个根节点，因此不管在哪里写模版，都是单个根节点，多个根节点则识别一个。
 
 
 
