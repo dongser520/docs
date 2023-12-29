@@ -392,7 +392,8 @@ Vue直接给我们提供了模板，模板的作用只有一个，就是Vue根�
 
 说明：Vue2中的虚拟DOM树，要求是单个根节点，因此不管在哪里写模版，都是单个根节点，多个根节点则识别一个。
 
-
+## 四、案例：node.js + vue.js 渲染企业网站
+具体查看：<a href="/secondless/w-b/node.js+vue.js 渲染企业网站" target="_blank">案例：node.js+vue.js 渲染企业网站</a>
 
 
 
