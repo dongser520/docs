@@ -647,7 +647,7 @@ title: node.js+vue.js 渲染企业网站
 }
 ```
 
-### ① 引入vue.js，设置请求接口
+### ① 引入vue.js，设置请求接口，vue2生命周期
 > vue生命周期参考： <a href="https://juejin.cn/post/7036915881506504740" target="_blank">[vue生命周期]</a><br/>
 具体操作查看课程视频
 
@@ -714,4 +714,134 @@ methods:{
         });
     }
 }
+```
+
+### ③ 渲染到页面前进一步处理数据
+> 我们发现服务器返回的数据，利用vue.js不好直接渲染，我们需要进一步处理数据，处理数据有两种方式：<br/>
+> 1. 在服务器端对数据做进一步处理，处理完成之后，返回给浏览器
+> 2. 对数据在浏览器客户端做处理<br/>
+> 为了方便大家回顾之前学习的知识，我们采用在浏览器端对数据做处理，我们希望在vue.js渲染页面前，数据格式如下：
+```json
+[
+    {
+        "type": "nav",
+        "data": [
+            { "cid": 1, "name": "网站首页", "en_name": "home", "href": "/", "target": "_self"},
+            { "cid": 2, "name": "关于我们", "en_name": "about us", "href": "/detail.html", "target": "_self"}
+            //...
+        ]
+    },
+    {
+        "type": "banner",
+        "data": [
+            { "id": 2, "category_id": 7, "title": "你用电 我用心 共建光明", "title_name": "", "href": "/contact.html", "target": "_blank", 
+            "poster": "/static/image/banner.jpg", "timestamp": 1702539117553, "description": "", "keyword": "", "content": "" } 
+            //...
+        ]
+    },
+    {
+        "type": "main business",
+        "data": [
+            { "id": 3,"category_id":4,"title": "规划设计","title_name": "","href": "/business.html","target":"_blank","poster":"/static/image/mainbusiness01.png",
+              "timestamp":1702539217553,"description":"供电工程前期现场勘察、供电方案设计","keyword":"","content":""}
+            //...
+        ],
+        "name":"主营业务"
+    }
+    // ...
+]
+```
+将返回的数据在浏览器客户端处理代码如下：
+``` js
+methods: {
+    getData() {
+        $.post('./index', (res, status, xhr)=> {
+            // console.log('res:', res);
+            // console.log('res类型:', typeof res);
+            // console.log('status:', status);
+            console.log('结果', JSON.parse(res));
+            // this.pageData = JSON.parse(res);
+            this.initData(JSON.parse(res));
+        });
+    },
+    //处理服务器返回的数据
+    initData(res){
+        // console.log(res);
+        let arr = [];
+        //导航栏
+        // console.log(res.filter(d=>d.show).map(item=>{
+        //     delete item.data;
+        //     console.log('剩余项',item);
+        //     item.cid = item.id;
+        //     delete item.id;
+        //     return item;
+        // }));
+        let stringObj = JSON.stringify(res);
+        let nav = {
+            type : "nav",
+            data: res.filter(d=>d.show).map(item=>{
+                delete item.data;
+                item.cid = item.id;
+                delete item.id;
+                return item;
+            })
+        }
+        arr.push(nav);
+        //banner广告图
+        let banner = {
+            type : "banner",
+            data: res.filter(d=>d.en_name == 'banner').flatMap(item=>item.data)
+        }
+        arr.push(banner);
+        //主营业务
+        //克隆res的数据，虽然没有讲，我们可以采用之前学习的知识浅克隆一份
+        // console.log('主营业务',res.filter(d=>d.en_name == 'main business'));//data中的数据已经在nav被删除了
+        let resObj = JSON.parse(stringObj);
+        let main_business_data = resObj.filter(d=>d.en_name == 'main business');
+        // console.log('主营业务data',main_business_data[0]);
+        let main_business = {
+            type : "main business",
+            ...main_business_data[0],
+        }
+        arr.push(main_business);
+        //关于我们
+        arr.push({
+            type : "about us",
+            ...resObj.filter(d=>d.en_name == 'about us')[0]
+        })
+        //工程案例
+        arr.push({
+            type : "engineering case",
+            ...resObj.filter(d=>d.en_name == 'engineering case')[0]
+        })
+        //新闻中心
+        arr.push({
+            type : "news center",
+            ...resObj.filter(d=>d.en_name == 'news center')[0]
+        })
+        //合作单位
+        arr.push({
+            type : "cooperative units",
+            ...resObj.filter(d=>d.en_name == 'cooperative units')[0]
+        })
+        console.log('处理之后最终数据',arr);
+        this.pageData = arr;
+    }
+}
+``` 
+> 渲染页面小试牛刀
+```html
+<div v-for="(item,index) in pageData" :key="index">
+...
+<!-- 导航栏 -->
+<div v-if="item.type == 'nav'">
+...
+<!-- 导航栏右边部分  导航内容部分 -->
+...
+<a :href="d.href" name="navigate" v-for="(d,i) in item.data"
+    :class="i==0?'active':''">{{d.name}}</a>
+...
+</div>
+...
+</div>
 ```
