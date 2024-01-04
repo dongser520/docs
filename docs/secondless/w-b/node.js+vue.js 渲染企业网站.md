@@ -829,7 +829,10 @@ methods: {
     }
 }
 ``` 
-> 渲染页面小试牛刀
+
+
+### ④ 通过vue.js将数据渲染到页面上
+> 导航栏
 ```html
 <div v-for="(item,index) in pageData" :key="index">
 ...
@@ -843,5 +846,149 @@ methods: {
 ...
 </div>
 ...
+</div>
+```
+> banner广告图
+```html
+<!-- banner广告图 -->
+<div  v-if="item.type == 'banner'"
+id="banner" class="flex justify-center position-relative">
+...
+<!-- 图片 -->
+<div v-for="(d,i) in item.data" :key="i">
+    <img :src="d.poster" style="width:100%;height: auto;" />
+</div>
+...
+</div>
+```
+> 主营业务
+<!-- 业务一 -->
+```js
+<!-- 英文 -->
+<div class="flex justify-center mt-2">
+    <span class="span-en">{{item.en_name.toUpperCase()}}</span>
+</div>
+<!-- 中文 -->
+<div class="flex justify-center">
+    <span class="span-ch ">{{item.name}}</span>
+</div>
+<div v-for="(d,i) in item.data" :key="i">
+    <!-- 图片 -->
+    <div>
+        <img :src="d.poster" :alt="'业务'+(i+1)">
+    </div>
+    <!-- 业务描述 -->
+    <div>
+        <!-- 业务名称 -->
+        <h3>{{d.title}}</h3>
+        <!-- 描述 -->
+        <p>{{d.description}}</p>
+    </div>
+</div>
+```
+> 关于我们
+<!-- 公司简介 -->
+```html
+<div class="introduction flex justify-between"
+v-for="(d,i) in item.data" :key="i">
+    <!-- 简介部分 -->
+    <div>
+        <!-- 文字部分 -->
+        <div>
+            <!-- 文字 -->
+            <p>
+                {{d.description}}
+            </p>
+        </div>
+        <!-- 按钮部分 -->
+        <div style="width: 640px;height: 60px;">
+            <a :href="d.href" target="_blank">MORE</a>
+        </div>
+    </div>
+    <!-- 图片 -->
+    <div>
+        <img :src="d.poster">
+    </div>
+</div>
+```
+> 工程案例
+```html
+<!-- 案例内容 -->
+<div class="case-div flex mt-5" style="flex-wrap: wrap;">
+    <div class="list" v-for="(d,i) in item.data" :key="i">
+        <!-- 图片 -->
+        <div>
+            <img :src="d.poster">
+        </div>
+        <!-- 标题 -->
+        <div class="text-center mt-2">
+            <a :href="d.href" target="_blank" class="text-no-underline
+                text-dark lines-1 display-block"
+                :title="d.title">{{d.title}}</a>
+        </div>
+    </div>
+</div>
+```
+> 新闻中心
+```js
+//新闻中心
+//时间戳转时间
+let newsinfo = resObj.filter(d=>d.en_name == 'news center')[0];
+// console.log(newsinfo.data[0].timestamp);
+// console.log(new Date(newsinfo.data[0].timestamp).toLocaleString());
+/*
+let newstime = new Date(newsinfo.data[0].timestamp).toLocaleString().split(' ')[0];
+console.log(newstime);
+console.log(newstime.substring(0,newstime.lastIndexOf('/')));
+console.log(newstime.substring(newstime.lastIndexOf('/') + 1));
+*/
+newsinfo.data.forEach(element => {
+    console.log('新闻中心时间戳',element.timestamp);
+    let newstime = new Date(element.timestamp).toLocaleString().split(' ')[0];
+    element.month = newstime.substring(0,newstime.lastIndexOf('/'));
+    element.day = newstime.substring(newstime.lastIndexOf('/') + 1);
+});
+arr.push({
+    type : "news center",
+    ...newsinfo
+})
+```
+```html
+<!-- 新闻内容 -->
+<div class="flex justify-between mt-5">
+    <!-- 图片 -->
+    <div>
+        <img :src="item.data[0].poster" style="width:
+            560px;height: 360px;">
+    </div>
+    <!-- 列表 -->
+    <div class="news-list flex justify-between flex-column"
+        style="width: 575px;height: 360px;">
+        <div class="flex" v-for="(d,i) in item.data" :key="i">
+            <!-- 日期 -->
+            <div style="width: 80px;flex-shrink: 0;" class="flex
+                justify-start flex-column">
+                <strong>{{d.day}}</strong>
+                <span>{{d.month}}</span>
+            </div>
+            <!-- 内容 -->
+            <div style="flex: auto;width: 0;">
+                <!-- 标题 -->
+                <h3 class="mt-0 lines-1">{{d.title}}</h3>
+                <!-- 描述 -->
+                <p class="lines-2 text-light-muted">{{d.description}}
+                </p>
+            </div>
+        </div>
+        
+    </div>
+</div>
+```
+> 合作单位
+```html
+<!-- 栏目内容 -->
+<div class="flex justify-between mt-5">
+    <img :src="d.poster"
+    v-for="(d,i) in item.data" :key="i">
 </div>
 ```
