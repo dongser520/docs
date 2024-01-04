@@ -992,3 +992,84 @@ arr.push({
     v-for="(d,i) in item.data" :key="i">
 </div>
 ```
+> 底部
+> 底部补充数据 /app.js服务端
+```js
+//补充网站配置
+let siteConfigData = fs.readFileSync('./data/siteConfig.json',{
+    'encoding':'utf-8'
+});
+let siteConfig = JSON.parse(siteConfigData);
+siteConfig.en_name = 'siteConfig';
+// console.log('网站配置', siteConfig);
+let res = category.data.map(item=>{
+    return {
+        ...item,
+        data:news.data.filter(d=>d.category_id === item.id),
+    };
+});
+res.push(siteConfig);
+console.log(res);
+```
+> 浏览器端的处理 /static/js/index.vue.js
+```js
+//网站配置
+arr.push({
+    type : "siteConfig",
+    ...resObj.filter(d=>d.en_name == 'siteConfig')[0]
+})
+```
+```html
+<!-- 底部 -->
+<div v-if="item.type == 'siteConfig'"
+id="page_footer" class="flex justify-center py-5">
+    <div style="width: 1200px;"
+        class="flex justify-between">
+        <!-- 左边 -->
+        <div class="flex align-center">
+            <!-- logo -->
+            <img src="./static/image/footer_logo.png" style="width:
+                107px;height: 107px;">
+            <!-- 地址信息 -->
+            <div class="ml-2 text-light-muted">
+                <p>{{item.corporate_name}}</p>
+                <p>地址：{{item.address}}</p>
+                <p>
+                    copyRight <sup>&#174;</sup> {{item.corporate_short}} 版权所有
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;京备案号101110000-1号
+                </p>
+            </div>
+        </div>
+        <!-- 右边 -->
+        <div class="flex align-center">
+            <!-- 电话图标 -->
+            <img src="./static/image/footer_tel.png" style="width:
+                56px;height: 56px;">
+            <!-- 电话 -->
+            <div class="ml-2 text-light-light-muted">
+                <p>业务咨询电话</p>
+                <strong class="font-max">{{item.connect.tel}}</strong>
+            </div>
+        </div>
+    </div>
+</div>
+```
+> 新增一条信息排序处理（根据界面，以新闻中心为例，我们只需要读取最新3条信息，没必要把所有新闻都返回，以新闻中心为例，处理服务端）
+> /app.js服务端
+```js
+//数据增多时候，展示最新数据，需要讲数据倒序
+res.forEach(element => {
+    if(element.data && element.data.length){
+        // return element.data.reverse();
+        //考虑到各个栏目需要的数据不一样，我们以新闻中心为例，返回最新三条即可
+        //比如说新闻中心上传了100条数据没必要将100数据都返回，取三条即可，其他栏目一样，根据情况取数据量
+        if(element.en_name == 'news center'){
+            // console.log('新闻中心的数据',element.data.reverse().slice(0,3));
+            return element.data = element.data.reverse().slice(0,3);
+        }
+        //其他不想处理的，就把数据倒序返回
+        return element.data.reverse();
+    }
+});
+// console.log(res);
+```
