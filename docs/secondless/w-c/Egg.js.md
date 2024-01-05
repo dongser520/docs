@@ -74,3 +74,31 @@ Eggjs对MVA进行约定规范，也就是Egg.js给了你一个规范标准，你
 > npm run dev
 > ```
 如果出现：<a href="http://127.0.0.1:7001" target="_blank">http://127.0.0.1:7001</a>  则安装成功，可以在浏览器运行
+
+### ② 写一个api接口进行测试
+> 1. 将项目拖进vscode；<br/><br/>
+> 2. 看一下目录结构，参考eggjs官方文档：基础功能 --> <a href="https://www.eggjs.org/zh-CN/basics/structure" target="_blank"> [egg目录结构] </a> ，写的非常清楚，从目录结构可以看到eggjs比我们的koa约定更加规范一些。当然，我们实际在开发中，用得最多的两个目录分别是：`app` 和 `config` 两个目录。本节课，我们先看 `app`文件夹。<br/><br/>
+> 3. 我们看到页面上显示 `hi,egg`，那么显示的这个字符串从哪里来的？ 它是在 `/app/controller/home.js`文件里面的 `index` 方法里面。<br/>
+> 我们从`this`里面解构出了`ctx`，那这个 `ctx` 是个什么玩意呢？ 参考eggjs官方文档：`基础功能` --> `框架内置基础对象` --> `Context`，我们这个`ctx`就是`Context`的一个简写，这个`Context`继承自 <a href="https://koa.bootcss.com/index.html#context" target="_blank">Koa.Context </a> ，目前我们只需要了解  `ctx.request` 、 `ctx.response` 、 `ctx.body`，可类比一下我们原生nodejs如何向浏览器响应数据<br/><br/>
+> 4. 模仿 `index` 方法写一个接口数据
+```js
+//模仿写一个接口数据
+  async message(){
+    // const { ctx } = this;
+    this.ctx.body = {
+        msg:'ok',
+        data:[
+           {username:'迪丽热巴',tel:'13505454758'},
+           {username:'古力娜扎',tel:'13905454758'}
+        ]
+    };
+}
+```
+> 5. 接口数据写好之后，如何在页面上访问呢？ 我们在原生nodejs里面需要进行判断，而在eggjs中，此时只需要定义一下路由即可 <br/>
+> 路由定义在： `/app/router.js` 文件， 在这个文件里面定义路由即可，复杂的判断就交个eggjs内部去判断
+```js
+//定义路由： /app/router.js
+//仿照上面的样本，可以看到是get请求，参数1：网址路径，参数2：控制器.控制器文件.方法
+router.get('/message', controller.home.message);//访问地址：http://127.0.0.1:7001/message
+// 比我们原生nodejs返回数据方便非常多
+```
