@@ -10,9 +10,12 @@ title: 课程所需软件下载
 
 > 下载完成之后，解压即可安装  <a href="https://study.163.com/course/courseLearn.htm?courseId=1213374826&share=2&shareId=480000002289674#/learn/video?lessonId=1285001250&courseId=1213374826" target="_blank" title="安装vscode(第一学期视频第4课)点击查看">安装vscode(第一学期视频第4课)</a>
 
+### 第一学期封装的css样式库：common.1.0.css
+> <a href="/web/css/封装的css样式库" title="查看第一学期封装的css样式库：common.1.0.css" target="_blank">[查看第一学期封装的css样式库：common.1.0.css]</a>
+
 
 ## 2. 第二学期
-####  ① 第1季
+####  ① 第一季
 ### UPUPW 搭建本地服务器 <a href="https://php.upupw.net/ank2downloads/38/6698.html" title="下载UPUPW" target="_blank">[下载]</a>
 <!-- <a href="https://docs-51yrc-com.oss-cn-hangzhou.aliyuncs.com/software/UPUPW_ANK_W64_V1.1.8.rar" title="下载和课程同一版本的UPUPW">[下载]</a> -->
 > 注意：若想下载跟课程同一个版本的，请去群文件里面下载 <br/>
@@ -49,3 +52,14 @@ title: 课程所需软件下载
 > 具体查看：<a href="/secondless/w-b/正则表达式.html#小案例-模拟百度搜索-搜索的关键字设置成红色" target="_blank">案例：模拟百度搜索，搜索的关键字设置成红色</a>
 ### 小案例：书写常用正则表达式
 > 具体查看：<a href="/secondless/w-b/正则表达式.html#十、书写常用正则表达式" target="_blank">案例：书写常用正则表达式</a>
+### 下载Vue.js [Vue2]
+> 请查看对应课程视频或者 <a href="https://www.bootcdn.cn/vue/" target="_blank" style="margin-left:20px">[vue.js下载]</a>  <br/>
+> <a href="https://cdn.staticfile.org/vue/2.7.0/vue.min.js" target="_blank">[vue.js在线引入]</a>  <a href="https://www.runoob.com/vue2/vue-tutorial.html" target="_blank"  style="margin-left:20px">[vue.js基础教程]</a>
+### 小案例：node.js+vue.js 渲染企业网站
+> 具体查看：<a href="/secondless/w-b/node.js+vue.js%20渲染企业网站.html" target="_blank">案例：node.js+vue.js 渲染企业网站</a>
+
+#### ③ 第三季
+### Egg.js <a href="https://www.eggjs.org/zh-CN" title="Egg.js官网" target="_blank">[Egg.js官网]</a>
+> Egg.js是阿里提供的Node.js应用的核心基础设施，它面向的领域是：企业级的 web 基础框架。<br/>是在基于Nodejs的框架：Express和Koa框架的基础上（Express和Koa缺乏约定，缺乏规范）<br/>
+> Eggjs对MVA进行约定规范，Eggjs为企业级框架和应用而生。<br/>
+> 使用前记得在vscode中先安装eggjs的插件：eggjs/Egg.js dev tools等
