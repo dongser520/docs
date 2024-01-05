@@ -1,7 +1,7 @@
 ---
 navbar: true
 sidebar: auto
-title: node.js+vue.js 渲染企业网站
+title: 案例：node.js+vue.js 渲染企业网站
 ---
 
 ## 一、基础准备
@@ -1073,3 +1073,658 @@ res.forEach(element => {
 });
 // console.log(res);
 ```
+
+## 三、最终代码
+### 1. 服务端Node代码： /app.js文件代码
+```js
+let http = require('http');
+let fs = require('fs');
+let $url = require('url');
+let querystring = require('querystring');
+let crypto = require('crypto');
+//自定义IV(16位)、key(密钥（32位的'aes-256-cbc'）（24位的'aes-192-cbc'）)
+const secret = {
+    iv: 'IloveYOU@520520!',// 初始化向量（iv）16位
+    key: 'a123456789@!*&%bcdef@123456789&&', // 32 位秘钥密钥
+}
+
+
+const server = http.createServer((request, response) => {
+    let url = request.url;
+    if (request.method == 'GET') {
+        if (url.indexOf('/api/') == -1) {
+            if (url.indexOf('.json') > -1) {
+                errorhtml(response)
+            } else {
+                fs.readFile(`./${url}`, (err, data) => {
+                    if (err) {
+                        errorhtml(response)
+                    } else {
+                        response.writeHead(200);
+                        response.end(data);
+                    }
+                });
+            }
+        }
+    } else if (request.method == 'POST') {
+        if(url.startsWith('/index')){
+            getIndex(response);
+        }else{
+            let result = [];
+            request.on('data', buffer => {
+                result.push(buffer);
+            });
+            request.on('end', () => {
+                let data = Buffer.concat(result);
+                response.writeHead(200);
+                response.end('ok');
+                //留言写入json文件
+                let paths = {
+                    dir: './data',
+                    file: './data/message.json'
+                    //   dir:'./Appdata',
+                    //   file:'./Appdata/data.json'
+                }
+                addmessage(data, paths);
+            });
+        }
+    }
+});
+
+server.listen(8888, '127.0.0.1', () => {
+    console.log('服务器已启动');
+});
+
+
+const errorhtml = (response) => {
+    response.setHeader('Content-Type', 'text/html; charset=utf-8');
+    response.writeHead(404);
+    let msg = {
+        "status": 404,
+        "info": 'error',
+        "data": 'not found'
+    }
+    response.end(JSON.stringify(msg));
+}
+
+//留言写入json文件
+function addmessage(data, paths) {
+    // console.log(querystring.parse(data.toString()));
+    data = querystring.parse(data.toString());
+    //对电话号码做一个加密
+    // console.log(data);
+    data.tel = aesEncrypt(data.tel, secret.key, secret.iv);
+    // let _tel = aesDecrypt(data.tel, secret.key, secret.iv);
+    // console.log(_tel);
+    // console.log(data); return;
+    
+    //创建一个文件夹data
+    if (!fs.existsSync(paths.dir)) {
+        fs.mkdirSync(paths.dir);
+    };
+    //判断message.json文件是否存在，存在说明之前写入过了，先读一下
+    // console.log(fs.existsSync('./data/message.json'));
+    let flag = fs.existsSync(paths.file);
+    if (flag) {
+        //存在先读取一下
+        readmessage(paths.file, data)
+    } else {
+        //不存在，首次直接写
+        let ms = data;
+        ms.id = 1;
+        //加入时间,所在地等等
+        ms.timestamp = new Date().getTime();
+        // console.log(ms);
+        let o = {};
+        o.data = [];
+        o.data.push(ms);
+        o.total = 1;
+        o.currentId = 1;
+        // console.log(o);
+        // console.log(JSON.stringify(o));
+        //写入内容,同步异步promise,以及可写流
+        writemessage(paths.file, o);
+
+    }
+}
+
+//存在先读取一下
+function readmessage(path, data) {
+    //读取内容,同步异步promise,以及可写流
+    fs.readFile(path, {
+        flag: 'r',
+        encoding: 'utf-8',
+    }, (err, oldmessage) => {
+        if (err) throw err;
+        oldmessage = JSON.parse(oldmessage);
+        console.log(oldmessage)
+        console.log(data);
+        //处理留言数据
+        data.id = oldmessage.currentId + 1;
+        //加入时间,所在地等等
+        data.timestamp = new Date().getTime();
+        //大对象
+        oldmessage.data.push(data);
+        oldmessage.total = oldmessage.data.length;
+        oldmessage.currentId = data.id;
+        console.log(oldmessage);
+        //写入内容,同步异步promise,以及可写流
+        writemessage(path, oldmessage);
+
+    })
+}
+
+//写入留言
+function writemessage(path, data) {
+    fs.writeFile(path, JSON.stringify(data), (err) => {
+        if (err) throw err;
+        console.log('写入成功')
+    });
+}
+
+//对称加密
+function aesEncrypt(data, key, iv) {
+    // 给定的算法，密钥和初始化向量（iv）创建并返回Cipher对象
+    const cipher = crypto.createCipheriv('aes-256-cbc', key, iv)
+    // 指定要摘要的原始内容,可以在摘要被输出之前使用多次update方法来添加摘要内容
+    // 数据的编码 utf8 返回值的编码 hex
+    var crypted = cipher.update(data, 'utf8', 'hex')
+    crypted += cipher.final('hex')
+    return crypted
+}
+//对称解密
+function aesDecrypt(data, key, iv) {
+    // 给定的算法，密钥和初始化向量（iv）创建并返回Cipher对象
+    const decipher = crypto.createDecipheriv('aes-256-cbc', key, iv)
+    // 数据的编码 hex 返回值的编码 utf8
+    var decrypted = decipher.update(data, 'hex', 'utf8')
+    decrypted += decipher.final('utf8')
+    return decrypted
+}
+
+//首页请求数据
+function getIndex(response){
+    // 读取数据：category.json
+    let categoryData =  fs.readFileSync('./data/category.json',{
+        'encoding':'utf-8'
+    });
+    let category = JSON.parse(categoryData);
+    // console.log('分类数据', category.data);
+    // 读取数据：news.json
+    let newsData =  fs.readFileSync('./data/news.json',{
+        'encoding':'utf-8'
+    });
+    let news = JSON.parse(newsData);
+    // console.log('新闻内容数据', news.data);
+    //补充网站配置siteConfig.json
+    let siteConfigData =  fs.readFileSync('./data/siteConfig.json',{
+        'encoding':'utf-8'
+    });
+    let siteConfig = JSON.parse(siteConfigData);
+    console.log('网站配置数据', siteConfig);
+    siteConfig.en_name = 'siteConfig';
+    let res = category.data.map(item=>{
+        return {
+            ...item,
+            data:news.data.filter(d=>d.category_id === item.id)
+        };
+    });
+    res.push(siteConfig);
+    //数据增多时候，展示最新数据，需要讲数据倒序
+    res.forEach(element => {
+        //考虑到各个栏目需要的数据不一样，我们以新闻中心为例，返回最新三条即可
+        //比如说新闻中心上传了100条数据没必要将100数据都返回，取三条即可，其他栏目一样，根据情况取数据量
+        if(element.data && element.data.length){
+            if(element.en_name == 'news center'){
+                return element.data = element.data.reverse().slice(0,3);
+            }
+            return element.data.reverse();
+        }
+        
+    });
+    /*
+    response.writeHead(200);
+    response.end(encodeURIComponent(JSON.stringify(res)));
+    */
+    //response.writeHead(statusCode, [statusMessage], [headers])
+    //响应对象：statusCode状态码  statusMessage 状态信息（可选） headers属性对象或数组（可选）
+    response.writeHead(200,{
+        'Content-Type':'text/plain; charset=utf-8'
+    });
+    response.end(JSON.stringify(res));
+
+}
+```
+### 2. 客户端(浏览器)代码： /static/js/index.vue.js代码
+```js
+var vm = new Vue({
+    el: '#app',
+    data: {
+        title: '睿晨电网建设',
+        pageData:[]
+    },
+    created() {
+        this.getData();
+    },
+    methods: {
+        getData() {
+            $.post('./index', (res, status, xhr)=>{
+                // console.log('res:', res);
+                // console.log('res类型:', typeof res);
+                // console.log('status:', status);
+                // console.log('结果', JSON.parse(res));
+                this.initData(JSON.parse(res));
+            });
+            
+        },
+        //处理服务器返回的数据
+        initData(res){
+            let arr = [];
+            let stringobj = JSON.stringify(res);
+            //导航栏
+            let nav = {
+                type: "nav",
+                data: res.filter(d=>d.show == true).map(item=>{
+                    delete item.data;
+                    item.cid = item.id;
+                    delete item.id;
+                    return item;
+                })
+            }
+            arr.push(nav);
+            //banner广告图
+            let banner = {
+                type: "banner",
+                // data: res.filter(d=>d.en_name == 'banner')[0].data
+                data: res.filter(d=>d.en_name == 'banner').flatMap(item=>item.data)
+            }
+            arr.push(banner);
+            //主营业务
+            let resObj = JSON.parse(stringobj);
+            arr.push({
+                type: "main business",
+                ...resObj.filter(d=>d.en_name == 'main business')[0]
+            });
+            //关于我们
+            arr.push({
+                type : "about us",
+                ...resObj.filter(d=>d.en_name == 'about us')[0]
+            })
+            //工程案例
+            arr.push({
+                type : "engineering case",
+                ...resObj.filter(d=>d.en_name == 'engineering case')[0]
+            })
+            //新闻中心
+            let newsinfo = resObj.filter(d=>d.en_name == 'news center')[0];
+            // console.log('新闻中心newsinfo',newsinfo);
+            // console.log('新闻中心',new Date(newsinfo.data[0].timestamp).toLocaleString().split(' ')[0]);
+            // let newstime = new Date(newsinfo.data[0].timestamp).toLocaleString().split(' ')[0];
+            // console.log(newstime);
+            // console.log(newstime.substring(newstime.lastIndexOf('/') + 1));
+            // console.log(newstime.substring(0,newstime.lastIndexOf('/')));
+            newsinfo.data.forEach(element => {
+                // console.log('新闻中心每一项',element);
+                let newstime = new Date(element.timestamp).toLocaleString().split(' ')[0];
+                element.day = newstime.substring(newstime.lastIndexOf('/') + 1);
+                element.month = newstime.substring(0,newstime.lastIndexOf('/'));
+            });
+            // console.log('新闻中心newsinfo',newsinfo);
+            arr.push({
+                type : "news center",
+                ...newsinfo
+            })
+            //合作单位
+            arr.push({
+                type : "cooperative units",
+                ...resObj.filter(d=>d.en_name == 'cooperative units')[0]
+            })
+
+            //网站底部
+            arr.push({
+                type : "siteConfig",
+                ...resObj.filter(d=>d.en_name == 'siteConfig')[0]
+            })
+
+            console.log('最终渲染到页面前的数据',arr);
+            this.pageData = arr;
+        }
+    }
+});
+```
+### 3. 网站首页代码： /index.html
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>睿晨电网建设</title>
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+            />
+        <link rel="stylesheet" href="./static/css/common.1.0.css">
+        <link rel="stylesheet" href="./static/css/style.css">
+        <script src="./static/js/jquery.1.11.3.min.js"></script>
+        <script
+            src="https://cdn.bootcdn.net/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+        <script src="./static/js/vue.2.7.0.min.js"></script>
+    </head>
+
+    <body>
+        <div id="app">
+            <div v-for="(item,index) in pageData" :key="index">
+                <!-- {{item.type}} ----{{item.data}} -->
+                <!-- 导航栏 -->
+                <div v-if="item.type == 'nav'"
+                    class="flex justify-center " id="nav" data="123"
+                    style="position: fixed;left: 0px;right: 0px;top:0px;z-index:1;background-color: #ffffff;">
+                    <div style="width: 1200px;" class="flex justify-between
+                        align-center">
+                        <!-- 导航栏的左边 logo图 -->
+                        <div class="left-logo flex align-center
+                            animate__animated animate__swing">
+                            <img src="./static/image/logo.png" />
+                        </div>
+                        <!-- 导航栏右边部分  导航内容部分 -->
+                        <div class="right-div flex align-center ">
+                            <a :href="d.href" name="navigate"
+                                v-for="(d,i) in item.data" :key="i"
+                            :class="i==0?'active':''">{{d.name}}</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- banner广告图 -->
+                <div v-if="item.type == 'banner'"
+                    id="banner" class="flex justify-center position-relative"
+                    style="margin-top: 100px;">
+                    <div style="width: 100%;">
+                        <!-- 图片 -->
+                        <div v-for="(d,i) in item.data" :key="i">
+                            <img :src="d.poster"
+                                style="width:100%;height: auto;" />
+                        </div>
+                        <!-- 按钮部分 -->
+                        <div class="banner-btn flex justify-center
+                            position-absolute
+                            left-0 right-0 bottom-0" style="height: 50px;">
+                            <div class="active"></div>
+                            <div></div>
+                            <div></div>
+                        </div>
+
+                    </div>
+                </div>
+                <!-- 主营业务 -->
+                <div v-if="item.type == 'main business'"
+                    id="main_business" class="flex justify-center py-5">
+
+                    <div style="width: 1200px;">
+                        <!-- 业务名称 -->
+                        <div>
+                            <!-- 圆角 -->
+                            <div class="flex justify-center">
+                                <div class="div-rounded"></div>
+                            </div>
+                            <!-- 英文 -->
+                            <div class="flex justify-center mt-2">
+                                <span class="span-en">{{item.en_name.toUpperCase()}}</span>
+                            </div>
+                            <!-- 中文 -->
+                            <div class="flex justify-center">
+                                <span class="span-ch ">{{item.name}}</span>
+                            </div>
+                        </div>
+                        <!-- 业务内容 -->
+                        <div class="flex justify-between mt-5">
+                            <!-- 业务一 -->
+                            <div v-for="(d,i) in item.data" :key="i">
+                                <!-- 图片 -->
+                                <div>
+                                    <img :src="d.poster"
+                                        :alt="'业务'+(i+1)">
+                                </div>
+                                <!-- 业务描述 -->
+                                <div>
+                                    <!-- 业务名称 -->
+                                    <h3>{{d.title}}</h3>
+                                    <!-- 描述 -->
+                                    <p>{{d.description}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- 关于我们 -->
+                <div v-if="item.type == 'about us'"
+                id="about_us" class="flex justify-center">
+                    <div style="width: 1200px;margin-top: 100px;">
+                        <!-- 栏目名称 -->
+                        <div>
+                            <!-- 英文 -->
+                            <div>
+                                <span class="span-en">{{item.en_name.toUpperCase()}}</span>
+                            </div>
+                            <!-- 中文 -->
+                            <div>
+                                <span class="span-ch">{{item.name}}</span>
+                            </div>
+                        </div>
+                        <!-- 公司简介 -->
+                        <div class="introduction flex justify-between"
+                        v-for="(d,i) in item.data" :key="i">
+                            <!-- 简介部分 -->
+                            <div>
+                                <!-- 文字部分 -->
+                                <div>
+                                    <!-- 文字 -->
+                                    <p>
+                                        {{d.description}}
+                                    </p>
+                                </div>
+                                <!-- 按钮部分 -->
+                                <div style="width: 640px;height: 60px;">
+                                    <a :href="d.href" target="_blank">MORE</a>
+                                </div>
+                            </div>
+                            <!-- 图片 -->
+                            <div>
+                                <img :src="d.poster">
+                            </div>
+                        </div>
+                        <!-- 公司实力 -->
+                        <div style="margin-top: 80px;height: 100px;"
+                            class="strength
+                            flex justify-between">
+                            <div>
+                                <strong>2012年</strong>
+                                <span>公司成立于</span>
+                            </div>
+                            <div>
+                                <strong>5000万</strong>
+                                <span>注册资本</span>
+                            </div>
+                            <div>
+                                <strong>100+</strong>
+                                <span>在职员工</span>
+                            </div>
+                            <div>
+                                <strong>3000+</strong>
+                                <span>累积积累客户</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 工程案例 -->
+                <div v-if="item.type == 'engineering case'"
+                id="engineering_case" class="flex justify-center py-5">
+                    <div style="width: 1200px;">
+                        <!-- 案例名称 -->
+                        <div>
+                            <!-- 圆角 -->
+                            <div class="flex justify-center">
+                                <div class="div-rounded"></div>
+                            </div>
+                            <!-- 英文 -->
+                            <div class="flex justify-center mt-2">
+                                <span class="span-en">{{item.en_name.toUpperCase()}}</span>
+                            </div>
+                            <!-- 中文 -->
+                            <div class="flex justify-center">
+                                <span class="span-ch">{{item.name}}</span>
+                            </div>
+                        </div>
+                        <!-- 案例内容 -->
+                        <div class="case-div flex mt-5" style="flex-wrap:wrap;">
+                            <div class="list" 
+                            v-for="(d,i) in item.data" :key="i">
+                                <!-- 图片 -->
+                                <div>
+                                    <img :src="d.poster">
+                                </div>
+                                <!-- 标题 -->
+                                <div class="text-center mt-2">
+                                    <a :href="d.href" target="_blank"
+                                        class="text-no-underline
+                                        text-dark lines-1 display-block"
+                                        :title="d.title">{{d.title}}</a>
+                                </div>
+                            </div>
+                            
+
+                        </div>
+                    </div>
+                </div>
+                <!-- 新闻中心 -->
+                <div v-if="item.type == 'news center'"
+                id="news_center" class="flex justify-center py-5">
+                    <div style="width: 1200px;">
+                        <!-- 新闻名称 -->
+                        <div>
+                            <!-- 圆角 -->
+                            <div class="flex justify-center">
+                                <div class="div-rounded"></div>
+                            </div>
+                            <!-- 英文 -->
+                            <div class="flex justify-center mt-2">
+                                <span class="span-en">{{item.en_name.toUpperCase()}}</span>
+                            </div>
+                            <!-- 中文 -->
+                            <div class="flex justify-center">
+                                <span class="span-ch">{{item.name}}</span>
+                            </div>
+                        </div>
+                        <!-- 新闻内容 -->
+                        <div class="flex justify-between mt-5">
+                            <!-- 图片 -->
+                            <div>
+                                <img :src="item.data[0].poster"
+                                    style="width:
+                                    560px;height: 360px;">
+                            </div>
+                            <!-- 列表 -->
+                            <div class="news-list flex justify-between
+                                flex-column"
+                                style="width: 575px;height: 360px;">
+                                <div class="flex"
+                                v-for="(d,i) in item.data" :key="i">
+                                    <!-- 日期 -->
+                                    <div style="width: 80px;flex-shrink: 0;"
+                                        class="flex
+                                        justify-start flex-column">
+                                        <strong>{{d.day}}</strong>
+                                        <span>{{d.month}}</span>
+                                    </div>
+                                    <!-- 内容 -->
+                                    <div style="flex: auto;width: 0;">
+                                        <!-- 标题 -->
+                                        <h3 class="mt-0 lines-1">{{d.title}}</h3>
+                                        <!-- 描述 -->
+                                        <p class="lines-2 text-light-muted">{{d.description}}
+                                        </p>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 合作单位 -->
+                <div v-if="item.type == 'cooperative units'"
+                id="cooperation_unit" class="flex justify-center py-5">
+                    <div style="width: 1200px;">
+                        <!-- 栏目名称 -->
+                        <div>
+                            <!-- 圆角 -->
+                            <div class="flex justify-center">
+                                <div class="div-rounded"></div>
+                            </div>
+                            <!-- 英文 -->
+                            <div class="flex justify-center mt-2">
+                                <span class="span-en">{{item.en_name.toUpperCase()}}</span>
+                            </div>
+                            <!-- 中文 -->
+                            <div class="flex justify-center">
+                                <span class="span-ch">{{item.name}}</span>
+                            </div>
+                        </div>
+                        <!-- 栏目内容 -->
+                        <div class="flex justify-between mt-5">
+                            <img :src="d.poster"
+                            v-for="(d,i) in item.data" :key="i">
+                        </div>
+                    </div>
+                </div>
+                <!-- 底部 -->
+                <div v-if="item.type == 'siteConfig'"
+                id="page_footer" class="flex justify-center py-5">
+                    <div style="width: 1200px;"
+                        class="flex justify-between">
+                        <!-- 左边 -->
+                        <div class="flex align-center">
+                            <!-- logo -->
+                            <img :src="item.footer_logo" style="width:
+                                107px;height: 107px;">
+                            <!-- 地址信息 -->
+                            <div class="ml-2 text-light-muted">
+                                <p>{{item.corporate_name}}</p>
+                                <p>地址：{{item.address}}</p>
+                                <p>
+                                    copyRight <sup>&#174;</sup> {{item.corporate_short}} 版权所有
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;京备案号101110000-1号
+                                </p>
+                            </div>
+                        </div>
+                        <!-- 右边 -->
+                        <div class="flex align-center">
+                            <!-- 电话图标 -->
+                            <img src="./static/image/footer_tel.png" style="width:
+                                56px;height: 56px;">
+                            <!-- 电话 -->
+                            <div class="ml-2 text-light-light-muted">
+                                <p>业务咨询电话</p>
+                                <strong class="font-max">{{item.connect.tel}}</strong>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="./static/js/index.vue.js"></script>
+        <script src="./static/js/index.jquery.js"></script>
+    </body>
+</html>
+```
+
+## 四、点评总结
+> 以上案例我们完成了网站首页的数据渲染，涉及的知识有： `(第一学期)html+css`、`(第二学期第1季)JavaScript基础[对象、数组、时间日期、json数据等等知识]`、`(第二学期第2季)[面向对象、jQuery、Ajax、Nodejs、Vuejs等等知识]` <br/>
+按照这个逻辑，我们可以将网站的其他页面进行渲染，但还有一些问题没有解决：<br/>
+1. 点击网站栏目的详情信息，如：“关于我们”指向detail.html，点击咨询中心（新闻中心）新闻列表，如何显示每个新闻信息？<br/>
+是每点击一个新闻详情，就创建一个页面吗？那样会导致页面越来越多，更加不好管理。<br/>有同学说在后面加参数，如：`/news_detail.html?id=18`，获取参数在请求服务器返回，这种方式可行，但是服务器端请求的接口越来越多，代码会越来越复杂不好管理，服务器端就急需进行统一接口（路由）的管理`【需要我们解决】`；
+2. 目前我们已经开发的页面，底部顶部都一样，很多页面除了内容部分不一样页面结构都一样，能不能把一样的都提出来单独管理，简化页面`【需要我们解决】`；
+3. 页面不支持移动端查看，比如手机无法预览`【需要我们解决】`；<br/><br/>
+我们该如何解决上面提出的问题呢？<br/><br/>这些问题我们将在下一季度课程给大家讲解，本季度作为JavaScript的进阶课程，以及关于JavaScript的框架如 `vue.js`、JavaScript的工具库如 `jQuery`、 作为服务器端的基础课程 `Nodejs` ，这些知识至关重要，我们将会从下一季度课程开始，偏向实战课程类型，而在学习实战项目之前，我们当前学习的第一学期、第二学期第1季、第二学期第2季的知识，将是我们往后面学习的基石，所以大家不要慌，一步一步来进行学习，先把这些基础理清楚。

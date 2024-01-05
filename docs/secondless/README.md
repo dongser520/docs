@@ -14,6 +14,9 @@ title:  第二学期课程总述
 > 主讲`面向对象与原型`、`封装js库过渡到jQuery`、`jQuery`、`jQuery事件、动画、插件`、`Ajax`、`Node.js基础`、`正则表达式`、`Vue.js基础`并`渲染我们开发的企业网站`及`完成网站的留言板功能`，建议所有学员观看。<br/>
 <b><a href="/secondless/w-b.html" target="_blank">[第二季学习文档]</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a style="margin-left:20px;">[第二季学习视频]</a></b>
 
+### 第三季
+<b><a href="/secondless/w-c.html" target="_blank">[第三季学习文档]</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a style="margin-left:20px;">[第三季学习视频]</a></b>
+
 
 <br/><br/><br/><br/><br/><br/><br/><br/><br/>
 ## 睿晨网所有课程集合

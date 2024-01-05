@@ -324,6 +324,10 @@ title: 第二季（课程学习顺序：03）
 ####  <a href="/secondless/w-b/正则表达式.html#_6-删除首尾的空格-中间的空格不删除" style="margin-left:70px;">⑥ 删除首尾的空格，中间的空格不删除</a>
 ####  <a href="/secondless/w-b/正则表达式.html#_7-延伸-将11位手机号中的4-7位号码换成" style="margin-left:70px;">⑦ 延伸：将11位手机号中的4-7位号码换成 *</a>
 ### <a href="/secondless/w-b/Vue.js" target="_blank" title="点击查看课程文档">章节9.Vue.js基础</a>
+####  <a href="/secondless/w-b/Vue.js.html#一、课前准备" style="margin-left:40px;">一、课前准备：启动node服务器，引入vue.js</a>
+####  <a href="/secondless/w-b/Vue.js.html#二、体验vue的数据响应式" style="margin-left:40px;">二、体验vue的数据响应式：① 配置项data中的数据响应式，及渲染到页面上的真实DOM效果、② 循环语句，事件处理体验、③ vuejs计算属性体验</a>
+####  <a href="/secondless/w-b/Vue.js.html#三、理解vue的注入、虚拟dom及底层原理" style="margin-left:40px;">三、理解vue的注入、虚拟DOM及底层原理：vue实例成员的注入、虚拟DOM、虚拟DOM的底层原理</a>
+####  <a href="/secondless/w-b/node.js+vue.js%20渲染企业网站.html" style="margin-left:40px;" target="_blank" title="四、案例：node.js + vue.js 渲染企业网站">四、案例：node.js + vue.js 渲染企业网站</a>
 
 ## 4.本季课程视频介绍
 [![](/hear.jpg '第二学期第二季课程介绍，点击查看')](https://www.bilibili.com/video/BV1YY411679o/?vd_source=9a6ee0d7e6c1657e4a7381c1f8f18f4b)
