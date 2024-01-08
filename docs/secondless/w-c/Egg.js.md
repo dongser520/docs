@@ -102,3 +102,59 @@ Eggjs对MVA进行约定规范，也就是Egg.js给了你一个规范标准，你
 router.get('/message', controller.home.message);//访问地址：http://127.0.0.1:7001/message
 // 比我们原生nodejs返回数据方便非常多
 ```
+
+### ③ 说明一下，关于调试课件代码的问题
+> 有同学去群文件里面下载对应的课件，然后运行里面的代码，发现报错，这里说明一下：`我们的课件里面没有node_modules文件夹，原因是因为它比较大，另外就是直接把node_modules文件夹拿过来运行也会报错，解决方案是：在运行代码之前，先下载依赖： npm install，然后在运行 npm run dev`
+
+
+### ④ 自定义创建一个控制器
+首先在vscode安装扩展插件： `eggjs`，方便提示我们并快速敲出eggjs代码 <br/>
+> 我们上节课用到的控制器 `home.js` ，是我们在创建eggjs项目的时候，自动生成的，如果我们想自己写一个控制器，该怎么写呢？<br/>
+`/app/controller/message.js`
+```js
+'use strict';
+
+let fs = require('node:fs');
+let path = require('node:path');
+
+const Controller = require('egg').Controller;
+
+class MessageController extends Controller {
+  //所有留言信息列表
+  async list() {
+    /*
+    //node内置全局模块变量__dirname
+    console.log(__dirname);//D:\【第二学期第3季】课程代码\myegg\app\controller
+    //D:\【第二学期第3季】课程代码\myegg\data\message.json
+    console.log(path.resolve(__dirname,'../../','data/message.json'));
+    let data = fs.readFileSync(path.resolve(__dirname,'../../','data/message.json'),{
+      encoding:'utf-8'
+    });
+    console.log(typeof data);//sting
+    console.log(JSON.parse(data).data);
+    */
+    this.ctx.body = {
+      msg:'ok',
+      // data : JSON.parse(data).data,
+      data: await this.getMessageJson()
+    };
+  }
+  //获取留言数据
+  async getMessageJson(){
+    //node内置全局模块变量__dirname
+    console.log(__dirname);//D:\【第二学期第3季】课程代码\myegg\app\controller
+    //D:\【第二学期第3季】课程代码\myegg\data\message.json
+    console.log(path.resolve(__dirname,'../../','data/message.json'));
+    let data = fs.readFileSync(path.resolve(__dirname,'../../','data/message.json'),{
+      encoding:'utf-8'
+    });
+    console.log(typeof data);//sting
+    console.log(JSON.parse(data).data);
+    return JSON.parse(data).data;
+  }
+}
+
+module.exports = MessageController;
+```
+
+> 我们首先要了解：`Koa 默认选择了async function 作为异步编程模型`，而我们的 Egg 选择了 Koa 作为其基础框架，在它的模型基础上，进一步对它进行了一些增强。Egg继承了Koa的高性能优点，同时又加入了一些约束与开发规范，来规避Koa框架本身的开发自由度太高的问题（这个我们在前面已经说过了）。因此，我们的 Egg 很自然的也是异步编程模型，async、await 可以让我们用同步写法编写异步代码。async 关键字声明函数，使用 await 关键字来等待一个 Promise 被 resolve 或者 reject、避免了回调地狱。 
