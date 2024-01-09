@@ -158,3 +158,58 @@ module.exports = MessageController;
 ```
 
 > 我们首先要了解：`Koa 默认选择了async function 作为异步编程模型`，而我们的 Egg 选择了 Koa 作为其基础框架，在它的模型基础上，进一步对它进行了一些增强。Egg继承了Koa的高性能优点，同时又加入了一些约束与开发规范，来规避Koa框架本身的开发自由度太高的问题（这个我们在前面已经说过了）。因此，我们的 Egg 很自然的也是异步编程模型，async、await 可以让我们用同步写法编写异步代码。async 关键字声明函数，使用 await 关键字来等待一个 Promise 被 resolve 或者 reject、避免了回调地狱。 
+
+接下来思考，如果我想获取留言板列表数据中的某一条数据该如何获取？
+
+### ⑤ get方式路由传参：带?获取参数 ctx.query.参数名，不带?获取参数 ctx.params.参数名
+> 获取某一条数据，同学们很自然想到可以在网址后面加问号加参数 <br/>
+> 也就是我们常说的：带问号传参，如：`http://127.0.0.1:7001/message/read?id=1`  `http://127.0.0.1:7001/message/read?username=林俊杰`
+
+带?获取参数 ctx.query.参数名
+```js
+// 路由配置 /app/router.js
+// 带?传参 http://127.0.0.1:7001/message/read?id=1
+router.get('/message/read', controller.message.read);
+
+// 控制器代码 /app/controller/message.js
+//获取某一条留言信息
+async read(){
+    //get方式带？获取参数  ctx.query.参数名，多个参数名是一样
+    // this.ctx.body = this.ctx.query.id;
+    let id = this.ctx.query.id;
+    // console.log(typeof id);//string
+    //根据id查找对应的留言数据，数组中根据某个条件找元素返回新数组 find方法
+    let messageData = await this.getMessageJson();
+    let data =  messageData.find(item=>item.id == id);
+    this.ctx.body = {
+        msg:'ok',
+        data:data
+    }
+}
+```
+> 当然还有一种是不带问号也可以传参，如：`http://127.0.0.1:7001/message/read/1` 这种路由地址更加优雅
+
+不带?获取参数 ctx.params.参数名
+```js
+// 路由配置 /app/router.js
+//不带?传参 http://127.0.0.1:7001/message/read/1
+router.get('/message/read/:id', controller.message.read);
+//不带?传参 http://127.0.0.1:7001/message/read/林俊杰
+// router.get('/message/read/:username', controller.message.read);
+
+// 控制器代码 /app/controller/message.js
+//获取某一条留言信息
+async read(){
+    //不带？获取参数  ctx.params.参数名
+    // this.ctx.body = this.ctx.params.id;
+    let id = this.ctx.params.id;
+    // console.log(typeof id);//string
+    //根据id查找对应的留言数据，数组中根据某个条件找元素返回新数组 find方法
+    let messageData = await this.getMessageJson();
+    let data =  messageData.find(item=>item.id == id);
+    this.ctx.body = {
+        msg:'ok',
+        data:data
+    }
+}
+```
