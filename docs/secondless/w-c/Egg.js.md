@@ -161,7 +161,8 @@ module.exports = MessageController;
 
 接下来思考，如果我想获取留言板列表数据中的某一条数据该如何获取？
 
-### ⑤ get方式路由传参：带?获取参数 ctx.query.参数名，不带?获取参数 ctx.params.参数名
+## 二、eggjs中的get请求post请求处理
+### ① get方式路由传参：带?获取参数 ctx.query.参数名，不带?获取参数 ctx.params.参数名
 > 获取某一条数据，同学们很自然想到可以在网址后面加问号加参数 <br/>
 > 也就是我们常说的：带问号传参，如：`http://127.0.0.1:7001/message/read?id=1`  `http://127.0.0.1:7001/message/read?username=林俊杰`
 
@@ -212,4 +213,66 @@ async read(){
         data:data
     }
 }
+```
+
+### ② 设置响应状态码： ctx.status
+```js
+this.ctx.body = {
+    msg:'ok',
+    data:123
+}
+this.ctx.status = 401; //设置响应状态码
+```
+
+### ③ post请求参数处理
+> 我们在上一季度已经讲过了post请求和get请求的区别，post请求参数是通过请求体发送的，并且在上一季度我们还讲过一个案例：nodejs+jQuery开发企业网页的留言板功能，大家也已经体验过了。<br/>
+> 我们本节课来学习一下，在我们的eggjs项目中如何处理我们的post请求以及获取参数。
+### 一、安装get/post等请求的调试工具：postman
+### 1. 下载postman
+> 方式一：百度搜索`postman`, 找到官网 <a href="https://www.postman.com/" target="_blank">https://www.postman.com/</a>，下载对应系统软件；<br/>
+> 方式二：去群文件里面下载本节课的课件，里面有安装包。
+### 2. 安装postman
+> 双击鼠标左键安装即可，建议注册一个账户，以后换了电脑之前写的api接口都还在，非常方便
+
+### 二、测试post请求并处理参数
+### 1. 关闭csrf功能开启跨域请求
+```js
+// 控制器代码 /app/controller/message.js
+//新增一条留言
+async create(){
+    this.ctx.body = '跑通了';
+}
+
+// 路由配置 /app/router.js
+//新增一条留言
+router.post('/message/create',controller.message.create);
+```
+在postman调试的时候，发现报错，主要原因是：<br/>
+`eggjs项目默认开启了csrf禁止跨域请求(它的一个保护机制)`，由于我们是开发环境需要调试代码，因此需要关闭这个保护机制，即：`关闭csrf功能开启跨域请求`
+```js
+//1. 第一步：安装跨域插件 egg-cors
+npm i egg-cors --save
+
+//2. 第二步：配置插件  根目录/config/plugin.js
+//跨域插件
+cors:{
+   enable:true,
+   package:'egg-cors',
+},
+
+//3. 第三步：设置     根目录/config/config.default.js
+//关闭csrf功能开启跨域，写法固定，复制即可
+config.security = {
+  //关闭csrf
+  csrf:{
+     enable:false,
+  },
+  //跨域白名单 比如以后你有域名www.xxx.com，那么你可以设置www.xxx.com，容许这个域名下的请求跨域访问
+  domainWhiteList:['http://localhost:7001'],
+};
+//允许跨域的方法
+config.cors = {
+    origin:'*',
+    allowMethods:'GET,PUT,POST,DELETE,PATCH',
+};
 ```
