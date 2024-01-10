@@ -234,7 +234,7 @@ this.ctx.status = 401; //设置响应状态码
 ### 2. 安装postman
 > 双击鼠标左键安装即可，建议注册一个账户，以后换了电脑之前写的api接口都还在，非常方便
 
-### 二、测试post请求并处理参数
+### 二、post请求获取参数：ctx.request.body
 ### 1. 关闭csrf功能开启跨域请求
 ```js
 // 控制器代码 /app/controller/message.js
@@ -276,3 +276,25 @@ config.cors = {
     allowMethods:'GET,PUT,POST,DELETE,PATCH',
 };
 ```
+
+### 2. eggjs中post请求：ctx.request.body
+```js
+//创建一条信息的留言
+async create(){
+    //post、put、patch 接收参数 ctx.request.body
+    // console.log(this.ctx.request.body);
+    //一般处理流程
+    //1.参数验证
+    //2.写入数据库
+    //3.成功之后给页面反馈
+    this.ctx.body = {
+        msg:'ok',
+        // data:{
+        //     username:'林俊杰',
+        //     tel:13545858789
+        // },
+        data:this.ctx.request.body
+    };
+}
+```
+关于 `ctx.request` 更多内容查看： <a href="https://koa.bootcss.com/" target="_blank">https://koa.bootcss.com/</a>
