@@ -298,3 +298,9 @@ async create(){
 }
 ```
 关于 `ctx.request` 更多内容查看： <a href="https://koa.bootcss.com/" target="_blank">https://koa.bootcss.com/</a>
+
+
+## 三、案例：eggjs + postman测试工具完成留言数据写入json文件
+> 本节课我们以留言数据为例，一方面由于大家还没有学习到数据库（我们会在后面讲数据库），另外一方面是让大家回忆一下nodejs基础（我们在上一季度章节7：Node.js基础，学习过通过nodejs+jQuery完成了我们页面留言板的功能），本节课我们通过eggjs项目，通过：eggjs + postman测试工具，完成讲留言写入json文件的功能，提升大家的新技能；
+1. 上一季度案例：<a href="/secondless/w-b/nodejs+jQuery开发留言板.html" target="_blank">案例：nodejs+jQuery开发企业网页的留言板功能</a>
+2. 本案例：eggjs + postman测试工具完成留言数据写入json文件，具体查看：<a href="eggjs+postman测试工具将留言写入json文件.html" target="_blank">案例：eggjs+postman测试工具将留言写入json文件</a>

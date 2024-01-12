@@ -5,7 +5,7 @@ title: 案例：nodejs+jQuery开发企业网页的留言板功能
 ---
 
 ## 一、基础准备
-说明：学习本案例，需要把<a href="/secondless/w-b/Node.js.html" target="_blank">章节7:Node.js基础</a>  按照老师的课程视频，一步一步听下来敲下来，<b>不要跳课学习!</b>
+说明：学习本案例，需要把<a href="/secondless/w-b/Node.js.html" target="_blank">第二学期-第二季课程：章节7:Node.js基础</a>  按照老师的课程视频，一步一步听下来敲下来，<b>不要跳课学习!</b>
 ###  ① 搭建node服务器
 > 新建： /app.js文件，修改 /package.json的调试命令
 > ```javascript
