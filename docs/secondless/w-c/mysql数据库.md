@@ -28,6 +28,7 @@ title: mysql数据库基础
 关于安装包，大家可以去群文件里面下载本节课的课件，课件里面有安装包。
 
 ## 二、简单操作mysql数据库（sql语句）
+#### 安装数据库插件：DataBase Client
 > 1. 打开upupw，给mysql数据库设置一个密码，找到`数据库管理`-->`账户密码`--> `更改密码`
 > 2. 打开vscode，安装扩展插件：搜索`database`，找到插件`DataBase Client`安装，完成后连接数据库，密码就是上一步设置的密码
 > 3. 连接成功后，点+创建一个数据库如`myegg01`, 然后我们也可以创建一张数据库表 `message`,可以点击`Tables右边的+建表`，将 `table_name`换成你要创建的表名`message`(关于括号里面的代码什么意思我们会在下一节课详细讲解)，然后执行sql就有了一张表，然后可以向表里面添加内容
@@ -57,20 +58,50 @@ DEFAULT CHARACTER SET = 'utf8mb4';
 # 一般每张表，我们都会给它一个id字段，它比较特殊，一般是：
 # int数值类型，不能为空，主键，自增（每次新增一条数据自己+1），描述
 # username 称呼，字符串类型VARCHAR(30)最大255，
-# tel 电话号码加密过的，字符串类型VARCHAR(64)最大255，
+# tel 电话号码加密过的，字符串类型VARCHAR(32)最大255，
 # message 留言内容，字符串类型 TEXT 不限制字数
 # timestamp 时间戳，数值类型 TIMESTAMP, 不用手动添加时间戳获取系统当前时间戳 DEFAULT CURRENT_TIMESTAMP
 # create_time 创建时间可有可没有，一般建议加上，给管理员或者程序员查看的  DEFAULT CURRENT_TIME
 # update_time 更新时间可有可没有，一般建议加上，给管理员或者程序员查看的  DEFAULT CURRENT_TIME
 # telnumber 电话号码未加密 INT(11)
-CREATE TABLE `message`(
-    id INT NOT NULL PRIMARY KEY AUTO_INCREMENT COMMENT '留言表主键id',
-    username VARCHAR(30) COMMENT '留言用户的称呼',
-    tel VARCHAR(64) COMMENT '留言用户的加密电话号码',
-    message TEXT  COMMENT '留言用户的留言内容',
-    timestamp  TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    create_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP COMMENT '数据创建时间',
-    update_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP COMMENT '数据更新时间',
-    telnumber INT(11) COMMENT '留言用户的未加密电话号码'
+CREATE TABLE IF NOT EXISTS  message(
+   id INT NOT NULL PRIMARY KEY AUTO_INCREMENT COMMENT '留言板主键id',
+   username VARCHAR(30) NOT NULL  COMMENT '留言用户的称呼',
+   tel VARCHAR(32) NOT NULL  COMMENT '留言用户的电话号码加密',
+   telnumber INT(11) NOT NULL COMMENT '留言用户的电话号码',
+   message TEXT COMMENT '留言用户的留言信息',
+   timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP COMMENT '留言用户的留言时间戳',
+   create_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP COMMENT '数据创建时间',
+   update_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP COMMENT '数据更新时间'
 ) COMMENT '留言表';
+```
+
+### 4. 改变数据表名
+```sql
+ALTER Table `message` RENAME `messages`;
+-- ALTER 改变数据表 `message` RENAME 重命名 `messages`
+
+ALTER Table `messages` RENAME `message`;
+```
+### 5.给数据表新增一个字段
+```sql
+ALTER Table message ADD COLUMN ip VARCHAR(128) COMMENT '留言用户的ip地址';
+
+ALTER Table message ADD COLUMN city VARCHAR(128) COMMENT '留言用户所在城市', 
+ADD COLUMN country VARCHAR(20) COMMENT '留言用户所在国家';
+```
+
+### 6.删除表中的某个字段
+```sql
+ALTER TABLE message DROP ip;
+
+ALTER TABLE message DROP city, DROP country;
+```
+
+### 7.重新编辑（修改）表中的某个字段属性
+```sql
+ALTER TABLE message MODIFY tel VARCHAR(64) NOT NULL COMMENT '留言用户的电话号码加密信息';
+
+-- 修改列名及属性描述
+ALTER TABLE message CHANGE tel tels VARCHAR(64) NOT NULL COMMENT '留言用户的电话号码加密信息';
 ```
