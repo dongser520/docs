@@ -105,3 +105,69 @@ ALTER TABLE message MODIFY tel VARCHAR(64) NOT NULL COMMENT '留言用户的电�
 -- 修改列名及属性描述
 ALTER TABLE message CHANGE tel tels VARCHAR(64) NOT NULL COMMENT '留言用户的电话号码加密信息';
 ```
+
+### 8. mysql的查询语句
+```sql
+# 查询单个列（字段）数据，如：称呼
+# SELECT 列名（字段名） FROM 表名
+SELECT username FROM message
+```
+```sql
+# 查询多个列（多个字段）数据，如：username,tel,message
+# SELECT 字段1,字段2,字段3 FROM 表名
+SELECT username,tel,message FROM message
+```
+```sql
+# 查询所有列（所有字段）数据
+# SELECT 字段1,字段2,字段3,... FROM 表名
+# SELECT * FROM 表名
+-- SELECT * FROM message;
+SELECT id,username,tel,message,telnumber,timestamp,create_time,update_time FROM message
+```
+```sql
+# 给字段设置别名 as关键字
+SELECT id,username as chenghu,tel as jiamiTel,message FROM message;
+```
+```sql
+# 排序 （默认升序asc 可不填，降序 desc）
+SELECT * FROM message;
+SELECT * FROM message ORDER BY id DESC;
+SELECT * FROM message ORDER BY timestamp DESC;
+# 多字段排序
+SELECT * FROM message ORDER BY timestamp DESC,id DESC ;
+```
+```sql
+# 限制查询结果条数(常用于分页)
+-- 一个参数表示从数据最开始的位置取多少条
+SELECT * FROM message LIMIT 4;
+-- 如果是两个参数：参数1表示开始行，索引从0开始，第二个参数是取多少条
+SELECT * FROM message LIMIT 0,3;
+SELECT * FROM message LIMIT 1,4;
+```
+```sql
+# 单条件查询 WHERE 字段名=值
+SELECT * FROM message;
+SELECT * FROM message WHERE username='岳云鹏';
+
+# 多条件查询 WHERE 字段名=值 AND/OR 字段名=值 
+SELECT * FROM message WHERE username='岳云鹏' AND telnumber=2147483647;
+SELECT * FROM message WHERE username='岳云鹏' OR telnumber = 0;
+```
+```sql
+# 模糊查询 where是值完全相等，模糊查询是某个值匹配上即可 like
+SELECT * FROM message ;
+-- 含有‘黄’字符的均可 
+SELECT * FROM message WHERE username LIKE '%黄%' ;
+-- 以‘黄’字开头，其他不管
+SELECT * FROM message WHERE username LIKE '黄%' ;
+-- 以‘黄’字结尾，其他不管
+SELECT * FROM message WHERE username LIKE '%黄' ;
+```
+```sql
+# 模糊查询 限定模糊字数匹配 用 _ 
+SELECT * FROM message;
+SELECT * FROM message WHERE username LIKE '%云%';
+-- 匹配字符限定前面字符数 用下划线 _ 一个下划线表示占一个字符 两个下划线表示两个字符
+SELECT * FROM message WHERE username LIKE '_云%';
+SELECT * FROM message WHERE username LIKE '__云%';
+```
