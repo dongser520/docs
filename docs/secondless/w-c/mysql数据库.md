@@ -171,3 +171,25 @@ SELECT * FROM message WHERE username LIKE '%云%';
 SELECT * FROM message WHERE username LIKE '_云%';
 SELECT * FROM message WHERE username LIKE '__云%';
 ```
+### 9. mysql的新增语句
+```sql
+# 新增单条语句
+-- INSERT INTO 表名(字段1,字段2,字段3,...) VALUES(值1,值2,值3,...)
+INSERT INTO message(username,tel,telnumber,message) 
+VALUES('古巨基','15udf5556e6c019d61e0uydd1daeaa3d',13874745858,'请及时联系，我想跟贵公司合作');
+
+# 新增多条语句
+-- INSERT INTO 表名(字段1,字段2,字段3,...) VALUES(值1,值2,值3,...),(值a,值b,值c,...)
+INSERT INTO message(username,tel,telnumber,message) 
+VALUES
+('梁咏琪','15udf5556e6c019d61e0uydd1daeaa3d',13874745858,'请及时联系，我想跟贵公司合作'),
+('华仔','54op75556e6c019d61e0uydd1daeaa3d',13908085858,'随时给我电话');
+```
+
+### 10. mysql的更新(修改)数据语句
+```sql
+# 更新(修改)数据语句
+UPDATE 表名 SET 字段1 = 修改的值,字段2 = 修改的值....  WHERE 条件;
+
+UPDATE message SET username = '黄先生',telnumber=13874747585 WHERE id = 3;
+```
