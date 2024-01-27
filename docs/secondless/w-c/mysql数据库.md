@@ -193,3 +193,16 @@ UPDATE 表名 SET 字段1 = 修改的值,字段2 = 修改的值....  WHERE 条�
 
 UPDATE message SET username = '黄先生',telnumber=13874747585 WHERE id = 3;
 ```
+
+### 11. mysql的删除数据语句
+```sql
+# mysql的删除数据语句
+-- DELETE FROM 表名 条件
+
+DELETE FROM message WHERE id = 22;
+DELETE FROM message WHERE username = '老莫';
+
+# mysql批量删除
+DELETE FROM message WHERE id IN(20,21,22);
+
+```
