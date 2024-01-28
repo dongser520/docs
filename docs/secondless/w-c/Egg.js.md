@@ -307,3 +307,218 @@ async create(){
 
 ## 四、mysql（MySQL）数据库基础
 数据库作为我们Egg.js基础学习的一部分，本节课开始将带领大家学习数据库的基础知识。具体查看：<a href="mysql数据库.html" target="_blank">mysql（MySQL）数据库基础</a>
+
+## 五、eggjs项目中创建mysql数据库
+> 我们在前面几节课给大家讲解了一下mysql数据库的基础知识，数据库作为我们学习egg.js项目的一部分，我们已经学习了简单的增删改查的sql语句，那么接下来，我们如何在我们的egg.js项目中创建我们的mysql数据库呢？<br/>
+> 我们接着上一节课，先简单回忆一下用vscode插件`DataBase Client`写sql语句，从删除数据库->创建数据库->创建表->查看表数据->写入表数据的过程
+```sql
+# 删除数据库
+-- DROP DATABASE 数据库名;
+DROP DATABASE myegg;
+# 创建数据库
+-- create database 库名 
+CREATE DATABASE IF NOT EXISTS  `myegg`
+DEFAULT CHARACTER SET = 'utf8mb4';
+# 删除表
+DROP TABLE message;
+# 创建表
+CREATE TABLE IF NOT EXISTS  message(
+   id INT NOT NULL PRIMARY KEY AUTO_INCREMENT COMMENT '留言板主键id',
+   username VARCHAR(30) NOT NULL  COMMENT '留言用户的称呼',
+   tel VARCHAR(32) NOT NULL  COMMENT '留言用户的电话号码加密',
+   telnumber BIGINT(11) NOT NULL COMMENT '留言用户的电话号码',
+   message TEXT COMMENT '留言用户的留言信息',
+   timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP COMMENT '留言用户的留言时间戳',
+   create_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP COMMENT '数据创建时间',
+   update_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP COMMENT '数据更新时间'
+) COMMENT '留言表';
+# 查看表数据
+SELECT * FROM message;
+# 写入表数据
+INSERT INTO message(username,tel,telnumber,message) 
+VALUES
+('古巨基','15udf5556e6c019d61e0uydd1daeaa3d',15825295858,'请及时联系，我想跟贵公司合作'),
+('梁咏琪','1584poio4747kiu87uy6ty656ty65tt4',13658595502,''),
+('岳云鹏','q12r45tfrfdrretfffffffrrdddw3e34',13817182520,'有合作意愿，请和我的经纪人联系'),
+('张家辉','aq12ws3edfr45tg6yh7uj8ik9ol5p0oi',17870141818,''),
+('刘德华','qwe3214r4re3w2qwe3wqwqsdweey6tyt',15820272928,'随时打这个电话联系'),
+('迪丽热巴迪力木拉提','sw2de34r44434erererddddddsdeerff',13659595858,'请及时联系我'),
+('李沁','yhtg6ty656tyttt4re43wewe43454r54',13100020007,''),
+('古天乐','rftgyhujuhu78765trftgfdewsde3434',18162522208,''),
+('大鹏','swderf545656trfgtrtfgtrfdertygtr',19918181101,''),
+('黄晓明','ujikolkiujhygtrfdertrtfr45676543',13525250023,'想和贵公司谈合作');
+
+```
+以上是我们在vscode插件`DataBase Client`中使用sql语句创建数据库创建表，写入表数据的一系列操作，
+接下来，我们来学习如何在我们的egg.js项目中创建我们的数据库及创建表数据
+> 这里说明一下，创建和操作数据库的方式很多，可以用我们上面的vscode插件写sql语句创建数据库和表以及数据，也可以使用phpmyadmin等工具创建数据库和表以及数据。这个我们在前面讲数据库的时候都已经讲过了，老师这里讲另外一种创建方式，相比通过sql语句创建或者phpmyadmin等工具创建稍微复杂一点，但是流程是固定的，主要是：第一是为了给大家扩展知识，第二就是这种创建方式适合多人开发的时候便于管理我们的数据库。以下操作是固定操作，不需要记忆。
+> 只需要按照以下步骤进行操作即可。
+
+### 1.安装egg-sequelize 插件
+> （它会辅助我们将定义好的 Model 对象加载到 app 和 ctx 上）和[mysql2](https://github.com/sidorares/node-mysql2)模块
+```js
+npm install --save egg-sequelize mysql2
+```
+
+### 2. 在`config/plugin.js`中引入 egg-sequelize 插件
+```js
+//egg-sequelize 插件
+sequelize: {
+  enable: true,
+  package: 'egg-sequelize',
+},
+```
+
+### 3. 在`config/config.default.js`中配置数据库连接
+```js
+// 配置数据库连接
+config.sequelize = {
+  dialect:  'mysql', // 数据库类型
+  host:  '127.0.0.1', // 数据库地址 localhost
+  username: 'root',  // 数据库用户名
+  password:  'root', // 数据库密码
+  port:  3306,// 端口号就用默认
+  database:  'myegg',// 数据库名
+  // 中国时区
+  timezone:  '+08:00', // 设置时区
+  define: {
+      // 取消数据表名复数
+      freezeTableName: true,
+      // 自动写入时间戳 
+      timestamps: true,
+      // 字段生成软删除时间戳
+      //paranoid: true, // 开启软删除
+      //deletedAt: 'delete_time',
+      // 将默认的created_at 字段名改为create_time
+      createdAt: 'create_time', //自动写入时间戳创建时间字段
+      // 将默认的updated_at 字段名改为update_time
+      updatedAt: 'update_time', //自动写入时间戳更新时间字段
+      // 所有驼峰命名格式化
+      underscored: true
+  }
+};
+```
+
+### 4. 安装 sequelize-cli插件
+sequelize 提供了[sequelize-cli](https://github.com/sequelize/cli)工具来实现[Migrations](http://docs.sequelizejs.com/manual/tutorial/migrations.html)，我们也可以在 egg 项目中引入 sequelize-cli。
+```js
+npm install --save-dev sequelize-cli
+```
+
+### 5. 数据库 Migrations 迁移文件相关的内容都放在`database`目录下
+> 数据库迁移指用命令的形式去创建数据库、管理数据表的结构，这样的好处就是：创建我们的数据库和管理我们的数据表的时候，只需要输入一个命令就能办到，这样就省去了我们手动去创建数据库和管理数据表的步骤。
+> 如果希望数据库的内容单独放在一个单独目录下，可以这么操作
+```js
+//根目录下新建一个`.sequelizerc`配置文件
+'use strict';
+
+const path = require('path');
+
+module.exports = {
+  config: path.join(__dirname, 'database/config.json'),
+  'migrations-path': path.join(__dirname, 'database/migrations'),
+  'seeders-path': path.join(__dirname, 'database/seeders'),
+  'models-path': path.join(__dirname, 'app/model'),
+};
+```
+
+### 6. 初始化 Migrations 配置文件和目录
+```js
+npx sequelize init:config  //这个命令运行一次就行了，初始化配置文件config.json
+npx sequelize init:migrations //这个命令运行一次就行了，初始化migrations目录
+// npx sequelize init:models
+```
+
+### 7. 在生成的`database/config.json` 修改一下配置内容
+> 将其改成我们项目中使用的数据库配置：
+```json
+{
+  "development": {
+    "username": "root",
+    "password": "root",
+    "database": "myegg",
+    "host": "127.0.0.1",
+    "dialect": "mysql",
+    "timezone": "+08:00",
+    "operatorsAliases": false
+  },
+  "test": {
+    "username": "root",
+    "password": "root",
+    "database": "myegg",
+    "host": "127.0.0.1",
+    "dialect": "mysql",
+    "timezone": "+08:00",
+    "operatorsAliases": false
+  },
+  "production": {
+    "username": "root",
+    "password": "root",
+    "database": "myegg",
+    "host": "127.0.0.1",
+    "dialect": "mysql",
+    "timezone": "+08:00",
+    "operatorsAliases": false
+  }
+}
+
+```
+
+### 8. 创建数据库
+
+```js
+npx sequelize db:create
+```
+### 9. 创建数据库迁移文件
+> 比如我现在要在数据库里面创建一张留言表  message
+```js
+npx sequelize migration:generate --name=init-message
+```
+执行完成之后，会在database / migrations / 目录下生成数据表迁移文件，然后定义
+```js
+'use strict';
+
+/** @type {import('sequelize-cli').Migration} */
+module.exports = {
+  async up (queryInterface, Sequelize) {
+    const { INTEGER, STRING, DATE, ENUM, TEXT, BIGINT} = Sequelize;
+    // 创建表 --- 类似我们sql语句定义表结构
+    await queryInterface.createTable('message', {
+        id: { type: INTEGER(20).UNSIGNED, primaryKey: true, autoIncrement: true },
+        username: { type: STRING(30), allowNull: false, defaultValue: '', comment: '留言板主键id'},
+        tel: { type: STRING(32), allowNull: false, defaultValue: '' , comment: '留言用户的电话号码加密'},
+        telnumber : { type: BIGINT(11), allowNull: false, defaultValue: 0 , comment: '留言用户的电话号码', unique: true},
+        message : { type: TEXT, allowNull: true, defaultValue: '', comment: '留言用户的留言信息' },
+        // sex: { type: ENUM, values: ['男','女','保密'], allowNull: true, defaultValue: '保密', comment: '留言用户性别'},
+        timestamp : {type: DATE, allowNull: false, defaultValue:Sequelize.fn('NOW')},
+        create_time: {type: DATE, allowNull: false, defaultValue:Sequelize.fn('NOW')},
+        update_time: {type: DATE, allowNull: false, defaultValue:Sequelize.fn('NOW')}
+    });
+  },
+  
+  async down (queryInterface, Sequelize) {
+    await queryInterface.dropTable('message')
+  }
+};
+```
+
+### 10. 执行 migrate 进行数据库变更创建表
+```js
+// 升级数据库
+npx sequelize db:migrate
+// 如果有问题需要回滚，可以通过 `db:migrate:undo` 回退一个变更
+npx sequelize db:migrate:undo
+// 可以通过 `db:migrate:undo:all` 回退到初始状态
+npx sequelize db:migrate:undo:all
+```
+再次重申，老师希望同学们能按照这个过程走一遍数据库的创建过程，当然，如果你实在懒得敲命令，也可以直接使用：
+1. 通过插件写sql语句创建数据库;
+2. 更懒一点的可以直接使用phpmyadmin创建数据库
+
+
+
+
+
+
+
+
