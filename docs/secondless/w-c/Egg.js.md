@@ -308,7 +308,7 @@ async create(){
 ## 四、mysql（MySQL）数据库基础
 数据库作为我们Egg.js基础学习的一部分，本节课开始将带领大家学习数据库的基础知识。具体查看：<a href="mysql数据库.html" target="_blank">mysql（MySQL）数据库基础</a>
 
-## 五、eggjs项目中创建mysql数据库
+## 五、eggjs项目中sequelize模型创建mysql数据库
 > 我们在前面几节课给大家讲解了一下mysql数据库的基础知识，数据库作为我们学习egg.js项目的一部分，我们已经学习了简单的增删改查的sql语句，那么接下来，我们如何在我们的egg.js项目中创建我们的mysql数据库呢？<br/>
 > 我们接着上一节课，先简单回忆一下用vscode插件`DataBase Client`写sql语句，从删除数据库->创建数据库->创建表->查看表数据->写入表数据的过程
 ```sql
@@ -484,8 +484,8 @@ module.exports = {
     const { INTEGER, STRING, DATE, ENUM, TEXT, BIGINT} = Sequelize;
     // 创建表 --- 类似我们sql语句定义表结构
     await queryInterface.createTable('message', {
-        id: { type: INTEGER(20).UNSIGNED, primaryKey: true, autoIncrement: true },
-        username: { type: STRING(30), allowNull: false, defaultValue: '', comment: '留言板主键id'},
+        id: { type: INTEGER(20).UNSIGNED, primaryKey: true, autoIncrement: true,comment: '留言板主键id' },
+        username: { type: STRING(30), allowNull: false, defaultValue: '', comment: '留言板用户称呼'},
         tel: { type: STRING(32), allowNull: false, defaultValue: '' , comment: '留言用户的电话号码加密'},
         telnumber : { type: BIGINT(11), allowNull: false, defaultValue: 0 , comment: '留言用户的电话号码', unique: true},
         message : { type: TEXT, allowNull: true, defaultValue: '', comment: '留言用户的留言信息' },
@@ -515,10 +515,103 @@ npx sequelize db:migrate:undo:all
 1. 通过插件写sql语句创建数据库;
 2. 更懒一点的可以直接使用phpmyadmin创建数据库
 
+<b>但是注意：</b><br/>
+
+<span style="text-decoration:underline;color:green;">用sql语句创建数据库或者phpmyadmin创建数据库和表，在egg.js项目中需要连接数据库，也就是上面的第3步：`在config/config.default.js中配置数据库连接`，这一步必须要有！！！</span>
 
 
+## 六、egg.js项目中sequelize模型新增数据到数据库
+> 在egg.js项目中，如果希望操作表，比如：往留言表message表里面插入一条数据，或者更新一条数据、删除一条数据、查询数据等等这些，我们就需要用到数据模型。
+我们一张表一般对应一个模型，比如我们的留言表message，我们就可以创建一个message模型，然后通过这个模型来操作表。
+### 1. 创建模型文件
+在app/model目录下创建message.js文件，即：`app/model/message.js`。注意：<br/>
+1. 以后我们创建的其它表的模型文件都放在model这个文件夹下面。<br/>
+2. 模型文件的命名和表名保持一致，比如：message.js对应message表。
 
+### 2. 编写模型文件
+模型文件的代码内容，和我们的迁移文件基本一样
+```js
+'use strict';
+module.exports = app => {
+    const { INTEGER, STRING, DATE, ENUM, TEXT, BIGINT } = app.Sequelize;
+    const Message = app.model.define('message', {
+        id: {
+            type: INTEGER(20).UNSIGNED,
+            primaryKey: true,
+            autoIncrement: true,
+            comment: '留言板主键id'
+        },
+        username: {
+            type: STRING(30),
+            allowNull: false,
+            defaultValue: '',
+            comment: '留言板用户称呼'
+        },
+        tel: {
+            type: STRING(64),
+            allowNull: false,
+            defaultValue: '',
+            comment: '留言用户的电话号码加密'
+        },
+        telnumber: {
+            type: BIGINT(11),
+            allowNull: false,
+            defaultValue: 0,
+            comment: '留言用户的电话号码',
+            unique: true
+        },
+        message: {
+            type: TEXT,
+            allowNull: true,
+            defaultValue: '',
+            comment: '留言用户的留言信息'
+        },
+        // sex: { type: ENUM, values: ['男','女','保密'], allowNull: true, defaultValue: '保密', comment: '留言用户性别'},
+        timestamp: { type: DATE, allowNull: false, defaultValue: app.Sequelize.fn('NOW') },
+        create_time: { type: DATE, allowNull: false, defaultValue: app.Sequelize.fn('NOW') },
+        update_time: { type: DATE, allowNull: false, defaultValue: app.Sequelize.fn('NOW') }
+    }, {
+        //timestamps: true,//是否自动写入时间戳
+        //tableName: 'message',//自定义数据表名称
+    });
 
+    return Message;
+}
+```
 
-
+### 3. 插入一条数据到数据库
+> 先让项目跑起来：`npm run dev`
+### 3.1 定义路由 
+`app/router.js`定义路由
+```js
+//上面的路由是关于留言的，对json文件的操作
+//下面的路由是关于留言的，对数据库留言表的操作
+router.post('/message/createOne',controller.message.createOne);
+```
+### 3.2 定义控制器
+`app/controller/message.js`控制器代码
+```js
+//上面的代码是将留言写进json文件并操作
+//下面的代码是将留言写进数据库并操作
+async createOne(){
+    // this.ctx.body = {
+    //     msg:'ok',
+    //     data:123
+    // };
+    //一般处理流程
+    //1.参数验证
+    //2.写入数据库
+    let res = await this.app.model.Message.create({
+        username:'迪丽热巴',
+        tel:'1120c1bd1f78d6e6c019d61e1daeaa3d',
+        telnumber:'13812345678',
+        message:'需要联系'
+    });
+    //3.成功之后给页面反馈
+    this.ctx.body = {
+        msg:'ok',
+        data:res
+    };
+}
+```
 
