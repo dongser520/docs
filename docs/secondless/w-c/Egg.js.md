@@ -579,7 +579,7 @@ module.exports = app => {
 }
 ```
 
-### 3. 插入一条数据到数据库
+### 3. 插入一条数据到数据库：create方法
 > 先让项目跑起来：`npm run dev`
 ### 3.1 定义路由 
 `app/router.js`定义路由
@@ -615,3 +615,44 @@ async createOne(){
 }
 ```
 
+### 4. 批量插入数据到数据库：bulkCreate方法
+```js
+//`app/router.js`定义路由 
+//批量插入数据
+router.post('/message/createMany',controller.message.createMany);
+
+//`app/controller/message.js`控制器代码
+//批量新增数据写进数据库
+async createMany(){
+    const res = await this.app.model.Message.bulkCreate([
+        {username:'古巨基',tel:'15udf5556e6c019d61e0uydd1daeaa3d',telnumber:18162522208,message:'请及时联系，我想跟贵公司合作'},
+        {username:'梁咏琪',tel:'1584poio4747kiu87uy6ty656ty65tt4',telnumber:13658595502,message:''},
+        {username:'岳云鹏',tel:'q12r45tfrfdrretfffffffrrdddw3e34',telnumber:13817182520,message:'有合作意愿，请和我的经纪人联系'},
+        {username:'张家辉',tel:'aq12ws3edfr45tg6yh7uj8ik9ol5p0oi',telnumber:17870141818,message:'随时打这个电话联系'},
+        {username:'古天乐',tel:'sw2de34r44434erererddddddsdeerff',telnumber:13659595858,message:'请及时联系我'},
+        {username:'李沁',tel:'yhtg6ty656tyttt4re43wewe43454r54',telnumber:13100020007,message:''},
+        {username:'大鹏',tel:'swderf545656trfgtrtfgtrfdertygtr',telnumber:19918181101,message:''},
+        {username:'黄晓明',tel:'ujikolkiujhygtrfdertrtfr45676543',telnumber:13525250023,message:'想和贵公司谈合作'},
+    ]);
+    this.ctx.body = {
+        msg:'ok',
+        data:res
+    };
+}
+```
+
+### 5. 修改器set()方法：数据插入到数据库前可自动修改成指定要求的数据
+> 比如：username字段称呼，写入数据库之前自动在后面加上：（先生/女士）
+```js
+//`app/model/message.js`模型代码
+username: { 
+  type: STRING(30), 
+  allowNull: false, 
+  defaultValue: '', 
+  comment: '留言板用户称呼',
+  set(val){
+      let data = val + '（先生/女士）';
+      this.setDataValue('username',data);
+  }
+},
+```
