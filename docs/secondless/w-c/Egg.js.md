@@ -656,3 +656,38 @@ username: {
   }
 },
 ```
+
+## 七、egg.js项目查询数据
+> 我们仍然用上面的message.js模型为例
+### 1. 查询数据库中的单个数据：主键查询方法：findByPk(主键字段)、如果需要多个条件，可以使用findOne方法
+```js
+//`app/router.js`定义路由 
+//从数据库获取某一条留言数据
+router.get('/message/readOne/:id', controller.message.readOne);
+
+//`app/controller/message.js`控制器代码
+//从数据库获取某一条留言数据
+async readOne() {
+    // this.ctx.body = 'ok';
+    let id = parseInt(this.ctx.params.id);
+    // 方式一：通过主键方式查询，当还需要其他字段条件时候，采用方式二
+    // const data = await this.app.model.Message.findByPk(id);
+    // 方式二：findOne方法，参数为一个对象，对象中包含查询的条件
+    const data = await this.app.model.Message.findOne({
+        where: {
+            id: id,
+            telnumber:13658595502
+        }
+    });
+    if(!data){
+        return this.ctx.body = {
+            msg: 'fail',
+            data: '数据不存在'
+        }
+    }
+    this.ctx.body = {
+        msg: 'ok',
+        data: data
+    }
+}
+```
