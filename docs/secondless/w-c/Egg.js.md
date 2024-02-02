@@ -691,3 +691,49 @@ async readOne() {
     }
 }
 ```
+### 2. 查询数据库中的多个数据：查询多个findAll()，查询多个并统计条数findAndCountAll()
+```js
+//`app/router.js`定义路由
+//从数据库获取多条留言数据 http://127.0.0.1:7001/message/listMany
+router.get('/message/listMany', controller.message.listMany);
+
+//`app/controller/message.js`控制器代码
+//从数据库获取多条留言数据
+async listMany() {
+    //查询多个，没有条件，返回所有数据
+    // const data = await this.app.model.Message.findAll();
+    //查询多个并统计条数 findAndCountAll() 便于我们分页计算
+    const data = await this.app.model.Message.findAndCountAll();
+    this.ctx.body = {
+        msg: 'ok',
+        data: data
+    }
+}
+```
+### 3. 获取器get()方法：查询数据后可自动修改成指定要求的数据
+> 比如：timestamp字段，用户留言时间，目前查询的结果，时间不是我们想要的格式比如时间戳，可以通过get()方法，自动将时间格式修改成我们想要的格式
+```js
+//`app/model/message.js`模型代码
+timestamp : {
+  type: DATE, 
+  allowNull: false, 
+  defaultValue:app.Sequelize.fn('NOW'),
+  get(){
+      // this.getDataValue('timestamp') 可以获取到原始值
+      let data = this.getDataValue('timestamp');
+      /*
+      //如果想转换成年月日时分秒，可以使用moment.js库等其他时间库
+      //我们这里带领大家回忆一下js基础，就手动拼接一下
+      let year = data.getFullYear();
+      let month = ("0" + (data.getMonth() + 1)).slice(-2);
+      let day = ("0" + data.getDate()).slice(-2);
+      let hours = ("0" + data.getHours()).slice(-2);
+      let minutes = ("0" + data.getMinutes()).slice(-2);
+      let seconds = ("0" + data.getSeconds()).slice(-2);
+      return `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
+      */
+      //如果想转成时间戳
+      return (new Date(data)).getTime();
+  }
+},
+```
