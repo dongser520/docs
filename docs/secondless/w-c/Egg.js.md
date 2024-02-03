@@ -888,3 +888,89 @@ async listMany() {
     }
 }
 ```
+
+
+## 十、egg.js项目sequelize模型更新数据
+### 1. 更新数据：save方法，指定修改字段fields属性
+```js
+//`app/router.js`定义路由 
+//更新数据库的数据 http://127.0.0.1:7001/message/update/57
+router.post('/message/update/:id',controller.message.update);
+
+//`app/controller/message.js`控制器代码
+//更新数据库的数据
+async update(){
+    // this.ctx.body = {
+    //     msg: 'ok',
+    //     data: 123
+    // }
+    //拿到id
+    let id = this.ctx.params.id ? parseInt(this.ctx.params.id) : 0;
+    //根据id查询数据
+    const data = await this.app.model.Message.findByPk(id);
+    //如果没有这条数据则直接返回并提示
+    if(!data){
+        return this.ctx.body = {
+            msg: 'fail',
+            data: '数据不存在'
+        }
+    }
+    //存在则更新数据
+    //可以从postman或者页面拿修改的值
+    // data.username = '123';
+    data.username = this.ctx.request.body.username;
+    data.telnumber = this.ctx.request.body.telnumber;
+    //完成修改
+    // let res = await data.save();
+    // 前端给你传了很多修改字段，如果希望修改的时候，只修改你指定的字段
+    let res =  await data.save({
+        fields: ['username','telnumber'],//指定修改的字段，没有指定的不能修改
+    });
+
+    this.ctx.body = {
+        msg: 'ok',
+        data: res
+    }
+}
+```
+
+### 2. 如果觉得save方法更新字段非常麻烦，可以使用update方法批量修改字段，第二个参数可指定修改字段
+```js
+//`app/router.js`定义路由 
+//更新数据库的数据 http://127.0.0.1:7001/message/update/57
+router.post('/message/update/:id',controller.message.update);
+
+//`app/controller/message.js`控制器代码
+//更新数据库的数据
+async update(){
+    //拿到id
+    let id = this.ctx.params.id ? parseInt(this.ctx.params.id) : 0;
+    //根据id查询数据
+    const data = await this.app.model.Message.findByPk(id);
+    //如果没有这条数据则直接返回并提示
+    if(!data){
+        return this.ctx.body = {
+            msg: 'fail',
+            data: '数据不存在'
+        }
+    }
+    //存在则更新数据
+    //拿到前端所有数据
+    let params = this.ctx.request.body;
+    // console.log(params);//{ username: 'GIGI', telnumber: '12345678903' }
+    // let res = await data.update({
+    //     username: 'GIGI', 
+    //     telnumber: '12345678903'
+    // });
+    // let res = await data.update(params);
+    //当然为了确保虽然前端给了我们很多字段，我们只想修改指定的字段，可以传第二个参数，跟save方法一样指定字段
+    let res = await data.update(params,{
+        fields:['username'],//指定修改字段
+    });
+    
+    this.ctx.body = {
+        msg: 'ok',
+        data: res
+    }
+}
+```
