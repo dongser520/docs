@@ -751,14 +751,17 @@ async listMany() {
     const data = await this.app.model.Message.findAndCountAll({
         where:{
             // telnumber:13658595502,
+            // telnumber:{
+            //     [Op.eq] : 13658595502
+            // },
             //查询称呼里面含有：鹏，这个字的数据
             username:{
-                [Op.like]: '%鹏%'
+                [Op.like] : '%鹏%'
             },
             //并且id>60
             id:{
-                [Op.gt]: 60
-            }
+                [Op.gt] : 60
+            },
         }
     });
     this.ctx.body = {
@@ -820,4 +823,68 @@ const Op = this.app.Sequelize.Op;//拿Op,固定写法
 [Op.strictRight]: [1, 2]   // >> [1, 2) (PG range strictly right of operator)
 [Op.noExtendRight]: [1, 2] // &< [1, 2) (PG range does not extend to the right of operator)
 [Op.noExtendLeft]: [1, 2]  // &> [1, 2) (PG range does not extend to the left of operator)
+```
+## 九、egg.js项目sequelize模型查询结果指定字段、排序、分页
+> 很明显我们上面的查询结果是返回所有字段，如果想要指定字段，可以使用`attributes`属性
+### 1. attributes属性指定返回的字段，exclude属性指定排除的字段
+### 2. 排序：order
+### 3. 分页：limit指定每页返回多少条数据、offset指定偏移量
+### 示例
+```js
+//从数据库获取多条留言数据
+async listMany() {
+    //查询多个，没有条件，返回所有数据
+    // const data = await this.app.model.Message.findAll();
+
+    //拿到分页数
+    let page = this.ctx.query.page ? parseInt(this.ctx.query.page) : 1;
+    //那么此时只需要规定每页多少条，就可以计算偏移量，当然这个公式是固定的
+    let limit = 3;
+    let offset = (page - 1) * limit;
+
+    //查询多个并统计条数 findAndCountAll() 便于我们分页计算
+    const Op = this.app.Sequelize.Op;//拿Op,固定写法
+    const data = await this.app.model.Message.findAndCountAll({
+        where:{
+            // telnumber:13658595502,
+            // telnumber:{
+            //     [Op.eq] : 13658595502
+            // },
+            //查询称呼里面含有：鹏，这个字的数据
+            // username:{
+            //    [Op.like] : '%鹏%'
+            // },
+            //并且id>60
+            // id:{
+            //     [Op.gt] : 60
+            // },
+            
+        },
+        //指定查询返回的字段
+        // attributes: ['id', 'username','tel', 'telnumber', 'message'],
+        //或者指定哪个或者几个字段不查出来，其他都查
+        attributes:{
+            exclude: ['create_time','update_time'],//排除字段
+        },
+        //排序
+        order:[
+            //数组  [字段，排序规则]
+            ['id','desc'], //先按id降序排
+            ['timestamp','asc'] //然后再按timestamp升序排
+        ],
+        //分页 http://127.0.0.1:7001/message/listMany?page=1
+        //limit:3,//每页只显示3条
+        //实际上数据库存在一个偏移量offset
+        //offset: 3, //默认偏移量为0，也就是从第1条开始查
+
+        // limit:limit, //每页显示多少条
+        // offset:offset, //偏移量
+        limit,
+        offset
+    });
+    this.ctx.body = {
+        msg: 'ok',
+        data: data
+    }
+}
 ```
