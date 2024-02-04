@@ -1014,3 +1014,67 @@ async delete(){
     }
 }
 ```
+## 十二、错误和异常统一处理
+```js
+//删除数据库的数据
+async delete(){//我们一般抛出异常
+    this.ctx.throw(500,'测试抛出异常错误');
+    //我们毕竟是api接口，你给我返回一些html代码，不是我想要的，我需要简洁明了
+    //那么我们就可以写一个中间件，来捕获它的异常是错误
+    //中间件的名称你随便定义，我们这里定义叫做：error_handler.js
+    //放在：app/middleware/error_handler.js  middleware文件夹放中间件
+}
+```
+> 接下来，我们在中间件写代码：`app/middleware/error_handler.js`
+```js
+module.exports = ()=>{
+    // 注意函数名errorHandler要和我们的文件名保持一致，
+    //如果文件名error_handler.js有下划线，则写成驼峰式 errorHandler
+    return async function errorHandler(ctx, next){
+        //console.log('我是errorHandler');//测试的话，需要到config/config.default.js中设置配置一下
+        //return next();//程序继续往下走
+        //由此，我们可以对错误或异常做一个拦截
+        try{
+            await next();//会去执行控制器里面的方法
+        }catch(error){
+            // 所有的异常都在 app 上触发一个 error 事件，框架会记录一条错误日志
+            ctx.app.emit('error', error, ctx); //日志在 logs/myegg01/common-error.log查看
+
+            ctx.status = error.status;
+            ctx.body = {
+                msg:'fail',
+                data:error.message
+            }
+        }
+    }
+}
+```
+> 接下来，我们在config/config.default.js中设置配置一下
+```js
+// add your middleware config here
+config.middleware = ['errorHandler'];
+```
+配置之后，就是不管你访问哪个路由它会先经过这个中间件
+
+## 十三、中间件配置
+> 在十二的基础上，如果想指定某些路由走中间件，某些不走中间件，该如何配置？<br/>
+> 这种场景如：读取新闻信息所有用户都可以读取，类似这样的路由就可以不走中间件，但是删除新闻信息只有管理员才能操作，类似这样的路由则需要走中间件，因此需要走中间件的，需要做一个判断是不是管理员
+```js
+//我们在config/config.default.js中继续配置中间件
+config.middleware = ['errorHandler'];
+// 对中间件errorHandler进一步配置
+config.errorHandler = {
+    // enable:false,//不开启中间件
+    //指定走中间件的路由
+    match:[
+       "/message/delete", //只要包含/message/delete路由的任何页面都生效
+       //"/message/readOne"
+    ],
+    // ignore:["/message/delete"],//除了这个不走，其他都走中间件，match 和 ignore 只能配置一个
+};
+```
+关于中间件大家先了解这么多，后面我们在项目中涉及到登录的时候，在来详细讲。
+
+## egg.js基础课程总结
+### 1. 基础总结文档，对前面16个知识点的总结文档，查看 <a href="/secondless/w-c/egg.js基础总结" target="_blank" title="egg.js基础总结">egg.js基础总结</a>
+### 2. egg.js重要知识详细文档，查看 <a href="/secondless/w-c/egg.js重要知识详细文档" target="_blank" title="egg.js重要知识详细文档">egg.js重要知识详细文档</a>
