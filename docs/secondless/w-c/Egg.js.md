@@ -974,3 +974,43 @@ async update(){
     }
 }
 ```
+
+## 十一、egg.js项目sequelize模删除、批量删除数据：destroy方法
+```js
+//删除数据库的数据
+async delete(){
+    //删除单个数据
+    //拿到id
+    let id = this.ctx.params.id ? parseInt(this.ctx.params.id) : 0;
+    //查询数据
+    const data = await this.app.model.Message.findByPk(id);
+    // 不存在
+    if(!data){
+        return this.ctx.body = {
+            msg: 'fail',
+            data: '数据不存在'
+        }
+    }
+    //存在则删除
+    let res = await data.destroy();//删除单个数据
+    this.ctx.body = {
+        msg: 'ok',
+        data: res
+    }
+
+
+    //批量删除数据，比如 id<62的全部删除
+    // const Op = this.app.Sequelize.Op;
+    let res = await this.app.model.Message.destroy({
+        where:{
+            id:{
+                [this.app.Sequelize.Op.lt] : 62
+            }
+        }
+    });
+    this.ctx.body = {
+        msg: 'ok',
+        data: res  // 返回删除的条数
+    }
+}
+```
