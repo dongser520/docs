@@ -1075,6 +1075,112 @@ config.errorHandler = {
 ```
 关于中间件大家先了解这么多，后面我们在项目中涉及到登录的时候，在来详细讲。
 
+## 十四、参数验证
+> 我们在前面说过，当数据写进数据库之前，我们需要做进一步参数验证，来保证数据的合法性。接下来我们看一下参数验证的实现方式：
+> 具体大家可以看这个 <https://www.npmjs.com/package/egg-valparams>
+> ### 1. 安装插件
+> ```js
+> npm i egg-valparams --save
+> ```
+> ### 2. 配置插件 config/plugin.js：
+> ```js
+> // egg-valparams 参数验证插件
+> valparams : {
+>   enable : true,
+>   package: 'egg-valparams'
+> },
+> ```
+> ### 3. 配置 config/config.default.js
+> ```js
+> // 参数验证插件配置
+> config.valparams = {
+>     locale    : 'zh-cn',
+>     throwError: true  //是否抛出错误
+> };
+> ```
+> ### 4. 控制器举例
+```js
+//创建一条信息的留言写进数据库
+async createOne() {
+    // this.ctx.body = {
+    //     msg:'ok',
+    //     data:123
+    // };
+    //一般处理流程
+    let params = this.ctx.request.body;
+    //1.参数验证
+    this.ctx.validate({
+        username  : {
+            type: 'string',   //字符串
+            required: true,   //必填
+            desc: '用户称呼'  //字段描述
+        },
+        tel   : {
+            type: 'string', 
+            required: true, 
+            desc: '用户电话加密'
+        },
+        telnumber   : {
+            type: 'string', 
+            required: true, 
+            desc: '用户电话'
+        },
+        message: {
+            type: 'string', 
+            required: false, 
+            defValue: '', //默认值
+            desc: '用户留言'
+        }
+    });
+    //2.写入数据库
+    // const res = await this.app.model.Message.create({
+    //     username: '古力娜扎',
+    //     tel: '1120c1bd1f78d6e6c019d61e1daeaa3d',
+    //     telnumber: '13958585588',
+    //     message: ''
+    // });
+    const res = await this.app.model.Message.create(params);
+    //3.成功之后给页面反馈
+    this.ctx.body = {
+        msg: 'ok',
+        data: res
+    };
+}
+```
+> ### 5. 参数验证的错误提示在中间件中设置一下
+```js
+...
+ctx.status = error.status;
+if (ctx.status === 422) {
+    return ctx.body = {
+        msg:'fail',
+        data:error.errors
+    }
+}
+ctx.body = {
+    msg:'fail',
+    data:error.message
+}
+...
+```
+> ### 6.ValParams API 说明
+关于参数验证的类型等更多属性：
+1. 说明： <https://www.npmjs.com/package/egg-valparams>
+2. 参数验证的类型等更多属性：<https://github.com/D780/valparams/blob/master/doc/api.md#%E5%8F%82%E6%95%B0%E9%AA%8C%E8%AF%81%E5%A4%84%E7%90%86>
+3. 如果2打开太慢，可以看我们自己的学习文档  <a href="/secondless/w-c/ValParams API 说明" target="_blank" title="ValParams API 说明">ValParams API 说明</a><br/><br/>
+更多关于参数验证的知识点，我们在接下来的项目中再给大家讲解和使用。
+
+
+
+
+
+
+
+
+
+
+
+
 ## egg.js基础课程总结
 ### 1. 基础总结文档，对前面16个知识点的总结文档，查看 <a href="/secondless/w-c/egg.js基础总结" target="_blank" title="egg.js基础总结">egg.js基础总结</a>
 ### 2. egg.js重要知识详细文档，查看 <a href="/secondless/w-c/egg.js重要知识详细文档" target="_blank" title="egg.js重要知识详细文档">egg.js重要知识详细文档</a>
