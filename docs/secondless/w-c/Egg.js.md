@@ -1170,12 +1170,54 @@ ctx.body = {
 3. 如果2打开太慢，可以看我们自己的学习文档  <a href="/secondless/w-c/ValParams API 说明" target="_blank" title="ValParams API 说明">ValParams API 说明</a><br/><br/>
 更多关于参数验证的知识点，我们在接下来的项目中再给大家讲解和使用。
 
+## 十五、路由分组
+> 我们发现，在`router.js`中，关于`message.js`控制器的路由，我们就写了大量的路由地址，这还仅仅只是一个控制器的基本路由，随着我们项目的扩展开发，会有更多的控制器，同样会写这些增删改查的路由接口，因此我们可以想象到，`router.js`路由文件会越来越庞大，越来越不好管理，因此，`egg.js`提供了路由分组的功能，来解决这个问题。
+### 1. 新建 app/router目录，在该目录下新建对应控制器名文件
+```js
+//  如：对留言相关的路由分组出来，则：
+app/router/message.js
+```
+### 2. 在app/router/message.js中写路由
+> 即将router.js中message.js的路由剪切贴过来
+```js
+module.exports = app => {
+    const { router, controller } = app;
+    //仿照上面的样本，可以看到是get请求，参数1：网址路径，参数2：控制器.控制器文件.方法
+    router.get('/message', controller.home.message);
+    router.get('/message/list', controller.message.list);
+    // // 带?传参 http://127.0.0.1:7001/message/read?id=1
+    // router.get('/message/read', controller.message.read);
+    //不带?传参 http://127.0.0.1:7001/message/read/1
+    router.get('/message/read/:id', controller.message.read);
+    //不带?传参 http://127.0.0.1:7001/message/read/林俊杰
+    //  router.get('/message/read/:username', controller.message.read);
+    router.post('/message/create',controller.message.create);
 
+    //上面的路由是关于留言的，对json文件的操作
+    //下面的路由是关于留言的，对数据库留言表的操作
+    router.post('/message/createOne',controller.message.createOne);
+    //批量插入数据
+    router.post('/message/createMany',controller.message.createMany);
+    //从数据库获取某一条留言数据 http://127.0.0.1:7001/message/readOne/1
+    router.get('/message/readOne/:id', controller.message.readOne);
+    //从数据库获取多条留言数据 http://127.0.0.1:7001/message/listMany
+    router.get('/message/listMany', controller.message.listMany);
+    //更新数据库的数据 http://127.0.0.1:7001/message/update/57
+    router.post('/message/update/:id', controller.message.update);
+    //删除数据库的数据  http://127.0.0.1:7001/message/delete/57
+    router.post('/message/delete/:id', controller.message.delete);
+}
+```
 
-
-
-
-
+### 3.在app/router.js中按控制器指定分组
+```js
+module.exports = app => {
+  const { router, controller } = app;
+  router.get('/', controller.home.index);
+  //控制器分组
+  require('./router/message')(app);
+};
+```
 
 
 
