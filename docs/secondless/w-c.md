@@ -17,6 +17,7 @@ title: 第三季（课程学习顺序：03）
 ## 3.查看课程文档
 ### 章节1.第三季课程介绍 
 ### <a href="/secondless/w-c/Egg.js" target="_blank" title="点击查看课程文档">章节2.Egg.js基础</a>
+### <a href="/secondless/w-c/响应式网页布局" target="_blank" title="点击查看课程文档">章节3.响应式网页布局</a>
 
 
 
