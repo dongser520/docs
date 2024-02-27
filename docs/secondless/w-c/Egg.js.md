@@ -1219,10 +1219,66 @@ module.exports = app => {
 };
 ```
 
+## 十六、模版引擎
+> 有的同学就提出了疑问：说老师我们用`egg.js`就只能响应接口吗，如果是一个网页该如何响应给浏览器呢？<br/>
 
+`egg.js`官方给我们提供了模版引擎，查看 <a href="https://www.eggjs.org/zh-CN/core/view" target="_blank" title="模版引擎">模版引擎_View 模板渲染</a>
+### 1. 安装模版渲染插件
+```js
+npm i egg-view-nunjucks --save
+```
+### 2. 在config/plugin.js中配置插件
+```js
+//模版引擎插件处理html网页等文件
+nunjucks : {
+    enable: true,
+    package: 'egg-view-nunjucks',
+},
+```
+### 3. 在config/config.default.js中配置模版引擎
+```js
+//配置模版引擎
+config.view = {
+    mapping: {
+        //模版以.html结尾的模版文件，使用nunjucks模版引擎
+        '.html': 'nunjucks',
+    },
+};
+```
+### 4. vscode安装一下nunjucks模版引擎扩展，方便代码提示
+```js
+扩展名称：Nunjucks
+```
+### 5. 新建 app/view目录，以后所有模版放这个目录里面
+如： `app/view/index.html` 创建网页内容
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    我是首页模版
+</body>
+</html>
+```
+### 6. 控制器 app/controller/home.js 写一个方法
+```js
+async index() {
+    const { ctx } = this;
+    // ctx.body = '迪丽热巴';
+    await ctx.render('index.html');
+}
+```
+### 7. 重启项目，访问路由即可看到网页内容
+> 注意路由
+```js
+router.get('/', controller.home.index);
+```
 
-
-
+<br/><br/><br/><br/><br/>
 ## egg.js基础课程总结
 ### 1. 基础总结文档，对前面16个知识点的总结文档，查看 <a href="/secondless/w-c/egg.js基础总结" target="_blank" title="egg.js基础总结">egg.js基础总结</a>
 ### 2. egg.js重要知识详细文档，查看 <a href="/secondless/w-c/egg.js重要知识详细文档" target="_blank" title="egg.js重要知识详细文档">egg.js重要知识详细文档</a>
