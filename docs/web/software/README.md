@@ -15,13 +15,13 @@ title: 课程所需软件下载
 
 
 ## 2. 第二学期
-####  ① 第一季
+##  ① 第一季
 ### UPUPW 搭建本地服务器 <a href="https://php.upupw.net/ank2downloads/38/6698.html" title="下载UPUPW" target="_blank">[下载]</a>
 <!-- <a href="https://docs-51yrc-com.oss-cn-hangzhou.aliyuncs.com/software/UPUPW_ANK_W64_V1.1.8.rar" title="下载和课程同一版本的UPUPW">[下载]</a> -->
 > 注意：若想下载跟课程同一个版本的，请去群文件里面下载 <br/>
 > 本软件用于搭建本地服务器，下载完成后解压安装并搭建本地服务器，具体看第二学期第1季课程视频：<a href="javascipt(void:0);" target="_blank" title="搭建本地服务器点击查看">搭建本地服务器</a> <br/>
 
-####  ② 第二季
+##  ② 第二季
 ### jQuery <a href="https://www.bootcdn.cn/jquery/" title="下载和课程同一版本的jQuery.1.11.3" target="_blank">[下载]</a>
 > 课程用的版本是：1.11.3的版本，大家可以去下载，也可以群里面下载课程课件，里面有这个版本的jQuery库。
 ### jQuery的插件：cookie <a href="https://www.bootcdn.cn/jquery-cookie/" title="下载jQuery的cookie插件" target="_blank">[下载]</a>
@@ -58,8 +58,33 @@ title: 课程所需软件下载
 ### 小案例：node.js+vue.js 渲染企业网站
 > 具体查看：<a href="/secondless/w-b/node.js+vue.js%20渲染企业网站.html" target="_blank">案例：node.js+vue.js 渲染企业网站</a>
 
-#### ③ 第三季
+## ③ 第三季
 ### Egg.js <a href="https://www.eggjs.org/zh-CN" title="Egg.js官网" target="_blank">[Egg.js官网]</a>
 > Egg.js是阿里提供的Node.js应用的核心基础设施，它面向的领域是：企业级的 web 基础框架。<br/>是在基于Nodejs的框架：Express和Koa框架的基础上（Express和Koa缺乏约定，缺乏规范）<br/>
 > Eggjs对MVA进行约定规范，Eggjs为企业级框架和应用而生。<br/>
 > 使用前记得在vscode中先安装eggjs的插件：eggjs/Egg.js dev tools等
+
+### 安装Egg.js项目 
+> <a href="/secondless/w-c/Egg.js.html#_1-安装egg-js项目" title="安装Egg.js项目" target="_blank">[安装Egg.js项目]</a>
+
+### 安装postman 
+> <a href="/secondless/w-c/Egg.js.html#一、安装get-post等请求的调试工具-postman" title="安装get/post等请求的调试工具：postman" target="_blank">[安装get/post等请求的调试工具：postman]</a>
+
+### 小案例：eggjs + postman测试工具完成留言数据写入json文件
+> 本案例：eggjs + postman测试工具完成留言数据写入json文件，具体查看：<a href="/secondless/w-c/eggjs+postman测试工具将留言写入json文件.html" target="_blank">案例：eggjs+postman测试工具将留言写入json文件</a>
+
+### mysql（MySQL）数据库基础
+> 数据库作为我们Egg.js基础学习的一部分，大家先学习数据库的基础知识。具体查看：<a href="/secondless/w-c/mysql数据库.html" target="_blank">mysql（MySQL）数据库基础</a>
+
+### egg.js基础课程总结
+>  基础总结文档，对<a href="/secondless/w-c/Egg.js.html" title="章节2：egg.js基础" target="_blank">章节2：egg.js基础</a>16个知识点的总结文档，查看 <a href="/secondless/w-c/egg.js基础总结" target="_blank" title="egg.js基础总结">egg.js基础总结</a> <br/>
+>  egg.js重要知识详细文档，查看 <a href="/secondless/w-c/egg.js重要知识详细文档" target="_blank" title="egg.js重要知识详细文档">egg.js重要知识详细文档</a>
+
+### 响应式网页布局
+> 具体查看 <a href="/secondless/w-c/响应式网页布局.html" title="响应式网页布局" target="_blank">[响应式网页布局]</a>
+
+### Bootstrap框架
+> 具体查看 <a href="/secondless/w-c/响应式网页布局.html#_4-bootstrap框架" title="Bootstrap框架" target="_blank">[Bootstrap框架]</a>
+
+### 响应式后台管理系统（egg.js + Bootstrap）
+> 具体查看：<a href="/secondless/w-c/响应式后台管理系统" target="_blank">响应式后台管理系统（egg.js + Bootstrap）</a>
