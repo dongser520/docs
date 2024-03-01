@@ -17,6 +17,62 @@ title: 课程案例相关表设计及说明
 | <b> create_time </b>  | datetime  |                                   |    否    |        CURRENT_TIMESTAMP	               |   数据创建时间                         |
 | <b> update_time </b>  | datetime  |                                   |    否    |        CURRENT_TIMESTAMP	               |   数据更新时间                         |
 
+
+### message 表迁移文件
+```js
+'use strict';
+
+/** @type {import('sequelize-cli').Migration} */
+module.exports = {
+  async up (queryInterface, Sequelize) {
+    const { INTEGER, STRING, DATE, ENUM, TEXT, BIGINT} = Sequelize;
+    // 创建表 --- 类似我们sql语句定义表结构
+    await queryInterface.createTable('message', {
+      id: { 
+        type: INTEGER(20).UNSIGNED, 
+        primaryKey: true, 
+        autoIncrement: true,
+        comment: '留言板主键id'
+      },
+      username: { 
+        type: STRING(30), 
+        allowNull: false, 
+        defaultValue: '', 
+        comment: '留言板用户称呼'
+      },
+      tel: { 
+        type: STRING(64), 
+        allowNull: false, 
+        defaultValue: '' , 
+        comment: '留言用户的电话号码加密'
+      },
+      telnumber : { 
+        type: BIGINT(11), 
+        allowNull: false, 
+        defaultValue: 0 , 
+        comment: '留言用户的电话号码', 
+        unique: true
+      },
+      message : { 
+        type: TEXT, 
+        allowNull: true, 
+        defaultValue: '', 
+        comment: '留言用户的留言信息' 
+      },
+      // sex: { type: ENUM, values: ['男','女','保密'], allowNull: true, defaultValue: '保密', comment: '留言用户性别'},
+      timestamp : {type: DATE, allowNull: false, defaultValue:Sequelize.fn('NOW')},
+      create_time: {type: DATE, allowNull: false, defaultValue:Sequelize.fn('NOW')},
+      update_time: {type: DATE, allowNull: false, defaultValue:Sequelize.fn('NOW')}
+    });
+  },
+
+  async down (queryInterface, Sequelize) {
+    await queryInterface.dropTable('message')
+  }
+};
+
+```
+
 ### message 模型
 ```js
 'use strict';
@@ -95,3 +151,50 @@ module.exports = app =>{
     return Message;
 }
 ```
+### message 参数验证
+```js
+//一般处理流程
+//1.参数验证
+this.ctx.validate({
+    username  : {
+        type: 'string',  //参数类型
+        required: true, //是否必须
+        // defValue: '', 
+        desc: '用户称呼' //字段含义
+    },
+    tel  : {
+        type: 'string',  
+        required: true, 
+        // defValue: '', 
+        desc: '用户电话加密' 
+    },
+    telnumber  : {
+        type: 'phone',  
+        required: true, 
+        // defValue: '', 
+        desc: '用户电话' 
+    },
+    message  : {
+        type: 'string',  
+        required: false, 
+        defValue: '', 
+        desc: '用户留言' 
+    },
+});
+//2.写入数据库
+//...
+//3.成功之后给页面反馈
+//...
+```
+
+## 二. 管理员表 manager
+### manager 表字段设计
+| 字段名                 |  数据类型   | 描述                              |   空     | 默认值      | <p style="width:100px;">字段含义 </p>     |
+| :---:                 | :---:       | :---:                            | :---:    |         :---:                           |        :---:                           |
+| <b>id </b>            | <span>int(20) </span>     | <span style="font-size:12px">主键、自增长、UNSIGNED无符号 </span>      |   否      |         <span style="font-size:12px">无  </span>                             |                                        |
+| <b>username </b>      | varchar(30) |                                  |    否    |                                         |   管理员账号                          |
+| <b>password </b>      | varchar(255) |                                  |    否    |                                         |   管理员密码                          |
+| <b>avatar </b>      | <span style="font-size:12px">varchar(1000) </span>|                                  |   <span style="font-size:12px"> 是  </span>  |     <span style="font-size:12px">给一个默认图像地址：如：/public/assets/img/profiles/avatar-01.jpg</span>                                    |  <span style="font-size:12px"> 管理员头像（本地、网络图片地址）  </span>         |
+| <b> create_time </b>  | datetime  |                                   |    否    |        CURRENT_TIMESTAMP	               |   数据创建时间                         |
+| <b> update_time </b>  | datetime  |                                   |    否    |        CURRENT_TIMESTAMP	               |   数据更新时间                         |
+> 额外说明：`mysql每行最大只能存65535个字节。假设是utf-8编码，每个字符占3个字节。varchar存储最大字符数为(65535-2-1)/3=21844字符长度`
