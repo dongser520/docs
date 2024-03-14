@@ -33,3 +33,8 @@ title: Vue.js
 ### 1. VueDraggablePlus（支持 Vue2 和 Vue3 的拖拽组件）
 > 官网：<a href="https://alfred-skyblue.github.io/vue-draggable-plus/" title="VueDraggablePlus" target="_blank"  style="margin-right:30px">[VueDraggablePlus（支持 Vue2 和 Vue3 的拖拽组件）]</a>
 > github: <a href="https://github.com/Alfred-Skyblue/vue-draggable-plus" title="VueDraggablePlus" target="_blank">[github源码]</a>
+
+## 四. 框架
+### 1.RuoYi-Vue-Plus 强大牛B的后台管理框架
+> 强大牛B的后台管理框架
+> 框架地址：<a href="https://gitee.com/dromara/RuoYi-Vue-Plus" title="VueDraggablePlus" target="_blank"  style="margin-right:30px">[https://gitee.com/dromara/RuoYi-Vue-Plus]</a>
