@@ -86,5 +86,8 @@ title: 课程所需软件下载
 ### Bootstrap框架
 > 具体查看 <a href="/secondless/w-c/响应式网页布局.html#_4-bootstrap框架" title="Bootstrap框架" target="_blank">[Bootstrap框架]</a>
 
-### 响应式后台管理系统（egg.js + Bootstrap）
+### 响应式网站后台管理系统（egg.js + Bootstrap）
 > 具体查看：<a href="/secondless/w-c/响应式后台管理系统" target="_blank">响应式后台管理系统（egg.js + Bootstrap）</a>
+
+### 上传文件
+> 具体查看：<a href="/secondless/w-c/上传文件.html" target="_blank">上传文件</a>
