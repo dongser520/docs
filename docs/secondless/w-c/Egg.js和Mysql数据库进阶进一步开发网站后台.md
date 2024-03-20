@@ -1,22 +1,106 @@
 ---
-title: 第三季（课程学习顺序：03） 
+navbar: true
+sidebar: auto
+title: 章节4.Egg.js和Mysql数据库进阶进一步开发网站后台
 ---
-# html + css + javascript + jquery + node.js + vue.js + egg.js 开发企业网站
-## 1.第三季课程介绍
-第三季课程是在第二学期第一季、第二季课程上面做的进阶课程，建议先学完第一季、第二季课程，再学本季课程！
-> <span style="color:#00A5F7">适用人群</span> <br/>
-> ...
-> <br/>
-> <span style="color:#00A5F7">课程概述</span><br/>
-> 【课程概述】<br/>
-> ...
-<br/><br/>
-> 具体课程安排，请看下面的文档目录
-## 2.课程视频学习
-[学习课程完整视频](https://study.163.com/course/courseMain.htm?courseId=1213374826&share=2&shareId=480000002289674 '点击学习课程完整视频')
-## 3.查看课程文档
-### 章节1.第三季课程介绍 
-### <a href="/secondless/w-c/Egg.js" target="_blank" title="点击查看课程文档">章节2.Egg.js基础</a>
+
+> <b>前言</b> <br/><br/>
+> 基于同学们在上一章（第三章）对响应式网站后台的学习，以及我们第二章egg.js基础的学习，从本章节开始，我们将继续对网站后台进行扩展开发。
+> <br/><br/>
+> 我们在上一章已经完成了网站后台的管理员登录、管理员板块、留言板板块的开发。那么作为普通的企业网站后台，还应该有发布新闻信息、发布产品信息、管理网站导航栏等等功能。由于接下来的这些栏目，各个栏目板块数据库表之间的关联关系，相比较于我们前面开发的管理员列表、留言板板块，会相对复杂一些，因此我们将它们放在第四章进行讲解。
+> <br/><br/>
+> 由于考虑到我们会在后面的课程：关于小程序、APP的开发中涉及到直播功能、即时通讯功能、商城功能、高德百度腾讯地图功能、视频功能、网盘功能等等，以直播功能为例，直播功能依然需要后台对直播功能中的：用户、礼物、直播间等等板块做后台开发，因此我们借本章开发后台其它管理板块，一起给大家讲解一下关于直播的后台功能 <br/><br/>`目的就是：让大家更深入的理解我们egg.js项目中的模型关联关系。`
+
+## 一、用户管理板块(以直播功能中的用户表liveuser表为例)
+> 由于一般企业网站不存在用户管理，因此我们这里以大家感兴趣的‘直播’功能为例，讲一下用户管理板块<br/>
+> 具体查看：<a href="/secondless/w-c/直播功能中的用户表liveuser" target="_blank" title="点击查看课程文档">直播功能中的用户表liveuser</a> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<br/><br/><br/><br/><br/>
+
+## 【第二学期第3季课程】其它章节
+### [章节1.课程介绍](/secondless/w-c '章节1.课程介绍')
+<!-- <LessList  /> -->
+### [章节2.Egg.js基础](/secondless/w-c/Egg.js '章节2.Egg.js基础')
 ####  <a href="/secondless/w-c/Egg.js.html#一、关于egg-js" style="margin-left:40px;">一、关于Egg.js</a>
 ##### <a href="/secondless/w-c/Egg.js.html#_1-安装egg-js项目" style="margin-left:70px;">① 安装Egg.js项目</a>
 ##### <a href="/secondless/w-c/Egg.js.html#_2-写一个api接口进行测试" style="margin-left:70px;">② 写一个api接口进行测试</a>
@@ -92,7 +176,7 @@ title: 第三季（课程学习顺序：03）
 ##### <a href="/secondless/w-c/Egg.js.html#_6-控制器-app-controller-home-js-写一个方法" style="margin-left:70px;">6. 控制器 app/controller/home.js 写一个方法</a>
 ##### <a href="/secondless/w-c/Egg.js.html#_7-重启项目-访问路由即可看到网页内容" style="margin-left:70px;">7. 重启项目，访问路由即可看到网页内容</a>
 ####  <a href="/secondless/w-c/Egg.js.html#egg-js基础课程总结" style="margin-left:40px;">egg.js基础课程总结</a>
-### <a href="/secondless/w-c/响应式网页布局" target="_blank" title="点击查看课程文档">章节3.响应式网页布局</a>
+### [章节3.响应式网页布局](/secondless/w-c/响应式网页布局 '章节3.响应式网页布局')
 ####  <a href="/secondless/w-c/响应式网页布局.html#_1-响应式网页布局是什么" style="margin-left:40px;">一、响应式网页布局是什么</a>
 ####  <a href="/secondless/w-c/响应式网页布局.html#_2-响应式网页布局的实现方法" style="margin-left:40px;">二、响应式网页布局的实现方法</a>
 ####  <a href="/secondless/w-c/响应式网页布局.html#_3-简单的响应式页面案例" style="margin-left:40px;">三、简单的响应式页面案例</a>
@@ -109,9 +193,33 @@ title: 第三季（课程学习顺序：03）
 ##### <a href="/secondless/w-c/响应式后台管理系统.html#九、后台左侧菜单栏" style="margin-left:70px;">⑨ 后台左侧菜单栏</a>
 ##### <a href="/secondless/w-c/上传文件.html" style="margin-left:70px;">⑩ 上传文件</a>
 ##### <a href="/secondless/w-c/响应式后台管理系统.html#十一、上传或修改管理员头像" style="margin-left:70px;">⑪ 上传或修改管理员头像</a>
-### <a href="/secondless/w-c/Egg.js和Mysql数据库进阶进一步开发网站后台" target="_blank" title="点击查看课程文档">章节4.Egg.js和Mysql数据库进阶进一步开发网站后台</a>
+### [章节4.Egg.js和Mysql数据库进阶进一步开发网站后台](/secondless/w-c/Egg.js和Mysql数据库进阶进一步开发网站后台 '章节4.Egg.js和Mysql数据库进阶进一步开发网站后台')
 
+<br/><br/>
 
+## 其它学期课程
+### [第一学期（学习顺序：01）](/aboutless.html '第一学期课程')
+> 第一学期课程专为零基础的学员定制录制的，纯html+css做企业网站的网页，主讲html和css的相关基础知识，flex布局相关知识，封装css基础样式库，引入字体图标及网页开发基础布局思维，完成企业网站网页的开发过程。<br/><br/>
+<b><a href="https://study.163.com/course/courseMain.htm?courseId=1213374826&share=2&shareId=480000002289674" target="_blank">[第一学期学习视频]</a>
+</b>
 
-## 4.本季课程视频介绍
-[![](/hear.jpg '第二学期第三季课程介绍，点击查看')](https://www.bilibili.com/video/BV1YY411679o/?vd_source=9a6ee0d7e6c1657e4a7381c1f8f18f4b)
+### [第二学期【第1季】（学习顺序：02）](/secondless/w-a '第二学期第1季课程')
+> 主讲JavaScript的基础，建议所有学员观看。<br/>
+<b>
+   <a href="/secondless/w-a.html" target="_blank">[第1季学习文档]</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+   <a style="margin-left:20px;">[第1季学习视频]</a>
+</b>
+
+### [第二学期【第2季】（学习顺序：03）](/secondless/w-b '第二学期第2季课程')
+> JavaScript中的面向对象，类，ajax，封装js库过渡到jQuery， vue.js基础配置网站页面，建议所有学员观看。<br/>
+<b>
+   <a href="/secondless/w-b.html" target="_blank">[第2季学习文档]</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+   <a style="margin-left:20px;">[第2季学习视频]</a>
+</b>
+
+### [第二学期【第3季】（学习顺序：04）](/secondless/w-c '第二学期第3季课程')
+> egg.js基础，响应式网页布局，Bootstrap框架，响应式后台系统管理，建议所有学员观看。<br/>
+<b>
+   <a href="/secondless/w-c.html" target="_blank">[第3季学习文档]</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+   <a style="margin-left:20px;">[第3季学习视频]</a>
+</b>
