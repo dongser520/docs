@@ -15,6 +15,9 @@ title: 章节4.Egg.js和Mysql数据库进阶进一步开发网站后台
 > 由于一般企业网站不存在用户管理，因此我们这里以大家感兴趣的‘直播’功能为例，讲一下用户管理板块<br/>
 > 具体查看：<a href="/secondless/w-c/直播功能中的用户表liveuser" target="_blank" title="点击查看课程文档">直播功能中的用户表liveuser</a> 
 
+## 二、礼物管理(以直播功能中的礼物表livegift表为例)
+> 具体查看：<a href="/secondless/w-c/直播功能中的礼物表livegift" target="_blank" title="点击查看课程文档">直播功能中的礼物表livegift</a> 
+
 
 
 
