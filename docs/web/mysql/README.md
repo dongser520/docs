@@ -204,3 +204,6 @@ this.ctx.validate({
 
 ## 三. 直播功能中的用户表 liveuser
 具体查看：<a href="/secondless/w-c/直播功能中的用户表liveuser" target="_blank" title="点击查看课程文档">直播功能中的用户表liveuser</a>
+
+## 三. 直播功能中的礼物表 livegift
+具体查看：<a href="/secondless/w-c/直播功能中的礼物表livegift" target="_blank" title="点击查看课程文档">直播功能中的礼物表livegift</a>
