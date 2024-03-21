@@ -217,3 +217,211 @@ title: 直播功能中的礼物表livegift
 > module.exports = LivegiftController;
 > 
 > ```
+
+## 五、完成后台功能中礼物的列表展示、修改礼物、删除礼物
+> 控制器 `app/controller/admin/livegift.js` 完成功能
+> ```javascript
+> //创建直播功能中的礼物列表页面
+>     async index() {
+>         const { ctx, app } = this;
+>         //分页：可以提炼成一个公共方法page(模型名称，where条件，其他参数options)
+>         let data = await ctx.page('Livegift');
+>         //渲染公共模版
+>         await ctx.renderTemplate({
+>             title: '直播功能中的礼物列表',//现在网页title,面包屑导航title,页面标题
+>             data,
+>             tempType: 'table', //模板类型：table表格模板 ，form表单模板
+>             table: {
+>                 //表格上方按钮,没有不要填buttons
+>                 buttons: [
+>                     {
+>                         url: '/admin/livegift/create',//新增路径
+>                         desc: '新增直播功能中的礼物',//新增 //按钮名称
+>                         // icon: 'fa fa-plus fa-lg',//按钮图标
+>                     }
+>                 ],
+>                 //表头
+>                 columns: [
+>                     {
+>                         title: '直播功能中的礼物名称',
+>                         // key: 'username',
+>                         render(item) {
+>                             return `
+>                 <h2 class="table-avatar">
+>                   <a href="#" class="avatar avatar-sm mr-2">
+>                       <img
+>                           class="avatar-img rounded-circle"
+>                           src="${item.image}"
+>                           alt="User Image"></a>
+>                       <a href="#"> ${item.name}
+>                       <span>直播功能中的礼物</span></a>
+>                 </h2>
+>                `;
+>                         },
+>                     },
+>                     {
+>                         title: '创建时间',
+>                         key: 'create_time',
+>                         width: 200,//可选
+>                         class: 'text-center',//可选
+>                     },
+>                     {
+>                         title: '操作',
+>                         class: 'text-right',//可选
+>                         action: {
+>                             //修改
+>                             edit: function (id) {
+>                                 return `/admin/livegift/edit/${id}`;
+>                             },
+>                             //删除
+>                             delete: function (id) {
+>                                 return `/admin/livegift/delete/${id}`;
+>                             }
+>                         }
+>                     },
+>                 ],
+>             },
+>         });
+>     }
+> 
+>     //删除直播功能中的礼物功能
+>     async delete() {
+>         const { ctx, app } = this;
+>         const id = ctx.params.id;
+>         await app.model.Livegift.destroy({
+>             where: {
+>                 id
+>             }
+>         });
+>         //提示
+>         ctx.toast('直播功能中的礼物删除成功', 'success');
+>         //跳转
+>         ctx.redirect('/admin/livegift/index');
+>     }
+> 
+>     //修改直播功能中的礼物界面
+>     async edit() {
+>         const { ctx, app } = this;
+>         const id = ctx.params.id;
+>         let data = await app.model.Livegift.findOne({
+>             where: {
+>                 id
+>             }
+>         });
+>         if (!data) {
+>             return ctx.pageFail('该直播功能中的礼物不存在', 404);
+>         }
+>         // data = JSON.parse(JSON.stringify(data));
+>         console.log(data);
+>         //渲染公共模版
+>         await ctx.renderTemplate({
+>             id,
+>             title: '修改直播功能中的礼物',//现在网页title,面包屑导航title,页面标题
+>             tempType: 'form', //模板类型：table表格模板 ，form表单模板
+>             form: {
+>                 //修改直播功能中的礼物提交地址
+>                 action: '/admin/livegift/update/' + id,
+>                 //  字段
+>                 fields: [
+>                     {
+>                         label: '礼物名称',
+>                         type: 'text',
+>                         name: 'name',
+>                         placeholder: '请输入礼物名称',
+>                         // default:'默认值测试', //新增时候默认值，可选
+>                     },
+>                     {
+>                         label: '礼物图标',
+>                         type: 'file',
+>                         name: 'image',
+>                     },
+>                     {
+>                         label: '礼物价值多少金币',
+>                         type: 'number',
+>                         name: 'coin',
+>                         default: data.coin,
+>                         placeholder: '礼物价值多少金币,可选，默认0',
+>                     }
+>                 ],
+>                 //修改内容默认值
+>                 data,
+>             },
+>             //修改成功之后跳转到哪个页面
+>             successUrl: '/admin/livegift/index',
+>         });
+> 
+>     }
+>     //修改直播功能中的礼物数据功能
+>     async update() {
+>         const { ctx, app } = this;
+>         //1.参数验证
+>         this.ctx.validate({
+>             id: {
+>                 type: 'int',
+>                 required: true,
+>                 desc: '直播功能中的礼物id'
+>             },
+>             name: {
+>                 type: 'string',  //参数类型
+>                 required: true, //是否必须
+>                 // defValue: '', 
+>                 desc: '礼物名称' //字段含义
+>             },
+>             image: {
+>                 type: 'string',
+>                 required: true,
+>                 // defValue: '', 
+>                 desc: '礼物图标'
+>             },
+>             coin: {
+>                 type: 'int',
+>                 required: false,
+>                 defValue: 0,
+>                 desc: '礼物价值多少金币'
+>             }
+>         });
+> 
+>         // 参数
+>         const id = ctx.params.id;
+>         const { name, image, coin } = ctx.request.body;
+>         // 先看一下直播功能中的礼物是否存在
+>         const livegift = await app.model.Livegift.findOne({ where: { id } });
+>         if (!livegift) {
+>             return ctx.pageFail('该直播功能中的礼物记录不存在');
+>         }
+>         //存在，由于直播功能中的礼物的账号具有唯一性，你不能修改账号的时候，修改成存在的账号
+>         const Op = this.app.Sequelize.Op;//拿Op,固定写法
+>         if (await app.model.Livegift.findOne({
+>             where: {
+>                 name,
+>                 id: {
+>                     [Op.ne]: id
+>                 }
+>             }
+>         })) {
+>             return ctx.apiFail('该直播功能中的礼物名称已经存在，不能修改成该直播功能中的礼物名称');
+>         }
+>         // 修改数据
+>         livegift.name = name;
+>         livegift.image = image;
+>         livegift.coin = coin;
+>         await livegift.save();
+>         // 给一个反馈
+>         ctx.apiSuccess('修改礼物成功');
+>     }
+> ```
+## 六、路由 `app/router/admin/admin.js`
+> ```js
+>    // 创建直播功能中的礼物界面
+>    router.get('/admin/livegift/create', controller.admin.livegift.create);
+>    //创建直播功能中的礼物提交数据
+>    router.post('/admin/livegift/save', controller.admin.livegift.save);
+>    //创建直播功能中的礼物列表页面
+>    router.get('/admin/livegift/index', controller.admin.livegift.index);
+>    //删除直播功能中的礼物功能
+>    router.get('/admin/livegift/delete/:id', controller.admin.livegift.delete);
+>    //修改直播功能中的礼物界面
+>    router.get('/admin/livegift/edit/:id', controller.admin.livegift.edit);
+>    //修改直播功能中的礼物数据功能
+>    router.post('/admin/livegift/update/:id', controller.admin.livegift.update);
+> ```
