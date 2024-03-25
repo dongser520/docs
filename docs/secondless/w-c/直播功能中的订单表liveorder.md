@@ -49,7 +49,8 @@ title: 直播功能中的订单表liveorder
 >>         type: STRING(100), 
 >>         allowNull: false, 
 >>         defaultValue: '', 
->>         comment: '订单号'
+>>         comment: '订单号',
+>>         unique: true
 >>       },
 >>       price : { 
 >>         type: INTEGER(9), 
@@ -88,6 +89,208 @@ title: 直播功能中的订单表liveorder
 >> ```
 >> 执行迁移文件命令生成数据库表：
 >> ```js
->> // 升级数据库
+>> // 升级数据库-创建数据表
 >> npx sequelize db:migrate
+>> // 如果有问题需要回滚，可以通过 `db:migrate:undo` 回退一个变更
+>> npx sequelize db:migrate:undo
+>> // 可以通过 `db:migrate:undo:all` 回退到初始状态
+>> npx sequelize db:migrate:undo:all
 >> ```
+表中的liveuser_id字段，我们称之为`外键`，外键是用来关联其他表的，比如上面我们关联了liveuser表，关联的liveuser表的主键id，我们通过外键来关联liveuser表的id，这样就实现了关联关系。
+
+## 三、创建直播功能中的礼物表 livegift 的模型
+> 模型文件主要是用于处理数据库表的增删改查等操作 `app/model/liveorder.js`
+> ### 重点理解模型关联关系
+> ```js
+> 'use strict';
+> 
+> module.exports = app => {
+>     const { INTEGER, STRING, DATE, ENUM, TEXT, BIGINT } = app.Sequelize;
+> 
+>     const Liveorder = app.model.define('liveorder', {
+>         id: {
+>             type: INTEGER(20).UNSIGNED,
+>             primaryKey: true,
+>             autoIncrement: true,
+>             comment: '订单表主键id'
+>         },
+>         no: {
+>             type: STRING(100),
+>             allowNull: false,
+>             defaultValue: '',
+>             comment: '订单号',
+>             unique: true
+>         },
+>         price: {
+>             type: INTEGER(9),
+>             allowNull: false,
+>             defaultValue: 0,
+>             comment: '订单价格'
+>         },
+>         status: {
+>             type: ENUM,
+>             values: ['pending', 'success', 'fail'],
+>             allowNull: false,
+>             defaultValue: 'pending',
+>             comment: '订单支付状态'
+>         },
+>         liveuser_id: {
+>             type: INTEGER(20).UNSIGNED,
+>             allowNull: false,
+>             defaultValue: 0,
+>             comment: '哪个用户下的订单',
+>             references: { //关联关系
+>                 model: 'liveuser', //关联的表
+>                 key: 'id' //关联表的主键
+>             },
+>             onDelete: 'cascade', //删除时操作
+>             onUpdate: 'restrict', // 更新时操作
+>         },
+>         create_time: {
+>             type: DATE,
+>             allowNull: false,
+>             defaultValue: app.Sequelize.fn('NOW'),
+>             get() {
+>                 return app.formatTime(this.getDataValue('create_time'));
+>             }
+>         },
+>         update_time: { type: DATE, allowNull: false, defaultValue: app.Sequelize.fn('NOW') }
+>     });
+> 
+>     // 模型关联关系
+>     Liveorder.associate = function (models) {
+>         // 关联用户 反向一对多(用户对于订单是一个用户可以有多个订单，反过来订单属于用户belongsTo，就是反向一对多)
+>         Liveorder.belongsTo(app.model.Liveuser);
+>     }
+> 
+>     return Liveorder;
+> }
+> ```
+说明：关于模型关联关系：<br/>
+1. 搜索 `egg.js重要知识详细文档`，找到 `关联操作` 栏目 <br/>
+2. 大家先用常识去理解这个一对多、反向一对多，多对多的这种关系，后面我们通过代码和sql数据让大家深入理解。
+
+## 四、创建直播功能中的订单表 liveorder 的控制器、完成后台功能中订单列表功能
+> 创建控制器 `app/controller/admin/liveorder.js` 完成功能
+> ```js
+> 'use strict';
+> 
+> const Controller = require('egg').Controller;
+> 
+> class LiveorderController extends Controller {
+>     //创建直播功能中的订单列表页面
+>     async index() {
+>         const { ctx, app } = this;
+>         //分页：可以提炼成一个公共方法page(模型名称，where条件，其他参数options)
+>         let data = await ctx.page('Liveorder',{},{
+>             // 关联查询
+>             include:[
+>                 {
+>                     model:app.model.Liveuser, // 需要查询的模型
+>                     attributes:['id','username','avatar'], // 查询的字段
+>                 },
+>             ],
+>         });
+>         data = JSON.parse(JSON.stringify(data));
+>         console.log(data);
+>         // return;
+>         //渲染公共模版
+>         await ctx.renderTemplate({
+>             title: '直播功能中的订单列表',//现在网页title,面包屑导航title,页面标题
+>             data,
+>             tempType: 'table', //模板类型：table表格模板 ，form表单模板
+>             table: {
+>                 //表格上方按钮,没有不要填buttons
+>                 // buttons: [
+>                 //     {
+>                 //         url: '/admin/liveorder/create',//新增路径
+>                 //         desc: '新增直播功能中的订单',//新增 //按钮名称
+>                 //         // icon: 'fa fa-plus fa-lg',//按钮图标
+>                 //     }
+>                 // ],
+>                 //表头
+>                 columns: [
+>                     {
+>                         title: 'ID',
+>                         key: 'id',
+>                         class: 'text-center',//可选
+>                     },
+>                     {
+>                         title: '订单号',
+>                         key: 'no',
+>                         class: 'text-center',//可选
+>                     },
+>                     {
+>                         title: '哪个用户买的',
+>                         // key: 'username',
+>                         render(item) {
+>                             return `
+>             <h2 class="table-avatar">
+>               <a href="#" class="avatar avatar-sm mr-2">
+>                   <img
+>                       class="avatar-img rounded-circle"
+>                       src="${item.liveuser.avatar}"
+>                       alt="User Image"></a>
+>                   <a href="#"> ${item.liveuser.username}
+>                   <span>id:${item.liveuser.id}</span></a>
+>             </h2>
+>            `;
+>                         },
+>                     },
+>                     {
+>                         title: '价格金币',
+>                         key: 'price',
+>                         class: 'text-center',//可选
+>                     },
+>                     {
+>                         title: '订单状态',
+>                         class: 'text-center',//可选
+>                         // key: 'status',
+>                         render(item) {
+>                             const o = {
+>                                 pending:{
+>                                     text:'待支付',
+>                                     color:'warning'
+>                                 },
+>                                 success:{
+>                                     text:'支付成功',
+>                                     color:'success'
+>                                 },
+>                                 fail:{
+>                                     text:'支付失败',
+>                                     color:'danger'
+>                                 },
+>                             }
+>                             let v = o[item.status];
+>                             return `<span class="badge badge-${v.color}">${v.text}</span>`;
+>                         }
+>                     },
+>                     {
+>                         title: '创建时间',
+>                         key: 'create_time',
+>                         width: 200,//可选
+>                         class: 'text-center',//可选
+>                     },
+>                     {
+>                         title: '操作',
+>                         class: 'text-right',//可选
+>                         action: {
+>                             //修改
+>                             // edit: function (id) {
+>                             //     return `/admin/liveorder/edit/${id}`;
+>                             // },
+>                             //删除
+>                             delete: function (id) {
+>                                 return `/admin/liveorder/delete/${id}`;
+>                             }
+>                         }
+>                     },
+>                 ],
+>             },
+>         });
+>     }
+> }
+> 
+> module.exports = LiveorderController;
+> 
+> ```
