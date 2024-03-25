@@ -98,7 +98,7 @@ title: 直播功能中的订单表liveorder
 >> ```
 表中的liveuser_id字段，我们称之为`外键`，外键是用来关联其他表的，比如上面我们关联了liveuser表，关联的liveuser表的主键id，我们通过外键来关联liveuser表的id，这样就实现了关联关系。
 
-## 三、创建直播功能中的礼物表 livegift 的模型
+## 三、创建直播功能中的订单表 liveorder 的模型
 > 模型文件主要是用于处理数据库表的增删改查等操作 `app/model/liveorder.js`
 > ### 重点理解模型关联关系
 > ```js
@@ -294,3 +294,4 @@ title: 直播功能中的订单表liveorder
 > module.exports = LiveorderController;
 > 
 > ```
+> bootstrap4菜鸟教程  <a href="https://www.runoob.com/bootstrap4/bootstrap4-badges.html" target="_blank">bootstrap4菜鸟教程徽章</a> <br/>

@@ -84,7 +84,9 @@ title: 课程所需软件下载
 > 具体查看 <a href="/secondless/w-c/响应式网页布局.html" title="响应式网页布局" target="_blank">[响应式网页布局]</a>
 
 ### Bootstrap框架
-> 具体查看 <a href="/secondless/w-c/响应式网页布局.html#_4-bootstrap框架" title="Bootstrap框架" target="_blank">[Bootstrap框架]</a>
+> 具体查看 <a href="/secondless/w-c/响应式网页布局.html#_4-bootstrap框架" title="Bootstrap框架" target="_blank">[Bootstrap框架]</a> <br/>
+> <a href="https://www.runoob.com/bootstrap4/bootstrap4-tutorial.html" target="_blank" style="margin-right:30px">bootstrap4菜鸟教程</a> 
+> <a href="http://bs4.vx.link/index.html?tmpui_page=/pages/components" target="_blank">Bootstrap4 中文文档</a> 
 
 ### 响应式网站后台管理系统（egg.js + Bootstrap）
 > 具体查看：<a href="/secondless/w-c/响应式后台管理系统" target="_blank">响应式后台管理系统（egg.js + Bootstrap）</a>
