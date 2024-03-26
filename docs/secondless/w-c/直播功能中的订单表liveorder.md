@@ -289,9 +289,31 @@ title: 直播功能中的订单表liveorder
 >             },
 >         });
 >     }
+>     //删除直播功能中的订单功能
+>     async delete() {
+>         const { ctx, app } = this;
+>         const id = ctx.params.id;
+>         await app.model.Liveorder.destroy({
+>             where: {
+>                 id
+>             }
+>         });
+>         //提示
+>         ctx.toast('直播功能中的订单删除成功', 'success');
+>         //跳转
+>         ctx.redirect('/admin/liveorder/index');
+>     }
 > }
 > 
 > module.exports = LiveorderController;
 > 
 > ```
 > bootstrap4菜鸟教程  <a href="https://www.runoob.com/bootstrap4/bootstrap4-badges.html" target="_blank">bootstrap4菜鸟教程徽章</a> <br/>
+> 
+> 定义路由 `app/router/admin/admin.js`
+> ```js
+>     //创建直播功能中的订单列表页面
+>     router.get('/admin/liveorder/index', controller.admin.liveorder.index);
+>     //删除直播功能中的订单功能
+>     router.get('/admin/liveorder/delete/:id', controller.admin.liveorder.delete);    
+> ```
