@@ -313,3 +313,155 @@ class LiveController extends Controller {
 module.exports = LiveController;
 
 ```
+
+## 五、对直播间列表进行分状态列表展示
+> 控制器 `app/controller/admin/live.js` 完整代码
+```js
+'use strict';
+
+const Controller = require('egg').Controller;
+
+class LiveController extends Controller {
+    //创建直播功能中的直播间列表页面
+    async index() {
+        const { ctx, app } = this;
+
+        // 分状态展示
+        let tabs = [
+            { name: '全部', url: '/admin/live/index',active:false},
+            { name: '直播中', url: '?status=1',active:false,status:1},
+            { name: '暂停直播', url: '?status=2',active:false,status:2},
+            { name: '未开播', url: '?status=0',active:false,status:0},
+            { name: '已结束', url: '?status=3',active:false,status:3},
+        ];
+        // 获取栏目选中状态
+        // console.log('网址获取状态', ctx.query.status);
+        tabs = tabs.map(item=>{
+            // console.log('遍历', item.status);
+            if((item.status == ctx.query.status) ||
+            (!ctx.query.status && ctx.query.status != 0 && item.url == '/admin/live/index')){
+                item.active = true;
+            }
+            return item;
+        });
+        // console.log(tabs);
+
+
+
+        //分页：可以提炼成一个公共方法page(模型名称，where条件，其他参数options)
+
+        // 给分页加上where条件：全部 就是读取所有直播间数据 即为{} 否则加上status给查询条件
+        let where = (!ctx.query.status && ctx.query.status != 0) ? {} : { status: ctx.query.status };
+        
+        let data = await ctx.page('Live', where, {
+            // 关联查询
+            include: [
+                {
+                    model: app.model.Liveuser,// 需要查询的模型
+                    attributes: ['id', 'username', 'avatar'],// 查询的字段 
+                }
+            ],
+        });
+        data = JSON.parse(JSON.stringify(data));
+        // console.log(data);
+
+
+        //渲染公共模版
+        await ctx.renderTemplate({
+            title: '直播功能中的直播间列表',//现在网页title,面包屑导航title,页面标题
+            data,
+            tempType: 'table', //模板类型：table表格模板 ，form表单模板
+            table: {
+                tabs,//分状态展示
+                //表格上方按钮,没有不要填buttons
+                // buttons: [
+                //     {
+                //         url: '/admin/liveorder/create',//新增路径
+                //         desc: '新增直播功能中的直播间',//新增 //按钮名称
+                //         // icon: 'fa fa-plus fa-lg',//按钮图标
+                //     }
+                // ],
+                //表头
+                columns: [
+                    {
+                        title: '直播间',
+                        // key: 'username',
+                        render(item) {
+                            return `
+        <h2 class="table-avatar">
+          <a href="#" class="avatar avatar-sm mr-2">
+              <img
+                  class="avatar-img rounded-circle"
+                  src="${item.cover}"
+                  alt="User Image"></a>
+              <a href="#"> ${item.title}
+              <span>用户账号:${item.liveuser.username}</span></a>
+        </h2>
+       `;
+                        },
+                    },
+                    {
+                        title: '观看人数',
+                        key: 'look_count',
+                        class: 'text-center',//可选
+                    },
+                    {
+                        title: '直播间获取礼物金币数',
+                        key: 'coin',
+                        class: 'text-center',//可选
+                    },
+                    {
+                        title: '创建时间',
+                        key: 'create_time',
+                        width: 200,//可选
+                        class: 'text-center',//可选
+                    },
+                    {
+                        title: '操作',
+                        class: 'text-right',//可选
+                        action: {
+                            //修改
+                            // edit: function (id) {
+                            //     return `/admin/live/edit/${id}`;
+                            // },
+                            //删除
+                            delete: function (id) {
+                                return `/admin/live/delete/${id}`;
+                            }
+                        }
+                    },
+                ],
+            },
+        });
+    }
+}
+
+module.exports = LiveController;
+
+```
+> 模版调整 `app/view/admin/layout/_table.html`
+```html
+...
+<div class="card-body">
+
+        {% if table.tabs %}
+        <ul class="nav nav-tabs nav-tabs-top">
+            {# <li class="nav-item"><a class="nav-link active" href="#top-tab1"
+                    data-toggle="tab">全部</a></li>
+            <li class="nav-item"><a class="nav-link" href="#top-tab2"
+                    data-toggle="tab">直播中</a></li>
+            <li class="nav-item"><a class="nav-link" href="#top-tab3"
+                    data-toggle="tab">未开播</a></li>
+            <li class="nav-item"><a class="nav-link" href="#top-tab4"
+                    data-toggle="tab">已结束</a></li> #}
+            {% for item in table.tabs %}
+            <li class="nav-item">
+                <a class="nav-link  {% if item.active %}active{% endif %}" href="{{item.url}}">
+                   {{item.name}}
+                </a>
+            </li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+...
+```
