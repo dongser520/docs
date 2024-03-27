@@ -465,3 +465,143 @@ module.exports = LiveController;
         {% endif %}
 ...
 ```
+
+## 六、直播间列表操作按钮处理，并对弹出框做处理
+> 控制器 `app/controller/admin/live.js` 完整代码
+```javascript
+'use strict';
+const Controller = require('egg').Controller;
+class LiveController extends Controller {
+    //创建直播功能中的直播间列表页面
+    async index() {
+        ...
+        //渲染公共模版
+        await ctx.renderTemplate({
+            ...
+                //表头
+                columns: [
+                    ...
+                    {
+                        title: '操作',
+                        class: 'text-right',//可选
+                        // action: {
+                        //     //修改
+                        //     // edit: function (id) {
+                        //     //     return `/admin/live/edit/${id}`;
+                        //     // },
+                        //     //删除
+                        //     delete: function (id) {
+                        //         return `/admin/live/delete/${id}`;
+                        //     }
+                        // },
+                        render(item) {
+                            return `
+                            <div class="btn-group btn-group-sm">
+                                <button class="btn btn-primary" @click="openInfo('/admin/live/look/${item.id}','观看记录')">观看记录</button>
+                                <button class="btn btn-success" >礼物记录</button>
+                                <button class="btn btn-info" >弹幕记录</button>
+                                <button class="btn btn-warning" >关闭直播</button>
+                                <button class="btn btn-danger">删除</button>
+                            </div>
+                            `;
+                        }
+                    },
+                ],
+            ...
+        });
+    }
+}
+
+module.exports = LiveController;
+
+```
+> 表格模版 `app/view/admin/layout/_table.html`
+```html
+...
+<script>
+    Vueapp = new Vue({
+        el:'#vueapp',
+        methods:{
+            ...
+            //弹出框
+            openInfo(url,title){
+                Vueapp.$refs.confirm.show({
+                    title:title,
+                    isconfirm:false,
+                    ths:[ //表头数据
+                        {fieldname:'username', title:'用户名'},
+                        {fieldname:'create_time',title:'观看时间'},
+                    ],
+                    data:[//数据
+                        {username:'王菲',create_time:'2019-01-01'},
+                        {username:'张杰',create_time:'2019-01-02'},
+                    ],
+                });
+            },
+        }
+    });
+</script>
+```
+
+> 弹出组件 `app/public/admin/assets/js/vue.component.js`
+```javascript
+...
+//弹出确认框组件
+Vue.component('confirm', {
+  template:  `
+  <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        ...
+        <div class="modal-body" v-if="isconfirm">
+          {{ content }}
+        </div>
+        <div class="modal-body" v-else>
+          <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th v-for="(item,index) in ths" :key="index">{{item.title}}</th>
+                </tr>
+              </thead>
+              <tbody> 
+                <tr v-for="(item,index) in data" :key="index"> 
+                  <td v-for="(k,ki) in ths" :key="ki">{{item[k.fieldname]}}</td>
+                </tr>
+              </tbody>
+          </table>
+        </div>
+        <div class="modal-footer" v-if="isconfirm">
+          ...
+        </div>
+      </div>
+    </div>
+  </div>
+  `,
+  data(){
+      return {
+         ...
+         isconfirm:true,//是否显示隐藏 确认取消按钮
+        //  ths:[ //表头数据
+        //     {fieldname:'username', title:'用户名'},
+        //     {fieldname:'create_time',title:'观看时间'},
+        //  ],
+        //  data:[//数据
+        //    {username:'王菲',create_time:'2019-01-01'},
+        //    {username:'张杰',create_time:'2019-01-02'},
+        //  ],
+         ths:[],
+         data:[]
+      }
+  },
+  methods:{
+      show(options){
+          ...
+          this.isconfirm = options.isconfirm === false ? false : true;
+          this.ths = options.ths || [];
+          this.data = options.data || [];
+          ...
+      },
+      ...
+  }
+});
+```
