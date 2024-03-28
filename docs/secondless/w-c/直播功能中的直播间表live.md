@@ -605,3 +605,265 @@ Vue.component('confirm', {
   }
 });
 ```
+
+## 关联模型升级：多模型关联
+## 七、直播间观看记录表 live_liveuser
+>### ① 分析直播间观看记录表字段
+> 说明：直播间观看记录最好还是用一张表来记录，当用户进入直播间，就给这个直播间总的观看数+1，并把用户进入的痕迹记录在观看记录表当中，目的是：一个用户保证进入直播间只记录一次，可以防止直播间刷人气的情况。<br/><br/>
+> 分析：既然要记录直播间观看记录，那么最起码有的字段：直播间是哪个（关联直播表live）(live_id表示)、谁进入过直播间（关联用户表liveuser）(liveuser_id表示)<br/>
+><br/>
+>
+>| 字段名                 |  数据类型   | 描述                              |   空     |         默认值                       | <p style="width:100px;">字段含义 </p>     |
+>| :---:                 | :---:       | :---:                            | :---:    |         :---:                           |        :---:                           |
+>| <b>id </b>            | <span>int(20) </span>     | <span style="font-size:12px">主键、自增长、UNSIGNED无符号 </span>      |   否      |         <span style="font-size:12px">>无  </span>                             |                                        |
+>| <b>live_id </b>      | int(20) |                                  |    否    |      0                                    |   直播间是哪个（关联直播表live）--直播间id     |
+>| <b>liveuser_id </b>      | int(20) |                                  |    否    |      0                                    |   谁进入过直播间（关联用户表liveuser）--用户id              |
+>| <b> create_time </b>  | datetime  |                                   |    否    |        CURRENT_TIMESTAMP	               |   数据创建时间                         |
+>| <b> update_time </b>  | datetime  |                                   |    否    |        CURRENT_TIMESTAMP	               |   数据更新时间                         |
+> 额外说明：`mysql每行最大只能存65535个字节。假设是utf-8编码，每个字符占3个字节。varchar存储最大字符数为(65535-2-1)/3=21844字符长度`
+> <br/><br/>
+>### ② 创建迁移文件、执行迁移命令创建数据表 live_liveuser
+> 在数据库创建数据表的方式很多，在上面定义了表字段之后，可以使用`phpmyAdmin`、`数据库插件执行sql语句创建`等等方式，但是建议大家通过：创建迁移文件、执行迁移命令创建数据表。
+>> 涉及的知识点：
+>> 1. 章节2：egg.js基础-五、<a href="/secondless/w-c/Egg.js.html#五、eggjs项目中sequelize模型创建mysql数据库" target="_blank">eggjs项目中sequelize模型创建mysql数据库</a>
+>>
+>> 创建迁移文件 命令：
+>> ```js
+>> npx sequelize migration:generate --name=init-live_liveuser
+>> ```
+>> 创建迁移文件：
+>> ```js
+>> 'use strict';
+>> 
+>> /** @type {import('sequelize-cli').Migration} */
+>> module.exports = {
+>>   async up(queryInterface, Sequelize) {
+>>     const { INTEGER, STRING, DATE, ENUM, TEXT, BIGINT } = Sequelize;
+>>     // 创建表 --- 类似我们sql语句定义表结构
+>>     await queryInterface.createTable('live_liveuser', {
+>>       id: {
+>>         type: INTEGER(20).UNSIGNED,
+>>         primaryKey: true,
+>>         autoIncrement: true,
+>>         comment: '直播间观看记录表主键id'
+>>       },
+>>       live_id: {
+>>         type: INTEGER(20).UNSIGNED,
+>>         allowNull: false,
+>>         defaultValue: 0,
+>>         comment: '直播间是哪个--直播间id',
+>>         references: { //关联关系
+>>           model: 'live', //关联的表
+>>           key: 'id' //关联表的主键
+>>         },
+>>         onDelete: 'cascade', //删除时操作
+>>         onUpdate: 'restrict', // 更新时操作
+>>       },
+>>       liveuser_id: {
+>>         type: INTEGER(20).UNSIGNED,
+>>         allowNull: false,
+>>         defaultValue: 0,
+>>         comment: '谁进入过直播间--用户id',
+>>         references: { //关联关系
+>>           model: 'liveuser', //关联的表
+>>           key: 'id' //关联表的主键
+>>         },
+>>         onDelete: 'cascade', //删除时操作
+>>         onUpdate: 'restrict', // 更新时操作
+>>       },
+>>       
+>>       create_time: { type: DATE, allowNull: false, defaultValue: Sequelize.fn('NOW') },
+>>       update_time: { type: DATE, allowNull: false, defaultValue: Sequelize.fn('NOW') }
+>>     });
+>>   },
+>> 
+>>   async down(queryInterface, Sequelize) {
+>>     await queryInterface.dropTable('live_liveuser')
+>>   }
+>> };
+>> 
+>> ```
+>> 执行迁移文件命令生成数据库表：
+>> ```js
+>> // 升级数据库-创建数据表
+>> npx sequelize db:migrate
+>> // 如果有问题需要回滚，可以通过 `db:migrate:undo` 回退一个变更
+>> npx sequelize db:migrate:undo
+>> // 可以通过 `db:migrate:undo:all` 回退到初始状态
+>> npx sequelize db:migrate:undo:all
+>> ```
+> <br/><br/>
+> ### ③ 创建直播功能中的 直播间观看记录表 live_liveuser 的模型
+> 模型文件主要是用于处理数据库表的增删改查等操作 `app/model/live_liveuser.js`
+```javascript
+'use strict';
+
+module.exports = app => {
+    const { INTEGER, STRING, DATE, ENUM, TEXT, BIGINT } = app.Sequelize;
+
+    const LiveLiveuser = app.model.define('live_liveuser', {
+        id: {
+            type: INTEGER(20).UNSIGNED,
+            primaryKey: true,
+            autoIncrement: true,
+            comment: '直播间观看记录表主键id'
+        },
+        //直播间是哪个--直播间id
+        live_id: {
+            type: INTEGER(20).UNSIGNED,
+            allowNull: false,
+            defaultValue: 0,
+            comment: '直播间是哪个--直播间id',
+            references: { //关联关系
+                model: 'live', //关联的表
+                key: 'id' //关联表的主键
+            },
+            onDelete: 'cascade', //删除时操作
+            onUpdate: 'restrict', // 更新时操作
+        },
+        //谁进入过直播间--用户id
+        liveuser_id: {
+            type: INTEGER(20).UNSIGNED,
+            allowNull: false,
+            defaultValue: 0,
+            comment: '谁进入过直播间--用户id',
+            references: { //关联关系
+                model: 'liveuser', //关联的表
+                key: 'id' //关联表的主键
+            },
+            onDelete: 'cascade', //删除时操作
+            onUpdate: 'restrict', // 更新时操作
+        },
+        // sex: { type: ENUM, values: ['男','女','保密'], allowNull: true, defaultValue: '保密', comment: '留言用户性别'},
+        create_time: {
+            type: DATE,
+            allowNull: false,
+            defaultValue: app.Sequelize.fn('NOW'),
+            get() {
+                return app.formatTime(this.getDataValue('create_time'));
+            }
+        },
+        update_time: { type: DATE, allowNull: false, defaultValue: app.Sequelize.fn('NOW') }
+    });
+
+    // 模型关联关系
+    LiveLiveuser.associate = function (models) {
+        // 关联直播间 反向一对多(一个直播间可以有很多观看记录，直播间对于观看记录是一对多的关系，反过来观看记录属于直播间belongsTo，就是反向一对多)
+        LiveLiveuser.belongsTo(app.model.Live);
+        // 关联用户 反向一对多(一个用户可以对应多个直播间观看记录，因为他可以进入多个直播间观看，用户对于观看记录就是一对多的关系，反过来观看记录属于用户belongsTo，就是反向一对多)
+        LiveLiveuser.belongsTo(app.model.Liveuser);
+    }
+
+    return LiveLiveuser;
+}
+```
+
+> ### ④ 创建直播间观看记录的控制器，获取观看记录数据
+> `app/controller/admin/live_liveuser.js`
+```javascript
+'use strict';
+
+const Controller = require('egg').Controller;
+
+class Live_liveuserController extends Controller {
+    
+    //获取观看记录
+    async look(){
+        const {ctx,app} = this;
+        //通过直播间id查看观看记录
+        const id = ctx.params.id;
+        console.log('直播间id',id);
+
+        let res = await app.model.LiveLiveuser.findAll({
+            where:{
+                live_id:id,//哪个直播间的记录
+            },
+            //关联用户表
+            include:[
+                {
+                    model:app.model.Liveuser,
+                    attributes:['id','username','avatar']
+                }
+            ]
+        });
+        console.log('获取观看记录', JSON.parse(JSON.stringify(res)));
+        ctx.apiSuccess({
+            ths:[ //表头数据
+                    {fieldname:'username', title:'用户名'},
+                    {fieldname:'create_time',title:'观看时间'},
+            ],
+            data:res.map(item=>{
+                return {
+                    username:item.liveuser.username,
+                    create_time:item.create_time
+                }
+            }),
+        });
+
+    }
+}
+
+module.exports = Live_liveuserController;
+
+```
+> ### ⑤ 注意路由控制器写法
+```js
+// 路由 `app/router/admin/admin.js`
+// 控制器： `app/controller/admin/live_liveuser.js` live_liveuser.js 此时改成驼峰式：liveLiveuser
+//直播间观看记录
+router.get('/admin/live_liveuser/look/:id', controller.admin.liveLiveuser.look);
+```
+
+> ### ⑥ ajax请求获取的观看记录数据放到模版里面在弹出层展示数据
+> `app/view/admin/layout/_table.html`
+```html
+...
+<script>
+    Vueapp = new Vue({
+        el:'#vueapp',
+        methods:{
+            ...
+            //弹出框数据
+            openInfo(url,title){
+                // console.log(url);
+                $.ajax({
+                    type: 'get', 
+                    url: url + "?_csrf={{ctx.csrf|safe}}",
+                    contentType:'application/json;charset=UTF-8;',
+                    success: function (response, stutas, xhr) {
+                        // console.log(response)
+                        Vueapp.$refs.confirm.show({
+                            title:title,
+                            isconfirm:false,
+                            ...response.data
+                        }); 
+                    },
+                    error:function(e){
+                        console.log(e)
+                        Vueapp.$refs.toast.show({
+                            msg:e.responseJSON.data,
+                            type:'danger',
+                            delay:3000
+                        });
+                    }
+                });
+
+
+                // Vueapp.$refs.confirm.show({
+                //     title:title,
+                //     isconfirm:false,
+                //     ths:[ //表头数据
+                //             {fieldname:'username', title:'用户名'},
+                //             {fieldname:'create_time',title:'观看时间'},
+                //     ],
+                //     data:[//数据
+                //         {username:'王菲',create_time:'2019-01-01'},
+                //         {username:'张杰',create_time:'2019-01-02'},
+                //     ],
+                // });    
+            },
+        }
+    });
+</script>
+```
+

@@ -205,5 +205,14 @@ this.ctx.validate({
 ## 三. 直播功能中的用户表 liveuser
 具体查看：<a href="/secondless/w-c/直播功能中的用户表liveuser" target="_blank" title="点击查看课程文档">直播功能中的用户表liveuser</a>
 
-## 三. 直播功能中的礼物表 livegift
+## 四. 直播功能中的礼物表 livegift
 具体查看：<a href="/secondless/w-c/直播功能中的礼物表livegift" target="_blank" title="点击查看课程文档">直播功能中的礼物表livegift</a>
+
+## 五. 直播功能中的订单表 liveorder
+具体查看：<a href="/secondless/w-c/直播功能中的订单表liveorder" target="_blank" title="点击查看课程文档">直播功能中的订单表liveorder</a>
+
+## 六. 直播功能中的直播间表 live
+具体查看：<a href="/secondless/w-c/直播功能中的直播间表live" target="_blank" title="点击查看课程文档">直播功能中的直播间表live</a>
+
+## 七. 直播功能中的 直播间观看记录表 live_liveuser
+具体查看：搜索 `直播间观看记录表 live_liveuser` 快速定位文档对应内容
