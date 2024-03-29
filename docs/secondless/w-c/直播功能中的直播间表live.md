@@ -615,7 +615,7 @@ Vue.component('confirm', {
 >
 >| 字段名                 |  数据类型   | 描述                              |   空     |         默认值                       | <p style="width:100px;">字段含义 </p>     |
 >| :---:                 | :---:       | :---:                            | :---:    |         :---:                           |        :---:                           |
->| <b>id </b>            | <span>int(20) </span>     | <span style="font-size:12px">主键、自增长、UNSIGNED无符号 </span>      |   否      |         <span style="font-size:12px">>无  </span>                             |                                        |
+>| <b>id </b>            | <span>int(20) </span>     | <span style="font-size:12px">主键、自增长、UNSIGNED无符号 </span>      |   否      |         <span style="font-size:12px">无  </span>                             |                                        |
 >| <b>live_id </b>      | int(20) |                                  |    否    |      0                                    |   直播间是哪个（关联直播表live）--直播间id     |
 >| <b>liveuser_id </b>      | int(20) |                                  |    否    |      0                                    |   谁进入过直播间（关联用户表liveuser）--用户id              |
 >| <b> create_time </b>  | datetime  |                                   |    否    |        CURRENT_TIMESTAMP	               |   数据创建时间                         |
@@ -867,3 +867,256 @@ router.get('/admin/live_liveuser/look/:id', controller.admin.liveLiveuser.look);
 </script>
 ```
 
+## 八、直播间刷礼物记录表 live_livegift
+>### ① 分析直播间刷礼物记录表字段
+> 分析：既然要记录直播间刷的礼物，那么最起码有的字段：直播间是哪个（关联直播表live）(live_id表示)、哪个用户刷的（关联用户表liveuser）(liveuser_id表示)、刷的什么礼物（关联礼物表livegift）(livegift_id表示)<br/>
+><br/>
+>| 字段名                 |  数据类型   | 描述                              |   空     |         默认值                       | <p style="width:100px;">字段含义 </p>     |
+>| :---:                 | :---:       | :---:                            | :---:    |         :---:                           |        :---:                           |
+>| <b>id </b>            | <span>int(20) </span>     | <span style="font-size:12px">主键、自增长、UNSIGNED无符号 </span>      |   否      |         <span style="font-size:12px">无  </span>                             |                                        |
+>| <b>live_id </b>      | int(20) |                                  |    否    |      0                                    |   直播间是哪个（关联直播表live）--直播间id     |
+>| <b>liveuser_id </b>      | int(20) |                                  |    否    |      0                                    |   哪个用户刷的（关联用户表liveuser）--用户id              |
+>| <b>livegift_id </b>      | int(20) |                                  |    否    |      0                                    |   刷的什么礼物（关联礼物表livegift）--礼物id     |
+>| <b> create_time </b>  | datetime  |                                   |    否    |        CURRENT_TIMESTAMP	               |   数据创建时间                         |
+>| <b> update_time </b>  | datetime  |                                   |    否    |        CURRENT_TIMESTAMP	               |   数据更新时间                         |
+> 额外说明：`mysql每行最大只能存65535个字节。假设是utf-8编码，每个字符占3个字节。varchar存储最大字符数为(65535-2-1)/3=21844字符长度`
+> <br/><br/>
+>### ② 创建迁移文件、执行迁移命令创建数据表 live_livegift
+> 在数据库创建数据表的方式很多，在上面定义了表字段之后，可以使用`phpmyAdmin`、`数据库插件执行sql语句创建`等等方式，但是建议大家通过：创建迁移文件、执行迁移命令创建数据表。
+>> 涉及的知识点：
+>> 1. 章节2：egg.js基础-五、<a href="/secondless/w-c/Egg.js.html#五、eggjs项目中sequelize模型创建mysql数据库" target="_blank">eggjs项目中sequelize模型创建mysql数据库</a>
+>>
+>> 创建迁移文件 命令：
+>> ```js
+>> npx sequelize migration:generate --name=init-live_livegift
+>> ```
+>> 创建迁移文件：
+>> ```js
+>> 'use strict';
+>> 
+>> /** @type {import('sequelize-cli').Migration} */
+>> module.exports = {
+>>   async up(queryInterface, Sequelize) {
+>>     const { INTEGER, STRING, DATE, ENUM, TEXT, BIGINT } = Sequelize;
+>>     // 创建表 --- 类似我们sql语句定义表结构
+>>     await queryInterface.createTable('live_livegift', {
+>>       id: {
+>>         type: INTEGER(20).UNSIGNED,
+>>         primaryKey: true,
+>>         autoIncrement: true,
+>>         comment: '直播间刷礼物记录表主键id'
+>>       },
+>>       //直播间是哪个（关联直播表live）--直播间id
+>>       live_id: {
+>>         type: INTEGER(20).UNSIGNED,
+>>         allowNull: false,
+>>         defaultValue: 0,
+>>         comment: '直播间是哪个--直播间id',
+>>         references: { //关联关系
+>>           model: 'live', //关联的表
+>>           key: 'id' //关联表的主键
+>>         },
+>>         onDelete: 'cascade', //删除时操作
+>>         onUpdate: 'restrict', // 更新时操作
+>>       },
+>>       //哪个用户刷的（关联用户表liveuser）--用户id
+>>       liveuser_id: {
+>>         type: INTEGER(20).UNSIGNED,
+>>         allowNull: false,
+>>         defaultValue: 0,
+>>         comment: '谁进入过直播间--用户id',
+>>         references: { //关联关系
+>>           model: 'liveuser', //关联的表
+>>           key: 'id' //关联表的主键
+>>         },
+>>         onDelete: 'cascade', //删除时操作
+>>         onUpdate: 'restrict', // 更新时操作
+>>       },
+>>       //刷的什么礼物（关联礼物表livegift）--礼物id
+>>       livegift_id: {
+>>         type: INTEGER(20).UNSIGNED,
+>>         allowNull: false,
+>>         defaultValue: 0,
+>>         comment: '刷的什么礼物--礼物id',
+>>         references: { //关联关系
+>>           model: 'livegift', //关联的表
+>>           key: 'id' //关联表的主键
+>>         },
+>>         onDelete: 'cascade', //删除时操作
+>>         onUpdate: 'restrict', // 更新时操作
+>>       },
+>> 
+>>       create_time: { type: DATE, allowNull: false, defaultValue: Sequelize.fn('NOW') },
+>>       update_time: { type: DATE, allowNull: false, defaultValue: Sequelize.fn('NOW') }
+>>     });
+>>   },
+>> 
+>>   async down(queryInterface, Sequelize) {
+>>     await queryInterface.dropTable('live_livegift')
+>>   }
+>> };
+>> 
+>> ```
+>> 执行迁移文件命令生成数据库表：
+>> ```js
+>> // 升级数据库-创建数据表
+>> npx sequelize db:migrate
+>> // 如果有问题需要回滚，可以通过 `db:migrate:undo` 回退一个变更
+>> npx sequelize db:migrate:undo
+>> // 可以通过 `db:migrate:undo:all` 回退到初始状态
+>> npx sequelize db:migrate:undo:all
+>> ```
+> <br/><br/>
+> ### ③ 创建直播功能中的 刷礼物记录表 live_livegift 的模型
+> 模型文件主要是用于处理数据库表的增删改查等操作 `app/model/live_livegift.js`
+```js
+'use strict';
+
+module.exports = app => {
+    const { INTEGER, STRING, DATE, ENUM, TEXT, BIGINT } = app.Sequelize;
+
+    const LiveLivegift = app.model.define('live_livegift', {
+        id: {
+            type: INTEGER(20).UNSIGNED,
+            primaryKey: true,
+            autoIncrement: true,
+            comment: '直播间刷礼物记录表主键id'
+        },
+        //直播间是哪个（关联直播表live）--直播间id
+        live_id: {
+            type: INTEGER(20).UNSIGNED,
+            allowNull: false,
+            defaultValue: 0,
+            comment: '直播间是哪个--直播间id',
+            references: { //关联关系
+                model: 'live', //关联的表
+                key: 'id' //关联表的主键
+            },
+            onDelete: 'cascade', //删除时操作
+            onUpdate: 'restrict', // 更新时操作
+        },
+        //哪个用户刷的（关联用户表liveuser）--用户id
+        liveuser_id: {
+            type: INTEGER(20).UNSIGNED,
+            allowNull: false,
+            defaultValue: 0,
+            comment: '谁进入过直播间--用户id',
+            references: { //关联关系
+                model: 'liveuser', //关联的表
+                key: 'id' //关联表的主键
+            },
+            onDelete: 'cascade', //删除时操作
+            onUpdate: 'restrict', // 更新时操作
+        },
+        //刷的什么礼物（关联礼物表livegift）--礼物id
+        livegift_id: {
+            type: INTEGER(20).UNSIGNED,
+            allowNull: false,
+            defaultValue: 0,
+            comment: '刷的什么礼物--礼物id',
+            references: { //关联关系
+                model: 'livegift', //关联的表
+                key: 'id' //关联表的主键
+            },
+            onDelete: 'cascade', //删除时操作
+            onUpdate: 'restrict', // 更新时操作
+        },
+        // sex: { type: ENUM, values: ['男','女','保密'], allowNull: true, defaultValue: '保密', comment: '留言用户性别'},
+        create_time: {
+            type: DATE,
+            allowNull: false,
+            defaultValue: app.Sequelize.fn('NOW'),
+            get() {
+                return app.formatTime(this.getDataValue('create_time'));
+            }
+        },
+        update_time: { type: DATE, allowNull: false, defaultValue: app.Sequelize.fn('NOW') }
+    });
+
+    // 模型关联关系
+    LiveLivegift.associate = function (models) {
+        // 关联直播间 反向一对多(一个直播间可以有很多礼物记录，直播间对于礼物记录是一对多的关系，反过来礼物记录属于直播间belongsTo，就是反向一对多)
+        LiveLivegift.belongsTo(app.model.Live);
+        // 关联用户 反向一对多(一个用户可以对应多个直播间礼物记录，因为他可以进入多个直播间刷礼物，用户对于礼物记录就是一对多的关系，反过来礼物记录属于用户belongsTo，就是反向一对多)
+        LiveLivegift.belongsTo(app.model.Liveuser);
+        // 关联礼物 反向一对多(刷的什么礼物，一个礼物可以在多个直播间进行刷，因为不同的直播间都可以刷飞机大炮，礼物对于礼物记录就是一对多的关系，反过来礼物记录属于礼物belongsTo，就是反向一对多)
+        LiveLivegift.belongsTo(app.model.Livegift);
+    }
+
+    return LiveLivegift;
+}
+```
+
+> ### ④ 创建直播间刷礼物记录的控制器（此处我们直接写在直播间控制器里面，就不额外创建控制器了），获取刷礼物记录数据
+> `app/controller/admin/live.js`
+```javascript
+//获取直播间刷礼物的记录
+    async gifts() {
+        const { ctx,app } = this;
+        //通过直播间id查看观看记录
+        const id = ctx.params.id;
+
+        let res = await app.model.LiveLivegift.findAll({
+            where:{
+                live_id:id
+            },
+            include:[
+                {
+                    model:app.model.Liveuser,//关联用户表
+                    attributes:['id','username','avatar']
+                },
+                {
+                    model:app.model.Livegift,//关联礼物表，拿礼物的具体信息
+                }
+            ]
+        });
+        console.log('获取刷礼物记录', JSON.parse(JSON.stringify(res)));
+
+        ctx.apiSuccess({
+            ths:[ //表头数据
+                {fieldname:'gift_name', title:'礼物名称'},
+                {fieldname:'image', title:'礼物图标',type:'image'},
+                {fieldname:'coin',title:'礼物价值多少金币'},
+                {fieldname:'username',title:'谁刷的'},
+                {fieldname:'create_time',title:'刷的时间'},
+            ],
+            //数据
+            data: res.map(item=>{
+                return {
+                    gift_name:item.livegift.name,
+                    image:item.livegift.image,
+                    coin:item.livegift.coin,
+                    username:item.liveuser.username,
+                    create_time:item.create_time,
+                    // create_time:app.formatTime(item.create_time),
+                }
+            }),
+        });
+    }
+```
+> ### ⑤ 注意路由控制器写法
+```js
+// 路由 `app/router/admin/admin.js`
+//获取直播间刷礼物的记录
+router.get('/admin/live-/gifts/:id', controller.admin.live.gifts);
+```
+
+> ### ⑥ 显示弹出框列表里面的图片
+> 弹出组件 `app/public/admin/assets/js/vue.component.js`
+```js
+//弹出确认框组件
+Vue.component('confirm', {
+  template: `
+    ...
+    <tr v-for="(item,index) in data" :key="index">
+        <td v-for="(k,ki) in ths" :key="ki">
+        <img v-if="k.type=='image'" :src="item[k.fieldname]" width="50" height="50">
+        <span v-else>{{item[k.fieldname]}}</span>
+        </td>
+    </tr>
+    ...  
+              
+  `,
+  data() {
+    ...    
+```
