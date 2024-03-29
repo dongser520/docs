@@ -1338,3 +1338,82 @@ module.exports = app => {
 //直播间弹幕（评论）信息
 router.get('/admin/live-/comments/:id', controller.admin.live.comments);
 ```
+
+## 十、关闭直播间和删除直播间功能完成
+> `app/controller/admin/live.js`
+```js
+//创建直播功能中的直播间列表页面
+async index() {
+  ...
+  {
+        title: '操作',
+        class: 'text-right',//可选
+        render(item) {
+
+            // 所有状态都有删除直播间的功能
+            let close = `<button type="button" class="btn btn-danger" @click="del('/admin/live-/delete/${item.id}')">删除直播间</button>`;
+            // 只要不是未开始的直播都应该观看记录、礼物记录、评论记录
+            if(item.status != 0){
+                close += `
+                <button type="button" class="btn btn-primary" @click="openInfo('/admin/live_liveuser/look/${item.id}','观看记录')">观看记录</button>
+                <button type="button" class="btn btn-success" @click="openInfo('/admin/live-/gifts/${item.id}','礼物记录')">礼物记录</button>
+                <button type="button" class="btn btn-info" @click="openInfo('/admin/live-/comments/${item.id}','弹幕记录')">弹幕记录</button>
+                `;
+            }
+            //正在直播的，和暂停直播的，可以关闭直播间
+            if(item.status == 1 || item.status == 2){
+                close += `<button type="button" class="btn btn-warning" @click="modal('/admin/live-/close/${item.id}','是否关闭该直播间？')">关闭直播间</button>`;
+            }
+            return `
+            <div class="btn-group btn-group-sm">
+                ${close}
+            </div>
+            `;
+        }
+    },
+}
+//关闭直播间 status=3
+    async close(){
+        const { ctx,app } = this;
+        const id = ctx.params.id;
+
+        let live = await app.model.Live.findOne({
+            where:{
+                id
+            }
+        })
+
+        if(!live){
+            ctx.toast('该直播间不存在', 'danger');
+        }else if(live.status == 3){
+            ctx.toast('该直播间已结束', 'danger');
+        }else{
+            live.status = 3;
+            await live.save();
+            ctx.toast('关闭成功', 'success');
+        }
+        ctx.redirect('/admin/live-/index');
+    }
+
+    //删除直播间
+    async delete() {
+        const { ctx, app } = this;
+        const id = ctx.params.id;
+        await app.model.Live.destroy({
+            where: {
+                id
+            }
+        });
+        //提示
+        ctx.toast('删除直播间成功', 'success');
+        //跳转
+        ctx.redirect('/admin/live-/index');
+    }
+```
+> 路由： `app/router/admin/admin.js`
+```javascript
+//关闭直播间
+router.get('/admin/live-/close/:id', controller.admin.live.close);
+//删除直播间
+router.get('/admin/live-/delete/:id', controller.admin.live.delete);
+```
