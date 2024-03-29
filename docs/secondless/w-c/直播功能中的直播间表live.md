@@ -1120,3 +1120,221 @@ Vue.component('confirm', {
   data() {
     ...    
 ```
+
+## 九、查看直播间弹幕（评论）livecomment 表
+>### ① 分析直播间弹幕（评论）livecomment 表字段
+> 分析：直播间弹幕评论基本和我们上面的刷礼物类似，最基本的字段：直播间是哪个（关联直播表live）(live_id表示)、哪个用户评论发的弹幕（关联用户表liveuser）(liveuser_id表示)、弹幕（评论）内容 (content表示)<br/>
+><br/>
+>| 字段名                 |  数据类型   | 描述                              |   空     |         默认值                       | <p style="width:100px;">字段含义 </p>     |
+>| :---:                 | :---:       | :---:                            | :---:    |         :---:                           |        :---:                           |
+>| <b>id </b>            | <span>int(20) </span>     | <span style="font-size:12px">主键、自增长、UNSIGNED无符号 </span>      |   否      |         <span style="font-size:12px">无  </span>                             |                                        |
+>| <b>live_id </b>      | int(20) |                                  |    否    |      0                                    |   直播间是哪个（关联直播表live）--直播间id     |
+>| <b>liveuser_id </b>      | int(20) |                                  |    否    |      0                                    |   哪个用户发的弹幕（关联用户表liveuser）--用户id              |
+>| <b>content </b>      | text |                                  |    否    |                                         |   弹幕（评论）内容     |
+>| <b> create_time </b>  | datetime  |                                   |    否    |        CURRENT_TIMESTAMP	               |   数据创建时间                         |
+>| <b> update_time </b>  | datetime  |                                   |    否    |        CURRENT_TIMESTAMP	               |   数据更新时间                         |
+> 额外说明：`mysql每行最大只能存65535个字节。假设是utf-8编码，每个字符占3个字节。varchar存储最大字符数为(65535-2-1)/3=21844字符长度`
+> <br/><br/>
+>### ② 创建迁移文件、执行迁移命令创建数据表 livecomment
+> 在数据库创建数据表的方式很多，在上面定义了表字段之后，可以使用`phpmyAdmin`、`数据库插件执行sql语句创建`等等方式，但是建议大家通过：创建迁移文件、执行迁移命令创建数据表。
+>> 涉及的知识点：
+>> 1. 章节2：egg.js基础-五、<a href="/secondless/w-c/Egg.js.html#五、eggjs项目中sequelize模型创建mysql数据库" target="_blank">eggjs项目中sequelize模型创建mysql数据库</a>
+>>
+>> 创建迁移文件 命令：
+>> ```js
+>> npx sequelize migration:generate --name=init-livecomment
+>> ```
+>> 创建迁移文件：
+>> ```js
+>> 'use strict';
+>> 
+>> /** @type {import('sequelize-cli').Migration} */
+>> module.exports = {
+>>   async up(queryInterface, Sequelize) {
+>>     const { INTEGER, STRING, DATE, ENUM, TEXT, BIGINT } = Sequelize;
+>>     // 创建表 --- 类似我们sql语句定义表结构
+>>     await queryInterface.createTable('livecomment', {
+>>       id: {
+>>         type: INTEGER(20).UNSIGNED,
+>>         primaryKey: true,
+>>         autoIncrement: true,
+>>         comment: '直播间弹幕（评论）表主键id'
+>>       },
+>>       //直播间是哪个（关联直播表live）--直播间id
+>>       live_id: {
+>>         type: INTEGER(20).UNSIGNED,
+>>         allowNull: false,
+>>         defaultValue: 0,
+>>         comment: '直播间是哪个--直播间id',
+>>         references: { //关联关系
+>>           model: 'live', //关联的表
+>>           key: 'id' //关联表的主键
+>>         },
+>>         onDelete: 'cascade', //删除时操作
+>>         onUpdate: 'restrict', // 更新时操作
+>>       },
+>>       //哪个用户评论的（关联用户表liveuser）--用户id
+>>       liveuser_id: {
+>>         type: INTEGER(20).UNSIGNED,
+>>         allowNull: false,
+>>         defaultValue: 0,
+>>         comment: '哪个用户评论的--用户id',
+>>         references: { //关联关系
+>>           model: 'liveuser', //关联的表
+>>           key: 'id' //关联表的主键
+>>         },
+>>         onDelete: 'cascade', //删除时操作
+>>         onUpdate: 'restrict', // 更新时操作
+>>       },
+>>       // 弹幕（评论）内容
+>>       content: {
+>>         type: TEXT,
+>>         allowNull: false,
+>>         defaultValue: '',
+>>         comment: '弹幕（评论）内容'
+>>       },
+>>       create_time: { type: DATE, allowNull: false, defaultValue: Sequelize.fn('NOW') },
+>>       update_time: { type: DATE, allowNull: false, defaultValue: Sequelize.fn('NOW') }
+>>     });
+>>   },
+>> 
+>>   async down(queryInterface, Sequelize) {
+>>     await queryInterface.dropTable('livecomment')
+>>   }
+>> };
+>> 
+>> ```
+>> 执行迁移文件命令生成数据库表：
+>> ```js
+>> // 升级数据库-创建数据表
+>> npx sequelize db:migrate
+>> // 如果有问题需要回滚，可以通过 `db:migrate:undo` 回退一个变更
+>> npx sequelize db:migrate:undo
+>> // 可以通过 `db:migrate:undo:all` 回退到初始状态
+>> npx sequelize db:migrate:undo:all
+>> ```
+> <br/><br/>
+> ### ③ 创建直播功能中的 弹幕（评论）表 livecomment 的模型
+> 模型文件主要是用于处理数据库表的增删改查等操作 `app/model/livecomment.js`
+```js
+'use strict';
+
+module.exports = app => {
+    const { INTEGER, STRING, DATE, ENUM, TEXT, BIGINT } = app.Sequelize;
+
+    const Livecomment = app.model.define('livecomment', {
+
+        id: {
+            type: INTEGER(20).UNSIGNED,
+            primaryKey: true,
+            autoIncrement: true,
+            comment: '直播间弹幕（评论）表主键id'
+        },
+        //直播间是哪个（关联直播表live）--直播间id
+        live_id: {
+            type: INTEGER(20).UNSIGNED,
+            allowNull: false,
+            defaultValue: 0,
+            comment: '直播间是哪个--直播间id',
+            references: { //关联关系
+                model: 'live', //关联的表
+                key: 'id' //关联表的主键
+            },
+            onDelete: 'cascade', //删除时操作
+            onUpdate: 'restrict', // 更新时操作
+        },
+        //哪个用户评论的（关联用户表liveuser）--用户id
+        liveuser_id: {
+            type: INTEGER(20).UNSIGNED,
+            allowNull: false,
+            defaultValue: 0,
+            comment: '哪个用户评论的--用户id',
+            references: { //关联关系
+                model: 'liveuser', //关联的表
+                key: 'id' //关联表的主键
+            },
+            onDelete: 'cascade', //删除时操作
+            onUpdate: 'restrict', // 更新时操作
+        },
+        // 弹幕（评论）内容
+        content: {
+            type: TEXT,
+            allowNull: false,
+            defaultValue: '',
+            comment: '弹幕（评论）内容'
+        },
+
+        // sex: { type: ENUM, values: ['男','女','保密'], allowNull: true, defaultValue: '保密', comment: '留言用户性别'},
+        create_time: {
+            type: DATE,
+            allowNull: false,
+            defaultValue: app.Sequelize.fn('NOW'),
+            get() {
+                return app.formatTime(this.getDataValue('create_time'));
+            }
+        },
+        update_time: { type: DATE, allowNull: false, defaultValue: app.Sequelize.fn('NOW') }
+    });
+
+    // 模型关联关系
+    Livecomment.associate = function (models) {
+        // 关联直播间 反向一对多(一个直播间可以有很多弹幕评论，直播间对于弹幕评论是一对多的关系，反过来弹幕评论属于直播间belongsTo，就是反向一对多)
+        Livecomment.belongsTo(app.model.Live);
+        // 关联用户 反向一对多(一个用户可以发很多弹幕评论，用户对于弹幕评论就是一对多的关系，反过来弹幕评论属于用户belongsTo，就是反向一对多)
+        Livecomment.belongsTo(app.model.Liveuser);
+        
+    }
+
+    return Livecomment;
+}
+```
+
+> ### ④ 创建直播间弹幕（评论）表的控制器（此处我们直接写在直播间控制器里面，就不额外创建控制器了），获取弹幕（评论）数据
+> `app/controller/admin/live.js`
+```javascript
+//获取直播间弹幕（评论）数据
+    async comments() {
+        const { ctx,app } = this;
+        //通过直播间id查看观看记录
+        const id = ctx.params.id;
+
+        let res = await app.model.Livecomment.findAll({
+            where:{
+                live_id:id
+            },
+            include:[
+                {
+                    model:app.model.Liveuser,//关联用户表
+                    attributes:['id','username','avatar']
+                }
+            ]
+        });
+        console.log('弹幕（评论）数据', JSON.parse(JSON.stringify(res)));
+
+        ctx.apiSuccess({
+            ths:[ //表头数据
+                {fieldname:'username',title:'谁评论的'},
+                {fieldname:'avatar',title:'用户头像', type:'image'},
+                {fieldname:'content',title:'弹幕（评论）内容'},
+                {fieldname:'create_time',title:'什么时候评论的'},
+                
+            ],
+            //数据
+            data: res.map(item=>{
+                return {
+                    // create_time:app.formatTime(item.create_time),
+                    create_time:item.create_time,
+                    content:item.content,
+                    username:item.liveuser.username,
+                    avatar:item.liveuser.avatar
+                }
+            }),
+        });
+    }
+```
+> ### ⑤ 注意路由控制器写法
+```js
+// 路由 `app/router/admin/admin.js`
+//直播间弹幕（评论）信息
+router.get('/admin/live-/comments/:id', controller.admin.live.comments);
+```
