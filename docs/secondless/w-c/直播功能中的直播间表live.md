@@ -1417,3 +1417,21 @@ router.get('/admin/live-/close/:id', controller.admin.live.close);
 //删除直播间
 router.get('/admin/live-/delete/:id', controller.admin.live.delete);
 ```
+> 模版： `app/view/admin/layout/_table.html`
+```html
+<script>
+    Vueapp = new Vue({
+        el:'#vueapp',
+        methods:{
+            modal(url,content){
+                //调用弹出框
+                Vueapp.$refs.confirm.show({
+                    title:'提示',
+                    content:content,
+                    success:function(){
+                        window.location.href=url;
+                    }
+                });
+            },
+    ...
+```
