@@ -206,3 +206,170 @@ DELETE FROM message WHERE username = '老莫';
 DELETE FROM message WHERE id IN(20,21,22);
 
 ```
+
+## 三、mysql子查询和连表查询
+注：在学习 `第二学期-第三季度课程-章节4-五、mysql语句进一步理解模型关联关系（Mysql进阶）`，对应课程视频：`第二学期-第三季度课程-章节4-79课`再来看这部分文档，`不要跳课学习`
+### 1. mysql子查询
+```sql
+# mysql子查询
+# 在刷礼物记录表查  直播间id=4的数据
+# 子查询规则：子查询必须要用小括号包起来
+SELECT * FROM live_livegift 
+WHERE live_id = (SELECT id FROM live WHERE id = 4);
+# 括号里面的语句结果
+SELECT id FROM live WHERE id = 4;
+# 子查询其实就是两条语句组合在一起，一条是主查询，一条是子查询，比较容易理解
+# 但很多时候，我希望在查询礼物表的时候，你把直播间表，用户表，礼物表的数据都给我查出来
+# 很显然，子查询无法满足，这个时候需要用到连表查询
+```
+### 2. mysql连表查询
+连表查询分为：<br/>
+### 1. 内连接：<br/>
+目的：把两个表的数据合并到一起，比如：上面说的 礼物表和直播间表数据合并在一起
+```sql
+
+SELECT * FROM live_livegift,live 
+WHERE live_livegift.live_id = live.id;
+
+# 反过来
+SELECT * FROM live,live_livegift 
+WHERE live.id = live_livegift.live_id;
+# 发现有数据丢失：直播间id:2、3的直播间没有了
+# 此时需要用到外连接
+```
+### 2. 外连接，外连接又分为：<br/>
+### ① 左连接
+### ② 右连接
+```sql
+# 外连接
+# 左连接：LEFT JOIN [表名] ON [连接的条件]
+SELECT * FROM live LEFT JOIN live_livegift 
+ON live.id = live_livegift.live_id;
+# 发现数据没有丢失，没有数据的以NULL填充
+# 说明：
+# LEFT JOIN 左边的表 live 表为主表（驱动表）
+# 查询的数据以主表（驱动表）为主，如果没有，则填充NULL
+
+
+## 同理
+## 右连接 RIGHT JOIN 右边的表 为主表（驱动表）
+## 就是以右边的表 live_livegift （驱动表） 为主
+SELECT * FROM live RIGHT JOIN live_livegift 
+ON live.id = live_livegift.live_id;
+# 发现查出来的结果就是9条，因为live_livegift （驱动表）就只有9条数据
+```
+搞清楚了以上知识之后，我们来分析一下模型关联中的：反向一对多 `belongsTo`的执行原理
+```sql
+# 礼物记录表所有数据
+select * from live_livegift;
+# 字段方式读取数据
+SELECT id, live_id, liveuser_id, livegift_id, create_time, update_time FROM live_livegift;
+# 给表设置别名
+SELECT id, live_id, liveuser_id, livegift_id, create_time, update_time 
+FROM live_livegift AS `live_livegift`;
+# 表别名指定表字段
+SELECT 
+`live_livegift`.id, `live_livegift`.live_id, liveuser_id, livegift_id, create_time, update_time 
+FROM live_livegift AS `live_livegift`;
+# 表别名，字段名最好都加上反引号，而且全部指定
+SELECT  
+`live_livegift`.`id`, `live_livegift`.`live_id`, `live_livegift`.`liveuser_id`, 
+`live_livegift`.`livegift_id`, `live_livegift`.`create_time`, `live_livegift`.`update_time`
+FROM `live_livegift` AS `live_livegift`;
+# 字段也可以设置别名字段
+SELECT  
+`live_livegift`.`id`, 
+`live_livegift`.`live_id`, `live_livegift`.`live_id` AS `liveId`, 
+`live_livegift`.`liveuser_id`, `live_livegift`.`liveuser_id` AS `liveuserId`, 
+`live_livegift`.`livegift_id`, `live_livegift`.`livegift_id` AS `livegiftId`,
+`live_livegift`.`create_time`, 
+`live_livegift`.`update_time`
+FROM `live_livegift` AS `live_livegift`;
+
+
+# 礼物表 直播间id=4的记录
+SELECT  
+`live_livegift`.`id`, 
+`live_livegift`.`live_id`, `live_livegift`.`live_id` AS `liveId`, 
+`live_livegift`.`liveuser_id`, `live_livegift`.`liveuser_id` AS `liveuserId`, 
+`live_livegift`.`livegift_id`, `live_livegift`.`livegift_id` AS `livegiftId`,
+`live_livegift`.`create_time`, 
+`live_livegift`.`update_time`
+FROM `live_livegift` AS `live_livegift`
+WHERE 
+`live_livegift`.`live_id` = '4';
+
+# 这里表里面用户都是id表示的，把用户信息显示一下
+# 用到联表查询： LEFT OUTER JOIN 联哪张表 ON 两张表的关联字段
+SELECT  
+`live_livegift`.`id`, 
+`live_livegift`.`live_id`, `live_livegift`.`live_id` AS `liveId`, 
+`live_livegift`.`liveuser_id`, `live_livegift`.`liveuser_id` AS `liveuserId`, 
+`live_livegift`.`livegift_id`, `live_livegift`.`livegift_id` AS `livegiftId`,
+`live_livegift`.`create_time`, 
+`live_livegift`.`update_time`,
+`liveuser`.`id` AS `liveuser.id`, 
+`liveuser`.`username` AS `liveuser.username`, 
+`liveuser`.`avatar` AS `liveuser.avatar`
+FROM `live_livegift` AS `live_livegift`
+LEFT OUTER JOIN 
+`liveuser` AS `liveuser` 
+ON `live_livegift`.`liveuser_id` = `liveuser`.`id`
+WHERE 
+`live_livegift`.`live_id` = '4';
+
+# 再连礼物表
+SELECT  
+`live_livegift`.`id`, 
+`live_livegift`.`live_id`, `live_livegift`.`live_id` AS `liveId`, 
+`live_livegift`.`liveuser_id`, `live_livegift`.`liveuser_id` AS `liveuserId`, 
+`live_livegift`.`livegift_id`, `live_livegift`.`livegift_id` AS `livegiftId`,
+`live_livegift`.`create_time`, 
+`live_livegift`.`update_time`,
+`liveuser`.`id` AS `liveuser.id`, 
+`liveuser`.`username` AS `liveuser.username`, 
+`liveuser`.`avatar` AS `liveuser.avatar`,
+`livegift`.`id` AS `livegift.id`, 
+`livegift`.`name` AS `livegift.name`, 
+`livegift`.`image` AS `livegift.image`, 
+`livegift`.`coin` AS `livegift.coin`, 
+`livegift`.`create_time` AS `livegift.create_time`, 
+`livegift`.`update_time` AS `livegift.update_time` 
+FROM `live_livegift` AS `live_livegift`
+LEFT OUTER JOIN 
+`liveuser` AS `liveuser` 
+ON `live_livegift`.`liveuser_id` = `liveuser`.`id`
+LEFT OUTER JOIN 
+`livegift` AS `livegift` 
+ON `live_livegift`.`livegift_id` = `livegift`.`id`
+WHERE 
+`live_livegift`.`live_id` = '4';
+
+# egg.js项目中，终端打印的模型查询语句：
+# 查看直播间（id=4）刷礼物表的查询语句：
+SELECT 
+`live_livegift`.`id`, `live_livegift`.`live_id`, `live_livegift`.`liveuser_id`, 
+`live_livegift`.`livegift_id`, `live_livegift`.`create_time`, 
+`live_livegift`.`update_time`, `live_livegift`.`live_id` AS `liveId`, 
+`live_livegift`.`liveuser_id` AS `liveuserId`, `live_livegift`.`livegift_id` AS `livegiftId`, 
+`liveuser`.`id` AS `liveuser.id`, `liveuser`.`username` AS `liveuser.username`, 
+`liveuser`.`avatar` AS `liveuser.avatar`, 
+`livegift`.`id` AS `livegift.id`, `livegift`.`name` AS `livegift.name`, 
+`livegift`.`image` AS `livegift.image`, `livegift`.`coin` AS `livegift.coin`, 
+`livegift`.`create_time` AS `livegift.create_time`, 
+`livegift`.`update_time` AS `livegift.update_time` 
+FROM 
+`live_livegift` AS `live_livegift` 
+LEFT OUTER JOIN 
+`liveuser` AS `liveuser` 
+ON `live_livegift`.`liveuser_id` = `liveuser`.`id` 
+LEFT OUTER JOIN 
+`livegift` AS `livegift` 
+ON `live_livegift`.`livegift_id` = `livegift`.`id` 
+WHERE 
+`live_livegift`.`live_id` = '4';
+
+# 和我们自己写的查询语句一样
+```
+通过我们自己分析，及写连表查询语句，同学们很好的理解了egg.js项目中模型关联中的：`反向一对多` `belongsTo`的执行原理。<br/>
+当然其他的模型：`一对一 hasOne` `一对多 hasMany` `多对多 belongsToMany` 其实也是这种原理，只是执行的sql语句不同而已，当然这个我们后面讲项目的时候，用到的时候再继续给大家深入讲解。
