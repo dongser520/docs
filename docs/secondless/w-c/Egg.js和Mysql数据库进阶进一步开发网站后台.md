@@ -48,7 +48,10 @@ title: 章节4.Egg.js和Mysql数据库进阶进一步开发网站后台
 > 
 > 具体查看：<a href="/secondless/w-c/mysql数据库.html" target="_blank" title="点击查看课程文档">mysql数据库基础-三、mysql子查询和连表查询</a> 
 
-
+## 六、企业网站栏目管理、内容管理
+> 有了我们上节课的通过sql语句剖析模型关联关系的讲解，那么完成我们企业网站后台管理中的栏目管理、内容管理就是一件非常轻松的事情了。
+> <br/>
+> 具体查看：<a href="/secondless/w-c/企业网站后台栏目管理" target="_blank" title="点击查看课程文档">企业网站后台栏目管理</a> 
 
 
 
