@@ -96,3 +96,14 @@ title: 课程所需软件下载
 
 ### 树形结构方法演变
 > 具体查看：<a href="/secondless/w-c/树形结构方法演变" target="_blank">树形结构方法演变</a>
+
+<br/><br/><br/><br/>
+
+## 课程用到的及常用的vscode插件
+
+> 1. `Database Client` 数据库插件，连接数据库使用 <br/>
+> 2. `Chinese (Simplified) (简体中文) ` vscode中文插件 <br/>
+> 3. `HTML Boilerplate ` h5网页模版 <br/> 
+> 4. `Nunjucks ` egg.js模版引擎代码提示 <br/>
+> 5. `any-rule ` 正则表达式插件 <br/>
+> 6. `Draw.io Integration`  画图插件--> 新建文件后缀名为 .drawio 或者 .dio <br/>
