@@ -215,4 +215,19 @@ this.ctx.validate({
 具体查看：<a href="/secondless/w-c/直播功能中的直播间表live" target="_blank" title="点击查看课程文档">直播功能中的直播间表live</a>
 
 ## 七. 直播功能中的 直播间观看记录表 live_liveuser
-具体查看：搜索 `直播间观看记录表 live_liveuser` 快速定位文档对应内容
+具体查看：文档搜索 `直播间观看记录表 live_liveuser` 快速定位文档对应内容
+
+## 八. 直播功能中的 直播间刷礼物记录表 live_livegift
+具体查看：文档搜索 `直播间刷礼物记录表 live_livegift` 快速定位文档对应内容
+
+## 九. 直播功能中的 查看直播间弹幕（评论）表 livecomment 
+具体查看：文档搜索 `查看直播间弹幕` 快速定位文档对应内容
+
+<br/><br/>
+
+## 十. 网站中的 栏目管理（网站导航栏，栏目分类）表 category
+具体查看：<a href="/secondless/w-c/企业网站后台栏目管理" target="_blank" title="点击查看课程文档">企业网站后台栏目管理（网站导航栏，栏目分类）表 category</a>
+
+## 十一. 网站中的 内容管理（网站的新闻、产品、内容等等信息）表 news
+具体查看：<a href="/secondless/w-c/企业网站后台内容管理" target="_blank" title="点击查看课程文档">企业网站后台内容管理（网站的新闻、产品、内容等等信息）表 news</a>
+
