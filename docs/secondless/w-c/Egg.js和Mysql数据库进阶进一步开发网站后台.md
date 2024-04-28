@@ -57,6 +57,795 @@ title: 章节4.Egg.js和Mysql数据库进阶进一步开发网站后台
 > 如果要在后台管理网站的新闻、产品、内容等等信息，我们统称为：内容管理<br/>
 > 具体查看：<a href="/secondless/w-c/企业网站后台内容管理" target="_blank" title="点击查看课程文档">企业网站后台内容管理</a> 
 
+## 七、网站配置管理
+> 网站配置管理我们可以跟前面一样创建网站配置表，然后进行新增修改删除等，当然，由于网站配置比较简单，因此我们可以将配置放在json文件里面，进行操作即可。<br/>
+以下是一个配置示例样本，大家可根据自己的想法设计网站配置的json文件：<br/>
+```js
+{
+    "data": [
+        {
+            "id": 1,
+            "corporate_name": "睿晨电网建设工程有限公司",
+            "corporate_short": "睿晨电网",
+            "address": "北京CBD帝国大厦999层-1001号",
+            "tel": "010-8888-8888",
+            "mobile": "13858588888",
+            "serviceUser": "张经理",
+            "QQ": "1582758589",
+            "weixin": "company_51yrc",
+            "weixinImg": "",
+            "email": "51yrc@126.com",
+            "pagetitle": "睿晨电网建设工程有限公司",
+            "description": "睿晨电网建设工程有限公司成立由2021年，是一家集...",
+            "keywords": "睿晨电网,电网建设,睿晨电网建设工程有限公司",
+            "domain": "www.xxxx.com",
+            "copyright": "Copyright © 2024 睿晨电网建设工程有限公司 版权所有",
+            "icpNumber": "ICP 备案号 123456",
+            "cnzz": ""
+        }
+    ],
+    "total": 1,
+    "currentId": 1
+}
+```
+> 控制器 `app/controller/admin/config.js`
+```js
+'use strict';
+
+const { log } = require('node:console');
+const fs = require('node:fs');
+const path = require('node:path');
+//配置写入json文件
+let paths = {
+    dir: './data',
+    file: './data/siteConfig.json'
+    //   dir:'./Appdata',
+    //   file:'./Appdata/data.json'
+};
+
+const Controller = require('egg').Controller;
+
+class ConfigController extends Controller {
+    // 配置列表
+    async index() {
+        //读json文件
+        const { ctx, app } = this;
+        let data = await this.getsiteConfigJson();
+        // console.log(typeof data);return;
+        if (typeof data == 'object') {
+            // console.log('配置数据', JSON.stringify(data.data));
+            //渲染公共模版
+            await ctx.renderTemplate({
+                title: '配置管理',//现在网页title,面包屑导航title,页面标题
+                data: data.data,
+                tempType: 'table', //模板类型：table表格模板 ，form表单模板
+                table: {
+                    //表格上方按钮,没有不要填buttons
+                    buttons: [
+                        {
+                            url: '/admin/config/create',//新增路径
+                            desc: '创建配置',//新增 //按钮名称
+                            // icon: 'fa fa-plus fa-lg',//按钮图标
+                        }
+                    ],
+                    //表头
+                    columns: [
+                        {
+                            title: '配置信息',
+                            // key: 'corporate_name',
+                            class: 'text-left',//可选
+                            // width: '30%',
+                            render(item) {
+                                let weixinImg = item.weixinImg;
+                                if (weixinImg.endsWith('.jpg') || weixinImg.endsWith('.jpeg') ||
+                                    weixinImg.endsWith('.png') || weixinImg.endsWith('.gif')) {
+                                    // <li>微信二维码：${item.weixinImg}</li>
+                                    weixinImg = `<li>微信二维码：<img src="${weixinImg}" style="width: 100px; height: 100px;" /></li>`;
+                                }
+                                return `
+                                <h5>公司基本信息</h5>
+                                <ul>
+                                    <li>公司名称：${item.corporate_name}</li>
+                                    <li>名称简写：${item.corporate_short}</li>
+                                    <li>地址：${item.address}</li>
+                                    <li>免费咨询电话：${item.tel}</li>
+                                    <li>手机号：${item.mobile}</li>
+                                    <li>联系人：${item.serviceUser}</li>
+                                    <li>企业QQ：${item.QQ}</li>
+                                    <li>联系微信号：${item.weixin}</li>
+                                    ${weixinImg}
+                                    <li>联系邮箱：${item.email}</li>
+                                </ul>
+                                <h5>seo信息</h5>
+                                <ul>
+                                    <li>网站主页标题：${item.pagetitle}</li>
+                                    <li>网页描述：${item.description}</li>
+                                    <li>搜素关键字：${item.keywords}</li>
+                                </ul>
+                                <h5>其它信息</h5>
+                                <ul>
+                                    <li>官方网址：${item.domain}</li>
+                                    <li>版权信息：${item.copyright}</li>
+                                    <li>ICP 备案：${item.icpNumber}</li>
+                                </ul>
+                            `;
+                            }
+                        },
+                        {
+                            title: '操作',
+                            class: 'text-right',//可选
+                            width: '10%',
+                            action: {
+                                //修改
+                                edit: function (id) {
+                                    return `/admin/config/edit/${id}`;
+                                },
+                                //删除
+                                delete: function (id) {
+                                    return `/admin/config/delete/${id}`;
+                                }
+                            }
+                        },
+                    ],
+                },
+            });
+        }
+    }
+
+    //获取配置数据
+    async getsiteConfigJson() {
+
+        //先判断是否存在这个json文件或者文件夹
+        if (!fs.existsSync(paths.file)) {
+            this.ctx.redirect('/admin/config/create');
+            return '';
+        } else {
+            // console.log(__dirname);//D:\【第二学期第3季】课程代码\myegg\app\controller
+            //D:\【第二学期第3季】课程代码\myegg\data\message.json
+            // console.log(path.resolve(__dirname,'../../','data/message.json'));
+            // let data = fs.readFileSync(path.resolve(__dirname, '../../../', 'data/siteConfig.json'), {
+            //   encoding: 'utf-8'
+            // });
+            let data = fs.readFileSync(paths.file, {
+                encoding: 'utf-8'
+            });
+            // console.log(JSON.parse(data).data);
+            return JSON.parse(data)
+        }
+    }
+
+    // 修改配置
+    async edit() {
+        const { ctx, app } = this;
+        const id = ctx.params.id;
+        let data = await this.getsiteConfigJson();
+        data = data.data.find(item => item.id == id);
+        if (!data) {
+            return ctx.apiFail('该内容不存在');
+        }
+        console.log(data);
+        await ctx.renderTemplate({
+            id,
+            title: '修改配置',//现在网页title,面包屑导航title,页面标题
+            tempType: 'form', //模板类型：table表格模板 ，form表单模板
+            form: {
+                //修改配置提交地址
+                action: '/admin/config/update/' + id,
+                //  字段
+                fields: [
+                    {
+                        label: '公司名称',
+                        type: 'text',
+                        name: 'corporate_name',
+                        placeholder: '请输入公司名称',
+                        // default:'默认值测试', //新增时候默认值，可选
+                    },
+                    {
+                        label: '名称简写',
+                        type: 'text',
+                        name: 'corporate_short',
+                        placeholder: '请输入名称简写',
+                        // default:'默认值测试', //新增时候默认值，可选
+                    },
+                    {
+                        label: '地址',
+                        type: 'text',
+                        name: 'address',
+                        placeholder: '请输入公司地址',
+                        // default:'默认值测试', //新增时候默认值，可选
+                    },
+                    {
+                        label: '免费咨询电话',
+                        type: 'text',
+                        name: 'tel',
+                        placeholder: '请输入免费咨询电话',
+                        // default:'默认值测试', //新增时候默认值，可选
+                    },
+                    {
+                        label: '手机号',
+                        type: 'text',
+                        name: 'mobile',
+                        placeholder: '请输入手机号',
+                        // default:'默认值测试', //新增时候默认值，可选
+                    },
+                    {
+                        label: '联系人',
+                        type: 'text',
+                        name: 'serviceUser',
+                        placeholder: '请输入联系人',
+                        // default:'默认值测试', //新增时候默认值，可选
+                    },
+                    {
+                        label: '企业QQ',
+                        type: 'text',
+                        name: 'QQ',
+                        placeholder: '请输入企业QQ',
+                        // default:'默认值测试', //新增时候默认值，可选
+                    },
+                    {
+                        label: '联系微信号',
+                        type: 'text',
+                        name: 'weixin',
+                        placeholder: '请输入联系微信号',
+                        // default:'默认值测试', //新增时候默认值，可选
+                    },
+                    {
+                        label: '微信二维码',
+                        type: 'file',
+                        name: 'weixinImg',
+                        //placeholder: '',
+                        // default:'默认值测试', //新增时候默认值，可选
+                    },
+                    {
+                        label: '联系邮箱',
+                        type: 'text',
+                        name: 'email',
+                        placeholder: '请输入联系邮箱',
+                        // default:'默认值测试', //新增时候默认值，可选
+                    },
+                    {
+                        label: '网站主页标题',
+                        type: 'text',
+                        name: 'pagetitle',
+                        placeholder: '网站主页标题',
+                        // default:'默认值测试', //新增时候默认值，可选
+                    },
+                    {
+                        label: '网页描述',
+                        type: 'textarea',
+                        name: 'description',
+                        placeholder: '请输入网页描述',
+                        // default:'默认值测试', //新增时候默认值，可选
+                    },
+                    {
+                        label: '搜素关键字',
+                        type: 'text',
+                        name: 'keywords',
+                        placeholder: '请输入搜素关键字，逗号隔开',
+                        // default:'默认值测试', //新增时候默认值，可选
+                    },
+                    {
+                        label: '官方网址',
+                        type: 'text',
+                        name: 'domain',
+                        placeholder: '请输入官方网址',
+                        // default:'默认值测试', //新增时候默认值，可选
+                    },
+                    {
+                        label: '版权信息',
+                        type: 'text',
+                        name: 'copyright',
+                        placeholder: '请输入版权信息',
+                        // default:'默认值测试', //新增时候默认值，可选
+                    },
+                    {
+                        label: 'ICP 备案',
+                        type: 'text',
+                        name: 'icpNumber',
+                        placeholder: '请输入ICP 备案号',
+                        // default:'默认值测试', //新增时候默认值，可选
+                    },
+                    {
+                        label: 'cnzz统计代码',
+                        type: 'textarea',
+                        name: 'cnzz',
+                        placeholder: '请输入cnzz统计代码',
+                        // default:'默认值测试', //新增时候默认值，可选
+                    },
+                ],
+                //修改内容默认值
+                data: data,
+            },
+            //修改成功之后跳转到哪个页面
+            successUrl: '/admin/config/index',
+        });
+
+    }
+
+
+    // 修改配置写入json
+    async update() {
+        const { ctx, app } = this;
+        //1.参数验证
+        this.ctx.validate({
+            id: {
+                type: 'int',
+                required: true,
+                desc: '配置id'
+            },
+            corporate_name: {
+                type: 'string',  //参数类型
+                required: true, //是否必须
+                // defValue: '', 
+                desc: '公司名称' //字段含义
+            },
+            corporate_short: {
+                type: 'string',
+                required: false,
+                defValue: '',
+                desc: '名称简写'
+            },
+            address: {
+                type: 'string',
+                required: false,
+                defValue: '',
+                desc: '地址'
+            },
+            tel: {
+                type: 'string',
+                required: false,
+                defValue: '',
+                desc: '免费咨询电话'
+            },
+            mobile: {
+                type: 'string',
+                required: false,
+                defValue: '',
+                desc: '手机号'
+            },
+            serviceUser: {
+                type: 'string',
+                required: false,
+                defValue: '',
+                desc: '联系人'
+            },
+            QQ: {
+                type: 'string',
+                required: false,
+                defValue: '',
+                desc: '企业QQ'
+            },
+            weixin: {
+                type: 'string',
+                required: false,
+                defValue: '',
+                desc: '联系微信号'
+            },
+            weixinImg: {
+                type: 'string',
+                required: false,
+                defValue: '',
+                desc: '微信二维码'
+            },
+            email: {
+                type: 'string',
+                required: false,
+                defValue: '',
+                desc: '联系邮箱'
+            },
+            pagetitle: {
+                type: 'string',
+                required: false,
+                defValue: '',
+                desc: '网站主页标题'
+            },
+            description: {
+                type: 'string',
+                required: false,
+                defValue: '',
+                desc: '网页描述'
+            },
+            keywords: {
+                type: 'string',
+                required: false,
+                defValue: '',
+                desc: '搜素关键字'
+            },
+            domain: {
+                type: 'string',
+                required: false,
+                defValue: '',
+                desc: '官方网址'
+            },
+            copyright: {
+                type: 'string',
+                required: false,
+                defValue: '',
+                desc: '版权信息'
+            },
+            icpNumber: {
+                type: 'string',
+                required: false,
+                defValue: '',
+                desc: 'ICP 备案'
+            },
+            cnzz: {
+                type: 'string',
+                required: false,
+                defValue: '',
+                desc: 'cnzz统计代码'
+            },
+
+        });
+
+        // 参数
+        const id = ctx.params.id;
+        let data = await this.getsiteConfigJson();
+        let index = data.data.findIndex(item => item.id == id);
+        if (index == -1) {
+            return ctx.apiFail('该内容不存在');
+        }
+
+        let params = this.ctx.request.body;
+        params.id = id;
+        console.log('修改的数据', params);
+        console.log('修改json文件的数组元素索引', index);
+        console.log('原json文件数据', data);
+        data.data[index] = params;
+        console.log('写入json文件的最终所有数据', data);
+        fs.writeFile(paths.file, JSON.stringify(data), (err) => {
+            if (err) throw err;
+            console.log('写入成功')
+        });
+    }
+
+    // 创建配置界面
+    async create() {
+        const { ctx, app } = this;
+        //渲染公共模版
+        await ctx.renderTemplate({
+            title: '创建配置',//现在网页title,面包屑导航title,页面标题
+            tempType: 'form', //模板类型：table表格模板 ，form表单模板
+            form: {
+                //提交地址
+                action: "/admin/config/save",
+                //  字段
+                fields: [
+                    {
+                        label: '公司名称',
+                        type: 'text',
+                        name: 'corporate_name',
+                        placeholder: '请输入公司名称',
+                        // default:'默认值测试', //新增时候默认值，可选
+                    },
+                    {
+                        label: '名称简写',
+                        type: 'text',
+                        name: 'corporate_short',
+                        placeholder: '请输入名称简写',
+                        // default:'默认值测试', //新增时候默认值，可选
+                    },
+                    {
+                        label: '地址',
+                        type: 'text',
+                        name: 'address',
+                        placeholder: '请输入公司地址',
+                        // default:'默认值测试', //新增时候默认值，可选
+                    },
+                    {
+                        label: '免费咨询电话',
+                        type: 'text',
+                        name: 'tel',
+                        placeholder: '请输入免费咨询电话',
+                        // default:'默认值测试', //新增时候默认值，可选
+                    },
+                    {
+                        label: '手机号',
+                        type: 'text',
+                        name: 'mobile',
+                        placeholder: '请输入手机号',
+                        // default:'默认值测试', //新增时候默认值，可选
+                    },
+                    {
+                        label: '联系人',
+                        type: 'text',
+                        name: 'serviceUser',
+                        placeholder: '请输入联系人',
+                        // default:'默认值测试', //新增时候默认值，可选
+                    },
+                    {
+                        label: '企业QQ',
+                        type: 'text',
+                        name: 'QQ',
+                        placeholder: '请输入企业QQ',
+                        // default:'默认值测试', //新增时候默认值，可选
+                    },
+                    {
+                        label: '联系微信号',
+                        type: 'text',
+                        name: 'weixin',
+                        placeholder: '请输入联系微信号',
+                        // default:'默认值测试', //新增时候默认值，可选
+                    },
+                    {
+                        label: '微信二维码',
+                        type: 'file',
+                        name: 'weixinImg',
+                        //placeholder: '',
+                        // default:'默认值测试', //新增时候默认值，可选
+                    },
+                    {
+                        label: '联系邮箱',
+                        type: 'text',
+                        name: 'email',
+                        placeholder: '请输入联系邮箱',
+                        // default:'默认值测试', //新增时候默认值，可选
+                    },
+                    {
+                        label: '网站主页标题',
+                        type: 'text',
+                        name: 'pagetitle',
+                        placeholder: '网站主页标题',
+                        // default:'默认值测试', //新增时候默认值，可选
+                    },
+                    {
+                        label: '网页描述',
+                        type: 'textarea',
+                        name: 'description',
+                        placeholder: '请输入网页描述',
+                        // default:'默认值测试', //新增时候默认值，可选
+                    },
+                    {
+                        label: '搜素关键字',
+                        type: 'text',
+                        name: 'keywords',
+                        placeholder: '请输入搜素关键字，逗号隔开',
+                        // default:'默认值测试', //新增时候默认值，可选
+                    },
+                    {
+                        label: '官方网址',
+                        type: 'text',
+                        name: 'domain',
+                        placeholder: '请输入官方网址',
+                        // default:'默认值测试', //新增时候默认值，可选
+                    },
+                    {
+                        label: '版权信息',
+                        type: 'text',
+                        name: 'copyright',
+                        placeholder: '请输入版权信息',
+                        // default:'默认值测试', //新增时候默认值，可选
+                    },
+                    {
+                        label: 'ICP 备案',
+                        type: 'text',
+                        name: 'icpNumber',
+                        placeholder: '请输入ICP 备案号',
+                        // default:'默认值测试', //新增时候默认值，可选
+                    },
+                    {
+                        label: 'cnzz统计代码',
+                        type: 'textarea',
+                        name: 'cnzz',
+                        placeholder: '请输入cnzz统计代码',
+                        // default:'默认值测试', //新增时候默认值，可选
+                    },
+                ],
+            },
+            //新增成功之后跳转到哪个页面
+            successUrl: '/admin/config/index',
+        });
+    }
+
+    // 创建配置提交数据
+    async save() {
+
+        //参数验证
+        this.ctx.validate({
+            corporate_name: {
+                type: 'string',  //参数类型
+                required: true, //是否必须
+                // defValue: '', 
+                desc: '公司名称' //字段含义
+            },
+            corporate_short: {
+                type: 'string',
+                required: false,
+                defValue: '',
+                desc: '名称简写'
+            },
+            address: {
+                type: 'string',
+                required: false,
+                defValue: '',
+                desc: '地址'
+            },
+            tel: {
+                type: 'string',
+                required: false,
+                defValue: '',
+                desc: '免费咨询电话'
+            },
+            mobile: {
+                type: 'string',
+                required: false,
+                defValue: '',
+                desc: '手机号'
+            },
+            serviceUser: {
+                type: 'string',
+                required: false,
+                defValue: '',
+                desc: '联系人'
+            },
+            QQ: {
+                type: 'string',
+                required: false,
+                defValue: '',
+                desc: '企业QQ'
+            },
+            weixin: {
+                type: 'string',
+                required: false,
+                defValue: '',
+                desc: '联系微信号'
+            },
+            weixinImg: {
+                type: 'string',
+                required: false,
+                defValue: '',
+                desc: '微信二维码'
+            },
+            email: {
+                type: 'string',
+                required: false,
+                defValue: '',
+                desc: '联系邮箱'
+            },
+            pagetitle: {
+                type: 'string',
+                required: false,
+                defValue: '',
+                desc: '网站主页标题'
+            },
+            description: {
+                type: 'string',
+                required: false,
+                defValue: '',
+                desc: '网页描述'
+            },
+            keywords: {
+                type: 'string',
+                required: false,
+                defValue: '',
+                desc: '搜素关键字'
+            },
+            domain: {
+                type: 'string',
+                required: false,
+                defValue: '',
+                desc: '官方网址'
+            },
+            copyright: {
+                type: 'string',
+                required: false,
+                defValue: '',
+                desc: '版权信息'
+            },
+            icpNumber: {
+                type: 'string',
+                required: false,
+                defValue: '',
+                desc: 'ICP 备案'
+            },
+            cnzz: {
+                type: 'string',
+                required: false,
+                defValue: '',
+                desc: 'cnzz统计代码'
+            },
+
+        });
+
+        //写入数据
+        let data = this.ctx.request.body;
+        await this.addconfig(data, paths);
+    }
+
+    //写入json文件前的处理
+    async addconfig(data, paths) {
+        //创建一个文件夹data
+        if (!fs.existsSync(paths.dir)) {
+            fs.mkdirSync(paths.dir);
+        };
+        //判断json文件是否存在，存在说明之前写入过了，先读一下
+        let flag = fs.existsSync(paths.file);
+        if (flag) {
+            //存在先读取一下
+            await this.readconfig(paths.file, data)
+        } else {
+            //不存在，首次直接写
+            let ms = data;
+            ms.id = 1;
+            //加入时间,所在地等等
+            // ms.timestamp = new Date().getTime();
+            // console.log(ms);
+            let o = {};
+            o.data = [];
+            o.data.push(ms);
+            o.total = 1;
+            o.currentId = 1;
+            // console.log(o);
+            // console.log(JSON.stringify(o));
+            //写入内容,同步异步promise,以及可写流
+            await this.writeconfig(paths.file, o);
+        }
+    }
+
+    //存在先读取一下
+    async readconfig(path, data) {
+        //读取内容,同步异步promise,以及可写流
+        fs.readFile(path, {
+            flag: 'r',
+            encoding: 'utf-8',
+        }, (err, oldmessage) => {
+            if (err) throw err;
+            oldmessage = JSON.parse(oldmessage);
+            console.log(oldmessage)
+            console.log(data);
+            //处理数据
+            data.id = oldmessage.currentId + 1;
+            //加入时间,所在地等等
+            // data.timestamp = new Date().getTime();
+            //大对象
+            oldmessage.data.push(data);
+            oldmessage.total = oldmessage.data.length;
+            oldmessage.currentId = data.id;
+            console.log(oldmessage);
+            //写入内容,同步异步promise,以及可写流
+            this.writeconfig(path, oldmessage);
+
+        })
+    }
+
+    //写入json
+    async writeconfig(path, data) {
+        fs.writeFile(path, JSON.stringify(data), (err) => {
+            if (err) throw err;
+            console.log('写入成功')
+        });
+    }
+
+    // 删除配置
+    async delete() {
+        //读json文件
+        const { ctx, app } = this;
+        let data = await this.getsiteConfigJson();
+        console.log('配置数据', JSON.stringify(data));
+        const id = ctx.params.id;
+        let index = data.data.findIndex(item => item.id == id);
+        if (index == -1) {
+            return ctx.apiFail('该内容不存在');
+        }
+        console.log(index);
+        data.data.splice(index, 1);
+        data.total = data.data.length;
+        console.log('删除之后即将重新写入json的数据', data);
+        await this.writeconfig(paths.file, data);
+        //提示
+        ctx.toast('删除配置成功', 'success');
+        //跳转
+        ctx.redirect('/admin/config/index');
+    }
+
+}
+
+module.exports = ConfigController;
+
+```
+
+
+
 
 
 
