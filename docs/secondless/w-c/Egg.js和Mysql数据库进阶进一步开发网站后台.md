@@ -844,7 +844,21 @@ module.exports = ConfigController;
 
 ```
 
-
+> 路由
+```js
+// 配置列表
+router.get('/admin/config/index', controller.admin.config.index);
+//修改配置
+router.get('/admin/config/edit/:id', controller.admin.config.edit);
+//修改配置写入json
+router.post('/admin/config/update/:id', controller.admin.config.update);
+//创建配置
+router.get('/admin/config/create', controller.admin.config.create);
+// 创建配置提交数据
+router.post('/admin/config/save', controller.admin.config.save);
+//删除配置
+router.get('/admin/config/delete/:id', controller.admin.config.delete);
+```
 
 
 
