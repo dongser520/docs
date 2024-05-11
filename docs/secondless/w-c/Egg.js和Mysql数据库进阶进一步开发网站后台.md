@@ -1056,6 +1056,140 @@ methods: {
 
 
 ## 九、简单权限管理
+### 1. 管理员栏目：超级管理员可以查看所有管理员，普通管理员只能看自己
+`控制器 app/controller/admin/manager.js`
+```js
+//创建管理员列表页面
+  async index() {
+    ...
+
+    //超级管理员的特殊权限
+    console.log(ctx.session.auth);
+    let buttons = null;
+    let columns = [];
+    if(ctx.session.auth.super == 1){
+      buttons = {
+        buttons: [
+          {
+            url: '/admin/manager/create',//新增路径
+            desc: '新增管理员',//新增 //按钮名称
+            // icon: 'fa fa-plus fa-lg',//按钮图标
+          }
+        ],
+      }
+      //禁用功能
+      columns = [
+        {
+            title: '可用状态',
+            key: 'status',
+            width: 200,//可选
+            class: 'text-center',//可选
+            hidekeyData: true,//是否隐藏key对应的数据
+            render(item) {
+                console.log('可用状态里面每个item', item);
+                let arr = [
+                    { value: 1, name: '可用' },
+                    { value: 0, name: '禁用' },
+                ];
+                let str = `<div class="btn-group btn-group-${item.id}">`;
+                for (let i = 0; i < arr.length; i++) {
+                    str += `<button type="button" class="btn btn-light" data="${item.status}"
+                    value="${arr[i].value}"
+                    @click="changeBtnStatus('status','btn-group-${item.id}',${arr[i].value},${i},${item.id},'manager','Manager')">${arr[i].name}</button>`;
+                }
+                str += `</div>`;
+                return str;
+            }
+        }
+      ];
+    }else{
+      data = await ctx.page('Manager',{
+        id: ctx.session.auth.id
+      });
+    }
+
+    //渲染公共模版
+    await ctx.renderTemplate({
+      title: '管理员列表',//现在网页title,面包屑导航title,页面标题
+      data,
+      tempType: 'table', //模板类型：table表格模板 ，form表单模板
+      table: {
+        //表格上方按钮,没有不要填buttons
+        // buttons: [
+        //   {
+        //     url: '/admin/manager/create',//新增路径
+        //     desc: '新增管理员',//新增 //按钮名称
+        //     // icon: 'fa fa-plus fa-lg',//按钮图标
+        //   }
+        // ],
+        ...buttons,
+        //表头
+        columns: [
+          ...
+          ...columns,
+          ...
+          },
+        ],
+      },
+    });
+  }
+
+
+//创建管理员提交数据
+async save() {
+
+    //超级管理员的特殊权限
+    console.log(this.ctx.session.auth);
+    if(this.ctx.session.auth.super != 1){
+        return this.ctx.apiFail('您无权操作此项功能');
+    }
+
+...
+
+}
+
+
+//删除管理员功能
+async delete() {
+    const { ctx, app } = this;
+    const id = ctx.params.id;
+
+    //超级管理员的特殊权限，普通管理员只能删除自己
+    console.log(this.ctx.session.auth);
+    if(this.ctx.session.auth.super == 1 || (this.ctx.session.auth.id == id && this.ctx.session.auth.super == 0)){
+        await app.model.Manager.destroy({
+        where: {
+            id
+        }
+        });
+        //提示
+        ctx.toast('管理员删除成功', 'success');
+        //跳转
+        ctx.redirect('/admin/manager/index');
+        
+    }else{
+        return this.ctx.apiFail('您无权操作此项功能');
+    }
+
+}
+
+//修改管理员数据功能
+async update() {
+
+if(this.ctx.session.auth.super == 0 && this.ctx.session.auth.id != this.ctx.params.id){
+    return this.ctx.apiFail('您无权操作此项功能');
+}
+
+...
+}
+
+
+
+```
+
+
+
+### 2. 权限分配
 `data/root.json`
 ```json
 //初步
