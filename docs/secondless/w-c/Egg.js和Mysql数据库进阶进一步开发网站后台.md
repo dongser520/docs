@@ -860,8 +860,234 @@ router.post('/admin/config/save', controller.admin.config.save);
 router.get('/admin/config/delete/:id', controller.admin.config.delete);
 ```
 
+## 八、后台初始化管理员登录逻辑
+> 后台上线初期，数据库和json文件都是空的，没有任何数据（除非将开发环境的数据库和json文件拷贝到线上服务器），那么就意味着管理员表也是空的，无法进行登录，因此一般情况下，后台上线初期，需要手动添加一个超级管理员账号。<br/><br/>
+> 给 `manager`表新增两个字段：status（状态：1：启用，0：禁用）和 super（是否超级管理员 1是，0：否）<br/><br/>
+> 迁移文件 `database/migrations/-init-manager.js`
+> ```js
+> status: {
+>     type: INTEGER(1),
+>     allowNull: true,
+>     defaultValue: 1,
+>     comment: '状态：1：启用，0：禁用'
+> },
+> super: {
+>     type: INTEGER(1),
+>     allowNull: true,
+>     defaultValue: 1,
+>     comment: '是否超级管理员 1是，0：否'
+> },
+> ```
+> 模型文件 `app/model/manager.js` 同上，加上这两个字段
+
+注：迁移文件的修改不会影响到本项目（会在以后的项目中才会在`manager`表生效这两个字段），如果本项目要生效，需直接修改数据库manager表字段，新增这2个字段即可<br/><br/>
+（或者数据库重新初始化）
+> ```js
+> // 升级数据库-创建数据表
+> npx sequelize db:migrate
+> // 如果有问题需要回滚，可以通过 `db:migrate:undo` 回退一个变更
+> npx sequelize db:migrate:undo
+> // 可以通过 `db:migrate:undo:all` 回退到初始状态
+> npx sequelize db:migrate:undo:all
+> ```
+
+#### 后台初始化管理员登录逻辑
+> 这个时候需要考虑，当项目刚初始化的时候，由于数据库的所有表都没有内容，当然也包括管理员表没有管理员，此时可在管理员登录界面调整一下，初始化创建一个管理员，并且该管理员角色是：超级管理员<br/>
+
+1. 控制器 `app/controller/admin/home.js`
+```js
+//管理员登录页面---后台登录页面
+async login() {
+    const { ctx,app } = this;
+    let toast = this.ctx.cookies.get('toast',{
+        encrypt:true
+    });
+    toast = toast ? JSON.parse(toast) : null;
+
+    // 新增初始化逻辑，当没有管理员的时候新增一个超级管理员
+    let manager = await app.model.Manager.findAndCountAll();
+    let pageobj = {};
+    if(manager.count == 0){
+        // console.log('应该创建首个超级管理员');
+        pageobj.type = 'createSuperManager';
+        pageobj.title = '创建后台首个超级管理员账户';
+        pageobj.h1 = '创建超级管理员';
+        pageobj.p = '创建后台首个超级管理员账户';
+    }else{
+        // console.log('正常登录');
+        pageobj.type = 'login';
+        pageobj.title = '登录';
+        pageobj.h1 = '登 录';
+        pageobj.p = '后台管理中心欢迎您';
+    }
+
+    await this.ctx.render('admin/home/login.html',{
+        toast,
+        pageobj
+    });
+}
+
+// 创建超级管理员账号
+async createSuperManager(){
+    const { ctx,app } = this;
+    //超级管理员是数据库没有管理员的时候才创建的
+    let manager = await app.model.Manager.findAndCountAll();
+    if(manager.count != 0){
+        return ctx.apiFail('非法操作，系统拒绝您的请求');
+    }
+    //1.参数验证
+    ctx.validate({
+        username: {
+        type: 'string',  //参数类型
+        required: true, //是否必须
+        // defValue: '', 
+        desc: '管理员账号' //字段含义
+        },
+        password: {
+        type: 'string',
+        required: true,
+        // defValue: '', 
+        desc: '管理员密码'
+        },
+    });
+    // 拿参数
+    const { username, password } = ctx.request.body;
+
+    await app.model.Manager.create({
+        username,
+        password,
+        status:1,
+        super:'1',//超级管理员
+    });
+
+    ctx.apiSuccess('ok');
+
+}
+```
+2. 路由 `app/router/admin/admin.js`
+```js
+// 创建超级管理员
+router.post('/admin/createSuperManager', controller.admin.home.createSuperManager);
+```
+3. 中间件加上创建超级管理员免登录
+```js
+// 对中间件adminAuth进一步配置
+config.adminAuth = {
+    ignore: [
+        ...
+        "/admin/createSuperManager",
+        ...
+    ],
+};
+```
+4. 模版 `app/view/admin/home/login.html`
+```js
+<div class="login-right">
+    <div class="login-right-wrap">
+        <h1>{{pageobj.h1}}</h1>
+        <p class="account-subtitle">{{pageobj.p}}</p>
+
+        <!-- Form -->
+        <form>
+            <div class="form-group">
+                <input class="form-control" type="text"
+                    placeholder="输入管理员账号..."
+                    v-model="form.username">
+            </div>
+            <div class="form-group">
+                <input class="form-control" type="password"
+                    placeholder="输入管理员密码..."
+                    v-model="form.password">
+            </div>
+            <div class="form-group">
+                <button
+                    class="btn btn-primary btn-block"
+                    type="submit"
+                    @click.stop.prevent="submit">{{ '登 录'  if pageobj.type == 'login' else '创建超级管理员' }}</button>
+            </div>
+        </form>
+
+    </div>
+</div>
+...
+methods: {
+    submit(){
+        //console.log('提交登录',this.form);
+        const type = "{{pageobj.type}}";
+        // console.log('类型',type);
+        const url = type == 'createSuperManager' ? 
+        '/admin/createSuperManager?_csrf={{ctx.csrf|safe}}' : 
+        "/admin/loginevent?_csrf={{ctx.csrf|safe}}";
+        // console.log('提交地址',url);
+        // return;
+        $.ajax({
+            type: 'post', 
+            url:url,
+            contentType:'application/json;charset=UTF-8;',
+            data:JSON.stringify(this.form),
+            success: function (response, stutas, xhr) {
+                console.log(response)
+                const msg = type == 'createSuperManager' ? "创建超级管理员成功" : "登录成功";
+                Vueapp.$refs.toast.show({
+                    msg,
+                    type:'success',
+                    delay:1000,
+                    success:function(){
+                        // 跳转到某个页面
+                        const href = type == 'createSuperManager' ? '/admin/login' : "/admin"
+                        window.location.href = href;
+                    }
+                });
+            },
+            error:function(e){
+                // console.log(e)
+                Vueapp.$refs.toast.show({
+                    msg:e.responseJSON.data,
+                    type:'danger',
+                    delay:3000
+                });
+            }
+        });
+    }
+}
+```
 
 
+
+
+## 九、简单权限管理
+`data/root.json`
+```json
+//初步
+[
+    { "name": "主面板", "icon": "fe fe-home", "url": "/admin" },
+    { "name": "管理员", "icon": "fe fe-user-plus", "url": "/admin/manager/index" },
+    { "name": "留言板", "icon": "fe fe-document", "url": "/admin/message/index" },
+    { "name": "直播用户", "icon": "fa fa-user-o", "url": "/admin/liveuser/index" },
+    { "name": "直播礼物管理", "icon": "fa fa-user-o", "url": "/admin/livegift/index" },
+    { "name": "直播订单管理", "icon": "fa fa-user-o", "url": "/admin/liveorder/index" },
+    { "name": "直播间管理", "icon": "fa fa-user-o", "url": "/admin/live-/index" },
+    { "name": "分类管理", "icon": "fa fa-user-o", "url": "/admin/category/index" },
+    { "name": "新闻内容管理", "icon": "fa fa-user-o", "url": "/admin/news/index" },
+    { "name": "配置管理", "icon": "fa fa-user-o", "url": "/admin/config/index" }
+]
+
+//转成树形结构
+[
+    {"id":1,"pid":0, "name": "主面板", "icon": "fe fe-home", "url": "/admin" },
+    {"id":2,"pid":0, "name": "基础管理", "icon": "fe fe-home", "url": ""},
+    {"id":3,"pid":2,  "name": "管理员", "icon": "fe fe-user-plus", "url": "/admin/manager/index" },
+    {"id":4,"pid":2,  "name": "留言板", "icon": "fe fe-document", "url": "/admin/message/index" },
+    {"id":5,"pid":2, "name": "分类管理", "icon": "fa fa-user-o", "url": "/admin/category/index" },
+    {"id":6,"pid":2, "name": "新闻内容管理", "icon": "fa fa-user-o", "url": "/admin/news/index" },
+    {"id":7,"pid":2, "name": "配置管理", "icon": "fa fa-user-o", "url": "/admin/config/index" },
+    {"id":8,"pid":0, "name": "直播管理","icon": "fe fe-home", "url": ""},
+    {"id":9,"pid":8, "name": "直播用户", "icon": "fa fa-user-o", "url": "/admin/liveuser/index" },
+    {"id":10,"pid":8, "name": "直播礼物管理", "icon": "fa fa-user-o", "url": "/admin/livegift/index" },
+    {"id":11,"pid":8, "name": "直播订单管理", "icon": "fa fa-user-o", "url": "/admin/liveorder/index" },
+    {"id":12,"pid":8, "name": "直播间管理", "icon": "fa fa-user-o", "url": "/admin/live-/index" }
+]
+```
 
 
 
