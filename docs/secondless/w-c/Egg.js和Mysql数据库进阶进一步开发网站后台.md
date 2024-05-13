@@ -1190,7 +1190,8 @@ if(this.ctx.session.auth.super == 0 && this.ctx.session.auth.id != this.ctx.para
 
 
 ### 2. 权限分配
-`data/root.json`
+`data/root.json` <br/>
+图标查找：<https://fontawesome.dashgame.com/>
 ```json
 //初步
 [
@@ -1208,19 +1209,85 @@ if(this.ctx.session.auth.super == 0 && this.ctx.session.auth.id != this.ctx.para
 
 //转成树形结构
 [
-    {"id":1,"pid":0, "name": "主面板", "icon": "fe fe-home", "url": "/admin" },
-    {"id":2,"pid":0, "name": "基础管理", "icon": "fe fe-home", "url": ""},
-    {"id":3,"pid":2,  "name": "管理员", "icon": "fe fe-user-plus", "url": "/admin/manager/index" },
-    {"id":4,"pid":2,  "name": "留言板", "icon": "fe fe-document", "url": "/admin/message/index" },
-    {"id":5,"pid":2, "name": "分类管理", "icon": "fa fa-user-o", "url": "/admin/category/index" },
-    {"id":6,"pid":2, "name": "新闻内容管理", "icon": "fa fa-user-o", "url": "/admin/news/index" },
-    {"id":7,"pid":2, "name": "配置管理", "icon": "fa fa-user-o", "url": "/admin/config/index" },
-    {"id":8,"pid":0, "name": "直播管理","icon": "fe fe-home", "url": ""},
-    {"id":9,"pid":8, "name": "直播用户", "icon": "fa fa-user-o", "url": "/admin/liveuser/index" },
-    {"id":10,"pid":8, "name": "直播礼物管理", "icon": "fa fa-user-o", "url": "/admin/livegift/index" },
-    {"id":11,"pid":8, "name": "直播订单管理", "icon": "fa fa-user-o", "url": "/admin/liveorder/index" },
-    {"id":12,"pid":8, "name": "直播间管理", "icon": "fa fa-user-o", "url": "/admin/live-/index" }
+    {"id":1,"pid":0, "name": "网站", "icon": "fa fa-chrome", "url": ""},
+    {"id":2,"pid":1, "name": "主面板", "icon": "fa fa-pie-chart", "url": "/admin" },
+    {"id":3,"pid":1,  "name": "管理员", "icon": "fe fe-user-plus", "url": "/admin/manager/index" },
+    {"id":4,"pid":1,  "name": "留言板", "icon": "fe fe-document", "url": "/admin/message/index" },
+    {"id":5,"pid":1, "name": "分类管理", "icon": "fa fa-list", "url": "/admin/category/index" },
+    {"id":6,"pid":1, "name": "新闻内容管理", "icon": "fa fa-file-text-o", "url": "/admin/news/index" },
+    {"id":7,"pid":1, "name": "配置管理", "icon": "fa fa-wrench", "url": "/admin/config/index" },
+    {"id":8,"pid":0, "name": "直播","icon": "fa fa-video-camera", "url": ""},
+    {"id":9,"pid":8, "name": "直播用户", "icon": "fa fa-venus-mars", "url": "/admin/liveuser/index" },
+    {"id":10,"pid":8, "name": "直播礼物管理", "icon": "fa fa-gift", "url": "/admin/livegift/index" },
+    {"id":11,"pid":8, "name": "直播订单管理", "icon": "fa fa-credit-card", "url": "/admin/liveorder/index" },
+    {"id":12,"pid":8, "name": "直播间管理", "icon": "fa fa-tv", "url": "/admin/live-/index" }
 ]
+```
+中间件菜单 `app/middleware/admin_auth.js`
+```js
+module.exports = (option, app) => {
+    return async function adminMenu(ctx, next) {
+        // let menus = [
+        //     { name: '主面板', icon: 'fe fe-home', url: '/admin' },
+        //     { name: '管理员', icon: 'fe fe-user-plus', url: '/admin/manager/index' },
+        //     { name: '留言板', icon: 'fe fe-document', url: '/admin/message/index' },
+        //     { name: '直播用户', icon: 'fa fa-user-o', url: '/admin/liveuser/index' },
+        //     { name: '直播礼物管理', icon: 'fa fa-user-o', url: '/admin/livegift/index' },
+        //     { name: '直播订单管理', icon: 'fa fa-user-o', url: '/admin/liveorder/index' },
+        //     { name: '直播间管理', icon: 'fa fa-user-o', url: '/admin/live-/index' },
+        //     { name: '分类管理', icon: 'fa fa-user-o', url: '/admin/category/index' },
+        //     { name: '新闻内容管理', icon: 'fa fa-user-o', url: '/admin/news/index' },
+        //     { name: '配置管理', icon: 'fa fa-user-o', url: '/admin/config/index' },
+        // ];
+        let menus = [
+            {"id":1,"pid":0, "name": "网站", "icon": "fa fa-chrome", "url": ""},
+            {"id":2,"pid":1, "name": "主面板", "icon": "fa fa-pie-chart", "url": "/admin" },
+            {"id":3,"pid":1,  "name": "管理员", "icon": "fe fe-user-plus", "url": "/admin/manager/index" },
+            {"id":4,"pid":1,  "name": "留言板", "icon": "fe fe-document", "url": "/admin/message/index" },
+            {"id":5,"pid":1, "name": "分类管理", "icon": "fa fa-list", "url": "/admin/category/index" },
+            {"id":6,"pid":1, "name": "新闻内容管理", "icon": "fa fa-file-text-o", "url": "/admin/news/index" },
+            {"id":7,"pid":1, "name": "配置管理", "icon": "fa fa-wrench", "url": "/admin/config/index" },
+            {"id":8,"pid":0, "name": "直播","icon": "fa fa-video-camera", "url": ""},
+            {"id":9,"pid":8, "name": "直播用户", "icon": "fa fa-venus-mars", "url": "/admin/liveuser/index" },
+            {"id":10,"pid":8, "name": "直播礼物管理", "icon": "fa fa-gift", "url": "/admin/livegift/index" },
+            {"id":11,"pid":8, "name": "直播订单管理", "icon": "fa fa-credit-card", "url": "/admin/liveorder/index" },
+            {"id":12,"pid":8, "name": "直播间管理", "icon": "fa fa-tv", "url": "/admin/live-/index" }
+        ];
+        // 和我们分页模版类似，通过ctx.locals对象挂载代码
+        ctx.locals.menus = menus.map(item => {
+            //   console.log('当前请求地址', ctx.request.url)
+            //   console.log('遍历项地址', item.url)
+            let baseURL = item.url.replace('/index', '');
+            //   console.log('处理之后遍历项地址', baseURL);
+            //   console.log('判断',ctx.request.url.startsWith(baseURL));
+            if ((ctx.request.url == '/admin' && item.url == '/admin') ||
+                (ctx.request.url != '/admin' && item.url != '/admin' && ctx.request.url.startsWith(baseURL) && item.url)
+            ) {
+                item.active = 'active';
+            }
+
+            if(item.url){
+                item.style = 'text-indent:2em';
+            }else{
+                item.style = 'cursor:default';
+            }
+
+            return item;
+        });
+
+        //    console.log(ctx.locals.menus);
+
+        await next();
+    }
+}
+```
+菜单模版 `app/view/admin/layout/_slider.html`
+```html
+{% for item in ctx.locals.menus %}
+<li class="{{item.active}}" >
+    <a href="{{item.url}}" style="{{item.style}}"><i class="{{item.icon}}" style="font-size: 18px;"></i> <span>{{item.name}}</span></a>
+</li>
+{% endfor %}
 ```
 
 
