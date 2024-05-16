@@ -89,6 +89,7 @@ title: 课程所需软件下载
 > <a href="http://bs4.vx.link/index.html?tmpui_page=/pages/components" target="_blank">Bootstrap4 中文文档</a> 
 
 ### 响应式网站后台管理系统（egg.js + Bootstrap）
+> 从0开始开发， 从 `搭建界面引入模版html文件`开始，先开发完后台的： `创建管理员`，`管理员列表`，`管理员列表分页`，`公共模板开发`，`管理员登录`，`后台用户留言板管理`，`后台左侧菜单栏`，初步搭建后台基本功能。<br/><br/>
 > 具体查看：<a href="/secondless/w-c/响应式后台管理系统" target="_blank">响应式后台管理系统（egg.js + Bootstrap）</a>
 
 ### 上传文件
@@ -96,6 +97,14 @@ title: 课程所需软件下载
 
 ### 树形结构方法演变
 > 具体查看：<a href="/secondless/w-c/树形结构方法演变" target="_blank">树形结构方法演变</a>
+
+### Egg.js和Mysql数据库进阶进一步开发响应式网站后台管理系统
+> 继续开发后台管理中的：`用户管理`，`礼物管理`，`订单管理`，`直播间管理`，`企业网站栏目管理、内容管理`，`网站配置管理`，`后台初始化管理员登录逻辑`，`简单权限管理`，`权限分配` <br/> <br/>
+> 具体查看：<a href="/secondless/w-c/Egg.js和Mysql数据库进阶进一步开发网站后台.html" target="_blank">Egg.js和Mysql数据库进阶进一步开发响应式网站后台管理系统</a>
+
+### 引入富文本编辑器
+> 引入富文本编辑器的实现过程<br/> <br/>
+> 具体查看：<a href="/secondless/w-c/企业网站后台内容管理.html#二、初步引入富文本编辑器" target="_blank">初步引入富文本编辑器</a>，若定位不准，可文档搜索 `初步引入富文本编辑器` 
 
 <br/><br/><br/><br/>
 
