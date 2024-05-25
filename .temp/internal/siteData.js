@@ -87,6 +87,37 @@ export const siteData = {
   ],
   "pages": [
     {
+      "title": "首页",
+      "frontmatter": {
+        "home": true,
+        "title": "首页",
+        "heroText": "睿晨编程",
+        "tagline": "零基础转行学做网站、app、小程序",
+        "actionText": "查看课程文档 →",
+        "actionLink": "/aboutless",
+        "features": [
+          {
+            "title": "需求人群",
+            "details": "很多想转行，想接单做网站等需求的小白，不知道如何转行学编程的学员。"
+          },
+          {
+            "title": "课程适合人群",
+            "details": "零基础、其他行业转行学编程、想接私单(网站、小程序、app)、进一步提升自己知识能力的人。"
+          },
+          {
+            "title": "课程体系",
+            "details": "课程安排从基础入门开始，由网站开发到移动端小程序、APP的讲解。"
+          }
+        ]
+      },
+      "regularPath": "/",
+      "relativePath": "README.md",
+      "key": "v-1215a3cf",
+      "path": "/",
+      "lastUpdated": "2023年8月29日星期二下午3点20分",
+      "lastUpdatedTimestamp": 1693293632000
+    },
+    {
       "title": "关于我们html",
       "frontmatter": {
         "navbar": true,
@@ -147,90 +178,6 @@ export const siteData = {
       "lastUpdatedTimestamp": 1677757906000
     },
     {
-      "title": "首页",
-      "frontmatter": {
-        "home": true,
-        "title": "首页",
-        "heroText": "睿晨编程",
-        "tagline": "零基础转行学做网站、app、小程序",
-        "actionText": "查看课程文档 →",
-        "actionLink": "/aboutless",
-        "features": [
-          {
-            "title": "需求人群",
-            "details": "很多想转行，想接单做网站等需求的小白，不知道如何转行学编程的学员。"
-          },
-          {
-            "title": "课程适合人群",
-            "details": "零基础、其他行业转行学编程、想接私单(网站、小程序、app)、进一步提升自己知识能力的人。"
-          },
-          {
-            "title": "课程体系",
-            "details": "课程安排从基础入门开始，由网站开发到移动端小程序、APP的讲解。"
-          }
-        ]
-      },
-      "regularPath": "/",
-      "relativePath": "README.md",
-      "key": "v-1215a3cf",
-      "path": "/",
-      "lastUpdated": "2023年8月29日星期二下午3点20分",
-      "lastUpdatedTimestamp": 1693293632000
-    },
-    {
-      "title": "第一学期课程",
-      "frontmatter": {
-        "navbar": true,
-        "title": "第一学期课程"
-      },
-      "regularPath": "/aboutless.html",
-      "relativePath": "aboutless.md",
-      "key": "v-5387826c",
-      "path": "/aboutless.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "1.完整课程学习",
-          "slug": "_1-完整课程学习"
-        },
-        {
-          "level": 2,
-          "title": "2.课程免费试看（1-13课）",
-          "slug": "_2-课程免费试看-1-13课"
-        },
-        {
-          "level": 2,
-          "title": "3.第一学期课程效果图",
-          "slug": "_3-第一学期课程效果图"
-        },
-        {
-          "level": 2,
-          "title": "4.课程体系介绍",
-          "slug": "_4-课程体系介绍"
-        },
-        {
-          "level": 2,
-          "title": "5.睿晨网所有课程集合",
-          "slug": "_5-睿晨网所有课程集合"
-        }
-      ],
-      "lastUpdated": "2023年9月7日星期四中午11点33分",
-      "lastUpdatedTimestamp": 1694057618000
-    },
-    {
-      "title": "我是pc总页",
-      "frontmatter": {
-        "navbar": true,
-        "title": "我是pc总页"
-      },
-      "regularPath": "/pc/",
-      "relativePath": "pc/README.md",
-      "key": "v-7ba60f92",
-      "path": "/pc/",
-      "lastUpdated": "2023年3月1日星期三下午12点33分",
-      "lastUpdatedTimestamp": 1677645233000
-    },
-    {
       "title": "p-a页面",
       "frontmatter": {
         "title": "p-a页面"
@@ -283,6 +230,72 @@ export const siteData = {
       ],
       "lastUpdated": "2023年3月1日星期三下午12点33分",
       "lastUpdatedTimestamp": 1677645233000
+    },
+    {
+      "title": "markdown的基本语法示例",
+      "frontmatter": {
+        "navbar": true,
+        "sidebar": "auto",
+        "title": "markdown的基本语法示例"
+      },
+      "regularPath": "/about/",
+      "relativePath": "about/README.md",
+      "key": "v-2c6c8e00",
+      "path": "/about/",
+      "headers": [
+        {
+          "level": 2,
+          "title": "二级标题",
+          "slug": "二级标题"
+        },
+        {
+          "level": 3,
+          "title": "三级标题",
+          "slug": "三级标题"
+        }
+      ],
+      "lastUpdated": "2023年3月3日星期五晚上8点31分",
+      "lastUpdatedTimestamp": 1677846686000
+    },
+    {
+      "title": "第一学期课程",
+      "frontmatter": {
+        "navbar": true,
+        "title": "第一学期课程"
+      },
+      "regularPath": "/aboutless.html",
+      "relativePath": "aboutless.md",
+      "key": "v-5387826c",
+      "path": "/aboutless.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "1.完整课程学习",
+          "slug": "_1-完整课程学习"
+        },
+        {
+          "level": 2,
+          "title": "2.课程免费试看（1-13课）",
+          "slug": "_2-课程免费试看-1-13课"
+        },
+        {
+          "level": 2,
+          "title": "3.第一学期课程效果图",
+          "slug": "_3-第一学期课程效果图"
+        },
+        {
+          "level": 2,
+          "title": "4.课程体系介绍",
+          "slug": "_4-课程体系介绍"
+        },
+        {
+          "level": 2,
+          "title": "5.睿晨网所有课程集合",
+          "slug": "_5-睿晨网所有课程集合"
+        }
+      ],
+      "lastUpdated": "2023年9月7日星期四中午11点33分",
+      "lastUpdatedTimestamp": 1694057618000
     },
     {
       "title": "p-b页面",
@@ -514,70 +527,17 @@ export const siteData = {
       "lastUpdatedTimestamp": 1677645233000
     },
     {
-      "title": "第二学期课程总述",
+      "title": "我是pc总页",
       "frontmatter": {
         "navbar": true,
-        "title": "第二学期课程总述"
+        "title": "我是pc总页"
       },
-      "regularPath": "/secondless/",
-      "relativePath": "secondless/README.md",
-      "key": "v-17cd735c",
-      "path": "/secondless/",
-      "headers": [
-        {
-          "level": 2,
-          "title": "第二学期课程",
-          "slug": "第二学期课程"
-        },
-        {
-          "level": 3,
-          "title": "第一季",
-          "slug": "第一季"
-        },
-        {
-          "level": 3,
-          "title": "第二季",
-          "slug": "第二季"
-        },
-        {
-          "level": 3,
-          "title": "第三季",
-          "slug": "第三季"
-        },
-        {
-          "level": 2,
-          "title": "睿晨网所有课程集合",
-          "slug": "睿晨网所有课程集合"
-        }
-      ],
-      "lastUpdated": "2024年1月5日星期五下午2点53分",
-      "lastUpdatedTimestamp": 1704437586000
-    },
-    {
-      "title": "markdown的基本语法示例",
-      "frontmatter": {
-        "navbar": true,
-        "sidebar": "auto",
-        "title": "markdown的基本语法示例"
-      },
-      "regularPath": "/about/",
-      "relativePath": "about/README.md",
-      "key": "v-2c6c8e00",
-      "path": "/about/",
-      "headers": [
-        {
-          "level": 2,
-          "title": "二级标题",
-          "slug": "二级标题"
-        },
-        {
-          "level": 3,
-          "title": "三级标题",
-          "slug": "三级标题"
-        }
-      ],
-      "lastUpdated": "2023年3月3日星期五晚上8点31分",
-      "lastUpdatedTimestamp": 1677846686000
+      "regularPath": "/pc/",
+      "relativePath": "pc/README.md",
+      "key": "v-7ba60f92",
+      "path": "/pc/",
+      "lastUpdated": "2023年3月1日星期三下午12点33分",
+      "lastUpdatedTimestamp": 1677645233000
     },
     {
       "title": "phone-c页面",
@@ -632,6 +592,46 @@ export const siteData = {
       ],
       "lastUpdated": "2023年3月1日星期三下午12点33分",
       "lastUpdatedTimestamp": 1677645233000
+    },
+    {
+      "title": "第二学期课程总述",
+      "frontmatter": {
+        "navbar": true,
+        "title": "第二学期课程总述"
+      },
+      "regularPath": "/secondless/",
+      "relativePath": "secondless/README.md",
+      "key": "v-17cd735c",
+      "path": "/secondless/",
+      "headers": [
+        {
+          "level": 2,
+          "title": "第二学期课程",
+          "slug": "第二学期课程"
+        },
+        {
+          "level": 3,
+          "title": "第一季",
+          "slug": "第一季"
+        },
+        {
+          "level": 3,
+          "title": "第二季",
+          "slug": "第二季"
+        },
+        {
+          "level": 3,
+          "title": "第三季",
+          "slug": "第三季"
+        },
+        {
+          "level": 2,
+          "title": "睿晨网所有课程集合",
+          "slug": "睿晨网所有课程集合"
+        }
+      ],
+      "lastUpdated": "2024年1月5日星期五下午2点53分",
+      "lastUpdatedTimestamp": 1704437586000
     },
     {
       "title": "第一季（课程学习顺序：02）",
@@ -758,56 +758,56 @@ export const siteData = {
       "lastUpdatedTimestamp": 1703141097000
     },
     {
-      "title": "章节5.javascript函数",
+      "title": "章节8.Date类型：时间和日期",
       "frontmatter": {
         "navbar": true,
         "sidebar": "auto",
-        "title": "章节5.javascript函数"
+        "title": "章节8.Date类型：时间和日期"
       },
-      "regularPath": "/secondless/w-a/javascript%E5%87%BD%E6%95%B0.html",
-      "relativePath": "secondless/w-a/javascript函数.md",
-      "key": "v-d73347ee",
-      "path": "/secondless/w-a/javascript%E5%87%BD%E6%95%B0.html",
+      "regularPath": "/secondless/w-a/Date%E7%B1%BB%E5%9E%8B%EF%BC%9A%E6%97%B6%E9%97%B4%E5%92%8C%E6%97%A5%E6%9C%9F.html",
+      "relativePath": "secondless/w-a/Date类型：时间和日期.md",
+      "key": "v-74767873",
+      "path": "/secondless/w-a/Date%E7%B1%BB%E5%9E%8B%EF%BC%9A%E6%97%B6%E9%97%B4%E5%92%8C%E6%97%A5%E6%9C%9F.html",
       "headers": [
         {
           "level": 2,
-          "title": "1、函数声明",
-          "slug": "_1、函数声明"
+          "title": "1、Date 类型",
+          "slug": "_1、date-类型"
         },
         {
           "level": 3,
-          "title": "① 没有参数的函数",
-          "slug": "_1-没有参数的函数"
+          "title": "① 创建一个日期对象",
+          "slug": "_1-创建一个日期对象"
         },
         {
           "level": 3,
-          "title": "② 带参数的函数",
-          "slug": "_2-带参数的函数"
+          "title": "② Date.parse()",
+          "slug": "_2-date-parse"
+        },
+        {
+          "level": 3,
+          "title": "③ Date.UTC()",
+          "slug": "_3-date-utc"
+        },
+        {
+          "level": 3,
+          "title": "④  Date 类型也重写了 toLocaleString()方法、toString()方法和 valueOf()时间戳方法",
+          "slug": "_4-date-类型也重写了-tolocalestring-方法、tostring-方法和-valueof-时间戳方法"
         },
         {
           "level": 2,
-          "title": "2、函数 return 返回值",
-          "slug": "_2、函数-return-返回值"
+          "title": "2、格式化日期和时间",
+          "slug": "_2、格式化日期和时间"
         },
         {
           "level": 3,
-          "title": "① return返回值",
-          "slug": "_1-return返回值"
+          "title": "① 日期格式化",
+          "slug": "_1-日期格式化"
         },
         {
           "level": 3,
-          "title": "② 函数的返回值赋给一个变量",
-          "slug": "_2-函数的返回值赋给一个变量"
-        },
-        {
-          "level": 3,
-          "title": "③ 退出当前函数",
-          "slug": "_3-退出当前函数"
-        },
-        {
-          "level": 2,
-          "title": "3、函数的arguments 对象",
-          "slug": "_3、函数的arguments-对象"
+          "title": "② 单独获取想要的时间日期、时间戳",
+          "slug": "_2-单独获取想要的时间日期、时间戳"
         },
         {
           "level": 2,
@@ -909,56 +909,242 @@ export const siteData = {
       "lastUpdatedTimestamp": 1700555477000
     },
     {
-      "title": "章节8.Date类型：时间和日期",
+      "title": "章节9.Function类型：函数进阶",
       "frontmatter": {
         "navbar": true,
         "sidebar": "auto",
-        "title": "章节8.Date类型：时间和日期"
+        "title": "章节9.Function类型：函数进阶"
       },
-      "regularPath": "/secondless/w-a/Date%E7%B1%BB%E5%9E%8B%EF%BC%9A%E6%97%B6%E9%97%B4%E5%92%8C%E6%97%A5%E6%9C%9F.html",
-      "relativePath": "secondless/w-a/Date类型：时间和日期.md",
-      "key": "v-74767873",
-      "path": "/secondless/w-a/Date%E7%B1%BB%E5%9E%8B%EF%BC%9A%E6%97%B6%E9%97%B4%E5%92%8C%E6%97%A5%E6%9C%9F.html",
+      "regularPath": "/secondless/w-a/Function%E7%B1%BB%E5%9E%8B%EF%BC%9A%E5%87%BD%E6%95%B0%E8%BF%9B%E9%98%B6.html",
+      "relativePath": "secondless/w-a/Function类型：函数进阶.md",
+      "key": "v-5622dfda",
+      "path": "/secondless/w-a/Function%E7%B1%BB%E5%9E%8B%EF%BC%9A%E5%87%BD%E6%95%B0%E8%BF%9B%E9%98%B6.html",
       "headers": [
         {
           "level": 2,
-          "title": "1、Date 类型",
-          "slug": "_1、date-类型"
+          "title": "1、函数的声明",
+          "slug": "_1、函数的声明"
         },
         {
           "level": 3,
-          "title": "① 创建一个日期对象",
-          "slug": "_1-创建一个日期对象"
+          "title": "① 使用 Function 构造函数（new关键字）-----[不推荐]",
+          "slug": "_1-使用-function-构造函数-new关键字-不推荐"
         },
         {
           "level": 3,
-          "title": "② Date.parse()",
-          "slug": "_2-date-parse"
+          "title": "② 普通的函数声明",
+          "slug": "_2-普通的函数声明"
         },
         {
           "level": 3,
-          "title": "③ Date.UTC()",
-          "slug": "_3-date-utc"
-        },
-        {
-          "level": 3,
-          "title": "④  Date 类型也重写了 toLocaleString()方法、toString()方法和 valueOf()时间戳方法",
-          "slug": "_4-date-类型也重写了-tolocalestring-方法、tostring-方法和-valueof-时间戳方法"
+          "title": "③ 使用变量初始化函数",
+          "slug": "_3-使用变量初始化函数"
         },
         {
           "level": 2,
-          "title": "2、格式化日期和时间",
-          "slug": "_2、格式化日期和时间"
+          "title": "2、作为值的函数",
+          "slug": "_2、作为值的函数"
         },
         {
           "level": 3,
-          "title": "① 日期格式化",
-          "slug": "_1-日期格式化"
+          "title": "① 将函数的返回值传递的参数",
+          "slug": "_1-将函数的返回值传递的参数"
         },
         {
           "level": 3,
-          "title": "② 单独获取想要的时间日期、时间戳",
-          "slug": "_2-单独获取想要的时间日期、时间戳"
+          "title": "② 将函数本身作为值传递的参数",
+          "slug": "_2-将函数本身作为值传递的参数"
+        },
+        {
+          "level": 2,
+          "title": "3、函数内部属性",
+          "slug": "_3、函数内部属性"
+        },
+        {
+          "level": 3,
+          "title": "① 写个递归（阶乘）函数",
+          "slug": "_1-写个递归-阶乘-函数"
+        },
+        {
+          "level": 3,
+          "title": "② 使用 arguments.callee 来执行自身完成递归函数",
+          "slug": "_2-使用-arguments-callee-来执行自身完成递归函数"
+        },
+        {
+          "level": 3,
+          "title": "③ 函数内部另一个特殊对象： this",
+          "slug": "_3-函数内部另一个特殊对象-this"
+        },
+        {
+          "level": 2,
+          "title": "4、函数的属性和方法",
+          "slug": "_4、函数的属性和方法"
+        },
+        {
+          "level": 3,
+          "title": "① length属性",
+          "slug": "_1-length属性"
+        },
+        {
+          "level": 3,
+          "title": "② prototype 属性--apply()和 call()方法进行 函数冒充",
+          "slug": "_2-prototype-属性-apply-和-call-方法进行-函数冒充"
+        },
+        {
+          "level": 3,
+          "title": "③ 对象冒充：apply()和 call()方法扩展函数赖以运行的作用域",
+          "slug": "_3-对象冒充-apply-和-call-方法扩展函数赖以运行的作用域"
+        },
+        {
+          "level": 2,
+          "title": "课程其它章节",
+          "slug": "课程其它章节"
+        },
+        {
+          "level": 3,
+          "title": "章节1.课程介绍",
+          "slug": "章节1-课程介绍"
+        },
+        {
+          "level": 3,
+          "title": "章节2.javascript基础",
+          "slug": "章节2-javascript基础"
+        },
+        {
+          "level": 3,
+          "title": "章节3.javascript运算符",
+          "slug": "章节3-javascript运算符"
+        },
+        {
+          "level": 3,
+          "title": "章节4.流程控制语句",
+          "slug": "章节4-流程控制语句"
+        },
+        {
+          "level": 3,
+          "title": "章节5.javascript函数",
+          "slug": "章节5-javascript函数"
+        },
+        {
+          "level": 3,
+          "title": "章节6.javascript对象",
+          "slug": "章节6-javascript对象"
+        },
+        {
+          "level": 3,
+          "title": "章节7.javascript数组",
+          "slug": "章节7-javascript数组"
+        },
+        {
+          "level": 3,
+          "title": "章节8.Date类型：时间和日期",
+          "slug": "章节8-date类型-时间和日期"
+        },
+        {
+          "level": 3,
+          "title": "章节9.Function类型：函数进阶",
+          "slug": "章节9-function类型-函数进阶"
+        },
+        {
+          "level": 3,
+          "title": "章节10.内置对象：Global、Math对象，变量、作用域和内存问题",
+          "slug": "章节10-内置对象-global、math对象-变量、作用域和内存问题"
+        },
+        {
+          "level": 3,
+          "title": "章节11.匿名函数和闭包",
+          "slug": "章节11-匿名函数和闭包"
+        },
+        {
+          "level": 3,
+          "title": "章节12.javascript基本包装类型",
+          "slug": "章节12-javascript基本包装类型"
+        },
+        {
+          "level": 3,
+          "title": "章节13.函数对象数组小结",
+          "slug": "章节13-函数对象数组小结"
+        },
+        {
+          "level": 3,
+          "title": "章节14.浏览器对象模型BOM及浏览器检测",
+          "slug": "章节14-浏览器对象模型bom及浏览器检测"
+        },
+        {
+          "level": 3,
+          "title": "章节15.网页文档对象模型DOM",
+          "slug": "章节15-网页文档对象模型dom"
+        },
+        {
+          "level": 3,
+          "title": "章节16.事件",
+          "slug": "章节16-事件"
+        },
+        {
+          "level": 3,
+          "title": "章节17.表单处理及错误处理与调试",
+          "slug": "章节17-表单处理及错误处理与调试"
+        },
+        {
+          "level": 3,
+          "title": "章节18.数据Cookie、XML、JSON",
+          "slug": "章节18-数据cookie、xml、json"
+        }
+      ],
+      "lastUpdated": "2023年11月21日星期二下午4点31分",
+      "lastUpdatedTimestamp": 1700555477000
+    },
+    {
+      "title": "章节5.javascript函数",
+      "frontmatter": {
+        "navbar": true,
+        "sidebar": "auto",
+        "title": "章节5.javascript函数"
+      },
+      "regularPath": "/secondless/w-a/javascript%E5%87%BD%E6%95%B0.html",
+      "relativePath": "secondless/w-a/javascript函数.md",
+      "key": "v-d73347ee",
+      "path": "/secondless/w-a/javascript%E5%87%BD%E6%95%B0.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "1、函数声明",
+          "slug": "_1、函数声明"
+        },
+        {
+          "level": 3,
+          "title": "① 没有参数的函数",
+          "slug": "_1-没有参数的函数"
+        },
+        {
+          "level": 3,
+          "title": "② 带参数的函数",
+          "slug": "_2-带参数的函数"
+        },
+        {
+          "level": 2,
+          "title": "2、函数 return 返回值",
+          "slug": "_2、函数-return-返回值"
+        },
+        {
+          "level": 3,
+          "title": "① return返回值",
+          "slug": "_1-return返回值"
+        },
+        {
+          "level": 3,
+          "title": "② 函数的返回值赋给一个变量",
+          "slug": "_2-函数的返回值赋给一个变量"
+        },
+        {
+          "level": 3,
+          "title": "③ 退出当前函数",
+          "slug": "_3-退出当前函数"
+        },
+        {
+          "level": 2,
+          "title": "3、函数的arguments 对象",
+          "slug": "_3、函数的arguments-对象"
         },
         {
           "level": 2,
@@ -1271,753 +1457,6 @@ export const siteData = {
       "lastUpdatedTimestamp": 1700555477000
     },
     {
-      "title": "章节12.javascript基本包装类型",
-      "frontmatter": {
-        "navbar": true,
-        "sidebar": "auto",
-        "title": "章节12.javascript基本包装类型"
-      },
-      "regularPath": "/secondless/w-a/javascript%E5%9F%BA%E6%9C%AC%E5%8C%85%E8%A3%85%E7%B1%BB%E5%9E%8B.html",
-      "relativePath": "secondless/w-a/javascript基本包装类型.md",
-      "key": "v-2995f9cc",
-      "path": "/secondless/w-a/javascript%E5%9F%BA%E6%9C%AC%E5%8C%85%E8%A3%85%E7%B1%BB%E5%9E%8B.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "1、 Boolean 类型",
-          "slug": "_1、-boolean-类型"
-        },
-        {
-          "level": 3,
-          "title": "Boolean 类型没有特定的属性或者方法",
-          "slug": "boolean-类型没有特定的属性或者方法"
-        },
-        {
-          "level": 2,
-          "title": "2、 Number 类型",
-          "slug": "_2、-number-类型"
-        },
-        {
-          "level": 3,
-          "title": "① Number类型静态属性:MAXVALUE、MINVALUE、NaN、NEGATIVEINFINITY、POSITIVEINFINITY、prototype",
-          "slug": "_1-number类型静态属性-max-value、min-value、nan、negative-infinity、positive-infinity、prototype"
-        },
-        {
-          "level": 3,
-          "title": "② toString()方法-将数值转化为字符串，并且可以转换进制",
-          "slug": "_2-tostring-方法-将数值转化为字符串-并且可以转换进制"
-        },
-        {
-          "level": 3,
-          "title": "③ toLocaleString()方法-根据本地数字格式转换为字符串",
-          "slug": "_3-tolocalestring-方法-根据本地数字格式转换为字符串"
-        },
-        {
-          "level": 3,
-          "title": "④ toFixed()方法-将数字保留小数点后指定位数并转化为字符串",
-          "slug": "_4-tofixed-方法-将数字保留小数点后指定位数并转化为字符串"
-        },
-        {
-          "level": 3,
-          "title": "⑤ toExponential()方法-将数字以指数形式表示，保留小数点后指定位数并转化为字符串",
-          "slug": "_5-toexponential-方法-将数字以指数形式表示-保留小数点后指定位数并转化为字符串"
-        },
-        {
-          "level": 3,
-          "title": "⑥ toPrecision()方法-指数形式或点形式表述数，保留小数点后面指定位数并转化为字符串",
-          "slug": "_6-toprecision-方法-指数形式或点形式表述数-保留小数点后面指定位数并转化为字符串"
-        },
-        {
-          "level": 2,
-          "title": "3、String类型",
-          "slug": "_3、string类型"
-        },
-        {
-          "level": 3,
-          "title": "① 属性:length - 返回字符串的字符长度",
-          "slug": "_1-属性-length-返回字符串的字符长度"
-        },
-        {
-          "level": 3,
-          "title": "② 属性:constructor - 返回创建 String 对象的函数",
-          "slug": "_2-属性-constructor-返回创建-string-对象的函数"
-        },
-        {
-          "level": 3,
-          "title": "③ 属性:prototype - 通过添加属性和方法扩展字符串定义",
-          "slug": "_3-属性-prototype-通过添加属性和方法扩展字符串定义"
-        },
-        {
-          "level": 3,
-          "title": "④ 通用方法：valueOf()、toLocaleString()和 toString()方法，返回字符串的基本值，写不写都一样",
-          "slug": "_4-通用方法-valueof-、tolocalestring-和-tostring-方法-返回字符串的基本值-写不写都一样"
-        },
-        {
-          "level": 3,
-          "title": "⑤ 字符方法：charAt(n) - 返回指定索引位置的字符",
-          "slug": "_5-字符方法-charat-n-返回指定索引位置的字符"
-        },
-        {
-          "level": 3,
-          "title": "⑥ 字符方法：charCodeAt(n) - 以 Unicode 编码形式返回指定索引位置的字符",
-          "slug": "_6-字符方法-charcodeat-n-以-unicode-编码形式返回指定索引位置的字符"
-        },
-        {
-          "level": 3,
-          "title": "⑦ 字符方法：数组方式截取字符串",
-          "slug": "_7-字符方法-数组方式截取字符串"
-        },
-        {
-          "level": 3,
-          "title": "⑧ 字符串操作方法：concat(str1...str2) - 将字符串参数串联到调用该方法的字符串（拼装字符串）",
-          "slug": "_8-字符串操作方法-concat-str1-str2-将字符串参数串联到调用该方法的字符串-拼装字符串"
-        },
-        {
-          "level": 3,
-          "title": "⑨ 字符串操作方法：slice(n,m) - 返回字符串 n 到 m 之间位置的字符串（截取字符串）",
-          "slug": "_9-字符串操作方法-slice-n-m-返回字符串-n-到-m-之间位置的字符串-截取字符串"
-        },
-        {
-          "level": 3,
-          "title": "⑩ 字符串操作方法：substring(n,m) - 返回字符串 n 到 m 之间位置的字符串（截取字符串）",
-          "slug": "_10-字符串操作方法-substring-n-m-返回字符串-n-到-m-之间位置的字符串-截取字符串"
-        },
-        {
-          "level": 3,
-          "title": "⑪ 字符串操作方法：substr(n,m) - 返回字符串 n 开始的 m 个字符串（截取字符串）",
-          "slug": "_11-字符串操作方法-substr-n-m-返回字符串-n-开始的-m-个字符串-截取字符串"
-        },
-        {
-          "level": 3,
-          "title": "⑫ 字符串位置方法：indexOf(str, n) - 从 n 开始搜索的第一个 str，并将搜索的索引值返回",
-          "slug": "_12-字符串位置方法-indexof-str-n-从-n-开始搜索的第一个-str-并将搜索的索引值返回"
-        },
-        {
-          "level": 3,
-          "title": "⑬ 字符串位置方法：lastIndexOf(str, n) - 从 n 开始搜索的最后一个 str，并将搜索的索引值返回",
-          "slug": "_13-字符串位置方法-lastindexof-str-n-从-n-开始搜索的最后一个-str-并将搜索的索引值返回"
-        },
-        {
-          "level": 3,
-          "title": "⑭ 将字符串中的某个字符索引位置全部找出放在数组中",
-          "slug": "_14-将字符串中的某个字符索引位置全部找出放在数组中"
-        },
-        {
-          "level": 3,
-          "title": "⑮ 大小写转换：toLowerCase(str) - 将字符串全部转换为小写",
-          "slug": "_15-大小写转换-tolowercase-str-将字符串全部转换为小写"
-        },
-        {
-          "level": 3,
-          "title": "⑯ 大小写转换：toUpperCase(str) - 将字符串全部转换为大写",
-          "slug": "_16-大小写转换-touppercase-str-将字符串全部转换为大写"
-        },
-        {
-          "level": 3,
-          "title": "⑰ 小写转换并且本地化：toLocaleLowerCase(str)、大写转换并且本地化：toLocaleUpperCase(str)",
-          "slug": "_17-小写转换并且本地化-tolocalelowercase-str-、大写转换并且本地化-tolocaleuppercase-str"
-        },
-        {
-          "level": 3,
-          "title": "⑱ match(pattern) -- 主要用于正则表达式方法",
-          "slug": "_18-match-pattern-主要用于正则表达式方法"
-        },
-        {
-          "level": 3,
-          "title": "⑲ search(pattern) -- 主要用于正则表达式方法",
-          "slug": "_19-search-pattern-主要用于正则表达式方法"
-        },
-        {
-          "level": 3,
-          "title": "⑳ replace(pattern, replacement) -- 用 replacement 替换 pattern 第一次出现的字符",
-          "slug": "_20-replace-pattern-replacement-用-replacement-替换-pattern-第一次出现的字符"
-        },
-        {
-          "level": 3,
-          "title": "㉑ replaceAll(pattern, replacement) -- 用 replacement 替换 pattern 所有出现的字符",
-          "slug": "_21-replaceall-pattern-replacement-用-replacement-替换-pattern-所有出现的字符"
-        },
-        {
-          "level": 3,
-          "title": "㉒ split(pattern) - 返回字符串按指定 pattern 拆分的数组",
-          "slug": "_22-split-pattern-返回字符串按指定-pattern-拆分的数组"
-        },
-        {
-          "level": 3,
-          "title": "㉓ fromCharCode(ascii) - 静态方法，输出 Ascii 码对应值",
-          "slug": "_23-fromcharcode-ascii-静态方法-输出-ascii-码对应值"
-        },
-        {
-          "level": 3,
-          "title": "㉔ localeCompare(str1,str2) - 比较两个字符串，并返回相应的值",
-          "slug": "_24-localecompare-str1-str2-比较两个字符串-并返回相应的值"
-        },
-        {
-          "level": 3,
-          "title": "㉕ startsWith(pattern) - 判断字符串是否按 pattern 开头，返回布尔值",
-          "slug": "_25-startswith-pattern-判断字符串是否按-pattern-开头-返回布尔值"
-        },
-        {
-          "level": 3,
-          "title": "㉖ endsWith(pattern) - 判断字符串是否按 pattern 结尾，返回布尔值",
-          "slug": "_26-endswith-pattern-判断字符串是否按-pattern-结尾-返回布尔值"
-        },
-        {
-          "level": 3,
-          "title": "㉗ includes(pattern) - 判断字符串是否包含pattern字符，返回布尔值",
-          "slug": "_27-includes-pattern-判断字符串是否包含pattern字符-返回布尔值"
-        },
-        {
-          "level": 3,
-          "title": "㉘ trimStart() - 去除字符串开头的空格，返回字符串",
-          "slug": "_28-trimstart-去除字符串开头的空格-返回字符串"
-        },
-        {
-          "level": 3,
-          "title": "㉙ trimEnd() - 去除字符串结尾的空格，返回字符串",
-          "slug": "_29-trimend-去除字符串结尾的空格-返回字符串"
-        },
-        {
-          "level": 3,
-          "title": "㉚ trim() - 去除字符串开头和结尾的空格，返回字符串",
-          "slug": "_30-trim-去除字符串开头和结尾的空格-返回字符串"
-        },
-        {
-          "level": 3,
-          "title": "㉛ repeat(n) - 重复字符串n次，返回字符串",
-          "slug": "_31-repeat-n-重复字符串n次-返回字符串"
-        },
-        {
-          "level": 3,
-          "title": "㉜ 模板字面量（魔法字符串）",
-          "slug": "_32-模板字面量-魔法字符串"
-        },
-        {
-          "level": 2,
-          "title": "4、Array数组的常用方法",
-          "slug": "_4、array数组的常用方法"
-        },
-        {
-          "level": 3,
-          "title": "① join()方法 -- 见章节7：数组",
-          "slug": "_1-join-方法-见章节7-数组"
-        },
-        {
-          "level": 3,
-          "title": "② push()方法 -- 见章节7：数组",
-          "slug": "_2-push-方法-见章节7-数组"
-        },
-        {
-          "level": 3,
-          "title": "③ pop()方法 -- 见章节7：数组",
-          "slug": "_3-pop-方法-见章节7-数组"
-        },
-        {
-          "level": 3,
-          "title": "④ shift()方法 -- 见章节7：数组",
-          "slug": "_4-shift-方法-见章节7-数组"
-        },
-        {
-          "level": 3,
-          "title": "⑤ unshift()方法 -- 见章节7：数组",
-          "slug": "_5-unshift-方法-见章节7-数组"
-        },
-        {
-          "level": 3,
-          "title": "⑥ reverse()方法 -- 见章节7：数组",
-          "slug": "_6-reverse-方法-见章节7-数组"
-        },
-        {
-          "level": 3,
-          "title": "⑦ sort()方法 -- 见章节7：数组",
-          "slug": "_7-sort-方法-见章节7-数组"
-        },
-        {
-          "level": 3,
-          "title": "⑧ concat()方法 -- 见章节7：数组",
-          "slug": "_8-concat-方法-见章节7-数组"
-        },
-        {
-          "level": 3,
-          "title": "⑨ slice()方法 -- 见章节7：数组",
-          "slug": "_9-slice-方法-见章节7-数组"
-        },
-        {
-          "level": 3,
-          "title": "⑩ splice()方法 -- 见章节7：数组",
-          "slug": "_10-splice-方法-见章节7-数组"
-        },
-        {
-          "level": 3,
-          "title": "⑪ 数组includes（searchElement，fromIndex）方法 --  判断数组是否包含一个指定的元素，返回布尔值",
-          "slug": "_11-数组includes-searchelement-fromindex-方法-判断数组是否包含一个指定的元素-返回布尔值"
-        },
-        {
-          "level": 3,
-          "title": "⑫ 数组reduce()方法 -- 有求和、数组去重、求数组的最大值、扁平化数组的功能",
-          "slug": "_12-数组reduce-方法-有求和、数组去重、求数组的最大值、扁平化数组的功能"
-        },
-        {
-          "level": 3,
-          "title": "⑬ 数组find()方法 -- 为数组中的每个元素都调用一次函数执行,返回通过测试（函数内判断）的数组的第一个元素的值",
-          "slug": "_13-数组find-方法-为数组中的每个元素都调用一次函数执行-返回通过测试-函数内判断-的数组的第一个元素的值"
-        },
-        {
-          "level": 3,
-          "title": "⑭ 数组findIndex()方法 -- 为数组中的每个元素都调用一次函数执行,返回传入一个测试条件（函数）符合条件的数组第一个元素位置",
-          "slug": "_14-数组findindex-方法-为数组中的每个元素都调用一次函数执行-返回传入一个测试条件-函数-符合条件的数组第一个元素位置"
-        },
-        {
-          "level": 3,
-          "title": "⑮ 数组filter() 方法 -- 为数组中的每个元素都调用一次函数执行, 创建一个新的数组，返回传入一个测试条件（函数）符合条件的数组的所有元素",
-          "slug": "_15-数组filter-方法-为数组中的每个元素都调用一次函数执行-创建一个新的数组-返回传入一个测试条件-函数-符合条件的数组的所有元素"
-        },
-        {
-          "level": 3,
-          "title": "⑯ 数组map() 方法 -- 为数组中的每个元素都调用一次函数执行, 创建一个新的数组，返回原始数组元素调用函数处理后的值",
-          "slug": "_16-数组map-方法-为数组中的每个元素都调用一次函数执行-创建一个新的数组-返回原始数组元素调用函数处理后的值"
-        },
-        {
-          "level": 3,
-          "title": "⑰ 数组forEach() 方法 -- 为数组中的每个元素都调用一次函数执行，并将元素传递给回调函数，没有返回值",
-          "slug": "_17-数组foreach-方法-为数组中的每个元素都调用一次函数执行-并将元素传递给回调函数-没有返回值"
-        },
-        {
-          "level": 3,
-          "title": "⑱ 数组indexOf() 方法 -- 返回数组中某个指定的元素位置，从头到尾查找数组元素",
-          "slug": "_18-数组indexof-方法-返回数组中某个指定的元素位置-从头到尾查找数组元素"
-        },
-        {
-          "level": 3,
-          "title": "⑲  数组lastIndexOf() 方法 -- 返回一个指定的元素在数组中最后出现的位置，从后面向前查找数组元素",
-          "slug": "_19-数组lastindexof-方法-返回一个指定的元素在数组中最后出现的位置-从后面向前查找数组元素"
-        },
-        {
-          "level": 3,
-          "title": "⑳ 数组at() 方法 -- 接收一个整数值并返回该索引对应的数组元素",
-          "slug": "_20-数组at-方法-接收一个整数值并返回该索引对应的数组元素"
-        },
-        {
-          "level": 3,
-          "title": "㉑ 数组fill() 方法 -- 用于将一个固定值替换数组的元素，返回原数组，原数组会发生变化",
-          "slug": "_21-数组fill-方法-用于将一个固定值替换数组的元素-返回原数组-原数组会发生变化"
-        },
-        {
-          "level": 3,
-          "title": "㉒ 数组copyWithin() 方法 -- 将指定位置的元素复制到其他位置，返回原数组，原数组会发生变化",
-          "slug": "_22-数组copywithin-方法-将指定位置的元素复制到其他位置-返回原数组-原数组会发生变化"
-        },
-        {
-          "level": 3,
-          "title": "㉓ 数组isArray() 方法 -- 静态方法，判断一个对象是否为数组",
-          "slug": "_23-数组isarray-方法-静态方法-判断一个对象是否为数组"
-        },
-        {
-          "level": 3,
-          "title": "㉔ 合并数组：es6的扩展运算符",
-          "slug": "_24-合并数组-es6的扩展运算符"
-        },
-        {
-          "level": 3,
-          "title": "㉕ 数组every() 方法 --检测数组所有元素是否全部符合指定条件（通过函数提供），返回布尔值",
-          "slug": "_25-数组every-方法-检测数组所有元素是否全部符合指定条件-通过函数提供-返回布尔值"
-        },
-        {
-          "level": 3,
-          "title": "㉖ 数组some() 方法 -- 检测数组所有元素，只要有一个元素通过函数检测返回真，那么就返回真，且后面的元素不在检测,否则返回 假。",
-          "slug": "_26-数组some-方法-检测数组所有元素-只要有一个元素通过函数检测返回真-那么就返回真-且后面的元素不在检测-否则返回-假。"
-        },
-        {
-          "level": 3,
-          "title": "㉗ 数组 for...of遍历",
-          "slug": "_27-数组-for-of遍历"
-        },
-        {
-          "level": 3,
-          "title": "㉘ 数组keys()，数组values()，数组entries()方法 -- 用于遍历数组，都返回一个遍历器对象。",
-          "slug": "_28-数组keys-数组values-数组entries-方法-用于遍历数组-都返回一个遍历器对象。"
-        },
-        {
-          "level": 3,
-          "title": "㉙ 数组reduceRight() 方法-- 和reduce方法刚好相反，reduce可以看成是数组元素（从左到右）依次处理，reduceRight是（从右往左处理）",
-          "slug": "_29-数组reduceright-方法-和reduce方法刚好相反-reduce可以看成是数组元素-从左到右-依次处理-reduceright是-从右往左处理"
-        },
-        {
-          "level": 3,
-          "title": "㉚ 数组flat() 方法 --按照一个可指定的深度递归遍历数组，并将所有元素与遍历到的子数组中的元素合并为一个新数组返回（将多维数组解构成一维数组）",
-          "slug": "_30-数组flat-方法-按照一个可指定的深度递归遍历数组-并将所有元素与遍历到的子数组中的元素合并为一个新数组返回-将多维数组解构成一维数组"
-        },
-        {
-          "level": 3,
-          "title": "㉛数组flatMap() 方法 --首先使用映射函数映射每个元素，然后将结果压缩成一个新数组。创建一个新的数组，其中每个元素都是回调函数的结果，结构深度（depth）为 1 只有一层深度。",
-          "slug": "_31数组flatmap-方法-首先使用映射函数映射每个元素-然后将结果压缩成一个新数组。创建一个新的数组-其中每个元素都是回调函数的结果-结构深度-depth-为-1-只有一层深度。"
-        },
-        {
-          "level": 3,
-          "title": "㉜ 数组from()方法 -- 静态方法，将一个类数组对象转为数组",
-          "slug": "_32-数组from-方法-静态方法-将一个类数组对象转为数组"
-        },
-        {
-          "level": 3,
-          "title": "㉝ 数组of()方法 -- 静态方法，将一组数据转为数组",
-          "slug": "_33-数组of-方法-静态方法-将一组数据转为数组"
-        },
-        {
-          "level": 2,
-          "title": "5、集合类型: Set()方法",
-          "slug": "_5、集合类型-set-方法"
-        },
-        {
-          "level": 3,
-          "title": "1. 创建Set集合实例(使用new关键词，可以类比于之前学习的Date，时间日期对象，说明Set也是对象的一种)",
-          "slug": "_1-创建set集合实例-使用new关键词-可以类比于之前学习的date-时间日期对象-说明set也是对象的一种"
-        },
-        {
-          "level": 3,
-          "title": "2. 如果想在创建的同时初始化实例，则可以给 Set 构造函数传入一个可迭代对象，其中需要包含插入到新集合实例中的元素(Set 可以包含任何js数据类型作为值)：",
-          "slug": "_2-如果想在创建的同时初始化实例-则可以给-set-构造函数传入一个可迭代对象-其中需要包含插入到新集合实例中的元素-set-可以包含任何js数据类型作为值"
-        },
-        {
-          "level": 3,
-          "title": "3. Set集合实例转数组，Set结构不会添加重复的值（处理数组去重等问题）",
-          "slug": "_3-set集合实例转数组-set结构不会添加重复的值-处理数组去重等问题"
-        },
-        {
-          "level": 3,
-          "title": "4. Set集合size属性：获取Set集合实例的元素个数",
-          "slug": "_4-set集合size属性-获取set集合实例的元素个数"
-        },
-        {
-          "level": 3,
-          "title": "5. Set集合add()方法：添加元素",
-          "slug": "_5-set集合add-方法-添加元素"
-        },
-        {
-          "level": 3,
-          "title": "6. Set集合has()方法：查询Set实例是否存在某元素(返回布尔值)",
-          "slug": "_6-set集合has-方法-查询set实例是否存在某元素-返回布尔值"
-        },
-        {
-          "level": 3,
-          "title": "7. Set集合delete()方法：删除Set实例中某个元素(返回布尔值)",
-          "slug": "_7-set集合delete-方法-删除set实例中某个元素-返回布尔值"
-        },
-        {
-          "level": 3,
-          "title": "8. Set集合clear()方法：清空Set实例",
-          "slug": "_8-set集合clear-方法-清空set实例"
-        },
-        {
-          "level": 3,
-          "title": "9. Set集合迭代遍历数据：keys():返回键名，values(): 返回键值，entries(): 返回键值对, 注意它的键名=键值",
-          "slug": "_9-set集合迭代遍历数据-keys-返回键名-values-返回键值-entries-返回键值对-注意它的键名-键值"
-        },
-        {
-          "level": 3,
-          "title": "10.Set集合迭代遍历数据：for...of遍历，forEach遍历",
-          "slug": "_10-set集合迭代遍历数据-for-of遍历-foreach遍历"
-        },
-        {
-          "level": 2,
-          "title": "6、小结及拓展",
-          "slug": "_6、小结及拓展"
-        },
-        {
-          "level": 3,
-          "title": "① 求两个数组的并集、交集、差集，得到的结果是一个新数组",
-          "slug": "_1-求两个数组的并集、交集、差集-得到的结果是一个新数组"
-        },
-        {
-          "level": 3,
-          "title": "② 获取数组中的随机项（验证码参考）",
-          "slug": "_2-获取数组中的随机项-验证码参考"
-        },
-        {
-          "level": 2,
-          "title": "课程其它章节",
-          "slug": "课程其它章节"
-        },
-        {
-          "level": 3,
-          "title": "章节1.课程介绍",
-          "slug": "章节1-课程介绍"
-        },
-        {
-          "level": 3,
-          "title": "章节2.javascript基础",
-          "slug": "章节2-javascript基础"
-        },
-        {
-          "level": 3,
-          "title": "章节3.javascript运算符",
-          "slug": "章节3-javascript运算符"
-        },
-        {
-          "level": 3,
-          "title": "章节4.流程控制语句",
-          "slug": "章节4-流程控制语句"
-        },
-        {
-          "level": 3,
-          "title": "章节5.javascript函数",
-          "slug": "章节5-javascript函数"
-        },
-        {
-          "level": 3,
-          "title": "章节6.javascript对象",
-          "slug": "章节6-javascript对象"
-        },
-        {
-          "level": 3,
-          "title": "章节7.javascript数组",
-          "slug": "章节7-javascript数组"
-        },
-        {
-          "level": 3,
-          "title": "章节8.Date类型：时间和日期",
-          "slug": "章节8-date类型-时间和日期"
-        },
-        {
-          "level": 3,
-          "title": "章节9.Function类型：函数进阶",
-          "slug": "章节9-function类型-函数进阶"
-        },
-        {
-          "level": 3,
-          "title": "章节10.内置对象：Global、Math对象，变量、作用域和内存问题",
-          "slug": "章节10-内置对象-global、math对象-变量、作用域和内存问题"
-        },
-        {
-          "level": 3,
-          "title": "章节11.匿名函数和闭包",
-          "slug": "章节11-匿名函数和闭包"
-        },
-        {
-          "level": 3,
-          "title": "章节12.javascript基本包装类型",
-          "slug": "章节12-javascript基本包装类型"
-        },
-        {
-          "level": 3,
-          "title": "章节13.函数对象数组小结",
-          "slug": "章节13-函数对象数组小结"
-        },
-        {
-          "level": 3,
-          "title": "章节14.浏览器对象模型BOM及浏览器检测",
-          "slug": "章节14-浏览器对象模型bom及浏览器检测"
-        },
-        {
-          "level": 3,
-          "title": "章节15.网页文档对象模型DOM",
-          "slug": "章节15-网页文档对象模型dom"
-        },
-        {
-          "level": 3,
-          "title": "章节16.事件",
-          "slug": "章节16-事件"
-        },
-        {
-          "level": 3,
-          "title": "章节17.表单处理及错误处理与调试",
-          "slug": "章节17-表单处理及错误处理与调试"
-        },
-        {
-          "level": 3,
-          "title": "章节18.数据Cookie、XML、JSON",
-          "slug": "章节18-数据cookie、xml、json"
-        }
-      ],
-      "lastUpdated": "2023年11月21日星期二下午4点31分",
-      "lastUpdatedTimestamp": 1700555477000
-    },
-    {
-      "title": "章节9.Function类型：函数进阶",
-      "frontmatter": {
-        "navbar": true,
-        "sidebar": "auto",
-        "title": "章节9.Function类型：函数进阶"
-      },
-      "regularPath": "/secondless/w-a/Function%E7%B1%BB%E5%9E%8B%EF%BC%9A%E5%87%BD%E6%95%B0%E8%BF%9B%E9%98%B6.html",
-      "relativePath": "secondless/w-a/Function类型：函数进阶.md",
-      "key": "v-5622dfda",
-      "path": "/secondless/w-a/Function%E7%B1%BB%E5%9E%8B%EF%BC%9A%E5%87%BD%E6%95%B0%E8%BF%9B%E9%98%B6.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "1、函数的声明",
-          "slug": "_1、函数的声明"
-        },
-        {
-          "level": 3,
-          "title": "① 使用 Function 构造函数（new关键字）-----[不推荐]",
-          "slug": "_1-使用-function-构造函数-new关键字-不推荐"
-        },
-        {
-          "level": 3,
-          "title": "② 普通的函数声明",
-          "slug": "_2-普通的函数声明"
-        },
-        {
-          "level": 3,
-          "title": "③ 使用变量初始化函数",
-          "slug": "_3-使用变量初始化函数"
-        },
-        {
-          "level": 2,
-          "title": "2、作为值的函数",
-          "slug": "_2、作为值的函数"
-        },
-        {
-          "level": 3,
-          "title": "① 将函数的返回值传递的参数",
-          "slug": "_1-将函数的返回值传递的参数"
-        },
-        {
-          "level": 3,
-          "title": "② 将函数本身作为值传递的参数",
-          "slug": "_2-将函数本身作为值传递的参数"
-        },
-        {
-          "level": 2,
-          "title": "3、函数内部属性",
-          "slug": "_3、函数内部属性"
-        },
-        {
-          "level": 3,
-          "title": "① 写个递归（阶乘）函数",
-          "slug": "_1-写个递归-阶乘-函数"
-        },
-        {
-          "level": 3,
-          "title": "② 使用 arguments.callee 来执行自身完成递归函数",
-          "slug": "_2-使用-arguments-callee-来执行自身完成递归函数"
-        },
-        {
-          "level": 3,
-          "title": "③ 函数内部另一个特殊对象： this",
-          "slug": "_3-函数内部另一个特殊对象-this"
-        },
-        {
-          "level": 2,
-          "title": "4、函数的属性和方法",
-          "slug": "_4、函数的属性和方法"
-        },
-        {
-          "level": 3,
-          "title": "① length属性",
-          "slug": "_1-length属性"
-        },
-        {
-          "level": 3,
-          "title": "② prototype 属性--apply()和 call()方法进行 函数冒充",
-          "slug": "_2-prototype-属性-apply-和-call-方法进行-函数冒充"
-        },
-        {
-          "level": 3,
-          "title": "③ 对象冒充：apply()和 call()方法扩展函数赖以运行的作用域",
-          "slug": "_3-对象冒充-apply-和-call-方法扩展函数赖以运行的作用域"
-        },
-        {
-          "level": 2,
-          "title": "课程其它章节",
-          "slug": "课程其它章节"
-        },
-        {
-          "level": 3,
-          "title": "章节1.课程介绍",
-          "slug": "章节1-课程介绍"
-        },
-        {
-          "level": 3,
-          "title": "章节2.javascript基础",
-          "slug": "章节2-javascript基础"
-        },
-        {
-          "level": 3,
-          "title": "章节3.javascript运算符",
-          "slug": "章节3-javascript运算符"
-        },
-        {
-          "level": 3,
-          "title": "章节4.流程控制语句",
-          "slug": "章节4-流程控制语句"
-        },
-        {
-          "level": 3,
-          "title": "章节5.javascript函数",
-          "slug": "章节5-javascript函数"
-        },
-        {
-          "level": 3,
-          "title": "章节6.javascript对象",
-          "slug": "章节6-javascript对象"
-        },
-        {
-          "level": 3,
-          "title": "章节7.javascript数组",
-          "slug": "章节7-javascript数组"
-        },
-        {
-          "level": 3,
-          "title": "章节8.Date类型：时间和日期",
-          "slug": "章节8-date类型-时间和日期"
-        },
-        {
-          "level": 3,
-          "title": "章节9.Function类型：函数进阶",
-          "slug": "章节9-function类型-函数进阶"
-        },
-        {
-          "level": 3,
-          "title": "章节10.内置对象：Global、Math对象，变量、作用域和内存问题",
-          "slug": "章节10-内置对象-global、math对象-变量、作用域和内存问题"
-        },
-        {
-          "level": 3,
-          "title": "章节11.匿名函数和闭包",
-          "slug": "章节11-匿名函数和闭包"
-        },
-        {
-          "level": 3,
-          "title": "章节12.javascript基本包装类型",
-          "slug": "章节12-javascript基本包装类型"
-        },
-        {
-          "level": 3,
-          "title": "章节13.函数对象数组小结",
-          "slug": "章节13-函数对象数组小结"
-        },
-        {
-          "level": 3,
-          "title": "章节14.浏览器对象模型BOM及浏览器检测",
-          "slug": "章节14-浏览器对象模型bom及浏览器检测"
-        },
-        {
-          "level": 3,
-          "title": "章节15.网页文档对象模型DOM",
-          "slug": "章节15-网页文档对象模型dom"
-        },
-        {
-          "level": 3,
-          "title": "章节16.事件",
-          "slug": "章节16-事件"
-        },
-        {
-          "level": 3,
-          "title": "章节17.表单处理及错误处理与调试",
-          "slug": "章节17-表单处理及错误处理与调试"
-        },
-        {
-          "level": 3,
-          "title": "章节18.数据Cookie、XML、JSON",
-          "slug": "章节18-数据cookie、xml、json"
-        }
-      ],
-      "lastUpdated": "2023年11月21日星期二下午4点31分",
-      "lastUpdatedTimestamp": 1700555477000
-    },
-    {
       "title": "章节6.javascript对象",
       "frontmatter": {
         "navbar": true,
@@ -2093,222 +1532,6 @@ export const siteData = {
           "level": 3,
           "title": "② 对象的应用",
           "slug": "_2-对象的应用"
-        },
-        {
-          "level": 2,
-          "title": "课程其它章节",
-          "slug": "课程其它章节"
-        },
-        {
-          "level": 3,
-          "title": "章节1.课程介绍",
-          "slug": "章节1-课程介绍"
-        },
-        {
-          "level": 3,
-          "title": "章节2.javascript基础",
-          "slug": "章节2-javascript基础"
-        },
-        {
-          "level": 3,
-          "title": "章节3.javascript运算符",
-          "slug": "章节3-javascript运算符"
-        },
-        {
-          "level": 3,
-          "title": "章节4.流程控制语句",
-          "slug": "章节4-流程控制语句"
-        },
-        {
-          "level": 3,
-          "title": "章节5.javascript函数",
-          "slug": "章节5-javascript函数"
-        },
-        {
-          "level": 3,
-          "title": "章节6.javascript对象",
-          "slug": "章节6-javascript对象"
-        },
-        {
-          "level": 3,
-          "title": "章节7.javascript数组",
-          "slug": "章节7-javascript数组"
-        },
-        {
-          "level": 3,
-          "title": "章节8.Date类型：时间和日期",
-          "slug": "章节8-date类型-时间和日期"
-        },
-        {
-          "level": 3,
-          "title": "章节9.Function类型：函数进阶",
-          "slug": "章节9-function类型-函数进阶"
-        },
-        {
-          "level": 3,
-          "title": "章节10.内置对象：Global、Math对象，变量、作用域和内存问题",
-          "slug": "章节10-内置对象-global、math对象-变量、作用域和内存问题"
-        },
-        {
-          "level": 3,
-          "title": "章节11.匿名函数和闭包",
-          "slug": "章节11-匿名函数和闭包"
-        },
-        {
-          "level": 3,
-          "title": "章节12.javascript基本包装类型",
-          "slug": "章节12-javascript基本包装类型"
-        },
-        {
-          "level": 3,
-          "title": "章节13.函数对象数组小结",
-          "slug": "章节13-函数对象数组小结"
-        },
-        {
-          "level": 3,
-          "title": "章节14.浏览器对象模型BOM及浏览器检测",
-          "slug": "章节14-浏览器对象模型bom及浏览器检测"
-        },
-        {
-          "level": 3,
-          "title": "章节15.网页文档对象模型DOM",
-          "slug": "章节15-网页文档对象模型dom"
-        },
-        {
-          "level": 3,
-          "title": "章节16.事件",
-          "slug": "章节16-事件"
-        },
-        {
-          "level": 3,
-          "title": "章节17.表单处理及错误处理与调试",
-          "slug": "章节17-表单处理及错误处理与调试"
-        },
-        {
-          "level": 3,
-          "title": "章节18.数据Cookie、XML、JSON",
-          "slug": "章节18-数据cookie、xml、json"
-        }
-      ],
-      "lastUpdated": "2023年11月21日星期二下午4点31分",
-      "lastUpdatedTimestamp": 1700555477000
-    },
-    {
-      "title": "章节7.javascript数组",
-      "frontmatter": {
-        "navbar": true,
-        "sidebar": "auto",
-        "title": "章节7.javascript数组"
-      },
-      "regularPath": "/secondless/w-a/javascript%E6%95%B0%E7%BB%84.html",
-      "relativePath": "secondless/w-a/javascript数组.md",
-      "key": "v-596307a2",
-      "path": "/secondless/w-a/javascript%E6%95%B0%E7%BB%84.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "1、创建及读取数组",
-          "slug": "_1、创建及读取数组"
-        },
-        {
-          "level": 3,
-          "title": "① 使用字面量方式创建 Array（数组）",
-          "slug": "_1-使用字面量方式创建-array-数组"
-        },
-        {
-          "level": 3,
-          "title": "② 使用 new 关键字创建 Array（数组）（new 关键字可以省略）",
-          "slug": "_2-使用-new-关键字创建-array-数组-new-关键字可以省略"
-        },
-        {
-          "level": 3,
-          "title": "③ 创建一个稍微复杂一点的数组并读取数组的值",
-          "slug": "_3-创建一个稍微复杂一点的数组并读取数组的值"
-        },
-        {
-          "level": 2,
-          "title": "2、数组中的属性和内置方法",
-          "slug": "_2、数组中的属性和内置方法"
-        },
-        {
-          "level": 3,
-          "title": "① length 属性获取数组元素数量",
-          "slug": "_1-length-属性获取数组元素数量"
-        },
-        {
-          "level": 3,
-          "title": "② 用[下标]新增、修改数组元素",
-          "slug": "_2-用-下标-新增、修改数组元素"
-        },
-        {
-          "level": 3,
-          "title": "③ 数组内置方法toLocaleString()、valueOf()和 toString()",
-          "slug": "_3-数组内置方法tolocalestring-、valueof-和-tostring"
-        },
-        {
-          "level": 2,
-          "title": "3、数组中的方法",
-          "slug": "_3、数组中的方法"
-        },
-        {
-          "level": 3,
-          "title": "①  join()方法--用不同的分隔符将数组分割成字符串",
-          "slug": "_1-join-方法-用不同的分隔符将数组分割成字符串"
-        },
-        {
-          "level": 3,
-          "title": "②  push()方法--向数组末尾添加元素，返回修改后数组的长度",
-          "slug": "_2-push-方法-向数组末尾添加元素-返回修改后数组的长度"
-        },
-        {
-          "level": 3,
-          "title": "③  pop()方法--移除数组末尾元素，并返回移除的元素",
-          "slug": "_3-pop-方法-移除数组末尾元素-并返回移除的元素"
-        },
-        {
-          "level": 3,
-          "title": "④ shift()方法--移除数组开头元素，并返回移除的元素",
-          "slug": "_4-shift-方法-移除数组开头元素-并返回移除的元素"
-        },
-        {
-          "level": 3,
-          "title": "⑤ unshift()方法--向数组开头添加元素，返回修改后数组的长度",
-          "slug": "_5-unshift-方法-向数组开头添加元素-返回修改后数组的长度"
-        },
-        {
-          "level": 3,
-          "title": "⑥ reverse()方法--反向排序，返回排序后的数组",
-          "slug": "_6-reverse-方法-反向排序-返回排序后的数组"
-        },
-        {
-          "level": 3,
-          "title": "⑦ sort()方法--从小到大排序，返回排序后的数组",
-          "slug": "_7-sort-方法-从小到大排序-返回排序后的数组"
-        },
-        {
-          "level": 3,
-          "title": "⑧ concat()方法--创建新数组，并添加新元素，原数组没有变化",
-          "slug": "_8-concat-方法-创建新数组-并添加新元素-原数组没有变化"
-        },
-        {
-          "level": 3,
-          "title": "⑨ slice()方法--指定数组部分元素组建新数组，原数组没有变化",
-          "slug": "_9-slice-方法-指定数组部分元素组建新数组-原数组没有变化"
-        },
-        {
-          "level": 3,
-          "title": "⑩ splice()方法--有删除、插入、替换数组元素的功能，原数组发生变化",
-          "slug": "_10-splice-方法-有删除、插入、替换数组元素的功能-原数组发生变化"
-        },
-        {
-          "level": 2,
-          "title": "4、数组更多操作方法",
-          "slug": "_4、数组更多操作方法"
-        },
-        {
-          "level": 3,
-          "title": "随着课程深入，后面通过案例再讲解",
-          "slug": "随着课程深入-后面通过案例再讲解"
         },
         {
           "level": 2,
@@ -3343,6 +2566,222 @@ export const siteData = {
       "lastUpdatedTimestamp": 1700555477000
     },
     {
+      "title": "章节7.javascript数组",
+      "frontmatter": {
+        "navbar": true,
+        "sidebar": "auto",
+        "title": "章节7.javascript数组"
+      },
+      "regularPath": "/secondless/w-a/javascript%E6%95%B0%E7%BB%84.html",
+      "relativePath": "secondless/w-a/javascript数组.md",
+      "key": "v-596307a2",
+      "path": "/secondless/w-a/javascript%E6%95%B0%E7%BB%84.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "1、创建及读取数组",
+          "slug": "_1、创建及读取数组"
+        },
+        {
+          "level": 3,
+          "title": "① 使用字面量方式创建 Array（数组）",
+          "slug": "_1-使用字面量方式创建-array-数组"
+        },
+        {
+          "level": 3,
+          "title": "② 使用 new 关键字创建 Array（数组）（new 关键字可以省略）",
+          "slug": "_2-使用-new-关键字创建-array-数组-new-关键字可以省略"
+        },
+        {
+          "level": 3,
+          "title": "③ 创建一个稍微复杂一点的数组并读取数组的值",
+          "slug": "_3-创建一个稍微复杂一点的数组并读取数组的值"
+        },
+        {
+          "level": 2,
+          "title": "2、数组中的属性和内置方法",
+          "slug": "_2、数组中的属性和内置方法"
+        },
+        {
+          "level": 3,
+          "title": "① length 属性获取数组元素数量",
+          "slug": "_1-length-属性获取数组元素数量"
+        },
+        {
+          "level": 3,
+          "title": "② 用[下标]新增、修改数组元素",
+          "slug": "_2-用-下标-新增、修改数组元素"
+        },
+        {
+          "level": 3,
+          "title": "③ 数组内置方法toLocaleString()、valueOf()和 toString()",
+          "slug": "_3-数组内置方法tolocalestring-、valueof-和-tostring"
+        },
+        {
+          "level": 2,
+          "title": "3、数组中的方法",
+          "slug": "_3、数组中的方法"
+        },
+        {
+          "level": 3,
+          "title": "①  join()方法--用不同的分隔符将数组分割成字符串",
+          "slug": "_1-join-方法-用不同的分隔符将数组分割成字符串"
+        },
+        {
+          "level": 3,
+          "title": "②  push()方法--向数组末尾添加元素，返回修改后数组的长度",
+          "slug": "_2-push-方法-向数组末尾添加元素-返回修改后数组的长度"
+        },
+        {
+          "level": 3,
+          "title": "③  pop()方法--移除数组末尾元素，并返回移除的元素",
+          "slug": "_3-pop-方法-移除数组末尾元素-并返回移除的元素"
+        },
+        {
+          "level": 3,
+          "title": "④ shift()方法--移除数组开头元素，并返回移除的元素",
+          "slug": "_4-shift-方法-移除数组开头元素-并返回移除的元素"
+        },
+        {
+          "level": 3,
+          "title": "⑤ unshift()方法--向数组开头添加元素，返回修改后数组的长度",
+          "slug": "_5-unshift-方法-向数组开头添加元素-返回修改后数组的长度"
+        },
+        {
+          "level": 3,
+          "title": "⑥ reverse()方法--反向排序，返回排序后的数组",
+          "slug": "_6-reverse-方法-反向排序-返回排序后的数组"
+        },
+        {
+          "level": 3,
+          "title": "⑦ sort()方法--从小到大排序，返回排序后的数组",
+          "slug": "_7-sort-方法-从小到大排序-返回排序后的数组"
+        },
+        {
+          "level": 3,
+          "title": "⑧ concat()方法--创建新数组，并添加新元素，原数组没有变化",
+          "slug": "_8-concat-方法-创建新数组-并添加新元素-原数组没有变化"
+        },
+        {
+          "level": 3,
+          "title": "⑨ slice()方法--指定数组部分元素组建新数组，原数组没有变化",
+          "slug": "_9-slice-方法-指定数组部分元素组建新数组-原数组没有变化"
+        },
+        {
+          "level": 3,
+          "title": "⑩ splice()方法--有删除、插入、替换数组元素的功能，原数组发生变化",
+          "slug": "_10-splice-方法-有删除、插入、替换数组元素的功能-原数组发生变化"
+        },
+        {
+          "level": 2,
+          "title": "4、数组更多操作方法",
+          "slug": "_4、数组更多操作方法"
+        },
+        {
+          "level": 3,
+          "title": "随着课程深入，后面通过案例再讲解",
+          "slug": "随着课程深入-后面通过案例再讲解"
+        },
+        {
+          "level": 2,
+          "title": "课程其它章节",
+          "slug": "课程其它章节"
+        },
+        {
+          "level": 3,
+          "title": "章节1.课程介绍",
+          "slug": "章节1-课程介绍"
+        },
+        {
+          "level": 3,
+          "title": "章节2.javascript基础",
+          "slug": "章节2-javascript基础"
+        },
+        {
+          "level": 3,
+          "title": "章节3.javascript运算符",
+          "slug": "章节3-javascript运算符"
+        },
+        {
+          "level": 3,
+          "title": "章节4.流程控制语句",
+          "slug": "章节4-流程控制语句"
+        },
+        {
+          "level": 3,
+          "title": "章节5.javascript函数",
+          "slug": "章节5-javascript函数"
+        },
+        {
+          "level": 3,
+          "title": "章节6.javascript对象",
+          "slug": "章节6-javascript对象"
+        },
+        {
+          "level": 3,
+          "title": "章节7.javascript数组",
+          "slug": "章节7-javascript数组"
+        },
+        {
+          "level": 3,
+          "title": "章节8.Date类型：时间和日期",
+          "slug": "章节8-date类型-时间和日期"
+        },
+        {
+          "level": 3,
+          "title": "章节9.Function类型：函数进阶",
+          "slug": "章节9-function类型-函数进阶"
+        },
+        {
+          "level": 3,
+          "title": "章节10.内置对象：Global、Math对象，变量、作用域和内存问题",
+          "slug": "章节10-内置对象-global、math对象-变量、作用域和内存问题"
+        },
+        {
+          "level": 3,
+          "title": "章节11.匿名函数和闭包",
+          "slug": "章节11-匿名函数和闭包"
+        },
+        {
+          "level": 3,
+          "title": "章节12.javascript基本包装类型",
+          "slug": "章节12-javascript基本包装类型"
+        },
+        {
+          "level": 3,
+          "title": "章节13.函数对象数组小结",
+          "slug": "章节13-函数对象数组小结"
+        },
+        {
+          "level": 3,
+          "title": "章节14.浏览器对象模型BOM及浏览器检测",
+          "slug": "章节14-浏览器对象模型bom及浏览器检测"
+        },
+        {
+          "level": 3,
+          "title": "章节15.网页文档对象模型DOM",
+          "slug": "章节15-网页文档对象模型dom"
+        },
+        {
+          "level": 3,
+          "title": "章节16.事件",
+          "slug": "章节16-事件"
+        },
+        {
+          "level": 3,
+          "title": "章节17.表单处理及错误处理与调试",
+          "slug": "章节17-表单处理及错误处理与调试"
+        },
+        {
+          "level": 3,
+          "title": "章节18.数据Cookie、XML、JSON",
+          "slug": "章节18-数据cookie、xml、json"
+        }
+      ],
+      "lastUpdated": "2023年11月21日星期二下午4点31分",
+      "lastUpdatedTimestamp": 1700555477000
+    },
+    {
       "title": "章节13.函数对象数组小结",
       "frontmatter": {
         "navbar": true,
@@ -4252,6 +3691,567 @@ export const siteData = {
       "lastUpdatedTimestamp": 1700555477000
     },
     {
+      "title": "章节12.javascript基本包装类型",
+      "frontmatter": {
+        "navbar": true,
+        "sidebar": "auto",
+        "title": "章节12.javascript基本包装类型"
+      },
+      "regularPath": "/secondless/w-a/javascript%E5%9F%BA%E6%9C%AC%E5%8C%85%E8%A3%85%E7%B1%BB%E5%9E%8B.html",
+      "relativePath": "secondless/w-a/javascript基本包装类型.md",
+      "key": "v-2995f9cc",
+      "path": "/secondless/w-a/javascript%E5%9F%BA%E6%9C%AC%E5%8C%85%E8%A3%85%E7%B1%BB%E5%9E%8B.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "1、 Boolean 类型",
+          "slug": "_1、-boolean-类型"
+        },
+        {
+          "level": 3,
+          "title": "Boolean 类型没有特定的属性或者方法",
+          "slug": "boolean-类型没有特定的属性或者方法"
+        },
+        {
+          "level": 2,
+          "title": "2、 Number 类型",
+          "slug": "_2、-number-类型"
+        },
+        {
+          "level": 3,
+          "title": "① Number类型静态属性:MAXVALUE、MINVALUE、NaN、NEGATIVEINFINITY、POSITIVEINFINITY、prototype",
+          "slug": "_1-number类型静态属性-max-value、min-value、nan、negative-infinity、positive-infinity、prototype"
+        },
+        {
+          "level": 3,
+          "title": "② toString()方法-将数值转化为字符串，并且可以转换进制",
+          "slug": "_2-tostring-方法-将数值转化为字符串-并且可以转换进制"
+        },
+        {
+          "level": 3,
+          "title": "③ toLocaleString()方法-根据本地数字格式转换为字符串",
+          "slug": "_3-tolocalestring-方法-根据本地数字格式转换为字符串"
+        },
+        {
+          "level": 3,
+          "title": "④ toFixed()方法-将数字保留小数点后指定位数并转化为字符串",
+          "slug": "_4-tofixed-方法-将数字保留小数点后指定位数并转化为字符串"
+        },
+        {
+          "level": 3,
+          "title": "⑤ toExponential()方法-将数字以指数形式表示，保留小数点后指定位数并转化为字符串",
+          "slug": "_5-toexponential-方法-将数字以指数形式表示-保留小数点后指定位数并转化为字符串"
+        },
+        {
+          "level": 3,
+          "title": "⑥ toPrecision()方法-指数形式或点形式表述数，保留小数点后面指定位数并转化为字符串",
+          "slug": "_6-toprecision-方法-指数形式或点形式表述数-保留小数点后面指定位数并转化为字符串"
+        },
+        {
+          "level": 2,
+          "title": "3、String类型",
+          "slug": "_3、string类型"
+        },
+        {
+          "level": 3,
+          "title": "① 属性:length - 返回字符串的字符长度",
+          "slug": "_1-属性-length-返回字符串的字符长度"
+        },
+        {
+          "level": 3,
+          "title": "② 属性:constructor - 返回创建 String 对象的函数",
+          "slug": "_2-属性-constructor-返回创建-string-对象的函数"
+        },
+        {
+          "level": 3,
+          "title": "③ 属性:prototype - 通过添加属性和方法扩展字符串定义",
+          "slug": "_3-属性-prototype-通过添加属性和方法扩展字符串定义"
+        },
+        {
+          "level": 3,
+          "title": "④ 通用方法：valueOf()、toLocaleString()和 toString()方法，返回字符串的基本值，写不写都一样",
+          "slug": "_4-通用方法-valueof-、tolocalestring-和-tostring-方法-返回字符串的基本值-写不写都一样"
+        },
+        {
+          "level": 3,
+          "title": "⑤ 字符方法：charAt(n) - 返回指定索引位置的字符",
+          "slug": "_5-字符方法-charat-n-返回指定索引位置的字符"
+        },
+        {
+          "level": 3,
+          "title": "⑥ 字符方法：charCodeAt(n) - 以 Unicode 编码形式返回指定索引位置的字符",
+          "slug": "_6-字符方法-charcodeat-n-以-unicode-编码形式返回指定索引位置的字符"
+        },
+        {
+          "level": 3,
+          "title": "⑦ 字符方法：数组方式截取字符串",
+          "slug": "_7-字符方法-数组方式截取字符串"
+        },
+        {
+          "level": 3,
+          "title": "⑧ 字符串操作方法：concat(str1...str2) - 将字符串参数串联到调用该方法的字符串（拼装字符串）",
+          "slug": "_8-字符串操作方法-concat-str1-str2-将字符串参数串联到调用该方法的字符串-拼装字符串"
+        },
+        {
+          "level": 3,
+          "title": "⑨ 字符串操作方法：slice(n,m) - 返回字符串 n 到 m 之间位置的字符串（截取字符串）",
+          "slug": "_9-字符串操作方法-slice-n-m-返回字符串-n-到-m-之间位置的字符串-截取字符串"
+        },
+        {
+          "level": 3,
+          "title": "⑩ 字符串操作方法：substring(n,m) - 返回字符串 n 到 m 之间位置的字符串（截取字符串）",
+          "slug": "_10-字符串操作方法-substring-n-m-返回字符串-n-到-m-之间位置的字符串-截取字符串"
+        },
+        {
+          "level": 3,
+          "title": "⑪ 字符串操作方法：substr(n,m) - 返回字符串 n 开始的 m 个字符串（截取字符串）",
+          "slug": "_11-字符串操作方法-substr-n-m-返回字符串-n-开始的-m-个字符串-截取字符串"
+        },
+        {
+          "level": 3,
+          "title": "⑫ 字符串位置方法：indexOf(str, n) - 从 n 开始搜索的第一个 str，并将搜索的索引值返回",
+          "slug": "_12-字符串位置方法-indexof-str-n-从-n-开始搜索的第一个-str-并将搜索的索引值返回"
+        },
+        {
+          "level": 3,
+          "title": "⑬ 字符串位置方法：lastIndexOf(str, n) - 从 n 开始搜索的最后一个 str，并将搜索的索引值返回",
+          "slug": "_13-字符串位置方法-lastindexof-str-n-从-n-开始搜索的最后一个-str-并将搜索的索引值返回"
+        },
+        {
+          "level": 3,
+          "title": "⑭ 将字符串中的某个字符索引位置全部找出放在数组中",
+          "slug": "_14-将字符串中的某个字符索引位置全部找出放在数组中"
+        },
+        {
+          "level": 3,
+          "title": "⑮ 大小写转换：toLowerCase(str) - 将字符串全部转换为小写",
+          "slug": "_15-大小写转换-tolowercase-str-将字符串全部转换为小写"
+        },
+        {
+          "level": 3,
+          "title": "⑯ 大小写转换：toUpperCase(str) - 将字符串全部转换为大写",
+          "slug": "_16-大小写转换-touppercase-str-将字符串全部转换为大写"
+        },
+        {
+          "level": 3,
+          "title": "⑰ 小写转换并且本地化：toLocaleLowerCase(str)、大写转换并且本地化：toLocaleUpperCase(str)",
+          "slug": "_17-小写转换并且本地化-tolocalelowercase-str-、大写转换并且本地化-tolocaleuppercase-str"
+        },
+        {
+          "level": 3,
+          "title": "⑱ match(pattern) -- 主要用于正则表达式方法",
+          "slug": "_18-match-pattern-主要用于正则表达式方法"
+        },
+        {
+          "level": 3,
+          "title": "⑲ search(pattern) -- 主要用于正则表达式方法",
+          "slug": "_19-search-pattern-主要用于正则表达式方法"
+        },
+        {
+          "level": 3,
+          "title": "⑳ replace(pattern, replacement) -- 用 replacement 替换 pattern 第一次出现的字符",
+          "slug": "_20-replace-pattern-replacement-用-replacement-替换-pattern-第一次出现的字符"
+        },
+        {
+          "level": 3,
+          "title": "㉑ replaceAll(pattern, replacement) -- 用 replacement 替换 pattern 所有出现的字符",
+          "slug": "_21-replaceall-pattern-replacement-用-replacement-替换-pattern-所有出现的字符"
+        },
+        {
+          "level": 3,
+          "title": "㉒ split(pattern) - 返回字符串按指定 pattern 拆分的数组",
+          "slug": "_22-split-pattern-返回字符串按指定-pattern-拆分的数组"
+        },
+        {
+          "level": 3,
+          "title": "㉓ fromCharCode(ascii) - 静态方法，输出 Ascii 码对应值",
+          "slug": "_23-fromcharcode-ascii-静态方法-输出-ascii-码对应值"
+        },
+        {
+          "level": 3,
+          "title": "㉔ localeCompare(str1,str2) - 比较两个字符串，并返回相应的值",
+          "slug": "_24-localecompare-str1-str2-比较两个字符串-并返回相应的值"
+        },
+        {
+          "level": 3,
+          "title": "㉕ startsWith(pattern) - 判断字符串是否按 pattern 开头，返回布尔值",
+          "slug": "_25-startswith-pattern-判断字符串是否按-pattern-开头-返回布尔值"
+        },
+        {
+          "level": 3,
+          "title": "㉖ endsWith(pattern) - 判断字符串是否按 pattern 结尾，返回布尔值",
+          "slug": "_26-endswith-pattern-判断字符串是否按-pattern-结尾-返回布尔值"
+        },
+        {
+          "level": 3,
+          "title": "㉗ includes(pattern) - 判断字符串是否包含pattern字符，返回布尔值",
+          "slug": "_27-includes-pattern-判断字符串是否包含pattern字符-返回布尔值"
+        },
+        {
+          "level": 3,
+          "title": "㉘ trimStart() - 去除字符串开头的空格，返回字符串",
+          "slug": "_28-trimstart-去除字符串开头的空格-返回字符串"
+        },
+        {
+          "level": 3,
+          "title": "㉙ trimEnd() - 去除字符串结尾的空格，返回字符串",
+          "slug": "_29-trimend-去除字符串结尾的空格-返回字符串"
+        },
+        {
+          "level": 3,
+          "title": "㉚ trim() - 去除字符串开头和结尾的空格，返回字符串",
+          "slug": "_30-trim-去除字符串开头和结尾的空格-返回字符串"
+        },
+        {
+          "level": 3,
+          "title": "㉛ repeat(n) - 重复字符串n次，返回字符串",
+          "slug": "_31-repeat-n-重复字符串n次-返回字符串"
+        },
+        {
+          "level": 3,
+          "title": "㉜ 模板字面量（魔法字符串）",
+          "slug": "_32-模板字面量-魔法字符串"
+        },
+        {
+          "level": 2,
+          "title": "4、Array数组的常用方法",
+          "slug": "_4、array数组的常用方法"
+        },
+        {
+          "level": 3,
+          "title": "① join()方法 -- 见章节7：数组",
+          "slug": "_1-join-方法-见章节7-数组"
+        },
+        {
+          "level": 3,
+          "title": "② push()方法 -- 见章节7：数组",
+          "slug": "_2-push-方法-见章节7-数组"
+        },
+        {
+          "level": 3,
+          "title": "③ pop()方法 -- 见章节7：数组",
+          "slug": "_3-pop-方法-见章节7-数组"
+        },
+        {
+          "level": 3,
+          "title": "④ shift()方法 -- 见章节7：数组",
+          "slug": "_4-shift-方法-见章节7-数组"
+        },
+        {
+          "level": 3,
+          "title": "⑤ unshift()方法 -- 见章节7：数组",
+          "slug": "_5-unshift-方法-见章节7-数组"
+        },
+        {
+          "level": 3,
+          "title": "⑥ reverse()方法 -- 见章节7：数组",
+          "slug": "_6-reverse-方法-见章节7-数组"
+        },
+        {
+          "level": 3,
+          "title": "⑦ sort()方法 -- 见章节7：数组",
+          "slug": "_7-sort-方法-见章节7-数组"
+        },
+        {
+          "level": 3,
+          "title": "⑧ concat()方法 -- 见章节7：数组",
+          "slug": "_8-concat-方法-见章节7-数组"
+        },
+        {
+          "level": 3,
+          "title": "⑨ slice()方法 -- 见章节7：数组",
+          "slug": "_9-slice-方法-见章节7-数组"
+        },
+        {
+          "level": 3,
+          "title": "⑩ splice()方法 -- 见章节7：数组",
+          "slug": "_10-splice-方法-见章节7-数组"
+        },
+        {
+          "level": 3,
+          "title": "⑪ 数组includes（searchElement，fromIndex）方法 --  判断数组是否包含一个指定的元素，返回布尔值",
+          "slug": "_11-数组includes-searchelement-fromindex-方法-判断数组是否包含一个指定的元素-返回布尔值"
+        },
+        {
+          "level": 3,
+          "title": "⑫ 数组reduce()方法 -- 有求和、数组去重、求数组的最大值、扁平化数组的功能",
+          "slug": "_12-数组reduce-方法-有求和、数组去重、求数组的最大值、扁平化数组的功能"
+        },
+        {
+          "level": 3,
+          "title": "⑬ 数组find()方法 -- 为数组中的每个元素都调用一次函数执行,返回通过测试（函数内判断）的数组的第一个元素的值",
+          "slug": "_13-数组find-方法-为数组中的每个元素都调用一次函数执行-返回通过测试-函数内判断-的数组的第一个元素的值"
+        },
+        {
+          "level": 3,
+          "title": "⑭ 数组findIndex()方法 -- 为数组中的每个元素都调用一次函数执行,返回传入一个测试条件（函数）符合条件的数组第一个元素位置",
+          "slug": "_14-数组findindex-方法-为数组中的每个元素都调用一次函数执行-返回传入一个测试条件-函数-符合条件的数组第一个元素位置"
+        },
+        {
+          "level": 3,
+          "title": "⑮ 数组filter() 方法 -- 为数组中的每个元素都调用一次函数执行, 创建一个新的数组，返回传入一个测试条件（函数）符合条件的数组的所有元素",
+          "slug": "_15-数组filter-方法-为数组中的每个元素都调用一次函数执行-创建一个新的数组-返回传入一个测试条件-函数-符合条件的数组的所有元素"
+        },
+        {
+          "level": 3,
+          "title": "⑯ 数组map() 方法 -- 为数组中的每个元素都调用一次函数执行, 创建一个新的数组，返回原始数组元素调用函数处理后的值",
+          "slug": "_16-数组map-方法-为数组中的每个元素都调用一次函数执行-创建一个新的数组-返回原始数组元素调用函数处理后的值"
+        },
+        {
+          "level": 3,
+          "title": "⑰ 数组forEach() 方法 -- 为数组中的每个元素都调用一次函数执行，并将元素传递给回调函数，没有返回值",
+          "slug": "_17-数组foreach-方法-为数组中的每个元素都调用一次函数执行-并将元素传递给回调函数-没有返回值"
+        },
+        {
+          "level": 3,
+          "title": "⑱ 数组indexOf() 方法 -- 返回数组中某个指定的元素位置，从头到尾查找数组元素",
+          "slug": "_18-数组indexof-方法-返回数组中某个指定的元素位置-从头到尾查找数组元素"
+        },
+        {
+          "level": 3,
+          "title": "⑲  数组lastIndexOf() 方法 -- 返回一个指定的元素在数组中最后出现的位置，从后面向前查找数组元素",
+          "slug": "_19-数组lastindexof-方法-返回一个指定的元素在数组中最后出现的位置-从后面向前查找数组元素"
+        },
+        {
+          "level": 3,
+          "title": "⑳ 数组at() 方法 -- 接收一个整数值并返回该索引对应的数组元素",
+          "slug": "_20-数组at-方法-接收一个整数值并返回该索引对应的数组元素"
+        },
+        {
+          "level": 3,
+          "title": "㉑ 数组fill() 方法 -- 用于将一个固定值替换数组的元素，返回原数组，原数组会发生变化",
+          "slug": "_21-数组fill-方法-用于将一个固定值替换数组的元素-返回原数组-原数组会发生变化"
+        },
+        {
+          "level": 3,
+          "title": "㉒ 数组copyWithin() 方法 -- 将指定位置的元素复制到其他位置，返回原数组，原数组会发生变化",
+          "slug": "_22-数组copywithin-方法-将指定位置的元素复制到其他位置-返回原数组-原数组会发生变化"
+        },
+        {
+          "level": 3,
+          "title": "㉓ 数组isArray() 方法 -- 静态方法，判断一个对象是否为数组",
+          "slug": "_23-数组isarray-方法-静态方法-判断一个对象是否为数组"
+        },
+        {
+          "level": 3,
+          "title": "㉔ 合并数组：es6的扩展运算符",
+          "slug": "_24-合并数组-es6的扩展运算符"
+        },
+        {
+          "level": 3,
+          "title": "㉕ 数组every() 方法 --检测数组所有元素是否全部符合指定条件（通过函数提供），返回布尔值",
+          "slug": "_25-数组every-方法-检测数组所有元素是否全部符合指定条件-通过函数提供-返回布尔值"
+        },
+        {
+          "level": 3,
+          "title": "㉖ 数组some() 方法 -- 检测数组所有元素，只要有一个元素通过函数检测返回真，那么就返回真，且后面的元素不在检测,否则返回 假。",
+          "slug": "_26-数组some-方法-检测数组所有元素-只要有一个元素通过函数检测返回真-那么就返回真-且后面的元素不在检测-否则返回-假。"
+        },
+        {
+          "level": 3,
+          "title": "㉗ 数组 for...of遍历",
+          "slug": "_27-数组-for-of遍历"
+        },
+        {
+          "level": 3,
+          "title": "㉘ 数组keys()，数组values()，数组entries()方法 -- 用于遍历数组，都返回一个遍历器对象。",
+          "slug": "_28-数组keys-数组values-数组entries-方法-用于遍历数组-都返回一个遍历器对象。"
+        },
+        {
+          "level": 3,
+          "title": "㉙ 数组reduceRight() 方法-- 和reduce方法刚好相反，reduce可以看成是数组元素（从左到右）依次处理，reduceRight是（从右往左处理）",
+          "slug": "_29-数组reduceright-方法-和reduce方法刚好相反-reduce可以看成是数组元素-从左到右-依次处理-reduceright是-从右往左处理"
+        },
+        {
+          "level": 3,
+          "title": "㉚ 数组flat() 方法 --按照一个可指定的深度递归遍历数组，并将所有元素与遍历到的子数组中的元素合并为一个新数组返回（将多维数组解构成一维数组）",
+          "slug": "_30-数组flat-方法-按照一个可指定的深度递归遍历数组-并将所有元素与遍历到的子数组中的元素合并为一个新数组返回-将多维数组解构成一维数组"
+        },
+        {
+          "level": 3,
+          "title": "㉛数组flatMap() 方法 --首先使用映射函数映射每个元素，然后将结果压缩成一个新数组。创建一个新的数组，其中每个元素都是回调函数的结果，结构深度（depth）为 1 只有一层深度。",
+          "slug": "_31数组flatmap-方法-首先使用映射函数映射每个元素-然后将结果压缩成一个新数组。创建一个新的数组-其中每个元素都是回调函数的结果-结构深度-depth-为-1-只有一层深度。"
+        },
+        {
+          "level": 3,
+          "title": "㉜ 数组from()方法 -- 静态方法，将一个类数组对象转为数组",
+          "slug": "_32-数组from-方法-静态方法-将一个类数组对象转为数组"
+        },
+        {
+          "level": 3,
+          "title": "㉝ 数组of()方法 -- 静态方法，将一组数据转为数组",
+          "slug": "_33-数组of-方法-静态方法-将一组数据转为数组"
+        },
+        {
+          "level": 2,
+          "title": "5、集合类型: Set()方法",
+          "slug": "_5、集合类型-set-方法"
+        },
+        {
+          "level": 3,
+          "title": "1. 创建Set集合实例(使用new关键词，可以类比于之前学习的Date，时间日期对象，说明Set也是对象的一种)",
+          "slug": "_1-创建set集合实例-使用new关键词-可以类比于之前学习的date-时间日期对象-说明set也是对象的一种"
+        },
+        {
+          "level": 3,
+          "title": "2. 如果想在创建的同时初始化实例，则可以给 Set 构造函数传入一个可迭代对象，其中需要包含插入到新集合实例中的元素(Set 可以包含任何js数据类型作为值)：",
+          "slug": "_2-如果想在创建的同时初始化实例-则可以给-set-构造函数传入一个可迭代对象-其中需要包含插入到新集合实例中的元素-set-可以包含任何js数据类型作为值"
+        },
+        {
+          "level": 3,
+          "title": "3. Set集合实例转数组，Set结构不会添加重复的值（处理数组去重等问题）",
+          "slug": "_3-set集合实例转数组-set结构不会添加重复的值-处理数组去重等问题"
+        },
+        {
+          "level": 3,
+          "title": "4. Set集合size属性：获取Set集合实例的元素个数",
+          "slug": "_4-set集合size属性-获取set集合实例的元素个数"
+        },
+        {
+          "level": 3,
+          "title": "5. Set集合add()方法：添加元素",
+          "slug": "_5-set集合add-方法-添加元素"
+        },
+        {
+          "level": 3,
+          "title": "6. Set集合has()方法：查询Set实例是否存在某元素(返回布尔值)",
+          "slug": "_6-set集合has-方法-查询set实例是否存在某元素-返回布尔值"
+        },
+        {
+          "level": 3,
+          "title": "7. Set集合delete()方法：删除Set实例中某个元素(返回布尔值)",
+          "slug": "_7-set集合delete-方法-删除set实例中某个元素-返回布尔值"
+        },
+        {
+          "level": 3,
+          "title": "8. Set集合clear()方法：清空Set实例",
+          "slug": "_8-set集合clear-方法-清空set实例"
+        },
+        {
+          "level": 3,
+          "title": "9. Set集合迭代遍历数据：keys():返回键名，values(): 返回键值，entries(): 返回键值对, 注意它的键名=键值",
+          "slug": "_9-set集合迭代遍历数据-keys-返回键名-values-返回键值-entries-返回键值对-注意它的键名-键值"
+        },
+        {
+          "level": 3,
+          "title": "10.Set集合迭代遍历数据：for...of遍历，forEach遍历",
+          "slug": "_10-set集合迭代遍历数据-for-of遍历-foreach遍历"
+        },
+        {
+          "level": 2,
+          "title": "6、小结及拓展",
+          "slug": "_6、小结及拓展"
+        },
+        {
+          "level": 3,
+          "title": "① 求两个数组的并集、交集、差集，得到的结果是一个新数组",
+          "slug": "_1-求两个数组的并集、交集、差集-得到的结果是一个新数组"
+        },
+        {
+          "level": 3,
+          "title": "② 获取数组中的随机项（验证码参考）",
+          "slug": "_2-获取数组中的随机项-验证码参考"
+        },
+        {
+          "level": 2,
+          "title": "课程其它章节",
+          "slug": "课程其它章节"
+        },
+        {
+          "level": 3,
+          "title": "章节1.课程介绍",
+          "slug": "章节1-课程介绍"
+        },
+        {
+          "level": 3,
+          "title": "章节2.javascript基础",
+          "slug": "章节2-javascript基础"
+        },
+        {
+          "level": 3,
+          "title": "章节3.javascript运算符",
+          "slug": "章节3-javascript运算符"
+        },
+        {
+          "level": 3,
+          "title": "章节4.流程控制语句",
+          "slug": "章节4-流程控制语句"
+        },
+        {
+          "level": 3,
+          "title": "章节5.javascript函数",
+          "slug": "章节5-javascript函数"
+        },
+        {
+          "level": 3,
+          "title": "章节6.javascript对象",
+          "slug": "章节6-javascript对象"
+        },
+        {
+          "level": 3,
+          "title": "章节7.javascript数组",
+          "slug": "章节7-javascript数组"
+        },
+        {
+          "level": 3,
+          "title": "章节8.Date类型：时间和日期",
+          "slug": "章节8-date类型-时间和日期"
+        },
+        {
+          "level": 3,
+          "title": "章节9.Function类型：函数进阶",
+          "slug": "章节9-function类型-函数进阶"
+        },
+        {
+          "level": 3,
+          "title": "章节10.内置对象：Global、Math对象，变量、作用域和内存问题",
+          "slug": "章节10-内置对象-global、math对象-变量、作用域和内存问题"
+        },
+        {
+          "level": 3,
+          "title": "章节11.匿名函数和闭包",
+          "slug": "章节11-匿名函数和闭包"
+        },
+        {
+          "level": 3,
+          "title": "章节12.javascript基本包装类型",
+          "slug": "章节12-javascript基本包装类型"
+        },
+        {
+          "level": 3,
+          "title": "章节13.函数对象数组小结",
+          "slug": "章节13-函数对象数组小结"
+        },
+        {
+          "level": 3,
+          "title": "章节14.浏览器对象模型BOM及浏览器检测",
+          "slug": "章节14-浏览器对象模型bom及浏览器检测"
+        },
+        {
+          "level": 3,
+          "title": "章节15.网页文档对象模型DOM",
+          "slug": "章节15-网页文档对象模型dom"
+        },
+        {
+          "level": 3,
+          "title": "章节16.事件",
+          "slug": "章节16-事件"
+        },
+        {
+          "level": 3,
+          "title": "章节17.表单处理及错误处理与调试",
+          "slug": "章节17-表单处理及错误处理与调试"
+        },
+        {
+          "level": 3,
+          "title": "章节18.数据Cookie、XML、JSON",
+          "slug": "章节18-数据cookie、xml、json"
+        }
+      ],
+      "lastUpdated": "2023年11月21日星期二下午4点31分",
+      "lastUpdatedTimestamp": 1700555477000
+    },
+    {
       "title": "章节14.浏览器对象模型BOM及浏览器检测",
       "frontmatter": {
         "navbar": true,
@@ -4432,612 +4432,6 @@ export const siteData = {
           "level": 3,
           "title": "⑤ 获取操作系统，判断用户查看网页的设备是电脑设备，还是手机设备",
           "slug": "_5-获取操作系统-判断用户查看网页的设备是电脑设备-还是手机设备"
-        },
-        {
-          "level": 2,
-          "title": "课程其它章节",
-          "slug": "课程其它章节"
-        },
-        {
-          "level": 3,
-          "title": "章节1.课程介绍",
-          "slug": "章节1-课程介绍"
-        },
-        {
-          "level": 3,
-          "title": "章节2.javascript基础",
-          "slug": "章节2-javascript基础"
-        },
-        {
-          "level": 3,
-          "title": "章节3.javascript运算符",
-          "slug": "章节3-javascript运算符"
-        },
-        {
-          "level": 3,
-          "title": "章节4.流程控制语句",
-          "slug": "章节4-流程控制语句"
-        },
-        {
-          "level": 3,
-          "title": "章节5.javascript函数",
-          "slug": "章节5-javascript函数"
-        },
-        {
-          "level": 3,
-          "title": "章节6.javascript对象",
-          "slug": "章节6-javascript对象"
-        },
-        {
-          "level": 3,
-          "title": "章节7.javascript数组",
-          "slug": "章节7-javascript数组"
-        },
-        {
-          "level": 3,
-          "title": "章节8.Date类型：时间和日期",
-          "slug": "章节8-date类型-时间和日期"
-        },
-        {
-          "level": 3,
-          "title": "章节9.Function类型：函数进阶",
-          "slug": "章节9-function类型-函数进阶"
-        },
-        {
-          "level": 3,
-          "title": "章节10.内置对象：Global、Math对象，变量、作用域和内存问题",
-          "slug": "章节10-内置对象-global、math对象-变量、作用域和内存问题"
-        },
-        {
-          "level": 3,
-          "title": "章节11.匿名函数和闭包",
-          "slug": "章节11-匿名函数和闭包"
-        },
-        {
-          "level": 3,
-          "title": "章节12.javascript基本包装类型",
-          "slug": "章节12-javascript基本包装类型"
-        },
-        {
-          "level": 3,
-          "title": "章节13.函数对象数组小结",
-          "slug": "章节13-函数对象数组小结"
-        },
-        {
-          "level": 3,
-          "title": "章节14.浏览器对象模型BOM及浏览器检测",
-          "slug": "章节14-浏览器对象模型bom及浏览器检测"
-        },
-        {
-          "level": 3,
-          "title": "章节15.网页文档对象模型DOM",
-          "slug": "章节15-网页文档对象模型dom"
-        },
-        {
-          "level": 3,
-          "title": "章节16.事件",
-          "slug": "章节16-事件"
-        },
-        {
-          "level": 3,
-          "title": "章节17.表单处理及错误处理与调试",
-          "slug": "章节17-表单处理及错误处理与调试"
-        },
-        {
-          "level": 3,
-          "title": "章节18.数据Cookie、XML、JSON",
-          "slug": "章节18-数据cookie、xml、json"
-        }
-      ],
-      "lastUpdated": "2023年11月21日星期二下午4点31分",
-      "lastUpdatedTimestamp": 1700555477000
-    },
-    {
-      "title": "章节15.网页文档对象模型DOM",
-      "frontmatter": {
-        "navbar": true,
-        "sidebar": "auto",
-        "title": "章节15.网页文档对象模型DOM"
-      },
-      "regularPath": "/secondless/w-a/%E7%BD%91%E9%A1%B5%E6%96%87%E6%A1%A3%E5%AF%B9%E8%B1%A1%E6%A8%A1%E5%9E%8BDOM.html",
-      "relativePath": "secondless/w-a/网页文档对象模型DOM.md",
-      "key": "v-94f740de",
-      "path": "/secondless/w-a/%E7%BD%91%E9%A1%B5%E6%96%87%E6%A1%A3%E5%AF%B9%E8%B1%A1%E6%A8%A1%E5%9E%8BDOM.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "1、理解DOM",
-          "slug": "_1、理解dom"
-        },
-        {
-          "level": 3,
-          "title": "① DOM节点树",
-          "slug": "_1-dom节点树"
-        },
-        {
-          "level": 3,
-          "title": "② 节点种类：元素节点、文本节点、属性节点",
-          "slug": "_2-节点种类-元素节点、文本节点、属性节点"
-        },
-        {
-          "level": 2,
-          "title": "2、查找节点信息方法",
-          "slug": "_2、查找节点信息方法"
-        },
-        {
-          "level": 3,
-          "title": "Ⅰ、 getElement系列",
-          "slug": "i、-getelement系列"
-        },
-        {
-          "level": 3,
-          "title": "① getElementById()方法",
-          "slug": "_1-getelementbyid-方法"
-        },
-        {
-          "level": 3,
-          "title": "② getElementById()方法获取的元素节点属性：tagName、innerHTML等",
-          "slug": "_2-getelementbyid-方法获取的元素节点属性-tagname、innerhtml等"
-        },
-        {
-          "level": 3,
-          "title": "③ 获取及设置元素html属性：id,title,style,className等",
-          "slug": "_3-获取及设置元素html属性-id-title-style-classname等"
-        },
-        {
-          "level": 3,
-          "title": "④ getElementsByTagName()方法 - 获取相同元素名的节点列表对象数组HTMLCollection(NodeList)",
-          "slug": "_4-getelementsbytagname-方法-获取相同元素名的节点列表对象数组htmlcollection-nodelist"
-        },
-        {
-          "level": 3,
-          "title": "⑤ getElementsByName()方法 - 获取相同名称(name)的元素，返回一个对象数组HTMLCollection(NodeList)",
-          "slug": "_5-getelementsbyname-方法-获取相同名称-name-的元素-返回一个对象数组htmlcollection-nodelist"
-        },
-        {
-          "level": 3,
-          "title": "⑥ getElementsByClassName()方法 - 获取class类名称的元素，返回一个对象数组HTMLCollection(NodeList)",
-          "slug": "_6-getelementsbyclassname-方法-获取class类名称的元素-返回一个对象数组htmlcollection-nodelist"
-        },
-        {
-          "level": 3,
-          "title": "Ⅱ、querySelector系列",
-          "slug": "ii、queryselector系列"
-        },
-        {
-          "level": 3,
-          "title": "① querySelector()方法 - 接受一个 CSS 选择器作为参数，返回匹配该选择器的元素节点",
-          "slug": "_1-queryselector-方法-接受一个-css-选择器作为参数-返回匹配该选择器的元素节点"
-        },
-        {
-          "level": 3,
-          "title": "② querySelectorAll()方法 - 接受一个 CSS 选择器作为参数，返回一个NodeList对象，包含所有匹配给定选择器的节点",
-          "slug": "_2-queryselectorall-方法-接受一个-css-选择器作为参数-返回一个nodelist对象-包含所有匹配给定选择器的节点"
-        },
-        {
-          "level": 3,
-          "title": "Ⅲ、属性操作系列",
-          "slug": "iii、属性操作系列"
-        },
-        {
-          "level": 3,
-          "title": "① getAttribute()方法 - 属性操作方法：获取元素中某个属性的值",
-          "slug": "_1-getattribute-方法-属性操作方法-获取元素中某个属性的值"
-        },
-        {
-          "level": 3,
-          "title": "② setAttribute()方法 - 属性操作方法：将设置元素中某个属性和值，要接受两个参数：属性名和值",
-          "slug": "_2-setattribute-方法-属性操作方法-将设置元素中某个属性和值-要接受两个参数-属性名和值"
-        },
-        {
-          "level": 3,
-          "title": "③ removeAttribute()方法 - 属性操作方法：以移除元素属性",
-          "slug": "_3-removeattribute-方法-属性操作方法-以移除元素属性"
-        },
-        {
-          "level": 3,
-          "title": "Ⅳ、 node节点属性: nodeName、nodeType、nodeValue",
-          "slug": "iv、-node节点属性-nodename、nodetype、nodevalue"
-        },
-        {
-          "level": 3,
-          "title": "Ⅴ、 层次节点属性",
-          "slug": "v、-层次节点属性"
-        },
-        {
-          "level": 3,
-          "title": "① childNodes：获取当前元素节点的所有子节点，包含元素子节点和文本子节点",
-          "slug": "_1-childnodes-获取当前元素节点的所有子节点-包含元素子节点和文本子节点"
-        },
-        {
-          "level": 3,
-          "title": "② firstChild 和 lastChild 属性",
-          "slug": "_2-firstchild-和-lastchild-属性"
-        },
-        {
-          "level": 3,
-          "title": "③ ownerDocument 属性：返回该节点的文档对象根节点，返回的对象相当于 document",
-          "slug": "_3-ownerdocument-属性-返回该节点的文档对象根节点-返回的对象相当于-document"
-        },
-        {
-          "level": 3,
-          "title": "④ parentNode 属性返回该节点的父节点，previousSibling 属性返回该节点的前一个同级节点，nextSibling 属性返回该节点的后一个同级节点",
-          "slug": "_4-parentnode-属性返回该节点的父节点-previoussibling-属性返回该节点的前一个同级节点-nextsibling-属性返回该节点的后一个同级节点"
-        },
-        {
-          "level": 3,
-          "title": "⑤ 忽略空白文本节点",
-          "slug": "_5-忽略空白文本节点"
-        },
-        {
-          "level": 3,
-          "title": "⑥ attributes 属性：返回该节点的属性节点集合",
-          "slug": "_6-attributes-属性-返回该节点的属性节点集合"
-        },
-        {
-          "level": 2,
-          "title": "3、操作节点",
-          "slug": "_3、操作节点"
-        },
-        {
-          "level": 3,
-          "title": "① document.write()方法[非节点操作方法]：可以把任意字符串插入到文档中去",
-          "slug": "_1-document-write-方法-非节点操作方法-可以把任意字符串插入到文档中去"
-        },
-        {
-          "level": 3,
-          "title": "② createElement()方法：创建一个元素节点，appendChild()方法：将一个新节点添加到某个节点的子节点列表的末尾上",
-          "slug": "_2-createelement-方法-创建一个元素节点-appendchild-方法-将一个新节点添加到某个节点的子节点列表的末尾上"
-        },
-        {
-          "level": 3,
-          "title": "③ createTextNode()方法：创建一个文本节点",
-          "slug": "_3-createtextnode-方法-创建一个文本节点"
-        },
-        {
-          "level": 3,
-          "title": "④ insertBefore()方法：可以把节点创建到指定节点的前面（先找到它的父节点再操作）",
-          "slug": "_4-insertbefore-方法-可以把节点创建到指定节点的前面-先找到它的父节点再操作"
-        },
-        {
-          "level": 3,
-          "title": "⑤ 模拟在指定节点的后面添加一个节点",
-          "slug": "_5-模拟在指定节点的后面添加一个节点"
-        },
-        {
-          "level": 3,
-          "title": "⑥ repalceChild()方法：把节点替换成指定的节点（先找到它的父节点再操作）",
-          "slug": "_6-repalcechild-方法-把节点替换成指定的节点-先找到它的父节点再操作"
-        },
-        {
-          "level": 3,
-          "title": "⑦ cloneNode()方法：把节点复制一份，放到指定地方",
-          "slug": "_7-clonenode-方法-把节点复制一份-放到指定地方"
-        },
-        {
-          "level": 3,
-          "title": "⑧ removeChild()方法：删除指定节点（先找到它的父节点再操作）",
-          "slug": "_8-removechild-方法-删除指定节点-先找到它的父节点再操作"
-        },
-        {
-          "level": 2,
-          "title": "4、DOM 类型、扩展、操作内容",
-          "slug": "_4、dom-类型、扩展、操作内容"
-        },
-        {
-          "level": 3,
-          "title": "Ⅰ、DOM 类型",
-          "slug": "i、dom-类型"
-        },
-        {
-          "level": 3,
-          "title": "① Document类型补充",
-          "slug": "_1-document类型补充"
-        },
-        {
-          "level": 3,
-          "title": "获取html节点对象",
-          "slug": "获取html节点对象"
-        },
-        {
-          "level": 3,
-          "title": "获取body节点对象",
-          "slug": "获取body节点对象"
-        },
-        {
-          "level": 3,
-          "title": "获取文档声明：DOCTYPE对象",
-          "slug": "获取文档声明-doctype对象"
-        },
-        {
-          "level": 3,
-          "title": "其他属性:document.title-获取和设置title标签的值",
-          "slug": "其他属性-document-title-获取和设置title标签的值"
-        },
-        {
-          "level": 3,
-          "title": "其他属性:document.URL-获取 URL 路径",
-          "slug": "其他属性-document-url-获取-url-路径"
-        },
-        {
-          "level": 3,
-          "title": "其他属性:document.domain-获取域名，服务器端",
-          "slug": "其他属性-document-domain-获取域名-服务器端"
-        },
-        {
-          "level": 3,
-          "title": "其他属性:document.referrer-获取上一个 URL，服务器端",
-          "slug": "其他属性-document-referrer-获取上一个-url-服务器端"
-        },
-        {
-          "level": 3,
-          "title": "对象集合:document.anchors-获取带name属性的a元素集合",
-          "slug": "对象集合-document-anchors-获取带name属性的a元素集合"
-        },
-        {
-          "level": 3,
-          "title": "对象集合:document.links-获取带 href 属性的a元素集合",
-          "slug": "对象集合-document-links-获取带-href-属性的a元素集合"
-        },
-        {
-          "level": 3,
-          "title": "对象集合:document.forms-获取文档中form元素集合",
-          "slug": "对象集合-document-forms-获取文档中form元素集合"
-        },
-        {
-          "level": 3,
-          "title": "对象集合:document.images-获取文档中img元素集合",
-          "slug": "对象集合-document-images-获取文档中img元素集合"
-        },
-        {
-          "level": 3,
-          "title": "② Text类型补充",
-          "slug": "_2-text类型补充"
-        },
-        {
-          "level": 3,
-          "title": "1. normalize()方法：把两个同邻的文本节点合并在一起",
-          "slug": "_1-normalize-方法-把两个同邻的文本节点合并在一起"
-        },
-        {
-          "level": 3,
-          "title": "2.splitText(num)方法：实现节点分离",
-          "slug": "_2-splittext-num-方法-实现节点分离"
-        },
-        {
-          "level": 3,
-          "title": "3. deleteData删除字符，insertData插入字符，replaceData替换字符，substringData获取字符",
-          "slug": "_3-deletedata删除字符-insertdata插入字符-replacedata替换字符-substringdata获取字符"
-        },
-        {
-          "level": 3,
-          "title": "Ⅱ、DOM 扩展",
-          "slug": "ii、dom-扩展"
-        },
-        {
-          "level": 3,
-          "title": "① document.compatMode：返回 CSS1Compat（标准模式）",
-          "slug": "_1-document-compatmode-返回-css1compat-标准模式"
-        },
-        {
-          "level": 3,
-          "title": "② scrollIntoView() 让指定节点滚动到可见区域内（一般和滚动事件一起使用）",
-          "slug": "_2-scrollintoview-让指定节点滚动到可见区域内-一般和滚动事件一起使用"
-        },
-        {
-          "level": 3,
-          "title": "③ children 属性：过滤掉空白节点，得到有效子节点",
-          "slug": "_3-children-属性-过滤掉空白节点-得到有效子节点"
-        },
-        {
-          "level": 3,
-          "title": "④ contains()方法：判断一个节点是不是另一个节点的后代,用于子节点和父节点的判断",
-          "slug": "_4-contains-方法-判断一个节点是不是另一个节点的后代-用于子节点和父节点的判断"
-        },
-        {
-          "level": 3,
-          "title": "Ⅲ、DOM操作网页内容：innerText、innerHTML、outerText、outerHTML",
-          "slug": "iii、dom操作网页内容-innertext、innerhtml、outertext、outerhtml"
-        },
-        {
-          "level": 2,
-          "title": "5、DOM实战：操作表格",
-          "slug": "_5、dom实战-操作表格"
-        },
-        {
-          "level": 3,
-          "title": "Ⅰ、DOM创建表格",
-          "slug": "i、dom创建表格"
-        },
-        {
-          "level": 3,
-          "title": "Ⅱ、 HTML DOM 来操作表格",
-          "slug": "ii、-html-dom-来操作表格"
-        },
-        {
-          "level": 3,
-          "title": "① 获取表格元素对象",
-          "slug": "_1-获取表格元素对象"
-        },
-        {
-          "level": 3,
-          "title": "② 获取表格的标题对象<caption>",
-          "slug": "_2-获取表格的标题对象-caption"
-        },
-        {
-          "level": 3,
-          "title": "③ 获取表头表尾<thead>、<tfoot>、<tbody>",
-          "slug": "_3-获取表头表尾-thead-、-tfoot-、-tbody"
-        },
-        {
-          "level": 3,
-          "title": "④ 获取表格的行数",
-          "slug": "_4-获取表格的行数"
-        },
-        {
-          "level": 3,
-          "title": "⑤ 获取表格主体里的行数",
-          "slug": "_5-获取表格主体里的行数"
-        },
-        {
-          "level": 3,
-          "title": "⑥ 获取表格主体内第一行的单元格数量(tr)",
-          "slug": "_6-获取表格主体内第一行的单元格数量-tr"
-        },
-        {
-          "level": 3,
-          "title": "⑦ 获取表格主体内第一行第一个单元格的内容(td)",
-          "slug": "_7-获取表格主体内第一行第一个单元格的内容-td"
-        },
-        {
-          "level": 3,
-          "title": "⑧ 删除标题、表头、表尾、行、单元格",
-          "slug": "_8-删除标题、表头、表尾、行、单元格"
-        },
-        {
-          "level": 3,
-          "title": "⑨ HTML DOM 创建一个表格",
-          "slug": "_9-html-dom-创建一个表格"
-        },
-        {
-          "level": 2,
-          "title": "6、操作CSS样式",
-          "slug": "_6、操作css样式"
-        },
-        {
-          "level": 3,
-          "title": "① 检测浏览器是否支持css1/css2/css3级的能力",
-          "slug": "_1-检测浏览器是否支持css1-css2-css3级的能力"
-        },
-        {
-          "level": 3,
-          "title": "② 行内样式style的获取、赋值、移除属性removeProperty",
-          "slug": "_2-行内样式style的获取、赋值、移除属性removeproperty"
-        },
-        {
-          "level": 3,
-          "title": "③ 计算后的样式获取(行内、内联、外联样式)：window 对象下getComputedStyle()方法",
-          "slug": "_3-计算后的样式获取-行内、内联、外联样式-window-对象下getcomputedstyle-方法"
-        },
-        {
-          "level": 2,
-          "title": "7、操作页面样式",
-          "slug": "_7、操作页面样式"
-        },
-        {
-          "level": 3,
-          "title": "① className关键字设置样式",
-          "slug": "_1-classname关键字设置样式"
-        },
-        {
-          "level": 3,
-          "title": "② hasClass() 判断是否存在某个类名",
-          "slug": "_2-hasclass-判断是否存在某个类名"
-        },
-        {
-          "level": 3,
-          "title": "③ addClass() 如果不存在的这个类名，添加这个类名",
-          "slug": "_3-addclass-如果不存在的这个类名-添加这个类名"
-        },
-        {
-          "level": 3,
-          "title": "④ removeClass() 如果存在的这个类名，删除这个类名",
-          "slug": "_4-removeclass-如果存在的这个类名-删除这个类名"
-        },
-        {
-          "level": 2,
-          "title": "8、操作CSS外联样式表.css文件",
-          "slug": "_8、操作css外联样式表-css文件"
-        },
-        {
-          "level": 3,
-          "title": "① 获取CSSStyleSheet，外联的css样式表对象",
-          "slug": "_1-获取cssstylesheet-外联的css样式表对象"
-        },
-        {
-          "level": 2,
-          "title": "9、DOM元素尺寸（元素大小）和位置（元素位置）",
-          "slug": "_9、dom元素尺寸-元素大小-和位置-元素位置"
-        },
-        {
-          "level": 3,
-          "title": "Ⅰ、获取元素 CSS 大小回顾",
-          "slug": "i、获取元素-css-大小回顾"
-        },
-        {
-          "level": 3,
-          "title": "① 通过 style 内联获取元素大小",
-          "slug": "_1-通过-style-内联获取元素大小"
-        },
-        {
-          "level": 3,
-          "title": "② 通过计算getComputedStyle()方法获取元素大小",
-          "slug": "_2-通过计算getcomputedstyle-方法获取元素大小"
-        },
-        {
-          "level": 3,
-          "title": "③ 通过 CSSStyleSheet 对象中的 cssRules属性获取元素大小（需将网页放到服务器上查看）",
-          "slug": "_3-通过-cssstylesheet-对象中的-cssrules属性获取元素大小-需将网页放到服务器上查看"
-        },
-        {
-          "level": 3,
-          "title": "Ⅱ、获取元素实际大小",
-          "slug": "ii、获取元素实际大小"
-        },
-        {
-          "level": 3,
-          "title": "① clientWidth 和 clientHeight：获取可视区的元素大小，可以得到元素内容及内边距所占据的空间大小",
-          "slug": "_1-clientwidth-和-clientheight-获取可视区的元素大小-可以得到元素内容及内边距所占据的空间大小"
-        },
-        {
-          "level": 3,
-          "title": "② scrollWidth 和 scrollHeight：获取滚动内容的元素大小",
-          "slug": "_2-scrollwidth-和-scrollheight-获取滚动内容的元素大小"
-        },
-        {
-          "level": 3,
-          "title": "③ offsetWidth 和 offsetHeight：获取元素大小，包含边框、内边距和滚动条",
-          "slug": "_3-offsetwidth-和-offsetheight-获取元素大小-包含边框、内边距和滚动条"
-        },
-        {
-          "level": 3,
-          "title": "Ⅲ、获取元素周边大小",
-          "slug": "iii、获取元素周边大小"
-        },
-        {
-          "level": 3,
-          "title": "① clientLeft 和 clientTop:获取元素设置了左边框和上边框的大小",
-          "slug": "_1-clientleft-和-clienttop-获取元素设置了左边框和上边框的大小"
-        },
-        {
-          "level": 3,
-          "title": "② offsetLeft 和 offsetTop：获取当前元素相对于父元素的位置",
-          "slug": "_2-offsetleft-和-offsettop-获取当前元素相对于父元素的位置"
-        },
-        {
-          "level": 3,
-          "title": "③ scrollTop 和 scrollLeft：这组属性可以获取滚动条被隐藏的区域大小（滚动条滚动高度宽度），也可设置定位到该区域（定位滚动条）",
-          "slug": "_3-scrolltop-和-scrollleft-这组属性可以获取滚动条被隐藏的区域大小-滚动条滚动高度宽度-也可设置定位到该区域-定位滚动条"
-        },
-        {
-          "level": 3,
-          "title": "④ getBoundingClientRect()方法：返回一个矩形对象，包含四个属性：left、top、right和 bottom，分别表示元素各边与页面上边和左边的距离",
-          "slug": "_4-getboundingclientrect-方法-返回一个矩形对象-包含四个属性-left、top、right和-bottom-分别表示元素各边与页面上边和左边的距离"
-        },
-        {
-          "level": 2,
-          "title": "10、动态加载脚本",
-          "slug": "_10、动态加载脚本"
-        },
-        {
-          "level": 3,
-          "title": "① 动态加载js文件",
-          "slug": "_1-动态加载js文件"
-        },
-        {
-          "level": 3,
-          "title": "② 动态加载样式表",
-          "slug": "_2-动态加载样式表"
         },
         {
           "level": 2,
@@ -5926,6 +5320,853 @@ export const siteData = {
       "lastUpdatedTimestamp": 1704437586000
     },
     {
+      "title": "章节15.网页文档对象模型DOM",
+      "frontmatter": {
+        "navbar": true,
+        "sidebar": "auto",
+        "title": "章节15.网页文档对象模型DOM"
+      },
+      "regularPath": "/secondless/w-a/%E7%BD%91%E9%A1%B5%E6%96%87%E6%A1%A3%E5%AF%B9%E8%B1%A1%E6%A8%A1%E5%9E%8BDOM.html",
+      "relativePath": "secondless/w-a/网页文档对象模型DOM.md",
+      "key": "v-94f740de",
+      "path": "/secondless/w-a/%E7%BD%91%E9%A1%B5%E6%96%87%E6%A1%A3%E5%AF%B9%E8%B1%A1%E6%A8%A1%E5%9E%8BDOM.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "1、理解DOM",
+          "slug": "_1、理解dom"
+        },
+        {
+          "level": 3,
+          "title": "① DOM节点树",
+          "slug": "_1-dom节点树"
+        },
+        {
+          "level": 3,
+          "title": "② 节点种类：元素节点、文本节点、属性节点",
+          "slug": "_2-节点种类-元素节点、文本节点、属性节点"
+        },
+        {
+          "level": 2,
+          "title": "2、查找节点信息方法",
+          "slug": "_2、查找节点信息方法"
+        },
+        {
+          "level": 3,
+          "title": "Ⅰ、 getElement系列",
+          "slug": "i、-getelement系列"
+        },
+        {
+          "level": 3,
+          "title": "① getElementById()方法",
+          "slug": "_1-getelementbyid-方法"
+        },
+        {
+          "level": 3,
+          "title": "② getElementById()方法获取的元素节点属性：tagName、innerHTML等",
+          "slug": "_2-getelementbyid-方法获取的元素节点属性-tagname、innerhtml等"
+        },
+        {
+          "level": 3,
+          "title": "③ 获取及设置元素html属性：id,title,style,className等",
+          "slug": "_3-获取及设置元素html属性-id-title-style-classname等"
+        },
+        {
+          "level": 3,
+          "title": "④ getElementsByTagName()方法 - 获取相同元素名的节点列表对象数组HTMLCollection(NodeList)",
+          "slug": "_4-getelementsbytagname-方法-获取相同元素名的节点列表对象数组htmlcollection-nodelist"
+        },
+        {
+          "level": 3,
+          "title": "⑤ getElementsByName()方法 - 获取相同名称(name)的元素，返回一个对象数组HTMLCollection(NodeList)",
+          "slug": "_5-getelementsbyname-方法-获取相同名称-name-的元素-返回一个对象数组htmlcollection-nodelist"
+        },
+        {
+          "level": 3,
+          "title": "⑥ getElementsByClassName()方法 - 获取class类名称的元素，返回一个对象数组HTMLCollection(NodeList)",
+          "slug": "_6-getelementsbyclassname-方法-获取class类名称的元素-返回一个对象数组htmlcollection-nodelist"
+        },
+        {
+          "level": 3,
+          "title": "Ⅱ、querySelector系列",
+          "slug": "ii、queryselector系列"
+        },
+        {
+          "level": 3,
+          "title": "① querySelector()方法 - 接受一个 CSS 选择器作为参数，返回匹配该选择器的元素节点",
+          "slug": "_1-queryselector-方法-接受一个-css-选择器作为参数-返回匹配该选择器的元素节点"
+        },
+        {
+          "level": 3,
+          "title": "② querySelectorAll()方法 - 接受一个 CSS 选择器作为参数，返回一个NodeList对象，包含所有匹配给定选择器的节点",
+          "slug": "_2-queryselectorall-方法-接受一个-css-选择器作为参数-返回一个nodelist对象-包含所有匹配给定选择器的节点"
+        },
+        {
+          "level": 3,
+          "title": "Ⅲ、属性操作系列",
+          "slug": "iii、属性操作系列"
+        },
+        {
+          "level": 3,
+          "title": "① getAttribute()方法 - 属性操作方法：获取元素中某个属性的值",
+          "slug": "_1-getattribute-方法-属性操作方法-获取元素中某个属性的值"
+        },
+        {
+          "level": 3,
+          "title": "② setAttribute()方法 - 属性操作方法：将设置元素中某个属性和值，要接受两个参数：属性名和值",
+          "slug": "_2-setattribute-方法-属性操作方法-将设置元素中某个属性和值-要接受两个参数-属性名和值"
+        },
+        {
+          "level": 3,
+          "title": "③ removeAttribute()方法 - 属性操作方法：以移除元素属性",
+          "slug": "_3-removeattribute-方法-属性操作方法-以移除元素属性"
+        },
+        {
+          "level": 3,
+          "title": "Ⅳ、 node节点属性: nodeName、nodeType、nodeValue",
+          "slug": "iv、-node节点属性-nodename、nodetype、nodevalue"
+        },
+        {
+          "level": 3,
+          "title": "Ⅴ、 层次节点属性",
+          "slug": "v、-层次节点属性"
+        },
+        {
+          "level": 3,
+          "title": "① childNodes：获取当前元素节点的所有子节点，包含元素子节点和文本子节点",
+          "slug": "_1-childnodes-获取当前元素节点的所有子节点-包含元素子节点和文本子节点"
+        },
+        {
+          "level": 3,
+          "title": "② firstChild 和 lastChild 属性",
+          "slug": "_2-firstchild-和-lastchild-属性"
+        },
+        {
+          "level": 3,
+          "title": "③ ownerDocument 属性：返回该节点的文档对象根节点，返回的对象相当于 document",
+          "slug": "_3-ownerdocument-属性-返回该节点的文档对象根节点-返回的对象相当于-document"
+        },
+        {
+          "level": 3,
+          "title": "④ parentNode 属性返回该节点的父节点，previousSibling 属性返回该节点的前一个同级节点，nextSibling 属性返回该节点的后一个同级节点",
+          "slug": "_4-parentnode-属性返回该节点的父节点-previoussibling-属性返回该节点的前一个同级节点-nextsibling-属性返回该节点的后一个同级节点"
+        },
+        {
+          "level": 3,
+          "title": "⑤ 忽略空白文本节点",
+          "slug": "_5-忽略空白文本节点"
+        },
+        {
+          "level": 3,
+          "title": "⑥ attributes 属性：返回该节点的属性节点集合",
+          "slug": "_6-attributes-属性-返回该节点的属性节点集合"
+        },
+        {
+          "level": 2,
+          "title": "3、操作节点",
+          "slug": "_3、操作节点"
+        },
+        {
+          "level": 3,
+          "title": "① document.write()方法[非节点操作方法]：可以把任意字符串插入到文档中去",
+          "slug": "_1-document-write-方法-非节点操作方法-可以把任意字符串插入到文档中去"
+        },
+        {
+          "level": 3,
+          "title": "② createElement()方法：创建一个元素节点，appendChild()方法：将一个新节点添加到某个节点的子节点列表的末尾上",
+          "slug": "_2-createelement-方法-创建一个元素节点-appendchild-方法-将一个新节点添加到某个节点的子节点列表的末尾上"
+        },
+        {
+          "level": 3,
+          "title": "③ createTextNode()方法：创建一个文本节点",
+          "slug": "_3-createtextnode-方法-创建一个文本节点"
+        },
+        {
+          "level": 3,
+          "title": "④ insertBefore()方法：可以把节点创建到指定节点的前面（先找到它的父节点再操作）",
+          "slug": "_4-insertbefore-方法-可以把节点创建到指定节点的前面-先找到它的父节点再操作"
+        },
+        {
+          "level": 3,
+          "title": "⑤ 模拟在指定节点的后面添加一个节点",
+          "slug": "_5-模拟在指定节点的后面添加一个节点"
+        },
+        {
+          "level": 3,
+          "title": "⑥ repalceChild()方法：把节点替换成指定的节点（先找到它的父节点再操作）",
+          "slug": "_6-repalcechild-方法-把节点替换成指定的节点-先找到它的父节点再操作"
+        },
+        {
+          "level": 3,
+          "title": "⑦ cloneNode()方法：把节点复制一份，放到指定地方",
+          "slug": "_7-clonenode-方法-把节点复制一份-放到指定地方"
+        },
+        {
+          "level": 3,
+          "title": "⑧ removeChild()方法：删除指定节点（先找到它的父节点再操作）",
+          "slug": "_8-removechild-方法-删除指定节点-先找到它的父节点再操作"
+        },
+        {
+          "level": 2,
+          "title": "4、DOM 类型、扩展、操作内容",
+          "slug": "_4、dom-类型、扩展、操作内容"
+        },
+        {
+          "level": 3,
+          "title": "Ⅰ、DOM 类型",
+          "slug": "i、dom-类型"
+        },
+        {
+          "level": 3,
+          "title": "① Document类型补充",
+          "slug": "_1-document类型补充"
+        },
+        {
+          "level": 3,
+          "title": "获取html节点对象",
+          "slug": "获取html节点对象"
+        },
+        {
+          "level": 3,
+          "title": "获取body节点对象",
+          "slug": "获取body节点对象"
+        },
+        {
+          "level": 3,
+          "title": "获取文档声明：DOCTYPE对象",
+          "slug": "获取文档声明-doctype对象"
+        },
+        {
+          "level": 3,
+          "title": "其他属性:document.title-获取和设置title标签的值",
+          "slug": "其他属性-document-title-获取和设置title标签的值"
+        },
+        {
+          "level": 3,
+          "title": "其他属性:document.URL-获取 URL 路径",
+          "slug": "其他属性-document-url-获取-url-路径"
+        },
+        {
+          "level": 3,
+          "title": "其他属性:document.domain-获取域名，服务器端",
+          "slug": "其他属性-document-domain-获取域名-服务器端"
+        },
+        {
+          "level": 3,
+          "title": "其他属性:document.referrer-获取上一个 URL，服务器端",
+          "slug": "其他属性-document-referrer-获取上一个-url-服务器端"
+        },
+        {
+          "level": 3,
+          "title": "对象集合:document.anchors-获取带name属性的a元素集合",
+          "slug": "对象集合-document-anchors-获取带name属性的a元素集合"
+        },
+        {
+          "level": 3,
+          "title": "对象集合:document.links-获取带 href 属性的a元素集合",
+          "slug": "对象集合-document-links-获取带-href-属性的a元素集合"
+        },
+        {
+          "level": 3,
+          "title": "对象集合:document.forms-获取文档中form元素集合",
+          "slug": "对象集合-document-forms-获取文档中form元素集合"
+        },
+        {
+          "level": 3,
+          "title": "对象集合:document.images-获取文档中img元素集合",
+          "slug": "对象集合-document-images-获取文档中img元素集合"
+        },
+        {
+          "level": 3,
+          "title": "② Text类型补充",
+          "slug": "_2-text类型补充"
+        },
+        {
+          "level": 3,
+          "title": "1. normalize()方法：把两个同邻的文本节点合并在一起",
+          "slug": "_1-normalize-方法-把两个同邻的文本节点合并在一起"
+        },
+        {
+          "level": 3,
+          "title": "2.splitText(num)方法：实现节点分离",
+          "slug": "_2-splittext-num-方法-实现节点分离"
+        },
+        {
+          "level": 3,
+          "title": "3. deleteData删除字符，insertData插入字符，replaceData替换字符，substringData获取字符",
+          "slug": "_3-deletedata删除字符-insertdata插入字符-replacedata替换字符-substringdata获取字符"
+        },
+        {
+          "level": 3,
+          "title": "Ⅱ、DOM 扩展",
+          "slug": "ii、dom-扩展"
+        },
+        {
+          "level": 3,
+          "title": "① document.compatMode：返回 CSS1Compat（标准模式）",
+          "slug": "_1-document-compatmode-返回-css1compat-标准模式"
+        },
+        {
+          "level": 3,
+          "title": "② scrollIntoView() 让指定节点滚动到可见区域内（一般和滚动事件一起使用）",
+          "slug": "_2-scrollintoview-让指定节点滚动到可见区域内-一般和滚动事件一起使用"
+        },
+        {
+          "level": 3,
+          "title": "③ children 属性：过滤掉空白节点，得到有效子节点",
+          "slug": "_3-children-属性-过滤掉空白节点-得到有效子节点"
+        },
+        {
+          "level": 3,
+          "title": "④ contains()方法：判断一个节点是不是另一个节点的后代,用于子节点和父节点的判断",
+          "slug": "_4-contains-方法-判断一个节点是不是另一个节点的后代-用于子节点和父节点的判断"
+        },
+        {
+          "level": 3,
+          "title": "Ⅲ、DOM操作网页内容：innerText、innerHTML、outerText、outerHTML",
+          "slug": "iii、dom操作网页内容-innertext、innerhtml、outertext、outerhtml"
+        },
+        {
+          "level": 2,
+          "title": "5、DOM实战：操作表格",
+          "slug": "_5、dom实战-操作表格"
+        },
+        {
+          "level": 3,
+          "title": "Ⅰ、DOM创建表格",
+          "slug": "i、dom创建表格"
+        },
+        {
+          "level": 3,
+          "title": "Ⅱ、 HTML DOM 来操作表格",
+          "slug": "ii、-html-dom-来操作表格"
+        },
+        {
+          "level": 3,
+          "title": "① 获取表格元素对象",
+          "slug": "_1-获取表格元素对象"
+        },
+        {
+          "level": 3,
+          "title": "② 获取表格的标题对象<caption>",
+          "slug": "_2-获取表格的标题对象-caption"
+        },
+        {
+          "level": 3,
+          "title": "③ 获取表头表尾<thead>、<tfoot>、<tbody>",
+          "slug": "_3-获取表头表尾-thead-、-tfoot-、-tbody"
+        },
+        {
+          "level": 3,
+          "title": "④ 获取表格的行数",
+          "slug": "_4-获取表格的行数"
+        },
+        {
+          "level": 3,
+          "title": "⑤ 获取表格主体里的行数",
+          "slug": "_5-获取表格主体里的行数"
+        },
+        {
+          "level": 3,
+          "title": "⑥ 获取表格主体内第一行的单元格数量(tr)",
+          "slug": "_6-获取表格主体内第一行的单元格数量-tr"
+        },
+        {
+          "level": 3,
+          "title": "⑦ 获取表格主体内第一行第一个单元格的内容(td)",
+          "slug": "_7-获取表格主体内第一行第一个单元格的内容-td"
+        },
+        {
+          "level": 3,
+          "title": "⑧ 删除标题、表头、表尾、行、单元格",
+          "slug": "_8-删除标题、表头、表尾、行、单元格"
+        },
+        {
+          "level": 3,
+          "title": "⑨ HTML DOM 创建一个表格",
+          "slug": "_9-html-dom-创建一个表格"
+        },
+        {
+          "level": 2,
+          "title": "6、操作CSS样式",
+          "slug": "_6、操作css样式"
+        },
+        {
+          "level": 3,
+          "title": "① 检测浏览器是否支持css1/css2/css3级的能力",
+          "slug": "_1-检测浏览器是否支持css1-css2-css3级的能力"
+        },
+        {
+          "level": 3,
+          "title": "② 行内样式style的获取、赋值、移除属性removeProperty",
+          "slug": "_2-行内样式style的获取、赋值、移除属性removeproperty"
+        },
+        {
+          "level": 3,
+          "title": "③ 计算后的样式获取(行内、内联、外联样式)：window 对象下getComputedStyle()方法",
+          "slug": "_3-计算后的样式获取-行内、内联、外联样式-window-对象下getcomputedstyle-方法"
+        },
+        {
+          "level": 2,
+          "title": "7、操作页面样式",
+          "slug": "_7、操作页面样式"
+        },
+        {
+          "level": 3,
+          "title": "① className关键字设置样式",
+          "slug": "_1-classname关键字设置样式"
+        },
+        {
+          "level": 3,
+          "title": "② hasClass() 判断是否存在某个类名",
+          "slug": "_2-hasclass-判断是否存在某个类名"
+        },
+        {
+          "level": 3,
+          "title": "③ addClass() 如果不存在的这个类名，添加这个类名",
+          "slug": "_3-addclass-如果不存在的这个类名-添加这个类名"
+        },
+        {
+          "level": 3,
+          "title": "④ removeClass() 如果存在的这个类名，删除这个类名",
+          "slug": "_4-removeclass-如果存在的这个类名-删除这个类名"
+        },
+        {
+          "level": 2,
+          "title": "8、操作CSS外联样式表.css文件",
+          "slug": "_8、操作css外联样式表-css文件"
+        },
+        {
+          "level": 3,
+          "title": "① 获取CSSStyleSheet，外联的css样式表对象",
+          "slug": "_1-获取cssstylesheet-外联的css样式表对象"
+        },
+        {
+          "level": 2,
+          "title": "9、DOM元素尺寸（元素大小）和位置（元素位置）",
+          "slug": "_9、dom元素尺寸-元素大小-和位置-元素位置"
+        },
+        {
+          "level": 3,
+          "title": "Ⅰ、获取元素 CSS 大小回顾",
+          "slug": "i、获取元素-css-大小回顾"
+        },
+        {
+          "level": 3,
+          "title": "① 通过 style 内联获取元素大小",
+          "slug": "_1-通过-style-内联获取元素大小"
+        },
+        {
+          "level": 3,
+          "title": "② 通过计算getComputedStyle()方法获取元素大小",
+          "slug": "_2-通过计算getcomputedstyle-方法获取元素大小"
+        },
+        {
+          "level": 3,
+          "title": "③ 通过 CSSStyleSheet 对象中的 cssRules属性获取元素大小（需将网页放到服务器上查看）",
+          "slug": "_3-通过-cssstylesheet-对象中的-cssrules属性获取元素大小-需将网页放到服务器上查看"
+        },
+        {
+          "level": 3,
+          "title": "Ⅱ、获取元素实际大小",
+          "slug": "ii、获取元素实际大小"
+        },
+        {
+          "level": 3,
+          "title": "① clientWidth 和 clientHeight：获取可视区的元素大小，可以得到元素内容及内边距所占据的空间大小",
+          "slug": "_1-clientwidth-和-clientheight-获取可视区的元素大小-可以得到元素内容及内边距所占据的空间大小"
+        },
+        {
+          "level": 3,
+          "title": "② scrollWidth 和 scrollHeight：获取滚动内容的元素大小",
+          "slug": "_2-scrollwidth-和-scrollheight-获取滚动内容的元素大小"
+        },
+        {
+          "level": 3,
+          "title": "③ offsetWidth 和 offsetHeight：获取元素大小，包含边框、内边距和滚动条",
+          "slug": "_3-offsetwidth-和-offsetheight-获取元素大小-包含边框、内边距和滚动条"
+        },
+        {
+          "level": 3,
+          "title": "Ⅲ、获取元素周边大小",
+          "slug": "iii、获取元素周边大小"
+        },
+        {
+          "level": 3,
+          "title": "① clientLeft 和 clientTop:获取元素设置了左边框和上边框的大小",
+          "slug": "_1-clientleft-和-clienttop-获取元素设置了左边框和上边框的大小"
+        },
+        {
+          "level": 3,
+          "title": "② offsetLeft 和 offsetTop：获取当前元素相对于父元素的位置",
+          "slug": "_2-offsetleft-和-offsettop-获取当前元素相对于父元素的位置"
+        },
+        {
+          "level": 3,
+          "title": "③ scrollTop 和 scrollLeft：这组属性可以获取滚动条被隐藏的区域大小（滚动条滚动高度宽度），也可设置定位到该区域（定位滚动条）",
+          "slug": "_3-scrolltop-和-scrollleft-这组属性可以获取滚动条被隐藏的区域大小-滚动条滚动高度宽度-也可设置定位到该区域-定位滚动条"
+        },
+        {
+          "level": 3,
+          "title": "④ getBoundingClientRect()方法：返回一个矩形对象，包含四个属性：left、top、right和 bottom，分别表示元素各边与页面上边和左边的距离",
+          "slug": "_4-getboundingclientrect-方法-返回一个矩形对象-包含四个属性-left、top、right和-bottom-分别表示元素各边与页面上边和左边的距离"
+        },
+        {
+          "level": 2,
+          "title": "10、动态加载脚本",
+          "slug": "_10、动态加载脚本"
+        },
+        {
+          "level": 3,
+          "title": "① 动态加载js文件",
+          "slug": "_1-动态加载js文件"
+        },
+        {
+          "level": 3,
+          "title": "② 动态加载样式表",
+          "slug": "_2-动态加载样式表"
+        },
+        {
+          "level": 2,
+          "title": "课程其它章节",
+          "slug": "课程其它章节"
+        },
+        {
+          "level": 3,
+          "title": "章节1.课程介绍",
+          "slug": "章节1-课程介绍"
+        },
+        {
+          "level": 3,
+          "title": "章节2.javascript基础",
+          "slug": "章节2-javascript基础"
+        },
+        {
+          "level": 3,
+          "title": "章节3.javascript运算符",
+          "slug": "章节3-javascript运算符"
+        },
+        {
+          "level": 3,
+          "title": "章节4.流程控制语句",
+          "slug": "章节4-流程控制语句"
+        },
+        {
+          "level": 3,
+          "title": "章节5.javascript函数",
+          "slug": "章节5-javascript函数"
+        },
+        {
+          "level": 3,
+          "title": "章节6.javascript对象",
+          "slug": "章节6-javascript对象"
+        },
+        {
+          "level": 3,
+          "title": "章节7.javascript数组",
+          "slug": "章节7-javascript数组"
+        },
+        {
+          "level": 3,
+          "title": "章节8.Date类型：时间和日期",
+          "slug": "章节8-date类型-时间和日期"
+        },
+        {
+          "level": 3,
+          "title": "章节9.Function类型：函数进阶",
+          "slug": "章节9-function类型-函数进阶"
+        },
+        {
+          "level": 3,
+          "title": "章节10.内置对象：Global、Math对象，变量、作用域和内存问题",
+          "slug": "章节10-内置对象-global、math对象-变量、作用域和内存问题"
+        },
+        {
+          "level": 3,
+          "title": "章节11.匿名函数和闭包",
+          "slug": "章节11-匿名函数和闭包"
+        },
+        {
+          "level": 3,
+          "title": "章节12.javascript基本包装类型",
+          "slug": "章节12-javascript基本包装类型"
+        },
+        {
+          "level": 3,
+          "title": "章节13.函数对象数组小结",
+          "slug": "章节13-函数对象数组小结"
+        },
+        {
+          "level": 3,
+          "title": "章节14.浏览器对象模型BOM及浏览器检测",
+          "slug": "章节14-浏览器对象模型bom及浏览器检测"
+        },
+        {
+          "level": 3,
+          "title": "章节15.网页文档对象模型DOM",
+          "slug": "章节15-网页文档对象模型dom"
+        },
+        {
+          "level": 3,
+          "title": "章节16.事件",
+          "slug": "章节16-事件"
+        },
+        {
+          "level": 3,
+          "title": "章节17.表单处理及错误处理与调试",
+          "slug": "章节17-表单处理及错误处理与调试"
+        },
+        {
+          "level": 3,
+          "title": "章节18.数据Cookie、XML、JSON",
+          "slug": "章节18-数据cookie、xml、json"
+        }
+      ],
+      "lastUpdated": "2023年11月21日星期二下午4点31分",
+      "lastUpdatedTimestamp": 1700555477000
+    },
+    {
+      "title": "章节5.jQuery事件、动画、插件",
+      "frontmatter": {
+        "navbar": true,
+        "sidebar": "auto",
+        "title": "章节5.jQuery事件、动画、插件"
+      },
+      "regularPath": "/secondless/w-b/jQuery%E4%BA%8B%E4%BB%B6%E3%80%81%E5%8A%A8%E7%94%BB%E3%80%81%E6%8F%92%E4%BB%B6.html",
+      "relativePath": "secondless/w-b/jQuery事件、动画、插件.md",
+      "key": "v-4e59c26a",
+      "path": "/secondless/w-b/jQuery%E4%BA%8B%E4%BB%B6%E3%80%81%E5%8A%A8%E7%94%BB%E3%80%81%E6%8F%92%E4%BB%B6.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "一、事件",
+          "slug": "一、事件"
+        },
+        {
+          "level": 3,
+          "title": "1、简写事件",
+          "slug": "_1、简写事件"
+        },
+        {
+          "level": 3,
+          "title": "2、复合事件：hover([fn1,]fn2)",
+          "slug": "_2、复合事件-hover-fn1-fn2"
+        },
+        {
+          "level": 3,
+          "title": "3、jQuery中的事件对象：target、currentTarget、e.stopPropagation()、e.preventDefault()、return false",
+          "slug": "_3、jquery中的事件对象-target、currenttarget、e-stoppropagation-、e-preventdefault-、return-false"
+        },
+        {
+          "level": 3,
+          "title": "4、jQuery中的高级事件：on、off 和 one",
+          "slug": "_4、jquery中的高级事件-on、off-和-one"
+        },
+        {
+          "level": 3,
+          "title": "① on方法",
+          "slug": "_1-on方法"
+        },
+        {
+          "level": 3,
+          "title": "② off方法:移除事件",
+          "slug": "_2-off方法-移除事件"
+        },
+        {
+          "level": 3,
+          "title": "③ one方法:仅触发一次的事件",
+          "slug": "_3-one方法-仅触发一次的事件"
+        },
+        {
+          "level": 3,
+          "title": "5、jQuery中的模拟操作",
+          "slug": "_5、jquery中的模拟操作"
+        },
+        {
+          "level": 2,
+          "title": "二、动画",
+          "slug": "二、动画"
+        },
+        {
+          "level": 3,
+          "title": "1、 显示：show、隐藏：hide",
+          "slug": "_1、-显示-show、隐藏-hide"
+        },
+        {
+          "level": 3,
+          "title": "① 直接调用：显示show()、隐藏：hide()",
+          "slug": "_1-直接调用-显示show-、隐藏-hide"
+        },
+        {
+          "level": 3,
+          "title": "② 传递一个参数（毫秒）：显示show(1000)、隐藏：hide(1000)",
+          "slug": "_2-传递一个参数-毫秒-显示show-1000-、隐藏-hide-1000"
+        },
+        {
+          "level": 3,
+          "title": "③ 传递一个预设参数：显示show(slow|normal|fast)，隐藏：hide(slow|normal|fast)，slow：600 毫秒，normal：默认 400 毫秒，fast：200 毫秒",
+          "slug": "_3-传递一个预设参数-显示show-slow-normal-fast-隐藏-hide-slow-normal-fast-slow-600-毫秒-normal-默认-400-毫秒-fast-200-毫秒"
+        },
+        {
+          "level": 3,
+          "title": "④ 传递第二个参数回调函数，实现列队动画（排队动画）：show(毫秒数|slow|normal|fast，function(){})，hide(毫秒数|slow|normal|fast，function(){})",
+          "slug": "_4-传递第二个参数回调函数-实现列队动画-排队动画-show-毫秒数-slow-normal-fast-function-hide-毫秒数-slow-normal-fast-function"
+        },
+        {
+          "level": 3,
+          "title": "⑤ 列队动画，可以使用函数名调用自身或者arguments.callee 匿名函数自调用",
+          "slug": "_5-列队动画-可以使用函数名调用自身或者arguments-callee-匿名函数自调用"
+        },
+        {
+          "level": 3,
+          "title": "⑥ toggle()切换show()和hide()",
+          "slug": "_6-toggle-切换show-和hide"
+        },
+        {
+          "level": 3,
+          "title": "2、 滑动：slideUp、卷动：slideDown、切换滑动卷动：slideToggle",
+          "slug": "_2、-滑动-slideup、卷动-slidedown、切换滑动卷动-slidetoggle"
+        },
+        {
+          "level": 3,
+          "title": "3、 淡入：fadeIn、淡出：fadeOut、切换淡入淡出：fadeToggle、指定透明度：fadeTo",
+          "slug": "_3、-淡入-fadein、淡出-fadeout、切换淡入淡出-fadetoggle、指定透明度-fadeto"
+        },
+        {
+          "level": 3,
+          "title": "4、 自定义动画 animate",
+          "slug": "_4、-自定义动画-animate"
+        },
+        {
+          "level": 3,
+          "title": "① animate基本用法：css样式自定义，同步动画",
+          "slug": "_1-animate基本用法-css样式自定义-同步动画"
+        },
+        {
+          "level": 3,
+          "title": "② animate用法：animate(css,动画时间,回调函数)",
+          "slug": "_2-animate用法-animate-css-动画时间-回调函数"
+        },
+        {
+          "level": 3,
+          "title": "③ animate位移动画（将元素设置绝对定位或相对定位）",
+          "slug": "_3-animate位移动画-将元素设置绝对定位或相对定位"
+        },
+        {
+          "level": 3,
+          "title": "④ 列队动画方法:queue()方法，连缀执行下一个dequeue()方法，clearQueue()清理列队动画后面还没有执行的",
+          "slug": "_4-列队动画方法-queue-方法-连缀执行下一个dequeue-方法-clearqueue-清理列队动画后面还没有执行的"
+        },
+        {
+          "level": 3,
+          "title": "5、 动画相关方法：stop()强制停止动画，delay()延迟动画执行",
+          "slug": "_5、-动画相关方法-stop-强制停止动画-delay-延迟动画执行"
+        },
+        {
+          "level": 3,
+          "title": "6、判断在运动的动画，通过过滤器:animated",
+          "slug": "_6、判断在运动的动画-通过过滤器-animated"
+        },
+        {
+          "level": 3,
+          "title": "7、动画全局属性：$.fx.interval（设置每秒运行的帧数），$.fx.off（关闭页面上所有的动画），默认swing(缓动)，linear(匀速运动)",
+          "slug": "_7、动画全局属性-fx-interval-设置每秒运行的帧数-fx-off-关闭页面上所有的动画-默认swing-缓动-linear-匀速运动"
+        },
+        {
+          "level": 2,
+          "title": "三、jQuery插件",
+          "slug": "三、jquery插件"
+        },
+        {
+          "level": 3,
+          "title": "jQuery插件：cookie插件",
+          "slug": "jquery插件-cookie插件"
+        },
+        {
+          "level": 3,
+          "title": "1、引入：下载本地引入、或在线引入",
+          "slug": "_1、引入-下载本地引入、或在线引入"
+        },
+        {
+          "level": 3,
+          "title": "2、使用插件方法",
+          "slug": "_2、使用插件方法"
+        },
+        {
+          "level": 2,
+          "title": "【第二学期第2季课程】其它章节",
+          "slug": "【第二学期第2季课程】其它章节"
+        },
+        {
+          "level": 3,
+          "title": "章节1.课程介绍",
+          "slug": "章节1-课程介绍"
+        },
+        {
+          "level": 3,
+          "title": "章节2.面向对象与原型",
+          "slug": "章节2-面向对象与原型"
+        },
+        {
+          "level": 3,
+          "title": "章节3.封装js库过渡到jQuery",
+          "slug": "章节3-封装js库过渡到jquery"
+        },
+        {
+          "level": 3,
+          "title": "章节4.jQuery",
+          "slug": "章节4-jquery"
+        },
+        {
+          "level": 3,
+          "title": "章节5.jQuery事件、动画、插件",
+          "slug": "章节5-jquery事件、动画、插件"
+        },
+        {
+          "level": 3,
+          "title": "章节6.Ajax",
+          "slug": "章节6-ajax"
+        },
+        {
+          "level": 3,
+          "title": "章节7.Node.js基础",
+          "slug": "章节7-node-js基础"
+        },
+        {
+          "level": 3,
+          "title": "章节8.正则表达式",
+          "slug": "章节8-正则表达式"
+        },
+        {
+          "level": 3,
+          "title": "章节9.Vue.js基础",
+          "slug": "章节9-vue-js基础"
+        },
+        {
+          "level": 2,
+          "title": "其它学期课程",
+          "slug": "其它学期课程"
+        },
+        {
+          "level": 3,
+          "title": "第一学期（学习顺序：01）",
+          "slug": "第一学期-学习顺序-01"
+        },
+        {
+          "level": 3,
+          "title": "第二学期【第1季】（学习顺序：02）",
+          "slug": "第二学期【第1季】-学习顺序-02"
+        },
+        {
+          "level": 3,
+          "title": "第二学期【第2季】（学习顺序：03）",
+          "slug": "第二学期【第2季】-学习顺序-03"
+        }
+      ],
+      "lastUpdated": "2024年1月5日星期五下午2点53分",
+      "lastUpdatedTimestamp": 1704437586000
+    },
+    {
       "title": "章节7.Node.js基础",
       "frontmatter": {
         "navbar": true,
@@ -6206,247 +6447,6 @@ export const siteData = {
           "level": 3,
           "title": "④ 对留言板的手机号做一个加密",
           "slug": "_4-对留言板的手机号做一个加密"
-        },
-        {
-          "level": 2,
-          "title": "【第二学期第2季课程】其它章节",
-          "slug": "【第二学期第2季课程】其它章节"
-        },
-        {
-          "level": 3,
-          "title": "章节1.课程介绍",
-          "slug": "章节1-课程介绍"
-        },
-        {
-          "level": 3,
-          "title": "章节2.面向对象与原型",
-          "slug": "章节2-面向对象与原型"
-        },
-        {
-          "level": 3,
-          "title": "章节3.封装js库过渡到jQuery",
-          "slug": "章节3-封装js库过渡到jquery"
-        },
-        {
-          "level": 3,
-          "title": "章节4.jQuery",
-          "slug": "章节4-jquery"
-        },
-        {
-          "level": 3,
-          "title": "章节5.jQuery事件、动画、插件",
-          "slug": "章节5-jquery事件、动画、插件"
-        },
-        {
-          "level": 3,
-          "title": "章节6.Ajax",
-          "slug": "章节6-ajax"
-        },
-        {
-          "level": 3,
-          "title": "章节7.Node.js基础",
-          "slug": "章节7-node-js基础"
-        },
-        {
-          "level": 3,
-          "title": "章节8.正则表达式",
-          "slug": "章节8-正则表达式"
-        },
-        {
-          "level": 3,
-          "title": "章节9.Vue.js基础",
-          "slug": "章节9-vue-js基础"
-        },
-        {
-          "level": 2,
-          "title": "其它学期课程",
-          "slug": "其它学期课程"
-        },
-        {
-          "level": 3,
-          "title": "第一学期（学习顺序：01）",
-          "slug": "第一学期-学习顺序-01"
-        },
-        {
-          "level": 3,
-          "title": "第二学期【第1季】（学习顺序：02）",
-          "slug": "第二学期【第1季】-学习顺序-02"
-        },
-        {
-          "level": 3,
-          "title": "第二学期【第2季】（学习顺序：03）",
-          "slug": "第二学期【第2季】-学习顺序-03"
-        }
-      ],
-      "lastUpdated": "2024年1月5日星期五下午2点53分",
-      "lastUpdatedTimestamp": 1704437586000
-    },
-    {
-      "title": "章节5.jQuery事件、动画、插件",
-      "frontmatter": {
-        "navbar": true,
-        "sidebar": "auto",
-        "title": "章节5.jQuery事件、动画、插件"
-      },
-      "regularPath": "/secondless/w-b/jQuery%E4%BA%8B%E4%BB%B6%E3%80%81%E5%8A%A8%E7%94%BB%E3%80%81%E6%8F%92%E4%BB%B6.html",
-      "relativePath": "secondless/w-b/jQuery事件、动画、插件.md",
-      "key": "v-4e59c26a",
-      "path": "/secondless/w-b/jQuery%E4%BA%8B%E4%BB%B6%E3%80%81%E5%8A%A8%E7%94%BB%E3%80%81%E6%8F%92%E4%BB%B6.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "一、事件",
-          "slug": "一、事件"
-        },
-        {
-          "level": 3,
-          "title": "1、简写事件",
-          "slug": "_1、简写事件"
-        },
-        {
-          "level": 3,
-          "title": "2、复合事件：hover([fn1,]fn2)",
-          "slug": "_2、复合事件-hover-fn1-fn2"
-        },
-        {
-          "level": 3,
-          "title": "3、jQuery中的事件对象：target、currentTarget、e.stopPropagation()、e.preventDefault()、return false",
-          "slug": "_3、jquery中的事件对象-target、currenttarget、e-stoppropagation-、e-preventdefault-、return-false"
-        },
-        {
-          "level": 3,
-          "title": "4、jQuery中的高级事件：on、off 和 one",
-          "slug": "_4、jquery中的高级事件-on、off-和-one"
-        },
-        {
-          "level": 3,
-          "title": "① on方法",
-          "slug": "_1-on方法"
-        },
-        {
-          "level": 3,
-          "title": "② off方法:移除事件",
-          "slug": "_2-off方法-移除事件"
-        },
-        {
-          "level": 3,
-          "title": "③ one方法:仅触发一次的事件",
-          "slug": "_3-one方法-仅触发一次的事件"
-        },
-        {
-          "level": 3,
-          "title": "5、jQuery中的模拟操作",
-          "slug": "_5、jquery中的模拟操作"
-        },
-        {
-          "level": 2,
-          "title": "二、动画",
-          "slug": "二、动画"
-        },
-        {
-          "level": 3,
-          "title": "1、 显示：show、隐藏：hide",
-          "slug": "_1、-显示-show、隐藏-hide"
-        },
-        {
-          "level": 3,
-          "title": "① 直接调用：显示show()、隐藏：hide()",
-          "slug": "_1-直接调用-显示show-、隐藏-hide"
-        },
-        {
-          "level": 3,
-          "title": "② 传递一个参数（毫秒）：显示show(1000)、隐藏：hide(1000)",
-          "slug": "_2-传递一个参数-毫秒-显示show-1000-、隐藏-hide-1000"
-        },
-        {
-          "level": 3,
-          "title": "③ 传递一个预设参数：显示show(slow|normal|fast)，隐藏：hide(slow|normal|fast)，slow：600 毫秒，normal：默认 400 毫秒，fast：200 毫秒",
-          "slug": "_3-传递一个预设参数-显示show-slow-normal-fast-隐藏-hide-slow-normal-fast-slow-600-毫秒-normal-默认-400-毫秒-fast-200-毫秒"
-        },
-        {
-          "level": 3,
-          "title": "④ 传递第二个参数回调函数，实现列队动画（排队动画）：show(毫秒数|slow|normal|fast，function(){})，hide(毫秒数|slow|normal|fast，function(){})",
-          "slug": "_4-传递第二个参数回调函数-实现列队动画-排队动画-show-毫秒数-slow-normal-fast-function-hide-毫秒数-slow-normal-fast-function"
-        },
-        {
-          "level": 3,
-          "title": "⑤ 列队动画，可以使用函数名调用自身或者arguments.callee 匿名函数自调用",
-          "slug": "_5-列队动画-可以使用函数名调用自身或者arguments-callee-匿名函数自调用"
-        },
-        {
-          "level": 3,
-          "title": "⑥ toggle()切换show()和hide()",
-          "slug": "_6-toggle-切换show-和hide"
-        },
-        {
-          "level": 3,
-          "title": "2、 滑动：slideUp、卷动：slideDown、切换滑动卷动：slideToggle",
-          "slug": "_2、-滑动-slideup、卷动-slidedown、切换滑动卷动-slidetoggle"
-        },
-        {
-          "level": 3,
-          "title": "3、 淡入：fadeIn、淡出：fadeOut、切换淡入淡出：fadeToggle、指定透明度：fadeTo",
-          "slug": "_3、-淡入-fadein、淡出-fadeout、切换淡入淡出-fadetoggle、指定透明度-fadeto"
-        },
-        {
-          "level": 3,
-          "title": "4、 自定义动画 animate",
-          "slug": "_4、-自定义动画-animate"
-        },
-        {
-          "level": 3,
-          "title": "① animate基本用法：css样式自定义，同步动画",
-          "slug": "_1-animate基本用法-css样式自定义-同步动画"
-        },
-        {
-          "level": 3,
-          "title": "② animate用法：animate(css,动画时间,回调函数)",
-          "slug": "_2-animate用法-animate-css-动画时间-回调函数"
-        },
-        {
-          "level": 3,
-          "title": "③ animate位移动画（将元素设置绝对定位或相对定位）",
-          "slug": "_3-animate位移动画-将元素设置绝对定位或相对定位"
-        },
-        {
-          "level": 3,
-          "title": "④ 列队动画方法:queue()方法，连缀执行下一个dequeue()方法，clearQueue()清理列队动画后面还没有执行的",
-          "slug": "_4-列队动画方法-queue-方法-连缀执行下一个dequeue-方法-clearqueue-清理列队动画后面还没有执行的"
-        },
-        {
-          "level": 3,
-          "title": "5、 动画相关方法：stop()强制停止动画，delay()延迟动画执行",
-          "slug": "_5、-动画相关方法-stop-强制停止动画-delay-延迟动画执行"
-        },
-        {
-          "level": 3,
-          "title": "6、判断在运动的动画，通过过滤器:animated",
-          "slug": "_6、判断在运动的动画-通过过滤器-animated"
-        },
-        {
-          "level": 3,
-          "title": "7、动画全局属性：$.fx.interval（设置每秒运行的帧数），$.fx.off（关闭页面上所有的动画），默认swing(缓动)，linear(匀速运动)",
-          "slug": "_7、动画全局属性-fx-interval-设置每秒运行的帧数-fx-off-关闭页面上所有的动画-默认swing-缓动-linear-匀速运动"
-        },
-        {
-          "level": 2,
-          "title": "三、jQuery插件",
-          "slug": "三、jquery插件"
-        },
-        {
-          "level": 3,
-          "title": "jQuery插件：cookie插件",
-          "slug": "jquery插件-cookie插件"
-        },
-        {
-          "level": 3,
-          "title": "1、引入：下载本地引入、或在线引入",
-          "slug": "_1、引入-下载本地引入、或在线引入"
-        },
-        {
-          "level": 3,
-          "title": "2、使用插件方法",
-          "slug": "_2、使用插件方法"
         },
         {
           "level": 2,
@@ -7272,6 +7272,65 @@ export const siteData = {
       "lastUpdatedTimestamp": 1705028061000
     },
     {
+      "title": "第三季（课程学习顺序：04）",
+      "frontmatter": {
+        "title": "第三季（课程学习顺序：04）"
+      },
+      "regularPath": "/secondless/w-c.html",
+      "relativePath": "secondless/w-c.md",
+      "key": "v-0a109b22",
+      "path": "/secondless/w-c.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "1.第三季课程介绍",
+          "slug": "_1-第三季课程介绍"
+        },
+        {
+          "level": 2,
+          "title": "2.课程视频学习",
+          "slug": "_2-课程视频学习"
+        },
+        {
+          "level": 2,
+          "title": "3.查看课程文档",
+          "slug": "_3-查看课程文档"
+        },
+        {
+          "level": 3,
+          "title": "章节1.第三季课程介绍",
+          "slug": "章节1-第三季课程介绍"
+        },
+        {
+          "level": 3,
+          "title": "",
+          "slug": "章节2-egg-js基础"
+        },
+        {
+          "level": 3,
+          "title": "",
+          "slug": "章节3-响应式网页布局"
+        },
+        {
+          "level": 3,
+          "title": "",
+          "slug": "章节4-egg-js和mysql数据库进阶进一步开发网站后台"
+        },
+        {
+          "level": 3,
+          "title": "",
+          "slug": "章节5-企业网站前端部分"
+        },
+        {
+          "level": 2,
+          "title": "4.本季课程视频介绍",
+          "slug": "_4-本季课程视频介绍"
+        }
+      ],
+      "lastUpdated": "2024年5月16日星期四中午12点14分",
+      "lastUpdatedTimestamp": 1715832881000
+    },
+    {
       "title": "章节3.封装js库过渡到jQuery",
       "frontmatter": {
         "navbar": true,
@@ -7391,778 +7450,6 @@ export const siteData = {
       ],
       "lastUpdated": "2024年1月5日星期五下午2点53分",
       "lastUpdatedTimestamp": 1704437586000
-    },
-    {
-      "title": "第三季（课程学习顺序：04）",
-      "frontmatter": {
-        "title": "第三季（课程学习顺序：04）"
-      },
-      "regularPath": "/secondless/w-c.html",
-      "relativePath": "secondless/w-c.md",
-      "key": "v-0a109b22",
-      "path": "/secondless/w-c.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "1.第三季课程介绍",
-          "slug": "_1-第三季课程介绍"
-        },
-        {
-          "level": 2,
-          "title": "2.课程视频学习",
-          "slug": "_2-课程视频学习"
-        },
-        {
-          "level": 2,
-          "title": "3.查看课程文档",
-          "slug": "_3-查看课程文档"
-        },
-        {
-          "level": 3,
-          "title": "章节1.第三季课程介绍",
-          "slug": "章节1-第三季课程介绍"
-        },
-        {
-          "level": 3,
-          "title": "",
-          "slug": "章节2-egg-js基础"
-        },
-        {
-          "level": 3,
-          "title": "",
-          "slug": "章节3-响应式网页布局"
-        },
-        {
-          "level": 3,
-          "title": "",
-          "slug": "章节4-egg-js和mysql数据库进阶进一步开发网站后台"
-        },
-        {
-          "level": 3,
-          "title": "",
-          "slug": "章节5-企业网站前端部分"
-        },
-        {
-          "level": 2,
-          "title": "4.本季课程视频介绍",
-          "slug": "_4-本季课程视频介绍"
-        }
-      ],
-      "lastUpdated": "2024年5月16日星期四中午12点14分",
-      "lastUpdatedTimestamp": 1715832881000
-    },
-    {
-      "title": "章节8.正则表达式",
-      "frontmatter": {
-        "navbar": true,
-        "sidebar": "auto",
-        "title": "章节8.正则表达式"
-      },
-      "regularPath": "/secondless/w-b/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F.html",
-      "relativePath": "secondless/w-b/正则表达式.md",
-      "key": "v-28c9d9c0",
-      "path": "/secondless/w-b/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "一、创建正则表达式",
-          "slug": "一、创建正则表达式"
-        },
-        {
-          "level": 3,
-          "title": "① new运算符创建正则表达式",
-          "slug": "_1-new运算符创建正则表达式"
-        },
-        {
-          "level": 3,
-          "title": "② 字面量方式创建正则表达式",
-          "slug": "_2-字面量方式创建正则表达式"
-        },
-        {
-          "level": 2,
-          "title": "二、测试正则表达式",
-          "slug": "二、测试正则表达式"
-        },
-        {
-          "level": 3,
-          "title": "① test方法：在字符串中测试模式匹配，返回 true 或 false",
-          "slug": "_1-test方法-在字符串中测试模式匹配-返回-true-或-false"
-        },
-        {
-          "level": 3,
-          "title": "② exec方法：在字符串中执行匹配搜索，返回结果数组，执行失败，则返回 null",
-          "slug": "_2-exec方法-在字符串中执行匹配搜索-返回结果数组-执行失败-则返回-null"
-        },
-        {
-          "level": 2,
-          "title": "三、字符串的正则表达式方法",
-          "slug": "三、字符串的正则表达式方法"
-        },
-        {
-          "level": 3,
-          "title": "① match方法：就是一个查找的功能，获取匹配的字符串，返回数组或 null",
-          "slug": "_1-match方法-就是一个查找的功能-获取匹配的字符串-返回数组或-null"
-        },
-        {
-          "level": 3,
-          "title": "② search方法：根据匹配的字符串，返回位置索引（从0开始）",
-          "slug": "_2-search方法-根据匹配的字符串-返回位置索引-从0开始"
-        },
-        {
-          "level": 3,
-          "title": "③ split方法：按照匹配模式，拆分成字符串数组",
-          "slug": "_3-split方法-按照匹配模式-拆分成字符串数组"
-        },
-        {
-          "level": 3,
-          "title": "④ replace方法： 替换匹配到的数据",
-          "slug": "_4-replace方法-替换匹配到的数据"
-        },
-        {
-          "level": 3,
-          "title": "小案例：模拟百度搜索，搜索的关键字设置成红色",
-          "slug": "小案例-模拟百度搜索-搜索的关键字设置成红色"
-        },
-        {
-          "level": 2,
-          "title": "四、正则表达式RegExp对象的静态属性、实例属性（了解）",
-          "slug": "四、正则表达式regexp对象的静态属性、实例属性-了解"
-        },
-        {
-          "level": 3,
-          "title": "1、 静态属性",
-          "slug": "_1、-静态属性"
-        },
-        {
-          "level": 3,
-          "title": "① 属性：input，短名：$_ ， 当前被匹配的字符串",
-          "slug": "_1-属性-input-短名-当前被匹配的字符串"
-        },
-        {
-          "level": 3,
-          "title": "② 属性：leftContext，短名：$` ， 最后一次匹配前的子串",
-          "slug": "_2-属性-leftcontext-短名-最后一次匹配前的子串"
-        },
-        {
-          "level": 3,
-          "title": "③ 属性：rightContext，短名：$' ， 在上次匹配之后的子串",
-          "slug": "_3-属性-rightcontext-短名-在上次匹配之后的子串"
-        },
-        {
-          "level": 3,
-          "title": "④ 属性：lastMatch，短名：$& ， 最后一个匹配字符串",
-          "slug": "_4-属性-lastmatch-短名-最后一个匹配字符串"
-        },
-        {
-          "level": 3,
-          "title": "⑤ 属性：lastParen，短名：$+ ， 最后一对圆括号内的匹配子串",
-          "slug": "_5-属性-lastparen-短名-最后一对圆括号内的匹配子串"
-        },
-        {
-          "level": 3,
-          "title": "2、 实例属性",
-          "slug": "_2、-实例属性"
-        },
-        {
-          "level": 2,
-          "title": "五、正则表达式元字符（包含特殊含义的字符）",
-          "slug": "五、正则表达式元字符-包含特殊含义的字符"
-        },
-        {
-          "level": 3,
-          "title": "一、 单个字符和数字、重复字符",
-          "slug": "一、-单个字符和数字、重复字符"
-        },
-        {
-          "level": 3,
-          "title": "1、 点符号匹配除了换行符（\\n）外的任意字符",
-          "slug": "_1、-点符号匹配除了换行符-n-外的任意字符"
-        },
-        {
-          "level": 3,
-          "title": "2、 点符号和重复字符配合使用",
-          "slug": "_2、-点符号和重复字符配合使用"
-        },
-        {
-          "level": 3,
-          "title": "① 重复字符：x?，表示：匹配 0 个或 1 个 x （x可以换成任意字符）",
-          "slug": "_1-重复字符-x-表示-匹配-0-个或-1-个-x-x可以换成任意字符"
-        },
-        {
-          "level": 3,
-          "title": "② 重复字符：x*，表示：匹配 0 个或 1 个 或者任意多个 x （x可以换成任意字符）",
-          "slug": "_2-重复字符-x-表示-匹配-0-个或-1-个-或者任意多个-x-x可以换成任意字符"
-        },
-        {
-          "level": 3,
-          "title": "③ 重复字符：x+，表示：匹配 至少1个 或者任意多个 x （x可以换成任意字符）",
-          "slug": "_3-重复字符-x-表示-匹配-至少1个-或者任意多个-x-x可以换成任意字符"
-        },
-        {
-          "level": 3,
-          "title": "④ 重复字符：x{m,n}，表示：匹配最少 m 个、最多 n 个 x， x{m}表示：只能有m个x， x{m,}表示：有m个x或者以上个x （x可以换成任意字符）",
-          "slug": "_4-重复字符-x-m-n-表示-匹配最少-m-个、最多-n-个-x-x-m-表示-只能有m个x-x-m-表示-有m个x或者以上个x-x可以换成任意字符"
-        },
-        {
-          "level": 3,
-          "title": "⑤ 重复字符：(xyz)+，表示：匹配至少一个(xyz)，括号可以看成分组，分组里面的元素可以是任意多个字符",
-          "slug": "_5-重复字符-xyz-表示-匹配至少一个-xyz-括号可以看成分组-分组里面的元素可以是任意多个字符"
-        },
-        {
-          "level": 3,
-          "title": "⑥ 任意一个匹配：[a-z]匹配26个小写字母任意一个，[A-Z]匹配26个大写字母任意一个，[0-9]匹配0到9的数字任意一个，[a-zA-Z0-9]匹配混合字母和数字中的任意一个",
-          "slug": "_6-任意一个匹配-a-z-匹配26个小写字母任意一个-a-z-匹配26个大写字母任意一个-0-9-匹配0到9的数字任意一个-a-za-z0-9-匹配混合字母和数字中的任意一个"
-        },
-        {
-          "level": 3,
-          "title": "⑦ 任意一个不匹配：[^a-z]不匹配26个小写字母，[^A-Z]不匹配26个大写字母，[^0-9]不匹配0到9的数字，[^a-zA-Z0-9]不匹配混合字母和数字",
-          "slug": "_7-任意一个不匹配-a-z-不匹配26个小写字母-a-z-不匹配26个大写字母-0-9-不匹配0到9的数字-a-za-z0-9-不匹配混合字母和数字"
-        },
-        {
-          "level": 3,
-          "title": "3、字符类：锚字符",
-          "slug": "_3、字符类-锚字符"
-        },
-        {
-          "level": 3,
-          "title": "① 锚字符：^ ， 表示：从行首开始匹配",
-          "slug": "_1-锚字符-表示-从行首开始匹配"
-        },
-        {
-          "level": 3,
-          "title": "② 锚字符：$ ， 表示：从行尾开始匹配",
-          "slug": "_2-锚字符-表示-从行尾开始匹配"
-        },
-        {
-          "level": 3,
-          "title": "4、字符：\\d ， 匹配数字，和字符集合 [0-9]相同，字符：\\D ， 匹配非数字，同[^0-9]相同",
-          "slug": "_4、字符-d-匹配数字-和字符集合-0-9-相同-字符-d-匹配非数字-同-0-9-相同"
-        },
-        {
-          "level": 3,
-          "title": "5、字符：\\w ， 匹配字母和数字及，和字符集合 [a-zA-Z0-9]相同，字符：\\W ，  匹配非字母和数字及，同[^a-zA-Z0-9]相同",
-          "slug": "_5、字符-w-匹配字母和数字及-和字符集合-a-za-z0-9-相同-字符-w-匹配非字母和数字及-同-a-za-z0-9-相同"
-        },
-        {
-          "level": 3,
-          "title": "二、空白字符",
-          "slug": "二、空白字符"
-        },
-        {
-          "level": 3,
-          "title": "① 字符：\\s，表示：匹配空白字符、空格、制表符和换行符",
-          "slug": "_1-字符-s-表示-匹配空白字符、空格、制表符和换行符"
-        },
-        {
-          "level": 3,
-          "title": "② 字符：\\b，表示：到达边界",
-          "slug": "_2-字符-b-表示-到达边界"
-        },
-        {
-          "level": 3,
-          "title": "三、选择字符（|）选择模式，匹配如：jpg|png|gif，非相等包含的意思",
-          "slug": "三、选择字符-选择模式-匹配如-jpg-png-gif-非相等包含的意思"
-        },
-        {
-          "level": 3,
-          "title": "四、分组模式：()做分组，\\1或$1匹配第一个分组中的内容，\\2或$2匹配第二个分组中的内容，依次类推",
-          "slug": "四、分组模式-做分组-1或-1匹配第一个分组中的内容-2或-2匹配第二个分组中的内容-依次类推"
-        },
-        {
-          "level": 3,
-          "title": "① 分组模式：()做分组",
-          "slug": "_1-分组模式-做分组"
-        },
-        {
-          "level": 3,
-          "title": "② $1可以获取到第一个分组内容",
-          "slug": "_2-1可以获取到第一个分组内容"
-        },
-        {
-          "level": 3,
-          "title": "③ 小案例：$1获取到第一个分组内容，并做替换",
-          "slug": "_3-小案例-1获取到第一个分组内容-并做替换"
-        },
-        {
-          "level": 3,
-          "title": "④ 小案例：获取多个分组内容，进行替换",
-          "slug": "_4-小案例-获取多个分组内容-进行替换"
-        },
-        {
-          "level": 2,
-          "title": "六、正则表达式：贪婪和惰性",
-          "slug": "六、正则表达式-贪婪和惰性"
-        },
-        {
-          "level": 2,
-          "title": "七、正则表达式使用 exec 返回数组",
-          "slug": "七、正则表达式使用-exec-返回数组"
-        },
-        {
-          "level": 2,
-          "title": "八、捕获性分组和非捕获性分组",
-          "slug": "八、捕获性分组和非捕获性分组"
-        },
-        {
-          "level": 2,
-          "title": "九、分组嵌套、前瞻捕获、特殊字符匹配、换行模式",
-          "slug": "九、分组嵌套、前瞻捕获、特殊字符匹配、换行模式"
-        },
-        {
-          "level": 2,
-          "title": "十、书写常用正则表达式",
-          "slug": "十、书写常用正则表达式"
-        },
-        {
-          "level": 3,
-          "title": "① 手机号正则",
-          "slug": "_1-手机号正则"
-        },
-        {
-          "level": 3,
-          "title": "② 邮政编码正则",
-          "slug": "_2-邮政编码正则"
-        },
-        {
-          "level": 3,
-          "title": "③ 简单的电子邮件正则",
-          "slug": "_3-简单的电子邮件正则"
-        },
-        {
-          "level": 3,
-          "title": "④ 匹配图片格式",
-          "slug": "_4-匹配图片格式"
-        },
-        {
-          "level": 3,
-          "title": "⑤ 删除多余空格",
-          "slug": "_5-删除多余空格"
-        },
-        {
-          "level": 3,
-          "title": "⑥ 删除首尾的空格，中间的空格不删除",
-          "slug": "_6-删除首尾的空格-中间的空格不删除"
-        },
-        {
-          "level": 3,
-          "title": "⑦ 延伸：将11位手机号中的4-7位号码换成 *",
-          "slug": "_7-延伸-将11位手机号中的4-7位号码换成"
-        },
-        {
-          "level": 2,
-          "title": "【第二学期第2季课程】其它章节",
-          "slug": "【第二学期第2季课程】其它章节"
-        },
-        {
-          "level": 3,
-          "title": "章节1.课程介绍",
-          "slug": "章节1-课程介绍"
-        },
-        {
-          "level": 3,
-          "title": "章节2.面向对象与原型",
-          "slug": "章节2-面向对象与原型"
-        },
-        {
-          "level": 3,
-          "title": "章节3.封装js库过渡到jQuery",
-          "slug": "章节3-封装js库过渡到jquery"
-        },
-        {
-          "level": 3,
-          "title": "章节4.jQuery",
-          "slug": "章节4-jquery"
-        },
-        {
-          "level": 3,
-          "title": "章节5.jQuery事件、动画、插件",
-          "slug": "章节5-jquery事件、动画、插件"
-        },
-        {
-          "level": 3,
-          "title": "章节6.Ajax",
-          "slug": "章节6-ajax"
-        },
-        {
-          "level": 3,
-          "title": "章节7.Node.js基础",
-          "slug": "章节7-node-js基础"
-        },
-        {
-          "level": 3,
-          "title": "章节8.正则表达式",
-          "slug": "章节8-正则表达式"
-        },
-        {
-          "level": 3,
-          "title": "章节9.Vue.js基础",
-          "slug": "章节9-vue-js基础"
-        },
-        {
-          "level": 2,
-          "title": "其它学期课程",
-          "slug": "其它学期课程"
-        },
-        {
-          "level": 3,
-          "title": "第一学期（学习顺序：01）",
-          "slug": "第一学期-学习顺序-01"
-        },
-        {
-          "level": 3,
-          "title": "第二学期【第1季】（学习顺序：02）",
-          "slug": "第二学期【第1季】-学习顺序-02"
-        },
-        {
-          "level": 3,
-          "title": "第二学期【第2季】（学习顺序：03）",
-          "slug": "第二学期【第2季】-学习顺序-03"
-        }
-      ],
-      "lastUpdated": "2024年1月5日星期五下午2点53分",
-      "lastUpdatedTimestamp": 1704437586000
-    },
-    {
-      "title": "章节2.面向对象与原型",
-      "frontmatter": {
-        "navbar": true,
-        "sidebar": "auto",
-        "title": "章节2.面向对象与原型"
-      },
-      "regularPath": "/secondless/w-b/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E4%B8%8E%E5%8E%9F%E5%9E%8B.html",
-      "relativePath": "secondless/w-b/面向对象与原型.md",
-      "key": "v-84f6a38e",
-      "path": "/secondless/w-b/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E4%B8%8E%E5%8E%9F%E5%9E%8B.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "Ⅰ、创建对象",
-          "slug": "i、创建对象"
-        },
-        {
-          "level": 3,
-          "title": "① 创建对象，剖析问题",
-          "slug": "_1-创建对象-剖析问题"
-        },
-        {
-          "level": 3,
-          "title": "② 传统面向对象：工厂模式",
-          "slug": "_2-传统面向对象-工厂模式"
-        },
-        {
-          "level": 3,
-          "title": "③ 构造函数(构造方法)创建特定的对象",
-          "slug": "_3-构造函数-构造方法-创建特定的对象"
-        },
-        {
-          "level": 3,
-          "title": "④ 构造函数知识扩展，对象冒充构造函数，构造函数体内的函数返回值相等，但引用地址不相同",
-          "slug": "_4-构造函数知识扩展-对象冒充构造函数-构造函数体内的函数返回值相等-但引用地址不相同"
-        },
-        {
-          "level": 2,
-          "title": "Ⅱ、原型",
-          "slug": "ii、原型"
-        },
-        {
-          "level": 3,
-          "title": "① 原型创建对象",
-          "slug": "_1-原型创建对象"
-        },
-        {
-          "level": 3,
-          "title": "② 构造函数与原型对比，深度解析（图片示例）",
-          "slug": "_2-构造函数与原型对比-深度解析-图片示例"
-        },
-        {
-          "level": 3,
-          "title": "③ isPrototypeOf()方法：判断一个对象是否指向了该构造函数的原型对象",
-          "slug": "_3-isprototypeof-方法-判断一个对象是否指向了该构造函数的原型对象"
-        },
-        {
-          "level": 3,
-          "title": "④ 原型模式的执行流程（顺序）：先实例，在构造函数，最后原型",
-          "slug": "_4-原型模式的执行流程-顺序-先实例-在构造函数-最后原型"
-        },
-        {
-          "level": 3,
-          "title": "⑤ 删除实例属性访问原型属性：delete方法",
-          "slug": "_5-删除实例属性访问原型属性-delete方法"
-        },
-        {
-          "level": 3,
-          "title": "⑥ hasOwnProperty()方法检测属性是否存在实例中，in操作符判断属性是否存在于实例或原型中，两者结合判断属性是否只存在原型中",
-          "slug": "_6-hasownproperty-方法检测属性是否存在实例中-in操作符判断属性是否存在于实例或原型中-两者结合判断属性是否只存在原型中"
-        },
-        {
-          "level": 3,
-          "title": "⑦ 原型创建对象字面量声明方式",
-          "slug": "_7-原型创建对象字面量声明方式"
-        },
-        {
-          "level": 3,
-          "title": "⑧ 原型创建对象字面量声明方式，原型的声明是有先后顺序，重写原型会覆盖（切断）之前的原型",
-          "slug": "_8-原型创建对象字面量声明方式-原型的声明是有先后顺序-重写原型会覆盖-切断-之前的原型"
-        },
-        {
-          "level": 3,
-          "title": "⑨ 内置引用类型：String,Number,Array等本身也使用了原型",
-          "slug": "_9-内置引用类型-string-number-array等本身也使用了原型"
-        },
-        {
-          "level": 3,
-          "title": "⑩ 原型创建对象缺点剖析：传参和引用共享问题",
-          "slug": "_10-原型创建对象缺点剖析-传参和引用共享问题"
-        },
-        {
-          "level": 3,
-          "title": "⑪ 组合构造函数+原型模式：解决 ⑩ 构造传参和引用共享问题",
-          "slug": "_11-组合构造函数-原型模式-解决-10-构造传参和引用共享问题"
-        },
-        {
-          "level": 3,
-          "title": "⑫ 动态原型模式：解决 ⑪ 组合构造函数+原型模式，代码封装在一起，一种封装的感觉",
-          "slug": "_12-动态原型模式-解决-11-组合构造函数-原型模式-代码封装在一起-一种封装的感觉"
-        },
-        {
-          "level": 3,
-          "title": "⑬ 寄生构造函数：工厂模式 + 构造函数【备胎模式（了解）】",
-          "slug": "_13-寄生构造函数-工厂模式-构造函数【备胎模式-了解-】"
-        },
-        {
-          "level": 3,
-          "title": "⑭ 稳妥构造函数（了解即可）：在一些安全的环境中，比如禁止使用 this 和 new，就是寄生构造函数不能用new",
-          "slug": "_14-稳妥构造函数-了解即可-在一些安全的环境中-比如禁止使用-this-和-new-就是寄生构造函数不能用new"
-        },
-        {
-          "level": 2,
-          "title": "III、继承",
-          "slug": "iii、继承"
-        },
-        {
-          "level": 3,
-          "title": "① js的继承方式通过原型链完成",
-          "slug": "_1-js的继承方式通过原型链完成"
-        },
-        {
-          "level": 3,
-          "title": "② 继承父类属性方法的继承顺序：就近原则（实例化-->构造函数实例属性方法-->原型属性方法）",
-          "slug": "_2-继承父类属性方法的继承顺序-就近原则-实例化-构造函数实例属性方法-原型属性方法"
-        },
-        {
-          "level": 3,
-          "title": "③ 继承后的实例从属关系",
-          "slug": "_3-继承后的实例从属关系"
-        },
-        {
-          "level": 3,
-          "title": "④ 对象冒充继承及问题:原型里面的属性方法无法继承",
-          "slug": "_4-对象冒充继承及问题-原型里面的属性方法无法继承"
-        },
-        {
-          "level": 3,
-          "title": "⑤ 组合继承【广泛应用】：原型链+借用构造函数(对象冒充)的模式，完成对象冒充的原型继承",
-          "slug": "_5-组合继承【广泛应用】-原型链-借用构造函数-对象冒充-的模式-完成对象冒充的原型继承"
-        },
-        {
-          "level": 3,
-          "title": "⑥ 原型式继承（了解）",
-          "slug": "_6-原型式继承-了解"
-        },
-        {
-          "level": 3,
-          "title": "⑦ 寄生式继承：原型式+工厂模式结合",
-          "slug": "_7-寄生式继承-原型式-工厂模式结合"
-        },
-        {
-          "level": 3,
-          "title": "⑧ 继承终极版模式：寄生组合继承来实现继承：组合模式 + 寄生式继承",
-          "slug": "_8-继承终极版模式-寄生组合继承来实现继承-组合模式-寄生式继承"
-        },
-        {
-          "level": 2,
-          "title": "IV、类和对象",
-          "slug": "iv、类和对象"
-        },
-        {
-          "level": 3,
-          "title": "① 理解类和对象",
-          "slug": "_1-理解类和对象"
-        },
-        {
-          "level": 3,
-          "title": "② 类中的constructor()方法（构造函数）",
-          "slug": "_2-类中的constructor-方法-构造函数"
-        },
-        {
-          "level": 3,
-          "title": "③ 类中添加方法",
-          "slug": "_3-类中添加方法"
-        },
-        {
-          "level": 3,
-          "title": "④ 类的继承",
-          "slug": "_4-类的继承"
-        },
-        {
-          "level": 3,
-          "title": "⑤ 类的继承中的super关键字：调用父类的构造函数constructor",
-          "slug": "_5-类的继承中的super关键字-调用父类的构造函数constructor"
-        },
-        {
-          "level": 3,
-          "title": "⑥ 类的继承中的super关键字：调用父类的普通函数",
-          "slug": "_6-类的继承中的super关键字-调用父类的普通函数"
-        },
-        {
-          "level": 3,
-          "title": "⑦ 子类继承父类方法同时扩展自己的方法，子类在构造函数中使用super,必须放到this前面",
-          "slug": "_7-子类继承父类方法同时扩展自己的方法-子类在构造函数中使用super-必须放到this前面"
-        },
-        {
-          "level": 3,
-          "title": "⑧ 类和对象的几个注意点：",
-          "slug": "_8-类和对象的几个注意点"
-        },
-        {
-          "level": 2,
-          "title": "Ⅴ、面向对象、原型、继承、类小结",
-          "slug": "v、面向对象、原型、继承、类小结"
-        },
-        {
-          "level": 2,
-          "title": "【第二学期第2季课程】其它章节",
-          "slug": "【第二学期第2季课程】其它章节"
-        },
-        {
-          "level": 3,
-          "title": "章节1.课程介绍",
-          "slug": "章节1-课程介绍"
-        },
-        {
-          "level": 3,
-          "title": "章节2.面向对象与原型",
-          "slug": "章节2-面向对象与原型"
-        },
-        {
-          "level": 3,
-          "title": "章节3.封装js库过渡到jQuery",
-          "slug": "章节3-封装js库过渡到jquery"
-        },
-        {
-          "level": 3,
-          "title": "章节4.jQuery",
-          "slug": "章节4-jquery"
-        },
-        {
-          "level": 3,
-          "title": "章节5.jQuery事件、动画、插件",
-          "slug": "章节5-jquery事件、动画、插件"
-        },
-        {
-          "level": 3,
-          "title": "章节6.Ajax",
-          "slug": "章节6-ajax"
-        },
-        {
-          "level": 3,
-          "title": "章节7.Node.js基础",
-          "slug": "章节7-node-js基础"
-        },
-        {
-          "level": 3,
-          "title": "章节8.正则表达式",
-          "slug": "章节8-正则表达式"
-        },
-        {
-          "level": 3,
-          "title": "章节9.Vue.js基础",
-          "slug": "章节9-vue-js基础"
-        },
-        {
-          "level": 2,
-          "title": "其它学期课程",
-          "slug": "其它学期课程"
-        },
-        {
-          "level": 3,
-          "title": "第一学期（学习顺序：01）",
-          "slug": "第一学期-学习顺序-01"
-        },
-        {
-          "level": 3,
-          "title": "第二学期【第1季】（学习顺序：02）",
-          "slug": "第二学期【第1季】-学习顺序-02"
-        },
-        {
-          "level": 3,
-          "title": "第二学期【第2季】（学习顺序：03）",
-          "slug": "第二学期【第2季】-学习顺序-03"
-        }
-      ],
-      "lastUpdated": "2024年1月5日星期五下午2点53分",
-      "lastUpdatedTimestamp": 1704437586000
-    },
-    {
-      "title": "ValParams API 说明",
-      "frontmatter": {
-        "navbar": true,
-        "sidebar": "auto",
-        "title": "ValParams API 说明"
-      },
-      "regularPath": "/secondless/w-c/ValParams%20API%20%E8%AF%B4%E6%98%8E.html",
-      "relativePath": "secondless/w-c/ValParams API 说明.md",
-      "key": "v-6bd5359b",
-      "path": "/secondless/w-c/ValParams%20API%20%E8%AF%B4%E6%98%8E.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "参数验证处理",
-          "slug": "参数验证处理"
-        },
-        {
-          "level": 3,
-          "title": "1.参数说明",
-          "slug": "_1-参数说明"
-        },
-        {
-          "level": 3,
-          "title": "2.示例",
-          "slug": "_2-示例"
-        },
-        {
-          "level": 3,
-          "title": "3.返回支持的类型",
-          "slug": "_3-返回支持的类型"
-        },
-        {
-          "level": 3,
-          "title": "4.自定义本地化文件",
-          "slug": "_4-自定义本地化文件"
-        },
-        {
-          "level": 3,
-          "title": "5.更新已有本地化文件内容",
-          "slug": "_5-更新已有本地化文件内容"
-        },
-        {
-          "level": 3,
-          "title": "6.获取本地化文件内容",
-          "slug": "_6-获取本地化文件内容"
-        },
-        {
-          "level": 3,
-          "title": "7.列出已加载的本地化文件",
-          "slug": "_7-列出已加载的本地化文件"
-        },
-        {
-          "level": 3,
-          "title": "8.设置使用的本地化文件",
-          "slug": "_8-设置使用的本地化文件"
-        }
-      ],
-      "lastUpdated": "2024年2月6日星期二下午4点30分",
-      "lastUpdatedTimestamp": 1707208245000
     },
     {
       "title": "章节2.Egg.js基础",
@@ -8621,6 +7908,861 @@ export const siteData = {
       "lastUpdatedTimestamp": 1715832881000
     },
     {
+      "title": "章节2.面向对象与原型",
+      "frontmatter": {
+        "navbar": true,
+        "sidebar": "auto",
+        "title": "章节2.面向对象与原型"
+      },
+      "regularPath": "/secondless/w-b/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E4%B8%8E%E5%8E%9F%E5%9E%8B.html",
+      "relativePath": "secondless/w-b/面向对象与原型.md",
+      "key": "v-84f6a38e",
+      "path": "/secondless/w-b/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E4%B8%8E%E5%8E%9F%E5%9E%8B.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "Ⅰ、创建对象",
+          "slug": "i、创建对象"
+        },
+        {
+          "level": 3,
+          "title": "① 创建对象，剖析问题",
+          "slug": "_1-创建对象-剖析问题"
+        },
+        {
+          "level": 3,
+          "title": "② 传统面向对象：工厂模式",
+          "slug": "_2-传统面向对象-工厂模式"
+        },
+        {
+          "level": 3,
+          "title": "③ 构造函数(构造方法)创建特定的对象",
+          "slug": "_3-构造函数-构造方法-创建特定的对象"
+        },
+        {
+          "level": 3,
+          "title": "④ 构造函数知识扩展，对象冒充构造函数，构造函数体内的函数返回值相等，但引用地址不相同",
+          "slug": "_4-构造函数知识扩展-对象冒充构造函数-构造函数体内的函数返回值相等-但引用地址不相同"
+        },
+        {
+          "level": 2,
+          "title": "Ⅱ、原型",
+          "slug": "ii、原型"
+        },
+        {
+          "level": 3,
+          "title": "① 原型创建对象",
+          "slug": "_1-原型创建对象"
+        },
+        {
+          "level": 3,
+          "title": "② 构造函数与原型对比，深度解析（图片示例）",
+          "slug": "_2-构造函数与原型对比-深度解析-图片示例"
+        },
+        {
+          "level": 3,
+          "title": "③ isPrototypeOf()方法：判断一个对象是否指向了该构造函数的原型对象",
+          "slug": "_3-isprototypeof-方法-判断一个对象是否指向了该构造函数的原型对象"
+        },
+        {
+          "level": 3,
+          "title": "④ 原型模式的执行流程（顺序）：先实例，在构造函数，最后原型",
+          "slug": "_4-原型模式的执行流程-顺序-先实例-在构造函数-最后原型"
+        },
+        {
+          "level": 3,
+          "title": "⑤ 删除实例属性访问原型属性：delete方法",
+          "slug": "_5-删除实例属性访问原型属性-delete方法"
+        },
+        {
+          "level": 3,
+          "title": "⑥ hasOwnProperty()方法检测属性是否存在实例中，in操作符判断属性是否存在于实例或原型中，两者结合判断属性是否只存在原型中",
+          "slug": "_6-hasownproperty-方法检测属性是否存在实例中-in操作符判断属性是否存在于实例或原型中-两者结合判断属性是否只存在原型中"
+        },
+        {
+          "level": 3,
+          "title": "⑦ 原型创建对象字面量声明方式",
+          "slug": "_7-原型创建对象字面量声明方式"
+        },
+        {
+          "level": 3,
+          "title": "⑧ 原型创建对象字面量声明方式，原型的声明是有先后顺序，重写原型会覆盖（切断）之前的原型",
+          "slug": "_8-原型创建对象字面量声明方式-原型的声明是有先后顺序-重写原型会覆盖-切断-之前的原型"
+        },
+        {
+          "level": 3,
+          "title": "⑨ 内置引用类型：String,Number,Array等本身也使用了原型",
+          "slug": "_9-内置引用类型-string-number-array等本身也使用了原型"
+        },
+        {
+          "level": 3,
+          "title": "⑩ 原型创建对象缺点剖析：传参和引用共享问题",
+          "slug": "_10-原型创建对象缺点剖析-传参和引用共享问题"
+        },
+        {
+          "level": 3,
+          "title": "⑪ 组合构造函数+原型模式：解决 ⑩ 构造传参和引用共享问题",
+          "slug": "_11-组合构造函数-原型模式-解决-10-构造传参和引用共享问题"
+        },
+        {
+          "level": 3,
+          "title": "⑫ 动态原型模式：解决 ⑪ 组合构造函数+原型模式，代码封装在一起，一种封装的感觉",
+          "slug": "_12-动态原型模式-解决-11-组合构造函数-原型模式-代码封装在一起-一种封装的感觉"
+        },
+        {
+          "level": 3,
+          "title": "⑬ 寄生构造函数：工厂模式 + 构造函数【备胎模式（了解）】",
+          "slug": "_13-寄生构造函数-工厂模式-构造函数【备胎模式-了解-】"
+        },
+        {
+          "level": 3,
+          "title": "⑭ 稳妥构造函数（了解即可）：在一些安全的环境中，比如禁止使用 this 和 new，就是寄生构造函数不能用new",
+          "slug": "_14-稳妥构造函数-了解即可-在一些安全的环境中-比如禁止使用-this-和-new-就是寄生构造函数不能用new"
+        },
+        {
+          "level": 2,
+          "title": "III、继承",
+          "slug": "iii、继承"
+        },
+        {
+          "level": 3,
+          "title": "① js的继承方式通过原型链完成",
+          "slug": "_1-js的继承方式通过原型链完成"
+        },
+        {
+          "level": 3,
+          "title": "② 继承父类属性方法的继承顺序：就近原则（实例化-->构造函数实例属性方法-->原型属性方法）",
+          "slug": "_2-继承父类属性方法的继承顺序-就近原则-实例化-构造函数实例属性方法-原型属性方法"
+        },
+        {
+          "level": 3,
+          "title": "③ 继承后的实例从属关系",
+          "slug": "_3-继承后的实例从属关系"
+        },
+        {
+          "level": 3,
+          "title": "④ 对象冒充继承及问题:原型里面的属性方法无法继承",
+          "slug": "_4-对象冒充继承及问题-原型里面的属性方法无法继承"
+        },
+        {
+          "level": 3,
+          "title": "⑤ 组合继承【广泛应用】：原型链+借用构造函数(对象冒充)的模式，完成对象冒充的原型继承",
+          "slug": "_5-组合继承【广泛应用】-原型链-借用构造函数-对象冒充-的模式-完成对象冒充的原型继承"
+        },
+        {
+          "level": 3,
+          "title": "⑥ 原型式继承（了解）",
+          "slug": "_6-原型式继承-了解"
+        },
+        {
+          "level": 3,
+          "title": "⑦ 寄生式继承：原型式+工厂模式结合",
+          "slug": "_7-寄生式继承-原型式-工厂模式结合"
+        },
+        {
+          "level": 3,
+          "title": "⑧ 继承终极版模式：寄生组合继承来实现继承：组合模式 + 寄生式继承",
+          "slug": "_8-继承终极版模式-寄生组合继承来实现继承-组合模式-寄生式继承"
+        },
+        {
+          "level": 2,
+          "title": "IV、类和对象",
+          "slug": "iv、类和对象"
+        },
+        {
+          "level": 3,
+          "title": "① 理解类和对象",
+          "slug": "_1-理解类和对象"
+        },
+        {
+          "level": 3,
+          "title": "② 类中的constructor()方法（构造函数）",
+          "slug": "_2-类中的constructor-方法-构造函数"
+        },
+        {
+          "level": 3,
+          "title": "③ 类中添加方法",
+          "slug": "_3-类中添加方法"
+        },
+        {
+          "level": 3,
+          "title": "④ 类的继承",
+          "slug": "_4-类的继承"
+        },
+        {
+          "level": 3,
+          "title": "⑤ 类的继承中的super关键字：调用父类的构造函数constructor",
+          "slug": "_5-类的继承中的super关键字-调用父类的构造函数constructor"
+        },
+        {
+          "level": 3,
+          "title": "⑥ 类的继承中的super关键字：调用父类的普通函数",
+          "slug": "_6-类的继承中的super关键字-调用父类的普通函数"
+        },
+        {
+          "level": 3,
+          "title": "⑦ 子类继承父类方法同时扩展自己的方法，子类在构造函数中使用super,必须放到this前面",
+          "slug": "_7-子类继承父类方法同时扩展自己的方法-子类在构造函数中使用super-必须放到this前面"
+        },
+        {
+          "level": 3,
+          "title": "⑧ 类和对象的几个注意点：",
+          "slug": "_8-类和对象的几个注意点"
+        },
+        {
+          "level": 2,
+          "title": "Ⅴ、面向对象、原型、继承、类小结",
+          "slug": "v、面向对象、原型、继承、类小结"
+        },
+        {
+          "level": 2,
+          "title": "【第二学期第2季课程】其它章节",
+          "slug": "【第二学期第2季课程】其它章节"
+        },
+        {
+          "level": 3,
+          "title": "章节1.课程介绍",
+          "slug": "章节1-课程介绍"
+        },
+        {
+          "level": 3,
+          "title": "章节2.面向对象与原型",
+          "slug": "章节2-面向对象与原型"
+        },
+        {
+          "level": 3,
+          "title": "章节3.封装js库过渡到jQuery",
+          "slug": "章节3-封装js库过渡到jquery"
+        },
+        {
+          "level": 3,
+          "title": "章节4.jQuery",
+          "slug": "章节4-jquery"
+        },
+        {
+          "level": 3,
+          "title": "章节5.jQuery事件、动画、插件",
+          "slug": "章节5-jquery事件、动画、插件"
+        },
+        {
+          "level": 3,
+          "title": "章节6.Ajax",
+          "slug": "章节6-ajax"
+        },
+        {
+          "level": 3,
+          "title": "章节7.Node.js基础",
+          "slug": "章节7-node-js基础"
+        },
+        {
+          "level": 3,
+          "title": "章节8.正则表达式",
+          "slug": "章节8-正则表达式"
+        },
+        {
+          "level": 3,
+          "title": "章节9.Vue.js基础",
+          "slug": "章节9-vue-js基础"
+        },
+        {
+          "level": 2,
+          "title": "其它学期课程",
+          "slug": "其它学期课程"
+        },
+        {
+          "level": 3,
+          "title": "第一学期（学习顺序：01）",
+          "slug": "第一学期-学习顺序-01"
+        },
+        {
+          "level": 3,
+          "title": "第二学期【第1季】（学习顺序：02）",
+          "slug": "第二学期【第1季】-学习顺序-02"
+        },
+        {
+          "level": 3,
+          "title": "第二学期【第2季】（学习顺序：03）",
+          "slug": "第二学期【第2季】-学习顺序-03"
+        }
+      ],
+      "lastUpdated": "2024年1月5日星期五下午2点53分",
+      "lastUpdatedTimestamp": 1704437586000
+    },
+    {
+      "title": "ValParams API 说明",
+      "frontmatter": {
+        "navbar": true,
+        "sidebar": "auto",
+        "title": "ValParams API 说明"
+      },
+      "regularPath": "/secondless/w-c/ValParams%20API%20%E8%AF%B4%E6%98%8E.html",
+      "relativePath": "secondless/w-c/ValParams API 说明.md",
+      "key": "v-6bd5359b",
+      "path": "/secondless/w-c/ValParams%20API%20%E8%AF%B4%E6%98%8E.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "参数验证处理",
+          "slug": "参数验证处理"
+        },
+        {
+          "level": 3,
+          "title": "1.参数说明",
+          "slug": "_1-参数说明"
+        },
+        {
+          "level": 3,
+          "title": "2.示例",
+          "slug": "_2-示例"
+        },
+        {
+          "level": 3,
+          "title": "3.返回支持的类型",
+          "slug": "_3-返回支持的类型"
+        },
+        {
+          "level": 3,
+          "title": "4.自定义本地化文件",
+          "slug": "_4-自定义本地化文件"
+        },
+        {
+          "level": 3,
+          "title": "5.更新已有本地化文件内容",
+          "slug": "_5-更新已有本地化文件内容"
+        },
+        {
+          "level": 3,
+          "title": "6.获取本地化文件内容",
+          "slug": "_6-获取本地化文件内容"
+        },
+        {
+          "level": 3,
+          "title": "7.列出已加载的本地化文件",
+          "slug": "_7-列出已加载的本地化文件"
+        },
+        {
+          "level": 3,
+          "title": "8.设置使用的本地化文件",
+          "slug": "_8-设置使用的本地化文件"
+        }
+      ],
+      "lastUpdated": "2024年2月6日星期二下午4点30分",
+      "lastUpdatedTimestamp": 1707208245000
+    },
+    {
+      "title": "章节8.正则表达式",
+      "frontmatter": {
+        "navbar": true,
+        "sidebar": "auto",
+        "title": "章节8.正则表达式"
+      },
+      "regularPath": "/secondless/w-b/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F.html",
+      "relativePath": "secondless/w-b/正则表达式.md",
+      "key": "v-28c9d9c0",
+      "path": "/secondless/w-b/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "一、创建正则表达式",
+          "slug": "一、创建正则表达式"
+        },
+        {
+          "level": 3,
+          "title": "① new运算符创建正则表达式",
+          "slug": "_1-new运算符创建正则表达式"
+        },
+        {
+          "level": 3,
+          "title": "② 字面量方式创建正则表达式",
+          "slug": "_2-字面量方式创建正则表达式"
+        },
+        {
+          "level": 2,
+          "title": "二、测试正则表达式",
+          "slug": "二、测试正则表达式"
+        },
+        {
+          "level": 3,
+          "title": "① test方法：在字符串中测试模式匹配，返回 true 或 false",
+          "slug": "_1-test方法-在字符串中测试模式匹配-返回-true-或-false"
+        },
+        {
+          "level": 3,
+          "title": "② exec方法：在字符串中执行匹配搜索，返回结果数组，执行失败，则返回 null",
+          "slug": "_2-exec方法-在字符串中执行匹配搜索-返回结果数组-执行失败-则返回-null"
+        },
+        {
+          "level": 2,
+          "title": "三、字符串的正则表达式方法",
+          "slug": "三、字符串的正则表达式方法"
+        },
+        {
+          "level": 3,
+          "title": "① match方法：就是一个查找的功能，获取匹配的字符串，返回数组或 null",
+          "slug": "_1-match方法-就是一个查找的功能-获取匹配的字符串-返回数组或-null"
+        },
+        {
+          "level": 3,
+          "title": "② search方法：根据匹配的字符串，返回位置索引（从0开始）",
+          "slug": "_2-search方法-根据匹配的字符串-返回位置索引-从0开始"
+        },
+        {
+          "level": 3,
+          "title": "③ split方法：按照匹配模式，拆分成字符串数组",
+          "slug": "_3-split方法-按照匹配模式-拆分成字符串数组"
+        },
+        {
+          "level": 3,
+          "title": "④ replace方法： 替换匹配到的数据",
+          "slug": "_4-replace方法-替换匹配到的数据"
+        },
+        {
+          "level": 3,
+          "title": "小案例：模拟百度搜索，搜索的关键字设置成红色",
+          "slug": "小案例-模拟百度搜索-搜索的关键字设置成红色"
+        },
+        {
+          "level": 2,
+          "title": "四、正则表达式RegExp对象的静态属性、实例属性（了解）",
+          "slug": "四、正则表达式regexp对象的静态属性、实例属性-了解"
+        },
+        {
+          "level": 3,
+          "title": "1、 静态属性",
+          "slug": "_1、-静态属性"
+        },
+        {
+          "level": 3,
+          "title": "① 属性：input，短名：$_ ， 当前被匹配的字符串",
+          "slug": "_1-属性-input-短名-当前被匹配的字符串"
+        },
+        {
+          "level": 3,
+          "title": "② 属性：leftContext，短名：$` ， 最后一次匹配前的子串",
+          "slug": "_2-属性-leftcontext-短名-最后一次匹配前的子串"
+        },
+        {
+          "level": 3,
+          "title": "③ 属性：rightContext，短名：$' ， 在上次匹配之后的子串",
+          "slug": "_3-属性-rightcontext-短名-在上次匹配之后的子串"
+        },
+        {
+          "level": 3,
+          "title": "④ 属性：lastMatch，短名：$& ， 最后一个匹配字符串",
+          "slug": "_4-属性-lastmatch-短名-最后一个匹配字符串"
+        },
+        {
+          "level": 3,
+          "title": "⑤ 属性：lastParen，短名：$+ ， 最后一对圆括号内的匹配子串",
+          "slug": "_5-属性-lastparen-短名-最后一对圆括号内的匹配子串"
+        },
+        {
+          "level": 3,
+          "title": "2、 实例属性",
+          "slug": "_2、-实例属性"
+        },
+        {
+          "level": 2,
+          "title": "五、正则表达式元字符（包含特殊含义的字符）",
+          "slug": "五、正则表达式元字符-包含特殊含义的字符"
+        },
+        {
+          "level": 3,
+          "title": "一、 单个字符和数字、重复字符",
+          "slug": "一、-单个字符和数字、重复字符"
+        },
+        {
+          "level": 3,
+          "title": "1、 点符号匹配除了换行符（\\n）外的任意字符",
+          "slug": "_1、-点符号匹配除了换行符-n-外的任意字符"
+        },
+        {
+          "level": 3,
+          "title": "2、 点符号和重复字符配合使用",
+          "slug": "_2、-点符号和重复字符配合使用"
+        },
+        {
+          "level": 3,
+          "title": "① 重复字符：x?，表示：匹配 0 个或 1 个 x （x可以换成任意字符）",
+          "slug": "_1-重复字符-x-表示-匹配-0-个或-1-个-x-x可以换成任意字符"
+        },
+        {
+          "level": 3,
+          "title": "② 重复字符：x*，表示：匹配 0 个或 1 个 或者任意多个 x （x可以换成任意字符）",
+          "slug": "_2-重复字符-x-表示-匹配-0-个或-1-个-或者任意多个-x-x可以换成任意字符"
+        },
+        {
+          "level": 3,
+          "title": "③ 重复字符：x+，表示：匹配 至少1个 或者任意多个 x （x可以换成任意字符）",
+          "slug": "_3-重复字符-x-表示-匹配-至少1个-或者任意多个-x-x可以换成任意字符"
+        },
+        {
+          "level": 3,
+          "title": "④ 重复字符：x{m,n}，表示：匹配最少 m 个、最多 n 个 x， x{m}表示：只能有m个x， x{m,}表示：有m个x或者以上个x （x可以换成任意字符）",
+          "slug": "_4-重复字符-x-m-n-表示-匹配最少-m-个、最多-n-个-x-x-m-表示-只能有m个x-x-m-表示-有m个x或者以上个x-x可以换成任意字符"
+        },
+        {
+          "level": 3,
+          "title": "⑤ 重复字符：(xyz)+，表示：匹配至少一个(xyz)，括号可以看成分组，分组里面的元素可以是任意多个字符",
+          "slug": "_5-重复字符-xyz-表示-匹配至少一个-xyz-括号可以看成分组-分组里面的元素可以是任意多个字符"
+        },
+        {
+          "level": 3,
+          "title": "⑥ 任意一个匹配：[a-z]匹配26个小写字母任意一个，[A-Z]匹配26个大写字母任意一个，[0-9]匹配0到9的数字任意一个，[a-zA-Z0-9]匹配混合字母和数字中的任意一个",
+          "slug": "_6-任意一个匹配-a-z-匹配26个小写字母任意一个-a-z-匹配26个大写字母任意一个-0-9-匹配0到9的数字任意一个-a-za-z0-9-匹配混合字母和数字中的任意一个"
+        },
+        {
+          "level": 3,
+          "title": "⑦ 任意一个不匹配：[^a-z]不匹配26个小写字母，[^A-Z]不匹配26个大写字母，[^0-9]不匹配0到9的数字，[^a-zA-Z0-9]不匹配混合字母和数字",
+          "slug": "_7-任意一个不匹配-a-z-不匹配26个小写字母-a-z-不匹配26个大写字母-0-9-不匹配0到9的数字-a-za-z0-9-不匹配混合字母和数字"
+        },
+        {
+          "level": 3,
+          "title": "3、字符类：锚字符",
+          "slug": "_3、字符类-锚字符"
+        },
+        {
+          "level": 3,
+          "title": "① 锚字符：^ ， 表示：从行首开始匹配",
+          "slug": "_1-锚字符-表示-从行首开始匹配"
+        },
+        {
+          "level": 3,
+          "title": "② 锚字符：$ ， 表示：从行尾开始匹配",
+          "slug": "_2-锚字符-表示-从行尾开始匹配"
+        },
+        {
+          "level": 3,
+          "title": "4、字符：\\d ， 匹配数字，和字符集合 [0-9]相同，字符：\\D ， 匹配非数字，同[^0-9]相同",
+          "slug": "_4、字符-d-匹配数字-和字符集合-0-9-相同-字符-d-匹配非数字-同-0-9-相同"
+        },
+        {
+          "level": 3,
+          "title": "5、字符：\\w ， 匹配字母和数字及，和字符集合 [a-zA-Z0-9]相同，字符：\\W ，  匹配非字母和数字及，同[^a-zA-Z0-9]相同",
+          "slug": "_5、字符-w-匹配字母和数字及-和字符集合-a-za-z0-9-相同-字符-w-匹配非字母和数字及-同-a-za-z0-9-相同"
+        },
+        {
+          "level": 3,
+          "title": "二、空白字符",
+          "slug": "二、空白字符"
+        },
+        {
+          "level": 3,
+          "title": "① 字符：\\s，表示：匹配空白字符、空格、制表符和换行符",
+          "slug": "_1-字符-s-表示-匹配空白字符、空格、制表符和换行符"
+        },
+        {
+          "level": 3,
+          "title": "② 字符：\\b，表示：到达边界",
+          "slug": "_2-字符-b-表示-到达边界"
+        },
+        {
+          "level": 3,
+          "title": "三、选择字符（|）选择模式，匹配如：jpg|png|gif，非相等包含的意思",
+          "slug": "三、选择字符-选择模式-匹配如-jpg-png-gif-非相等包含的意思"
+        },
+        {
+          "level": 3,
+          "title": "四、分组模式：()做分组，\\1或$1匹配第一个分组中的内容，\\2或$2匹配第二个分组中的内容，依次类推",
+          "slug": "四、分组模式-做分组-1或-1匹配第一个分组中的内容-2或-2匹配第二个分组中的内容-依次类推"
+        },
+        {
+          "level": 3,
+          "title": "① 分组模式：()做分组",
+          "slug": "_1-分组模式-做分组"
+        },
+        {
+          "level": 3,
+          "title": "② $1可以获取到第一个分组内容",
+          "slug": "_2-1可以获取到第一个分组内容"
+        },
+        {
+          "level": 3,
+          "title": "③ 小案例：$1获取到第一个分组内容，并做替换",
+          "slug": "_3-小案例-1获取到第一个分组内容-并做替换"
+        },
+        {
+          "level": 3,
+          "title": "④ 小案例：获取多个分组内容，进行替换",
+          "slug": "_4-小案例-获取多个分组内容-进行替换"
+        },
+        {
+          "level": 2,
+          "title": "六、正则表达式：贪婪和惰性",
+          "slug": "六、正则表达式-贪婪和惰性"
+        },
+        {
+          "level": 2,
+          "title": "七、正则表达式使用 exec 返回数组",
+          "slug": "七、正则表达式使用-exec-返回数组"
+        },
+        {
+          "level": 2,
+          "title": "八、捕获性分组和非捕获性分组",
+          "slug": "八、捕获性分组和非捕获性分组"
+        },
+        {
+          "level": 2,
+          "title": "九、分组嵌套、前瞻捕获、特殊字符匹配、换行模式",
+          "slug": "九、分组嵌套、前瞻捕获、特殊字符匹配、换行模式"
+        },
+        {
+          "level": 2,
+          "title": "十、书写常用正则表达式",
+          "slug": "十、书写常用正则表达式"
+        },
+        {
+          "level": 3,
+          "title": "① 手机号正则",
+          "slug": "_1-手机号正则"
+        },
+        {
+          "level": 3,
+          "title": "② 邮政编码正则",
+          "slug": "_2-邮政编码正则"
+        },
+        {
+          "level": 3,
+          "title": "③ 简单的电子邮件正则",
+          "slug": "_3-简单的电子邮件正则"
+        },
+        {
+          "level": 3,
+          "title": "④ 匹配图片格式",
+          "slug": "_4-匹配图片格式"
+        },
+        {
+          "level": 3,
+          "title": "⑤ 删除多余空格",
+          "slug": "_5-删除多余空格"
+        },
+        {
+          "level": 3,
+          "title": "⑥ 删除首尾的空格，中间的空格不删除",
+          "slug": "_6-删除首尾的空格-中间的空格不删除"
+        },
+        {
+          "level": 3,
+          "title": "⑦ 延伸：将11位手机号中的4-7位号码换成 *",
+          "slug": "_7-延伸-将11位手机号中的4-7位号码换成"
+        },
+        {
+          "level": 2,
+          "title": "【第二学期第2季课程】其它章节",
+          "slug": "【第二学期第2季课程】其它章节"
+        },
+        {
+          "level": 3,
+          "title": "章节1.课程介绍",
+          "slug": "章节1-课程介绍"
+        },
+        {
+          "level": 3,
+          "title": "章节2.面向对象与原型",
+          "slug": "章节2-面向对象与原型"
+        },
+        {
+          "level": 3,
+          "title": "章节3.封装js库过渡到jQuery",
+          "slug": "章节3-封装js库过渡到jquery"
+        },
+        {
+          "level": 3,
+          "title": "章节4.jQuery",
+          "slug": "章节4-jquery"
+        },
+        {
+          "level": 3,
+          "title": "章节5.jQuery事件、动画、插件",
+          "slug": "章节5-jquery事件、动画、插件"
+        },
+        {
+          "level": 3,
+          "title": "章节6.Ajax",
+          "slug": "章节6-ajax"
+        },
+        {
+          "level": 3,
+          "title": "章节7.Node.js基础",
+          "slug": "章节7-node-js基础"
+        },
+        {
+          "level": 3,
+          "title": "章节8.正则表达式",
+          "slug": "章节8-正则表达式"
+        },
+        {
+          "level": 3,
+          "title": "章节9.Vue.js基础",
+          "slug": "章节9-vue-js基础"
+        },
+        {
+          "level": 2,
+          "title": "其它学期课程",
+          "slug": "其它学期课程"
+        },
+        {
+          "level": 3,
+          "title": "第一学期（学习顺序：01）",
+          "slug": "第一学期-学习顺序-01"
+        },
+        {
+          "level": 3,
+          "title": "第二学期【第1季】（学习顺序：02）",
+          "slug": "第二学期【第1季】-学习顺序-02"
+        },
+        {
+          "level": 3,
+          "title": "第二学期【第2季】（学习顺序：03）",
+          "slug": "第二学期【第2季】-学习顺序-03"
+        }
+      ],
+      "lastUpdated": "2024年1月5日星期五下午2点53分",
+      "lastUpdatedTimestamp": 1704437586000
+    },
+    {
+      "title": "案例：eggjs+postman测试工具将留言写入json文件",
+      "frontmatter": {
+        "navbar": true,
+        "sidebar": "auto",
+        "title": "案例：eggjs+postman测试工具将留言写入json文件"
+      },
+      "regularPath": "/secondless/w-c/eggjs+postman%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7%E5%B0%86%E7%95%99%E8%A8%80%E5%86%99%E5%85%A5json%E6%96%87%E4%BB%B6.html",
+      "relativePath": "secondless/w-c/eggjs+postman测试工具将留言写入json文件.md",
+      "key": "v-2dfeb776",
+      "path": "/secondless/w-c/eggjs+postman%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7%E5%B0%86%E7%95%99%E8%A8%80%E5%86%99%E5%85%A5json%E6%96%87%E4%BB%B6.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "一、基础准备",
+          "slug": "一、基础准备"
+        },
+        {
+          "level": 3,
+          "title": "① 安装eggjs项目、postman调试工具、关闭csrf开启跨域",
+          "slug": "_1-安装eggjs项目、postman调试工具、关闭csrf开启跨域"
+        },
+        {
+          "level": 3,
+          "title": "② 配置路由",
+          "slug": "_2-配置路由"
+        },
+        {
+          "level": 3,
+          "title": "③ 控制器代码",
+          "slug": "_3-控制器代码"
+        }
+      ],
+      "lastUpdated": "2024年1月12日星期五上午10点54分",
+      "lastUpdatedTimestamp": 1705028061000
+    },
+    {
+      "title": "Egg.js基础总结",
+      "frontmatter": {
+        "navbar": true,
+        "sidebar": "auto",
+        "title": "Egg.js基础总结"
+      },
+      "regularPath": "/secondless/w-c/egg.js%E5%9F%BA%E7%A1%80%E6%80%BB%E7%BB%93.html",
+      "relativePath": "secondless/w-c/egg.js基础总结.md",
+      "key": "v-25ebe1b9",
+      "path": "/secondless/w-c/egg.js%E5%9F%BA%E7%A1%80%E6%80%BB%E7%BB%93.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "1. 安装",
+          "slug": "_1-安装"
+        },
+        {
+          "level": 2,
+          "title": "2.写第一个api接口",
+          "slug": "_2-写第一个api接口"
+        },
+        {
+          "level": 3,
+          "title": "安装vscode扩展 eggjs",
+          "slug": "安装vscode扩展-eggjs"
+        },
+        {
+          "level": 3,
+          "title": "创建控制器",
+          "slug": "创建控制器"
+        },
+        {
+          "level": 2,
+          "title": "3.编写路由",
+          "slug": "_3-编写路由"
+        },
+        {
+          "level": 3,
+          "title": "基础用法",
+          "slug": "基础用法"
+        },
+        {
+          "level": 3,
+          "title": "资源路由",
+          "slug": "资源路由"
+        },
+        {
+          "level": 3,
+          "title": "路由分组",
+          "slug": "路由分组"
+        },
+        {
+          "level": 3,
+          "title": "关闭csrf开启跨域",
+          "slug": "关闭csrf开启跨域"
+        },
+        {
+          "level": 2,
+          "title": "4.数据库",
+          "slug": "_4-数据库"
+        },
+        {
+          "level": 3,
+          "title": "配置和创建迁移文件",
+          "slug": "配置和创建迁移文件"
+        },
+        {
+          "level": 3,
+          "title": "配置",
+          "slug": "配置"
+        },
+        {
+          "level": 3,
+          "title": "创建数据迁移表",
+          "slug": "创建数据迁移表"
+        },
+        {
+          "level": 2,
+          "title": "5.模型",
+          "slug": "_5-模型"
+        },
+        {
+          "level": 3,
+          "title": "创建模型",
+          "slug": "创建模型"
+        },
+        {
+          "level": 2,
+          "title": "6. 错误和异常处理",
+          "slug": "_6-错误和异常处理"
+        },
+        {
+          "level": 2,
+          "title": "7.中间件",
+          "slug": "_7-中间件"
+        },
+        {
+          "level": 2,
+          "title": "8.参数验证",
+          "slug": "_8-参数验证"
+        }
+      ],
+      "lastUpdated": "2024年2月4日星期日下午4点22分",
+      "lastUpdatedTimestamp": 1707034921000
+    },
+    {
       "title": "章节4.Egg.js和Mysql数据库进阶进一步开发网站后台",
       "frontmatter": {
         "navbar": true,
@@ -8760,148 +8902,6 @@ export const siteData = {
       ],
       "lastUpdated": "2024年5月16日星期四中午12点14分",
       "lastUpdatedTimestamp": 1715832881000
-    },
-    {
-      "title": "Egg.js基础总结",
-      "frontmatter": {
-        "navbar": true,
-        "sidebar": "auto",
-        "title": "Egg.js基础总结"
-      },
-      "regularPath": "/secondless/w-c/egg.js%E5%9F%BA%E7%A1%80%E6%80%BB%E7%BB%93.html",
-      "relativePath": "secondless/w-c/egg.js基础总结.md",
-      "key": "v-25ebe1b9",
-      "path": "/secondless/w-c/egg.js%E5%9F%BA%E7%A1%80%E6%80%BB%E7%BB%93.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "1. 安装",
-          "slug": "_1-安装"
-        },
-        {
-          "level": 2,
-          "title": "2.写第一个api接口",
-          "slug": "_2-写第一个api接口"
-        },
-        {
-          "level": 3,
-          "title": "安装vscode扩展 eggjs",
-          "slug": "安装vscode扩展-eggjs"
-        },
-        {
-          "level": 3,
-          "title": "创建控制器",
-          "slug": "创建控制器"
-        },
-        {
-          "level": 2,
-          "title": "3.编写路由",
-          "slug": "_3-编写路由"
-        },
-        {
-          "level": 3,
-          "title": "基础用法",
-          "slug": "基础用法"
-        },
-        {
-          "level": 3,
-          "title": "资源路由",
-          "slug": "资源路由"
-        },
-        {
-          "level": 3,
-          "title": "路由分组",
-          "slug": "路由分组"
-        },
-        {
-          "level": 3,
-          "title": "关闭csrf开启跨域",
-          "slug": "关闭csrf开启跨域"
-        },
-        {
-          "level": 2,
-          "title": "4.数据库",
-          "slug": "_4-数据库"
-        },
-        {
-          "level": 3,
-          "title": "配置和创建迁移文件",
-          "slug": "配置和创建迁移文件"
-        },
-        {
-          "level": 3,
-          "title": "配置",
-          "slug": "配置"
-        },
-        {
-          "level": 3,
-          "title": "创建数据迁移表",
-          "slug": "创建数据迁移表"
-        },
-        {
-          "level": 2,
-          "title": "5.模型",
-          "slug": "_5-模型"
-        },
-        {
-          "level": 3,
-          "title": "创建模型",
-          "slug": "创建模型"
-        },
-        {
-          "level": 2,
-          "title": "6. 错误和异常处理",
-          "slug": "_6-错误和异常处理"
-        },
-        {
-          "level": 2,
-          "title": "7.中间件",
-          "slug": "_7-中间件"
-        },
-        {
-          "level": 2,
-          "title": "8.参数验证",
-          "slug": "_8-参数验证"
-        }
-      ],
-      "lastUpdated": "2024年2月4日星期日下午4点22分",
-      "lastUpdatedTimestamp": 1707034921000
-    },
-    {
-      "title": "案例：eggjs+postman测试工具将留言写入json文件",
-      "frontmatter": {
-        "navbar": true,
-        "sidebar": "auto",
-        "title": "案例：eggjs+postman测试工具将留言写入json文件"
-      },
-      "regularPath": "/secondless/w-c/eggjs+postman%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7%E5%B0%86%E7%95%99%E8%A8%80%E5%86%99%E5%85%A5json%E6%96%87%E4%BB%B6.html",
-      "relativePath": "secondless/w-c/eggjs+postman测试工具将留言写入json文件.md",
-      "key": "v-2dfeb776",
-      "path": "/secondless/w-c/eggjs+postman%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7%E5%B0%86%E7%95%99%E8%A8%80%E5%86%99%E5%85%A5json%E6%96%87%E4%BB%B6.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "一、基础准备",
-          "slug": "一、基础准备"
-        },
-        {
-          "level": 3,
-          "title": "① 安装eggjs项目、postman调试工具、关闭csrf开启跨域",
-          "slug": "_1-安装eggjs项目、postman调试工具、关闭csrf开启跨域"
-        },
-        {
-          "level": 3,
-          "title": "② 配置路由",
-          "slug": "_2-配置路由"
-        },
-        {
-          "level": 3,
-          "title": "③ 控制器代码",
-          "slug": "_3-控制器代码"
-        }
-      ],
-      "lastUpdated": "2024年1月12日星期五上午10点54分",
-      "lastUpdatedTimestamp": 1705028061000
     },
     {
       "title": "mysql数据库基础",
@@ -9637,6 +9637,133 @@ export const siteData = {
       "lastUpdatedTimestamp": 1707034921000
     },
     {
+      "title": "企业网站其它页面(非首页)",
+      "frontmatter": {
+        "navbar": true,
+        "sidebar": "auto",
+        "title": "企业网站其它页面(非首页)"
+      },
+      "regularPath": "/secondless/w-c/%E4%BC%81%E4%B8%9A%E7%BD%91%E7%AB%99%E5%85%B6%E5%AE%83%E9%A1%B5%E9%9D%A2(%E9%9D%9E%E9%A6%96%E9%A1%B5).html",
+      "relativePath": "secondless/w-c/企业网站其它页面(非首页).md",
+      "key": "v-2d74d3cb",
+      "path": "/secondless/w-c/%E4%BC%81%E4%B8%9A%E7%BD%91%E7%AB%99%E5%85%B6%E5%AE%83%E9%A1%B5%E9%9D%A2(%E9%9D%9E%E9%A6%96%E9%A1%B5).html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "一、完成工程案例、资讯中心页面渲染",
+          "slug": "一、完成工程案例、资讯中心页面渲染"
+        },
+        {
+          "level": 3,
+          "title": "1. 控制器 app/controller/api/template01/api.js",
+          "slug": "_1-控制器-app-controller-api-template01-api-js"
+        },
+        {
+          "level": 3,
+          "title": "2. 模版 app/view/api/template01/main_app.html",
+          "slug": "_2-模版-app-view-api-template01-main-app-html"
+        },
+        {
+          "level": 3,
+          "title": "3. 模版 app/view/api/template01/_ortherpage.html",
+          "slug": "_3-模版-app-view-api-template01-ortherpage-html"
+        },
+        {
+          "level": 3,
+          "title": "4. 扩展 app/extend/context.js",
+          "slug": "_4-扩展-app-extend-context-js"
+        },
+        {
+          "level": 3,
+          "title": "5. 路由 app/router/api/template01/router.js",
+          "slug": "_5-路由-app-router-api-template01-router-js"
+        },
+        {
+          "level": 2,
+          "title": "二、文章详情页数据渲染",
+          "slug": "二、文章详情页数据渲染"
+        },
+        {
+          "level": 3,
+          "title": "1. 控制器 app/controller/api/template01/api.js",
+          "slug": "_1-控制器-app-controller-api-template01-api-js-2"
+        },
+        {
+          "level": 3,
+          "title": "2. 路由 app/router/api/template01/router.js",
+          "slug": "_2-路由-app-router-api-template01-router-js"
+        },
+        {
+          "level": 3,
+          "title": "3. 模版 app/view/api/template01/_ortherpage.html",
+          "slug": "_3-模版-app-view-api-template01-ortherpage-html-2"
+        },
+        {
+          "level": 2,
+          "title": "三、工程案例、资讯中心等文章链接完善，返回列表功能完善",
+          "slug": "三、工程案例、资讯中心等文章链接完善-返回列表功能完善"
+        },
+        {
+          "level": 3,
+          "title": "1. 控制器 app/controller/api/template01/api.js",
+          "slug": "_1-控制器-app-controller-api-template01-api-js-3"
+        },
+        {
+          "level": 3,
+          "title": "2. 模版 app/view/api/template01/_ortherpage.html",
+          "slug": "_2-模版-app-view-api-template01-ortherpage-html"
+        },
+        {
+          "level": 2,
+          "title": "四、处理网站导航栏及选中情况",
+          "slug": "四、处理网站导航栏及选中情况"
+        }
+      ],
+      "lastUpdated": "2024年5月24日星期五下午4点41分",
+      "lastUpdatedTimestamp": 1716540083000
+    },
+    {
+      "title": "企业网站首页",
+      "frontmatter": {
+        "navbar": true,
+        "sidebar": "auto",
+        "title": "企业网站首页"
+      },
+      "regularPath": "/secondless/w-c/%E4%BC%81%E4%B8%9A%E7%BD%91%E7%AB%99%E9%A6%96%E9%A1%B5.html",
+      "relativePath": "secondless/w-c/企业网站首页.md",
+      "key": "v-66046028",
+      "path": "/secondless/w-c/%E4%BC%81%E4%B8%9A%E7%BD%91%E7%AB%99%E9%A6%96%E9%A1%B5.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "一、数据库数据准备",
+          "slug": "一、数据库数据准备"
+        },
+        {
+          "level": 2,
+          "title": "二、读取数据库数据渲染到模版页面（以合作单位为例）",
+          "slug": "二、读取数据库数据渲染到模版页面-以合作单位为例"
+        },
+        {
+          "level": 2,
+          "title": "三、封装通过分类id获取数据的方法到服务中，简化读取数据操作（以资讯中心为例）",
+          "slug": "三、封装通过分类id获取数据的方法到服务中-简化读取数据操作-以资讯中心为例"
+        },
+        {
+          "level": 2,
+          "title": "四、完善首页其它板块的数据展示",
+          "slug": "四、完善首页其它板块的数据展示"
+        },
+        {
+          "level": 2,
+          "title": "五、网站其它页面：处理分页",
+          "slug": "五、网站其它页面-处理分页"
+        }
+      ],
+      "lastUpdated": "2024年5月23日星期四下午4点07分",
+      "lastUpdatedTimestamp": 1716451673000
+    },
+    {
       "title": "章节5.企业网站前端部分",
       "frontmatter": {
         "navbar": true,
@@ -9746,417 +9873,6 @@ export const siteData = {
       ],
       "lastUpdated": "2024年5月24日星期五上午11点01分",
       "lastUpdatedTimestamp": 1716519676000
-    },
-    {
-      "title": "企业网站后台内容管理",
-      "frontmatter": {
-        "navbar": true,
-        "sidebar": "auto",
-        "title": "企业网站后台内容管理"
-      },
-      "regularPath": "/secondless/w-c/%E4%BC%81%E4%B8%9A%E7%BD%91%E7%AB%99%E5%90%8E%E5%8F%B0%E5%86%85%E5%AE%B9%E7%AE%A1%E7%90%86.html",
-      "relativePath": "secondless/w-c/企业网站后台内容管理.md",
-      "key": "v-44293db4",
-      "path": "/secondless/w-c/%E4%BC%81%E4%B8%9A%E7%BD%91%E7%AB%99%E5%90%8E%E5%8F%B0%E5%86%85%E5%AE%B9%E7%AE%A1%E7%90%86.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "一、企业网站后台内容管理（网站的新闻、产品、内容等等信息）表 news",
-          "slug": "一、企业网站后台内容管理-网站的新闻、产品、内容等等信息-表-news"
-        },
-        {
-          "level": 3,
-          "title": "1、表设计",
-          "slug": "_1、表设计"
-        },
-        {
-          "level": 3,
-          "title": "2、创建迁移文件、执行迁移命令创建数据表 news",
-          "slug": "_2、创建迁移文件、执行迁移命令创建数据表-news"
-        },
-        {
-          "level": 3,
-          "title": "3、创建 news表 的模型",
-          "slug": "_3、创建-news表-的模型"
-        },
-        {
-          "level": 3,
-          "title": "4、完成基本的新闻内容列表展示、及创建发布新闻内容界面",
-          "slug": "_4、完成基本的新闻内容列表展示、及创建发布新闻内容界面"
-        },
-        {
-          "level": 3,
-          "title": "5、完成发布新闻内容的数据提交，以及删除单个新闻内容",
-          "slug": "_5、完成发布新闻内容的数据提交-以及删除单个新闻内容"
-        },
-        {
-          "level": 3,
-          "title": "6、发布新闻内容界面的内容摘要换成文本域标签，内容附件换成自定义的按钮组选择附件内容",
-          "slug": "_6、发布新闻内容界面的内容摘要换成文本域标签-内容附件换成自定义的按钮组选择附件内容"
-        },
-        {
-          "level": 2,
-          "title": "二、初步引入富文本编辑器",
-          "slug": "二、初步引入富文本编辑器"
-        },
-        {
-          "level": 3,
-          "title": "tinymce 编辑器说明",
-          "slug": "tinymce-编辑器说明"
-        },
-        {
-          "level": 3,
-          "title": "如何使用",
-          "slug": "如何使用"
-        },
-        {
-          "level": 2,
-          "title": "三、富文本编辑器常用配置说明及上传图片",
-          "slug": "三、富文本编辑器常用配置说明及上传图片"
-        },
-        {
-          "level": 3,
-          "title": "常用配置说明及上传图片：",
-          "slug": "常用配置说明及上传图片"
-        },
-        {
-          "level": 3,
-          "title": "完整配置参考",
-          "slug": "完整配置参考"
-        },
-        {
-          "level": 2,
-          "title": "四、修改新闻内容",
-          "slug": "四、修改新闻内容"
-        },
-        {
-          "level": 2,
-          "title": "五、新闻列表页面调整标题展示、新增是否显示按钮组，并对按钮组方法封装成公共方法",
-          "slug": "五、新闻列表页面调整标题展示、新增是否显示按钮组-并对按钮组方法封装成公共方法"
-        }
-      ],
-      "lastUpdated": "2024年4月17日星期三下午4点24分",
-      "lastUpdatedTimestamp": 1713342247000
-    },
-    {
-      "title": "企业网站后台栏目管理",
-      "frontmatter": {
-        "navbar": true,
-        "sidebar": "auto",
-        "title": "企业网站后台栏目管理"
-      },
-      "regularPath": "/secondless/w-c/%E4%BC%81%E4%B8%9A%E7%BD%91%E7%AB%99%E5%90%8E%E5%8F%B0%E6%A0%8F%E7%9B%AE%E7%AE%A1%E7%90%86.html",
-      "relativePath": "secondless/w-c/企业网站后台栏目管理.md",
-      "key": "v-9854a0b0",
-      "path": "/secondless/w-c/%E4%BC%81%E4%B8%9A%E7%BD%91%E7%AB%99%E5%90%8E%E5%8F%B0%E6%A0%8F%E7%9B%AE%E7%AE%A1%E7%90%86.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "一、企业网站后台栏目管理（网站导航栏，栏目分类）表 category",
-          "slug": "一、企业网站后台栏目管理-网站导航栏-栏目分类-表-category"
-        },
-        {
-          "level": 3,
-          "title": "1、网站栏目分析",
-          "slug": "_1、网站栏目分析"
-        },
-        {
-          "level": 3,
-          "title": "2、分析怎样的数据结构可以方便展示上面的数据？",
-          "slug": "_2、分析怎样的数据结构可以方便展示上面的数据"
-        },
-        {
-          "level": 3,
-          "title": "3、如何将以上结构转成树形结构来方便程序处理和展示？",
-          "slug": "_3、如何将以上结构转成树形结构来方便程序处理和展示"
-        },
-        {
-          "level": 3,
-          "title": "入门级方法",
-          "slug": "入门级方法"
-        },
-        {
-          "level": 3,
-          "title": "树形结构方法演变",
-          "slug": "树形结构方法演变"
-        },
-        {
-          "level": 3,
-          "title": "演变最终方法：兼容性和扩展性更好的方法",
-          "slug": "演变最终方法-兼容性和扩展性更好的方法"
-        },
-        {
-          "level": 3,
-          "title": "测试方法",
-          "slug": "测试方法"
-        },
-        {
-          "level": 3,
-          "title": "4、最终表设计",
-          "slug": "_4、最终表设计"
-        },
-        {
-          "level": 3,
-          "title": "5、创建迁移文件、执行迁移命令创建数据表 category",
-          "slug": "_5、创建迁移文件、执行迁移命令创建数据表-category"
-        },
-        {
-          "level": 3,
-          "title": "6、创建 category 的模型",
-          "slug": "_6、创建-category-的模型"
-        },
-        {
-          "level": 3,
-          "title": "7、创建表 category 的控制器、完成后台分类列表功能",
-          "slug": "_7、创建表-category-的控制器、完成后台分类列表功能"
-        },
-        {
-          "level": 3,
-          "title": "8、定义路由",
-          "slug": "_8、定义路由"
-        },
-        {
-          "level": 2,
-          "title": "二、后台栏目管理功能升级",
-          "slug": "二、后台栏目管理功能升级"
-        },
-        {
-          "level": 3,
-          "title": "1、根据下拉框选择新增分类到哪个栏目下",
-          "slug": "_1、根据下拉框选择新增分类到哪个栏目下"
-        },
-        {
-          "level": 3,
-          "title": "2、分类列表树形结构展示",
-          "slug": "_2、分类列表树形结构展示"
-        },
-        {
-          "level": 3,
-          "title": "3、分类列表中分类状态显示及修改",
-          "slug": "_3、分类列表中分类状态显示及修改"
-        },
-        {
-          "level": 3,
-          "title": "4、对分类表补充两个字段：排序字段order、分类描述字段description",
-          "slug": "_4、对分类表补充两个字段-排序字段order、分类描述字段description"
-        },
-        {
-          "level": 3,
-          "title": "5、修改分类",
-          "slug": "_5、修改分类"
-        },
-        {
-          "level": 3,
-          "title": "6、删除分类",
-          "slug": "_6、删除分类"
-        }
-      ],
-      "lastUpdated": "2024年4月10日星期三下午5点30分",
-      "lastUpdatedTimestamp": 1712741416000
-    },
-    {
-      "title": "企业网站其它页面(非首页)",
-      "frontmatter": {
-        "navbar": true,
-        "sidebar": "auto",
-        "title": "企业网站其它页面(非首页)"
-      },
-      "regularPath": "/secondless/w-c/%E4%BC%81%E4%B8%9A%E7%BD%91%E7%AB%99%E5%85%B6%E5%AE%83%E9%A1%B5%E9%9D%A2(%E9%9D%9E%E9%A6%96%E9%A1%B5).html",
-      "relativePath": "secondless/w-c/企业网站其它页面(非首页).md",
-      "key": "v-2d74d3cb",
-      "path": "/secondless/w-c/%E4%BC%81%E4%B8%9A%E7%BD%91%E7%AB%99%E5%85%B6%E5%AE%83%E9%A1%B5%E9%9D%A2(%E9%9D%9E%E9%A6%96%E9%A1%B5).html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "一、完成工程案例、资讯中心页面渲染",
-          "slug": "一、完成工程案例、资讯中心页面渲染"
-        },
-        {
-          "level": 3,
-          "title": "1. 控制器 app/controller/api/template01/api.js",
-          "slug": "_1-控制器-app-controller-api-template01-api-js"
-        },
-        {
-          "level": 3,
-          "title": "2. 模版 app/view/api/template01/main_app.html",
-          "slug": "_2-模版-app-view-api-template01-main-app-html"
-        },
-        {
-          "level": 3,
-          "title": "3. 模版 app/view/api/template01/_ortherpage.html",
-          "slug": "_3-模版-app-view-api-template01-ortherpage-html"
-        },
-        {
-          "level": 3,
-          "title": "4. 扩展 app/extend/context.js",
-          "slug": "_4-扩展-app-extend-context-js"
-        },
-        {
-          "level": 3,
-          "title": "5. 路由 app/router/api/template01/router.js",
-          "slug": "_5-路由-app-router-api-template01-router-js"
-        },
-        {
-          "level": 2,
-          "title": "二、文章详情页数据渲染",
-          "slug": "二、文章详情页数据渲染"
-        },
-        {
-          "level": 3,
-          "title": "1. 控制器 app/controller/api/template01/api.js",
-          "slug": "_1-控制器-app-controller-api-template01-api-js-2"
-        },
-        {
-          "level": 3,
-          "title": "2. 路由 app/router/api/template01/router.js",
-          "slug": "_2-路由-app-router-api-template01-router-js"
-        },
-        {
-          "level": 3,
-          "title": "3. 模版 app/view/api/template01/_ortherpage.html",
-          "slug": "_3-模版-app-view-api-template01-ortherpage-html-2"
-        },
-        {
-          "level": 2,
-          "title": "三、工程案例、资讯中心等文章链接完善，返回列表功能完善",
-          "slug": "三、工程案例、资讯中心等文章链接完善-返回列表功能完善"
-        },
-        {
-          "level": 3,
-          "title": "1. 控制器 app/controller/api/template01/api.js",
-          "slug": "_1-控制器-app-controller-api-template01-api-js-3"
-        },
-        {
-          "level": 3,
-          "title": "2. 模版 app/view/api/template01/_ortherpage.html",
-          "slug": "_2-模版-app-view-api-template01-ortherpage-html"
-        }
-      ],
-      "lastUpdated": "2024年5月24日星期五下午2点44分",
-      "lastUpdatedTimestamp": 1716533041000
-    },
-    {
-      "title": "企业网站首页",
-      "frontmatter": {
-        "navbar": true,
-        "sidebar": "auto",
-        "title": "企业网站首页"
-      },
-      "regularPath": "/secondless/w-c/%E4%BC%81%E4%B8%9A%E7%BD%91%E7%AB%99%E9%A6%96%E9%A1%B5.html",
-      "relativePath": "secondless/w-c/企业网站首页.md",
-      "key": "v-66046028",
-      "path": "/secondless/w-c/%E4%BC%81%E4%B8%9A%E7%BD%91%E7%AB%99%E9%A6%96%E9%A1%B5.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "一、数据库数据准备",
-          "slug": "一、数据库数据准备"
-        },
-        {
-          "level": 2,
-          "title": "二、读取数据库数据渲染到模版页面（以合作单位为例）",
-          "slug": "二、读取数据库数据渲染到模版页面-以合作单位为例"
-        },
-        {
-          "level": 2,
-          "title": "三、封装通过分类id获取数据的方法到服务中，简化读取数据操作（以资讯中心为例）",
-          "slug": "三、封装通过分类id获取数据的方法到服务中-简化读取数据操作-以资讯中心为例"
-        },
-        {
-          "level": 2,
-          "title": "四、完善首页其它板块的数据展示",
-          "slug": "四、完善首页其它板块的数据展示"
-        },
-        {
-          "level": 2,
-          "title": "五、网站其它页面：处理分页",
-          "slug": "五、网站其它页面-处理分页"
-        }
-      ],
-      "lastUpdated": "2024年5月23日星期四下午4点07分",
-      "lastUpdatedTimestamp": 1716451673000
-    },
-    {
-      "title": "响应式后台界面示例代码",
-      "frontmatter": {
-        "navbar": true,
-        "sidebar": "auto",
-        "title": "响应式后台界面示例代码"
-      },
-      "regularPath": "/secondless/w-c/%E5%93%8D%E5%BA%94%E5%BC%8F%E5%90%8E%E5%8F%B0%E7%95%8C%E9%9D%A2%E7%A4%BA%E4%BE%8B%E4%BB%A3%E7%A0%81.html",
-      "relativePath": "secondless/w-c/响应式后台界面示例代码.md",
-      "key": "v-ee843006",
-      "path": "/secondless/w-c/%E5%93%8D%E5%BA%94%E5%BC%8F%E5%90%8E%E5%8F%B0%E7%95%8C%E9%9D%A2%E7%A4%BA%E4%BE%8B%E4%BB%A3%E7%A0%81.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "main_app.html实例代码（一）：初步抽离公共部分",
-          "slug": "main-app-html实例代码-一-初步抽离公共部分"
-        }
-      ],
-      "lastUpdated": "2024年2月29日星期四下午2点41分",
-      "lastUpdatedTimestamp": 1709188912000
-    },
-    {
-      "title": "响应式后台用户留言板管理",
-      "frontmatter": {
-        "navbar": true,
-        "sidebar": "auto",
-        "title": "响应式后台用户留言板管理"
-      },
-      "regularPath": "/secondless/w-c/%E5%93%8D%E5%BA%94%E5%BC%8F%E5%90%8E%E5%8F%B0%E7%94%A8%E6%88%B7%E7%95%99%E8%A8%80%E6%9D%BF%E7%AE%A1%E7%90%86.html",
-      "relativePath": "secondless/w-c/响应式后台用户留言板管理.md",
-      "key": "v-44ee6150",
-      "path": "/secondless/w-c/%E5%93%8D%E5%BA%94%E5%BC%8F%E5%90%8E%E5%8F%B0%E7%94%A8%E6%88%B7%E7%95%99%E8%A8%80%E6%9D%BF%E7%AE%A1%E7%90%86.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "一、创建数据库用户留言表 message",
-          "slug": "一、创建数据库用户留言表-message"
-        },
-        {
-          "level": 2,
-          "title": "二、创建迁移文件、执行迁移命令创建数据表",
-          "slug": "二、创建迁移文件、执行迁移命令创建数据表"
-        },
-        {
-          "level": 2,
-          "title": "三、创建留言表 message的模型",
-          "slug": "三、创建留言表-message的模型"
-        },
-        {
-          "level": 2,
-          "title": "四、提交留言（示例）",
-          "slug": "四、提交留言-示例"
-        },
-        {
-          "level": 3,
-          "title": "创建控制器 app/controller/admin/message.js",
-          "slug": "创建控制器-app-controller-admin-message-js"
-        },
-        {
-          "level": 3,
-          "title": "定义路由",
-          "slug": "定义路由"
-        },
-        {
-          "level": 2,
-          "title": "五、留言列表、修改留言、删除留言",
-          "slug": "五、留言列表、修改留言、删除留言"
-        },
-        {
-          "level": 3,
-          "title": "控制器 app/controller/admin/message.js",
-          "slug": "控制器-app-controller-admin-message-js"
-        },
-        {
-          "level": 3,
-          "title": "定义路由",
-          "slug": "定义路由-2"
-        }
-      ],
-      "lastUpdated": "2024年3月8日星期五下午2点06分",
-      "lastUpdatedTimestamp": 1709877999000
     },
     {
       "title": "响应式后台公共模版",
@@ -10280,6 +9996,88 @@ export const siteData = {
       "lastUpdatedTimestamp": 1709722863000
     },
     {
+      "title": "响应式后台用户留言板管理",
+      "frontmatter": {
+        "navbar": true,
+        "sidebar": "auto",
+        "title": "响应式后台用户留言板管理"
+      },
+      "regularPath": "/secondless/w-c/%E5%93%8D%E5%BA%94%E5%BC%8F%E5%90%8E%E5%8F%B0%E7%94%A8%E6%88%B7%E7%95%99%E8%A8%80%E6%9D%BF%E7%AE%A1%E7%90%86.html",
+      "relativePath": "secondless/w-c/响应式后台用户留言板管理.md",
+      "key": "v-44ee6150",
+      "path": "/secondless/w-c/%E5%93%8D%E5%BA%94%E5%BC%8F%E5%90%8E%E5%8F%B0%E7%94%A8%E6%88%B7%E7%95%99%E8%A8%80%E6%9D%BF%E7%AE%A1%E7%90%86.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "一、创建数据库用户留言表 message",
+          "slug": "一、创建数据库用户留言表-message"
+        },
+        {
+          "level": 2,
+          "title": "二、创建迁移文件、执行迁移命令创建数据表",
+          "slug": "二、创建迁移文件、执行迁移命令创建数据表"
+        },
+        {
+          "level": 2,
+          "title": "三、创建留言表 message的模型",
+          "slug": "三、创建留言表-message的模型"
+        },
+        {
+          "level": 2,
+          "title": "四、提交留言（示例）",
+          "slug": "四、提交留言-示例"
+        },
+        {
+          "level": 3,
+          "title": "创建控制器 app/controller/admin/message.js",
+          "slug": "创建控制器-app-controller-admin-message-js"
+        },
+        {
+          "level": 3,
+          "title": "定义路由",
+          "slug": "定义路由"
+        },
+        {
+          "level": 2,
+          "title": "五、留言列表、修改留言、删除留言",
+          "slug": "五、留言列表、修改留言、删除留言"
+        },
+        {
+          "level": 3,
+          "title": "控制器 app/controller/admin/message.js",
+          "slug": "控制器-app-controller-admin-message-js"
+        },
+        {
+          "level": 3,
+          "title": "定义路由",
+          "slug": "定义路由-2"
+        }
+      ],
+      "lastUpdated": "2024年3月8日星期五下午2点06分",
+      "lastUpdatedTimestamp": 1709877999000
+    },
+    {
+      "title": "响应式后台界面示例代码",
+      "frontmatter": {
+        "navbar": true,
+        "sidebar": "auto",
+        "title": "响应式后台界面示例代码"
+      },
+      "regularPath": "/secondless/w-c/%E5%93%8D%E5%BA%94%E5%BC%8F%E5%90%8E%E5%8F%B0%E7%95%8C%E9%9D%A2%E7%A4%BA%E4%BE%8B%E4%BB%A3%E7%A0%81.html",
+      "relativePath": "secondless/w-c/响应式后台界面示例代码.md",
+      "key": "v-ee843006",
+      "path": "/secondless/w-c/%E5%93%8D%E5%BA%94%E5%BC%8F%E5%90%8E%E5%8F%B0%E7%95%8C%E9%9D%A2%E7%A4%BA%E4%BE%8B%E4%BB%A3%E7%A0%81.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "main_app.html实例代码（一）：初步抽离公共部分",
+          "slug": "main-app-html实例代码-一-初步抽离公共部分"
+        }
+      ],
+      "lastUpdated": "2024年2月29日星期四下午2点41分",
+      "lastUpdatedTimestamp": 1709188912000
+    },
+    {
       "title": "响应式后台管理员登录",
       "frontmatter": {
         "navbar": true,
@@ -10354,6 +10152,97 @@ export const siteData = {
       ],
       "lastUpdated": "2024年3月7日星期四下午5点46分",
       "lastUpdatedTimestamp": 1709804786000
+    },
+    {
+      "title": "企业网站后台内容管理",
+      "frontmatter": {
+        "navbar": true,
+        "sidebar": "auto",
+        "title": "企业网站后台内容管理"
+      },
+      "regularPath": "/secondless/w-c/%E4%BC%81%E4%B8%9A%E7%BD%91%E7%AB%99%E5%90%8E%E5%8F%B0%E5%86%85%E5%AE%B9%E7%AE%A1%E7%90%86.html",
+      "relativePath": "secondless/w-c/企业网站后台内容管理.md",
+      "key": "v-44293db4",
+      "path": "/secondless/w-c/%E4%BC%81%E4%B8%9A%E7%BD%91%E7%AB%99%E5%90%8E%E5%8F%B0%E5%86%85%E5%AE%B9%E7%AE%A1%E7%90%86.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "一、企业网站后台内容管理（网站的新闻、产品、内容等等信息）表 news",
+          "slug": "一、企业网站后台内容管理-网站的新闻、产品、内容等等信息-表-news"
+        },
+        {
+          "level": 3,
+          "title": "1、表设计",
+          "slug": "_1、表设计"
+        },
+        {
+          "level": 3,
+          "title": "2、创建迁移文件、执行迁移命令创建数据表 news",
+          "slug": "_2、创建迁移文件、执行迁移命令创建数据表-news"
+        },
+        {
+          "level": 3,
+          "title": "3、创建 news表 的模型",
+          "slug": "_3、创建-news表-的模型"
+        },
+        {
+          "level": 3,
+          "title": "4、完成基本的新闻内容列表展示、及创建发布新闻内容界面",
+          "slug": "_4、完成基本的新闻内容列表展示、及创建发布新闻内容界面"
+        },
+        {
+          "level": 3,
+          "title": "5、完成发布新闻内容的数据提交，以及删除单个新闻内容",
+          "slug": "_5、完成发布新闻内容的数据提交-以及删除单个新闻内容"
+        },
+        {
+          "level": 3,
+          "title": "6、发布新闻内容界面的内容摘要换成文本域标签，内容附件换成自定义的按钮组选择附件内容",
+          "slug": "_6、发布新闻内容界面的内容摘要换成文本域标签-内容附件换成自定义的按钮组选择附件内容"
+        },
+        {
+          "level": 2,
+          "title": "二、初步引入富文本编辑器",
+          "slug": "二、初步引入富文本编辑器"
+        },
+        {
+          "level": 3,
+          "title": "tinymce 编辑器说明",
+          "slug": "tinymce-编辑器说明"
+        },
+        {
+          "level": 3,
+          "title": "如何使用",
+          "slug": "如何使用"
+        },
+        {
+          "level": 2,
+          "title": "三、富文本编辑器常用配置说明及上传图片",
+          "slug": "三、富文本编辑器常用配置说明及上传图片"
+        },
+        {
+          "level": 3,
+          "title": "常用配置说明及上传图片：",
+          "slug": "常用配置说明及上传图片"
+        },
+        {
+          "level": 3,
+          "title": "完整配置参考",
+          "slug": "完整配置参考"
+        },
+        {
+          "level": 2,
+          "title": "四、修改新闻内容",
+          "slug": "四、修改新闻内容"
+        },
+        {
+          "level": 2,
+          "title": "五、新闻列表页面调整标题展示、新增是否显示按钮组，并对按钮组方法封装成公共方法",
+          "slug": "五、新闻列表页面调整标题展示、新增是否显示按钮组-并对按钮组方法封装成公共方法"
+        }
+      ],
+      "lastUpdated": "2024年4月17日星期三下午4点24分",
+      "lastUpdatedTimestamp": 1713342247000
     },
     {
       "title": "章节3.响应式网页布局",
@@ -10546,6 +10435,122 @@ export const siteData = {
       ],
       "lastUpdated": "2024年2月27日星期二晚上6点14分",
       "lastUpdatedTimestamp": 1709028889000
+    },
+    {
+      "title": "企业网站后台栏目管理",
+      "frontmatter": {
+        "navbar": true,
+        "sidebar": "auto",
+        "title": "企业网站后台栏目管理"
+      },
+      "regularPath": "/secondless/w-c/%E4%BC%81%E4%B8%9A%E7%BD%91%E7%AB%99%E5%90%8E%E5%8F%B0%E6%A0%8F%E7%9B%AE%E7%AE%A1%E7%90%86.html",
+      "relativePath": "secondless/w-c/企业网站后台栏目管理.md",
+      "key": "v-9854a0b0",
+      "path": "/secondless/w-c/%E4%BC%81%E4%B8%9A%E7%BD%91%E7%AB%99%E5%90%8E%E5%8F%B0%E6%A0%8F%E7%9B%AE%E7%AE%A1%E7%90%86.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "一、企业网站后台栏目管理（网站导航栏，栏目分类）表 category",
+          "slug": "一、企业网站后台栏目管理-网站导航栏-栏目分类-表-category"
+        },
+        {
+          "level": 3,
+          "title": "1、网站栏目分析",
+          "slug": "_1、网站栏目分析"
+        },
+        {
+          "level": 3,
+          "title": "2、分析怎样的数据结构可以方便展示上面的数据？",
+          "slug": "_2、分析怎样的数据结构可以方便展示上面的数据"
+        },
+        {
+          "level": 3,
+          "title": "3、如何将以上结构转成树形结构来方便程序处理和展示？",
+          "slug": "_3、如何将以上结构转成树形结构来方便程序处理和展示"
+        },
+        {
+          "level": 3,
+          "title": "入门级方法",
+          "slug": "入门级方法"
+        },
+        {
+          "level": 3,
+          "title": "树形结构方法演变",
+          "slug": "树形结构方法演变"
+        },
+        {
+          "level": 3,
+          "title": "演变最终方法：兼容性和扩展性更好的方法",
+          "slug": "演变最终方法-兼容性和扩展性更好的方法"
+        },
+        {
+          "level": 3,
+          "title": "测试方法",
+          "slug": "测试方法"
+        },
+        {
+          "level": 3,
+          "title": "4、最终表设计",
+          "slug": "_4、最终表设计"
+        },
+        {
+          "level": 3,
+          "title": "5、创建迁移文件、执行迁移命令创建数据表 category",
+          "slug": "_5、创建迁移文件、执行迁移命令创建数据表-category"
+        },
+        {
+          "level": 3,
+          "title": "6、创建 category 的模型",
+          "slug": "_6、创建-category-的模型"
+        },
+        {
+          "level": 3,
+          "title": "7、创建表 category 的控制器、完成后台分类列表功能",
+          "slug": "_7、创建表-category-的控制器、完成后台分类列表功能"
+        },
+        {
+          "level": 3,
+          "title": "8、定义路由",
+          "slug": "_8、定义路由"
+        },
+        {
+          "level": 2,
+          "title": "二、后台栏目管理功能升级",
+          "slug": "二、后台栏目管理功能升级"
+        },
+        {
+          "level": 3,
+          "title": "1、根据下拉框选择新增分类到哪个栏目下",
+          "slug": "_1、根据下拉框选择新增分类到哪个栏目下"
+        },
+        {
+          "level": 3,
+          "title": "2、分类列表树形结构展示",
+          "slug": "_2、分类列表树形结构展示"
+        },
+        {
+          "level": 3,
+          "title": "3、分类列表中分类状态显示及修改",
+          "slug": "_3、分类列表中分类状态显示及修改"
+        },
+        {
+          "level": 3,
+          "title": "4、对分类表补充两个字段：排序字段order、分类描述字段description",
+          "slug": "_4、对分类表补充两个字段-排序字段order、分类描述字段description"
+        },
+        {
+          "level": 3,
+          "title": "5、修改分类",
+          "slug": "_5、修改分类"
+        },
+        {
+          "level": 3,
+          "title": "6、删除分类",
+          "slug": "_6、删除分类"
+        }
+      ],
+      "lastUpdated": "2024年4月10日星期三下午5点30分",
+      "lastUpdatedTimestamp": 1712741416000
     },
     {
       "title": "响应式后台管理系统：egg.js + bootstrap",
@@ -10850,21 +10855,21 @@ export const siteData = {
       "lastUpdatedTimestamp": 1712022463000
     },
     {
-      "title": "直播功能中的用户表liveuser",
+      "title": "直播功能中的订单表liveorder",
       "frontmatter": {
         "navbar": true,
         "sidebar": "auto",
-        "title": "直播功能中的用户表liveuser"
+        "title": "直播功能中的订单表liveorder"
       },
-      "regularPath": "/secondless/w-c/%E7%9B%B4%E6%92%AD%E5%8A%9F%E8%83%BD%E4%B8%AD%E7%9A%84%E7%94%A8%E6%88%B7%E8%A1%A8liveuser.html",
-      "relativePath": "secondless/w-c/直播功能中的用户表liveuser.md",
-      "key": "v-1460d66a",
-      "path": "/secondless/w-c/%E7%9B%B4%E6%92%AD%E5%8A%9F%E8%83%BD%E4%B8%AD%E7%9A%84%E7%94%A8%E6%88%B7%E8%A1%A8liveuser.html",
+      "regularPath": "/secondless/w-c/%E7%9B%B4%E6%92%AD%E5%8A%9F%E8%83%BD%E4%B8%AD%E7%9A%84%E8%AE%A2%E5%8D%95%E8%A1%A8liveorder.html",
+      "relativePath": "secondless/w-c/直播功能中的订单表liveorder.md",
+      "key": "v-325c8c64",
+      "path": "/secondless/w-c/%E7%9B%B4%E6%92%AD%E5%8A%9F%E8%83%BD%E4%B8%AD%E7%9A%84%E8%AE%A2%E5%8D%95%E8%A1%A8liveorder.html",
       "headers": [
         {
           "level": 2,
-          "title": "一、创建数据库直播功能中的用户表 liveuser",
-          "slug": "一、创建数据库直播功能中的用户表-liveuser"
+          "title": "一、创建数据库直播功能中的订单表 liveorder",
+          "slug": "一、创建数据库直播功能中的订单表-liveorder"
         },
         {
           "level": 2,
@@ -10872,28 +10877,28 @@ export const siteData = {
           "slug": "二、创建迁移文件、执行迁移命令创建数据表"
         },
         {
-          "level": 2,
-          "title": "三、创建直播功能中的用户表 liveuser 的模型",
-          "slug": "三、创建直播功能中的用户表-liveuser-的模型"
+          "level": 3,
+          "title": "重点理解关联关系的设置 references",
+          "slug": "重点理解关联关系的设置-references"
         },
         {
           "level": 2,
-          "title": "四、创建直播功能中的用户表 liveuser 的控制器、完成后台功能中用户的新增用户功能",
-          "slug": "四、创建直播功能中的用户表-liveuser-的控制器、完成后台功能中用户的新增用户功能"
+          "title": "三、创建直播功能中的订单表 liveorder 的模型",
+          "slug": "三、创建直播功能中的订单表-liveorder-的模型"
+        },
+        {
+          "level": 3,
+          "title": "重点理解模型关联关系",
+          "slug": "重点理解模型关联关系"
         },
         {
           "level": 2,
-          "title": "五、完成后台功能中用户的列表展示、修改用户、删除用户",
-          "slug": "五、完成后台功能中用户的列表展示、修改用户、删除用户"
-        },
-        {
-          "level": 2,
-          "title": "六、路由 app/router/admin/admin.js",
-          "slug": "六、路由-app-router-admin-admin-js"
+          "title": "四、创建直播功能中的订单表 liveorder 的控制器、完成后台功能中订单列表功能",
+          "slug": "四、创建直播功能中的订单表-liveorder-的控制器、完成后台功能中订单列表功能"
         }
       ],
-      "lastUpdated": "2024年3月21日星期四上午10点52分",
-      "lastUpdatedTimestamp": 1710989536000
+      "lastUpdated": "2024年3月26日星期二中午12点01分",
+      "lastUpdatedTimestamp": 1711425694000
     },
     {
       "title": "直播功能中的礼物表livegift",
@@ -10942,21 +10947,21 @@ export const siteData = {
       "lastUpdatedTimestamp": 1711018550000
     },
     {
-      "title": "直播功能中的订单表liveorder",
+      "title": "直播功能中的用户表liveuser",
       "frontmatter": {
         "navbar": true,
         "sidebar": "auto",
-        "title": "直播功能中的订单表liveorder"
+        "title": "直播功能中的用户表liveuser"
       },
-      "regularPath": "/secondless/w-c/%E7%9B%B4%E6%92%AD%E5%8A%9F%E8%83%BD%E4%B8%AD%E7%9A%84%E8%AE%A2%E5%8D%95%E8%A1%A8liveorder.html",
-      "relativePath": "secondless/w-c/直播功能中的订单表liveorder.md",
-      "key": "v-325c8c64",
-      "path": "/secondless/w-c/%E7%9B%B4%E6%92%AD%E5%8A%9F%E8%83%BD%E4%B8%AD%E7%9A%84%E8%AE%A2%E5%8D%95%E8%A1%A8liveorder.html",
+      "regularPath": "/secondless/w-c/%E7%9B%B4%E6%92%AD%E5%8A%9F%E8%83%BD%E4%B8%AD%E7%9A%84%E7%94%A8%E6%88%B7%E8%A1%A8liveuser.html",
+      "relativePath": "secondless/w-c/直播功能中的用户表liveuser.md",
+      "key": "v-1460d66a",
+      "path": "/secondless/w-c/%E7%9B%B4%E6%92%AD%E5%8A%9F%E8%83%BD%E4%B8%AD%E7%9A%84%E7%94%A8%E6%88%B7%E8%A1%A8liveuser.html",
       "headers": [
         {
           "level": 2,
-          "title": "一、创建数据库直播功能中的订单表 liveorder",
-          "slug": "一、创建数据库直播功能中的订单表-liveorder"
+          "title": "一、创建数据库直播功能中的用户表 liveuser",
+          "slug": "一、创建数据库直播功能中的用户表-liveuser"
         },
         {
           "level": 2,
@@ -10964,120 +10969,28 @@ export const siteData = {
           "slug": "二、创建迁移文件、执行迁移命令创建数据表"
         },
         {
-          "level": 3,
-          "title": "重点理解关联关系的设置 references",
-          "slug": "重点理解关联关系的设置-references"
+          "level": 2,
+          "title": "三、创建直播功能中的用户表 liveuser 的模型",
+          "slug": "三、创建直播功能中的用户表-liveuser-的模型"
         },
         {
           "level": 2,
-          "title": "三、创建直播功能中的订单表 liveorder 的模型",
-          "slug": "三、创建直播功能中的订单表-liveorder-的模型"
-        },
-        {
-          "level": 3,
-          "title": "重点理解模型关联关系",
-          "slug": "重点理解模型关联关系"
+          "title": "四、创建直播功能中的用户表 liveuser 的控制器、完成后台功能中用户的新增用户功能",
+          "slug": "四、创建直播功能中的用户表-liveuser-的控制器、完成后台功能中用户的新增用户功能"
         },
         {
           "level": 2,
-          "title": "四、创建直播功能中的订单表 liveorder 的控制器、完成后台功能中订单列表功能",
-          "slug": "四、创建直播功能中的订单表-liveorder-的控制器、完成后台功能中订单列表功能"
+          "title": "五、完成后台功能中用户的列表展示、修改用户、删除用户",
+          "slug": "五、完成后台功能中用户的列表展示、修改用户、删除用户"
+        },
+        {
+          "level": 2,
+          "title": "六、路由 app/router/admin/admin.js",
+          "slug": "六、路由-app-router-admin-admin-js"
         }
       ],
-      "lastUpdated": "2024年3月26日星期二中午12点01分",
-      "lastUpdatedTimestamp": 1711425694000
-    },
-    {
-      "title": "IIS服务器",
-      "frontmatter": {
-        "navbar": true,
-        "sidebar": "auto",
-        "title": "IIS服务器"
-      },
-      "regularPath": "/web/IIS/",
-      "relativePath": "web/IIS/README.md",
-      "key": "v-efb17052",
-      "path": "/web/IIS/",
-      "headers": [
-        {
-          "level": 2,
-          "title": "一. IIS服务器配置.net网站上线一般步骤",
-          "slug": "一-iis服务器配置-net网站上线一般步骤"
-        },
-        {
-          "level": 3,
-          "title": "1、 Windows Server 2008 R2 企业版 64位中文版操作系统为例",
-          "slug": "_1、-windows-server-2008-r2-企业版-64位中文版操作系统为例"
-        }
-      ],
-      "lastUpdated": "2023年12月10日星期日下午5点10分",
-      "lastUpdatedTimestamp": 1702199454000
-    },
-    {
-      "title": "网站后台管理员简单权限分配功能实现",
-      "frontmatter": {
-        "navbar": true,
-        "sidebar": "auto",
-        "title": "网站后台管理员简单权限分配功能实现"
-      },
-      "regularPath": "/secondless/w-c/%E7%BD%91%E7%AB%99%E5%90%8E%E5%8F%B0%E7%AE%A1%E7%90%86%E5%91%98%E7%AE%80%E5%8D%95%E6%9D%83%E9%99%90%E5%88%86%E9%85%8D%E5%8A%9F%E8%83%BD%E5%AE%9E%E7%8E%B0.html",
-      "relativePath": "secondless/w-c/网站后台管理员简单权限分配功能实现.md",
-      "key": "v-2a0fd7d0",
-      "path": "/secondless/w-c/%E7%BD%91%E7%AB%99%E5%90%8E%E5%8F%B0%E7%AE%A1%E7%90%86%E5%91%98%E7%AE%80%E5%8D%95%E6%9D%83%E9%99%90%E5%88%86%E9%85%8D%E5%8A%9F%E8%83%BD%E5%AE%9E%E7%8E%B0.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "一、分析权限分配界面并初步实现界面",
-          "slug": "一、分析权限分配界面并初步实现界面"
-        },
-        {
-          "level": 2,
-          "title": "二、权限id集合写进数据库",
-          "slug": "二、权限id集合写进数据库"
-        },
-        {
-          "level": 3,
-          "title": "1、迁移文件、模型文件、数据库管理员表新增 权限字段 auth",
-          "slug": "_1、迁移文件、模型文件、数据库管理员表新增-权限字段-auth"
-        },
-        {
-          "level": 3,
-          "title": "2、控制器 app/controller/admin/manager.js",
-          "slug": "_2、控制器-app-controller-admin-manager-js"
-        },
-        {
-          "level": 3,
-          "title": "3、 模版 app/view/admin/layout/_form.html",
-          "slug": "_3、-模版-app-view-admin-layout-form-html"
-        },
-        {
-          "level": 2,
-          "title": "三、后台根据权限id显示相应管理栏目",
-          "slug": "三、后台根据权限id显示相应管理栏目"
-        },
-        {
-          "level": 3,
-          "title": "1. 创建json文件（推荐），也可以写入数据库，展示后台管理栏目",
-          "slug": "_1-创建json文件-推荐-也可以写入数据库-展示后台管理栏目"
-        },
-        {
-          "level": 3,
-          "title": "2.读取json文件栏目菜单",
-          "slug": "_2-读取json文件栏目菜单"
-        },
-        {
-          "level": 2,
-          "title": "四、管理员根据所分配的权限访问对应栏目，否则无权访问",
-          "slug": "四、管理员根据所分配的权限访问对应栏目-否则无权访问"
-        },
-        {
-          "level": 2,
-          "title": "五、超级管理员修改普通管理员权限及，超级管理员可在管理员列表查看各个管理员权限",
-          "slug": "五、超级管理员修改普通管理员权限及-超级管理员可在管理员列表查看各个管理员权限"
-        }
-      ],
-      "lastUpdated": "2024年5月16日星期四中午12点14分",
-      "lastUpdatedTimestamp": 1715832881000
+      "lastUpdated": "2024年3月21日星期四上午10点52分",
+      "lastUpdatedTimestamp": 1710989536000
     },
     {
       "title": "直播功能中的直播间表live",
@@ -11241,43 +11154,96 @@ export const siteData = {
       "lastUpdatedTimestamp": 1711947350000
     },
     {
-      "title": "Bootstrap",
+      "title": "IIS服务器",
       "frontmatter": {
         "navbar": true,
         "sidebar": "auto",
-        "title": "Bootstrap"
+        "title": "IIS服务器"
       },
-      "regularPath": "/web/bootstrap/",
-      "relativePath": "web/bootstrap/README.md",
-      "key": "v-13c865a1",
-      "path": "/web/bootstrap/",
+      "regularPath": "/web/IIS/",
+      "relativePath": "web/IIS/README.md",
+      "key": "v-efb17052",
+      "path": "/web/IIS/",
       "headers": [
         {
           "level": 2,
-          "title": "1. Bootstrap模板素材网站推荐",
-          "slug": "_1-bootstrap模板素材网站推荐"
+          "title": "一. IIS服务器配置.net网站上线一般步骤",
+          "slug": "一-iis服务器配置-net网站上线一般步骤"
         },
         {
           "level": 3,
-          "title": "① bootstrap模板素材",
-          "slug": "_1-bootstrap模板素材"
+          "title": "1、 Windows Server 2008 R2 企业版 64位中文版操作系统为例",
+          "slug": "_1、-windows-server-2008-r2-企业版-64位中文版操作系统为例"
         }
       ],
-      "lastUpdated": "2023年11月29日星期三晚上6点51分",
-      "lastUpdatedTimestamp": 1701255117000
+      "lastUpdated": "2023年12月10日星期日下午5点10分",
+      "lastUpdatedTimestamp": 1702199454000
     },
     {
-      "title": "我是web总页",
+      "title": "网站后台管理员简单权限分配功能实现",
       "frontmatter": {
         "navbar": true,
-        "title": "我是web总页"
+        "sidebar": "auto",
+        "title": "网站后台管理员简单权限分配功能实现"
       },
-      "regularPath": "/web/",
-      "relativePath": "web/README.md",
-      "key": "v-6de531b2",
-      "path": "/web/",
-      "lastUpdated": "2023年3月1日星期三下午12点33分",
-      "lastUpdatedTimestamp": 1677645233000
+      "regularPath": "/secondless/w-c/%E7%BD%91%E7%AB%99%E5%90%8E%E5%8F%B0%E7%AE%A1%E7%90%86%E5%91%98%E7%AE%80%E5%8D%95%E6%9D%83%E9%99%90%E5%88%86%E9%85%8D%E5%8A%9F%E8%83%BD%E5%AE%9E%E7%8E%B0.html",
+      "relativePath": "secondless/w-c/网站后台管理员简单权限分配功能实现.md",
+      "key": "v-2a0fd7d0",
+      "path": "/secondless/w-c/%E7%BD%91%E7%AB%99%E5%90%8E%E5%8F%B0%E7%AE%A1%E7%90%86%E5%91%98%E7%AE%80%E5%8D%95%E6%9D%83%E9%99%90%E5%88%86%E9%85%8D%E5%8A%9F%E8%83%BD%E5%AE%9E%E7%8E%B0.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "一、分析权限分配界面并初步实现界面",
+          "slug": "一、分析权限分配界面并初步实现界面"
+        },
+        {
+          "level": 2,
+          "title": "二、权限id集合写进数据库",
+          "slug": "二、权限id集合写进数据库"
+        },
+        {
+          "level": 3,
+          "title": "1、迁移文件、模型文件、数据库管理员表新增 权限字段 auth",
+          "slug": "_1、迁移文件、模型文件、数据库管理员表新增-权限字段-auth"
+        },
+        {
+          "level": 3,
+          "title": "2、控制器 app/controller/admin/manager.js",
+          "slug": "_2、控制器-app-controller-admin-manager-js"
+        },
+        {
+          "level": 3,
+          "title": "3、 模版 app/view/admin/layout/_form.html",
+          "slug": "_3、-模版-app-view-admin-layout-form-html"
+        },
+        {
+          "level": 2,
+          "title": "三、后台根据权限id显示相应管理栏目",
+          "slug": "三、后台根据权限id显示相应管理栏目"
+        },
+        {
+          "level": 3,
+          "title": "1. 创建json文件（推荐），也可以写入数据库，展示后台管理栏目",
+          "slug": "_1-创建json文件-推荐-也可以写入数据库-展示后台管理栏目"
+        },
+        {
+          "level": 3,
+          "title": "2.读取json文件栏目菜单",
+          "slug": "_2-读取json文件栏目菜单"
+        },
+        {
+          "level": 2,
+          "title": "四、管理员根据所分配的权限访问对应栏目，否则无权访问",
+          "slug": "四、管理员根据所分配的权限访问对应栏目-否则无权访问"
+        },
+        {
+          "level": 2,
+          "title": "五、超级管理员修改普通管理员权限及，超级管理员可在管理员列表查看各个管理员权限",
+          "slug": "五、超级管理员修改普通管理员权限及-超级管理员可在管理员列表查看各个管理员权限"
+        }
+      ],
+      "lastUpdated": "2024年5月16日星期四中午12点14分",
+      "lastUpdatedTimestamp": 1715832881000
     },
     {
       "title": "Vanta.js，让你的网页焕发3D魔力的JavaScript库",
@@ -11311,6 +11277,19 @@ export const siteData = {
       "lastUpdatedTimestamp": 1703042632000
     },
     {
+      "title": "我是web总页",
+      "frontmatter": {
+        "navbar": true,
+        "title": "我是web总页"
+      },
+      "regularPath": "/web/",
+      "relativePath": "web/README.md",
+      "key": "v-6de531b2",
+      "path": "/web/",
+      "lastUpdated": "2023年3月1日星期三下午12点33分",
+      "lastUpdatedTimestamp": 1677645233000
+    },
+    {
       "title": "Vue3+ElementPlus系统",
       "frontmatter": {
         "navbar": true,
@@ -11342,35 +11321,30 @@ export const siteData = {
       "lastUpdatedTimestamp": 1714303836000
     },
     {
-      "title": "css相关的网站及页面，直接可用",
+      "title": "Bootstrap",
       "frontmatter": {
         "navbar": true,
         "sidebar": "auto",
-        "title": "css相关的网站及页面，直接可用"
+        "title": "Bootstrap"
       },
-      "regularPath": "/web/css/",
-      "relativePath": "web/css/README.md",
-      "key": "v-371bc237",
-      "path": "/web/css/",
+      "regularPath": "/web/bootstrap/",
+      "relativePath": "web/bootstrap/README.md",
+      "key": "v-13c865a1",
+      "path": "/web/bootstrap/",
       "headers": [
         {
           "level": 2,
-          "title": "一. css相关的网站及页面，直接可用",
-          "slug": "一-css相关的网站及页面-直接可用"
+          "title": "1. Bootstrap模板素材网站推荐",
+          "slug": "_1-bootstrap模板素材网站推荐"
         },
         {
           "level": 3,
-          "title": "1、 uiverse.io",
-          "slug": "_1、-uiverse-io-打开uiverse-io官网"
-        },
-        {
-          "level": 3,
-          "title": "2、 navnav.co",
-          "slug": "_2、-navnav-co-打开navnav-co官网"
+          "title": "① bootstrap模板素材",
+          "slug": "_1-bootstrap模板素材"
         }
       ],
-      "lastUpdated": "2023年12月21日星期四下午2点44分",
-      "lastUpdatedTimestamp": 1703141097000
+      "lastUpdated": "2023年11月29日星期三晚上6点51分",
+      "lastUpdatedTimestamp": 1701255117000
     },
     {
       "title": "echarts图表",
@@ -11425,6 +11399,37 @@ export const siteData = {
       "lastUpdatedTimestamp": 1702276374000
     },
     {
+      "title": "css相关的网站及页面，直接可用",
+      "frontmatter": {
+        "navbar": true,
+        "sidebar": "auto",
+        "title": "css相关的网站及页面，直接可用"
+      },
+      "regularPath": "/web/css/",
+      "relativePath": "web/css/README.md",
+      "key": "v-371bc237",
+      "path": "/web/css/",
+      "headers": [
+        {
+          "level": 2,
+          "title": "一. css相关的网站及页面，直接可用",
+          "slug": "一-css相关的网站及页面-直接可用"
+        },
+        {
+          "level": 3,
+          "title": "1、 uiverse.io",
+          "slug": "_1、-uiverse-io-打开uiverse-io官网"
+        },
+        {
+          "level": 3,
+          "title": "2、 navnav.co",
+          "slug": "_2、-navnav-co-打开navnav-co官网"
+        }
+      ],
+      "lastUpdated": "2023年12月21日星期四下午2点44分",
+      "lastUpdatedTimestamp": 1703141097000
+    },
+    {
       "title": "地图相关实用方法",
       "frontmatter": {
         "navbar": true,
@@ -11437,6 +11442,27 @@ export const siteData = {
       "path": "/web/methods/%E5%9C%B0%E5%9B%BE%E7%9B%B8%E5%85%B3.html",
       "lastUpdated": "2023年9月28日星期四中午12点22分",
       "lastUpdatedTimestamp": 1695874932000
+    },
+    {
+      "title": "封装的css样式库",
+      "frontmatter": {
+        "navbar": true,
+        "sidebar": "auto",
+        "title": "封装的css样式库"
+      },
+      "regularPath": "/web/css/%E5%B0%81%E8%A3%85%E7%9A%84css%E6%A0%B7%E5%BC%8F%E5%BA%93.html",
+      "relativePath": "web/css/封装的css样式库.md",
+      "key": "v-5ff7b2bb",
+      "path": "/web/css/%E5%B0%81%E8%A3%85%E7%9A%84css%E6%A0%B7%E5%BC%8F%E5%BA%93.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "一、第一学期封装的css样式库：common.1.0.css",
+          "slug": "一、第一学期封装的css样式库-common-1-0-css"
+        }
+      ],
+      "lastUpdated": "2024年1月5日星期五下午2点53分",
+      "lastUpdatedTimestamp": 1704437586000
     },
     {
       "title": "定位相关实用方法",
@@ -11463,6 +11489,247 @@ export const siteData = {
       ],
       "lastUpdated": "2023年9月29日星期五上午9点12分",
       "lastUpdatedTimestamp": 1695949951000
+    },
+    {
+      "title": "w-a页面",
+      "frontmatter": {
+        "title": "w-a页面"
+      },
+      "regularPath": "/web/w-a.html",
+      "relativePath": "web/w-a.md",
+      "key": "v-544f4fdf",
+      "path": "/web/w-a.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "w-a页面二级标题1",
+          "slug": "w-a页面二级标题1"
+        },
+        {
+          "level": 3,
+          "title": "1.三级标题1",
+          "slug": "_1-三级标题1"
+        },
+        {
+          "level": 3,
+          "title": "2.三级标题2",
+          "slug": "_2-三级标题2"
+        },
+        {
+          "level": 3,
+          "title": "3.三级标题3",
+          "slug": "_3-三级标题3"
+        },
+        {
+          "level": 2,
+          "title": "w-a页面二级标题2",
+          "slug": "w-a页面二级标题2"
+        },
+        {
+          "level": 3,
+          "title": "1.三级标题1",
+          "slug": "_1-三级标题1-2"
+        },
+        {
+          "level": 3,
+          "title": "2.三级标题2",
+          "slug": "_2-三级标题2-2"
+        },
+        {
+          "level": 3,
+          "title": "3.三级标题3",
+          "slug": "_3-三级标题3-2"
+        }
+      ],
+      "lastUpdated": "2023年3月1日星期三下午12点33分",
+      "lastUpdatedTimestamp": 1677645233000
+    },
+    {
+      "title": "课程案例相关表设计及说明",
+      "frontmatter": {
+        "navbar": true,
+        "sidebar": "auto",
+        "title": "课程案例相关表设计及说明"
+      },
+      "regularPath": "/web/mysql/",
+      "relativePath": "web/mysql/README.md",
+      "key": "v-5083308e",
+      "path": "/web/mysql/",
+      "headers": [
+        {
+          "level": 2,
+          "title": "一. 留言表 message",
+          "slug": "一-留言表-message"
+        },
+        {
+          "level": 3,
+          "title": "message 表字段设计",
+          "slug": "message-表字段设计"
+        },
+        {
+          "level": 3,
+          "title": "message 表迁移文件",
+          "slug": "message-表迁移文件"
+        },
+        {
+          "level": 3,
+          "title": "message 模型",
+          "slug": "message-模型"
+        },
+        {
+          "level": 3,
+          "title": "message 参数验证",
+          "slug": "message-参数验证"
+        },
+        {
+          "level": 2,
+          "title": "二. 管理员表 manager",
+          "slug": "二-管理员表-manager"
+        },
+        {
+          "level": 3,
+          "title": "manager 表字段设计",
+          "slug": "manager-表字段设计"
+        },
+        {
+          "level": 3,
+          "title": "manager 表迁移文件、模型、参数验证参考留言表 message，略",
+          "slug": "manager-表迁移文件、模型、参数验证参考留言表-message-略"
+        },
+        {
+          "level": 2,
+          "title": "三. 直播功能中的用户表 liveuser",
+          "slug": "三-直播功能中的用户表-liveuser"
+        },
+        {
+          "level": 2,
+          "title": "四. 直播功能中的礼物表 livegift",
+          "slug": "四-直播功能中的礼物表-livegift"
+        },
+        {
+          "level": 2,
+          "title": "五. 直播功能中的订单表 liveorder",
+          "slug": "五-直播功能中的订单表-liveorder"
+        },
+        {
+          "level": 2,
+          "title": "六. 直播功能中的直播间表 live",
+          "slug": "六-直播功能中的直播间表-live"
+        },
+        {
+          "level": 2,
+          "title": "七. 直播功能中的 直播间观看记录表 live_liveuser",
+          "slug": "七-直播功能中的-直播间观看记录表-live-liveuser"
+        },
+        {
+          "level": 2,
+          "title": "八. 直播功能中的 直播间刷礼物记录表 live_livegift",
+          "slug": "八-直播功能中的-直播间刷礼物记录表-live-livegift"
+        },
+        {
+          "level": 2,
+          "title": "九. 直播功能中的 查看直播间弹幕（评论）表 livecomment",
+          "slug": "九-直播功能中的-查看直播间弹幕-评论-表-livecomment"
+        },
+        {
+          "level": 2,
+          "title": "十. 网站中的 栏目管理（网站导航栏，栏目分类）表 category",
+          "slug": "十-网站中的-栏目管理-网站导航栏-栏目分类-表-category"
+        },
+        {
+          "level": 2,
+          "title": "十一. 网站中的 内容管理（网站的新闻、产品、内容等等信息）表 news",
+          "slug": "十一-网站中的-内容管理-网站的新闻、产品、内容等等信息-表-news"
+        }
+      ],
+      "lastUpdated": "2024年4月11日星期四下午2点24分",
+      "lastUpdatedTimestamp": 1712816688000
+    },
+    {
+      "title": "Vue.js",
+      "frontmatter": {
+        "navbar": true,
+        "sidebar": "auto",
+        "title": "Vue.js"
+      },
+      "regularPath": "/web/vue.js/",
+      "relativePath": "web/vue.js/README.md",
+      "key": "v-d8f480c2",
+      "path": "/web/vue.js/",
+      "headers": [
+        {
+          "level": 2,
+          "title": "一. Vue.js学习",
+          "slug": "一-vue-js学习"
+        },
+        {
+          "level": 3,
+          "title": "1. Vue.js基础教程Vue2",
+          "slug": "_1-vue-js基础教程vue2-vue-js基础教程vue2"
+        },
+        {
+          "level": 3,
+          "title": "2. Vue.js中文网",
+          "slug": "_2-vue-js中文网-vue-js中文网"
+        },
+        {
+          "level": 3,
+          "title": "3. Vue.js在线挑战平台",
+          "slug": "_3-vue-js在线挑战平台-vue-js在线挑战平台"
+        },
+        {
+          "level": 3,
+          "title": "4. VueUse(基于Vue组合式API的实用工具集)",
+          "slug": "_4-vueuse-基于vue组合式api的实用工具集-vueuse"
+        },
+        {
+          "level": 3,
+          "title": "5. Vue3 One Piece",
+          "slug": "_5-vue3-one-piece-vue3-one-piece"
+        },
+        {
+          "level": 2,
+          "title": "二. 表单",
+          "slug": "二-表单"
+        },
+        {
+          "level": 3,
+          "title": "1. vue-sku-form（一款电商SKU表单配置组件）",
+          "slug": "_1-vue-sku-form-一款电商sku表单配置组件"
+        },
+        {
+          "level": 3,
+          "title": "2. form-create（动态表单生成器）",
+          "slug": "_2-form-create-动态表单生成器"
+        },
+        {
+          "level": 3,
+          "title": "3. Variant Form（一款高效的低代码表单）",
+          "slug": "_3-variant-form-一款高效的低代码表单"
+        },
+        {
+          "level": 2,
+          "title": "三. 拖拽",
+          "slug": "三-拖拽"
+        },
+        {
+          "level": 3,
+          "title": "1. VueDraggablePlus（支持 Vue2 和 Vue3 的拖拽组件）",
+          "slug": "_1-vuedraggableplus-支持-vue2-和-vue3-的拖拽组件"
+        },
+        {
+          "level": 2,
+          "title": "四. 框架",
+          "slug": "四-框架"
+        },
+        {
+          "level": 3,
+          "title": "1.RuoYi-Vue-Plus 强大牛B的后台管理框架",
+          "slug": "_1-ruoyi-vue-plus-强大牛b的后台管理框架"
+        }
+      ],
+      "lastUpdated": "2024年3月14日星期四上午11点02分",
+      "lastUpdatedTimestamp": 1710385355000
     },
     {
       "title": "网站实用接口",
@@ -11687,247 +11954,6 @@ export const siteData = {
       "lastUpdatedTimestamp": 1715832881000
     },
     {
-      "title": "Vue.js",
-      "frontmatter": {
-        "navbar": true,
-        "sidebar": "auto",
-        "title": "Vue.js"
-      },
-      "regularPath": "/web/vue.js/",
-      "relativePath": "web/vue.js/README.md",
-      "key": "v-d8f480c2",
-      "path": "/web/vue.js/",
-      "headers": [
-        {
-          "level": 2,
-          "title": "一. Vue.js学习",
-          "slug": "一-vue-js学习"
-        },
-        {
-          "level": 3,
-          "title": "1. Vue.js基础教程Vue2",
-          "slug": "_1-vue-js基础教程vue2-vue-js基础教程vue2"
-        },
-        {
-          "level": 3,
-          "title": "2. Vue.js中文网",
-          "slug": "_2-vue-js中文网-vue-js中文网"
-        },
-        {
-          "level": 3,
-          "title": "3. Vue.js在线挑战平台",
-          "slug": "_3-vue-js在线挑战平台-vue-js在线挑战平台"
-        },
-        {
-          "level": 3,
-          "title": "4. VueUse(基于Vue组合式API的实用工具集)",
-          "slug": "_4-vueuse-基于vue组合式api的实用工具集-vueuse"
-        },
-        {
-          "level": 3,
-          "title": "5. Vue3 One Piece",
-          "slug": "_5-vue3-one-piece-vue3-one-piece"
-        },
-        {
-          "level": 2,
-          "title": "二. 表单",
-          "slug": "二-表单"
-        },
-        {
-          "level": 3,
-          "title": "1. vue-sku-form（一款电商SKU表单配置组件）",
-          "slug": "_1-vue-sku-form-一款电商sku表单配置组件"
-        },
-        {
-          "level": 3,
-          "title": "2. form-create（动态表单生成器）",
-          "slug": "_2-form-create-动态表单生成器"
-        },
-        {
-          "level": 3,
-          "title": "3. Variant Form（一款高效的低代码表单）",
-          "slug": "_3-variant-form-一款高效的低代码表单"
-        },
-        {
-          "level": 2,
-          "title": "三. 拖拽",
-          "slug": "三-拖拽"
-        },
-        {
-          "level": 3,
-          "title": "1. VueDraggablePlus（支持 Vue2 和 Vue3 的拖拽组件）",
-          "slug": "_1-vuedraggableplus-支持-vue2-和-vue3-的拖拽组件"
-        },
-        {
-          "level": 2,
-          "title": "四. 框架",
-          "slug": "四-框架"
-        },
-        {
-          "level": 3,
-          "title": "1.RuoYi-Vue-Plus 强大牛B的后台管理框架",
-          "slug": "_1-ruoyi-vue-plus-强大牛b的后台管理框架"
-        }
-      ],
-      "lastUpdated": "2024年3月14日星期四上午11点02分",
-      "lastUpdatedTimestamp": 1710385355000
-    },
-    {
-      "title": "课程案例相关表设计及说明",
-      "frontmatter": {
-        "navbar": true,
-        "sidebar": "auto",
-        "title": "课程案例相关表设计及说明"
-      },
-      "regularPath": "/web/mysql/",
-      "relativePath": "web/mysql/README.md",
-      "key": "v-5083308e",
-      "path": "/web/mysql/",
-      "headers": [
-        {
-          "level": 2,
-          "title": "一. 留言表 message",
-          "slug": "一-留言表-message"
-        },
-        {
-          "level": 3,
-          "title": "message 表字段设计",
-          "slug": "message-表字段设计"
-        },
-        {
-          "level": 3,
-          "title": "message 表迁移文件",
-          "slug": "message-表迁移文件"
-        },
-        {
-          "level": 3,
-          "title": "message 模型",
-          "slug": "message-模型"
-        },
-        {
-          "level": 3,
-          "title": "message 参数验证",
-          "slug": "message-参数验证"
-        },
-        {
-          "level": 2,
-          "title": "二. 管理员表 manager",
-          "slug": "二-管理员表-manager"
-        },
-        {
-          "level": 3,
-          "title": "manager 表字段设计",
-          "slug": "manager-表字段设计"
-        },
-        {
-          "level": 3,
-          "title": "manager 表迁移文件、模型、参数验证参考留言表 message，略",
-          "slug": "manager-表迁移文件、模型、参数验证参考留言表-message-略"
-        },
-        {
-          "level": 2,
-          "title": "三. 直播功能中的用户表 liveuser",
-          "slug": "三-直播功能中的用户表-liveuser"
-        },
-        {
-          "level": 2,
-          "title": "四. 直播功能中的礼物表 livegift",
-          "slug": "四-直播功能中的礼物表-livegift"
-        },
-        {
-          "level": 2,
-          "title": "五. 直播功能中的订单表 liveorder",
-          "slug": "五-直播功能中的订单表-liveorder"
-        },
-        {
-          "level": 2,
-          "title": "六. 直播功能中的直播间表 live",
-          "slug": "六-直播功能中的直播间表-live"
-        },
-        {
-          "level": 2,
-          "title": "七. 直播功能中的 直播间观看记录表 live_liveuser",
-          "slug": "七-直播功能中的-直播间观看记录表-live-liveuser"
-        },
-        {
-          "level": 2,
-          "title": "八. 直播功能中的 直播间刷礼物记录表 live_livegift",
-          "slug": "八-直播功能中的-直播间刷礼物记录表-live-livegift"
-        },
-        {
-          "level": 2,
-          "title": "九. 直播功能中的 查看直播间弹幕（评论）表 livecomment",
-          "slug": "九-直播功能中的-查看直播间弹幕-评论-表-livecomment"
-        },
-        {
-          "level": 2,
-          "title": "十. 网站中的 栏目管理（网站导航栏，栏目分类）表 category",
-          "slug": "十-网站中的-栏目管理-网站导航栏-栏目分类-表-category"
-        },
-        {
-          "level": 2,
-          "title": "十一. 网站中的 内容管理（网站的新闻、产品、内容等等信息）表 news",
-          "slug": "十一-网站中的-内容管理-网站的新闻、产品、内容等等信息-表-news"
-        }
-      ],
-      "lastUpdated": "2024年4月11日星期四下午2点24分",
-      "lastUpdatedTimestamp": 1712816688000
-    },
-    {
-      "title": "w-a页面",
-      "frontmatter": {
-        "title": "w-a页面"
-      },
-      "regularPath": "/web/w-a.html",
-      "relativePath": "web/w-a.md",
-      "key": "v-544f4fdf",
-      "path": "/web/w-a.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "w-a页面二级标题1",
-          "slug": "w-a页面二级标题1"
-        },
-        {
-          "level": 3,
-          "title": "1.三级标题1",
-          "slug": "_1-三级标题1"
-        },
-        {
-          "level": 3,
-          "title": "2.三级标题2",
-          "slug": "_2-三级标题2"
-        },
-        {
-          "level": 3,
-          "title": "3.三级标题3",
-          "slug": "_3-三级标题3"
-        },
-        {
-          "level": 2,
-          "title": "w-a页面二级标题2",
-          "slug": "w-a页面二级标题2"
-        },
-        {
-          "level": 3,
-          "title": "1.三级标题1",
-          "slug": "_1-三级标题1-2"
-        },
-        {
-          "level": 3,
-          "title": "2.三级标题2",
-          "slug": "_2-三级标题2-2"
-        },
-        {
-          "level": 3,
-          "title": "3.三级标题3",
-          "slug": "_3-三级标题3-2"
-        }
-      ],
-      "lastUpdated": "2023年3月1日星期三下午12点33分",
-      "lastUpdatedTimestamp": 1677645233000
-    },
-    {
       "title": "w-b页面",
       "frontmatter": {
         "title": "w-b页面"
@@ -12044,27 +12070,6 @@ export const siteData = {
       "path": "/%E5%BC%80%E5%8F%91%E8%AE%B0%E5%BD%95.html",
       "lastUpdated": "2023年7月27日星期四中午12点19分",
       "lastUpdatedTimestamp": 1690431553000
-    },
-    {
-      "title": "封装的css样式库",
-      "frontmatter": {
-        "navbar": true,
-        "sidebar": "auto",
-        "title": "封装的css样式库"
-      },
-      "regularPath": "/web/css/%E5%B0%81%E8%A3%85%E7%9A%84css%E6%A0%B7%E5%BC%8F%E5%BA%93.html",
-      "relativePath": "web/css/封装的css样式库.md",
-      "key": "v-5ff7b2bb",
-      "path": "/web/css/%E5%B0%81%E8%A3%85%E7%9A%84css%E6%A0%B7%E5%BC%8F%E5%BA%93.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "一、第一学期封装的css样式库：common.1.0.css",
-          "slug": "一、第一学期封装的css样式库-common-1-0-css"
-        }
-      ],
-      "lastUpdated": "2024年1月5日星期五下午2点53分",
-      "lastUpdatedTimestamp": 1704437586000
     }
   ],
   "themeConfig": {
