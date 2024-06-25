@@ -198,15 +198,15 @@ title: 章节12.javascript基本包装类型
 > ### ⑫ 字符串位置方法：indexOf(str, n) - 从 n 开始搜索的第一个 str，并将搜索的索引值返回
 > ``` javascript
 > let text = '迪丽热巴是不是美女';
-> console.log(text.indexOf('是'));  //4  返回'美'的索引，索引从0开始，正向搜索'美'第一次出现的位置索引
-> console.log(text.indexOf('是',5));//6  返回'美'的索引，索引从0开始，当前从索引5开始搜索'美'第一次出现的位置，就是索引6了
+> console.log(text.indexOf('是'));  //4  返回'是'的索引，从左往右正向搜索，索引从0开始，正向搜索'是'第一次出现的位置索引
+> console.log(text.indexOf('是',5));//6  返回'是'的索引，从左往右正向搜索，索引从0开始，当前从索引5开始搜索'是'第一次出现的位置，就是索引6了
 > console.log(text.indexOf(','));  // -1 找不到则返回 -1
 > ```
 > ### ⑬ 字符串位置方法：lastIndexOf(str, n) - 从 n 开始搜索的最后一个 str，并将搜索的索引值返回
 > ``` javascript
 > let text = '迪丽热巴是不是美女';
-> console.log(text.lastIndexOf('是'));//6  返回搜索'美'的索引，索引从0开始，反向数第一个出现的位置索引
-> console.log(text.lastIndexOf('是',5));//4  反向搜索，从索引5往前搜索，第一次出现'美'的位置是索引4
+> console.log(text.lastIndexOf('是'));//6    返回搜索'是'的索引，从右往左反向搜索，索引从0开始，反向数第一个出现的'是'位置索引
+> console.log(text.lastIndexOf('是',5));//4  返回搜索'是'的索引，从右往左反向搜索，从索引5往前搜索，第一次出现'是'的位置是索引4
 > console.log(text.lastIndexOf(','));// -1 找不到则返回 -1
 > ```
 > ### ⑭ 将字符串中的某个字符索引位置全部找出放在数组中
