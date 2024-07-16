@@ -16,9 +16,15 @@ title: 第二学期第一季（课程学习顺序：02）
 > 我们第1季的课程主讲js的基础知识：`javascript基础`、`javascript运算符`、`流程控制语句`、`javascript函数`、`javascript对象`、`javascript数组`、`时间和日期`、`Function类型`、`内置对象：Global、Math对象，变量、作用域和内存问题`、`匿名函数和闭包`、`javascript基本包装类型`、`函数对象数组小结`、`浏览器对象模型BOM及浏览器检测`、`网页文档对象模型DOM`、`事件`、`表单处理及错误处理与调试`、`数据Cookie、XML、JSON`，适合所有同学学习，不管你是有一定js基础，还是完全没有js基础，都建议进行学习，虽然说我们第1季讲的是基础，但是涉及的知识面很广，我们后面的课程包括将来开发项目，很多需要依赖这些基础。<br/><br/>
 > 具体课程安排，请看下面的文档目录
 
-## 2.课程视频学习
+## 2.本季课程视频介绍
+[![](/hear.jpg '第二学期第一季课程介绍，点击查看')](https://study.163.com/course/courseMain.htm?courseId=1213550818&share=2&shareId=480000002289674)
+
+## 3.课程免费试看（1-5课）
+[课程免费试看（1-5课）](https://study.163.com/course/introduction.htm?share=2&shareId=480000002289674&courseId=1213550818#/courseDetail?tab=1 '课程免费试看（1-5课）')
+
+## 4.课程视频学习
 [学习课程完整视频](https://study.163.com/course/courseMain.htm?courseId=1213550818&share=2&shareId=480000002289674 '点击学习课程完整视频')
-## 3.查看课程文档目录
+## 5.查看课程文档目录
 ### 章节1.第一季课程介绍 
 ### <a href="/secondless/w-a/javascript基础" target="_blank" title="点击查看课程文档">章节2.javascript基础</a>
 #### <a href="/secondless/w-a/javascript基础.html#_1、变量" style="margin-left:50px;">1、变量</a>
@@ -206,5 +212,3 @@ title: 第二学期第一季（课程学习顺序：02）
 
 
 
-## 4.本季课程视频介绍
-[![](/hear.jpg '第二学期第一季课程介绍，点击查看')](https://www.bilibili.com/video/BV1YY411679o/?vd_source=9a6ee0d7e6c1657e4a7381c1f8f18f4b)
