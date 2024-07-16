@@ -15,7 +15,8 @@ title:  第二学期课程总述
 > 主要为 <b>零基础</b> 的同学准备的课程，我们零基础同学在学习完第一期开发企业网站的网页课程后，然后再来学习本课程，进行知识点无缝衔接。当然，如果你有一点开发网页的基础，比如你在大学里面学习过基础的网页知识，可以直接从本季度开始学习。如果你觉得你有一定的javascript基础，你可以跟随我们的课程章节看一下你的js基础知识储备有多少。<br/><br/>
 > 主讲JavaScript的基础：`javascript基础`、`javascript运算符`、`流程控制语句`、`javascript函数`、`javascript对象`、`javascript数组`、`时间和日期`、`Function类型`、`内置对象：Global、Math对象，变量、作用域和内存问题`、`匿名函数和闭包`、`javascript基本包装类型`、`函数对象数组小结`、`浏览器对象模型BOM及浏览器检测`、`网页文档对象模型DOM`、`事件`、`表单处理及错误处理与调试`、`数据Cookie、XML、JSON`<br/><br/>
 > 零基础同学按照课程章节顺序进行学习，有一定基础同学可选择性学习你不熟悉或者不会的内容。大家在学习的过程中，只需先学会跟着老师敲代码，看效果即可，不需要全部记住这些知识点，因为我们在后面的实战项目中会不停带领大家回顾这些基础知识的，来回给大家巩固。<br/><br/>
-<b><a href="/secondless/w-a.html" target="_blank">[第一季学习文档]</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a style="margin-left:20px;">[第一季学习视频]</a></b>
+<b><a href="/secondless/w-a.html" target="_blank">[第一季学习文档]</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a style="margin-left:20px;" href="https://study.163.com/course/courseMain.htm?courseId=1213550818&share=2&shareId=480000002289674" target="_blank">[第一季学习视频]</a></b>
 
 ### 第二季
 > 我们第二季课程是第一季课程的进阶课程，是对基础的巩固，对同学能力的提升，也是为第三季开发整个网站前端和后台知识的一个储备，建议所有同学跟着老师的视频学习。<br/><br/>
