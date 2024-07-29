@@ -17,7 +17,7 @@ title: 第二学期第二季（课程学习顺序：03）
 > 我们第二季的课程主讲：`面向对象与原型`、`封装js库过渡到jQuery`、`jQuery`、`jQuery事件、动画、插件`、`Ajax`、`Node.js基础`、`正则表达式`、`Vue.js基础`并`渲染我们开发的企业网站`及`完成网站的留言板功能`，建议所有同学观看。<br/><br/>
 > 具体课程安排，请看下面的文档目录
 ## 2.课程视频学习
-[学习课程完整视频](https://study.163.com/course/courseMain.htm?courseId=1213374826&share=2&shareId=480000002289674 '点击学习课程完整视频')
+[学习课程完整视频](https://study.163.com/course/courseMain.htm?courseId=1213781850&share=2&shareId=480000002289674 '点击学习课程完整视频')
 ## 3.查看课程文档
 ### 章节1.第二季课程介绍 
 ### <a href="/secondless/w-b/面向对象与原型" target="_blank" title="点击查看课程文档">章节2.面向对象与原型</a>

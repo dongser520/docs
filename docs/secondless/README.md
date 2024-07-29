@@ -21,7 +21,8 @@ title:  第二学期课程总述
 ### 第二季
 > 我们第二季课程是第一季课程的进阶课程，是对基础的巩固，对同学能力的提升，也是为第三季开发整个网站前端和后台知识的一个储备，建议所有同学跟着老师的视频学习。<br/><br/>
 > 主讲`面向对象与原型`、`封装js库过渡到jQuery`、`jQuery`、`jQuery事件、动画、插件`、`Ajax`、`Node.js基础`、`正则表达式`、`Vue.js基础`并`渲染我们开发的企业网站`及`完成网站的留言板功能`，建议所有同学观看。<br/><br/>
-<b><a href="/secondless/w-b.html" target="_blank">[第二季学习文档]</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a style="margin-left:20px;">[第二季学习视频]</a></b>
+<b><a href="/secondless/w-b.html" target="_blank">[第二季学习文档]</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a style="margin-left:20px;" href="https://study.163.com/course/courseMain.htm?courseId=1213781850&share=2&shareId=480000002289674" target="_blank">[第二季学习视频]</a></b>
 
 ### 第三季
 > 有了我们前面的课程知识储备，我们第三季开发企业网站或者系统，所有同学都可以轻松拿捏了，也就意味着学完本季度同学们可以接单做网站或者系统了。我们本季度是对网站前端和后台的一个完整的开发。<br/><br/>
