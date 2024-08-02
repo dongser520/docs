@@ -20,7 +20,7 @@ title: 章节2.Egg.js基础
 > 大家直接去查看我们视频的第三课，里面告诉大家学习资料下载和学习文档地址，之后我们在课程中就不再提及了。<br/> <br/>
 > 3. 课前准备  `（如果是从上一季度学习过来的同学，这个准备可以忽略，因为你已经准备好了）`<br/>
 > ① `开发工具使用的是vscode`，具体安装： <a href="https://study.163.com/course/courseLearn.htm?courseId=1213374826&share=2&shareId=480000002289674#/learn/video?lessonId=1285001250&courseId=1213374826" target="_blank" title="安装vscode(第一学期视频第4课)点击查看">安装vscode(第一学期视频第4课)</a> （如果你直接学习本季度课程，这个应该是轻松拿捏！）<br/>
-> ② `安装node环境`：这个已经在我们的第二学期的第二季课程--章节7.Node.js基础讲过了，还没有安装node环境的同学，如果不会安装，可以参考：<a href="/secondless/w-b/Node.js.html#一、node环境搭建-安装node-js" target="_blank" title="Node环境搭建文档"> [Node环境搭建文档]</a> 或者 <a href="#" target="_blank" title="Node环境搭建视频"> [Node环境搭建视频]</a>
+> ② `安装node环境`：这个已经在我们的第二学期的第二季课程--章节7.Node.js基础讲过了，还没有安装node环境的同学，如果不会安装，可以参考：<a href="/secondless/w-b/Node.js.html#一、node环境搭建-安装node-js" target="_blank" title="Node环境搭建文档"> [Node环境搭建文档]</a> 或者 <a href="https://study.163.com/course/courseLearn.htm?courseId=1213781850&share=2&shareId=480000002289674#/learn/video?lessonId=1285539671&courseId=1213781850" target="_blank" title="Node环境搭建视频"> [Node环境搭建视频]</a>
 
 
 序言
