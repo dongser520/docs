@@ -230,7 +230,7 @@ this.ctx.status = 401; //设置响应状态码
 ### 一、安装get/post等请求的调试工具：postman
 ### 1. 下载postman
 > 方式一：百度搜索`postman`, 找到官网 <a href="https://www.postman.com/" target="_blank">https://www.postman.com/</a>，下载对应系统软件；<br/>
-> 方式二：去群文件里面下载本节课的课件，里面有安装包。
+> 方式二：去群文件里面下载本节课的课件，里面有安装包。【<a href="https://docs-51yrc-com.oss-cn-hangzhou.aliyuncs.com/software/Postman-win64-Setup.exe" >点击下载群里的postman安装包</a>】
 ### 2. 安装postman
 > 双击鼠标左键安装即可，建议注册一个账户，以后换了电脑之前写的api接口都还在，非常方便
 
