@@ -23,9 +23,10 @@ title: mysql数据库基础
 以上方式对于新手学员可以尝试安装，但是老师更推荐使用集成环境UPUPW，因为对新手学员更友好。
 ### 2. 集成环境UPUPW（推荐）安装
 > 1. 学习过 `第二学期第1季`的同学，无需安装，因为你已经在`第二学期第1季--章节18--对应视频课程120课：搭建本地服务器通用方法`安装过了UPUPW软件
-> 2. 没有学习过`第二学期第1季`的同学，百度搜索`UPUPW`找到官网下载安装，对应下载地址：<a href="https://php.upupw.net/ank2downloads/38/6698.html" target="_blank"> https://php.upupw.net/ank2downloads/38/6698.html </a> ，安装非常简单，实在不会的同学，回去看一下我们 `第二学期第1季--章节18--对应视频课程120课：搭建本地服务器通用方法`课程视频
+> 2. 没有学习过`第二学期第1季`的同学，百度搜索`UPUPW`找到官网下载安装，对应下载地址：<a href="https://php.upupw.net/ank2downloads/38/6698.html" target="_blank"> https://php.upupw.net/ank2downloads/38/6698.html </a> ，安装非常简单，实在不会的同学，回去看一下我们 `第二学期第1季--章节18--对应视频课程120课：搭建本地服务器通用方法`<a href="https://study.163.com/course/courseLearn.htm?courseId=1213550818&share=2&shareId=480000002289674#/learn/video?lessonId=1285539432&courseId=1213550818" target="_blank"> 【点击查看课程视频】 </a>课程视频
 
-关于安装包，大家可以去群文件里面下载本节课的课件，课件里面有安装包。
+
+关于安装包，大家可以去群文件里面下载本节课的课件，课件里面有安装包【<a href="https://docs-51yrc-com.oss-cn-hangzhou.aliyuncs.com/software/UPUPW_ANK_W64_V1.1.8.rar" >点击下载群里的UPUPW安装包</a>】。
 
 ## 二、简单操作mysql数据库（sql语句）
 #### 安装数据库插件：DataBase Client
