@@ -23,7 +23,8 @@ title: 第二学期第一季（课程学习顺序：02）
 [课程免费试看（1-5课）](https://study.163.com/course/introduction.htm?share=2&shareId=480000002289674&courseId=1213550818#/courseDetail?tab=1 '课程免费试看（1-5课）')
 
 ## 4.课程视频学习
-[学习课程完整视频](https://study.163.com/course/courseMain.htm?courseId=1213550818&share=2&shareId=480000002289674 '点击学习课程完整视频')
+[第二学期第一季【网易云课堂】](https://study.163.com/course/courseMain.htm?courseId=1213550818&share=2&shareId=480000002289674 '点击学习第二学期第一季课程完整视频【网易云课堂】') <br/>
+[第二学期第一季【B站】](https://www.bilibili.com/cheese/play/ss26581?csource=private_space_class_null&spm_id_from=333.999.0.0 '点击学习第二学期第一季课程完整视频【B站】')
 ## 5.查看课程文档目录
 ### 章节1.第一季课程介绍 
 ### <a href="/secondless/w-a/javascript基础" target="_blank" title="点击查看课程文档">章节2.javascript基础</a>

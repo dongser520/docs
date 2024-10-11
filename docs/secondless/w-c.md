@@ -5,7 +5,7 @@ title: 第二学期第三季（课程学习顺序：04）
 ## 1.第二学期第三季课程介绍
 本季课程是以第二学期 <a href="/secondless/w-a.html" target="_blank" title="点击查看第二学期第一季课程">第一季</a>、<a href="/secondless/w-b.html" target="_blank" title="点击查看第二学期第二季课程">第二季</a> 课程作为知识储备，正式进行我们项目的实战：`开发企业网站的前端和后台`。
 > <span style="color:#00A5F7">适用人群</span> <br/>
-> 1、初中以上学历，零基础，喜欢编程的所有从业人员，从零学起（需学完 <b> <a href="https://study.163.com/course/courseMain.htm?courseId=1213374826&share=2&shareId=480000002289674" target="_blank" title="点击查看第一学期的课程">第一学期的课程</a>、<a href="/secondless/w-a.html" target="_blank" title="点击查看第二学期第一季课程">第二学期第一季课程</a>、<a href="/secondless/w-b.html" target="_blank" title="点击查看第二学期第二季课程">第二学期第二季课程</a></b>）；<br/>
+> 1、初中以上学历，零基础，喜欢编程的所有从业人员，从零学起（需学完 <b> <a href="https://study.163.com/course/courseMain.htm?courseId=1213374826&share=2&shareId=480000002289674" target="_blank" title="点击查看第一学期的课程">第一学期的课程</a>、<a href="https://study.163.com/course/courseMain.htm?courseId=1213550818&share=2&shareId=480000002289674" target="_blank" title="点击查看第二学期第一季课程">第二学期第一季课程</a>、<a href="https://study.163.com/course/courseMain.htm?courseId=1213781850&share=2&shareId=480000002289674" target="_blank" title="点击查看第二学期第二季课程">第二学期第二季课程</a></b>）；<br/>
 > 2、会做简单的网页，但是不会JavaScript脚本，从零开始学习JS的大学生或者编程爱好者；<br/>
 > 3、不清楚学习路线，不知道如何下手学习网页和网站开发的人；<br/>
 > 4、手里有客户资源，又不想找别人做，想自己做项目如：网站、系统、APP、小程序等；<br/>
@@ -17,7 +17,7 @@ title: 第二学期第三季（课程学习顺序：04）
 > 章节有：`Egg.js基础`、`响应式网页布局`、`响应式网站后台`、`Egg.js和Mysql数据库进阶进一步开发网站后台`、`企业网站前端部分` ，章节不多但是每个章节内容和知识点较多，大家不要跳课学习，跟着老师的视频一步一步敲出网站的后台功能代码，以及网站前端页面功能代码，学习完之后，大家可以尝试接单做网站或者系统。<br/><br/>
 > 具体课程安排，请看下面的文档目录
 ## 2.课程视频学习
-[学习课程完整视频](https://study.163.com/course/courseMain.htm?courseId=1213374826&share=2&shareId=480000002289674 '点击学习课程完整视频')
+[学习课程完整视频](https://study.163.com/course/courseMain.htm?courseId=1213780858&share=2&shareId=480000002289674 '点击学习课程完整视频')
 ## 3.查看课程文档
 ### 章节1.第三季课程介绍 
 ### <a href="/secondless/w-c/Egg.js" target="_blank" title="点击查看课程文档">章节2.Egg.js基础</a>
