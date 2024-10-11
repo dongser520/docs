@@ -5,7 +5,7 @@ title: 第二学期第二季（课程学习顺序：03）
 ## 1.第二学期第二季课程介绍
 本季课程是在 <a href="/secondless/w-a.html" target="_blank" title="点击查看第二学期第1季课程">第一季课程</a> 上面做的进阶课程，建议先学完第一季课程，在学本季课程！
 > <span style="color:#00A5F7">适用人群</span> <br/>
-> 1、初中以上学历，零基础，喜欢编程的所有从业人员，从零学起（需学完 <b> <a href="https://study.163.com/course/courseMain.htm?courseId=1213374826&share=2&shareId=480000002289674" target="_blank" title="点击查看第一学期的课程">第一学期的课程</a>、<a href="/secondless/w-a.html" target="_blank" title="点击查看第二学期第1季课程">第二学期第一季课程</a></b>）；<br/>
+> 1、初中以上学历，零基础，喜欢编程的所有从业人员，从零学起（需学完 <b> <a href="https://study.163.com/course/courseMain.htm?courseId=1213374826&share=2&shareId=480000002289674" target="_blank" title="点击查看第一学期的课程">第一学期的课程</a>、<a href="https://study.163.com/course/courseMain.htm?courseId=1213550818&share=2&shareId=480000002289674" target="_blank" title="点击查看第二学期第1季课程">第二学期第一季课程</a></b>）；<br/>
 > 2、会做简单的网页，但是不会JavaScript脚本，从零开始学习JS的大学生或者编程爱好者；<br/>
 > 3、不清楚学习路线，不知道如何下手学习网页和网站开发的人；<br/>
 > 4、手里有客户资源，又不想找别人做，想自己做项目如：网站、系统、APP、小程序等；<br/>
@@ -17,7 +17,9 @@ title: 第二学期第二季（课程学习顺序：03）
 > 我们第二季的课程主讲：`面向对象与原型`、`封装js库过渡到jQuery`、`jQuery`、`jQuery事件、动画、插件`、`Ajax`、`Node.js基础`、`正则表达式`、`Vue.js基础`并`渲染我们开发的企业网站`及`完成网站的留言板功能`，建议所有同学观看。<br/><br/>
 > 具体课程安排，请看下面的文档目录
 ## 2.课程视频学习
-[学习课程完整视频](https://study.163.com/course/courseMain.htm?courseId=1213781850&share=2&shareId=480000002289674 '点击学习课程完整视频')
+[第二学期第二季【网易云课堂】](https://study.163.com/course/courseMain.htm?courseId=1213781850&share=2&shareId=480000002289674 '点击学习第二学期第二季课程完整视频【网易云课堂】') <br/>
+[第二学期第二季【B站】](https://www.bilibili.com/cheese/play/ss28390?csource=private_space_class_null&spm_id_from=333.999.0.0 '点击学习第二学期第二季课程完整视频【B站】')
+
 ## 3.查看课程文档
 ### 章节1.第二季课程介绍 
 ### <a href="/secondless/w-b/面向对象与原型" target="_blank" title="点击查看课程文档">章节2.面向对象与原型</a>
