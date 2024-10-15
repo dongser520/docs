@@ -16,25 +16,38 @@ title:  第二学期课程总述
 > 主讲JavaScript的基础：`javascript基础`、`javascript运算符`、`流程控制语句`、`javascript函数`、`javascript对象`、`javascript数组`、`时间和日期`、`Function类型`、`内置对象：Global、Math对象，变量、作用域和内存问题`、`匿名函数和闭包`、`javascript基本包装类型`、`函数对象数组小结`、`浏览器对象模型BOM及浏览器检测`、`网页文档对象模型DOM`、`事件`、`表单处理及错误处理与调试`、`数据Cookie、XML、JSON`<br/><br/>
 > 零基础同学按照课程章节顺序进行学习，有一定基础同学可选择性学习你不熟悉或者不会的内容。大家在学习的过程中，只需先学会跟着老师敲代码，看效果即可，不需要全部记住这些知识点，因为我们在后面的实战项目中会不停带领大家回顾这些基础知识的，来回给大家巩固。<br/><br/>
 <b><a href="/secondless/w-a.html" target="_blank">[第一季课程文档]</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<a style="margin-left:20px;" href="https://study.163.com/course/courseMain.htm?courseId=1213550818&share=2&shareId=480000002289674" target="_blank">[第一季课程视频]</a></b>
+<a style="margin-left:20px;" href="https://study.163.com/course/courseMain.htm?courseId=1213550818&share=2&shareId=480000002289674" target="_blank">[第一季课程视频]</a>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a style="margin-left:20px;" href="/web/answer/课程常见问题.html" target="_blank">[课程答疑]</a>
+</b>
 
 ### 第二季
 > 我们第二季课程是第一季课程的进阶课程，是对基础的巩固，对同学能力的提升，也是为第三季开发整个网站前端和后台知识的一个储备，建议所有同学跟着老师的视频学习。<br/><br/>
 > 主讲`面向对象与原型`、`封装js库过渡到jQuery`、`jQuery`、`jQuery事件、动画、插件`、`Ajax`、`Node.js基础`、`正则表达式`、`Vue.js基础`并`渲染我们开发的企业网站`及`完成网站的留言板功能`，建议所有同学观看。<br/><br/>
 <b><a href="/secondless/w-b.html" target="_blank">[第二季课程文档]</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<a style="margin-left:20px;" href="https://study.163.com/course/courseMain.htm?courseId=1213781850&share=2&shareId=480000002289674" target="_blank">[第二季课程视频]</a></b>
+<a style="margin-left:20px;" href="https://study.163.com/course/courseMain.htm?courseId=1213781850&share=2&shareId=480000002289674" target="_blank">[第二季课程视频]</a>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a style="margin-left:20px;" href="/web/answer/课程常见问题.html" target="_blank">[课程答疑]</a>
+</b>
 
 ### 第三季
 > 有了我们前面的课程知识储备，我们第三季开发企业网站或者系统，所有同学都可以轻松拿捏了，也就意味着学完本季度同学们可以接单做网站或者系统了。我们本季度是对网站前端和后台的一个完整的开发。<br/><br/>
 > 章节有：`Egg.js基础`、`响应式网页布局`、`响应式网站后台`、`Egg.js和Mysql数据库进阶进一步开发网站后台`、`企业网站前端部分` ，章节不多但是每个章节内容和知识点较多，大家不要跳课学习，跟着老师的视频一步一步敲出网站的后台功能代码，以及网站前端页面功能代码，学习完之后，大家可以尝试接单做网站或者系统。<br/><br/>
 <b><a href="/secondless/w-c.html" target="_blank">[第三季课程文档]</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<a style="margin-left:20px;" href="https://study.163.com/course/courseMain.htm?courseId=1213780858&share=2&shareId=480000002289674">[第三季课程视频]</a></b>
+<a style="margin-left:20px;" href="https://study.163.com/course/courseMain.htm?courseId=1213780858&share=2&shareId=480000002289674">[第三季课程视频]</a>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a style="margin-left:20px;" href="/web/answer/课程常见问题.html" target="_blank">[课程答疑]</a>
+</b>
 
 ### 第四季
 > 不用说大家都会想到，当做完网站或者系统，怎么将这些项目交付给客户，那就涉及到网站或者系统的上线运营，让别人能够访问到你的网站或者系统。<br/><br/>
 > 内容有：`购买域名`、`域名备案`、`购买服务器`、`服务器环境搭建`、`上传网站或者系统代码到服务器`、`搭建http或者https协议网站`、`网站优化及百度收录`、`网站运维及访问`等等知识<br/><br/>
 > 后期我们搭建微站、手机站、微信小程序、支付宝小程序、抖音等其它小程序，安卓、IOS、鸿蒙的手机应用程序APP，或其它编程语言如：php、C#(asp.net)等应用程序，也会给大家讲解上线及搭建流程。<br/><br/>
-<b><a href="#" target="_blank">[第四季课程文档]</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a style="margin-left:20px;">[第四季课程视频]</a></b>
+<b><a href="#" target="_blank">[第四季课程文档]</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a style="margin-left:20px;">[第四季课程视频]</a>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a style="margin-left:20px;" href="/web/answer/课程常见问题.html" target="_blank">[课程答疑]</a>
+</b>
 
 
 
