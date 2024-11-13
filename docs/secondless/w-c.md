@@ -145,4 +145,4 @@ title: 第二学期第三季（课程学习顺序：04）
 
 
 ## 4.本季课程视频介绍
-[![](/hear.jpg '第二学期第三季课程介绍，点击查看')](https://www.bilibili.com/video/BV1YY411679o/?vd_source=9a6ee0d7e6c1657e4a7381c1f8f18f4b)
+[![](/hear.jpg '第二学期第三季课程介绍，点击查看')](https://study.163.com/course/courseMain.htm?courseId=1213780858&share=2&shareId=480000002289674)
