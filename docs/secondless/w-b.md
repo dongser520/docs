@@ -334,4 +334,4 @@ title: 第二学期第二季（课程学习顺序：03）
 ####  <a href="/secondless/w-b/node.js+vue.js%20渲染企业网站.html" style="margin-left:40px;" target="_blank" title="四、案例：node.js + vue.js 渲染企业网站">四、案例：node.js + vue.js 渲染企业网站</a>
 
 ## 4.本季课程视频介绍
-[![](/hear.jpg '第二学期第二季课程介绍，点击查看')](https://www.bilibili.com/video/BV1YY411679o/?vd_source=9a6ee0d7e6c1657e4a7381c1f8f18f4b)
+[![](/hear.jpg '第二学期第二季课程介绍，点击查看')](https://study.163.com/course/courseMain.htm?courseId=1213781850&share=2&shareId=480000002289674)

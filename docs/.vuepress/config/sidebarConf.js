@@ -11,6 +11,7 @@ module.exports = [
           '/secondless/w-a',
           '/secondless/w-b',
           '/secondless/w-c',
+          '/secondless/w-d',
         ]
     },
     //'about/',
