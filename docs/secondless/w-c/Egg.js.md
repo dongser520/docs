@@ -1441,3 +1441,10 @@ router.get('/', controller.home.index);
    <a href="/secondless/w-c.html" target="_blank">[第3季学习文档]</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
    <a style="margin-left:20px;">[第3季学习视频]</a>
 </b>
+
+### [第二学期【第4季】（学习顺序：05）](/secondless/w-d '第二学期第4季课程')
+> 主要对第三季，同学们开发的企业网站，进行一个完整的上线运维流程的一个讲解，同学们将网站开发完成之后，如何进行上线运维，将项目交付给客户。<br/>
+<b>
+   <a href="/secondless/w-d.html" target="_blank">[第4季学习文档]</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+   <a style="margin-left:20px;">[第4季学习视频]</a>
+</b>
