@@ -18,6 +18,11 @@ title: 第二学期第四季（课程学习顺序：05）
 ## 3.查看课程文档
 ### 章节1.第四季课程介绍 
 ### <a href="/secondless/w-d/购买域名" target="_blank" title="点击查看课程文档">章节2.购买域名及备案</a>
+####  <a href="/secondless/w-d/购买域名.html#一、购买域名" style="margin-left:40px;">一、购买域名</a>
+##### <a href="/secondless/w-d/购买域名.html#_1-登录供应商官网-阿里云为例" style="margin-left:70px;">1. 登录供应商官网（阿里云为例）</a>
+##### <a href="/secondless/w-d/购买域名.html#_2-选购域名" style="margin-left:70px;">2. 选购域名</a>
+####  <a href="/secondless/w-d/购买域名.html#二、icp备案-域名备案-【选修】" style="margin-left:40px;">二、ICP备案（域名备案）【选修】</a>
+### <a href="/secondless/w-d/购买服务器" target="_blank" title="点击查看课程文档">章节3.购买服务器</a>
 
 
 
