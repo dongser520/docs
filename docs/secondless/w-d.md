@@ -14,7 +14,7 @@ title: 第二学期第四季（课程学习顺序：05）
 > 章节有：`购买域名`、`域名备案`、`购买服务器`、`服务器环境搭建`、`上传网站或者系统代码到服务器`、`搭建http或者https协议网站`、`网站优化及百度收录`、`网站运维及访问`等等知识。<br/><br/>
 > 具体课程安排，请看下面的文档目录
 ## 2.课程视频学习
-[学习课程完整视频](https://study.163.com/course/courseMain.htm?courseId=1213780858&share=2&shareId=480000002289674 '点击学习课程完整视频')
+[学习课程完整视频](https://study.163.com/course/courseMain.htm?courseId=1213794887&share=2&shareId=480000002289674 '点击学习课程完整视频')
 ## 3.查看课程文档
 ### 章节1.第四季课程介绍 
 ### <a href="/secondless/w-d/购买域名" target="_blank" title="点击查看课程文档">章节2.购买域名及备案</a>
@@ -54,4 +54,4 @@ title: 第二学期第四季（课程学习顺序：05）
 
 
 ## 4.本季课程视频介绍
-[![](/hear.jpg '第二学期第三季课程介绍，点击查看')](https://www.bilibili.com/video/BV1YY411679o/?vd_source=9a6ee0d7e6c1657e4a7381c1f8f18f4b)
+[![](/hear.jpg '第二学期第四季课程介绍，点击查看')](https://study.163.com/course/courseMain.htm?courseId=1213794887&share=2&shareId=480000002289674)
