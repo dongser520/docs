@@ -44,7 +44,7 @@ title:  第二学期课程总述
 > 内容有：`购买域名`、`域名备案`、`购买服务器`、`服务器环境搭建`、`上传网站或者系统代码到服务器`、`搭建http或者https协议网站`、`网站优化及百度收录`、`网站运维及访问`等等知识<br/><br/>
 > 后期我们搭建微站、手机站、微信小程序、支付宝小程序、抖音等其它小程序，安卓、IOS、鸿蒙的手机应用程序APP，或其它编程语言如：php、C#(asp.net)等应用程序，也会给大家讲解上线及搭建流程。<br/><br/>
 <b><a href="/secondless/w-d.html" target="_blank">[第四季课程文档]</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<a style="margin-left:20px;">[第四季课程视频]</a>
+<a style="margin-left:20px;" href="https://study.163.com/course/courseMain.htm?courseId=1213794887&share=2&shareId=480000002289674" target="_blank">[第四季课程视频]</a>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <a style="margin-left:20px;" href="/web/answer/课程常见问题.html" target="_blank">[课程答疑]</a>
 </b>
