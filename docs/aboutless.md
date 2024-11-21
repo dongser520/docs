@@ -36,7 +36,8 @@ title:  第一学期课程
 
 ## 5.睿晨网所有课程集合
 #### <a href="/aboutless.html" title="学习第一学期完整课程">① 第一学期所有课程</a>
-#### <a href="/secondless/" title="学习第一学期完整课程">② 第二学期所有课程</a>
+#### <a href="/secondless/" title="学习第二学期完整课程">② 第二学期所有课程</a>
+#### <a href="/thirdless/" title="学习第三学期完整课程">② 第三学期所有课程</a>
 
 
 
