@@ -19,7 +19,7 @@ title: 课程所需软件下载
 ### UPUPW 搭建本地服务器 <a href="https://php.upupw.net/ank2downloads/38/6698.html" title="下载UPUPW" target="_blank">[下载]</a>
 <!-- <a href="https://docs-51yrc-com.oss-cn-hangzhou.aliyuncs.com/software/UPUPW_ANK_W64_V1.1.8.rar" title="下载和课程同一版本的UPUPW">[下载]</a> -->
 > 注意：若想下载跟课程同一个版本的，请去群文件里面下载 <br/>
-> 本软件用于搭建本地服务器，下载完成后解压安装并搭建本地服务器，具体看第二学期第1季课程视频：<a href="javascipt(void:0);" target="_blank" title="搭建本地服务器点击查看">搭建本地服务器</a> <br/>
+> 本软件用于搭建本地服务器，下载完成后解压安装并搭建本地服务器，具体看第二学期第1季课程视频：<a href="https://study.163.com/course/courseLearn.htm?courseId=1213550818&share=2&shareId=480000002289674#/learn/video?lessonId=1285539432&courseId=1213550818" target="_blank" title="搭建本地服务器点击查看">搭建本地服务器</a> <br/>
 
 ##  ② 第二季
 ### jQuery <a href="https://www.bootcdn.cn/jquery/" title="下载和课程同一版本的jQuery.1.11.3" target="_blank">[下载]</a>
@@ -105,6 +105,13 @@ title: 课程所需软件下载
 ### 引入富文本编辑器
 > 引入富文本编辑器的实现过程<br/> <br/>
 > 具体查看：<a href="/secondless/w-c/企业网站后台内容管理.html#二、初步引入富文本编辑器" target="_blank">初步引入富文本编辑器</a>，若定位不准，可文档搜索 `初步引入富文本编辑器` 
+
+<br/><br/>
+
+## ④ 第四季
+### 企业网站上线到服务器
+> 将上一季度开发的完整企业网站（包含前端和后台），上线到服务器，供用户访问。<br/>
+> 具体学习视频查看：<a href="https://study.163.com/course/courseMain.htm?courseId=1213794887&share=2&shareId=480000002289674" target="_blank">【第二期第四季】网站上线运营</a>
 
 <br/><br/><br/><br/>
 
