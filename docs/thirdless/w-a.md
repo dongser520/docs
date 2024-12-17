@@ -15,10 +15,15 @@ title: 第三学期第一季（课程学习顺序：06）
 > 本季度课程主要同学们前面开发的企业网站，做一个手机端：`手机网站`、`微信小程序`、`支付宝小程序`、`安卓和苹果IOS手机APP`的一个体验开发。<br/><br/>
 > 具体课程安排，请看下面的文档目录
 
-## 2.课程视频学习
-[学习课程完整视频](https://study.163.com/provider/480000002289674/index.htm?share=2&shareId=480000002289674 '点击学习课程完整视频')
 
-## 3.查看课程文档
+## 2.课程免费试看（1-13课）
+
+[免费试看1-13课](https://www.bilibili.com/video/BV1C9BjYsEsW/ '点击免费试看1-13课')
+
+## 3.课程视频学习
+[学习课程完整视频](https://study.163.com/course/courseMain.htm?courseId=1213808807&share=2&shareId=480000002289674 '点击学习课程完整视频')
+
+## 4.查看课程文档
 ### 章节1.课程介绍 
 ### <a href="/thirdless/w-a/02开发前环境搭建" target="_blank" title="点击查看课程文档">章节2.开发前环境搭建</a>
 ####  <a href="/thirdless/w-a/02开发前环境搭建.html#_1-安装开发工具" style="margin-left:40px;">1. 安装开发工具</a>
