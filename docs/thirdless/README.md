@@ -17,7 +17,7 @@ title:  第三学期移动端课程总述
 > 第一季课程我们称之为 `知识过渡课`，前面第一学期、第二学期我们主要面对PC端进行的学习和网站开发，虽然我们开发的网站后台也做的是响应式，可以兼容我们的手机端，但是随着现在移动互联网的到来，客户更多希望他的网站可以在手机微信上进行浏览、可以在小程序上面搜索（小程序包括微信小程序、支付宝小程序、抖音小程序等），甚至有的客户希望他的项目可以做app,可以进行安装。<br/><br/>
 > 因此，基于以上的考量，我们第一季课程以我们的企业网站为例，给大家在手机移动端来开发：手机网站、微信小程序、支付宝小程序、APP，来让大家对移动端的开发有个初步的认识。<br/><br/>
 <b><a href="/thirdless/w-a.html" target="_blank">[第一季课程文档]</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<a style="margin-left:20px;" >[第一季课程视频]</a>
+<a style="margin-left:20px;" href="https://study.163.com/course/courseMain.htm?courseId=1213808807&share=2&shareId=480000002289674" target="_blank">[第一季课程视频]</a>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <a style="margin-left:20px;" href="/web/answer/课程常见问题.html" target="_blank">[课程答疑]</a>
 </b>
