@@ -64,3 +64,15 @@ title: 第三学期第一季（课程学习顺序：06）
 ####  <a href="/thirdless/w-a/05其它界面开发.html#_2-完成留言板界面和数据验证" style="margin-left:70px;">② 完成留言板界面和数据验证</a>
 ####  <a href="/thirdless/w-a/05其它界面开发.html#四、工程案例页面" style="margin-left:40px;">四、工程案例页面</a>
 ### <a href="/thirdless/w-a/06数据处理" target="_blank" title="点击查看课程文档">章节6.数据处理</a>
+####  <a href="/thirdless/w-a/06数据处理.html#一、首页数据-index-vue页面" style="margin-left:40px;">一、首页数据 [index.vue页面]</a>
+####  <a href="/thirdless/w-a/06数据处理.html#_1-swiper广告图" style="margin-left:70px;">① swiper广告图</a>
+####  <a href="/thirdless/w-a/06数据处理.html#_2-首页消息滚动数据处理" style="margin-left:70px;">② 首页消息滚动数据处理</a>
+####  <a href="/thirdless/w-a/06数据处理.html#_3-首页主要栏目数据处理" style="margin-left:70px;">③ 首页主要栏目数据处理</a>
+####  <a href="/thirdless/w-a/06数据处理.html#_4-首页滚动列表、卡片列表、底部导航栏数据处理" style="margin-left:70px;">④ 首页滚动列表、卡片列表、底部导航栏数据处理</a>
+####  <a href="/thirdless/w-a/06数据处理.html#_5-首页完整代码" style="margin-left:70px;">⑤ 首页完整代码</a>
+####  <a href="/thirdless/w-a/06数据处理.html#二、信息列表数据-list-vue页面" style="margin-left:40px;">二、信息列表数据 [list.vue页面]</a>
+####  <a href="/thirdless/w-a/06数据处理.html#三、卡片列表数据-piclist-vue页面-、联系我们-contact-vue-、详情页-detail-vue" style="margin-left:40px;">三、卡片列表数据 [piclist.vue页面]、联系我们 [contact.vue]、详情页 [detail.vue]</a>
+####  <a href="/thirdless/w-a/06数据处理.html#_1-卡片列表数据-piclist-vue页面" style="margin-left:70px;">① 卡片列表数据 [piclist.vue页面]</a>
+####  <a href="/thirdless/w-a/06数据处理.html#_2-联系我们-contact-vue" style="margin-left:70px;">② 联系我们 [contact.vue]</a>
+####  <a href="/thirdless/w-a/06数据处理.html#_3-详情页-detail-vue" style="margin-left:70px;">③ 详情页 [detail.vue]</a>
+### <a href="/thirdless/w-a/07后端api开发" target="_blank" title="点击查看课程文档">章节7.后端api开发（选修课）</a>
