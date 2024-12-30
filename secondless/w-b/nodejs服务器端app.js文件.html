@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>nodejs服务器端app.js文件 | 睿晨网</title>
+    <meta name="generator" content="VuePress 1.9.9">
+    <link rel="icon" href="/assets/img/favicon.png">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="apple-touch-icon" href="/icons/apple-touch-icon-152x152.png">
+    <link rel="#icon-pengyouquan" href="/icons/iconfont.svg" color="#3eaf7c">
+    <meta name="description" content="睿晨网|睿晨编程|零基础学做网站、app、小程序就从这里开始">
+    <meta name="keywords" content="睿晨网,睿晨编程,零基础学做网站,零基础学app,零基础学小程序">
+    <meta name="author" content="睿晨网,睿晨编程,阿东老师">
+    <meta name="theme-color" content="#3eaf7c">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="msapplication-TileImage" content="/icons/msapplication-icon-144x144.png">
+    <meta name="msapplication-TileColor" content="#000000">
+    
+    <link rel="preload" href="/assets/css/0.styles.9f36b4a6.css" as="style"><link rel="preload" href="/assets/js/app.4290121d.js" as="script"><link rel="preload" href="/assets/js/9.13d458ed.js" as="script"><link rel="preload" href="/assets/js/2.6281e0bb.js" as="script"><link rel="preload" href="/assets/js/50.c82ff39c.js" as="script"><link rel="preload" href="/assets/js/3.e6827fa8.js" as="script"><link rel="prefetch" href="/assets/js/10.63ed790c.js"><link rel="prefetch" href="/assets/js/100.c9478976.js"><link rel="prefetch" href="/assets/js/101.4685b835.js"><link rel="prefetch" href="/assets/js/102.1eac8485.js"><link rel="prefetch" href="/assets/js/103.bf24a1b1.js"><link rel="prefetch" href="/assets/js/104.c4a628a5.js"><link rel="prefetch" href="/assets/js/105.c9e752c5.js"><link rel="prefetch" href="/assets/js/106.5400a839.js"><link rel="prefetch" href="/assets/js/107.291c206c.js"><link rel="prefetch" href="/assets/js/108.8f9ad3b5.js"><link rel="prefetch" href="/assets/js/109.9abcabbd.js"><link rel="prefetch" href="/assets/js/11.c1e28536.js"><link rel="prefetch" href="/assets/js/110.931a981c.js"><link rel="prefetch" href="/assets/js/111.74ed093b.js"><link rel="prefetch" href="/assets/js/112.bc182cb3.js"><link rel="prefetch" href="/assets/js/113.0a263551.js"><link rel="prefetch" href="/assets/js/114.c748f7d1.js"><link rel="prefetch" href="/assets/js/115.512540a3.js"><link rel="prefetch" href="/assets/js/116.02ddb382.js"><link rel="prefetch" href="/assets/js/117.651a51ab.js"><link rel="prefetch" href="/assets/js/118.d5adabcc.js"><link rel="prefetch" href="/assets/js/12.3ebb90ce.js"><link rel="prefetch" href="/assets/js/13.3db94aa4.js"><link rel="prefetch" href="/assets/js/14.55bbb95d.js"><link rel="prefetch" href="/assets/js/15.7609be3f.js"><link rel="prefetch" href="/assets/js/16.1cc32a36.js"><link rel="prefetch" href="/assets/js/17.8b79e558.js"><link rel="prefetch" href="/assets/js/18.01046342.js"><link rel="prefetch" href="/assets/js/19.b5289c20.js"><link rel="prefetch" href="/assets/js/20.01eceda0.js"><link rel="prefetch" href="/assets/js/21.cbd4c1a7.js"><link rel="prefetch" href="/assets/js/22.49d7bb3f.js"><link rel="prefetch" href="/assets/js/23.aa8b176b.js"><link rel="prefetch" href="/assets/js/24.a693e371.js"><link rel="prefetch" href="/assets/js/25.0d6774b2.js"><link rel="prefetch" href="/assets/js/26.9ddf56fb.js"><link rel="prefetch" href="/assets/js/27.ff18fc22.js"><link rel="prefetch" href="/assets/js/28.71f9f611.js"><link rel="prefetch" href="/assets/js/29.5c6a1827.js"><link rel="prefetch" href="/assets/js/30.d5719acc.js"><link rel="prefetch" href="/assets/js/31.7ecc80fc.js"><link rel="prefetch" href="/assets/js/32.b33a0dac.js"><link rel="prefetch" href="/assets/js/33.d1d6e21b.js"><link rel="prefetch" href="/assets/js/34.7c344086.js"><link rel="prefetch" href="/assets/js/35.96419452.js"><link rel="prefetch" href="/assets/js/36.648095a9.js"><link rel="prefetch" href="/assets/js/37.abb1155f.js"><link rel="prefetch" href="/assets/js/38.3e99ef52.js"><link rel="prefetch" href="/assets/js/39.77344c5e.js"><link rel="prefetch" href="/assets/js/4.0dd4ebcd.js"><link rel="prefetch" href="/assets/js/40.16ceab60.js"><link rel="prefetch" href="/assets/js/41.471568fe.js"><link rel="prefetch" href="/assets/js/42.8a6b3555.js"><link rel="prefetch" href="/assets/js/43.24d99635.js"><link rel="prefetch" href="/assets/js/44.ee5332ec.js"><link rel="prefetch" href="/assets/js/45.5689f44c.js"><link rel="prefetch" href="/assets/js/46.8d8ff101.js"><link rel="prefetch" href="/assets/js/47.eb9fbe1e.js"><link rel="prefetch" href="/assets/js/48.bead0a77.js"><link rel="prefetch" href="/assets/js/49.7c4620b3.js"><link rel="prefetch" href="/assets/js/5.3e24e7be.js"><link rel="prefetch" href="/assets/js/51.ad9964cb.js"><link rel="prefetch" href="/assets/js/52.c3af8a0a.js"><link rel="prefetch" href="/assets/js/53.f3d4313d.js"><link rel="prefetch" href="/assets/js/54.762fa302.js"><link rel="prefetch" href="/assets/js/55.1c930310.js"><link rel="prefetch" href="/assets/js/56.7ba18a76.js"><link rel="prefetch" href="/assets/js/57.a844f08f.js"><link rel="prefetch" href="/assets/js/58.87c2d443.js"><link rel="prefetch" href="/assets/js/59.70e2b2cf.js"><link rel="prefetch" href="/assets/js/6.ca2525e2.js"><link rel="prefetch" href="/assets/js/60.c89ccf45.js"><link rel="prefetch" href="/assets/js/61.b841101d.js"><link rel="prefetch" href="/assets/js/62.cb2526a5.js"><link rel="prefetch" href="/assets/js/63.27af5e66.js"><link rel="prefetch" href="/assets/js/64.1eb94786.js"><link rel="prefetch" href="/assets/js/65.51b2d679.js"><link rel="prefetch" href="/assets/js/66.79163b01.js"><link rel="prefetch" href="/assets/js/67.39abab2a.js"><link rel="prefetch" href="/assets/js/68.749bebbb.js"><link rel="prefetch" href="/assets/js/69.3b134a79.js"><link rel="prefetch" href="/assets/js/7.9cfbec5a.js"><link rel="prefetch" href="/assets/js/70.b6366e6f.js"><link rel="prefetch" href="/assets/js/71.99b10708.js"><link rel="prefetch" href="/assets/js/72.e0ae5dde.js"><link rel="prefetch" href="/assets/js/73.25a82196.js"><link rel="prefetch" href="/assets/js/74.7da9c461.js"><link rel="prefetch" href="/assets/js/75.77a5e99e.js"><link rel="prefetch" href="/assets/js/76.63847ea5.js"><link rel="prefetch" href="/assets/js/77.3613a434.js"><link rel="prefetch" href="/assets/js/78.b5308aaf.js"><link rel="prefetch" href="/assets/js/79.44d9303c.js"><link rel="prefetch" href="/assets/js/8.0bb2f2e9.js"><link rel="prefetch" href="/assets/js/80.4854adde.js"><link rel="prefetch" href="/assets/js/81.eb1eda12.js"><link rel="prefetch" href="/assets/js/82.fb170b83.js"><link rel="prefetch" href="/assets/js/83.a3ed9d42.js"><link rel="prefetch" href="/assets/js/84.e91ed24f.js"><link rel="prefetch" href="/assets/js/85.018f95a4.js"><link rel="prefetch" href="/assets/js/86.bdb51cb3.js"><link rel="prefetch" href="/assets/js/87.d4a12db2.js"><link rel="prefetch" href="/assets/js/88.a3935847.js"><link rel="prefetch" href="/assets/js/89.ffe1bfe0.js"><link rel="prefetch" href="/assets/js/90.dd733904.js"><link rel="prefetch" href="/assets/js/91.fea63665.js"><link rel="prefetch" href="/assets/js/92.8c2e7c8b.js"><link rel="prefetch" href="/assets/js/93.c1a1fb9a.js"><link rel="prefetch" href="/assets/js/94.957d21ad.js"><link rel="prefetch" href="/assets/js/95.146efd96.js"><link rel="prefetch" href="/assets/js/96.0f73be1e.js"><link rel="prefetch" href="/assets/js/97.2a58c74e.js"><link rel="prefetch" href="/assets/js/98.c09aee2f.js"><link rel="prefetch" href="/assets/js/99.254475da.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.9f36b4a6.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">睿晨网</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">
+  主页
+</a></div><div class="nav-item"><a href="/aboutless.html" class="nav-link">
+  第一学期课程
+</a></div><div class="nav-item"><a href="/secondless/" class="nav-link router-link-active">
+  第二学期课程
+</a></div><div class="nav-item"><a href="/thirdless/" class="nav-link">
+  第三期移动端课程
+</a></div><div class="nav-item"><a href="/web/software/" class="nav-link">
+  课程软件小案例
+</a></div><div class="nav-item"><a href="/web/mysql/" class="nav-link">
+  课程案例数据表
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="课程答疑汇总" class="dropdown-title"><span class="title">课程答疑</span> <span class="arrow down"></span></button> <button type="button" aria-label="课程答疑汇总" class="mobile-dropdown-title"><span class="title">课程答疑</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/web/answer/课程常见问题.html" class="nav-link">
+  课程常见问题
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="课程学习网站" class="dropdown-title"><span class="title">课程学习网站</span> <span class="arrow down"></span></button> <button type="button" aria-label="课程学习网站" class="mobile-dropdown-title"><span class="title">课程学习网站</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          视频学习网站
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://study.163.com/provider/480000002289674/index.htm?share=2&amp;shareId=480000002289674" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  腾讯云课堂
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://space.bilibili.com/3493114067028034/pugv" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  B站
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="实用菜单" class="dropdown-title"><span class="title">实用网站和方法</span> <span class="arrow down"></span></button> <button type="button" aria-label="实用菜单" class="mobile-dropdown-title"><span class="title">实用网站和方法</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          实用方法
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/web/methods/定位相关.html" class="nav-link">
+  定位相关
+</a></li><li class="dropdown-subitem"><a href="/web/methods/地图相关.html" class="nav-link">
+  地图相关
+</a></li></ul></li><li class="dropdown-item"><h4>
+          实用网站
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/web/methods/实用接口.html" class="nav-link">
+  实用接口
+</a></li><li class="dropdown-subitem"><a href="/web/css/" class="nav-link">
+  css
+</a></li><li class="dropdown-subitem"><a href="/web/vue.js/" class="nav-link">
+  Vue.js
+</a></li><li class="dropdown-subitem"><a href="/web/Vue3+ElementPlus/" class="nav-link">
+  Vue3+ElementPlus系统
+</a></li><li class="dropdown-subitem"><a href="/web/echarts/" class="nav-link">
+  echarts图表
+</a></li><li class="dropdown-subitem"><a href="/web/bootstrap/" class="nav-link">
+  Bootstrap
+</a></li><li class="dropdown-subitem"><a href="/web/IIS/" class="nav-link">
+  IIS
+</a></li><li class="dropdown-subitem"><a href="/web/github/" class="nav-link">
+  Github
+</a></li><li class="dropdown-subitem"><a href="/web/Vanta.js/" class="nav-link">
+  Vanta.js网页3D背景
+</a></li></ul></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">
+  主页
+</a></div><div class="nav-item"><a href="/aboutless.html" class="nav-link">
+  第一学期课程
+</a></div><div class="nav-item"><a href="/secondless/" class="nav-link router-link-active">
+  第二学期课程
+</a></div><div class="nav-item"><a href="/thirdless/" class="nav-link">
+  第三期移动端课程
+</a></div><div class="nav-item"><a href="/web/software/" class="nav-link">
+  课程软件小案例
+</a></div><div class="nav-item"><a href="/web/mysql/" class="nav-link">
+  课程案例数据表
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="课程答疑汇总" class="dropdown-title"><span class="title">课程答疑</span> <span class="arrow down"></span></button> <button type="button" aria-label="课程答疑汇总" class="mobile-dropdown-title"><span class="title">课程答疑</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/web/answer/课程常见问题.html" class="nav-link">
+  课程常见问题
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="课程学习网站" class="dropdown-title"><span class="title">课程学习网站</span> <span class="arrow down"></span></button> <button type="button" aria-label="课程学习网站" class="mobile-dropdown-title"><span class="title">课程学习网站</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          视频学习网站
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://study.163.com/provider/480000002289674/index.htm?share=2&amp;shareId=480000002289674" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  腾讯云课堂
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://space.bilibili.com/3493114067028034/pugv" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  B站
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="实用菜单" class="dropdown-title"><span class="title">实用网站和方法</span> <span class="arrow down"></span></button> <button type="button" aria-label="实用菜单" class="mobile-dropdown-title"><span class="title">实用网站和方法</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          实用方法
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/web/methods/定位相关.html" class="nav-link">
+  定位相关
+</a></li><li class="dropdown-subitem"><a href="/web/methods/地图相关.html" class="nav-link">
+  地图相关
+</a></li></ul></li><li class="dropdown-item"><h4>
+          实用网站
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/web/methods/实用接口.html" class="nav-link">
+  实用接口
+</a></li><li class="dropdown-subitem"><a href="/web/css/" class="nav-link">
+  css
+</a></li><li class="dropdown-subitem"><a href="/web/vue.js/" class="nav-link">
+  Vue.js
+</a></li><li class="dropdown-subitem"><a href="/web/Vue3+ElementPlus/" class="nav-link">
+  Vue3+ElementPlus系统
+</a></li><li class="dropdown-subitem"><a href="/web/echarts/" class="nav-link">
+  echarts图表
+</a></li><li class="dropdown-subitem"><a href="/web/bootstrap/" class="nav-link">
+  Bootstrap
+</a></li><li class="dropdown-subitem"><a href="/web/IIS/" class="nav-link">
+  IIS
+</a></li><li class="dropdown-subitem"><a href="/web/github/" class="nav-link">
+  Github
+</a></li><li class="dropdown-subitem"><a href="/web/Vanta.js/" class="nav-link">
+  Vanta.js网页3D背景
+</a></li></ul></li></ul></div></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>nodejs服务器端app.js文件</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/secondless/w-b/nodejs%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%AB%AFapp.js%E6%96%87%E4%BB%B6.html#一、在留言板上对手机号进行加密" class="sidebar-link">一、在留言板上对手机号进行加密</a><ul class="sidebar-sub-headers"></ul></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h2 id="一、在留言板上对手机号进行加密"><a href="#一、在留言板上对手机号进行加密" class="header-anchor">#</a> 一、在留言板上对手机号进行加密</h2> <div class="language-javascript extra-class"><pre class="language-javascript"><code><span class="token keyword">let</span> http <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'http'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">let</span> fs <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'fs'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">let</span> $url <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'url'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">let</span> querystring <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'querystring'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">let</span> crypto <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'crypto'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">//采用对称加密</span>
+<span class="token comment">//自定义IV(16位)、key(密钥（32位的'aes-256-cbc'）（24位的'aes-192-cbc'）)</span>
+<span class="token keyword">const</span> secret <span class="token operator">=</span> <span class="token punctuation">{</span>
+    <span class="token literal-property property">iv</span><span class="token operator">:</span><span class="token string">'IloveYOU@520520!'</span><span class="token punctuation">,</span> <span class="token comment">// 初始化向量（iv）16位</span>
+    <span class="token literal-property property">key</span><span class="token operator">:</span><span class="token string">'a123456789@!*&amp;%bcdef@123456789&amp;&amp;'</span><span class="token punctuation">,</span> <span class="token comment">// 32 位密钥</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">const</span> server <span class="token operator">=</span>  http<span class="token punctuation">.</span><span class="token function">createServer</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">request<span class="token punctuation">,</span>response</span><span class="token punctuation">)</span><span class="token operator">=&gt;</span><span class="token punctuation">{</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>request<span class="token punctuation">.</span>method <span class="token operator">==</span> <span class="token string">'GET'</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">let</span> url <span class="token operator">=</span> request<span class="token punctuation">.</span>url<span class="token punctuation">;</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>url<span class="token punctuation">.</span><span class="token function">indexOf</span><span class="token punctuation">(</span><span class="token string">'/api/'</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span>url<span class="token punctuation">.</span><span class="token function">indexOf</span><span class="token punctuation">(</span><span class="token string">'.json'</span><span class="token punctuation">)</span> <span class="token operator">&gt;</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                <span class="token function">errorhtml</span><span class="token punctuation">(</span>response<span class="token punctuation">)</span>
+            <span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span>
+                fs<span class="token punctuation">.</span><span class="token function">readFile</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">./</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>url<span class="token interpolation-punctuation punctuation">}</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token parameter">err<span class="token punctuation">,</span>data</span><span class="token punctuation">)</span><span class="token operator">=&gt;</span><span class="token punctuation">{</span>
+                    <span class="token keyword">if</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span><span class="token punctuation">{</span>
+                        <span class="token function">errorhtml</span><span class="token punctuation">(</span>response<span class="token punctuation">)</span>
+                    <span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span>
+                        response<span class="token punctuation">.</span><span class="token function">writeHead</span><span class="token punctuation">(</span><span class="token number">200</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                        response<span class="token punctuation">.</span><span class="token function">end</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token punctuation">}</span>
+                <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>  
+    <span class="token punctuation">}</span><span class="token keyword">else</span> <span class="token keyword">if</span><span class="token punctuation">(</span>request<span class="token punctuation">.</span>method <span class="token operator">==</span> <span class="token string">'POST'</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">let</span> result <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+        request<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">'data'</span><span class="token punctuation">,</span><span class="token parameter">buffer</span><span class="token operator">=&gt;</span><span class="token punctuation">{</span>
+           result<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>buffer<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        request<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">'end'</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">=&gt;</span><span class="token punctuation">{</span>
+           <span class="token keyword">let</span> data <span class="token operator">=</span> Buffer<span class="token punctuation">.</span><span class="token function">concat</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span><span class="token punctuation">;</span>
+           response<span class="token punctuation">.</span><span class="token function">writeHead</span><span class="token punctuation">(</span><span class="token number">200</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+           response<span class="token punctuation">.</span><span class="token function">end</span><span class="token punctuation">(</span><span class="token string">'ok'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+           <span class="token comment">//留言写入json文件</span>
+           <span class="token keyword">let</span> paths <span class="token operator">=</span> <span class="token punctuation">{</span>
+              <span class="token literal-property property">dir</span><span class="token operator">:</span><span class="token string">'./data'</span><span class="token punctuation">,</span>
+              <span class="token literal-property property">file</span><span class="token operator">:</span><span class="token string">'./data/message.json'</span>
+            <span class="token comment">//   dir:'./Appdata',</span>
+            <span class="token comment">//   file:'./Appdata/data.json'</span>
+           <span class="token punctuation">}</span>
+           <span class="token function">addmessage</span><span class="token punctuation">(</span>data<span class="token punctuation">,</span>paths<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+server<span class="token punctuation">.</span><span class="token function">listen</span><span class="token punctuation">(</span><span class="token number">8888</span><span class="token punctuation">,</span><span class="token string">'127.0.0.1'</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">=&gt;</span><span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'服务器已启动'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+
+<span class="token keyword">const</span> <span class="token function-variable function">errorhtml</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">response</span><span class="token punctuation">)</span><span class="token operator">=&gt;</span><span class="token punctuation">{</span>
+    response<span class="token punctuation">.</span><span class="token function">setHeader</span><span class="token punctuation">(</span><span class="token string">'Content-Type'</span><span class="token punctuation">,</span><span class="token string">'text/html; charset=utf-8'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    response<span class="token punctuation">.</span><span class="token function">writeHead</span><span class="token punctuation">(</span><span class="token number">404</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">let</span> msg <span class="token operator">=</span> <span class="token punctuation">{</span>
+        <span class="token string-property property">&quot;status&quot;</span> <span class="token operator">:</span> <span class="token number">404</span><span class="token punctuation">,</span>
+        <span class="token string-property property">&quot;info&quot;</span> <span class="token operator">:</span> <span class="token string">'error'</span><span class="token punctuation">,</span>
+        <span class="token string-property property">&quot;data&quot;</span> <span class="token operator">:</span> <span class="token string">'not found'</span>
+    <span class="token punctuation">}</span>
+    response<span class="token punctuation">.</span><span class="token function">end</span><span class="token punctuation">(</span><span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span>msg<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">//留言写入json文件</span>
+<span class="token keyword">function</span> <span class="token function">addmessage</span><span class="token punctuation">(</span><span class="token parameter">data<span class="token punctuation">,</span>paths</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token comment">// console.log(querystring.parse(data.toString()));</span>
+    data <span class="token operator">=</span> querystring<span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span>data<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment">//对电话号码做一个加密</span>
+    <span class="token comment">// let aestel = aesEncrypt(data.tel, secret.key, secret.iv);</span>
+    <span class="token comment">// console.log(aestel);</span>
+    <span class="token comment">// data.tel = aestel;</span>
+    <span class="token comment">/*
+    data.tel = aesEncrypt(data.tel, secret.key, secret.iv);
+    //试一下解密
+    data.tel = aesDecrypt(data.tel, secret.key, secret.iv);
+    */</span>
+    <span class="token comment">// console.log(data);return; </span>
+    <span class="token comment">//创建一个文件夹data</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span>fs<span class="token punctuation">.</span><span class="token function">existsSync</span><span class="token punctuation">(</span>paths<span class="token punctuation">.</span>dir<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+       fs<span class="token punctuation">.</span><span class="token function">mkdirSync</span><span class="token punctuation">(</span>paths<span class="token punctuation">.</span>dir<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+    <span class="token comment">//判断message.json文件是否存在，存在说明之前写入过了，先读一下</span>
+    <span class="token comment">// console.log(fs.existsSync('./data/message.json'));</span>
+    <span class="token keyword">let</span> flag <span class="token operator">=</span> fs<span class="token punctuation">.</span><span class="token function">existsSync</span><span class="token punctuation">(</span>paths<span class="token punctuation">.</span>file<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>flag<span class="token punctuation">)</span><span class="token punctuation">{</span>
+         <span class="token comment">//存在先读取一下</span>
+         <span class="token function">readmessage</span><span class="token punctuation">(</span>paths<span class="token punctuation">.</span>file<span class="token punctuation">,</span>data<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span>
+        <span class="token comment">//不存在，首次直接写</span>
+        <span class="token keyword">let</span> ms <span class="token operator">=</span> data<span class="token punctuation">;</span>
+        ms<span class="token punctuation">.</span>id <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+        <span class="token comment">//加入时间,所在地等等</span>
+        ms<span class="token punctuation">.</span>timestamp <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getTime</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">// console.log(ms);</span>
+        <span class="token keyword">let</span> o <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+        o<span class="token punctuation">.</span>data <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+        o<span class="token punctuation">.</span>data<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>ms<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        o<span class="token punctuation">.</span>total <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+        o<span class="token punctuation">.</span>currentId <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+        <span class="token comment">// console.log(o);</span>
+        <span class="token comment">// console.log(JSON.stringify(o));</span>
+        <span class="token comment">//写入内容,同步异步promise,以及可写流</span>
+        <span class="token function">writemessage</span><span class="token punctuation">(</span>paths<span class="token punctuation">.</span>file<span class="token punctuation">,</span>o<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">//存在先读取一下</span>
+<span class="token keyword">function</span> <span class="token function">readmessage</span><span class="token punctuation">(</span><span class="token parameter">path<span class="token punctuation">,</span>data</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+  <span class="token comment">//读取内容,同步异步promise,以及可写流</span>
+  fs<span class="token punctuation">.</span><span class="token function">readFile</span><span class="token punctuation">(</span>path<span class="token punctuation">,</span><span class="token punctuation">{</span>
+    <span class="token literal-property property">flag</span><span class="token operator">:</span><span class="token string">'r'</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">encoding</span><span class="token operator">:</span><span class="token string">'utf-8'</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token parameter">err<span class="token punctuation">,</span>oldmessage</span><span class="token punctuation">)</span><span class="token operator">=&gt;</span><span class="token punctuation">{</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span> <span class="token keyword">throw</span> err<span class="token punctuation">;</span>
+    oldmessage <span class="token operator">=</span> <span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span>oldmessage<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>oldmessage<span class="token punctuation">)</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment">//处理留言数据</span>
+    data<span class="token punctuation">.</span>id <span class="token operator">=</span> oldmessage<span class="token punctuation">.</span>currentId <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token comment">//加入时间,所在地等等</span>
+    data<span class="token punctuation">.</span>timestamp <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getTime</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment">//大对象</span>
+    oldmessage<span class="token punctuation">.</span>data<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    oldmessage<span class="token punctuation">.</span>total <span class="token operator">=</span> oldmessage<span class="token punctuation">.</span>data<span class="token punctuation">.</span>length<span class="token punctuation">;</span>
+    oldmessage<span class="token punctuation">.</span>currentId <span class="token operator">=</span> data<span class="token punctuation">.</span>id<span class="token punctuation">;</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>oldmessage<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment">//写入内容,同步异步promise,以及可写流</span>
+    <span class="token function">writemessage</span><span class="token punctuation">(</span>path<span class="token punctuation">,</span>oldmessage<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">//写入留言</span>
+<span class="token keyword">function</span> <span class="token function">writemessage</span><span class="token punctuation">(</span><span class="token parameter">path<span class="token punctuation">,</span>data</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    fs<span class="token punctuation">.</span><span class="token function">writeFile</span><span class="token punctuation">(</span>path<span class="token punctuation">,</span><span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token parameter">err</span><span class="token punctuation">)</span><span class="token operator">=&gt;</span><span class="token punctuation">{</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span> <span class="token keyword">throw</span> err<span class="token punctuation">;</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'写入成功'</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">//对称加密</span>
+<span class="token keyword">function</span> <span class="token function">aesEncrypt</span><span class="token punctuation">(</span><span class="token parameter">data<span class="token punctuation">,</span> key<span class="token punctuation">,</span> iv</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// 给定的算法，密钥和初始化向量（iv）创建并返回Cipher对象</span>
+    <span class="token keyword">const</span> cipher <span class="token operator">=</span> crypto<span class="token punctuation">.</span><span class="token function">createCipheriv</span><span class="token punctuation">(</span><span class="token string">'aes-256-cbc'</span><span class="token punctuation">,</span> key<span class="token punctuation">,</span> iv<span class="token punctuation">)</span>
+    <span class="token comment">// 指定要摘要的原始内容,可以在摘要被输出之前使用多次update方法来添加摘要内容</span>
+    <span class="token comment">// 数据的编码 utf8 返回值的编码 hex</span>
+    <span class="token keyword">var</span> crypted <span class="token operator">=</span> cipher<span class="token punctuation">.</span><span class="token function">update</span><span class="token punctuation">(</span>data<span class="token punctuation">,</span> <span class="token string">'utf8'</span><span class="token punctuation">,</span> <span class="token string">'hex'</span><span class="token punctuation">)</span>
+    crypted <span class="token operator">+=</span> cipher<span class="token punctuation">.</span><span class="token function">final</span><span class="token punctuation">(</span><span class="token string">'hex'</span><span class="token punctuation">)</span>
+    <span class="token keyword">return</span> crypted
+<span class="token punctuation">}</span>
+<span class="token comment">//对称解密</span>
+<span class="token keyword">function</span> <span class="token function">aesDecrypt</span><span class="token punctuation">(</span><span class="token parameter">data<span class="token punctuation">,</span> key<span class="token punctuation">,</span> iv</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// 给定的算法，密钥和初始化向量（iv）创建并返回Cipher对象</span>
+    <span class="token keyword">const</span> decipher <span class="token operator">=</span> crypto<span class="token punctuation">.</span><span class="token function">createDecipheriv</span><span class="token punctuation">(</span><span class="token string">'aes-256-cbc'</span><span class="token punctuation">,</span> key<span class="token punctuation">,</span> iv<span class="token punctuation">)</span>
+    <span class="token comment">// 数据的编码 hex 返回值的编码 utf8</span>
+    <span class="token keyword">var</span> decrypted <span class="token operator">=</span> decipher<span class="token punctuation">.</span><span class="token function">update</span><span class="token punctuation">(</span>data<span class="token punctuation">,</span> <span class="token string">'hex'</span><span class="token punctuation">,</span> <span class="token string">'utf8'</span><span class="token punctuation">)</span>
+    decrypted <span class="token operator">+=</span> decipher<span class="token punctuation">.</span><span class="token function">final</span><span class="token punctuation">(</span><span class="token string">'utf8'</span><span class="token punctuation">)</span>
+    <span class="token keyword">return</span> decrypted
+<span class="token punctuation">}</span>
+</code></pre></div></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">更新时间:</span> <span class="time">2023年12月14日星期四下午3点15分</span></div></footer> <!----> </main></div><div class="global-ui"><!----><!----></div></div>
+    <script src="/assets/js/app.4290121d.js" defer></script><script src="/assets/js/9.13d458ed.js" defer></script><script src="/assets/js/2.6281e0bb.js" defer></script><script src="/assets/js/50.c82ff39c.js" defer></script><script src="/assets/js/3.e6827fa8.js" defer></script>
+  </body>
+</html>

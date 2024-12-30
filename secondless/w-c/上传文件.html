@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>上传文件 | 睿晨网</title>
+    <meta name="generator" content="VuePress 1.9.9">
+    <link rel="icon" href="/assets/img/favicon.png">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="apple-touch-icon" href="/icons/apple-touch-icon-152x152.png">
+    <link rel="#icon-pengyouquan" href="/icons/iconfont.svg" color="#3eaf7c">
+    <meta name="description" content="睿晨网|睿晨编程|零基础学做网站、app、小程序就从这里开始">
+    <meta name="keywords" content="睿晨网,睿晨编程,零基础学做网站,零基础学app,零基础学小程序">
+    <meta name="author" content="睿晨网,睿晨编程,阿东老师">
+    <meta name="theme-color" content="#3eaf7c">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="msapplication-TileImage" content="/icons/msapplication-icon-144x144.png">
+    <meta name="msapplication-TileColor" content="#000000">
+    
+    <link rel="preload" href="/assets/css/0.styles.9f36b4a6.css" as="style"><link rel="preload" href="/assets/js/app.4290121d.js" as="script"><link rel="preload" href="/assets/js/9.13d458ed.js" as="script"><link rel="preload" href="/assets/js/2.6281e0bb.js" as="script"><link rel="preload" href="/assets/js/62.cb2526a5.js" as="script"><link rel="preload" href="/assets/js/3.e6827fa8.js" as="script"><link rel="prefetch" href="/assets/js/10.63ed790c.js"><link rel="prefetch" href="/assets/js/100.c9478976.js"><link rel="prefetch" href="/assets/js/101.4685b835.js"><link rel="prefetch" href="/assets/js/102.1eac8485.js"><link rel="prefetch" href="/assets/js/103.bf24a1b1.js"><link rel="prefetch" href="/assets/js/104.c4a628a5.js"><link rel="prefetch" href="/assets/js/105.c9e752c5.js"><link rel="prefetch" href="/assets/js/106.5400a839.js"><link rel="prefetch" href="/assets/js/107.291c206c.js"><link rel="prefetch" href="/assets/js/108.8f9ad3b5.js"><link rel="prefetch" href="/assets/js/109.9abcabbd.js"><link rel="prefetch" href="/assets/js/11.c1e28536.js"><link rel="prefetch" href="/assets/js/110.931a981c.js"><link rel="prefetch" href="/assets/js/111.74ed093b.js"><link rel="prefetch" href="/assets/js/112.bc182cb3.js"><link rel="prefetch" href="/assets/js/113.0a263551.js"><link rel="prefetch" href="/assets/js/114.c748f7d1.js"><link rel="prefetch" href="/assets/js/115.512540a3.js"><link rel="prefetch" href="/assets/js/116.02ddb382.js"><link rel="prefetch" href="/assets/js/117.651a51ab.js"><link rel="prefetch" href="/assets/js/118.d5adabcc.js"><link rel="prefetch" href="/assets/js/12.3ebb90ce.js"><link rel="prefetch" href="/assets/js/13.3db94aa4.js"><link rel="prefetch" href="/assets/js/14.55bbb95d.js"><link rel="prefetch" href="/assets/js/15.7609be3f.js"><link rel="prefetch" href="/assets/js/16.1cc32a36.js"><link rel="prefetch" href="/assets/js/17.8b79e558.js"><link rel="prefetch" href="/assets/js/18.01046342.js"><link rel="prefetch" href="/assets/js/19.b5289c20.js"><link rel="prefetch" href="/assets/js/20.01eceda0.js"><link rel="prefetch" href="/assets/js/21.cbd4c1a7.js"><link rel="prefetch" href="/assets/js/22.49d7bb3f.js"><link rel="prefetch" href="/assets/js/23.aa8b176b.js"><link rel="prefetch" href="/assets/js/24.a693e371.js"><link rel="prefetch" href="/assets/js/25.0d6774b2.js"><link rel="prefetch" href="/assets/js/26.9ddf56fb.js"><link rel="prefetch" href="/assets/js/27.ff18fc22.js"><link rel="prefetch" href="/assets/js/28.71f9f611.js"><link rel="prefetch" href="/assets/js/29.5c6a1827.js"><link rel="prefetch" href="/assets/js/30.d5719acc.js"><link rel="prefetch" href="/assets/js/31.7ecc80fc.js"><link rel="prefetch" href="/assets/js/32.b33a0dac.js"><link rel="prefetch" href="/assets/js/33.d1d6e21b.js"><link rel="prefetch" href="/assets/js/34.7c344086.js"><link rel="prefetch" href="/assets/js/35.96419452.js"><link rel="prefetch" href="/assets/js/36.648095a9.js"><link rel="prefetch" href="/assets/js/37.abb1155f.js"><link rel="prefetch" href="/assets/js/38.3e99ef52.js"><link rel="prefetch" href="/assets/js/39.77344c5e.js"><link rel="prefetch" href="/assets/js/4.0dd4ebcd.js"><link rel="prefetch" href="/assets/js/40.16ceab60.js"><link rel="prefetch" href="/assets/js/41.471568fe.js"><link rel="prefetch" href="/assets/js/42.8a6b3555.js"><link rel="prefetch" href="/assets/js/43.24d99635.js"><link rel="prefetch" href="/assets/js/44.ee5332ec.js"><link rel="prefetch" href="/assets/js/45.5689f44c.js"><link rel="prefetch" href="/assets/js/46.8d8ff101.js"><link rel="prefetch" href="/assets/js/47.eb9fbe1e.js"><link rel="prefetch" href="/assets/js/48.bead0a77.js"><link rel="prefetch" href="/assets/js/49.7c4620b3.js"><link rel="prefetch" href="/assets/js/5.3e24e7be.js"><link rel="prefetch" href="/assets/js/50.c82ff39c.js"><link rel="prefetch" href="/assets/js/51.ad9964cb.js"><link rel="prefetch" href="/assets/js/52.c3af8a0a.js"><link rel="prefetch" href="/assets/js/53.f3d4313d.js"><link rel="prefetch" href="/assets/js/54.762fa302.js"><link rel="prefetch" href="/assets/js/55.1c930310.js"><link rel="prefetch" href="/assets/js/56.7ba18a76.js"><link rel="prefetch" href="/assets/js/57.a844f08f.js"><link rel="prefetch" href="/assets/js/58.87c2d443.js"><link rel="prefetch" href="/assets/js/59.70e2b2cf.js"><link rel="prefetch" href="/assets/js/6.ca2525e2.js"><link rel="prefetch" href="/assets/js/60.c89ccf45.js"><link rel="prefetch" href="/assets/js/61.b841101d.js"><link rel="prefetch" href="/assets/js/63.27af5e66.js"><link rel="prefetch" href="/assets/js/64.1eb94786.js"><link rel="prefetch" href="/assets/js/65.51b2d679.js"><link rel="prefetch" href="/assets/js/66.79163b01.js"><link rel="prefetch" href="/assets/js/67.39abab2a.js"><link rel="prefetch" href="/assets/js/68.749bebbb.js"><link rel="prefetch" href="/assets/js/69.3b134a79.js"><link rel="prefetch" href="/assets/js/7.9cfbec5a.js"><link rel="prefetch" href="/assets/js/70.b6366e6f.js"><link rel="prefetch" href="/assets/js/71.99b10708.js"><link rel="prefetch" href="/assets/js/72.e0ae5dde.js"><link rel="prefetch" href="/assets/js/73.25a82196.js"><link rel="prefetch" href="/assets/js/74.7da9c461.js"><link rel="prefetch" href="/assets/js/75.77a5e99e.js"><link rel="prefetch" href="/assets/js/76.63847ea5.js"><link rel="prefetch" href="/assets/js/77.3613a434.js"><link rel="prefetch" href="/assets/js/78.b5308aaf.js"><link rel="prefetch" href="/assets/js/79.44d9303c.js"><link rel="prefetch" href="/assets/js/8.0bb2f2e9.js"><link rel="prefetch" href="/assets/js/80.4854adde.js"><link rel="prefetch" href="/assets/js/81.eb1eda12.js"><link rel="prefetch" href="/assets/js/82.fb170b83.js"><link rel="prefetch" href="/assets/js/83.a3ed9d42.js"><link rel="prefetch" href="/assets/js/84.e91ed24f.js"><link rel="prefetch" href="/assets/js/85.018f95a4.js"><link rel="prefetch" href="/assets/js/86.bdb51cb3.js"><link rel="prefetch" href="/assets/js/87.d4a12db2.js"><link rel="prefetch" href="/assets/js/88.a3935847.js"><link rel="prefetch" href="/assets/js/89.ffe1bfe0.js"><link rel="prefetch" href="/assets/js/90.dd733904.js"><link rel="prefetch" href="/assets/js/91.fea63665.js"><link rel="prefetch" href="/assets/js/92.8c2e7c8b.js"><link rel="prefetch" href="/assets/js/93.c1a1fb9a.js"><link rel="prefetch" href="/assets/js/94.957d21ad.js"><link rel="prefetch" href="/assets/js/95.146efd96.js"><link rel="prefetch" href="/assets/js/96.0f73be1e.js"><link rel="prefetch" href="/assets/js/97.2a58c74e.js"><link rel="prefetch" href="/assets/js/98.c09aee2f.js"><link rel="prefetch" href="/assets/js/99.254475da.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.9f36b4a6.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">睿晨网</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">
+  主页
+</a></div><div class="nav-item"><a href="/aboutless.html" class="nav-link">
+  第一学期课程
+</a></div><div class="nav-item"><a href="/secondless/" class="nav-link router-link-active">
+  第二学期课程
+</a></div><div class="nav-item"><a href="/thirdless/" class="nav-link">
+  第三期移动端课程
+</a></div><div class="nav-item"><a href="/web/software/" class="nav-link">
+  课程软件小案例
+</a></div><div class="nav-item"><a href="/web/mysql/" class="nav-link">
+  课程案例数据表
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="课程答疑汇总" class="dropdown-title"><span class="title">课程答疑</span> <span class="arrow down"></span></button> <button type="button" aria-label="课程答疑汇总" class="mobile-dropdown-title"><span class="title">课程答疑</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/web/answer/课程常见问题.html" class="nav-link">
+  课程常见问题
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="课程学习网站" class="dropdown-title"><span class="title">课程学习网站</span> <span class="arrow down"></span></button> <button type="button" aria-label="课程学习网站" class="mobile-dropdown-title"><span class="title">课程学习网站</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          视频学习网站
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://study.163.com/provider/480000002289674/index.htm?share=2&amp;shareId=480000002289674" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  腾讯云课堂
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://space.bilibili.com/3493114067028034/pugv" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  B站
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="实用菜单" class="dropdown-title"><span class="title">实用网站和方法</span> <span class="arrow down"></span></button> <button type="button" aria-label="实用菜单" class="mobile-dropdown-title"><span class="title">实用网站和方法</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          实用方法
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/web/methods/定位相关.html" class="nav-link">
+  定位相关
+</a></li><li class="dropdown-subitem"><a href="/web/methods/地图相关.html" class="nav-link">
+  地图相关
+</a></li></ul></li><li class="dropdown-item"><h4>
+          实用网站
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/web/methods/实用接口.html" class="nav-link">
+  实用接口
+</a></li><li class="dropdown-subitem"><a href="/web/css/" class="nav-link">
+  css
+</a></li><li class="dropdown-subitem"><a href="/web/vue.js/" class="nav-link">
+  Vue.js
+</a></li><li class="dropdown-subitem"><a href="/web/Vue3+ElementPlus/" class="nav-link">
+  Vue3+ElementPlus系统
+</a></li><li class="dropdown-subitem"><a href="/web/echarts/" class="nav-link">
+  echarts图表
+</a></li><li class="dropdown-subitem"><a href="/web/bootstrap/" class="nav-link">
+  Bootstrap
+</a></li><li class="dropdown-subitem"><a href="/web/IIS/" class="nav-link">
+  IIS
+</a></li><li class="dropdown-subitem"><a href="/web/github/" class="nav-link">
+  Github
+</a></li><li class="dropdown-subitem"><a href="/web/Vanta.js/" class="nav-link">
+  Vanta.js网页3D背景
+</a></li></ul></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">
+  主页
+</a></div><div class="nav-item"><a href="/aboutless.html" class="nav-link">
+  第一学期课程
+</a></div><div class="nav-item"><a href="/secondless/" class="nav-link router-link-active">
+  第二学期课程
+</a></div><div class="nav-item"><a href="/thirdless/" class="nav-link">
+  第三期移动端课程
+</a></div><div class="nav-item"><a href="/web/software/" class="nav-link">
+  课程软件小案例
+</a></div><div class="nav-item"><a href="/web/mysql/" class="nav-link">
+  课程案例数据表
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="课程答疑汇总" class="dropdown-title"><span class="title">课程答疑</span> <span class="arrow down"></span></button> <button type="button" aria-label="课程答疑汇总" class="mobile-dropdown-title"><span class="title">课程答疑</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/web/answer/课程常见问题.html" class="nav-link">
+  课程常见问题
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="课程学习网站" class="dropdown-title"><span class="title">课程学习网站</span> <span class="arrow down"></span></button> <button type="button" aria-label="课程学习网站" class="mobile-dropdown-title"><span class="title">课程学习网站</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          视频学习网站
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://study.163.com/provider/480000002289674/index.htm?share=2&amp;shareId=480000002289674" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  腾讯云课堂
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://space.bilibili.com/3493114067028034/pugv" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  B站
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="实用菜单" class="dropdown-title"><span class="title">实用网站和方法</span> <span class="arrow down"></span></button> <button type="button" aria-label="实用菜单" class="mobile-dropdown-title"><span class="title">实用网站和方法</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          实用方法
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/web/methods/定位相关.html" class="nav-link">
+  定位相关
+</a></li><li class="dropdown-subitem"><a href="/web/methods/地图相关.html" class="nav-link">
+  地图相关
+</a></li></ul></li><li class="dropdown-item"><h4>
+          实用网站
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/web/methods/实用接口.html" class="nav-link">
+  实用接口
+</a></li><li class="dropdown-subitem"><a href="/web/css/" class="nav-link">
+  css
+</a></li><li class="dropdown-subitem"><a href="/web/vue.js/" class="nav-link">
+  Vue.js
+</a></li><li class="dropdown-subitem"><a href="/web/Vue3+ElementPlus/" class="nav-link">
+  Vue3+ElementPlus系统
+</a></li><li class="dropdown-subitem"><a href="/web/echarts/" class="nav-link">
+  echarts图表
+</a></li><li class="dropdown-subitem"><a href="/web/bootstrap/" class="nav-link">
+  Bootstrap
+</a></li><li class="dropdown-subitem"><a href="/web/IIS/" class="nav-link">
+  IIS
+</a></li><li class="dropdown-subitem"><a href="/web/github/" class="nav-link">
+  Github
+</a></li><li class="dropdown-subitem"><a href="/web/Vanta.js/" class="nav-link">
+  Vanta.js网页3D背景
+</a></li></ul></li></ul></div></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>上传文件</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/secondless/w-c/%E4%B8%8A%E4%BC%A0%E6%96%87%E4%BB%B6.html#一、stream-流模式上传文件-单个文件-文件存储在你自己的服务器上" class="sidebar-link">一、Stream 流模式上传文件（单个文件），文件存储在你自己的服务器上</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/secondless/w-c/%E4%B8%8A%E4%BC%A0%E6%96%87%E4%BB%B6.html#_1、安装依赖包和插件" class="sidebar-link">1、安装依赖包和插件</a></li><li class="sidebar-sub-header"><a href="/secondless/w-c/%E4%B8%8A%E4%BC%A0%E6%96%87%E4%BB%B6.html#_2、项目配置-config-config-default-js" class="sidebar-link">2、项目配置：config/config.default.js</a></li><li class="sidebar-sub-header"><a href="/secondless/w-c/%E4%B8%8A%E4%BC%A0%E6%96%87%E4%BB%B6.html#_3、新建控制器-app-controller-upload-js-处理文件上传-前后端都可以用" class="sidebar-link">3、新建控制器 app/controller/upload.js 处理文件上传，前后端都可以用</a></li><li class="sidebar-sub-header"><a href="/secondless/w-c/%E4%B8%8A%E4%BC%A0%E6%96%87%E4%BB%B6.html#_4、配置路由-app-router-js" class="sidebar-link">4、配置路由 app/router.js</a></li><li class="sidebar-sub-header"><a href="/secondless/w-c/%E4%B8%8A%E4%BC%A0%E6%96%87%E4%BB%B6.html#_5、如果不需要管理员登录就可以上传图片-配置中间件路由-config-config-default-js" class="sidebar-link">5、如果不需要管理员登录就可以上传图片，配置中间件路由 config/config.default.js</a></li><li class="sidebar-sub-header"><a href="/secondless/w-c/%E4%B8%8A%E4%BC%A0%E6%96%87%E4%BB%B6.html#_6、postman测试上传文件" class="sidebar-link">6、postman测试上传文件</a></li><li class="sidebar-sub-header"><a href="/secondless/w-c/%E4%B8%8A%E4%BC%A0%E6%96%87%E4%BB%B6.html#_7、扩展-自定义上传文件路径" class="sidebar-link">7、扩展： 自定义上传文件路径</a></li></ul></li><li><a href="/secondless/w-c/%E4%B8%8A%E4%BC%A0%E6%96%87%E4%BB%B6.html#二、file-模式" class="sidebar-link">二、File 模式</a><ul class="sidebar-sub-headers"></ul></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><blockquote><p>前言 <br></p> <ol><li>关于上传文件方式<br>
+官网提供： <a href="https://www.eggjs.org/zh-CN/basics/controller#%E8%8E%B7%E5%8F%96%E4%B8%8A%E4%BC%A0%E7%9A%84%E6%96%87%E4%BB%B6" target="_blank">获取上传的文件</a>，提供了两种模式：<a href="https://www.eggjs.org/zh-CN/basics/controller#file-%E6%A8%A1%E5%BC%8F" target="_blank">File 模式</a> 和 <a href="https://www.eggjs.org/zh-CN/basics/controller#file-%E6%A8%A1%E5%BC%8F" target="_blank">Stream 流模式</a><br><br></li> <li>上传文件之后，文件存储方式<br>
+第一种存储方式： 存放在你自己的服务器上，和项目代码放在一起；<br>
+第二种存储方式： 通过第三方OSS云存储服务，例如：七牛云、阿里云、腾讯云等它们的云存储服务，存放在第三方服务器上；</li></ol></blockquote> <h2 id="一、stream-流模式上传文件-单个文件-文件存储在你自己的服务器上"><a href="#一、stream-流模式上传文件-单个文件-文件存储在你自己的服务器上" class="header-anchor">#</a> 一、Stream 流模式上传文件（单个文件），文件存储在你自己的服务器上</h2> <h3 id="_1、安装依赖包和插件"><a href="#_1、安装依赖包和插件" class="header-anchor">#</a> 1、安装依赖包和插件</h3> <div class="language-js extra-class"><pre class="language-js"><code>npm i <span class="token keyword">await</span><span class="token operator">-</span>stream<span class="token operator">-</span>ready stream<span class="token operator">-</span>wormhole dayjs <span class="token operator">--</span>save
+<span class="token comment">// 安装了三个依赖或者插件</span>
+<span class="token comment">// await-stream-ready： 用于处理文件上传的流，当文件上传完毕后，会触发一个事件</span>
+<span class="token comment">// stream-wormhole： 用于处理文件上传的流，当文件上传完毕后，会触发一个事件</span>
+<span class="token comment">// dayjs： 用于处理时间插件</span>
+</code></pre></div><h3 id="_2、项目配置-config-config-default-js"><a href="#_2、项目配置-config-config-default-js" class="header-anchor">#</a> 2、项目配置：<code>config/config.default.js</code></h3> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">//配置上传文件相关</span>
+config<span class="token punctuation">.</span>multipart <span class="token operator">=</span> <span class="token punctuation">{</span>
+    <span class="token literal-property property">fileSize</span><span class="token operator">:</span><span class="token string">'50mb'</span><span class="token punctuation">,</span> <span class="token comment">//最大上传大小50MB</span>
+    <span class="token literal-property property">mode</span><span class="token operator">:</span><span class="token string">'stream'</span><span class="token punctuation">,</span> <span class="token comment">//上传文件模式，stream 流模式 file 模式</span>
+    <span class="token literal-property property">fileExtensions</span><span class="token operator">:</span><span class="token punctuation">[</span><span class="token string">'.xls'</span><span class="token punctuation">,</span><span class="token string">'.txt'</span><span class="token punctuation">,</span><span class="token string">'.jpg'</span><span class="token punctuation">,</span><span class="token string">'.JPG'</span><span class="token punctuation">,</span><span class="token string">'.png'</span><span class="token punctuation">,</span><span class="token string">'.PNG'</span><span class="token punctuation">,</span>
+                    <span class="token string">'.gif'</span><span class="token punctuation">,</span><span class="token string">'.GIF'</span><span class="token punctuation">,</span><span class="token string">'.jpeg'</span><span class="token punctuation">,</span><span class="token string">'.JPEG'</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token comment">//文件格式自定义</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre></div><h3 id="_3、新建控制器-app-controller-upload-js-处理文件上传-前后端都可以用"><a href="#_3、新建控制器-app-controller-upload-js-处理文件上传-前后端都可以用" class="header-anchor">#</a> 3、新建控制器 <code>app/controller/upload.js</code> 处理文件上传，前后端都可以用</h3> <div class="language-js extra-class"><pre class="language-js"><code><span class="token string">'use strict'</span><span class="token punctuation">;</span>
+
+<span class="token comment">// 引入</span>
+<span class="token keyword">const</span> fs <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'fs'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> path <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'path'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">//故名思意 异步二进制 写入流</span>
+<span class="token keyword">const</span> awaitWriteStream <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'await-stream-ready'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>write<span class="token punctuation">;</span>
+<span class="token comment">//管道读入一个虫洞</span>
+<span class="token keyword">const</span> sendToWormhole <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'stream-wormhole'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// 日期格式化</span>
+<span class="token keyword">const</span> dayjs <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'dayjs'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> Controller <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'egg'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>Controller<span class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">UploadController</span> <span class="token keyword">extends</span> <span class="token class-name">Controller</span> <span class="token punctuation">{</span>
+ 
+    <span class="token comment">// 上传单个文件流模式到本地服务器</span>
+    <span class="token keyword">async</span> <span class="token function">uploadStreamSingleToServer</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">const</span> fileDirname <span class="token operator">=</span> <span class="token string">'uploads'</span><span class="token punctuation">;</span>
+        <span class="token comment">// 单个文件，多个文件查看：https://www.eggjs.org/zh-CN/basics/controller#stream-%E6%A8%A1%E5%BC%8F</span>
+        <span class="token keyword">const</span> stream <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token keyword">this</span><span class="token punctuation">.</span>ctx<span class="token punctuation">.</span><span class="token function">getFileStream</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//单个文件</span>
+        <span class="token comment">// 基础的目录：上传的文件存放的目录，如：'app/public/uploads'</span>
+        <span class="token keyword">const</span> uploadBasePath <span class="token operator">=</span> <span class="token string">'app/public/'</span> <span class="token operator">+</span> fileDirname<span class="token punctuation">;</span>
+        <span class="token comment">// 生成唯一文件名：时间戳+随机数+文件后缀 [你也可以定义成其它的方式]</span>
+        <span class="token keyword">const</span> timestamp <span class="token operator">=</span> Date<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//当前时间戳</span>
+        <span class="token keyword">const</span> random <span class="token operator">=</span> Number<span class="token punctuation">.</span><span class="token function">parseInt</span><span class="token punctuation">(</span>Math<span class="token punctuation">.</span><span class="token function">random</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token number">100000000</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//随机数</span>
+        <span class="token keyword">const</span> extname <span class="token operator">=</span> path<span class="token punctuation">.</span><span class="token function">extname</span><span class="token punctuation">(</span>stream<span class="token punctuation">.</span>filename<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toLocaleLowerCase</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//文件后缀</span>
+        <span class="token keyword">const</span> filename <span class="token operator">=</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>timestamp<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">_</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>random<span class="token interpolation-punctuation punctuation">}</span></span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>extname<span class="token interpolation-punctuation punctuation">}</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">;</span>
+        <span class="token comment">// 生成文件夹如：app/public/uploads后面的文件夹如：/2019/01/01，当然你可以自定义其他方式</span>
+        <span class="token comment">// const dirname = dayjs(Date.now()).format('YYYY/MM/DD');//使用我们上面安装的dayjs模块方法转换的日期格式</span>
+        <span class="token keyword">const</span> dirname <span class="token operator">=</span> <span class="token function">dayjs</span><span class="token punctuation">(</span>Date<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">format</span><span class="token punctuation">(</span><span class="token string">'YYYYMMDD'</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">// /20190101</span>
+        <span class="token comment">//这个方法是判断这个文件夹是否存在，不存在则创建这个文件夹</span>
+        <span class="token keyword">function</span> <span class="token function">mkdirsSync</span><span class="token punctuation">(</span><span class="token parameter">dirname</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span>fs<span class="token punctuation">.</span><span class="token function">existsSync</span><span class="token punctuation">(</span>dirname<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                <span class="token keyword">return</span> <span class="token boolean">true</span>
+            <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+                <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token function">mkdirsSync</span><span class="token punctuation">(</span>path<span class="token punctuation">.</span><span class="token function">dirname</span><span class="token punctuation">(</span>dirname<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                    fs<span class="token punctuation">.</span><span class="token function">mkdirSync</span><span class="token punctuation">(</span>dirname<span class="token punctuation">)</span>
+                    <span class="token keyword">return</span> <span class="token boolean">true</span>
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+        <span class="token comment">//调用方法生成完整文件路径</span>
+        <span class="token function">mkdirsSync</span><span class="token punctuation">(</span>path<span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span>uploadBasePath<span class="token punctuation">,</span>dirname<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">// 生成写入路径: 完整文件路径 + 文件名</span>
+        <span class="token keyword">const</span> target <span class="token operator">=</span> path<span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span>uploadBasePath<span class="token punctuation">,</span>dirname<span class="token punctuation">,</span>filename<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">// 写入流</span>
+        <span class="token keyword">const</span> writeStream <span class="token operator">=</span> fs<span class="token punctuation">.</span><span class="token function">createWriteStream</span><span class="token punctuation">(</span>target<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">// 尝试写入文件数据流</span>
+        <span class="token keyword">try</span> <span class="token punctuation">{</span>
+            <span class="token comment">// 异步把文件流写入</span>
+            <span class="token keyword">await</span> <span class="token function">awaitWriteStream</span><span class="token punctuation">(</span>stream<span class="token punctuation">.</span><span class="token function">pipe</span><span class="token punctuation">(</span>writeStream<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span>error<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token comment">// 出现错误，关闭管道</span>
+            <span class="token keyword">await</span> <span class="token function">sendToWormhole</span><span class="token punctuation">(</span>stream<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span>ctx<span class="token punctuation">.</span><span class="token function">throw</span><span class="token punctuation">(</span><span class="token number">500</span><span class="token punctuation">,</span>error<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token comment">//写入成功后返回文件路径地址</span>
+        <span class="token keyword">let</span> url <span class="token operator">=</span> path<span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span><span class="token string">'/public/'</span> <span class="token operator">+</span> fileDirname<span class="token punctuation">,</span>dirname<span class="token punctuation">,</span>filename<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span><span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">\\|\/</span><span class="token regex-delimiter">/</span><span class="token regex-flags">g</span></span><span class="token punctuation">,</span><span class="token string">'/'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>ctx<span class="token punctuation">.</span><span class="token function">apiSuccess</span><span class="token punctuation">(</span><span class="token punctuation">{</span> url <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span>
+
+module<span class="token punctuation">.</span>exports <span class="token operator">=</span> UploadController<span class="token punctuation">;</span>
+
+</code></pre></div><h3 id="_4、配置路由-app-router-js"><a href="#_4、配置路由-app-router-js" class="header-anchor">#</a> 4、配置路由 <code>app/router.js</code></h3> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// 上传单个文件流模式到本地服务器</span>
+router<span class="token punctuation">.</span><span class="token function">post</span><span class="token punctuation">(</span><span class="token string">'/uploadStreamSingleToServer'</span><span class="token punctuation">,</span> controller<span class="token punctuation">.</span>upload<span class="token punctuation">.</span>uploadStreamSingleToServer<span class="token punctuation">)</span><span class="token punctuation">;</span> 
+</code></pre></div><h3 id="_5、如果不需要管理员登录就可以上传图片-配置中间件路由-config-config-default-js"><a href="#_5、如果不需要管理员登录就可以上传图片-配置中间件路由-config-config-default-js" class="header-anchor">#</a> 5、如果不需要管理员登录就可以上传图片，配置中间件路由 <code>config/config.default.js</code></h3> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// 对中间件adminAuth进一步配置</span>
+  config<span class="token punctuation">.</span>adminAuth <span class="token operator">=</span> <span class="token punctuation">{</span>
+    <span class="token literal-property property">ignore</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+      <span class="token operator">...</span><span class="token punctuation">,</span>
+      <span class="token string">&quot;/uploadStreamSingleToServer&quot;</span><span class="token punctuation">,</span> <span class="token comment">//忽略文件上传路由需要管理员登录</span>
+    <span class="token punctuation">]</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre></div><h3 id="_6、postman测试上传文件"><a href="#_6、postman测试上传文件" class="header-anchor">#</a> 6、postman测试上传文件</h3> <blockquote><ol><li>post请求，地址：<code>http://127.0.0.1:7001/uploadStreamSingleToServer</code> <br></li> <li>Body发送数据：<code>form-data类型，Key值：files , Value:选择要上传的图片</code> <br></li> <li>返回结果示例：</li></ol> <div class="language-js extra-class"><pre class="language-js"><code><span class="token punctuation">{</span>
+    <span class="token string-property property">&quot;msg&quot;</span><span class="token operator">:</span> <span class="token string">&quot;ok&quot;</span><span class="token punctuation">,</span>
+    <span class="token string-property property">&quot;data&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token string-property property">&quot;url&quot;</span><span class="token operator">:</span> <span class="token string">&quot;/public/uploads/20240309/1709952961932_9076609.jpg&quot;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>我们上面这个方法基本已经能满足需求了，这里给大家扩展一下思路，就是如果你想自定义上传的文件路径，我们给大家扩展了下面这个方法，上传文件代码基本一样，就是对路径做了处理，因此这里就不讲代码了，感兴趣的同学，可以看一下这个方法，代码每一步注释写的也很清楚，具体代码如下：</p></blockquote> <h3 id="_7、扩展-自定义上传文件路径"><a href="#_7、扩展-自定义上传文件路径" class="header-anchor">#</a> 7、扩展： 自定义上传文件路径</h3> <blockquote><p><code>app/controller/upload.js</code></p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// 自定义上传路径上传单个文件流模式到本地服务器</span>
+<span class="token keyword">async</span> <span class="token function">uploadStreamSingleToServerDiy</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">//自定义文件都是放在uploads目录下的Diy文件夹下</span>
+    <span class="token keyword">const</span> fileDirname <span class="token operator">=</span> <span class="token string">'uploads/Diy'</span><span class="token punctuation">;</span>
+    <span class="token comment">// 基础的目录：上传的文件存放的目录，如：'app/public/uploads/Diy'</span>
+    <span class="token keyword">let</span> uploadBasePath <span class="token operator">=</span> <span class="token string">'app/public/'</span> <span class="token operator">+</span> fileDirname<span class="token punctuation">;</span>
+    <span class="token comment">// 单个文件，多个文件查看：https://www.eggjs.org/zh-CN/basics/controller#stream-%E6%A8%A1%E5%BC%8F</span>
+    <span class="token keyword">const</span> stream <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token keyword">this</span><span class="token punctuation">.</span>ctx<span class="token punctuation">.</span><span class="token function">getFileStream</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//单个文件</span>
+    
+    <span class="token comment">// 根据传参得到用户自定义文件夹，多层文件夹用下划线传递参数，</span>
+    <span class="token keyword">const</span> <span class="token punctuation">{</span> protocol<span class="token punctuation">,</span> host <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>ctx<span class="token punctuation">.</span>request<span class="token punctuation">;</span>
+    <span class="token keyword">let</span> mydir <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>ctx<span class="token punctuation">.</span>params<span class="token punctuation">.</span>diydir<span class="token punctuation">;</span><span class="token comment">//console.log('接收的参数',mydir);</span>
+    <span class="token comment">//如果存在参数</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>mydir<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token comment">//将下划线转化为路径，如参数：mysourse_myfile，则转成 /mysourse/myfile文件夹</span>
+        <span class="token comment">// 一般给管理员或者用户使用，自定义参数一般是：管理员或者用户账号</span>
+        <span class="token keyword">let</span> mydirStr <span class="token operator">=</span> <span class="token string">''</span><span class="token punctuation">;</span>
+        <span class="token keyword">let</span> mydirArr <span class="token operator">=</span> mydir<span class="token punctuation">.</span><span class="token function">split</span><span class="token punctuation">(</span><span class="token string">'_'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">let</span> i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span>mydirArr<span class="token punctuation">.</span>length<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            mydirStr <span class="token operator">+=</span> <span class="token string">'/'</span> <span class="token operator">+</span> mydirArr<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        mydir <span class="token operator">=</span> mydirStr<span class="token punctuation">;</span>
+        <span class="token comment">//如果传参存在自定义文件夹，参数如：mysourse_myfile</span>
+        <span class="token comment">//则自定义文件夹路径如：app/public/uploads/Diy/mysourse/myfile</span>
+        uploadBasePath <span class="token operator">+=</span> mydir<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">// 生成唯一文件名：时间戳+随机数+文件后缀 [你也可以定义成其它的方式]</span>
+    <span class="token keyword">const</span> timestamp <span class="token operator">=</span> Date<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//当前时间戳</span>
+    <span class="token keyword">const</span> random <span class="token operator">=</span> Number<span class="token punctuation">.</span><span class="token function">parseInt</span><span class="token punctuation">(</span>Math<span class="token punctuation">.</span><span class="token function">random</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token number">100000000</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//随机数</span>
+    <span class="token keyword">const</span> extname <span class="token operator">=</span> path<span class="token punctuation">.</span><span class="token function">extname</span><span class="token punctuation">(</span>stream<span class="token punctuation">.</span>filename<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toLocaleLowerCase</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//文件后缀</span>
+    <span class="token keyword">const</span> filename <span class="token operator">=</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>timestamp<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">_</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>random<span class="token interpolation-punctuation punctuation">}</span></span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>extname<span class="token interpolation-punctuation punctuation">}</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">;</span>
+    <span class="token comment">// 生成文件夹如：app/public/uploads后面的文件夹如：/2019/01/01，当然你可以自定义其他方式</span>
+    <span class="token comment">// const dirname = dayjs(Date.now()).format('YYYY/MM/DD');//使用我们上面安装的dayjs模块方法转换的日期格式</span>
+    <span class="token keyword">const</span> dirname <span class="token operator">=</span> <span class="token function">dayjs</span><span class="token punctuation">(</span>Date<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">format</span><span class="token punctuation">(</span><span class="token string">'YYYYMMDD'</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">// /20190101</span>
+    <span class="token comment">//这个方法是判断这个文件夹是否存在，不存在则创建这个文件夹</span>
+    <span class="token keyword">function</span> <span class="token function">mkdirsSync</span><span class="token punctuation">(</span><span class="token parameter">dirname</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>fs<span class="token punctuation">.</span><span class="token function">existsSync</span><span class="token punctuation">(</span>dirname<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword">return</span> <span class="token boolean">true</span>
+        <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token function">mkdirsSync</span><span class="token punctuation">(</span>path<span class="token punctuation">.</span><span class="token function">dirname</span><span class="token punctuation">(</span>dirname<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                fs<span class="token punctuation">.</span><span class="token function">mkdirSync</span><span class="token punctuation">(</span>dirname<span class="token punctuation">)</span>
+                <span class="token keyword">return</span> <span class="token boolean">true</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token comment">//调用方法生成完整文件路径</span>
+    <span class="token function">mkdirsSync</span><span class="token punctuation">(</span>path<span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span>uploadBasePath<span class="token punctuation">,</span>dirname<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment">// 生成写入路径: 完整文件路径 + 文件名</span>
+    <span class="token keyword">const</span> target <span class="token operator">=</span> path<span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span>uploadBasePath<span class="token punctuation">,</span>dirname<span class="token punctuation">,</span>filename<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment">// 写入流</span>
+    <span class="token keyword">const</span> writeStream <span class="token operator">=</span> fs<span class="token punctuation">.</span><span class="token function">createWriteStream</span><span class="token punctuation">(</span>target<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment">// 尝试写入文件数据流</span>
+    <span class="token keyword">try</span> <span class="token punctuation">{</span>
+        <span class="token comment">// 异步把文件流写入</span>
+        <span class="token keyword">await</span> <span class="token function">awaitWriteStream</span><span class="token punctuation">(</span>stream<span class="token punctuation">.</span><span class="token function">pipe</span><span class="token punctuation">(</span>writeStream<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span>error<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment">// 出现错误，关闭管道</span>
+        <span class="token keyword">await</span> <span class="token function">sendToWormhole</span><span class="token punctuation">(</span>stream<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>ctx<span class="token punctuation">.</span><span class="token function">throw</span><span class="token punctuation">(</span><span class="token number">500</span><span class="token punctuation">,</span>error<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">//写入成功后返回文件路径地址，注意访问路径开始不能是 app/</span>
+    <span class="token comment">//即 uploadBasePath变量如：app/public/uploads/Diy/mysourse/myfile</span>
+    <span class="token comment">//去掉app,返回：/public/uploads/Diy/mysourse/myfile</span>
+    <span class="token keyword">let</span> mydir_base <span class="token operator">=</span> uploadBasePath<span class="token punctuation">.</span><span class="token function">substring</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">let</span> url <span class="token operator">=</span> path<span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span>mydir_base<span class="token punctuation">,</span> dirname<span class="token punctuation">,</span> filename<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span><span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">\\|\/</span><span class="token regex-delimiter">/</span><span class="token regex-flags">g</span></span><span class="token punctuation">,</span> <span class="token string">'/'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment">// url = protocol + '://' + host + url; //如果想带上域名加上这句话</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>ctx<span class="token punctuation">.</span><span class="token function">apiSuccess</span><span class="token punctuation">(</span><span class="token punctuation">{</span> url <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h4 id="使用说明"><a href="#使用说明" class="header-anchor">#</a> 使用说明：</h4> <ol><li>定义路由：<code>app/router.js</code> <br></li></ol> <div class="language-js extra-class"><pre class="language-js"><code>  <span class="token comment">// 自定义上传路径上传单个文件流模式到本地服务器</span>
+  router<span class="token punctuation">.</span><span class="token function">post</span><span class="token punctuation">(</span><span class="token string">'/uploadStreamSingleToServerDiy/:diydir'</span><span class="token punctuation">,</span> controller<span class="token punctuation">.</span>upload<span class="token punctuation">.</span>uploadStreamSingleToServerDiy<span class="token punctuation">)</span><span class="token punctuation">;</span> 
+</code></pre></div><ol start="2"><li>如果希望不登录也可以使用这个方法，同样需要再配置文件里面忽略掉权限验证 <code>config/config.default.js</code></li></ol> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// 对中间件adminAuth进一步配置</span>
+  config<span class="token punctuation">.</span>adminAuth <span class="token operator">=</span> <span class="token punctuation">{</span>
+    <span class="token literal-property property">ignore</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+      <span class="token operator">...</span><span class="token punctuation">,</span>
+      <span class="token string">&quot;/uploadStreamSingleToServer&quot;</span><span class="token punctuation">,</span> <span class="token comment">// 上传单个文件流模式到本地服务器</span>
+      <span class="token string">&quot;/uploadStreamSingleToServerDiy&quot;</span><span class="token punctuation">,</span><span class="token comment">// 自定义上传路径上传单个文件流模式到本地服务器</span>
+    <span class="token punctuation">]</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre></div><ol start="3"><li><p>这个方法我们规定的基本路径是：<code>/public/uploads/Diy</code> 文件夹下，去自定义文件夹；</p></li> <li><p>这个方法虽然可以自定义参数生成文件夹，但是建议使用用户的账号作为参数，这样存储的文件就是以用户的账号分类的；</p></li></ol> <h4 id="_5-具体使用方法"><a href="#_5-具体使用方法" class="header-anchor">#</a> 5. 具体使用方法：</h4> <p>一. 请求类型：POST<br>
+二. 请求路由地址方式一，自定义一个文件夹：<code>http://127.0.0.1:7001/uploadStreamSingleToServerDiy/myuser01</code> 参数建议用户或者管理员账号，返回的结果如下： <br></p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token punctuation">{</span>
+    <span class="token string-property property">&quot;msg&quot;</span><span class="token operator">:</span> <span class="token string">&quot;ok&quot;</span><span class="token punctuation">,</span>
+    <span class="token string-property property">&quot;data&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token string-property property">&quot;url&quot;</span><span class="token operator">:</span> <span class="token string">&quot;/public/uploads/Diy/myuser01/20240310/1710038202074_99501763.png&quot;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>三. 请求路由地址方式二，自定义多个文件夹进行嵌套：<code>http://127.0.0.1:7001/uploadStreamSingleToServerDiy/mysourse_myfile</code> <b style="color:red;">参数中多个文件夹名字必须用下划线隔开</b>，返回的结果如下： <br></p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token punctuation">{</span>
+    <span class="token string-property property">&quot;msg&quot;</span><span class="token operator">:</span> <span class="token string">&quot;ok&quot;</span><span class="token punctuation">,</span>
+    <span class="token string-property property">&quot;data&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token string-property property">&quot;url&quot;</span><span class="token operator">:</span> <span class="token string">&quot;/public/uploads/Diy/mysourse/myfile/20240310/1710038456814_52001040.png&quot;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div></blockquote> <h2 id="二、file-模式"><a href="#二、file-模式" class="header-anchor">#</a> 二、File 模式</h2> <blockquote><p>将在后面的课程：视频点播项目中使用</p></blockquote></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">更新时间:</span> <span class="time">2024年3月11日星期一上午9点34分</span></div></footer> <!----> </main></div><div class="global-ui"><!----><!----></div></div>
+    <script src="/assets/js/app.4290121d.js" defer></script><script src="/assets/js/9.13d458ed.js" defer></script><script src="/assets/js/2.6281e0bb.js" defer></script><script src="/assets/js/62.cb2526a5.js" defer></script><script src="/assets/js/3.e6827fa8.js" defer></script>
+  </body>
+</html>
