@@ -603,3 +603,52 @@ module.exports = WapController;
     }
 ]
 ```
+
+## 二、资讯中心、工程案例、联系我们api接口
+分析：<br/>
+> `资讯中心`、`工程案例`通过分类id获取news表数据，因此可以考虑统一的接口：<br/>
+`资讯中心` ： http://127.0.0.1:7001/api/wap/`cid`/6 <br/>
+`工程案例` ： http://127.0.0.1:7001/api/wap/`cid`/8 <br/>
+`详细信息` ： http://127.0.0.1:7001/api/wap/`id`/10 <br/>
+`联系我们` ： http://127.0.0.1:7001/api/wap/`contact`/contact <br/>
+`首页` ： http://127.0.0.1:7001/api/wap/`index`/index <br/>
+
+### ① 控制器 app/controller/api/template01/wap.js
+```js
+...
+    //数据请求
+    async getData(){
+        const { ctx, app } = this;
+        let p = ctx.params.p;
+        let _id = parseInt(ctx.params._id);
+        switch (p) {
+            case 'index': 
+                await this.index();
+                break;
+            case 'cid':
+                this.ctx.body = await this.ctx.service.news.getNewsByCategoryId(_id, 10);
+                break;
+            case 'id':
+                this.ctx.body = await this.ctx.model.News.findByPk(_id) ? await this.ctx.model.News.findByPk(_id) : {};
+                break;
+            case 'contact':
+                if(fs.existsSync('./data/wap_config.json')){
+                    this.ctx.body = await JSON.parse(fs.readFileSync('./data/wap_config.json', {encoding: 'utf-8'})).data;
+                }else{
+                    this.ctx.body = [];
+                }
+                break;
+            default:
+                this.ctx.body = [];
+                break;
+        }
+    }
+...
+```
+### ② 路由 `app/router/api/template01/router.js`
+```js
+    //移动端
+    // router.get('/api/wap/index', controller.api.template01.wap.index);
+    // router.get('/api/wap/:p', controller.api.template01.wap.getData);
+    router.get('/api/wap/:p/:_id', controller.api.template01.wap.getData);
+```
