@@ -1642,3 +1642,4 @@ module.exports = Wap_configController;
 ####  <a href="/thirdless/w-a/06数据处理.html#_2-联系我们-contact-vue" style="margin-left:70px;">② 联系我们 [contact.vue]</a>
 ####  <a href="/thirdless/w-a/06数据处理.html#_3-详情页-detail-vue" style="margin-left:70px;">③ 详情页 [detail.vue]</a>
 ### [章节7.后端api开发（选修课）](/thirdless/w-a/07后端api开发 '章节7.后端api开发（选修课）')
+### [章节8.数据交互和界面展示](/thirdless/w-a/08数据交互和界面展示 '章节8.数据交互和界面展示')

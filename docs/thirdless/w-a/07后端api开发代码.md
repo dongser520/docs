@@ -652,3 +652,29 @@ module.exports = WapController;
     // router.get('/api/wap/:p', controller.api.template01.wap.getData);
     router.get('/api/wap/:p/:_id', controller.api.template01.wap.getData);
 ```
+
+
+### 三、信息详情页浏览量更新
+控制器 `app/controller/api/template01/wap.js`
+```js
+    //数据处理
+    async getData(){
+        ...
+        switch (p) {
+            ...
+            case 'id':
+                //更新浏览量
+                // ctx.body = await ctx.model.News.findByPk(_id) ? await ctx.model.News.findByPk(_id) : {};
+                const res = await ctx.model.News.findByPk(_id) ? await ctx.model.News.findByPk(_id) : {};
+                if(res.id){
+                    let lookcount = parseInt(res.lookcount) + 1;
+                    res.lookcount = lookcount;
+                    await res.save();
+                }
+                ctx.body = res;
+                break;
+            ...
+        }
+        
+    }
+```
