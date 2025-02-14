@@ -17,7 +17,7 @@ title: 第二学期第一季（课程学习顺序：02）
 > 具体课程安排，请看下面的文档目录
 
 ## 2.本季课程视频介绍
-[![](/hear.jpg '第二学期第一季课程介绍，点击查看')](https://study.163.com/course/courseMain.htm?courseId=1213550818&share=2&shareId=480000002289674)
+[![](https://docs-51yrc-com.oss-cn-hangzhou.aliyuncs.com/docs-imgs/lesson_study_02.png '第二学期第一季课程介绍，点击查看')](https://study.163.com/course/courseMain.htm?courseId=1213550818&share=2&shareId=480000002289674)
 
 ## 3.课程免费试看（1-5课）
 [课程免费试看（1-5课）](https://study.163.com/course/introduction.htm?share=2&shareId=480000002289674&courseId=1213550818#/courseDetail?tab=1 '课程免费试看（1-5课）')

@@ -16,7 +16,7 @@ title:  第一学期课程
 ## 1.第一学期课程视频介绍及效果图
 <br/>
 
-[![](/lesson_01.png '第一学期课程效果图，点击查看')](https://study.163.com/course/courseMain.htm?courseId=1213374826&share=2&shareId=480000002289674)
+[![](https://docs-51yrc-com.oss-cn-hangzhou.aliyuncs.com/docs-imgs/lesson01.jpg '第一学期课程效果图，点击查看')](https://study.163.com/course/courseMain.htm?courseId=1213374826&share=2&shareId=480000002289674)
 
 <br/>
 
@@ -32,7 +32,7 @@ title:  第一学期课程
 
 
 ## 4.课程体系介绍
-[![](/hear.jpg '课程体系介绍，点击查看')](https://www.bilibili.com/video/BV1SW4y1L7i9/?vd_source=9a6ee0d7e6c1657e4a7381c1f8f18f4b)
+[![](https://docs-51yrc-com.oss-cn-hangzhou.aliyuncs.com/docs-imgs/hear.jpg '课程体系介绍，点击查看')](https://www.bilibili.com/video/BV1SW4y1L7i9/?vd_source=9a6ee0d7e6c1657e4a7381c1f8f18f4b)
 
 ## 5.睿晨网所有课程集合
 #### <a href="/aboutless.html" title="学习第一学期完整课程">① 第一学期所有课程</a>

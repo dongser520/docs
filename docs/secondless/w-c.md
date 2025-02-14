@@ -16,9 +16,17 @@ title: 第二学期第三季（课程学习顺序：04）
 > 有了我们前面的课程（第一学期、第二学期第一季、第二季课程）知识储备，我们第三季开发企业网站或者系统，所有同学都可以轻松拿捏了，也就意味着学完本季度同学们可以接单做网站或者系统了。我们本季度是对网站前端和后台的一个完整的开发。<br/><br/>
 > 章节有：`Egg.js基础`、`响应式网页布局`、`响应式网站后台`、`Egg.js和Mysql数据库进阶进一步开发网站后台`、`企业网站前端部分` ，章节不多但是每个章节内容和知识点较多，大家不要跳课学习，跟着老师的视频一步一步敲出网站的后台功能代码，以及网站前端页面功能代码，学习完之后，大家可以尝试接单做网站或者系统。<br/><br/>
 > 具体课程安排，请看下面的文档目录
-## 2.课程视频学习
-[学习课程完整视频](https://study.163.com/course/courseMain.htm?courseId=1213780858&share=2&shareId=480000002289674 '点击学习课程完整视频')
-## 3.查看课程文档
+
+## 2.本季课程视频介绍
+[![](https://docs-51yrc-com.oss-cn-hangzhou.aliyuncs.com/docs-imgs/lesson_study_04.jpg '第二学期第三季课程介绍，点击查看')](https://study.163.com/course/courseMain.htm?share=2&shareId=480000002289674&courseId=1213780858)
+
+## 3.课程视频学习
+
+[第二学期第三季【网易云课堂】](https://study.163.com/course/courseMain.htm?courseId=1213780858&share=2&shareId=480000002289674 '点击学习第二学期第三季课程完整视频【网易云课堂】') <br/>
+[第二学期第三季【B站】](https://www.bilibili.com/cheese/play/ss37624 '点击学习第二学期第三季课程完整视频【B站】')
+
+
+## 4.查看课程文档
 ### 章节1.第三季课程介绍 
 ### <a href="/secondless/w-c/Egg.js" target="_blank" title="点击查看课程文档">章节2.Egg.js基础</a>
 ####  <a href="/secondless/w-c/Egg.js.html#一、关于egg-js" style="margin-left:40px;">一、关于Egg.js</a>
@@ -144,5 +152,3 @@ title: 第二学期第三季（课程学习顺序：04）
 ### <a href="/secondless/w-c/企业网站前端部分" target="_blank" title="点击查看课程文档">章节5.企业网站前端部分</a>
 
 
-## 4.本季课程视频介绍
-[![](/hear.jpg '第二学期第三季课程介绍，点击查看')](https://study.163.com/course/courseMain.htm?courseId=1213780858&share=2&shareId=480000002289674)

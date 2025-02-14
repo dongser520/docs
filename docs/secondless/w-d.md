@@ -13,9 +13,15 @@ title: 第二学期第四季（课程学习顺序：05）
 > 本季度课程主要对第三季同学们开发的企业网站进行一个完整的上线运维流程的一个讲解，同学们将网站开发完成之后，如何进行上线运维将项目交付给客户。<br/><br/>
 > 章节有：`购买域名`、`域名备案`、`购买服务器`、`服务器环境搭建`、`上传网站或者系统代码到服务器`、`搭建http或者https协议网站`、`网站优化及百度收录`、`网站运维及访问`等等知识。<br/><br/>
 > 具体课程安排，请看下面的文档目录
-## 2.课程视频学习
-[学习课程完整视频](https://study.163.com/course/courseMain.htm?courseId=1213794887&share=2&shareId=480000002289674 '点击学习课程完整视频')
-## 3.查看课程文档
+
+## 2.本季课程视频介绍
+[![](https://docs-51yrc-com.oss-cn-hangzhou.aliyuncs.com/docs-imgs/lesson_study_05.png '第二学期第四季课程介绍，点击查看')](https://study.163.com/course/courseMain.htm?share=2&shareId=480000002289674&courseId=1213794887)
+
+## 3.课程视频学习
+[第二学期第四季【网易云课堂】](https://study.163.com/course/courseMain.htm?share=2&shareId=480000002289674&courseId=1213794887 '点击学习第二学期第四季课程完整视频【网易云课堂】') <br/>
+[第二学期第四季【B站】](https://www.bilibili.com/cheese/play/ss61008 '点击学习第二学期第四季课程完整视频【B站】')
+
+## 4.查看课程文档
 ### 章节1.第四季课程介绍 
 ### <a href="/secondless/w-d/购买域名" target="_blank" title="点击查看课程文档">章节2.购买域名及备案</a>
 ####  <a href="/secondless/w-d/购买域名.html#一、购买域名" style="margin-left:40px;">一、购买域名</a>
@@ -53,5 +59,3 @@ title: 第二学期第四季（课程学习顺序：05）
 
 
 
-## 4.本季课程视频介绍
-[![](/hear.jpg '第二学期第四季课程介绍，点击查看')](https://study.163.com/course/courseMain.htm?courseId=1213794887&share=2&shareId=480000002289674)

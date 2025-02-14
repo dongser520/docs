@@ -16,11 +16,15 @@ title: 第二学期第二季（课程学习顺序：03）
 > 本季课程作为第二学期第二季的课程，是在我们第一季课程基础上做的进阶课程和知识延伸，也是为之后开发项目做的知识梳理，若需要开发项目如网站、app、小程序，本季课程是必修课。<br/><br/>
 > 我们第二季的课程主讲：`面向对象与原型`、`封装js库过渡到jQuery`、`jQuery`、`jQuery事件、动画、插件`、`Ajax`、`Node.js基础`、`正则表达式`、`Vue.js基础`并`渲染我们开发的企业网站`及`完成网站的留言板功能`，建议所有同学观看。<br/><br/>
 > 具体课程安排，请看下面的文档目录
-## 2.课程视频学习
+
+## 2.本季课程视频介绍
+[![](https://docs-51yrc-com.oss-cn-hangzhou.aliyuncs.com/docs-imgs/lesson_study_03.png '第二学期第二季课程介绍，点击查看')](https://study.163.com/course/courseMain.htm?share=2&shareId=480000002289674&courseId=1213781850)
+
+## 3.课程视频学习
 [第二学期第二季【网易云课堂】](https://study.163.com/course/courseMain.htm?courseId=1213781850&share=2&shareId=480000002289674 '点击学习第二学期第二季课程完整视频【网易云课堂】') <br/>
 [第二学期第二季【B站】](https://www.bilibili.com/cheese/play/ss28390?csource=private_space_class_null&spm_id_from=333.999.0.0 '点击学习第二学期第二季课程完整视频【B站】')
 
-## 3.查看课程文档
+## 4.查看课程文档
 ### 章节1.第二季课程介绍 
 ### <a href="/secondless/w-b/面向对象与原型" target="_blank" title="点击查看课程文档">章节2.面向对象与原型</a>
 ####  <a href="/secondless/w-b/面向对象与原型.html#i、创建对象" style="margin-left:40px;">1、创建对象</a>
@@ -333,5 +337,3 @@ title: 第二学期第二季（课程学习顺序：03）
 ####  <a href="/secondless/w-b/Vue.js.html#三、理解vue的注入、虚拟dom及底层原理" style="margin-left:40px;">三、理解vue的注入、虚拟DOM及底层原理：vue实例成员的注入、虚拟DOM、虚拟DOM的底层原理</a>
 ####  <a href="/secondless/w-b/node.js+vue.js%20渲染企业网站.html" style="margin-left:40px;" target="_blank" title="四、案例：node.js + vue.js 渲染企业网站">四、案例：node.js + vue.js 渲染企业网站</a>
 
-## 4.本季课程视频介绍
-[![](/hear.jpg '第二学期第二季课程介绍，点击查看')](https://study.163.com/course/courseMain.htm?courseId=1213781850&share=2&shareId=480000002289674)
