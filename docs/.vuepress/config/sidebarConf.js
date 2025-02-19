@@ -24,9 +24,31 @@ module.exports = [
           '/thirdless/w-b',
           '/thirdless/w-c',
           '/thirdless/w-d',
+          '/thirdless/w-e',
         ]
     },
     //'about/',
+    // {
+    //     title: '全栈开发项目部署专题课',   // 必要的
+    //     path: '/deploy/',      // 可选的, 标题的跳转链接，应为绝对路径且必须存在
+    //     collapsable: false, // 可选的, 默认值是 true,
+    //     sidebarDepth: 1,    // 可选的, 默认值是 1
+    //     children: [
+    //       '/deploy/vuecli.shop',
+    //       '/deploy/vitevue3.shop',
+    //       '/deploy/eggjs.chat',
+    //     ]
+    // },
+    {
+        title: '第四学期课程',   // 必要的
+        path: '/fourthless/',      // 可选的, 标题的跳转链接，应为绝对路径且必须存在
+        collapsable: false, // 可选的, 默认值是 true,
+        sidebarDepth: 1,    // 可选的, 默认值是 1
+        children: [
+          '/fourthless/w-a',
+        ]
+    },
+    // '/deploy/', //部署专题课
 ]
 
 //对象形式
