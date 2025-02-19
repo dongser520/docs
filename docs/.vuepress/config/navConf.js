@@ -3,6 +3,8 @@ module.exports = [
     { text: '第一学期课程', link: '/aboutless' },
     { text: '第二学期课程', link: '/secondless/' },
     { text: '第三期移动端课程', link: '/thirdless/' },
+    { text: '第四学期课程', link: '/fourthless/' },
+    // { text: '项目部署专题课', link: '/deploy/' },
     { text: '课程软件小案例', link: '/web/software/' },
     { text: '课程案例数据表', link: '/web/mysql/' },
     {
@@ -10,6 +12,7 @@ module.exports = [
         ariaLabel: '课程答疑汇总',
         items: [
             { text: '课程常见问题', link: '/web/answer/课程常见问题' },
+            { text: '项目部署', link: '/deploy/' },
         ]
     },
     {
