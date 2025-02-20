@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>thinkphp框架开发文档 | 睿晨网</title>
+    <meta name="generator" content="VuePress 1.9.9">
+    <link rel="icon" href="/assets/img/favicon.png">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="apple-touch-icon" href="/icons/apple-touch-icon-152x152.png">
+    <link rel="#icon-pengyouquan" href="/icons/iconfont.svg" color="#3eaf7c">
+    <meta name="description" content="睿晨网|睿晨编程|零基础学做网站、app、小程序就从这里开始">
+    <meta name="keywords" content="睿晨网,睿晨编程,零基础学做网站,零基础学app,零基础学小程序">
+    <meta name="author" content="睿晨网,睿晨编程,阿东老师">
+    <meta name="theme-color" content="#3eaf7c">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="msapplication-TileImage" content="/icons/msapplication-icon-144x144.png">
+    <meta name="msapplication-TileColor" content="#000000">
+    
+    <link rel="preload" href="/assets/css/0.styles.40282cb3.css" as="style"><link rel="preload" href="/assets/js/app.2d0533fa.js" as="script"><link rel="preload" href="/assets/js/9.13d458ed.js" as="script"><link rel="preload" href="/assets/js/2.6281e0bb.js" as="script"><link rel="preload" href="/assets/js/23.7f2eaca9.js" as="script"><link rel="preload" href="/assets/js/3.e6827fa8.js" as="script"><link rel="prefetch" href="/assets/js/10.63ed790c.js"><link rel="prefetch" href="/assets/js/100.d5870fc6.js"><link rel="prefetch" href="/assets/js/101.fddbc80d.js"><link rel="prefetch" href="/assets/js/102.17f88391.js"><link rel="prefetch" href="/assets/js/103.51f179b9.js"><link rel="prefetch" href="/assets/js/104.448d490c.js"><link rel="prefetch" href="/assets/js/105.db4994d7.js"><link rel="prefetch" href="/assets/js/106.1e4123e1.js"><link rel="prefetch" href="/assets/js/107.c7115a69.js"><link rel="prefetch" href="/assets/js/108.bc4ff0cd.js"><link rel="prefetch" href="/assets/js/109.2199eed9.js"><link rel="prefetch" href="/assets/js/11.934eb133.js"><link rel="prefetch" href="/assets/js/110.ecf83beb.js"><link rel="prefetch" href="/assets/js/111.8fa73072.js"><link rel="prefetch" href="/assets/js/112.bbb8c15b.js"><link rel="prefetch" href="/assets/js/113.34818e3d.js"><link rel="prefetch" href="/assets/js/114.cb821231.js"><link rel="prefetch" href="/assets/js/115.798e6d13.js"><link rel="prefetch" href="/assets/js/116.80f3164d.js"><link rel="prefetch" href="/assets/js/117.5caaa021.js"><link rel="prefetch" href="/assets/js/118.cbc92af7.js"><link rel="prefetch" href="/assets/js/119.db0988b7.js"><link rel="prefetch" href="/assets/js/12.2665a2a8.js"><link rel="prefetch" href="/assets/js/120.e6204a52.js"><link rel="prefetch" href="/assets/js/121.3b779d99.js"><link rel="prefetch" href="/assets/js/122.f1d8baca.js"><link rel="prefetch" href="/assets/js/123.e46f07d2.js"><link rel="prefetch" href="/assets/js/124.5f841b45.js"><link rel="prefetch" href="/assets/js/125.88f10acc.js"><link rel="prefetch" href="/assets/js/126.d4962c95.js"><link rel="prefetch" href="/assets/js/127.463b833c.js"><link rel="prefetch" href="/assets/js/128.ae68ae94.js"><link rel="prefetch" href="/assets/js/129.59824374.js"><link rel="prefetch" href="/assets/js/13.d81ea01c.js"><link rel="prefetch" href="/assets/js/130.f89168cc.js"><link rel="prefetch" href="/assets/js/131.b8dcda5c.js"><link rel="prefetch" href="/assets/js/14.5c71da58.js"><link rel="prefetch" href="/assets/js/15.967ec7b7.js"><link rel="prefetch" href="/assets/js/16.019e1693.js"><link rel="prefetch" href="/assets/js/17.645238dc.js"><link rel="prefetch" href="/assets/js/18.b3fc4cb0.js"><link rel="prefetch" href="/assets/js/19.93015f1c.js"><link rel="prefetch" href="/assets/js/20.f46354a1.js"><link rel="prefetch" href="/assets/js/21.67cba0cf.js"><link rel="prefetch" href="/assets/js/22.aae67033.js"><link rel="prefetch" href="/assets/js/24.17570ee1.js"><link rel="prefetch" href="/assets/js/25.16051c05.js"><link rel="prefetch" href="/assets/js/26.c4bc1b5f.js"><link rel="prefetch" href="/assets/js/27.1f3b6d8b.js"><link rel="prefetch" href="/assets/js/28.2c72af3e.js"><link rel="prefetch" href="/assets/js/29.a5f29a8c.js"><link rel="prefetch" href="/assets/js/30.a6ed5da9.js"><link rel="prefetch" href="/assets/js/31.87c01012.js"><link rel="prefetch" href="/assets/js/32.10a35c0a.js"><link rel="prefetch" href="/assets/js/33.f0b9f96d.js"><link rel="prefetch" href="/assets/js/34.75461b0e.js"><link rel="prefetch" href="/assets/js/35.8674976d.js"><link rel="prefetch" href="/assets/js/36.79bd7f91.js"><link rel="prefetch" href="/assets/js/37.042eb951.js"><link rel="prefetch" href="/assets/js/38.5056dffb.js"><link rel="prefetch" href="/assets/js/39.d17108fa.js"><link rel="prefetch" href="/assets/js/4.69e07ab1.js"><link rel="prefetch" href="/assets/js/40.c01e1347.js"><link rel="prefetch" href="/assets/js/41.c950d1f1.js"><link rel="prefetch" href="/assets/js/42.6dbf5926.js"><link rel="prefetch" href="/assets/js/43.8e7cb4cf.js"><link rel="prefetch" href="/assets/js/44.2ac7e29f.js"><link rel="prefetch" href="/assets/js/45.524b55bf.js"><link rel="prefetch" href="/assets/js/46.0948a246.js"><link rel="prefetch" href="/assets/js/47.572d5b54.js"><link rel="prefetch" href="/assets/js/48.453e1a2c.js"><link rel="prefetch" href="/assets/js/49.83497b19.js"><link rel="prefetch" href="/assets/js/5.f6e71730.js"><link rel="prefetch" href="/assets/js/50.2982e7c1.js"><link rel="prefetch" href="/assets/js/51.3653d818.js"><link rel="prefetch" href="/assets/js/52.ea7e8c4d.js"><link rel="prefetch" href="/assets/js/53.9b062af4.js"><link rel="prefetch" href="/assets/js/54.b980012a.js"><link rel="prefetch" href="/assets/js/55.0c22736e.js"><link rel="prefetch" href="/assets/js/56.df7a5bc6.js"><link rel="prefetch" href="/assets/js/57.3a312a28.js"><link rel="prefetch" href="/assets/js/58.68d4c01d.js"><link rel="prefetch" href="/assets/js/59.dbd37461.js"><link rel="prefetch" href="/assets/js/6.5324478b.js"><link rel="prefetch" href="/assets/js/60.ece5c863.js"><link rel="prefetch" href="/assets/js/61.7c38d991.js"><link rel="prefetch" href="/assets/js/62.5f105b65.js"><link rel="prefetch" href="/assets/js/63.67f91c99.js"><link rel="prefetch" href="/assets/js/64.e8838ae4.js"><link rel="prefetch" href="/assets/js/65.398c824f.js"><link rel="prefetch" href="/assets/js/66.0414c4ba.js"><link rel="prefetch" href="/assets/js/67.774da2d0.js"><link rel="prefetch" href="/assets/js/68.a1e979b7.js"><link rel="prefetch" href="/assets/js/69.26bb1c0a.js"><link rel="prefetch" href="/assets/js/7.c7920be4.js"><link rel="prefetch" href="/assets/js/70.f728eb9b.js"><link rel="prefetch" href="/assets/js/71.9c1b09e2.js"><link rel="prefetch" href="/assets/js/72.822f58dd.js"><link rel="prefetch" href="/assets/js/73.f0b42ff2.js"><link rel="prefetch" href="/assets/js/74.b685242c.js"><link rel="prefetch" href="/assets/js/75.2f547dcb.js"><link rel="prefetch" href="/assets/js/76.c295acc9.js"><link rel="prefetch" href="/assets/js/77.18d26cc0.js"><link rel="prefetch" href="/assets/js/78.2b8e46b3.js"><link rel="prefetch" href="/assets/js/79.825c8038.js"><link rel="prefetch" href="/assets/js/8.eef8a9d5.js"><link rel="prefetch" href="/assets/js/80.d416f0d2.js"><link rel="prefetch" href="/assets/js/81.2112fe3d.js"><link rel="prefetch" href="/assets/js/82.c88a3c26.js"><link rel="prefetch" href="/assets/js/83.286a3f5b.js"><link rel="prefetch" href="/assets/js/84.bfd9d97e.js"><link rel="prefetch" href="/assets/js/85.a1f59595.js"><link rel="prefetch" href="/assets/js/86.0e2aa1d5.js"><link rel="prefetch" href="/assets/js/87.8b6a0594.js"><link rel="prefetch" href="/assets/js/88.c0268c81.js"><link rel="prefetch" href="/assets/js/89.f9bb9495.js"><link rel="prefetch" href="/assets/js/90.3b3e7dd4.js"><link rel="prefetch" href="/assets/js/91.05307bed.js"><link rel="prefetch" href="/assets/js/92.ab7b6f80.js"><link rel="prefetch" href="/assets/js/93.86729c57.js"><link rel="prefetch" href="/assets/js/94.0fd776c9.js"><link rel="prefetch" href="/assets/js/95.b6935690.js"><link rel="prefetch" href="/assets/js/96.99904cb8.js"><link rel="prefetch" href="/assets/js/97.fd148770.js"><link rel="prefetch" href="/assets/js/98.4b394d15.js"><link rel="prefetch" href="/assets/js/99.0d835b56.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.40282cb3.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">睿晨网</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">
+  主页
+</a></div><div class="nav-item"><a href="/aboutless.html" class="nav-link">
+  第一学期课程
+</a></div><div class="nav-item"><a href="/secondless/" class="nav-link">
+  第二学期课程
+</a></div><div class="nav-item"><a href="/thirdless/" class="nav-link">
+  第三期移动端课程
+</a></div><div class="nav-item"><a href="/fourthless/" class="nav-link router-link-active">
+  第四学期课程
+</a></div><div class="nav-item"><a href="/web/software/" class="nav-link">
+  课程软件小案例
+</a></div><div class="nav-item"><a href="/web/mysql/" class="nav-link">
+  课程案例数据表
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="课程答疑汇总" class="dropdown-title"><span class="title">课程答疑</span> <span class="arrow down"></span></button> <button type="button" aria-label="课程答疑汇总" class="mobile-dropdown-title"><span class="title">课程答疑</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/web/answer/课程常见问题.html" class="nav-link">
+  课程常见问题
+</a></li><li class="dropdown-item"><!----> <a href="/deploy/" class="nav-link">
+  项目部署
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="课程学习网站" class="dropdown-title"><span class="title">课程学习网站</span> <span class="arrow down"></span></button> <button type="button" aria-label="课程学习网站" class="mobile-dropdown-title"><span class="title">课程学习网站</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          视频学习网站
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://study.163.com/provider/480000002289674/index.htm?share=2&amp;shareId=480000002289674" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  腾讯云课堂
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://space.bilibili.com/3493114067028034/pugv" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  B站
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="实用菜单" class="dropdown-title"><span class="title">实用网站和方法</span> <span class="arrow down"></span></button> <button type="button" aria-label="实用菜单" class="mobile-dropdown-title"><span class="title">实用网站和方法</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          实用方法
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/web/methods/定位相关.html" class="nav-link">
+  定位相关
+</a></li><li class="dropdown-subitem"><a href="/web/methods/地图相关.html" class="nav-link">
+  地图相关
+</a></li></ul></li><li class="dropdown-item"><h4>
+          实用网站
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/web/methods/实用接口.html" class="nav-link">
+  实用接口
+</a></li><li class="dropdown-subitem"><a href="/web/css/" class="nav-link">
+  css
+</a></li><li class="dropdown-subitem"><a href="/web/vue.js/" class="nav-link">
+  Vue.js
+</a></li><li class="dropdown-subitem"><a href="/web/Vue3+ElementPlus/" class="nav-link">
+  Vue3+ElementPlus系统
+</a></li><li class="dropdown-subitem"><a href="/web/echarts/" class="nav-link">
+  echarts图表
+</a></li><li class="dropdown-subitem"><a href="/web/bootstrap/" class="nav-link">
+  Bootstrap
+</a></li><li class="dropdown-subitem"><a href="/web/IIS/" class="nav-link">
+  IIS
+</a></li><li class="dropdown-subitem"><a href="/web/github/" class="nav-link">
+  Github
+</a></li><li class="dropdown-subitem"><a href="/web/Vanta.js/" class="nav-link">
+  Vanta.js网页3D背景
+</a></li><li class="dropdown-subitem"><a href="/web/shop/" class="nav-link">
+  商城系统推荐
+</a></li></ul></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">
+  主页
+</a></div><div class="nav-item"><a href="/aboutless.html" class="nav-link">
+  第一学期课程
+</a></div><div class="nav-item"><a href="/secondless/" class="nav-link">
+  第二学期课程
+</a></div><div class="nav-item"><a href="/thirdless/" class="nav-link">
+  第三期移动端课程
+</a></div><div class="nav-item"><a href="/fourthless/" class="nav-link router-link-active">
+  第四学期课程
+</a></div><div class="nav-item"><a href="/web/software/" class="nav-link">
+  课程软件小案例
+</a></div><div class="nav-item"><a href="/web/mysql/" class="nav-link">
+  课程案例数据表
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="课程答疑汇总" class="dropdown-title"><span class="title">课程答疑</span> <span class="arrow down"></span></button> <button type="button" aria-label="课程答疑汇总" class="mobile-dropdown-title"><span class="title">课程答疑</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/web/answer/课程常见问题.html" class="nav-link">
+  课程常见问题
+</a></li><li class="dropdown-item"><!----> <a href="/deploy/" class="nav-link">
+  项目部署
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="课程学习网站" class="dropdown-title"><span class="title">课程学习网站</span> <span class="arrow down"></span></button> <button type="button" aria-label="课程学习网站" class="mobile-dropdown-title"><span class="title">课程学习网站</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          视频学习网站
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://study.163.com/provider/480000002289674/index.htm?share=2&amp;shareId=480000002289674" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  腾讯云课堂
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://space.bilibili.com/3493114067028034/pugv" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  B站
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="实用菜单" class="dropdown-title"><span class="title">实用网站和方法</span> <span class="arrow down"></span></button> <button type="button" aria-label="实用菜单" class="mobile-dropdown-title"><span class="title">实用网站和方法</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          实用方法
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/web/methods/定位相关.html" class="nav-link">
+  定位相关
+</a></li><li class="dropdown-subitem"><a href="/web/methods/地图相关.html" class="nav-link">
+  地图相关
+</a></li></ul></li><li class="dropdown-item"><h4>
+          实用网站
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/web/methods/实用接口.html" class="nav-link">
+  实用接口
+</a></li><li class="dropdown-subitem"><a href="/web/css/" class="nav-link">
+  css
+</a></li><li class="dropdown-subitem"><a href="/web/vue.js/" class="nav-link">
+  Vue.js
+</a></li><li class="dropdown-subitem"><a href="/web/Vue3+ElementPlus/" class="nav-link">
+  Vue3+ElementPlus系统
+</a></li><li class="dropdown-subitem"><a href="/web/echarts/" class="nav-link">
+  echarts图表
+</a></li><li class="dropdown-subitem"><a href="/web/bootstrap/" class="nav-link">
+  Bootstrap
+</a></li><li class="dropdown-subitem"><a href="/web/IIS/" class="nav-link">
+  IIS
+</a></li><li class="dropdown-subitem"><a href="/web/github/" class="nav-link">
+  Github
+</a></li><li class="dropdown-subitem"><a href="/web/Vanta.js/" class="nav-link">
+  Vanta.js网页3D背景
+</a></li><li class="dropdown-subitem"><a href="/web/shop/" class="nav-link">
+  商城系统推荐
+</a></li></ul></li></ul></div></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>thinkphp框架开发文档</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/fourthless/w-a/thinkphp%E6%A1%86%E6%9E%B6%E5%BC%80%E5%8F%91%E6%96%87%E6%A1%A3.html#一、安装thinkphp及配置项目" class="sidebar-link">一、安装thinkphp及配置项目</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/fourthless/w-a/thinkphp%E6%A1%86%E6%9E%B6%E5%BC%80%E5%8F%91%E6%96%87%E6%A1%A3.html#_1、配置php的环境变量" class="sidebar-link">1、配置php的环境变量</a></li><li class="sidebar-sub-header"><a href="/fourthless/w-a/thinkphp%E6%A1%86%E6%9E%B6%E5%BC%80%E5%8F%91%E6%96%87%E6%A1%A3.html#_2、安装composer" class="sidebar-link">2、安装composer</a></li><li class="sidebar-sub-header"><a href="/fourthless/w-a/thinkphp%E6%A1%86%E6%9E%B6%E5%BC%80%E5%8F%91%E6%96%87%E6%A1%A3.html#_3、创建项目" class="sidebar-link">3、创建项目</a></li><li class="sidebar-sub-header"><a href="/fourthless/w-a/thinkphp%E6%A1%86%E6%9E%B6%E5%BC%80%E5%8F%91%E6%96%87%E6%A1%A3.html#_4、运行及配置项目" class="sidebar-link">4、运行及配置项目</a></li><li class="sidebar-sub-header"><a href="/fourthless/w-a/thinkphp%E6%A1%86%E6%9E%B6%E5%BC%80%E5%8F%91%E6%96%87%E6%A1%A3.html#_5、统一api接口返回格式" class="sidebar-link">5、统一API接口返回格式</a></li></ul></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h2 id="一、安装thinkphp及配置项目"><a href="#一、安装thinkphp及配置项目" class="header-anchor">#</a> 一、安装thinkphp及配置项目</h2> <blockquote><p>我们以thinkphp6为例给大家进行讲解。</p></blockquote> <h3 id="_1、配置php的环境变量"><a href="#_1、配置php的环境变量" class="header-anchor">#</a> 1、配置php的环境变量</h3> <blockquote><p>①、可以在<code>UPUPWANK</code>快捷图标-&gt;<code>右键属性</code>-&gt; <code>快捷方式</code>-&gt; <code>打开文件所在的位置</code>；<br>
+② <code>Modules</code>-&gt;<code>PHPX</code>-&gt;<code>PHP72</code>-&gt;<code>复制整个路径：D:\UPUPW_ANK_W64\Modules\PHPX\PHP72</code>；<br>
+③ <code>我的电脑</code>-&gt;<code>属性</code>-&gt;<code>高级系统设置(更改设置)</code>-&gt;<code>高级</code>-&gt;<code>环境变量</code>-&gt;<code>系统变量</code>；<br>
+④ 在<code>系统变量</code>中，找到<code>Path</code> -&gt; <code>编辑(双击也可以)</code> -&gt; <code>新建</code> -&gt; <code>粘贴路径：D:\UPUPW_ANK_W64\Modules\PHPX\PHP72</code> -&gt; <code>确定</code>；<br></p> <blockquote><p>测试环境变量是否正常：<br>
+① <code>win + R</code>（<code>开始</code>-&gt;<code>运行</code>） -&gt; <code>cmd</code> -&gt; <code>php -v</code> -&gt; <code>回车</code> -&gt; <code>查看php版本号</code>（若有打印结果即配置成功）；<br></p></blockquote></blockquote> <h3 id="_2、安装composer"><a href="#_2、安装composer" class="header-anchor">#</a> 2、安装composer</h3> <blockquote><p>具体安装参考：<a href="https://www.runoob.com/w3cnote/composer-install-and-usage.html" target="_blank" rel="noopener noreferrer">https://www.runoob.com/w3cnote/composer-install-and-usage.html<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a> <br></p> <blockquote><ol><li>下载 <code>Composer-Setup.exe</code> 然后一步一步安装即可。</li></ol></blockquote></blockquote> <h3 id="_3、创建项目"><a href="#_3、创建项目" class="header-anchor">#</a> 3、创建项目</h3> <blockquote><p>ThinkPHP6.0说明：<a href="https://www.kancloud.cn/manual/thinkphp6_0/1037481" target="_blank" rel="noopener noreferrer">https://www.kancloud.cn/manual/thinkphp6_0/1037481<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a> <br></p> <blockquote><ol><li>国外的网站连接速度很慢,因此安装的时间可能会比较长，我们建议使用国内镜像,类似于我们node环境的npm切换到淘宝镜像一个意思：<br></li></ol> <blockquote><p>打开命令行窗口（windows用户）或控制台（Linux、Mac 用户）并执行如下命令：</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">//阿里云：</span>
+composer config <span class="token operator">-</span>g repo<span class="token punctuation">.</span>packagist composer https<span class="token operator">:</span><span class="token operator">/</span><span class="token operator">/</span>mirrors<span class="token punctuation">.</span>aliyun<span class="token punctuation">.</span>com<span class="token operator">/</span>composer<span class="token operator">/</span>
+<span class="token comment">//华为云：</span>
+composer config <span class="token operator">-</span>g repo<span class="token punctuation">.</span>packagist composer https<span class="token operator">:</span><span class="token operator">/</span><span class="token operator">/</span>repo<span class="token punctuation">.</span>huaweicloud<span class="token punctuation">.</span>com<span class="token operator">/</span>repository<span class="token operator">/</span>php<span class="token operator">/</span>
+</code></pre></div></blockquote> <h4 id="_2-创建一个站点"><a href="#_2-创建一个站点" class="header-anchor">#</a> 2. 创建一个站点</h4> <blockquote><p>打开本地环境 <code>UPUPWANK</code> -&gt; <code>全局首页</code> -&gt; <code>+ 号</code> -&gt; 创建一个站点 <br> <code>网站名称</code>: <code>thinkphp.shop</code> <br> <code>网站路径</code>: 默认 <br> <code>网站端口</code>: 80 <br> <code>主要域名</code>: <code>thinkphp.shop</code> <br> <code>额外域名</code>:  <br> <code>PHP</code>: <code>7.2X</code> -- <code>提交保存</code><br><br> <br><br>
+然后来到 <code>功能扩展</code> -&gt; <code>Hosts重定向</code> -&gt; 域名；<code>thinkphp.shop</code> 点击 <code>+号添加</code> -&gt; <code>提交保存</code>;</p></blockquote> <h4 id="_3-安装项目"><a href="#_3-安装项目" class="header-anchor">#</a> 3. 安装项目</h4> <p>来到我们的 <code>UPUPWANK</code> -&gt; <code>全局首页</code> -&gt;  <code>点击UPUPWANK上面的笔（编辑）</code>-&gt; 找到刚刚创建的站点 -&gt; 打开站点目录（中间的文件夹图标） -&gt; <code>当前文件夹路径选中输入cmd打开命令行工具</code>（命令行工具也会定位到当前的网站路径）<br></p> <blockquote><p>如果你是第一次安装的话，在命令行下面，切换到你的WEB根目录下面并执行下面的命令：<br></p> <div class="language-js extra-class"><pre class="language-js"><code>composer create<span class="token operator">-</span>project topthink<span class="token operator">/</span>think tp
+</code></pre></div></blockquote> <h4 id="_4-切换到tp目录下"><a href="#_4-切换到tp目录下" class="header-anchor">#</a> 4. 切换到tp目录下</h4> <blockquote><div class="language-js extra-class"><pre class="language-js"><code> cd tp  <span class="token comment">//切换到tp目录下:D:\UPUPW_ANK_W64\WebRoot\Vhosts\thinkphp.shop\tp&gt;</span>
+</code></pre></div></blockquote> <p>运行命令进行更新：</p> <blockquote><div class="language-js extra-class"><pre class="language-js"><code>composer update topthink<span class="token operator">/</span>framework
+</code></pre></div></blockquote> <h4 id="_5-修改项目根目录到-public-文件夹下"><a href="#_5-修改项目根目录到-public-文件夹下" class="header-anchor">#</a> 5. 修改项目根目录到 public 文件夹下</h4> <ol><li>默认创建项目的根目录是：<code>D:\UPUPW_ANK_W64\WebRoot\Vhosts\thinkphp.shop</code>,我们的项目代码放在了<code>tp</code>目录下，运行目录是<code>tp/public</code>目录，因此，先复制路径：<code>D:\UPUPW_ANK_W64\WebRoot\Vhosts\thinkphp.shop\tp\public</code> <br></li> <li>来到我们的 <code>UPUPWANK</code> -&gt; <code>编辑（笔的图标）</code> -&gt; 找到项目（点击项目的笔图标）-&gt; 修改<code>网站路径</code>为<code>D:\UPUPW_ANK_W64\WebRoot\Vhosts\thinkphp.shop\tp\public</code> -&gt; <code>提交保存</code>(运行信息里面显示重载成功，可以看一下网站是否正常访问) <br></li></ol></blockquote></blockquote> <h3 id="_4、运行及配置项目"><a href="#_4、运行及配置项目" class="header-anchor">#</a> 4、运行及配置项目</h3> <blockquote><p>将项目tp文件夹拖进我们的VScode编辑器 <br></p> <h4 id="_1-修改-example-env-文件名为-env"><a href="#_1-修改-example-env-文件名为-env" class="header-anchor">#</a> 1. 修改 <code>.example.env</code> 文件名为  <code>.env</code> <br></h4> <ol start="2"><li>来到路由 <code>route/app.php</code> （类似eggjs项目的<code>app/router.js</code>）, 分析我们首页访问的内容是哪里的？</li></ol> <blockquote><p>学过我们前面eggjs课程的同学应该很容易想到，访问的内容是 <code>app/controller/index.php</code>这个里面的方法 <code>index</code>, 你可以改一下这个方法返回的内容进行测试 （thinkphp和我们的eggjs框架有很多相似之处，只是他们编写的语言不同）<br>
+验证路径里面的hello方法：<code>http://thinkphp.shop/hello/迪丽热巴</code> 但发现访问失败，因此这里又跟egg.js有些区别<br>
+正确访问路径是：<code>http://thinkphp.shop/index.php/hello/迪丽热巴</code>,需要加上<code>index.php</code> <br>
+也就是我们需要加上一个入口文件：<code>index.php</code>，它的位置在 <code>/public/index.php</code> <br></p></blockquote> <h4 id="_3-简化入口文件-index-php"><a href="#_3-简化入口文件-index-php" class="header-anchor">#</a> 3. 简化入口文件：<code>index.php</code></h4> <blockquote><p>来到我们的 <code>UPUPWANK</code> -&gt; <code>找到当前项目(编辑，笔的符号)</code>-&gt; <code>伪静态配置</code><br>
+说明：我们的<code>UPUPWANK</code>虽然是N模式，但是运行的是Apache的服务，因此，我们需要配置Apache的伪静态规则，来简化我们的入口文件，<br></p> <blockquote><div class="language-js extra-class"><pre class="language-js"><code><span class="token operator">&lt;</span>IfModule mod_rewrite<span class="token punctuation">.</span>c<span class="token operator">&gt;</span>
+  Options <span class="token operator">+</span>FollowSymlinks <span class="token operator">-</span>Multiviews
+  RewriteEngine On
+
+  RewriteCond <span class="token operator">%</span><span class="token punctuation">{</span><span class="token constant">REQUEST_FILENAME</span><span class="token punctuation">}</span> <span class="token operator">!</span><span class="token operator">-</span>d
+  RewriteCond <span class="token operator">%</span><span class="token punctuation">{</span><span class="token constant">REQUEST_FILENAME</span><span class="token punctuation">}</span> <span class="token operator">!</span><span class="token operator">-</span>f
+  RewriteRule <span class="token operator">^</span><span class="token punctuation">(</span><span class="token punctuation">.</span><span class="token operator">*</span><span class="token punctuation">)</span>$ index<span class="token punctuation">.</span>php<span class="token operator">?</span><span class="token operator">/</span>$1 <span class="token punctuation">[</span><span class="token constant">QSA</span><span class="token punctuation">,</span><span class="token constant">PT</span><span class="token punctuation">,</span><span class="token constant">L</span><span class="token punctuation">]</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>IfModule<span class="token operator">&gt;</span>
+</code></pre></div></blockquote></blockquote></blockquote> <h3 id="_5、统一api接口返回格式"><a href="#_5、统一api接口返回格式" class="header-anchor">#</a> 5、统一API接口返回格式</h3> <blockquote><p>我们在eggjs项目统一了接口返回格式，因此，我们在thinkphp中也统一一下 <br>
+示例： <code>app/controller/index.php</code> <br></p> <blockquote><p>比如：希望接口返回以下数据：</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token punctuation">{</span>
+  <span class="token string-property property">&quot;msg&quot;</span><span class="token operator">:</span> <span class="token string">&quot;ok&quot;</span><span class="token punctuation">,</span>
+  <span class="token string-property property">&quot;data&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token string-property property">&quot;name&quot;</span><span class="token operator">:</span> <span class="token string">&quot;迪丽热巴&quot;</span><span class="token punctuation">,</span>
+    <span class="token string-property property">&quot;age&quot;</span><span class="token operator">:</span> <span class="token number">18</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>可在vscode中安装扩展：<code>PHP Intelephense</code>有语法提示，方便开发<br></p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">index</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token comment">// return '迪丽热巴';</span>
+    <span class="token comment">//使用关联数组形式</span>
+    <span class="token keyword">return</span> <span class="token function">json</span><span class="token punctuation">(</span><span class="token punctuation">[</span>
+        <span class="token string">'msg'</span> <span class="token operator">=&gt;</span> <span class="token string">'ok'</span><span class="token punctuation">,</span>
+        <span class="token string">'data'</span> <span class="token operator">=&gt;</span> <span class="token punctuation">[</span>
+            <span class="token string">'name'</span> <span class="token operator">=&gt;</span> <span class="token string">'迪丽热巴'</span><span class="token punctuation">,</span>
+            <span class="token string">'age'</span> <span class="token operator">=&gt;</span> <span class="token number">18</span>
+        <span class="token punctuation">]</span>
+    <span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token number">200</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+    <span class="token comment">/*
+    $data = (object) [
+        'msg' =&gt; 'ok',
+        'data' =&gt; (object) [
+            'name' =&gt; '迪丽热巴',
+            'age' =&gt; 18
+       ]
+    ];
+    return json($data);
+    */</span>
+<span class="token punctuation">}</span>
+</code></pre></div></blockquote> <h4 id="统一接口返回-类似eggjs中的app-extend-context-js中的apisuccess方法"><a href="#统一接口返回-类似eggjs中的app-extend-context-js中的apisuccess方法" class="header-anchor">#</a> 统一接口返回（类似eggjs中的<code>app/extend/context.js</code>中的<code>apiSuccess方法</code>）<br></h4> <p>在thinkphp中写在 <code>app/common.php</code><br></p> <blockquote><div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">//api接口形式成功提示,命名随便showSuccess,apiSuccess都可以</span>
+<span class="token keyword">function</span> <span class="token function">apiSuccess</span><span class="token punctuation">(</span>$data <span class="token operator">=</span> <span class="token string">''</span><span class="token punctuation">,</span>$msg<span class="token operator">=</span><span class="token string">'ok'</span><span class="token punctuation">,</span>$code<span class="token operator">=</span><span class="token number">200</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token function">json</span><span class="token punctuation">(</span><span class="token punctuation">[</span>
+        <span class="token string">'msg'</span> <span class="token operator">=&gt;</span> $msg<span class="token punctuation">,</span>
+        <span class="token string">'data'</span> <span class="token operator">=&gt;</span> $data<span class="token punctuation">,</span>
+    <span class="token punctuation">]</span><span class="token punctuation">,</span>$code<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">//api接口形式失败提示 ,命名随便showError,apiFail都可以</span>
+<span class="token keyword">function</span> <span class="token function">apiFail</span><span class="token punctuation">(</span>$msg<span class="token operator">=</span><span class="token string">'fail'</span><span class="token punctuation">,</span>$code<span class="token operator">=</span><span class="token number">400</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token function">json</span><span class="token punctuation">(</span><span class="token punctuation">[</span>
+        <span class="token string">'msg'</span> <span class="token operator">=&gt;</span> $msg<span class="token punctuation">,</span>
+    <span class="token punctuation">]</span><span class="token punctuation">,</span>$code<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><blockquote><p>示例： <code>app/controller/index.php</code> <br></p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">index</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token comment">// return '迪丽热巴';</span>
+    <span class="token comment">/*
+    return apiSuccess([
+        'name' =&gt; '迪丽热巴',
+        'age' =&gt; 18
+    ]);
+    */</span>
+    <span class="token comment">/*
+    return apiFail('数据不存在');
+    */</span>
+<span class="token punctuation">}</span>
+</code></pre></div></blockquote></blockquote></blockquote></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">更新时间:</span> <span class="time">2025年2月20日星期四下午1点00分</span></div></footer> <!----> </main></div><div class="global-ui"><!----><!----></div></div>
+    <script src="/assets/js/app.2d0533fa.js" defer></script><script src="/assets/js/9.13d458ed.js" defer></script><script src="/assets/js/2.6281e0bb.js" defer></script><script src="/assets/js/23.7f2eaca9.js" defer></script><script src="/assets/js/3.e6827fa8.js" defer></script>
+  </body>
+</html>
