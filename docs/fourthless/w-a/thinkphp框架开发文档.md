@@ -151,3 +151,70 @@ title: thinkphp框架开发文档
 >>>     */
 >>> }
 >>> ```
+
+### 6、异常处理
+#### ① 如何抛出一个异常
+> 在`app/controller/index.php`中，我们抛出一个异常，如下：
+>>```js
+>> public function index()
+>> {
+>>     // 比如用户被限制登录，此时后面的程序不能在执行可以抛出一个异常
+>>     // tp框架提供了一个助手函数 abort()
+>>     abort(20000, '你已被限制登录');
+>> 
+>>     // return '迪丽热巴';
+>>     return apiSuccess([
+>>         "name" => "迪丽热巴",
+>>         "age" => 18
+>>     ]);
+>>     // return apiFail("请求失败"); 
+>> }
+>>```
+#### ② 异常提示不友好，在`app/ExceptionHandle.php`中对 `render`函数进行扩展，来统一异常，如下：
+>> ```js
+>> public function render($request, Throwable $e): Response
+>>     {
+>>         // 调试模式
+>>         if (env('APP_DEBUG')) {
+>>             // 其他错误交给系统处理
+>>             return parent::render($request, $e);
+>>         }
+>>         // 检查是否有 getHeaders 方法
+>>         $headers = method_exists($e, 'getHeaders') ? $e->getHeaders() : [];
+>>         $statusCode = method_exists($e, 'getStatusCode') ? $e->getStatusCode() : 400;
+>> 
+>>         return json([
+>>             'msg' => $e->getMessage(),
+>>             'errorCode' => $statusCode
+>>         ], isset($headers['statusCode']) ? $headers['statusCode'] : $statusCode);
+>>     }
+>>```
+> 将`.env`文件中的`APP_DEBUG`改为`false`，访问首页，发现异常提示友好了。<br/>
+#### ③ 也可以在  `app/common.php` 封装一个`ApiException`方法：<br/>
+>> ```js
+>> // 抛出异常
+>> function ApiException($msg = '请求错误',$errorCode = 20000,$statusCode = 400)
+>> {
+>>     abort($errorCode, $msg,[
+>>         'statusCode' => $statusCode
+>>     ]);
+>> }
+>> ```
+>> 在`app/controller/index.php`中 调用 `ApiException`方法
+>>> ```js
+>>> public function index()
+>>>     {
+>>>         // 比如用户被限制登录，此时后面的程序不能在执行可以抛出一个异常
+>>>         // tp框架提供了一个助手函数 abort()
+>>>         // abort(20000, '你已被限制登录');
+>>>         ApiException('你已被限制登录');
+>>> 
+>>>         // return '迪丽热巴';
+>>>         return apiSuccess([
+>>>             "name" => "迪丽热巴",
+>>>             "age" => 18
+>>>         ]);
+>>>         // return apiFail("请求失败"); 
+>>>     }
+>>>```
+
