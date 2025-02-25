@@ -39,3 +39,115 @@ title: thinkphp框架管理员板块
 >> Route::post('admin/shopmanager','admin.ShopManager/save');
 >> ```
 > 3. 在 `postman`测试一下这个路由是否可以跑通
+
+### ③ 创建管理员
+> 1. 控制器 `app/controller/admin/ShopManager.php`
+> ### 1.save方法插入数据
+> 类比`egg.js`框架，搜索`插入一条数据到数据库：create方法`
+>> ```php
+>> public function save(Request $request)
+>>     {
+>>         //拿到前端传递来的数据,
+>>         //具体看文档：https://www.kancloud.cn/manual/thinkphp6_0/1037519
+>>         //在postman, Body->x-www-form-urlencoded模式填写一些内容，然后发送请求
+>>         // halt($request);
+>>         // halt($request->param());
+>> 
+>>         //实例化模型
+>>         $model = new \app\model\ShopManager();
+>>         //调用模型的save方法(文档有讲)，创建管理员
+>>         $res = $model->save($request->param());
+>> 
+>>         return apiSuccess($res);
+>>     }
+>> ```
+> 2. 对管理员的密码进行加密再存入数据库，`传统做法`
+> ### 2.密码加密
+>> ```php
+>> public function save(Request $request)
+>>     {
+>>         //拿到前端传递来的数据,
+>>         //具体看文档：https://www.kancloud.cn/manual/thinkphp6_0/1037519
+>>         //在postman, Body->x-www-form-urlencoded模式填写一些内容，然后发送请求
+>>         // halt($request);
+>>         // halt($request->param());
+>> 
+>>         //实例化模型
+>>         $model = new \app\model\ShopManager();
+>>         //对管理员的密码进行加密在存入数据库，`传统做法`
+>>         $param = $request->param();
+>>         //利用php内置函数对密码进行加密，不懂这个password_hash函数的同学可以搜一下
+>>         $param['password'] = password_hash($param['password'], PASSWORD_DEFAULT);
+>>         //调用模型的save方法(文档有讲)，创建管理员
+>>         $res = $model->save($param);
+>> 
+>>         return apiSuccess($res);
+>>     }
+>> ```
+> 3. 超级管理员`super`为1，只能有一个超级管理员<br/>
+> tp框架跟我们的`egg.js`框架一样（搜`egg.js重要知识详细文档`），提供了数据过滤的方法来处理<br/>
+> ### 3.数据过滤only方法，指定插入的字段
+>> ```php
+>> public function save(Request $request)
+>>     {
+>>         //拿到前端传递来的数据,
+>>         //具体看文档：https://www.kancloud.cn/manual/thinkphp6_0/1037519
+>>         //在postman, Body->x-www-form-urlencoded模式填写一些内容，然后发送请求
+>>         // halt($request);
+>>         // halt($request->param());
+>> 
+>>         //实例化模型
+>>         $model = new \app\model\ShopManager();
+>>         //对管理员的密码进行加密在存入数据库，`传统做法`
+>>         // $param = $request->param();
+>>         $param = $request->only(['username', 'password', 'avatar', 'role_id', 'status']);
+>>         //利用php内置函数对密码进行加密，不懂这个password_hash函数的同学可以搜一下
+>>         $param['password'] = password_hash($param['password'], PASSWORD_DEFAULT);
+>>         //调用模型的save方法(文档有讲)，创建管理员
+>>         $res = $model->save($param);
+>> 
+>>         return apiSuccess($res);
+>>     }
+>> ```
+> 4. 考虑到如果修改管理员密码，还是要进行加密操作，因此，我们可以参考跟我们的`egg.js`框架一样，把密码加密写在模型中
+> ### 4.密码加密写在模型中(修改器)
+>> `app/model/ShopManager.php`
+>>> ```php
+>>> class ShopManager extends Model
+>>> {
+>>>     //修改器【参考官方文档：模型-修改器】
+>>>     //https://www.kancloud.cn/manual/thinkphp6_0/1037589
+>>>     //格式 set FieldName（表字段名称） Attr，
+>>>     //如密码：set password attr , 写成函数空格去掉首字母大写 setPasswordAttr
+>>>     public function setPasswordAttr($value,$data)
+>>>     {
+>>>         //利用php内置函数对密码进行加密，不懂这个password_hash函数的同学可以搜一下
+>>>         // $param['password'] = password_hash($param['password'], PASSWORD_DEFAULT);
+>>>         return password_hash($value, PASSWORD_DEFAULT);
+>>>     }
+>>> }
+>>> ```
+>> `app/controller/admin/ShopManager.php`
+>>> ```php
+>>> public function save(Request $request)
+>>>     {
+>>>         //拿到前端传递来的数据,
+>>>         //具体看文档：https://www.kancloud.cn/manual/thinkphp6_0/1037519
+>>>         //在postman, Body->x-www-form-urlencoded模式填写一些内容，然后发送请求
+>>>         // halt($request);
+>>>         // halt($request->param());
+>>> 
+>>>         //实例化模型
+>>>         $model = new \app\model\ShopManager();
+>>>         //对管理员的密码进行加密在存入数据库，`传统做法`
+>>>         // $param = $request->param();
+>>>         $param = $request->only(['username', 'password', 'avatar', 'role_id', 'status']);
+>>>         //利用php内置函数对密码进行加密，不懂这个password_hash函数的同学可以搜一下
+>>>         // 加密写进模型文件
+>>>         //$param['password'] = password_hash($param['password'], PASSWORD_DEFAULT);
+>>>         //调用模型的save方法(文档有讲)，创建管理员
+>>>         $res = $model->save($param);
+>>> 
+>>>         return apiSuccess($res);
+>>>     }
+>>> ```
