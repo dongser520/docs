@@ -218,3 +218,27 @@ title: thinkphp框架开发文档
 >>>     }
 >>>```
 
+## 二、创建及配置数据库
+> 我们在前面的课程做项目准备的时候，已经告诉大家如何将数据库导入mysql了，大家打开`phpMyAdmin`，数据库`myegg`就是我们项目的数据库。<br/>
+> 使用thinkphp的同学，来配置一下数据库连接：<br/>
+> 打开`.env`文件：
+>> ```js
+>> [DATABASE]
+>> TYPE = mysql
+>> HOSTNAME = 127.0.0.1
+>> DATABASE = myegg
+>> USERNAME = root
+>> PASSWORD = root
+>> HOSTPORT = 3306
+>> CHARSET = utf8
+>> DEBUG = true
+>> ```
+
+## 三、管理员板块
+### 1. 管理员表
+> 其实数据库中有一个管理员表，这里为了方便两个技术栈同学学习，我们统一再创建一个管理员表 `shop_manager`<br/>
+> 具体表设计，<a href="/web/mysql/shop_manager" target="_blank">点击查看</a><br/>
+
+### 2. 创建管理员
+> 具体查看，<a href="/fourthless/w-a/thinkphp.管理员板块" target="_blank">点击查看</a><br/>
+ 

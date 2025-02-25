@@ -231,3 +231,6 @@ this.ctx.validate({
 ## 十一. 网站中的 内容管理（网站的新闻、产品、内容等等信息）表 news
 具体查看：<a href="/secondless/w-c/企业网站后台内容管理" target="_blank" title="点击查看课程文档">企业网站后台内容管理（网站的新闻、产品、内容等等信息）表 news</a>
 
+## 十二、商城系统 管理员表 `shop_manager`
+> 具体表设计，<a href="/web/mysql/shop_manager" target="_blank">点击查看</a><br/>
+
