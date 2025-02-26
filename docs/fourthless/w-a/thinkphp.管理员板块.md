@@ -151,3 +151,59 @@ title: thinkphp框架管理员板块
 >>>         return apiSuccess($res);
 >>>     }
 >>> ```
+> 5. 很显然，数据写入数据库之前，需要验证写入数据的合法性，因此需要跟我们的`egg.js`框架一样，需要对写入数据的合法性做判断，即参数验证。
+> ### 5.参数验证
+> 学过我们`egg.js`项目同学都知道，我们`egg.js`项目参数验证用的是插件，而我们的`tp`框架用的是验证器，可以通过`php think`查看验证器命令
+>> ####  ① 创建验证器，最好和控制器一样的目录，便于我们分析查看
+>>> ```js
+>>> php think make:validate admin/ShopManager
+>>> ```
+>>> 生成验证器文件： `app/validate/admin/ShopManager.php` 
+>>>
+>> ####  ② 定义验证规则，查看tp框架文档：`验证->验证规则（内置规则）` <https://www.kancloud.cn/manual/thinkphp6_0/1037625>
+>>> 验证器文件：`app/validate/admin/ShopManager.php`
+>>> ```php
+>>>     protected $rule = [
+>>>         'username' => 'require|max:25|min:6',//必填，最大25，最小6
+>>>         'password' => 'require|max:20|min:6',//必填，最大20，最小6
+>>>         'avatar' => 'url',//url地址
+>>>         'role_id' => 'require|integer|>:0',//必填，整数，大于0
+>>>         'status' => 'require|integer|in:0,1',//必填，整数，在0,1之间
+>>>     ];
+>>>     ...
+>>>     //定义一个场景（场景名称可自定义，方便我们观察，可用控制器的方法名称）
+>>>     protected $scene = [
+>>>         //定义save新增管理员，只验证username和password
+>>>         // 'save' => ['username', 'password'],
+>>>         'save' => ['username', 'password', 'avatar', 'role_id', 'status'],
+>>>     ];
+>>> ```
+>>> 控制器使用参数验证 `app/controller/admin/ShopManager.php`
+>>> ```php
+>>>     public function save(Request $request)
+>>>     {
+>>>         //拿到前端传递来的数据,
+>>>         //具体看文档：https://www.kancloud.cn/manual/thinkphp6_0/1037519
+>>>         //在postman, Body->x-www-form-urlencoded模式填写一些内容，然后发送请求
+>>> 
+>>>         // halt($request->param());
+>>> 
+>>>         //实例化模型
+>>>         $model = new \app\model\ShopManager();
+>>>         //对管理员的密码进行加密在存入数据库，`传统做法`
+>>>         // $param = $request->param();
+>>>         $param = $request -> only(['username','password','role_id','status','avatar']);
+>>>         //利用php内置函数对密码进行加密，不懂这个password_hash函数的同学可以搜一下
+>>>         // $param['password'] = password_hash($param['password'],PASSWORD_DEFAULT);
+>>>         //参数验证
+>>>         $validate = new \app\validate\admin\ShopManager();
+>>>         // $validate -> check($request->param());//不给场景，会验证规则里面的所有的参数
+>>>         if(!$validate -> scene('save') -> check($request->param())){
+>>>            ApiException($validate->getError());//抛出异常
+>>>         } 
+>>> 
+>>>         $res =  $model -> save($param);
+>>>         return apiSuccess($res);
+>>>     }
+>>> 
+>>> ```
