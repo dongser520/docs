@@ -151,7 +151,9 @@ title: thinkphp框架管理员板块
 >>>         return apiSuccess($res);
 >>>     }
 >>> ```
-> 5. 很显然，数据写入数据库之前，需要验证写入数据的合法性，因此需要跟我们的`egg.js`框架一样，需要对写入数据的合法性做判断，即参数验证。
+> 
+> 
+> 5. 很显然，数据写入数据库之前，需要验证写入数据的合法性，因此需要跟我们的`egg.js`框架一样，需要对写入数据的合法性做判断，即参数验证。<br/>
 > ### 5.参数验证
 > 学过我们`egg.js`项目同学都知道，我们`egg.js`项目参数验证用的是插件，而我们的`tp`框架用的是验证器，可以通过`php think`查看验证器命令
 >> ####  ① 创建验证器，最好和控制器一样的目录，便于我们分析查看
@@ -207,3 +209,124 @@ title: thinkphp框架管理员板块
 >>>     }
 >>> 
 >>> ```
+> 我们发现，控制器里面每个方法，我们都会去`实例化模型`，我们可以考虑`自动实例化当前模型`来简化代码 <br/>
+> ### 6.自动实例化当前模型简化控制器代码
+>> 1. 实例化模型的方式有两种：
+>>> ```php
+>>>    //实例化模型方式一
+>>>    $model = new \app\model\ShopManager();
+>>>    //实例化模型方式二
+>>>    $model = app('app\model\ShopManager');
+>>> ```
+>> 2. 实例化验证器模型也是一样，有两种方式
+>>> ```php
+>>>    //参数验证
+>>>    //实例化验证器方式一
+>>>    $validate = new \app\validate\admin\ShopManager();
+>>>    //实例化验证器方式二
+>>>    $validate = app('app\validate\admin\ShopManager');
+>>> ```
+>> 3. 学习过我们`第二学期第二季`课程同学，对于类和对象，都有了解，我们可以将`实例化模型`和`实例化验证器`封装成一个类，把它放在基类控制器里面，这样我们每个控制器，只需要继承基类控制器，就可以自动实例化模型和验证器，从而简化代码。<br/>
+>> 可参考`tp`文档，`控制器->基础控制器`<https://www.kancloud.cn/manual/thinkphp6_0/1067000> <br/>
+>> 默认安装后，系统提供了一个`app\BaseController`基础控制器类<br/>
+>>> `基类控制器 app\BaseController`初始化的代码，在当其它控制器继承了基类之后，初始化的代码也会优先执行
+>>> ```php
+>>> // 初始化
+>>>    protected function initialize()
+>>>    {
+>>>        //halt('迪丽热巴');
+>>>        // halt($this->request);
+>>>        // 文档搜索 `->controller 门面`
+>>>        // 可拿到当前的控制器模型
+>>>        //halt($this->request->controller()); //"admin.ShopManager"
+>>>        // 拿到控制器确切名称，不包含目录名
+>>>        halt(class_basename($this)); //"ShopManager"
+>>>    }
+>>> ```
+>>> 比如控制器 `app/controller/admin/ShopManager.php` 继承了基类控制器，那么初始化的代码也会优先执行
+>>> ```php
+>>> ...
+>>> use app\BaseController;
+>>> ...
+>>> class ShopManager extends BaseController
+>>> {
+>>>     ...
+>>> }
+>>> ```
+>>> 完整推演代码 <br/>
+>>> `基类控制器 app\BaseController`
+>>>> ```php
+>>>>    ...
+>>>>    // 自动实例化模型
+>>>>    protected $model = null;
+>>>>    // 记录当前控制器相关信息
+>>>>    protected $modelName = [];
+>>>>    ...
+>>>>    // 初始化
+>>>>    protected function initialize()
+>>>>    {
+>>>>        // halt(123);
+>>>>        // halt($this->request);
+>>>>        // 文档搜索 `->controller 门面`
+>>>>        // 可拿到当前的控制器模型
+>>>>        //halt($this->request->controller()); //"admin.ShopManager"
+>>>>        // 拿到控制器确切名称，不包含目录名
+>>>>        //halt(class_basename($this)); //"ShopManager"
+>>>>        
+>>>>        // 记录当前控制器相关信息
+>>>>        $this->modelName = [
+>>>>            'name' => class_basename($this), //"ShopManager"
+>>>>        ];
+>>>>        // 自动实例化当前模型
+>>>>        $this -> getCurrentModel();
+>>>>
+>>>>    }
+>>>>    // 自动实例化当前模型
+>>>>    protected function getCurrentModel()
+>>>>    {
+>>>>        // $this->model = app('\app\model\ShopManager');
+>>>>        //拼接用. , 但是 \. 需要转义
+>>>>        // 自动实例化当前模型了，存储在了 `$this->model`
+>>>>        $this->model = app('\app\model\\'.$this->modelName['name']);
+>>>>    }
+>>>> ```
+>>> 控制器 `app/controller/admin/ShopManager.php`
+>>>> ```php
+>>>>    public function save(Request $request)
+>>>>    {
+>>>>        //拿到前端传递来的数据,
+>>>>        //具体看文档：https://www.kancloud.cn/manual/thinkphp6_0/1037519
+>>>>        //在postman, Body->x-www-form-urlencoded模式填写一些内容，然后发送请求
+>>>>
+>>>>        // halt($request->param());
+>>>>
+>>>>        //实例化模型方式一
+>>>>        // $model = new \app\model\ShopManager();
+>>>>        //实例化模型方式二
+>>>>        //$model = app('app\model\ShopManager');
+>>>>        //已经在基类自动实例化了，存在于 $this->model中
+>>>>
+>>>>
+>>>>        //对管理员的密码进行加密在存入数据库，`传统做法`
+>>>>        // $param = $request->param();
+>>>>        $param = $request -> only(['username','password','role_id','status','avatar']);
+>>>>        //利用php内置函数对密码进行加密，不懂这个password_hash函数的同学可以搜一下
+>>>>        // $param['password'] = password_hash($param['password'],PASSWORD_DEFAULT);
+>>>>        //参数验证
+>>>>        //实例化验证器方式一
+>>>>        // $validate = new \app\validate\admin\ShopManager();
+>>>>        //实例化验证器方式二
+>>>>        $validate = app('app\validate\admin\ShopManager');
+>>>>
+>>>>
+>>>>        if(!$validate -> scene('save') -> check($request->param())){
+>>>>            ApiException($validate ->getError());
+>>>>        }
+>>>>
+>>>>        // $res =  $model -> save($param);
+>>>>        // 已经存储在基类控制器，访问用：$this->model
+>>>>        $res =  $this->model -> save($param);
+>>>>
+>>>>        return apiSuccess($res);
+>>>>    }
+>>>> ```
