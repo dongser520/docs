@@ -330,3 +330,65 @@ title: thinkphp框架管理员板块
 >>>>        return apiSuccess($res);
 >>>>    }
 >>>> ```
+> ### 7. 是否自动实例化模型
+>> 我们在上面第6点讲解了自动实例化模型，但有时候我们不需要自动实例化模型，因此，为了代码的严谨性，我们在第6点的基础上，加上是否自动实例化模型的判断。
+>>> `基类控制器 app\BaseController`
+>>>> ```php
+>>>>    ...
+>>>>    // 记录当前控制器相关信息
+>>>>    protected $modelName = [];
+>>>>    // 自动实例化模型
+>>>>    protected $model = null;
+>>>>    //是否自动实例化模型
+>>>>    protected $autoModel = true;
+>>>>    //另外关于模型，不一定就只放在model文件夹下
+>>>>    //也有可能跟我们的控制器一样，放在子文件里面
+>>>>    //所以，我们也需要自定义一下模型路径
+>>>>    protected $modelPath = null;
+>>>>    ...
+>>>>    // 初始化
+>>>>    protected function initialize()
+>>>>    {
+>>>>        // halt('迪丽热巴');
+>>>>        // halt($this->request);
+>>>>        // 文档搜索 `->controller 门面`
+>>>>       // 可拿到当前的控制器模型
+>>>>       // halt($this->request->controller());//"admin.ShopManager"
+>>>>       // 拿到控制器确切名称，不包含目录名
+>>>>       //    halt(class_basename($this));//"ShopManager"
+>>>>
+>>>>
+>>>>       // 记录当前控制器相关信息
+>>>>       $this->modelName = [
+>>>>          'name' => class_basename($this), //"ShopManager"
+>>>>       ];
+>>>>       
+>>>>       // 自动实例化当前模型
+>>>>       $this->getCurrentModel();
+>>>>    }
+>>>>    // 自动实例化当前模型
+>>>>    protected function getCurrentModel()
+>>>>    {
+>>>>        if($this->autoModel){
+>>>>            // $model = app('app\model\ShopManager');
+>>>>            // 自动实例化当前模型
+>>>>            //拼接用. , 但是 \. 需要转义
+>>>>            // 自动实例化当前模型了，存储在了 `$this->model`
+>>>>            // $this->model = app('app\model\\'.$this->modelName['name']);
+>>>>            $model_Name = $this->modelPath ? str_replace('/','\\',$this->modelPath) : $this->modelName['name'];
+>>>>            $this->model = app('app\model\\'.$model_Name);
+>>>>        }
+>>>>    }
+>>>> ```
+>>> 控制器 `app/controller/admin/ShopManager.php`
+>>>> ```php
+>>>> ....
+>>>> class ShopManager extends BaseController
+>>>> {
+>>>>    //是否自动实例化当前控制器的模型
+>>>>    protected $autoModel = false;
+>>>>    //自定义一下模型路径(如果存在这个模型的话)
+>>>>    protected $modelPath = 'admin/ShopManager';
+>>>>    ...
+>>>> }
+>>>> ```
