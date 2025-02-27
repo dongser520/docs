@@ -392,3 +392,177 @@ title: thinkphp框架管理员板块
 >>>>    ...
 >>>> }
 >>>> ```
+> ### 8.自动进行参数验证功能
+>> 我们在上面第6、第7两点，讲解了是否自动实例化模型，同样的，我们的控制器里面还有一个关于参数验证的功能，在几乎所有的关于增、删、改、查的操作里面，我们都会用到参数验证，因此，我们也很有必要，和我们的自动实例化模型一样，做一下自动参数验证功能。<br/>
+>> 同样的，自动进行参数验证功能我们也是可以写在我们的基类控制器里面，在初始化的时候执行<br/>
+>>> `基类控制器 app\BaseController`
+>>>> ```php
+>>>>   ...
+>>>>   //是否开启自动参数验证
+>>>>   protected $autoValidate = true;
+>>>>   ...
+>>>>   // 初始化
+>>>>    protected function initialize()
+>>>>    {
+>>>>        // halt('迪丽热巴');
+>>>>        // halt($this->request);
+>>>>        // 文档搜索 `->controller 门面`
+>>>>       // 可拿到当前的控制器模型
+>>>>       // halt($this->request->controller());//"admin.ShopManager"
+>>>>       // 拿到控制器确切名称，不包含目录名
+>>>>       //    halt(class_basename($this));//"ShopManager"
+>>>>
+>>>>
+>>>>       // 记录当前控制器相关信息
+>>>>       $this->modelName = [
+>>>>          'name' => class_basename($this), //"ShopManager"
+>>>>          'path' => str_replace('.','\\',$this->request->controller()), //"admin\ShopManager"
+>>>>          //当前方法名称, 同样可以用于场景名称
+>>>>          'action'=> $this->request->action(), //"save"
+>>>>       ];
+>>>>       
+>>>>       // 自动实例化当前模型
+>>>>       $this->getCurrentModel();
+>>>>
+>>>>       // 自动参数验证
+>>>>       $this->autoValidateCheck();
+>>>>    }
+>>>>    // 自动参数验证
+>>>>    protected function autoValidateCheck()
+>>>>    {
+>>>>        if($this->autoValidate){
+>>>>            //参数验证
+>>>>            //实例化参数验证方式一
+>>>>            // $validate = new \app\validate\admin\ShopManager();
+>>>>            //实例化参数验证方式二
+>>>>            //注意一：我们之所以将验证器路径写得跟我们的控制器路径一样，就是方便我们自动化验证
+>>>>            // $validate = app('app\validate\admin\ShopManager');
+>>>>            $validate = app('app\validate\\'.$this->modelName['path']);
+>>>>            
+>>>>            //注意二：之所以我们验证时候的场景要和我们的方法名一样，也是为了实现自动化验证，
+>>>>            //具体方法和场景也是确定性的
+>>>>            /*
+>>>>            if(!$validate -> scene('save') -> check($request->param())){
+>>>>                ApiException($validate ->getError());
+>>>>            }
+>>>>            */
+>>>>            //拿到方法名称，即场景名称
+>>>>            $_scene = $this->modelName['action'];
+>>>>            if(!$validate -> scene($_scene) -> check($this->request->param())){
+>>>>                ApiException($validate ->getError());
+>>>>            }
+>>>>        }
+>>>>    }
+>>>> ```
+>>> 控制器 `app/controller/admin/ShopManager.php`
+>>>> ```php
+>>>> ....
+>>>> class ShopManager extends BaseController
+>>>> {
+>>>>    ...
+>>>>    //是否开启自动参数验证
+>>>>    protected $autoValidate = true;
+>>>>    ...
+>>>> }
+>>>> ```
+> ### 9.参数验证场景名称和方法名不一样又想实现参数验证自动化(即自定义验证场景名)
+>> 如果我们有的程序员，写的验证场景名称和我们的方法名不一样，而又想实现自动化验证怎么办呢？<br/>
+>>> 首先我们要知道，如果场景名称比如:`save1`,而我们的控制器方法名称叫`save`,那么它会自动验证所有的参数<br/>
+>>> `验证器 app\validate\admin\ShopManager.php`
+>>>> ```php
+>>>>    protected $rule = [
+>>>>        'page' => 'require|integer|>:0',
+>>>>        'username' => 'require|max:25|min:6',
+>>>>        'password' => 'require|max:20|min:6',
+>>>>        'avatar' => 'url',
+>>>>        'role_id' => 'require|integer|>:0',
+>>>>        'status' => 'require|integer|in:0,1',
+>>>>    ];
+>>>>    ...
+>>>>    //定义一个场景（场景名称可自定义，方便我们观察，可用控制器的方法名称）
+>>>>    protected $scene = [
+>>>>        //定义save新增管理员，只验证username和password
+>>>>        // 'edit' => ['username', 'password'],
+>>>>        'save1' => ['username', 'password','role_id','status','avatar'],
+>>>>    ];
+>>>>
+>>> `我们会发现，postman提示page不能为空`,原因是：`根据我们第8点写的，它会根据save方法名自动找场景save,但是不存在场景save,因此它会自动验证规则里面的所有参数` <br/>
+>>> #### 但是我们又不希望验证所有的字段规则，但是又不想设置场景名称和方法名称一样，那怎么做呢 <br/>
+>>> ### 自定义参数验证场景名
+>>> 控制器 `app/controller/admin/ShopManager.php`
+>>>> ```php
+>>>> ....
+>>>> class ShopManager extends BaseController
+>>>> {
+>>>>    ...
+>>>>    //自定义参数验证场景名
+>>>>    protected $autoValidateScenes = [
+>>>>        'save' => 'save1', // 方法名 => 验证场景名
+>>>>    ];
+>>>>    ...
+>>>> }
+>>>> ```
+>>> `基类控制器 app\BaseController`
+>>>> ```php
+>>>>   ...
+>>>>   //自定义参数验证场景名
+>>>>   protected $autoValidateScenes = [];
+>>>>   ...
+>>>>   //自动进行参数验证
+>>>>   protected function autoValidateCheck()
+>>>>    {
+>>>>        if($this->autoValidate){
+>>>>            //参数验证
+>>>>            //实例化参数验证方式一
+>>>>            // $validate = new \app\validate\admin\ShopManager();
+>>>>            //实例化参数验证方式二
+>>>>            //注意一：我们之所以将验证器路径写得跟我们的控制器路径一样，就是方便我们自动化验证
+>>>>            // $validate = app('app\validate\admin\ShopManager');
+>>>>            $validate = app('app\validate\\'.$this->modelName['path']);
+>>>>            //注意二：之所以我们验证时候的场景要和我们的方法名一样，也是为了实现自动化验证，
+>>>>            //具体方法和场景也是确定性的
+>>>>            // $_scene = $this->modelName['action'];//'save'
+>>>>            // 自定义场景名：判断当前方法名是否在自定义场景属性名称中
+>>>>            $_scene = array_key_exists($this->modelName['action'],$this->autoValidateScenes) ? 
+>>>>            $this->autoValidateScenes[$this->modelName['action']] : $this->modelName['action'];
+>>>>
+>>>>            if(!$validate -> scene($_scene) -> check($this->request->param())){
+>>>>                ApiException($validate ->getError());
+>>>>            }
+>>>>        }
+>>>>    }
+>>>> ```
+>>> ### 某个方法，不需要进行自动参数验证
+>>> 控制器 `app/controller/admin/ShopManager.php`
+>>>> ```php
+>>>> ....
+>>>> class ShopManager extends BaseController
+>>>> {
+>>>>    ...
+>>>>    //某个方法，不需要进行自动参数验证
+>>>>    protected $excludeValidateCheck = ['index'];
+>>>>    ...
+>>>> }
+>>>> ```
+>>> `基类控制器 app\BaseController`
+>>>> ```php
+>>>>   ...
+>>>>  //某个方法，不需要进行自动参数验证
+>>>>  protected $excludeValidateCheck = [];
+>>>>   ...
+>>>> //自动进行参数验证
+>>>>    protected function autoValidateCheck()
+>>>>    {
+>>>>        //是否自动进行参数验证 并且 不在（某个方法，不需要进行自动参数验证）里面
+>>>>        if($this->autoValidate && 
+>>>>           !in_array($this->modelName['action'],$this->excludeValidateCheck)){
+>>>>            //参数验证
+>>>>            ...
+>>>>        }
+>>>>    }
+>>>> ```
+>>> `路由 route/admin.php`
+>>>> ```php
+>>>>  //管理员列表
+>>>>  Route::get('admin/shopmanager/:page','admin.ShopManager/index');
+>>>> ```
