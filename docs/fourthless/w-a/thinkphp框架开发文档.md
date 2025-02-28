@@ -241,4 +241,10 @@ title: thinkphp框架开发文档
 
 ### 2. 创建管理员
 > 具体查看，<a href="/fourthless/w-a/thinkphp.管理员板块" target="_blank">点击查看</a><br/>
+
+### 3. 修改管理员
+> 具体查看，<a href="/fourthless/w-a/thinkphp.修改管理员" target="_blank">点击查看</a><br/>
+
+### 管理员板块所有接口
+> 具体查看，<a href="/web/mysql/shop_manager表接口.html" target="_blank">点击查看</a><br/>
  

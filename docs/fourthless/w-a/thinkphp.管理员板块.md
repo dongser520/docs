@@ -9,7 +9,7 @@ title: thinkphp框架管理员板块
 > 大家可以：通过命令`php think`可以查看 `tp6` 框架的所有命令 <br/>
 ### ① 创建表模型文件
 > 查看命令之后，通过：`php think make:model ShopManager`，创建`shop_manager`表模型，注意：首字母大写，下划线改成驼峰式，多了`app/model/ShopManager.php`文件 <br/>
-### ② 创建控制器文件
+### ② 创建控制器文件并定义路由
 > 查看命令之后，通过：`php think make:controller ShopManager`，注意：首字母大写，下划线改成驼峰式， 多了`app/controller/ShopManager.php`文件 <br/>
 
 重点说明：我们的项目分前端和后端，因此，我们可以仿照我们的`egg.js`项目`myegg`，也将控制器分为前后端，因此，我们的控制器可以这样创建：`php think make:controller admin/ShopManager` <br/>
@@ -31,7 +31,7 @@ title: thinkphp框架管理员板块
 >>         return apiSuccess('创建管理员成功');
 >>     }
 >> ```
-> 2. 新建一个`admin.php`管理所有后端路由，定义路由 `route/admin.php`
+> 2. 新建一个`admin.php`管理所有后端路由，定义路由 `route/admin.php`（将路由`app.php`的代码复制一份给它然后写路由）
 >> ```php
 >> <?php
 >> use think\facade\Route;
@@ -566,3 +566,248 @@ title: thinkphp框架管理员板块
 >>>>  //管理员列表
 >>>>  Route::get('admin/shopmanager/:page','admin.ShopManager/index');
 >>>> ```
+
+## 二、 创建管理员所有推演完整代码
+> ### 1. 基类控制器 `app\BaseController.php`
+>> ```php
+>> ...
+>> /**
+>>  * 控制器基础类
+>>  */
+>> abstract class BaseController
+>> {
+>>     ...
+>> 
+>>     // 记录当前控制器相关信息
+>>     protected $modelName = [];
+>>     // 自动实例化模型
+>>     protected $model = null;
+>>     //是否自动实例化模型
+>>     protected $autoModel = true;
+>>     //另外关于模型，不一定就只放在model文件夹下
+>>    //也有可能跟我们的控制器一样，放在子文件里面
+>>    //所以，我们也需要自定义一下模型路径
+>>    protected $modelPath = null;
+>>    //是否自动进行参数验证
+>>    protected $autoValidate = true;
+>>    //自定义参数验证场景名
+>>    protected $autoValidateScenes = [];
+>>    //某个方法，不需要进行自动参数验证
+>>    protected $excludeValidateCheck = [];
+>> 
+>>   ...
+>>    
+>>    // 初始化
+>>    protected function initialize()
+>>    {
+>>       // halt('迪丽热巴');
+>>       // halt($this->request);
+>>       // 文档搜索 `->controller 门面`
+>>       // 可拿到当前的控制器模型
+>>       // halt($this->request->controller());//"admin.ShopManager"
+>>       // 拿到控制器确切名称，不包含目录名
+>>       // halt(class_basename($this));//"ShopManager"
+>>
+>>
+>>       // 记录当前控制器相关信息
+>>       $this->modelName = [
+>>          'name' => class_basename($this), //"ShopManager"
+>>          'path' => str_replace('.','\\',$this->request->controller()),//"admin\ShopManager"
+>>          'action' => $this->request->action(),//"save"
+>>       ];
+>>       
+>>       // 自动实例化当前模型
+>>       $this->getCurrentModel();
+>>       //自动进行参数验证
+>>       $this->autoValidateCheck();
+>>    }
+>>
+>>    // 自动实例化当前模型
+>>    protected function getCurrentModel()
+>>    {
+>>        if($this->autoModel){
+>>            // $model = app('app\model\ShopManager');
+>>            // 自动实例化当前模型
+>>            //拼接用. , 但是 \. 需要转义
+>>            // 自动实例化当前模型了，存储在了 `$this->model`
+>>            // $this->model = app('app\model\\'.$this->modelName['name']);
+>>            $mode_Name = $this->modelPath ? str_replace('/','\\',$this->modelPath) : $this->modelName['name'];
+>>            $this->model = app('app\model\\'.$mode_Name);
+>>        }
+>>    }
+>>    //自动进行参数验证
+>>    protected function autoValidateCheck()
+>>    {
+>>        //是否自动进行参数验证 并且 不在（某个方法，不需要进行自动参数验证）里面
+>>        if($this->autoValidate && 
+>>        !in_array($this->modelName['action'],$this->excludeValidateCheck)){
+>>            //参数验证
+>>            //实例化参数验证方式一
+>>            // $validate = new \app\validate\admin\ShopManager();
+>>            //实例化参数验证方式二
+>>            //注意一：我们之所以将验证器路径写得跟我们的控制器路径一样，就是方便我们自动化验证
+>>            // $validate = app('app\validate\admin\ShopManager');
+>>            $validate = app('app\validate\\'.$this->modelName['path']);
+>>            //注意二：之所以我们验证时候的场景要和我们的方法名一样，也是为了实现自动化验证，
+>>            //具体方法和场景也是确定性的
+>>            //$_scene = $this->modelName['action'];//'save'
+>>            // 自定义场景名：判断当前方法名是否在自定义场景属性名称中
+>>            $_scene = array_key_exists($this->modelName['action'],$this->autoValidateScenes) ? 
+>>            $this->autoValidateScenes[$this->modelName['action']]:$this->modelName['action'];
+>>            if(!$validate -> scene($_scene) -> check($this->request->param())){
+>>                ApiException($validate ->getError());
+>>            }
+>>        }
+>>    }
+>>
+>>    ...
+>> }
+>>
+>> ```
+> ### 2. 控制器，命令：`php think make:controller admin/ShopManager` 文件： `app/controller/admin/ShopManager.php`
+>> ```php
+>> <?php
+>> 
+>> namespace app\controller\admin;
+>> 
+>> use think\Request;
+>> use app\BaseController;
+>> 
+>> class ShopManager extends BaseController
+>> {
+>>     //是否自动实例化模型
+>>     // protected $autoModel = true;
+>>     //自定义一下模型路径(如果存在这个模型的话)
+>>     // protected $modelPath = 'admin/ShopManager';
+>>     //是否自动进行参数验证
+>>     // protected $autoValidate = true;
+>>     //自定义参数验证场景名
+>>     // protected $autoValidateScenes = [
+>>     //     'save'=>'save1'   // 方法名 => 验证场景名
+>>     // ];
+>>     //某个方法，不需要进行自动参数验证
+>>     protected $excludeValidateCheck = ['index'];
+>>     ...    
+>> 
+>>     /**
+>>      * 创建管理员
+>>      *
+>>      * @param  \think\Request  $request
+>>      * @return \think\Response
+>>      */
+>>     public function save(Request $request)
+>>     {
+>>         //拿到前端传递来的数据,
+>>         //具体看文档：https://www.kancloud.cn/manual/thinkphp6_0/1037519
+>>         //在postman, Body->x-www-form-urlencoded模式填写一些内容，然后发送请求
+>> 
+>>         // halt($request->param());
+>> 
+>>         //实例化模型
+>>         //实例化模型方式一
+>>         //  $model = new \app\model\ShopManager();
+>>         //实例化模型方式二
+>>         // $model = app('app\model\ShopManager');
+>>         //已经在基类自动实例化了，存在于 $this->model中
+>> 
+>> 
+>>         //对管理员的密码进行加密在存入数据库，`传统做法`
+>>         // $param = $request->param();
+>>         $param = $request -> only(['username','password','role_id','status','avatar']);
+>>         //利用php内置函数对密码进行加密，不懂这个password_hash函数的同学可以搜一下
+>>         // $param['password'] = password_hash($param['password'],PASSWORD_DEFAULT);
+>> 
+>> 
+>>         /*
+>>         //参数验证
+>>         //实例化参数验证方式一
+>>         // $validate = new \app\validate\admin\ShopManager();
+>>         //实例化参数验证方式二
+>>         $validate = app('app\validate\admin\ShopManager');
+>>         if(!$validate -> scene('save') -> check($request->param())){
+>>             ApiException($validate ->getError());
+>>         }
+>>         */
+>> 
+>> 
+>>         // $res =  $model -> save($param);
+>>         $res =  $this->model -> save($param);
+>> 
+>>         return apiSuccess($res);
+>>     }
+>> 
+>> }
+>> 
+>> 
+>>```
+> ### 3. 验证器，命令：`php think make:validate admin/ShopManager` 文件：`app/validate/admin/ShopManager.php`
+>> ```php
+>> ...
+>> 
+>> class ShopManager extends Validate
+>> {
+>>     /**
+>>      * 定义验证规则
+>>      * 格式：'字段名' =>  ['规则1','规则2'...]
+>>      *
+>>      * @var array
+>>      */
+>>     protected $rule = [
+>>         'page' => 'require|integer|>:0',
+>>         'username' => 'require|max:25|min:6',
+>>         'password' => 'require|max:20|min:6',
+>>         'avatar' => 'url',
+>>         'role_id' => 'require|integer|>:0',
+>>         'status' => 'require|integer|in:0,1',
+>>     ];
+>> 
+>>     /**
+>>      * 定义错误信息
+>>      * 格式：'字段名.规则名' =>  '错误信息'
+>>      *
+>>      * @var array
+>>      */
+>>     protected $message = [];
+>> 
+>>     //定义一个场景（场景名称可自定义，方便我们观察，可用控制器的方法名称）
+>>     protected $scene = [
+>>         //定义edit修改管理员，只验证username和password
+>>         // 'edit' => ['username', 'password'],
+>>        'save' => ['username', 'password','role_id','status','avatar'],
+>>    ];
+>> }
+>>
+>> ```
+> ### 4. 模型，命令：`php think make:model ShopManager` 文件：`app/model/ShopManager.php`
+>> ```php
+>> 
+>> ...
+>> 
+>> /**
+>>  * @mixin \think\Model
+>>  */
+>> class ShopManager extends Model
+>> {
+>>     //修改器【参考官方文档：模型-修改器】
+>>     //https://www.kancloud.cn/manual/thinkphp6_0/1037589
+>>     //格式 set FieldName（表字段名称） Attr，
+>>     //如密码：set password attr , 写成函数空格去掉首字母大写 setPasswordAttr
+>>     public function setPasswordAttr($value, $data){
+>>          //利用php内置函数对密码进行加密，不懂这个password_hash函数的同学可以搜一下
+>>          //  $param['password'] = password_hash($param['password'],PASSWORD_DEFAULT);
+>>          return password_hash($value,PASSWORD_DEFAULT);
+>>     }
+>> 
+>> }
+>> ```
+> ### 5. 路由 `route/admin.php`
+>> ```php
+>> <?php
+>> 
+>> use think\facade\Route;
+>> 
+>> //创建管理员
+>> Route::post('admin/shopmanager','admin.ShopManager/save');
+>> //管理员列表
+>> Route::get('admin/shopmanager/:page','admin.ShopManager/index');
+>> ```
