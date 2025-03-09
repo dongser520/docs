@@ -382,3 +382,39 @@ title: thinkphp框架修改管理员
 >> }
 >> 
 >> ```
+
+
+## 五、删除管理员
+> 1. 来到路由 `route/admin.php` <br/>
+>> ```php
+>> Route::group('admin',function(){
+>>     //删除管理员 如： `/admin/shopmanager/36/delete`
+>>     Route::post('shopmanager/:id/delete','admin.ShopManager/delete');
+>>     ...
+>> });
+>>
+> 2. 来到验证器 `app/validate/admin/ShopManager.php` <br/>
+>> ```php
+>>    //定义一个场景（场景名称可自定义，方便我们观察，可用控制器的方法名称）
+>>    protected $scene = [
+>>        ...
+>>        'delete' => ['id'],
+>>    ];
+>> ```
+> 3. 来到控制器 `app/controller/admin/ShopManager.php` <br/>
+>> ```php
+>>    public function delete($id)
+>>    {
+>>        // 已经在验证器写了自定义规则, 查询id的数据是否存在
+>>        // 并且如果存在数据，已经挂载到Request类里面
+>>        // halt($this->request -> Model);
+>>
+>>        //不能删除超级管理员
+>>        $manager = $this->request -> Model;
+>>        if($manager->super === 1){
+>>            ApiException('不能删除超级管理员');
+>>        }
+>>
+>>        return apiSuccess( $manager -> delete());
+>>    }
+>> ```
