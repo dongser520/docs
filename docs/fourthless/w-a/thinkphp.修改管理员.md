@@ -231,3 +231,154 @@ title: thinkphp框架修改管理员
 >>>>     ...
 >>>> }
 >>>> ```
+
+## 二、字段唯一性验证处理
+> 引言
+>> 当我们在`postman`里面修改管理员账号，如果这个账号存在，它尽然还可以修改成功，这显然是不对，因为不同的管理员账号肯定是不一样的，因此，我们来处理一下这个问题。<br/>
+> 
+> 文档查阅 <br/>
+>> 打开文档： <https://www.kancloud.cn/manual/thinkphp6_0/1037629> 搜索：`unique`
+>>> `unique:table(表名),field（字段）,except（排除某个主键值）,pk（指定某个主键值排除）`
+>
+>
+> 来到验证器 `app/validate/admin/ShopManager.php` <br/>
+> ### 1. 添加字段唯一性验证规则
+>> ```php
+>> ...
+>> class ShopManager extends BaseValidate
+>> {
+>>     ...
+>>     protected $rule = [
+>>         ...
+>>         // 增加唯一性验证，unique:shop_manager,username，不写username，则默认验证username
+>>         'username|管理员账号' => 'require|max:25|min:6|unique:shop_manager',
+>>         ...
+>>     ];
+>> 
+>>     ...
+>> }
+>> ```
+>> 发现修改成存在的账号，提示`管理员账号已存在`<br/>
+
+## 三、验证场景写成函数
+> 我们在验证规则中，比如：`username|管理员账号' => 'require|max:25|min:6|unique:shop_manager`，这里的`unique:shop_manager`是验证字段的唯一性，在管理员的`修改`，及后面`管理员登录`都会验证唯一性，因此，我们可以考虑将验证场景写在函数中。<br/><br/>
+> 
+> 来到验证器 `app/validate/admin/ShopManager.php` <br/>
+>> ```php
+>> ...
+>> class ShopManager extends BaseValidate
+>> {
+>>     ...
+>>     protected $rule = [
+>>         ...
+>>         // 增加唯一性验证，unique:shop_manager,username，不写username，则默认验证username
+>>         // 'username|管理员账号' => 'require|max:25|min:6|unique:shop_manager',
+>>         // 也可以写入到验证场景函数：sceneSave()
+>>         'username|管理员账号' => 'require|max:25|min:6',
+>>         ...
+>>     ];
+>>     ...
+>>     protected $message = [
+>>        'username.unique' => '管理员账号已存在',
+>>     ];
+>>     
+>>     //定义一个场景（场景名称可自定义，方便我们观察，可用控制器的方法名称）
+>>     protected $scene = [
+>>         ...
+>>         // 也可以写入到验证场景函数：sceneSave()
+>>         // 'save' => ['username', 'password','role_id','status','avatar'],
+>>         ...
+>>     ];
+>> 
+>>     //创建管理员验证场景
+>>     public function sceneSave()
+>>     {
+>>         //验证场景
+>>         //指定验证规则字段
+>>         return $this->only(['username', 'password','role_id','status','avatar'])
+>>         //追加验证规则：字段唯一性验证
+>>         ->append('username', 'unique:shop_manager');
+>>     }
+>>     
+>> }
+>> 
+>> ```
+
+## 四、验证器完整代码查看
+> 来到验证器 `app/validate/admin/ShopManager.php` <br/>
+>> ```php
+>> ...
+>> class ShopManager extends BaseValidate
+>> {
+>>     /**
+>>      * 定义验证规则
+>>      * 格式：'字段名' =>  ['规则1','规则2'...]
+>>      *
+>>      * @var array
+>>      */
+>>     protected $rule = [
+>>         'page' => 'require|integer|>:0',
+>> 
+>>         //将id查询是否存在数据的部分通过isExist:ShopManager自动化
+>>         //ShopManager可以看成表名称或者模型名称
+>>         //isExist是我们自定义的一个规则
+>>         'id|管理员id' => 'require|integer|>:0|isExist:ShopManager',
+>> 
+>>         // 增加唯一性验证，unique:shop_manager,username，不写username，则默认验证username
+>>         // 'username|管理员账号' => 'require|max:25|min:6|unique:shop_manager',
+>>         // 也可以写入到验证场景函数：sceneSave()
+>>         'username|管理员账号' => 'require|max:25|min:6',
+>> 
+>>         'password' => 'require|max:20|min:6',
+>>         'avatar' => 'url',
+>>         'role_id' => 'require|integer|>:0',
+>>         'status' => 'require|integer|in:0,1',
+>>     ];
+>> 
+>>     /**
+>>      * 定义错误信息
+>>      * 格式：'字段名.规则名' =>  '错误信息'
+>>      *
+>>      * @var array
+>>      */
+>>     protected $message = [
+>>         'username.unique' => '管理员账号已存在',
+>>     ];
+>> 
+>>     //定义一个场景（场景名称可自定义，方便我们观察，可用控制器的方法名称）
+>>     protected $scene = [
+>>         //定义edit场景（一般和方法名相同），只验证username和password
+>>         // 'edit' => ['username', 'password'],
+>>         // 也可以写入到验证场景函数：sceneSave()
+>>         // 'save' => ['username', 'password','role_id','status','avatar'],
+>>         // 也可以写入到验证场景函数：sceneUpdate()
+>>         // 'update' =>['id', 'username', 'password','role_id','status','avatar'],
+>>     ];
+>> 
+>>     //创建管理员验证场景
+>>     public function sceneSave()
+>>     {
+>>         //验证场景
+>>         //指定验证规则字段
+>>         return $this->only(['username', 'password','role_id','status','avatar'])
+>>         //追加验证规则：字段唯一性验证
+>>         ->append('username', 'unique:shop_manager');
+>>     }
+>> 
+>>     //更新管理员验证场景
+>>     public function sceneUpdate()
+>>     {
+>>         /*
+>>         return $this->only(['id', 'username', 'password','role_id','status','avatar'])
+>>         ->append('username', 'unique:shop_manager');
+>>         */
+>>         
+>>         $id = request()->param('id');
+>>         return $this->only(['id', 'username', 'password','role_id','status','avatar'])
+>>         //体验一下验证规则：字段唯一性验证，排除自身（当前管理员id）
+>>         ->append('username', 'unique:shop_manager,username,'.$id);
+>>     }
+>>     
+>> }
+>> 
+>> ```
