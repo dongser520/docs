@@ -247,6 +247,9 @@ title: thinkphp框架开发文档
 >> <a href="/fourthless/w-a/thinkphp.修改管理员.html#二、字段唯一性验证处理" >字段唯一性验证处理</a><br/>
 >> <a href="/fourthless/w-a/thinkphp.修改管理员.html#三、验证场景写成函数" >验证场景写成函数</a><br/>
 
+### 4. 删除管理员
+> 具体查看，<a href="/fourthless/w-a/thinkphp.修改管理员.html#五、删除管理员" target="_blank">点击查看</a><br/>
+
 ### 管理员板块所有接口
 > 具体查看，<a href="/web/mysql/shop_manager表接口.html" target="_blank">点击查看</a><br/>
  
