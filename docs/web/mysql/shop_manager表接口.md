@@ -47,3 +47,39 @@ title: shop_manager表接口
 >>    "data": true
 >> }
 >>
+
+
+## 三、删除管理员
+### ① thinkphp框架接口
+> 1. 请求方式：`POST` `[用postman测试]`
+> 2. 本地路由地址：<http://thinkphp.shop/admin/shopmanager/35/delete> `35`为id值，管理员的id
+> 3. 网络地址(需登录)：<http://lesson11.thinkphpshop.51yrc.com/admin/shopmanager/35/delete> `35`为id值，管理员的id
+> 4. 请求参数：<br/> `请求体body无需传递参数、只需传递id即可，已经在网址传递了id值`
+> 5. 返回
+>>```js
+>> {
+>>    "msg": "ok",
+>>    "data": true
+>> }
+>>
+
+
+## 四、管理员列表
+### ① thinkphp框架接口
+> 1. 请求方式：`GET` `[用postman测试]`
+> 2. 接口示例：<br/>
+> 本地路由地址：<http://thinkphp.shop/admin/shopmanager/1> `1`代表第1页 <br/>
+> 完整演示：<http://thinkphp.shop/admin/shopmanager/1?limit=10&keyword=admin1>
+> 3. header头
+>
+> | 参数   |  是否必填    |  类型    |  说明     |
+> | :---:  | :---:       |  :---:   | :---:    |
+> | token  |  是         |  String  |  token值  |
+>
+> 4. 请求参数
+>
+> | 参数     |  是否必填    |  类型    |  说明     |
+> | :---:    | :---:       |  :---:   | :---:    |
+> | page     |  是         |  int  |  分页页码     |
+> | limit    |  否         |  int  |  每页显示多少条数据     |
+> | keyword  |  否         |  string  |  查询关键字，如：管理员的账号，admin1     |
