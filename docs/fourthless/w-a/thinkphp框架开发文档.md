@@ -265,6 +265,10 @@ title: thinkphp框架开发文档
 > 这张分类表`category`的角色表 `rolecategory`，主要是将来用于区别后台系统里面，不同的分类系统用的，比如，我们可以有一个大的综合性后台，这个后台可以管理：`普通企业网站的后台`、`商城后台`、`直播后台`等等，而这些后台分类，就可以用我们这张表`rolecategory`，目前大家先把这张表创建起来，后面我们学到了在详细讲这张表。<br/><br/>
 > 具体`分类表角色表：rolecategory`设计，<a href="/web/mysql/rolecategory" target="_blank">点击查看</a><br/>
 
+### 7. 管理员列表
+> 具体查看，<a href="/fourthless/w-a/thinkphp.管理员列表" target="_blank">点击查看</a><br/>
+
+
 ### 管理员板块所有接口
 > 具体查看，<a href="/web/mysql/shop_manager表接口.html" target="_blank">点击查看</a><br/>
  

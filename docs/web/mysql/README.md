@@ -234,3 +234,6 @@ this.ctx.validate({
 ## 十二、商城系统 管理员表 `shop_manager`
 具体查看：<a href="/web/mysql/shop_manager" target="_blank">点击查看商城系统 管理员表 `shop_manager`</a><br/>
 
+## 十三、[补充新增] 分类表category的角色表 `rolecategory`
+具体查看：<a href="/web/mysql/rolecategory" target="_blank">点击查看分类表category的角色表 `rolecategory`</a><br/>
+
