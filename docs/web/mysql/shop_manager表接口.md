@@ -6,6 +6,8 @@ title: shop_manager表接口
 
 ## 一、创建管理员
 ### ① thinkphp框架接口
+<a href="/fourthless/w-a/thinkphp.管理员板块.html" target="_blank">点击查看具体文档：【创建管理员】</a>  <br/>
+
 > 1. 请求方式：`POST` `[用postman测试]`
 > 2. 本地路由地址：<http://thinkphp.shop/admin/shopmanager>
 > 3. 网络地址(需登录)：<http://lesson11.thinkphpshop.51yrc.com/admin/shopmanager>
@@ -28,6 +30,8 @@ title: shop_manager表接口
 
 ## 二、修改管理员
 ### ① thinkphp框架接口
+<a href="/fourthless/w-a/thinkphp.修改管理员.html" target="_blank">点击查看具体文档：【修改管理员】</a>  <br/>
+
 > 1. 请求方式：`POST` `[用postman测试]`
 > 2. 本地路由地址：<http://thinkphp.shop/admin/shopmanager/35> `35`为id值，管理员的id
 > 3. 网络地址(需登录)：<http://lesson11.thinkphpshop.51yrc.com/admin/shopmanager/35> `35`为id值，管理员的id
@@ -46,11 +50,13 @@ title: shop_manager表接口
 >>    "msg": "ok",
 >>    "data": true
 >> }
->>
+>>```
 
 
 ## 三、删除管理员
 ### ① thinkphp框架接口
+<a href="/fourthless/w-a/thinkphp.修改管理员.html#五、删除管理员" target="_blank">点击查看具体文档：【删除管理员--页面文档第五点】</a>  <br/>
+
 > 1. 请求方式：`POST` `[用postman测试]`
 > 2. 本地路由地址：<http://thinkphp.shop/admin/shopmanager/35/delete> `35`为id值，管理员的id
 > 3. 网络地址(需登录)：<http://lesson11.thinkphpshop.51yrc.com/admin/shopmanager/35/delete> `35`为id值，管理员的id
@@ -61,11 +67,13 @@ title: shop_manager表接口
 >>    "msg": "ok",
 >>    "data": true
 >> }
->>
+>> ```
 
 
 ## 四、管理员列表
 ### ① thinkphp框架接口
+<a href="/fourthless/w-a/thinkphp.管理员列表.html" target="_blank">点击查看具体文档：【管理员列表】</a>  <br/>
+
 > 1. 请求方式：`GET` `[用postman测试]`
 > 2. 接口示例：<br/>
 > 本地路由地址：<http://thinkphp.shop/admin/shopmanager/1> `1`代表第1页 <br/>
