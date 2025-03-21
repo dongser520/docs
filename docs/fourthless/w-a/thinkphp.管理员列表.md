@@ -176,7 +176,7 @@ title: thinkphp框架管理员列表
 >> }
 >> ```
 
-### 3. 来到控制器返回：管理员列表关联角色表的数据
+### 3. 来到控制器返回：管理员列表关联角色表的数据 [完整代码]
 `app/controller/admin/ShopManager.php`
 >> ```php
 >>     /**
@@ -230,3 +230,68 @@ title: thinkphp框架管理员列表
 >> 
 >>     }
 >> ```
+
+## 三、返回结果示例
+[需要登录token] `http://thinkphp.shop/admin/shopmanager/1?limit=5&keyword=admin`
+```js
+{
+    "msg": "ok",
+    "data": {
+        "list": [
+            {
+                "id": 2,
+                "username": "admin3",
+                "avatar": "",
+                "status": 1,
+                "role_id": 1,
+                "create_time": "2025-03-21 16:02:50",
+                "update_time": "2025-03-21 16:02:50",
+                "role": {
+                    "id": 1,
+                    "name": "普通管理员",
+                    "desc": "普通管理员角色",
+                    "status": 1,
+                    "create_time": "2025-03-21 17:43:25",
+                    "update_time": "2025-03-21 17:43:25"
+                }
+            },
+            {
+                "id": 1,
+                "username": "admin2",
+                "avatar": "",
+                "status": 1,
+                "role_id": 3,
+                "create_time": "2025-03-21 12:29:52",
+                "update_time": "2025-03-21 12:29:52",
+                "role": {
+                    "id": 3,
+                    "name": "超级管理员",
+                    "desc": "超级管理员，角色最多，最高级",
+                    "status": 1,
+                    "create_time": "2025-03-21 18:24:08",
+                    "update_time": "2025-03-21 18:24:08"
+                }
+            }
+        ],
+        "totalCount": 2,
+        "role": [
+            {
+                "id": 1,
+                "name": "普通管理员"
+            },
+            {
+                "id": 2,
+                "name": "销售人员"
+            },
+            {
+                "id": 3,
+                "name": "超级管理员"
+            },
+            {
+                "id": 4,
+                "name": "技术人员"
+            }
+        ]
+    }
+}
+```

@@ -91,3 +91,66 @@ title: shop_manager表接口
 > | page     |  是         |  int  |  分页页码     |
 > | limit    |  否         |  int  |  每页显示多少条数据     |
 > | keyword  |  否         |  string  |  查询关键字，如：管理员的账号，admin1     |
+> 5. 返回
+>  ```js
+> {
+>     "msg": "ok",
+>     "data": {
+>         "list": [
+>             {
+>                 "id": 2,
+>                 "username": "admin3",
+>                 "avatar": "",
+>                 "status": 1,
+>                 "role_id": 1,
+>                 "create_time": "2025-03-21 16:02:50",
+>                 "update_time": "2025-03-21 16:02:50",
+>                 "role": {
+>                     "id": 1,
+>                     "name": "普通管理员",
+>                     "desc": "普通管理员角色",
+>                     "status": 1,
+>                     "create_time": "2025-03-21 17:43:25",
+>                     "update_time": "2025-03-21 17:43:25"
+>                 }
+>             },
+>             {
+>                 "id": 1,
+>                 "username": "admin2",
+>                 "avatar": "",
+>                 "status": 1,
+>                 "role_id": 3,
+>                 "create_time": "2025-03-21 12:29:52",
+>                 "update_time": "2025-03-21 12:29:52",
+>                 "role": {
+>                     "id": 3,
+>                     "name": "超级管理员",
+>                     "desc": "超级管理员，角色最多，最高级",
+>                     "status": 1,
+>                     "create_time": "2025-03-21 18:24:08",
+>                     "update_time": "2025-03-21 18:24:08"
+>                 }
+>             }
+>         ],
+>         "totalCount": 2,
+>         "role": [
+>             {
+>                 "id": 1,
+>                 "name": "普通管理员"
+>             },
+>             {
+>                 "id": 2,
+>                 "name": "销售人员"
+>             },
+>             {
+>                 "id": 3,
+>                 "name": "超级管理员"
+>             },
+>             {
+>                 "id": 4,
+>                 "name": "技术人员"
+>             }
+>         ]
+>     }
+> }
+>```
