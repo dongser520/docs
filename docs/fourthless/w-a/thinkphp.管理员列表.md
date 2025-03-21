@@ -75,7 +75,8 @@ title: thinkphp框架管理员列表
 > }
 > ```
 
-### 5. 控制器初步查询不带关联角色表  `app/controller/admin/ShopManager.php`
+### 5. 控制器初步查询不带关联角色表  
+`app/controller/admin/ShopManager.php`
 > ```php
 > ...
 > class ShopManager extends BaseController
@@ -133,3 +134,99 @@ title: thinkphp框架管理员列表
 > }
 > ```
 `postman测试`:`http://thinkphp.shop/admin/shopmanager/1?limit=10&keyword=admin1`
+
+
+## 二、管理员列表要关联角色表role数据  
+> 关于关联查询其它表，用到tp框架的模型关联，它和我们的egg.js项目一样，都有模型关联的概念【搜索文档：`模型关联`】，感兴趣同学可以去学习一下我们第二学期第三季课程，讲得很透彻，并且用sql语句给大家讲了模型关联的原理。<br/>
+> thinkphp的模型关联：<https://www.kancloud.cn/manual/thinkphp6_0/1037599><br/>
+### 具体操作：
+### 1. 已经有shopManager模型，现在关联role表，需要创建一下role表的模型
+> #### ① 创建role表模型Role
+> 输入命令：`php think make:model Role`
+> #### ② 来到role表的模型 `app/model/Role.php`，创建关联关系
+>> ```php
+>> ...
+>> class Role extends Model
+>> {
+>>     //角色表role对应管理员，一个角色，比如：普通管理员角色
+>>     //普通管理员角色可以有很多个管理员，即很多管理员都是普通管理员角色
+>>     // 即：角色对应管理员，就是 一对多 的关系
+>>     // 接下来定义的写法，写对应关联的表名，一对多，多个shop_manager加s：
+>>     public function shop_managers(){
+>>         return $this->hasMany('ShopManager');
+>>     }
+>> }
+>>```
+### 2.来到管理员表模型shopManager，同样创建一下与角色表的关联关系
+> `app/model/ShopManager.php`
+>> ```php
+>> ...
+>> class ShopManager extends Model
+>> {
+>>     ...
+>>     //当前shop_manager表模型关联role表模型
+>>     // 管理员表对应角色表：反向一对多
+>>     public function role(){
+>>         //更多参数看文档 https://www.kancloud.cn/manual/thinkphp6_0/1037601
+>>         //belongsTo('关联模型','外键','主键');
+>>         //hasMany('关联模型','外键','主键');
+>>         // return $this->belongsTo('Role','role_id','id');//关联模型，外键，主键
+>>         return $this->belongsTo('Role');
+>>     }
+>> }
+>> ```
+
+### 3. 来到控制器返回：管理员列表关联角色表的数据
+`app/controller/admin/ShopManager.php`
+>> ```php
+>>     /**
+>>      * 管理员列表
+>>      *
+>>      * @return \think\Response
+>>      */
+>>     public function index()
+>>     {
+>>         //拿到参数数组, 如：页码等
+>>         // $param = $request ->param();
+>>         $param = $this->request->param();
+>>         // halt($param);
+>>         //可选参数，如limit:每页多少条，查询keyword:搜索关键字
+>>         $limit = getValueByKey('limit',$param,10);
+>>         $keyword = getValueByKey('keyword',$param,'');
+>> 
+>>         //组织一下查询条件
+>>         $where = [
+>>             //管理员用户名模糊查询
+>>             ['username','like','%'.$keyword.'%'],
+>>         ];
+>> 
+>>         //计算一下一共查了多少条数据
+>>         $totalCount = $this->model ->where($where) -> count();
+>>         //查询列表数据
+>>         $list = $this->model ->
+>>                //关联查询role角色表
+>>                with([ //数组，可以关联多个模型
+>>                 'role', //对应shop_manager模型中的role方法
+>>                ]) ->
+>>                //条件
+>>                where($where) ->
+>>                //分页
+>>                page($param['page'],$limit) ->
+>>                //排序
+>>                order('id','desc') ->
+>>                //结果
+>>                select()->
+>>                //过滤敏感字段，比如密码
+>>                hidden(['password','super']);
+>> 
+>>         //顺便把角色表信息也返回一下
+>>         $role = \app\model\Role::field(['id','name']) -> select();
+>> 
+>>         return apiSuccess([
+>>             'list' => $list,
+>>             'totalCount' => $totalCount,
+>>             'role'=>$role,
+>>         ]);
+>> 
+>>     }
+>> ```
