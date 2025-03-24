@@ -268,7 +268,14 @@ title: thinkphp框架开发文档
 ### 7. 管理员列表
 > 具体查看，<a href="/fourthless/w-a/thinkphp.管理员列表" target="_blank">点击查看</a><br/>
 
+## 四、管理员登录和退出
+> 具体查看，<a href="/fourthless/w-a/thinkphp.管理员登录退出" target="_blank">点击查看</a><br/>
 
-### 管理员板块所有接口
+
+
+
+<br/><br/>
+
+## 五、管理员板块所有接口
 > 具体查看，<a href="/web/mysql/shop_manager表接口.html" target="_blank">点击查看</a><br/>
  
