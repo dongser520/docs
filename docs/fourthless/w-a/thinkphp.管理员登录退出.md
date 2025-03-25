@@ -271,3 +271,82 @@ title: thinkphp框架管理员登录和退出
 >    return $user;
 > }
 > ```
+
+## 四、管理员退出登录
+### 1、先补充删除管理员功能里面的：不能删除管理员自己
+`app/controller/admin/ShopManager.php`
+> ```php
+> public function delete($id)
+>     {
+>         // return apiSuccess('迪丽热巴');
+>         // 已经在验证器写了自定义规则, 查询id的数据是否存在
+>         // 并且如果存在数据，已经挂载到Request类里面
+>         // halt($this->request -> Model);
+> 
+>         $manager = $this->request -> Model;
+> 
+>         //不能删除管理员自己
+>         if($this -> request -> UserModel->id === $manager->id){
+>             ApiException('不能删除自己');
+>         }
+> 
+>         //不能删除超级管理员
+>         if($manager -> super === 1){
+>             ApiException('不能删除超级管理员');
+>         }
+> 
+>         return apiSuccess($manager -> delete());
+>     }
+> ```
+
+### 2、控制器退出登录
+`app/controller/admin/ShopManager.php`
+> ```php
+> //某个方法，不需要进行自动参数验证
+> protected $excludeValidateCheck = ['logout'];
+> ...
+> //管理员退出登录
+> public function logout(){
+>     //清除本地的token和用户信息
+>     $res = common_logout([
+>         'token' => $this -> request -> header('token'),
+>     ]);
+>     return apiSuccess($res);
+> }
+> ```
+
+### 3、公共方法退出登录 `app/common.php`
+> ```php
+> //管理员退出登录（清除本地的token和用户信息）
+> function common_logout(array $param){
+>     $token = getValueByKey('token',$param);
+>     // 区分是管理员登录，还是用户登录，还是商家登录
+>     // 标签分组: 'shop_manager' | 'user' | 'business'
+>     $tag = getValueByKey('tag',$param,'shop_manager');
+> 
+>     //清除缓存 用户信息
+>     // 文档：<https://www.kancloud.cn/manual/thinkphp6_0/1037634>
+>     // 获取并删除缓存 pull
+>     $user = \think\facade\Cache::store(config('cms.'.$tag.'.token.store')) ->pull($tag.'_'.$token);
+>     // 清除token
+>     if(!empty($user)) \think\facade\Cache::store(config('cms.'.$tag.'.token.store'))->pull($tag.'_'.$user['id']);
+> 
+>     //删除密码
+>     unset($user['password']);
+> 
+>     return $user;
+> 
+> }
+> ``` 
+
+### 4、路由 `route/admin.php`
+> ```php
+> //不需要登录就能访问的接口（游客也可以）
+> Route::group('admin',function(){
+>     //管理员登录
+>     Route::post('login','admin.ShopManager/login');
+>     //管理员退出登录
+>     Route::post('logout','admin.ShopManager/logout');
+> 
+> })->allowCrossDomain();
+> ```
