@@ -273,10 +273,11 @@ title: thinkphp框架开发文档
 > 具体查看，<a href="/fourthless/w-a/thinkphp.管理员登录退出" target="_blank">点击查看</a><br/>
 >> <a href="/fourthless/w-a/thinkphp.管理员登录退出.html#三、完成管理员登录功能后-创建中间件-完善之前和之后的api请求-需要进行权限验证" >完成管理员登录功能后，创建中间件，完善之前和之后的API请求，需要进行权限验证</a><br/>
 
-
+## 五、管理员角色管理和状态设置
+> 具体查看，<a href="/fourthless/w-a/thinkphp.管理员角色管理和状态设置" target="_blank">点击查看</a><br/>
 
 <br/><br/>
 
-## 五、管理员板块所有接口
+## 六、管理员板块所有接口
 > 具体查看，<a href="/web/mysql/shop_manager表接口.html" target="_blank">点击查看</a><br/>
  
