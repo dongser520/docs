@@ -186,3 +186,88 @@ title: thinkphp框架管理员登录和退出
 >     ],
 > ];
 > ```
+
+## 三、完成管理员登录功能后，创建中间件，完善之前和之后的API请求，需要进行权限验证
+### 1. 创建中间件
+> ```php
+> php think make:middleware checkShopManagerToken
+> ```
+### 2. 路由中使用中间件 `route/admin.php`
+> ```php
+> // 必须是登录之后，才能访问（管理员身份）
+> Route::group('admin',function(){
+>     //删除管理员
+>     Route::post('shopmanager/:id/delete','admin.ShopManager/delete');
+>     //更新管理员的信息提交数据库
+>     Route::post('shopmanager/:id','admin.ShopManager/update');
+>     //创建管理员
+>     Route::post('shopmanager','admin.ShopManager/save');
+>     //管理员列表
+>     Route::get('shopmanager/:page','admin.ShopManager/index');
+>     
+> //加入中间件验证
+> })->middleware(\app\middleware\checkShopManagerToken::class);
+> ```
+
+### 3. 中间件 `app/middleware/checkShopManagerToken.php`
+> ```php
+> ...
+> class checkShopManagerToken
+> {
+>     /**
+>      * 处理请求
+>      *
+>      * @param \think\Request $request
+>      * @param \Closure       $next
+>      * @return Response
+>      */
+>     public function handle($request, \Closure $next)
+>     {
+>         // halt('中间件代码');
+>         //获取token
+>         $token = $request->header('token');
+>         //token不存在
+>         if(!$token) ApiException('token不存在，非法请求');
+> 
+>         //token存在，获取用户信息(通过token找本地用户信息)
+>         $user = common_getUser([
+>             'token' => $token,
+>             // 标签分组，区分是哪种角色登录: 'shop_manager' | 'user' | 'business'
+>             // 'tag' => 'shop_manager'
+>         ]);
+>         //如果没有找到，可以认为是token过期或者无效token
+>         if(!$user) ApiException('token无效，请重新登录');
+> 
+>         //token存在且有效，找到了本地的用户信息$user，但是如果服务器已经将管理员禁用了或者删除了呢
+>         // 用户禁用或者删除的情况
+>         // 通过本地用户信息$user，查一下此时服务器上，用户是否存在或者用户的状态是否被禁用了
+>         $currentUser = \app\model\ShopManager::find($user['id']);
+>         if(!$currentUser || !$currentUser -> status) ApiException('用户已被禁用或不存在');
+>         //否则没什么问题了，再次挂载到request类的UserModel属性上
+>         $request -> UserModel = $currentUser;
+> 
+>         // 验证当前用户权限（超级管理员无需验证）
+>         if(!$request -> UserModel -> super){
+>           
+>         }
+> 
+> 
+>         //继续后面的代码
+>         return $next($request);
+>     }
+> }
+> 
+> ```
+### 4. 公共方法通过token找本地用户信息 `app/common.php`
+> ```php
+> // 获取用户信息(通过token找本地用户信息)
+> function common_getUser(array $param){
+>    $tag = getValueByKey('tag',$param,'shop_manager');
+>    $token = getValueByKey('token',$param);
+>    $password = getValueByKey('password',$param);
+>    //拿出缓存中的用户数据
+>    $user = \think\facade\Cache::store(config('cms.'.$tag.'.token.store'))->get($tag.'_'.$token);
+>    if(!$password) unset($user['password']);
+>    return $user;
+> }
+> ```
