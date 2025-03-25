@@ -19,7 +19,8 @@ title: thinkphp框架开发文档
 >> 1. 下载 `Composer-Setup.exe ` 然后一步一步安装即可。
 
 ### 3、创建项目
-> ThinkPHP6.0说明：<https://www.kancloud.cn/manual/thinkphp6_0/1037481> <br/>
+> ### ThinkPHP6.0（tp框架）文档说明<br/>
+<https://www.kancloud.cn/manual/thinkphp6_0/1037481> <br/>
 >> 1. 国外的网站连接速度很慢,因此安装的时间可能会比较长，我们建议使用国内镜像,类似于我们node环境的npm切换到淘宝镜像一个意思：<br/>
 >>> 打开命令行窗口（windows用户）或控制台（Linux、Mac 用户）并执行如下命令：
 >>> ```js
