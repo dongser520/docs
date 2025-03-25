@@ -270,7 +270,7 @@ title: thinkphp框架开发文档
 
 ## 四、管理员登录和退出
 > 具体查看，<a href="/fourthless/w-a/thinkphp.管理员登录退出" target="_blank">点击查看</a><br/>
-
+>> <a href="/fourthless/w-a/thinkphp.管理员登录退出.html#三、完成管理员登录功能后-创建中间件-完善之前和之后的api请求-需要进行权限验证" >完成管理员登录功能后，创建中间件，完善之前和之后的API请求，需要进行权限验证</a><br/>
 
 
 
