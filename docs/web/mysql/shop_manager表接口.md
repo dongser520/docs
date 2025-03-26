@@ -237,4 +237,9 @@ title: shop_manager表接口
 > | status     |  是         |  int  |  状态值：0不可用，1可用     |
 > 
 > 5. 返回
-> `无返回值`
+> ```js
+> {
+>     "msg": "ok",
+>     "data": true
+> }
+> ```
