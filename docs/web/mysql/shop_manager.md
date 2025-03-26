@@ -104,9 +104,9 @@ title: shop_manager表说明
 >>> npx sequelize db:migrate:undo:all
 >>> ```
 
-## 三、shop_manager 表 创建管理员
+## 三、shop_manager 表 文档地址
 ### 1、技术栈php(thinkphp)文档地址
-> 点击查看：<a href="/fourthless/w-a/thinkphp.管理员板块.html" target="_blank">创建管理员文档说明</a>
+> 点击查看：<a href="/web/mysql/shop_manager表接口" target="_blank">文档说明</a>
 ### 2、技术栈node(egg.js)文档地址
 > 点击查看：
 

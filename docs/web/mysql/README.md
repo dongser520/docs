@@ -231,9 +231,19 @@ this.ctx.validate({
 ## 十一. 网站中的 内容管理（网站的新闻、产品、内容等等信息）表 news
 具体查看：<a href="/secondless/w-c/企业网站后台内容管理" target="_blank" title="点击查看课程文档">企业网站后台内容管理（网站的新闻、产品、内容等等信息）表 news</a>
 
-## 十二、商城系统 管理员表 `shop_manager`
+
+## 十二、角色表 `role`
+具体查看：<a href="/web/mysql/role.html" target="_blank">点击查看 角色表 `role`</a><br/>
+
+## 十三、商城系统 管理员表 `shop_manager`
 具体查看：<a href="/web/mysql/shop_manager" target="_blank">点击查看商城系统 管理员表 `shop_manager`</a><br/>
 
-## 十三、[补充新增] 分类表category的角色表 `rolecategory`
+## 十四、[补充新增] 分类表category的角色表 `rolecategory`
 具体查看：<a href="/web/mysql/rolecategory" target="_blank">点击查看分类表category的角色表 `rolecategory`</a><br/>
+
+## 十五、角色表 `role`的权限表 `rule`
+具体查看：<a href="/web/mysql/role.html#三、role表的权限表rule-字段设计" target="_blank">点击查看 角色的权限表 `rule`</a><br/>
+
+## 十六、角色表 `role`和权限表 `rule`的中间表 `role_rule`
+具体查看：<a href="/web/mysql/role.html#五、角色表role和权限表rule的中间表-role-rule-表字段设计" target="_blank">点击查看 角色表 `role`和权限表 `rule`的中间表 `role_rule`</a><br/>
 
