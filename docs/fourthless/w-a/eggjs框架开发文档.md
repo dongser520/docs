@@ -24,3 +24,12 @@ title: eggjs框架开发文档
 > 本节课是一节综合课，两种技术栈`thinkphp`和我们`egg.js`同学都学习操作一下。<br/><br/>
 > 这张分类表`category`的角色表 `rolecategory`，主要是将来用于区别后台系统里面，不同的分类系统用的，比如，我们可以有一个大的综合性后台，这个后台可以管理：`普通企业网站的后台`、`商城后台`、`直播后台`等等，而这些后台分类，就可以用我们这张表`rolecategory`，目前大家先把这张表创建起来，后面我们学到了在详细讲这张表。<br/><br/>
 > 具体`分类表角色表：rolecategory`设计，<a href="/web/mysql/rolecategory" target="_blank">点击查看</a><br/>
+
+### 4. 角色权限表 `rule`
+> 我们在前面已经创建了`角色表：role`，为了方便角色的管理，我们可以为角色创建权限，让定义的角色访问对应的权限。<br/>
+> 具体角色权限表`rule`设计，具体查看：<a href="/web/mysql/role.html#三、role表的权限表rule-字段设计" target="_blank">点击查看 角色的权限表 `rule`</a><br/>
+
+### 5. 角色权限中间表 `role_rule`
+说明：
+> 我们前面讲`shop_manager`表的时候，是通过在表中设置外键字段 `role_id`来关联`role`表，那么这里我们换另外一种方式来做表的关联，就是这种中间表，比如 `role_rule`, 来关联角色表`role`和权限表`rule`, 让大家能够学习到更多关联关系的处理。 <br/><br/>
+> 具体角色权限表`rule`设计，具体查看：<a href="/web/mysql/role.html#五、角色表role和权限表rule的中间表-role-rule-表字段设计" target="_blank">点击查看 角色权限中间表 `role_rule`</a><br/>

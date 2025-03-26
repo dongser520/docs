@@ -178,3 +178,14 @@ title: thinkphp框架管理员角色管理和状态设置
 > //加入中间件代码
 > })->middleware(\app\middleware\checkShopManagerToken::class);
 > ```
+
+## 三、为角色创建权限
+> 我们在前面已经创建了`角色表：role`，为了方便角色的管理，我们可以为角色创建权限，让定义的角色访问对应的权限。
+### 1. 角色权限表 `rule`
+> 具体角色权限表`rule`设计，具体查看：<a href="/web/mysql/role.html#三、role表的权限表rule-字段设计" target="_blank">点击查看 角色的权限表 `rule`</a><br/>
+
+### 2. 角色权限中间表 `role_rule`
+说明：
+> 我们前面讲`shop_manager`表的时候，是通过在表中设置外键字段 `role_id`来关联`role`表，那么这里我们换另外一种方式来做表的关联，就是这种中间表，比如 `role_rule`, 来关联角色表`role`和权限表`rule`, 让大家能够学习到更多关联关系的处理。 <br/><br/>
+> 具体角色权限表`rule`设计，具体查看：<a href="/web/mysql/role.html#五、角色表role和权限表rule的中间表-role-rule-表字段设计" target="_blank">点击查看 角色权限中间表 `role_rule`</a><br/>
+
