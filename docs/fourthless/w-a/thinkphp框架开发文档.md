@@ -274,8 +274,9 @@ title: thinkphp框架开发文档
 >> <a href="/fourthless/w-a/thinkphp.管理员登录退出.html#三、完成管理员登录功能后-创建中间件-完善之前和之后的api请求-需要进行权限验证" >完成管理员登录功能后，创建中间件，完善之前和之后的API请求，需要进行权限验证</a><br/>
 
 ## 五、管理员角色管理和状态设置
-> 具体查看，<a href="/fourthless/w-a/thinkphp.管理员角色管理和状态设置" target="_blank">点击查看</a><br/>
-
+> 具体查看，<a href="/fourthless/w-a/thinkphp.管理员角色管理和状态设置" target="_blank">点击查看</a>
+>> 1. <a href="/fourthless/w-a/thinkphp.管理员角色管理和状态设置.html#四、角色列表数据中-包含该角色对应的权限" target="_blank">注意第四点：获取角色列表数据中，包含该角色对应的权限</a><br/>
+>> 2. <a href="/fourthless/w-a/thinkphp.角色管理" target="_blank">【创建角色】</a><br/>
 <br/><br/>
 
 ## 六、管理员板块所有接口
