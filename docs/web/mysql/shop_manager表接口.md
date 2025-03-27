@@ -243,3 +243,143 @@ title: shop_manager表接口
 >     "data": true
 > }
 > ```
+
+## 七、管理员(角色)权限列表
+### ① thinkphp框架接口文档
+<a href="/fourthless/w-a/thinkphp.管理员角色管理和状态设置.html#二、角色列表" target="_blank">点击查看具体文档：【角色列表（及第四点获取角色列表并包含角色的权限数据）】</a>  <br/>
+
+### ② 接口说明
+> 1. 请求方式：`GET` `[用postman测试]`
+> 2. 接口示例：<br/>
+> 本地路由地址：`http://thinkphp.shop/admin/role/:page?limit=[:limit]` <br/>
+> 本地路由示例：<http://thinkphp.shop/admin/role/1?limit=5>  `1`代表第1页，`5`代表每页5条数据
+> 3. header头
+>
+> | 参数   |  是否必填    |  类型    |  说明     |
+> | :---:  | :---:       |  :---:   | :---:    |
+> | token  |  是         |  String  |  token值  |
+> 4. 请求参数
+>
+> | 参数     |  是否必填    |  类型    |  说明     |
+> | :---:    | :---:       |  :---:   | :---:    |
+> | page     |  是         |  int  |  页码     |
+> | limit     |  否         |  int  |  每页多少条数据     |
+> 
+> 5. 返回
+> ```js
+> {
+>     "msg": "ok",
+>     "data": {
+>         "list": [
+>             {
+>                 "id": 4,
+>                 "name": "技术人员",
+>                 "desc": "技术人员的一些权限",
+>                 "status": 1,
+>                 "create_time": "2025-03-21 18:47:35",
+>                 "update_time": "2025-03-21 18:47:35",
+>                 "rules": []
+>             },
+>             {
+>                 "id": 1,
+>                 "name": "普通管理员",
+>                 "desc": "普通管理员角色",
+>                 "status": 1,
+>                 "create_time": "2025-03-21 17:43:25",
+>                 "update_time": "2025-03-21 17:43:25",
+>                 "rules": [
+>                     {
+>                         "id": 1,
+>                         "pid": 0,
+>                         "status": 1,
+>                         "name": "管理员管理",
+>                         "frontname": "",
+>                         "frontpath": "",
+>                         "condition": "",
+>                         "menu": 1,
+>                         "order": 50,
+>                         "icon": "",
+>                         "method": "POST",
+>                         "create_time": "2025-03-26 17:09:21",
+>                         "update_time": "2025-03-26 17:09:21",
+>                         "pivot": {
+>                             "id": 1,
+>                             "role_id": 1,
+>                             "rule_id": 1,
+>                             "create_time": "2025-03-26 21:12:50",
+>                             "update_time": "2025-03-26 21:12:50"
+>                         }
+>                     },
+>                     {
+>                         "id": 2,
+>                         "pid": 1,
+>                         "status": 1,
+>                         "name": "删除管理员",
+>                         "frontname": "",
+>                         "frontpath": "",
+>                         "condition": "admin.ShopManager/delete",
+>                         "menu": 1,
+>                         "order": 50,
+>                         "icon": "",
+>                         "method": "POST",
+>                         "create_time": "2025-03-26 17:12:39",
+>                         "update_time": "2025-03-26 17:12:39",
+>                         "pivot": {
+>                             "id": 2,
+>                             "role_id": 1,
+>                             "rule_id": 2,
+>                             "create_time": "2025-03-26 21:12:50",
+>                             "update_time": "2025-03-26 21:12:50"
+>                         }
+>                     },
+>                     {
+>                         "id": 4,
+>                         "pid": 0,
+>                         "status": 1,
+>                         "name": "角色管理",
+>                         "frontname": "",
+>                         "frontpath": "",
+>                         "condition": "",
+>                         "menu": 1,
+>                         "order": 50,
+>                         "icon": "",
+>                         "method": "POST",
+>                         "create_time": "2025-03-26 17:14:25",
+>                         "update_time": "2025-03-26 17:14:25",
+>                         "pivot": {
+>                             "id": 4,
+>                             "role_id": 1,
+>                             "rule_id": 4,
+>                             "create_time": "2025-03-26 21:14:14",
+>                             "update_time": "2025-03-26 21:14:14"
+>                         }
+>                     },
+>                     {
+>                         "id": 5,
+>                         "pid": 4,
+>                         "status": 1,
+>                         "name": "角色列表",
+>                         "frontname": "",
+>                         "frontpath": "",
+>                         "condition": "admin.Role/index",
+>                         "menu": 1,
+>                         "order": 50,
+>                         "icon": "",
+>                         "method": "POST",
+>                         "create_time": "2025-03-26 17:15:21",
+>                         "update_time": "2025-03-26 17:15:21",
+>                         "pivot": {
+>                             "id": 5,
+>                             "role_id": 1,
+>                             "rule_id": 5,
+>                             "create_time": "2025-03-26 21:15:43",
+>                             "update_time": "2025-03-26 21:15:43"
+>                         }
+>                     }
+>                 ]
+>             }
+>         ],
+>         "totalCount": 4
+>     }
+> }
+> ```

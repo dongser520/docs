@@ -19,6 +19,8 @@ title: role 表及其权限表 rule 表说明
 ## 二、创建角色表 `role`
 ### 1、技术栈php(thinkphp)同学
 > 直接在`phpMyAdmin`中根据表字段设计创建表，或者通过数据库插件写sql语句创建表。
+### 角色表 `role`相关【文档】和【接口】
+<a href="/fourthless/w-a/thinkphp.角色管理.html" target="_blank">【文档】</a> 和 <a href="/web/mysql/role表接口.html" target="_blank">【接口】</a>
 
 ### 2、技术栈node(egg.js)同学
 > 1. 直接在`phpMyAdmin`中根据表字段设计创建表，或者通过数据库插件写sql语句创建表。<br/>
@@ -89,6 +91,7 @@ title: role 表及其权限表 rule 表说明
 >>> // 可以通过 `db:migrate:undo:all` 回退到初始状态
 >>> npx sequelize db:migrate:undo:all
 >>> ```
+
 
 
 ## 三、role表的权限表rule 字段设计
