@@ -80,3 +80,89 @@ title: thinkphp框架角色role表管理文档
 > //加入中间件代码
 > })->middleware(\app\middleware\checkShopManagerToken::class);
 > ```
+
+## 二、修改角色
+### 1. 接口说明
+> 1. 请求方式：`post` `[用postman测试]`
+> 2. 接口示例：<br/>
+> 本地路由地址：`http://thinkphp.shop/admin/role/:id` <br/>
+> 本地路由示例：<http://thinkphp.shop/admin/role/7>  `7`代表角色id
+> 3. header头
+>
+> | 参数   |  是否必填    |  类型    |  说明     |
+> | :---:  | :---:       |  :---:   | :---:    |
+> | token  |  是         |  String  |  token值  |
+> 4. 请求参数
+>
+> | 参数     |  是否必填    |  类型    |  说明     |
+> | :---:    | :---:       |  :---:   | :---:    |
+> | status     |  是         |  int  |  状态值：0不可用，1可用     |
+> | name     |  是         |  string  |  角色名称，最多30个字符     |
+> | desc     |  否         |  string  |  角色描述，最多255个字符     |
+> 
+> 5. 返回
+> ```js
+> {
+>     "msg": "ok",
+>     "data": true
+> }
+> ```
+### 2. 控制器代码
+`app/controller/admin/Role.php`
+> ```php
+> //修改角色
+> public function update(Request $request, $id)
+> {
+>     //拿到数据（已经自动化验证参数合法性）
+>     $param = $request -> only([
+>         'id',
+>         'name',
+>         'desc',
+>         'status',
+>     ]);
+>     $res = $request -> Model -> save($param);
+>     return apiSuccess($res);
+> }
+> ```
+### 3. 验证器代码
+`app/validate/admin/Role.php`
+> ```php
+> ...
+> use app\validate\BaseValidate;
+> 
+> class Role extends BaseValidate
+> {
+>     protected $rule = [
+>         ...
+> 
+>         //isExist是我们自定义的一个规则
+>         'id|角色id' => 'require|integer|>:0|isExist:Role',
+> 
+>         ...
+>     ];
+>     ...
+>     //定义一个场景（场景名称可自定义，方便我们观察，可用控制器的方法名称）
+>     protected $scene = [
+>         ...
+>         //修改角色
+>         'update'=> ['id','status','name','desc'],
+>     ];
+> }
+> ```
+### 4. 路由
+`route/admin.php`
+> ```php
+> // 必须是登录之后，才能访问（管理员身份）
+> Route::group('admin',function(){
+>     ...
+> 
+>     //更新角色
+>     Route::post('role/:id','admin.Role/update');
+>     //创建角色
+>     Route::post('role','admin.Role/save');
+>     //角色列表
+>     Route::get('role/:page','admin.Role/index');
+>     
+> //加入中间件代码
+> })->middleware(\app\middleware\checkShopManagerToken::class);
+> ```
