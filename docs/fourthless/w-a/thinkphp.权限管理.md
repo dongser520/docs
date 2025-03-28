@@ -358,7 +358,7 @@ class BaseValidate extends Validate
         //当然如果存在，既然我们已经查询了一次，没必要在控制器再次查询
         //可以考虑挂载到 request类里面
         // request() -> Model = $_m;
-        if($arr[1] !== 'false'){
+        if(count($arr) == 1 || count($arr) == 2 && $arr[1] !== 'false'){
            request() -> Model = $_m;
         }
 
@@ -383,3 +383,225 @@ Route::group('admin',function(){
 //加入中间件代码
 })->middleware(\app\middleware\checkShopManagerToken::class);
 ```
+
+## 三、修改权限
+### 1. 接口说明
+> 1. 请求方式：`POST` `[用postman测试]`
+> 2. 接口示例：<br/>
+> 本地路由地址：`http://thinkphp.shop/admin/rule/:id` <br/>
+> 本地路由示例：<http://thinkphp.shop/admin/rule/23>  `23`表示的是权限id
+> 3. header头
+>
+> | 参数   |  是否必填    |  类型    |  说明     |
+> | :---:  | :---:       |  :---:   | :---:    |
+> | token  |  是         |  String  |  token值  |
+> 4. 请求参数
+>
+> | 参数     |  是否必填    |  类型    |  说明     |
+> | :---:    | :---:       |  :---:   | :---:    |
+> | pid     |  是         |  int  |  父级id，必填     |
+> | status   |  否        |  int  |  可用状态，0不可用，1可用，可不填，默认：1   |
+> | name   |  是        |  string  |  权限名称（后台栏目或者功能名称），最多100个字符，必填   |
+> | frontname   |  否        |  string  |  前端路由name值，最多100个字符，可不填  |
+> | frontpath   |  否        |  string  |  前端路由路径，最多100个字符，可不填   |
+> | condition   |  否        |  string  |  路由方法，最多255个字符，可不填   |
+> | menu   |  否        |  int  |  是否为菜单，0不是，1是，可不填，默认：1   |
+> | order   |  否        |  int  |  排序，大于等于0，可不填，默认：50   |
+> | icon   |  否        |  string  |  图标名称，最多100个字符，可不填   |
+> | method   |  否        |  string  |  可不填，要填只能是：POST,GET,PUT,DELETE 中的一个   |
+> 
+> 5. 返回
+> ```json
+> {
+>     "msg": "ok",
+>     "data": true
+> }
+> ```
+### 2. 控制器代码
+`app/controller/admin/Rule.php`
+```php
+public function update(Request $request, $id)
+{
+    // $param = $request -> only([
+    //     'id',
+    //     'name',
+    //     'status',
+    //     'desc'
+    // ]);
+    $param = $request -> param();
+    $res = $request -> Model -> save($param);
+    return apiSuccess($res);
+    //可以放到基类控制器，然后继承
+}
+```
+### 3. 验证器代码
+`app/validate/admin/Rule.php`
+```php
+//定义一个场景（场景名称可自定义，方便我们观察，可用控制器的方法名称）
+protected $scene = [
+    ...
+    //修改权限场景
+    'update' => ['id','pid','status','name','frontname','frontpath',
+    'condition','menu','order','icon','method'],
+];
+```
+### 4. 路由
+`route/admin.php`
+```php
+// 必须是登录之后，才能访问（管理员身份）
+Route::group('admin',function(){
+    ...
+
+    //更新权限
+    Route::post('rule/:id','admin.Rule/update');
+    //创建权限
+    Route::post('rule','admin.Rule/save');
+    //权限列表
+    Route::get('rule/:page','admin.Rule/index');
+    
+//加入中间件代码
+})->middleware(\app\middleware\checkShopManagerToken::class);
+```
+
+## 四、修改权限可用状态
+### 1. 接口说明
+> 1. 请求方式：`post` `[用postman测试]`
+> 2. 接口示例：<br/>
+> 本地路由地址：`http://thinkphp.shop/admin/rule/:id/update_status` <br/>
+> 本地路由示例：<http://thinkphp.shop/admin/rule/23/update_status>  `23`代表权限id
+> 3. header头
+>
+> | 参数   |  是否必填    |  类型    |  说明     |
+> | :---:  | :---:       |  :---:   | :---:    |
+> | token  |  是         |  String  |  token值  |
+> 4. 请求参数
+>
+> | 参数     |  是否必填    |  类型    |  说明     |
+> | :---:    | :---:       |  :---:   | :---:    |
+> | status     |  是         |  int  |  状态值：0不可用，1可用     |
+> 
+> 5. 返回
+> ```js
+> {
+>     "msg": "ok",
+>     "data": true
+> }
+> ```
+### 2. 控制器代码
+`app/controller/admin/Rule.php`
+```php
+//修改权限状态
+public function updateStatus(){
+    // 由于传递了id,在验证器里面已经将查询结果挂载到了request() -> Model
+    $m = $this -> request -> Model;
+    $m -> status = $this -> request -> param('status');
+    return apiSuccess($m -> save());
+}
+```
+### 3. 验证器代码
+`app/validate/admin/Rule.php`
+```php
+//定义一个场景（场景名称可自定义，方便我们观察，可用控制器的方法名称）
+protected $scene = [
+    ...
+    //修改权限状态
+    'updateStatus'=> ['id','status'],
+];
+```
+### 4. 路由
+`route/admin.php`
+```php
+// 必须是登录之后，才能访问（管理员身份）
+Route::group('admin',function(){
+    ...
+
+    //修改权限状态
+    Route::post('rule/:id/update_status','admin.Rule/updateStatus');
+    //更新权限
+    Route::post('rule/:id','admin.Rule/update');
+    //创建权限
+    Route::post('rule','admin.Rule/save');
+    //权限列表
+    Route::get('rule/:page','admin.Rule/index');
+      
+//加入中间件代码
+})->middleware(\app\middleware\checkShopManagerToken::class);
+```
+
+## 五、删除权限
+### 1. 接口说明
+### 2. 控制器代码
+`app/controller/admin/Rule.php`
+```php
+public function delete($id)
+{
+    $m = $this->request -> Model;
+    return apiSuccess($m -> delete());
+    //但是注意，我们删除了权限，中间表role_rule中的数据
+    // 跟rule_id相关的数据也应该删除，因为权限不存在了
+}
+```
+### 3. 验证器代码
+`app/validate/admin/Rule.php`
+```php
+protected $scene = [
+    ...
+    //删除权限
+    'delete' => ['id'],
+];
+```
+### 4. 路由
+`route/admin.php`
+```php
+// 必须是登录之后，才能访问（管理员身份）
+Route::group('admin',function(){
+    ...
+
+    //删除权限
+    Route::post('rule/:id/delete','admin.Rule/delete');
+    //修改权限状态
+    Route::post('rule/:id/update_status','admin.Rule/updateStatus');
+    //更新权限
+    Route::post('rule/:id','admin.Rule/update');
+    //创建权限
+    Route::post('rule','admin.Rule/save');
+    //权限列表
+    Route::get('rule/:page','admin.Rule/index');
+    
+    
+    
+//加入中间件代码
+})->middleware(\app\middleware\checkShopManagerToken::class);
+```
+
+### 5. 模型中处理删除权限对应的中间表数据
+`app/model/admin/Rule.php`
+```php
+    //删除权限之前的操作：onBeforeDelete 钩子函数：删除之前可以做的操作
+    //1. 删除权限之前，先删除role_rule表里面对应的权限id,通过角色id查询删除
+    public function delRoles($roleId){
+        return $this->roles()->detach($roleId);
+    }
+    // 关联子分类（下一级权限）
+    public function children(){
+        return $this->hasMany('Rule','pid','id');
+    }
+    //2. 删除权限之前，先删除rule表里面的子分类
+    public static function onBeforeDelete($rule){
+        // 拿到所有的角色id
+        $roleIds = $rule->roles->map(function($v){
+            return $v->id; // 返回角色id
+        })->toArray();
+        // 根据角色id 通过关联关系删除role_rule表里面的数据
+        if(count($roleIds) > 0){
+            $rule -> delRoles($roleIds);
+        }
+
+        //删除子分类（下一级权限）
+        $rule -> children -> each(function($v){
+            $v -> delete(); // 依次删除子分类（下一级权限）
+        });
+
+    }
+```
+
