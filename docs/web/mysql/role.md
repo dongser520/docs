@@ -116,6 +116,8 @@ title: role 表及其权限表 rule 表说明
 ## 四、创建角色表role的权限表 `rule`
 ### 1、技术栈php(thinkphp)同学
 > 直接在`phpMyAdmin`中根据表字段设计创建表，或者通过数据库插件写sql语句创建表。
+### 权限表 `rule`相关【文档】和【接口】
+<a href="/fourthless/w-a/thinkphp.权限管理.html" target="_blank">【文档】</a> 和 <a href="/web/mysql/rule表接口.html" target="_blank">【接口】</a>
 
 ### 2、技术栈node(egg.js)同学
 > 1. 直接在`phpMyAdmin`中根据表字段设计创建表，或者通过数据库插件写sql语句创建表。<br/>
@@ -236,8 +238,12 @@ title: role 表及其权限表 rule 表说明
 | <b> update_time </b>  | datetime  |  否    |        CURRENT_TIMESTAMP	  |   数据更新时间             |
 
 ## 六、创建中间表 `role_rule` 
+
 ### 1、技术栈php(thinkphp)同学
 > 直接在`phpMyAdmin`中根据表字段设计创建表，或者通过数据库插件写sql语句创建表。
+
+### 角色权限中间表 `role_rule`相关【文档】和【接口】
+<a href="/fourthless/w-a/thinkphp.管理员角色管理和状态设置.html#四、角色列表数据中-包含该角色对应的权限" target="_blank">【文档】</a> 和 <a href="/fourthless/w-a/thinkphp.角色管理.html#五、给角色role配置权限rule" target="_blank">【接口】</a>
 
 ### 2、技术栈node(egg.js)同学
 > 1. 直接在`phpMyAdmin`中根据表字段设计创建表，或者通过数据库插件写sql语句创建表。<br/>

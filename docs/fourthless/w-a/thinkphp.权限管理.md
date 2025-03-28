@@ -530,6 +530,22 @@ Route::group('admin',function(){
 
 ## 五、删除权限
 ### 1. 接口说明
+> 1. 请求方式：`POST` `[用postman测试]`
+> 2. 本地路由: `http://thinkphp.shop/admin/rule/:id/delete` <br/>
+> 本地路由地址：<http://thinkphp.shop/admin/rule/6/delete> `6`为权限的id
+> 3. header头
+>
+> | 参数   |  是否必填    |  类型    |  说明     |
+> | :---:  | :---:       |  :---:   | :---:    |
+> | token  |  是         |  String  |  token值  |
+> 4. 请求参数：<br/> `请求体body无需传递参数、只需传递id即可，已经在网址传递了id值`
+> 5. 返回
+>>```js
+>> {
+>>    "msg": "ok",
+>>    "data": true
+>> }
+>> ```
 ### 2. 控制器代码
 `app/controller/admin/Rule.php`
 ```php
@@ -579,29 +595,29 @@ Route::group('admin',function(){
 ```php
     //删除权限之前的操作：onBeforeDelete 钩子函数：删除之前可以做的操作
     //1. 删除权限之前，先删除role_rule表里面对应的权限id,通过角色id查询删除
-    public function delRoles($roleId){
-        return $this->roles()->detach($roleId);
+
+    public function delRoles($roleIds){
+       return $this -> roles() -> detach($roleIds);
     }
-    // 关联子分类（下一级权限）
+    // 删除子分类(下一级分类)
     public function children(){
-        return $this->hasMany('Rule','pid','id');
+        return $this -> hasMany('Rule','pid','id');
     }
     //2. 删除权限之前，先删除rule表里面的子分类
     public static function onBeforeDelete($rule){
         // 拿到所有的角色id
-        $roleIds = $rule->roles->map(function($v){
-            return $v->id; // 返回角色id
-        })->toArray();
-        // 根据角色id 通过关联关系删除role_rule表里面的数据
+        $roleIds = $rule -> roles -> map(function($v){
+            return $v -> id;
+        }) -> toArray();
+        //根据我们的角色id通过关联关系删除中间表role_rule里面的数据
         if(count($roleIds) > 0){
-            $rule -> delRoles($roleIds);
+          $rule -> delRoles($roleIds);
         }
 
-        //删除子分类（下一级权限）
+        // 删除子分类(下一级分类)
         $rule -> children -> each(function($v){
-            $v -> delete(); // 依次删除子分类（下一级权限）
+            $v -> delete(); // 删除子分类(下一级分类)
         });
-
     }
 ```
 
