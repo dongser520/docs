@@ -285,8 +285,8 @@ title: thinkphp框架开发文档
 > 角色表`role`所有接口，<a href="/web/mysql/role表接口.html" target="_blank">点击查看</a>
 
 ## 六、权限管理板块
-> 具体查看，<a href="/fourthless/w-a/thinkphp.权限管理" target="_blank">点击查看</a>
-
+> 具体查看，<a href="/fourthless/w-a/thinkphp.权限管理" target="_blank">点击查看</a><br/><br/>
+> 权限表`rule`所有接口，<a href="/web/mysql/rule表接口.html" target="_blank">点击查看</a>
 
 ## 七、管理员板块所有接口
 > 具体查看，<a href="/web/mysql/shop_manager表接口.html" target="_blank">点击查看</a><br/>
