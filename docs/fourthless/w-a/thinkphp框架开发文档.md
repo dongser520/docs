@@ -276,11 +276,18 @@ title: thinkphp框架开发文档
 ## 五、管理员角色管理和状态设置
 > 具体查看，<a href="/fourthless/w-a/thinkphp.管理员角色管理和状态设置" target="_blank">点击查看</a>
 >> 1. <a href="/fourthless/w-a/thinkphp.管理员角色管理和状态设置.html#四、角色列表数据中-包含该角色对应的权限" target="_blank">注意第四点：获取角色列表数据中，包含该角色对应的权限</a><br/>
->> 2. <a href="/fourthless/w-a/thinkphp.角色管理" target="_blank">【创建角色】</a><br/>
->> 3. <a href="/fourthless/w-a/thinkphp.角色管理.html#二、修改角色" target="_blank">【修改角色】</a><br/>
->> 4. <a href="/fourthless/w-a/thinkphp.角色管理.html#三、修改角色状态" target="_blank">【修改角色状态】</a><br/>
-<br/><br/>
+>> 2. <a href="/fourthless/w-a/thinkphp.管理员角色管理和状态设置.html#二、角色列表" target="_blank">【角色列表】</a><br/>
+>> 3. <a href="/fourthless/w-a/thinkphp.角色管理" target="_blank">【创建角色】</a><br/>
+>> 4. <a href="/fourthless/w-a/thinkphp.角色管理.html#二、修改角色" target="_blank">【修改角色】</a><br/>
+>> 5. <a href="/fourthless/w-a/thinkphp.角色管理.html#三、修改角色状态" target="_blank">【修改角色状态】</a><br/>
+>> 6. <a href="/fourthless/w-a/thinkphp.角色管理.html#四、删除角色" target="_blank">【删除角色】</a><br/>
+>> 7. <a href="/fourthless/w-a/thinkphp.角色管理.html#五、给角色role配置权限rule" target="_blank">【给角色role配置权限rule】</a><br/><br/>
+> 角色表`role`所有接口，<a href="/web/mysql/role表接口.html" target="_blank">点击查看</a>
 
-## 六、管理员板块所有接口
+## 六、权限管理板块
+> 具体查看，<a href="/fourthless/w-a/thinkphp.权限管理" target="_blank">点击查看</a>
+
+
+## 七、管理员板块所有接口
 > 具体查看，<a href="/web/mysql/shop_manager表接口.html" target="_blank">点击查看</a><br/>
  
