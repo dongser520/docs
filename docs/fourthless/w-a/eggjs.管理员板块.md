@@ -349,3 +349,201 @@ checkToken(token){
   }
 ```
 
+## 三、商城系统管理员登录信息加入缓存redis中
+### 1. 安装redis插件
+```js
+  npm i egg-redis --save
+```
+### 2. 配置redis插件
+`config/plugin.js`
+```js
+  //配置redis插件
+  redis: {
+    enable: true,
+    package: 'egg-redis',
+  },
+```
+### 3. 配置redis存储服务器
+`config/config.default.js`
+```js
+  ...
+  //配置redis存储服务器
+  config.redis = {
+    client: {
+      port: 6379, // Redis 默认端口
+      host: '127.0.0.1', // Redis host
+      password: '',
+      db: 0, // 默认为 0
+    },
+  };
+```
+
+### 4. 新建封装一个redis的缓存服务类
+`app/service/cache.js`
+```js
+'use strict';
+
+const Service = require('egg').Service;
+
+class CacheService extends Service {
+    /**
+     * 获取列表
+     * @param {string} key 键
+     * @param {boolean} isChildObject 元素是否为对象
+     * @return { array } 返回数组
+     */
+    async getList(key, isChildObject = false) {
+        const { redis } = this.app
+        let data = await redis.lrange(key, 0, -1)
+        if (isChildObject) {
+            data = data.map(item => {
+                return JSON.parse(item);
+            });
+        }
+        return data;
+    }
+    /**
+     * 设置列表
+     * @param {string} key 键
+     * @param {object|string} value 值
+     * @param {string} type 类型：push和unshift
+     * @param {Number} expir 过期时间 单位秒
+     * @return { Number } 返回索引
+     */
+    async setList(key, value, type = 'push', expir = 0) {
+        const { redis } = this.app
+        if (expir > 0) {
+            await redis.expire(key, expir);
+        }
+        if (typeof value === 'object') {
+            value = JSON.stringify(value);
+        }
+        if (type === 'push') {
+            return await redis.rpush(key, value);
+        }
+        return await redis.lpush(key, value);
+    }
+
+    /**
+     * 设置 redis 缓存
+     * @param { String } key 键
+     * @param {String | Object | array} value 值
+     * @param { Number } expir 过期时间 单位秒
+     * @return { String } 返回成功字符串OK
+     */
+    async set(key, value, expir = 0) {
+        const { redis } = this.app
+        if (expir === 0) {
+            return await redis.set(key, JSON.stringify(value));
+        } else {
+            return await redis.set(key, JSON.stringify(value), 'EX', expir);
+        }
+    }
+
+    /**
+     * 获取 redis 缓存
+     * @param { String } key 键
+     * @return { String | array | Object } 返回获取的数据
+     */
+    async get(key) {
+        const { redis } = this.app
+        const result = await redis.get(key)
+        return JSON.parse(result)
+    }
+
+    /**
+     * redis 自增
+     * @param { String } key 键
+     * @param { Number } value 自增的值 
+     * @return { Number } 返回递增值
+     */
+    async incr(key, number = 1) {
+        const { redis } = this.app
+        if (number === 1) {
+            return await redis.incr(key)
+        } else {
+            return await redis.incrby(key, number)
+        }
+    }
+
+    /**
+     * 查询长度
+     * @param { String } key
+     * @return { Number } 返回数据长度
+     */
+    async strlen(key) {
+        const { redis } = this.app
+        return await redis.strlen(key)
+    }
+
+    /**
+     * 删除指定key
+     * @param {String} key 
+     */
+    async remove(key) {
+        const { redis } = this.app
+        return await redis.del(key)
+    }
+
+    /**
+     * 清空缓存
+     */
+    async clear() {
+        return await this.app.redis.flushall()
+    }
+}
+module.exports = CacheService;
+```
+
+### 5. 控制器代码
+`app/controller/admin/home.js`
+```js
+  //登录商城系统，生成token(网站后台只支持超级管理员登录商城系统)
+  async loginShopManager(obj){
+    const { ctx, app } = this;
+    //一般流程
+    // 1.参数验证 ---上面已经验证过了
+    // 2.验证用户是否存在 -- 和网站超级管理员一起生成的，存在
+    // 3.验证用户状态是否启用 -- 超级管理员默认启用
+    // 4.验证用户密码 
+    // 5. 生成唯一token
+    // 6. 加入到缓存中（保证用户提交验证的token来自我们服务器生成的）
+    // 7. 返回用户信息和token
+
+    // 拿参数
+    // const { username, password } = ctx.request.body;
+    // 判断商城管理员是否存在
+    let shop_manager = await app.model.ShopManager.findOne({
+      where: {
+        username: obj.username,
+        status:1,
+      },
+    });
+    if (!shop_manager) {
+      ctx.throw(400, '商城管理员不存在或者被禁用');
+    }
+
+    // 4.验证用户密码
+    const isMatch = bcrypt.compareSync(obj.password,shop_manager.password);
+    if(!isMatch){
+       ctx.throw(400, '商城管理员密码错误');
+    }
+
+    // 5. 生成唯一token
+    shop_manager =  JSON.parse(JSON.stringify(shop_manager));
+    // this.app.jwt.sign(shop_manager, this.app.config.jwt.secret);
+    let token = ctx.getToken(shop_manager);
+    shop_manager.token = token;
+    console.log('商城超级管理员', shop_manager);
+
+    // 6. 加入到缓存中（保证用户提交验证的token来自我们服务器生成的）
+    let shop_manager_token = await this.service.cache.set('shop_manager_' + shop_manager.id, 
+                                                          token, 60 * 60 * 24 * 365);
+    if(!shop_manager_token){
+      ctx.throw(400, '登录失败');
+    }
+  
+  
+    return true;
+  }
+```
