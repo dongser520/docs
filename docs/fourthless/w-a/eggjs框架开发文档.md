@@ -41,3 +41,9 @@ title: eggjs框架开发文档
 > 2. 同学们记得把我们创建的几张表，如果你用的迁移命令创建的，记得加一下表关联关系的内容<br/>
 > 3. 清空manager表的管理员数据，我们从登录开始，在我们创建超级管理员的时候，我们会对`manager`表（后台管理员表）和`shop_manager`表（商城管理员表）同时创建，大家知道，超级管理员属于特殊角色，任何系统和后台应该只有一个，我们这里两张管理员表，一个用于管理我们的后台，一个用于管理商城系统的后台，另外一个原因也是为了和学习thinkphp框架的同学，学习的内容接口保持一致，因为他们用的token判断权限，我们目前的后台用的是session，因此在商城这块，我们也会用token，接下来同学们跟着老师一起操作就可以了。<br/><br/>
 具体查看：<a href="/fourthless/w-a/eggjs.管理员板块" target="_blank">点击查看具体内容</a><br/>
+> ### ① 生成token
+> 具体查看：<a href="/fourthless/w-a/eggjs.管理员板块.html#二、后台管理员登录生成商城超级管理员token" target="_blank">生成商城超级管理员token</a><br/>
+> ### ② 加入缓存redis中
+> 具体查看：<a href="/fourthless/w-a/eggjs.管理员板块.html#三、商城系统管理员登录信息加入缓存redis中" target="_blank">加入缓存redis中</a><br/>
+> ### ③ 管理员信息token验证
+> 具体查看：<a href="/fourthless/w-a/eggjs.管理员板块.html#四、管理员信息token验证" target="_blank">管理员信息token验证</a><br/>
