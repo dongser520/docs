@@ -879,3 +879,246 @@ module.exports = app => {
     {"id":18,"pid":17, "name": "角色管理", "icon": "fa fa-users", "url": "/shop/admin/role" }
 ] 
 ```   
+## 七、修改角色、删除角色、修改角色状态
+控制器`app/controller/admin/role.js`
+```js
+...
+//角色列表页面
+    async index(){
+        const { ctx, app } = this;
+        //分页：可以提炼成一个公共方法page(模型名称，where条件，其他参数options)
+        let data = await ctx.page('Role');
+        //渲染公共模版
+        await ctx.renderTemplate({
+            title: '角色列表',//现在网页title,面包屑导航title,页面标题
+            data,
+            tempType: 'table', //模板类型：table表格模板 ，form表单模板
+            table: {
+                //表格上方按钮,没有不要填buttons
+                buttons: [
+                    {
+                        url: '/shop/admin/role/create',//新增路径
+                        desc: '新增角色',//新增 //按钮名称
+                        // icon: 'fa fa-plus fa-lg',//按钮图标
+                    }
+                ],
+                //表头
+                columns: [
+                    {
+                        title: '角色名称',
+                        key: 'name',
+                        class: 'text-center',//可选
+                    },
+                    {
+                        title: '角色描述',
+                        key: 'desc',
+                        class: 'text-center',//可选
+                    },
+                    {
+                        title: '可用状态',
+                        key: 'status',
+                        width: 200,//可选
+                        class: 'text-center',//可选
+                        hidekeyData: true,//是否隐藏key对应的数据
+                        render(item) {
+                            // console.log('可用状态里面每个item', item);
+                            let arr = [
+                                { value: 1, name: '可用' },
+                                { value: 0, name: '不可用' },
+                            ];
+                            let str = `<div class="btn-group btn-group-${item.id}">`;
+                            for (let i = 0; i < arr.length; i++) {
+                                str += `<button type="button" class="btn btn-light" data="${item.status}"
+                                value="${arr[i].value}"
+                                @click="changeBtnStatus('status','btn-group-${item.id}',${arr[i].value},${i},${item.id},'/shop/admin/role','Role')">${arr[i].name}</button>`;
+                            }
+                            str += `</div>`;
+                            return str;
+                        }
+                    },
+                    {
+                        title: '创建时间',
+                        key: 'create_time',
+                        width: 200,//可选
+                        class: 'text-center',//可选
+                    },
+                    {
+                        title: '操作',
+                        class: 'text-right',//可选
+                        action: {
+                            //修改
+                            edit: function (id) {
+                                return `/shop/admin/role/edit/${id}`;
+                            },
+                            //删除
+                            delete: function (id) {
+                                return `/shop/admin/role/${id}/delete`;
+                            }
+                        }
+                    },
+                ],
+            },
+        });
+    }
+    //修改角色界面
+    async edit(){
+        const { ctx, app } = this;
+        const id = ctx.params.id;
+        let data = await app.model.Role.findOne({
+            where: {
+                id
+            }
+        });
+        if (!data) {
+            return this.ctx.apiFail('该角色不存在');
+        }
+        // data = JSON.parse(JSON.stringify(data));
+        // console.log(data);
+        //渲染公共模版
+        await ctx.renderTemplate({
+            id,
+            title: '修改角色',//现在网页title,面包屑导航title,页面标题
+            tempType: 'form', //模板类型：table表格模板 ，form表单模板
+            form: {
+                //提交地址
+                action: '/shop/admin/role/' + id,
+                //  字段
+                fields: [
+                    {
+                        label: '角色名称',
+                        type: 'text',
+                        name: 'name',
+                        placeholder: '请输入角色名称',
+                        // default:'默认值测试', //新增时候默认值，可选
+                    },
+                    {
+                        label: '角色描述',
+                        type: 'textarea',
+                        name: 'desc',
+                        //default: '',
+                        placeholder: '角色的简单介绍，选填',
+                    }
+                ],
+                //修改内容默认值
+                data,
+            },
+            //修改成功之后跳转到哪个页面
+            successUrl: '/shop/admin/role',
+        });
+    }
+    //修改角色数据功能
+    async update(){
+        const { ctx, app } = this;
+        //1.参数验证
+        this.ctx.validate({
+            id: {
+                type: 'int',
+                required: true,
+                desc: '角色id'
+            },
+            name: {
+                type: 'string',  //参数类型
+                required: true, //是否必须
+                // defValue: '', 
+                desc: '角色名称', //字段含义
+                range:{
+                    min:2,
+                    max:30
+                },
+            },
+            desc: {
+                type: 'string',
+                required: false,
+                defValue: '',
+                desc: '角色描述',
+                range:{
+                    min:0,
+                    max:255
+                },
+            }
+        });
+
+        // 参数
+        const id = ctx.params.id;
+        const { name,  desc} = ctx.request.body;
+        // 是否存在
+        const role = await app.model.Role.findOne({ where: { id } });
+        if (!role) {
+            return ctx.apiFail('角色不存在');
+        }
+        //存在，由于唯一性，你不能修改的时候，修改成存在的名称
+        const Op = this.app.Sequelize.Op;//拿Op,固定写法
+        if (await app.model.Role.findOne({
+            where: {
+                name,
+                id: {
+                    [Op.ne]: id
+                }
+            }
+        })) {
+            // return ctx.pageFail('该直播功能中的礼物账号已经存在，不能修改成该直播功能中的礼物账号', 404);
+            return ctx.apiFail('角色存在，不能修改成' + name);
+        }
+        // 修改数据
+        role.name = name;
+        role.desc = desc;  
+        
+        await role.save();
+        // 给一个反馈
+        ctx.apiSuccess('修改角色成功');
+    }
+    //修改角色状态功能
+    async updateStatus(){
+        const { ctx, app } = this;
+        //1.参数验证
+        this.ctx.validate({
+            id: {
+                type: 'int',
+                required: true,
+                desc: '角色id'
+            },
+            status: {
+                type: 'int',  //参数类型
+                required: true, //是否必须
+                // defValue: '', 
+                desc: '角色状态', //字段含义
+                range:{
+                    in: [0,1]
+                },
+            },
+        });
+        // 参数
+        const id = ctx.params.id;
+        const { status} = ctx.request.body;
+        // 是否存在
+        const role = await app.model.Role.findOne({ where: { id } });
+        if (!role) {
+            return ctx.apiFail('角色不存在');
+        }
+        // 修改数据
+        role.status = status;   
+        await role.save();
+        // 给一个反馈
+        ctx.apiSuccess('修改角色状态成功');
+    }
+    //删除角色功能
+    async delete(){
+        const { ctx, app } = this;
+        const id = ctx.params.id;
+        const role = await app.model.Role.findOne({ where: { id } });
+        if(role && role.name == '超级管理员'){
+           return ctx.apiFail('超级管理员角色不能删除');
+        }
+
+        await app.model.Role.destroy({
+            where: {
+                id
+            }
+        });
+        //提示
+        ctx.toast('角色删除成功', 'success');
+        //跳转
+        ctx.redirect('/shop/admin/role');
+    }
+...
+```
