@@ -648,3 +648,234 @@ config.shopManagerAuth = {
 ...
 ```
 
+## 六、角色管理
+字体图标，查看：<https://fontawesome.dashgame.com/>
+### 1. 新建管理商城的路由
+`app/router/admin/shop.js`
+```js
+module.exports = app => {
+    const { router, controller } = app;
+    // 给角色配置权限（授权）
+    router.post('/shop/admin/role/set_rules',controller.admin.role.setRules);
+    //删除角色功能
+    router.get('/shop/admin/role/:id/delete', controller.admin.role.delete);
+    //修改角色状态
+    router.post('/shop/admin/role/:id/update_status',controller.admin.role.updateStatus);
+    //修改角色界面
+    router.get('/shop/admin/role/edit/:id', controller.admin.role.edit);
+    //修改角色数据功能
+    router.post('/shop/admin/role/:id', controller.admin.role.update);
+    //创建角色界面
+    router.get('/shop/admin/role/create', controller.admin.role.create);
+    //创建角色提交数据
+    router.post('/shop/admin/role', controller.admin.role.save);
+    //角色列表页面
+    router.get('/shop/admin/role', controller.admin.role.index);
+};
+```
+### 2. 完成创建角色、角色列表功能
+新建角色控制器 `app/controller/admin/role.js`
+```js
+'use strict';
+
+const Controller = require('egg').Controller;
+
+class RoleController extends Controller {
+    //创建角色界面
+    async create(){
+        const { ctx } = this;
+        //渲染公共模版
+        await ctx.renderTemplate({
+            title: '创建商城系统管理角色',//现在网页title,面包屑导航title,页面标题
+            tempType: 'form', //模板类型：table表格模板 ，form表单模板
+            form: {
+                //提交地址
+                action: "/shop/admin/role",
+                //  字段
+                fields: [
+                    {
+                        label: '角色名称',
+                        type: 'text',
+                        name: 'name',
+                        placeholder: '请输入角色名称',
+                        // default:'默认值测试', //新增时候默认值，可选
+                    },
+                    {
+                        label: '角色描述',
+                        type: 'textarea',
+                        name: 'desc',
+                        // default: '',
+                        placeholder: '角色的简单介绍,选填',
+                    }
+                ],
+            },
+            //新增成功之后跳转到哪个页面
+            successUrl: '/shop/admin/role',
+        });
+    }
+    //创建角色提交数据
+    async save(){
+         //一般处理流程
+        //1.参数验证
+        this.ctx.validate({
+            name: {
+                type: 'string',  //参数类型
+                required: true, //是否必须
+                // defValue: '', 
+                desc: '角色名称', //字段含义
+                range:{
+                    min: 2,
+                    max: 30
+                }
+            },
+            desc: {
+                type: 'string',
+                required: false,
+                defValue: '',
+                desc: '角色描述',
+                range:{
+                    min: 0,
+                    max: 255
+                }
+            }
+        });
+        //先判断一下直播功能中的礼物账号是否存在，不存在在写入数据库
+        //2.写入数据库
+        //3.成功之后给页面反馈
+        let { name, desc } = this.ctx.request.body;
+        if (await this.app.model.Role.findOne({ where: { name } })) {
+            return this.ctx.apiFail('角色名称已存在');
+        }
+        //否则不存在则写入数据库
+        const res = await this.app.model.Role.create({
+            name,
+            desc
+        });
+        this.ctx.apiSuccess('创建角色成功');
+    }
+    //角色列表页面
+    async index(){
+        const { ctx, app } = this;
+        //分页：可以提炼成一个公共方法page(模型名称，where条件，其他参数options)
+        let data = await ctx.page('Role');
+        //渲染公共模版
+        await ctx.renderTemplate({
+            title: '角色列表',//现在网页title,面包屑导航title,页面标题
+            data,
+            tempType: 'table', //模板类型：table表格模板 ，form表单模板
+            table: {
+                //表格上方按钮,没有不要填buttons
+                buttons: [
+                    {
+                        url: '/shop/admin/role/create',//新增路径
+                        desc: '创建商城系统管理角色',//新增 //按钮名称
+                        // icon: 'fa fa-plus fa-lg',//按钮图标
+                    }
+                ],
+                //表头
+                columns: [
+                    {
+                        title: '角色名称',
+                        key: 'name',
+                        class: 'text-center',//可选
+                    },
+                    {
+                        title: '角色描述',
+                        key: 'desc',
+                        class: 'text-center',//可选
+                    },
+                    {
+                        title: '创建时间',
+                        key: 'create_time',
+                        width: 200,//可选
+                        class: 'text-center',//可选
+                    },
+                    {
+                        title: '操作',
+                        class: 'text-right',//可选
+                        action: {
+                            //修改
+                            edit: function (id) {
+                                return `/shop/admin/role/edit/${id}`;
+                            },
+                            //删除
+                            delete: function (id) {
+                                return `/shop/admin/role/${id}/delete`;
+                            }
+                        }
+                    },
+                ],
+            },
+        });
+    }
+    //修改角色界面
+    async edit(){
+        
+    }
+    //修改角色数据功能
+    async update(){
+
+    }
+    //修改角色状态
+    async updateStatus(){
+
+    }
+    //删除角色功能
+    async delete(){
+
+    }
+    // 给角色配置权限（授权）
+    async setRules(){
+        
+    }
+}
+
+module.exports = RoleController;
+```
+
+### 3. 网站后台处理商城管理，超级管理员不走中间件
+`app/middleware/shop_manager_auth.js`
+```js
+module.exports = (option, app)=>{
+    return async function shopManagerAuth(ctx,next){
+       // 针对在网站后台操作的商城超级管理员，不需要验证token
+       if(ctx.session.auth && ctx.session.auth.super == 1){
+            // 查询一下商城超级管理员是否存在，他们的用户名是一样的
+            let shop_manager = await app.model.ShopManager.findOne({
+                where:{
+                  username:ctx.session.auth.username,//因为两个超级管理员账号一样
+                }
+             });
+            if(shop_manager){
+                //ctx 是 Egg.js 的请求上下文对象，所有 Service 都通过 ctx.service.xxx 暴露
+                let shop_manager_token =  await ctx.service.cache.get('shop_manager_' + shop_manager.id);
+                if(shop_manager_token){
+                    await next();
+                    return;
+                }
+            }
+       }
+       ...
+    }
+}
+```
+### 4. 路由分组
+`app/router.js`
+```js
+module.exports = app => {
+  const { router, controller } = app;
+  //分组
+  ...
+  require('./router/admin/shop')(app);
+  ...
+};
+```
+### 5. 后台左侧菜单新增商城管理-角色管理
+`data/root.json`
+```js
+[
+    ...
+    {"id":17,"pid":0, "name": "商城管理", "icon": "fa fa-shopping-cart", "url": "" },
+    {"id":18,"pid":17, "name": "角色管理", "icon": "fa fa-users", "url": "/shop/admin/role" }
+] 
+```   
