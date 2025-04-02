@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>thinkphp框架管理员列表 | 睿晨网</title>
+    <meta name="generator" content="VuePress 1.9.9">
+    <link rel="icon" href="/assets/img/favicon.png">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="apple-touch-icon" href="/icons/apple-touch-icon-152x152.png">
+    <link rel="#icon-pengyouquan" href="/icons/iconfont.svg" color="#3eaf7c">
+    <meta name="description" content="睿晨网|睿晨编程|零基础学做网站、app、小程序就从这里开始">
+    <meta name="keywords" content="睿晨网,睿晨编程,零基础学做网站,零基础学app,零基础学小程序">
+    <meta name="author" content="睿晨网,睿晨编程,阿东老师">
+    <meta name="theme-color" content="#3eaf7c">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="msapplication-TileImage" content="/icons/msapplication-icon-144x144.png">
+    <meta name="msapplication-TileColor" content="#000000">
+    
+    <link rel="preload" href="/assets/css/0.styles.7bedf34a.css" as="style"><link rel="preload" href="/assets/js/app.fc0e6538.js" as="script"><link rel="preload" href="/assets/js/9.13d458ed.js" as="script"><link rel="preload" href="/assets/js/2.6281e0bb.js" as="script"><link rel="preload" href="/assets/js/26.534cc012.js" as="script"><link rel="preload" href="/assets/js/3.e6827fa8.js" as="script"><link rel="prefetch" href="/assets/js/10.63ed790c.js"><link rel="prefetch" href="/assets/js/100.d69f22a9.js"><link rel="prefetch" href="/assets/js/101.d462af6d.js"><link rel="prefetch" href="/assets/js/102.e2a50875.js"><link rel="prefetch" href="/assets/js/103.4c83f531.js"><link rel="prefetch" href="/assets/js/104.a8cbc9ca.js"><link rel="prefetch" href="/assets/js/105.52e6042a.js"><link rel="prefetch" href="/assets/js/106.d11f3672.js"><link rel="prefetch" href="/assets/js/107.2b1327f5.js"><link rel="prefetch" href="/assets/js/108.1c330c7b.js"><link rel="prefetch" href="/assets/js/109.7e50ceac.js"><link rel="prefetch" href="/assets/js/11.934eb133.js"><link rel="prefetch" href="/assets/js/110.264ab80a.js"><link rel="prefetch" href="/assets/js/111.f03db73e.js"><link rel="prefetch" href="/assets/js/112.8d95cc3b.js"><link rel="prefetch" href="/assets/js/113.663dda78.js"><link rel="prefetch" href="/assets/js/114.a7cc180e.js"><link rel="prefetch" href="/assets/js/115.5c5b9c3e.js"><link rel="prefetch" href="/assets/js/116.4c31768f.js"><link rel="prefetch" href="/assets/js/117.04777b82.js"><link rel="prefetch" href="/assets/js/118.5d2f5fa1.js"><link rel="prefetch" href="/assets/js/119.40e2582c.js"><link rel="prefetch" href="/assets/js/12.cc2380d1.js"><link rel="prefetch" href="/assets/js/120.81cf7a99.js"><link rel="prefetch" href="/assets/js/121.6b80dcc4.js"><link rel="prefetch" href="/assets/js/122.e7b1fcd3.js"><link rel="prefetch" href="/assets/js/123.41d235dc.js"><link rel="prefetch" href="/assets/js/124.83382681.js"><link rel="prefetch" href="/assets/js/125.8c4b279a.js"><link rel="prefetch" href="/assets/js/126.c0432924.js"><link rel="prefetch" href="/assets/js/127.03f8158c.js"><link rel="prefetch" href="/assets/js/128.d3396cdf.js"><link rel="prefetch" href="/assets/js/129.c437760f.js"><link rel="prefetch" href="/assets/js/13.50c9a147.js"><link rel="prefetch" href="/assets/js/130.0fafdd10.js"><link rel="prefetch" href="/assets/js/131.bbe55c4f.js"><link rel="prefetch" href="/assets/js/132.c7b00229.js"><link rel="prefetch" href="/assets/js/133.92fbaf2d.js"><link rel="prefetch" href="/assets/js/134.6e9de74a.js"><link rel="prefetch" href="/assets/js/135.59650dfc.js"><link rel="prefetch" href="/assets/js/136.06422746.js"><link rel="prefetch" href="/assets/js/137.58e77af3.js"><link rel="prefetch" href="/assets/js/138.7a91b915.js"><link rel="prefetch" href="/assets/js/139.c645aede.js"><link rel="prefetch" href="/assets/js/14.a1283673.js"><link rel="prefetch" href="/assets/js/140.d0e78ff2.js"><link rel="prefetch" href="/assets/js/141.d03af9e9.js"><link rel="prefetch" href="/assets/js/142.f87be59c.js"><link rel="prefetch" href="/assets/js/143.148885d2.js"><link rel="prefetch" href="/assets/js/144.0c78c148.js"><link rel="prefetch" href="/assets/js/145.d43a5eec.js"><link rel="prefetch" href="/assets/js/15.967ec7b7.js"><link rel="prefetch" href="/assets/js/16.e5d553b8.js"><link rel="prefetch" href="/assets/js/17.f3f4fe6e.js"><link rel="prefetch" href="/assets/js/18.b3fc4cb0.js"><link rel="prefetch" href="/assets/js/19.16768c75.js"><link rel="prefetch" href="/assets/js/20.f46354a1.js"><link rel="prefetch" href="/assets/js/21.67cba0cf.js"><link rel="prefetch" href="/assets/js/22.cb03f973.js"><link rel="prefetch" href="/assets/js/23.d87be0e8.js"><link rel="prefetch" href="/assets/js/24.ccbbd22e.js"><link rel="prefetch" href="/assets/js/25.2dd6f204.js"><link rel="prefetch" href="/assets/js/27.7d1b0c2c.js"><link rel="prefetch" href="/assets/js/28.504c2ec3.js"><link rel="prefetch" href="/assets/js/29.b191606a.js"><link rel="prefetch" href="/assets/js/30.21c4628e.js"><link rel="prefetch" href="/assets/js/31.fe2cc187.js"><link rel="prefetch" href="/assets/js/32.6bd7d62f.js"><link rel="prefetch" href="/assets/js/33.32c14bc6.js"><link rel="prefetch" href="/assets/js/34.0fd0b4ba.js"><link rel="prefetch" href="/assets/js/35.b5b8dac8.js"><link rel="prefetch" href="/assets/js/36.3ca1e251.js"><link rel="prefetch" href="/assets/js/37.0ddf130b.js"><link rel="prefetch" href="/assets/js/38.d53d866a.js"><link rel="prefetch" href="/assets/js/39.60edbcb9.js"><link rel="prefetch" href="/assets/js/4.44c769d0.js"><link rel="prefetch" href="/assets/js/40.112e21d2.js"><link rel="prefetch" href="/assets/js/41.3d8ed77c.js"><link rel="prefetch" href="/assets/js/42.d3680f28.js"><link rel="prefetch" href="/assets/js/43.03fe8bd3.js"><link rel="prefetch" href="/assets/js/44.59260df4.js"><link rel="prefetch" href="/assets/js/45.3a4c52dd.js"><link rel="prefetch" href="/assets/js/46.3f286741.js"><link rel="prefetch" href="/assets/js/47.120a4795.js"><link rel="prefetch" href="/assets/js/48.2633f456.js"><link rel="prefetch" href="/assets/js/49.b4a3d48b.js"><link rel="prefetch" href="/assets/js/5.96ff8e0a.js"><link rel="prefetch" href="/assets/js/50.75d562ab.js"><link rel="prefetch" href="/assets/js/51.2266c847.js"><link rel="prefetch" href="/assets/js/52.efca2557.js"><link rel="prefetch" href="/assets/js/53.6dfc7875.js"><link rel="prefetch" href="/assets/js/54.9e240a39.js"><link rel="prefetch" href="/assets/js/55.fe2b8666.js"><link rel="prefetch" href="/assets/js/56.37e4e3a6.js"><link rel="prefetch" href="/assets/js/57.cca0b2cd.js"><link rel="prefetch" href="/assets/js/58.ce6f966b.js"><link rel="prefetch" href="/assets/js/59.f77883b1.js"><link rel="prefetch" href="/assets/js/6.79da862f.js"><link rel="prefetch" href="/assets/js/60.a018ac69.js"><link rel="prefetch" href="/assets/js/61.302bb8e0.js"><link rel="prefetch" href="/assets/js/62.c8acb5ea.js"><link rel="prefetch" href="/assets/js/63.43c21806.js"><link rel="prefetch" href="/assets/js/64.5b021b00.js"><link rel="prefetch" href="/assets/js/65.14a7e0a7.js"><link rel="prefetch" href="/assets/js/66.2304af34.js"><link rel="prefetch" href="/assets/js/67.aa288a08.js"><link rel="prefetch" href="/assets/js/68.30c129ad.js"><link rel="prefetch" href="/assets/js/69.d5e3545e.js"><link rel="prefetch" href="/assets/js/7.a483e495.js"><link rel="prefetch" href="/assets/js/70.380589f7.js"><link rel="prefetch" href="/assets/js/71.7cc6b023.js"><link rel="prefetch" href="/assets/js/72.c0344c7e.js"><link rel="prefetch" href="/assets/js/73.93a0fbd5.js"><link rel="prefetch" href="/assets/js/74.48d0f56f.js"><link rel="prefetch" href="/assets/js/75.e371ba0e.js"><link rel="prefetch" href="/assets/js/76.c396c575.js"><link rel="prefetch" href="/assets/js/77.da2c0575.js"><link rel="prefetch" href="/assets/js/78.3c195d94.js"><link rel="prefetch" href="/assets/js/79.ef96a3c8.js"><link rel="prefetch" href="/assets/js/8.62776c67.js"><link rel="prefetch" href="/assets/js/80.a4f4bd86.js"><link rel="prefetch" href="/assets/js/81.9b035f2e.js"><link rel="prefetch" href="/assets/js/82.5f261383.js"><link rel="prefetch" href="/assets/js/83.d83bda3d.js"><link rel="prefetch" href="/assets/js/84.c9659c3a.js"><link rel="prefetch" href="/assets/js/85.5d6638a1.js"><link rel="prefetch" href="/assets/js/86.22c54105.js"><link rel="prefetch" href="/assets/js/87.cd156ce5.js"><link rel="prefetch" href="/assets/js/88.2df33a9c.js"><link rel="prefetch" href="/assets/js/89.b6f83374.js"><link rel="prefetch" href="/assets/js/90.107cfd0f.js"><link rel="prefetch" href="/assets/js/91.68891c94.js"><link rel="prefetch" href="/assets/js/92.5bbe2134.js"><link rel="prefetch" href="/assets/js/93.a0c229de.js"><link rel="prefetch" href="/assets/js/94.d77164f7.js"><link rel="prefetch" href="/assets/js/95.6c77e75b.js"><link rel="prefetch" href="/assets/js/96.bf120fe4.js"><link rel="prefetch" href="/assets/js/97.44de71f1.js"><link rel="prefetch" href="/assets/js/98.f1440ec8.js"><link rel="prefetch" href="/assets/js/99.16247d45.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.7bedf34a.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">睿晨网</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">
+  主页
+</a></div><div class="nav-item"><a href="/aboutless.html" class="nav-link">
+  第一学期课程
+</a></div><div class="nav-item"><a href="/secondless/" class="nav-link">
+  第二学期课程
+</a></div><div class="nav-item"><a href="/thirdless/" class="nav-link">
+  第三期移动端课程
+</a></div><div class="nav-item"><a href="/fourthless/" class="nav-link router-link-active">
+  第四学期课程
+</a></div><div class="nav-item"><a href="/web/software/" class="nav-link">
+  课程软件小案例
+</a></div><div class="nav-item"><a href="/web/mysql/" class="nav-link">
+  课程案例数据表
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="课程答疑汇总" class="dropdown-title"><span class="title">课程答疑</span> <span class="arrow down"></span></button> <button type="button" aria-label="课程答疑汇总" class="mobile-dropdown-title"><span class="title">课程答疑</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/web/answer/课程常见问题.html" class="nav-link">
+  课程常见问题
+</a></li><li class="dropdown-item"><!----> <a href="/deploy/" class="nav-link">
+  项目部署
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="课程学习网站" class="dropdown-title"><span class="title">课程学习网站</span> <span class="arrow down"></span></button> <button type="button" aria-label="课程学习网站" class="mobile-dropdown-title"><span class="title">课程学习网站</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          视频学习网站
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://study.163.com/provider/480000002289674/index.htm?share=2&amp;shareId=480000002289674" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  腾讯云课堂
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://space.bilibili.com/3493114067028034/pugv" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  B站
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="实用菜单" class="dropdown-title"><span class="title">实用网站和方法</span> <span class="arrow down"></span></button> <button type="button" aria-label="实用菜单" class="mobile-dropdown-title"><span class="title">实用网站和方法</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          实用方法
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/web/methods/定位相关.html" class="nav-link">
+  定位相关
+</a></li><li class="dropdown-subitem"><a href="/web/methods/地图相关.html" class="nav-link">
+  地图相关
+</a></li></ul></li><li class="dropdown-item"><h4>
+          实用网站
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/web/methods/实用接口.html" class="nav-link">
+  实用接口
+</a></li><li class="dropdown-subitem"><a href="/web/css/" class="nav-link">
+  css
+</a></li><li class="dropdown-subitem"><a href="/web/vue.js/" class="nav-link">
+  Vue.js
+</a></li><li class="dropdown-subitem"><a href="/web/Vue3+ElementPlus/" class="nav-link">
+  Vue3+ElementPlus系统
+</a></li><li class="dropdown-subitem"><a href="/web/echarts/" class="nav-link">
+  echarts图表
+</a></li><li class="dropdown-subitem"><a href="/web/bootstrap/" class="nav-link">
+  Bootstrap
+</a></li><li class="dropdown-subitem"><a href="/web/IIS/" class="nav-link">
+  IIS
+</a></li><li class="dropdown-subitem"><a href="/web/github/" class="nav-link">
+  Github
+</a></li><li class="dropdown-subitem"><a href="/web/Vanta.js/" class="nav-link">
+  Vanta.js网页3D背景
+</a></li><li class="dropdown-subitem"><a href="/web/shop/" class="nav-link">
+  商城系统推荐
+</a></li></ul></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">
+  主页
+</a></div><div class="nav-item"><a href="/aboutless.html" class="nav-link">
+  第一学期课程
+</a></div><div class="nav-item"><a href="/secondless/" class="nav-link">
+  第二学期课程
+</a></div><div class="nav-item"><a href="/thirdless/" class="nav-link">
+  第三期移动端课程
+</a></div><div class="nav-item"><a href="/fourthless/" class="nav-link router-link-active">
+  第四学期课程
+</a></div><div class="nav-item"><a href="/web/software/" class="nav-link">
+  课程软件小案例
+</a></div><div class="nav-item"><a href="/web/mysql/" class="nav-link">
+  课程案例数据表
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="课程答疑汇总" class="dropdown-title"><span class="title">课程答疑</span> <span class="arrow down"></span></button> <button type="button" aria-label="课程答疑汇总" class="mobile-dropdown-title"><span class="title">课程答疑</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/web/answer/课程常见问题.html" class="nav-link">
+  课程常见问题
+</a></li><li class="dropdown-item"><!----> <a href="/deploy/" class="nav-link">
+  项目部署
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="课程学习网站" class="dropdown-title"><span class="title">课程学习网站</span> <span class="arrow down"></span></button> <button type="button" aria-label="课程学习网站" class="mobile-dropdown-title"><span class="title">课程学习网站</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          视频学习网站
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://study.163.com/provider/480000002289674/index.htm?share=2&amp;shareId=480000002289674" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  腾讯云课堂
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://space.bilibili.com/3493114067028034/pugv" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  B站
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="实用菜单" class="dropdown-title"><span class="title">实用网站和方法</span> <span class="arrow down"></span></button> <button type="button" aria-label="实用菜单" class="mobile-dropdown-title"><span class="title">实用网站和方法</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          实用方法
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/web/methods/定位相关.html" class="nav-link">
+  定位相关
+</a></li><li class="dropdown-subitem"><a href="/web/methods/地图相关.html" class="nav-link">
+  地图相关
+</a></li></ul></li><li class="dropdown-item"><h4>
+          实用网站
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/web/methods/实用接口.html" class="nav-link">
+  实用接口
+</a></li><li class="dropdown-subitem"><a href="/web/css/" class="nav-link">
+  css
+</a></li><li class="dropdown-subitem"><a href="/web/vue.js/" class="nav-link">
+  Vue.js
+</a></li><li class="dropdown-subitem"><a href="/web/Vue3+ElementPlus/" class="nav-link">
+  Vue3+ElementPlus系统
+</a></li><li class="dropdown-subitem"><a href="/web/echarts/" class="nav-link">
+  echarts图表
+</a></li><li class="dropdown-subitem"><a href="/web/bootstrap/" class="nav-link">
+  Bootstrap
+</a></li><li class="dropdown-subitem"><a href="/web/IIS/" class="nav-link">
+  IIS
+</a></li><li class="dropdown-subitem"><a href="/web/github/" class="nav-link">
+  Github
+</a></li><li class="dropdown-subitem"><a href="/web/Vanta.js/" class="nav-link">
+  Vanta.js网页3D背景
+</a></li><li class="dropdown-subitem"><a href="/web/shop/" class="nav-link">
+  商城系统推荐
+</a></li></ul></li></ul></div></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>thinkphp框架管理员列表</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/fourthless/w-a/thinkphp.%E7%AE%A1%E7%90%86%E5%91%98%E5%88%97%E8%A1%A8.html#一、管理员列表" class="sidebar-link">一、管理员列表</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/fourthless/w-a/thinkphp.%E7%AE%A1%E7%90%86%E5%91%98%E5%88%97%E8%A1%A8.html#_1-接口说明" class="sidebar-link">1. 接口说明</a></li><li class="sidebar-sub-header"><a href="/fourthless/w-a/thinkphp.%E7%AE%A1%E7%90%86%E5%91%98%E5%88%97%E8%A1%A8.html#_2-路由-route-admin-php" class="sidebar-link">2. 路由 route/admin.php</a></li><li class="sidebar-sub-header"><a href="/fourthless/w-a/thinkphp.%E7%AE%A1%E7%90%86%E5%91%98%E5%88%97%E8%A1%A8.html#_3-验证器-app-validate-admin-shopmanager-php" class="sidebar-link">3. 验证器 app/validate/admin/ShopManager.php</a></li><li class="sidebar-sub-header"><a href="/fourthless/w-a/thinkphp.%E7%AE%A1%E7%90%86%E5%91%98%E5%88%97%E8%A1%A8.html#_4-由于limit和keyword为选填-模型方法获取参数时-需要判断一下否则报错-写个方法" class="sidebar-link">4. 由于limit和keyword为选填，模型方法获取参数时，需要判断一下否则报错，写个方法</a></li><li class="sidebar-sub-header"><a href="/fourthless/w-a/thinkphp.%E7%AE%A1%E7%90%86%E5%91%98%E5%88%97%E8%A1%A8.html#_5-控制器初步查询不带关联角色表" class="sidebar-link">5. 控制器初步查询不带关联角色表</a></li></ul></li><li><a href="/fourthless/w-a/thinkphp.%E7%AE%A1%E7%90%86%E5%91%98%E5%88%97%E8%A1%A8.html#二、管理员列表要关联角色表role数据" class="sidebar-link">二、管理员列表要关联角色表role数据</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/fourthless/w-a/thinkphp.%E7%AE%A1%E7%90%86%E5%91%98%E5%88%97%E8%A1%A8.html#具体操作" class="sidebar-link">具体操作：</a></li><li class="sidebar-sub-header"><a href="/fourthless/w-a/thinkphp.%E7%AE%A1%E7%90%86%E5%91%98%E5%88%97%E8%A1%A8.html#_1-已经有shopmanager模型-现在关联role表-需要创建一下role表的模型" class="sidebar-link">1. 已经有shopManager模型，现在关联role表，需要创建一下role表的模型</a></li><li class="sidebar-sub-header"><a href="/fourthless/w-a/thinkphp.%E7%AE%A1%E7%90%86%E5%91%98%E5%88%97%E8%A1%A8.html#_2-来到管理员表模型shopmanager-同样创建一下与角色表的关联关系" class="sidebar-link">2.来到管理员表模型shopManager，同样创建一下与角色表的关联关系</a></li><li class="sidebar-sub-header"><a href="/fourthless/w-a/thinkphp.%E7%AE%A1%E7%90%86%E5%91%98%E5%88%97%E8%A1%A8.html#_3-来到控制器返回-管理员列表关联角色表的数据-完整代码" class="sidebar-link">3. 来到控制器返回：管理员列表关联角色表的数据 [完整代码]</a></li></ul></li><li><a href="/fourthless/w-a/thinkphp.%E7%AE%A1%E7%90%86%E5%91%98%E5%88%97%E8%A1%A8.html#三、返回结果示例" class="sidebar-link">三、返回结果示例</a><ul class="sidebar-sub-headers"></ul></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h2 id="一、管理员列表"><a href="#一、管理员列表" class="header-anchor">#</a> 一、管理员列表</h2> <h3 id="_1-接口说明"><a href="#_1-接口说明" class="header-anchor">#</a> 1. 接口说明</h3> <blockquote><ol><li>请求方式：<code>GET</code> <code>[用postman测试]</code></li> <li>接口示例：<br>
+本地路由地址：<a href="http://thinkphp.shop/admin/shopmanager/1" target="_blank" rel="noopener noreferrer">http://thinkphp.shop/admin/shopmanager/1<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a> <code>1</code>代表第1页 <br>
+完整演示：<a href="http://thinkphp.shop/admin/shopmanager/1?limit=10&amp;keyword=admin1" target="_blank" rel="noopener noreferrer">http://thinkphp.shop/admin/shopmanager/1?limit=10&amp;keyword=admin1<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li> <li>header头</li></ol> <table><thead><tr><th style="text-align:center;">参数</th> <th style="text-align:center;">是否必填</th> <th style="text-align:center;">类型</th> <th style="text-align:center;">说明</th></tr></thead> <tbody><tr><td style="text-align:center;">token</td> <td style="text-align:center;">是</td> <td style="text-align:center;">String</td> <td style="text-align:center;">token值</td></tr></tbody></table> <ol start="4"><li>请求参数</li></ol> <table><thead><tr><th style="text-align:center;">参数</th> <th style="text-align:center;">是否必填</th> <th style="text-align:center;">类型</th> <th style="text-align:center;">说明</th></tr></thead> <tbody><tr><td style="text-align:center;">page</td> <td style="text-align:center;">是</td> <td style="text-align:center;">int</td> <td style="text-align:center;">分页页码</td></tr> <tr><td style="text-align:center;">limit</td> <td style="text-align:center;">否</td> <td style="text-align:center;">int</td> <td style="text-align:center;">每页显示多少条数据</td></tr> <tr><td style="text-align:center;">keyword</td> <td style="text-align:center;">否</td> <td style="text-align:center;">string</td> <td style="text-align:center;">查询关键字，如：管理员的账号，admin1</td></tr></tbody></table></blockquote> <h3 id="_2-路由-route-admin-php"><a href="#_2-路由-route-admin-php" class="header-anchor">#</a> 2. 路由 <code>route/admin.php</code></h3> <blockquote><p><code>route/admin.php</code></p> <blockquote><div class="language-php extra-class"><pre class="language-php"><code><span class="token operator">...</span>
+<span class="token class-name static-context">Route</span><span class="token operator">::</span><span class="token function">group</span><span class="token punctuation">(</span><span class="token string single-quoted-string">'admin'</span><span class="token punctuation">,</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token operator">...</span>
+    <span class="token comment">//管理员列表</span>
+    <span class="token class-name static-context">Route</span><span class="token operator">::</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string single-quoted-string">'shopmanager/:page'</span><span class="token punctuation">,</span><span class="token string single-quoted-string">'admin.ShopManager/index'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div></blockquote></blockquote> <h3 id="_3-验证器-app-validate-admin-shopmanager-php"><a href="#_3-验证器-app-validate-admin-shopmanager-php" class="header-anchor">#</a> 3. 验证器 <code>app/validate/admin/ShopManager.php</code></h3> <blockquote><div class="language-php extra-class"><pre class="language-php"><code><span class="token operator">...</span>
+<span class="token keyword">class</span> <span class="token class-name-definition class-name">ShopManager</span> <span class="token keyword">extends</span> <span class="token class-name">BaseValidate</span>
+<span class="token punctuation">{</span>
+    <span class="token comment">/**
+     * 定义验证规则
+     * 格式：'字段名' =&gt;  ['规则1','规则2'...]
+     *
+     * @var array
+     */</span>
+    <span class="token keyword">protected</span> <span class="token variable">$rule</span> <span class="token operator">=</span> <span class="token punctuation">[</span>
+        <span class="token string single-quoted-string">'page'</span> <span class="token operator">=&gt;</span> <span class="token string single-quoted-string">'require|integer|&gt;:0'</span><span class="token punctuation">,</span>
+        <span class="token string single-quoted-string">'limit'</span> <span class="token operator">=&gt;</span> <span class="token string single-quoted-string">'integer|&gt;:0'</span><span class="token punctuation">,</span>
+        <span class="token operator">...</span>
+    <span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token operator">...</span>
+
+    <span class="token comment">//定义一个场景（场景名称可自定义，方便我们观察，可用控制器的方法名称）</span>
+    <span class="token keyword">protected</span> <span class="token variable">$scene</span> <span class="token operator">=</span> <span class="token punctuation">[</span>
+        <span class="token operator">...</span>
+        <span class="token comment">//管理员列表验证场景</span>
+        <span class="token string single-quoted-string">'index'</span> <span class="token operator">=&gt;</span> <span class="token punctuation">[</span><span class="token string single-quoted-string">'page'</span><span class="token punctuation">,</span><span class="token string single-quoted-string">'limit'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+    <span class="token operator">...</span>
+<span class="token punctuation">}</span>
+
+</code></pre></div></blockquote> <h3 id="_4-由于limit和keyword为选填-模型方法获取参数时-需要判断一下否则报错-写个方法"><a href="#_4-由于limit和keyword为选填-模型方法获取参数时-需要判断一下否则报错-写个方法" class="header-anchor">#</a> 4. 由于limit和keyword为选填，模型方法获取参数时，需要判断一下否则报错，写个方法</h3> <p><code>app/common.php</code></p> <blockquote><div class="language-php extra-class"><pre class="language-php"><code><span class="token comment">// 获取数组指定字段[key]的值[value]</span>
+<span class="token keyword">function</span> <span class="token function-definition function">getValueByKey</span><span class="token punctuation">(</span><span class="token variable">$key</span><span class="token punctuation">,</span> <span class="token variable">$array</span><span class="token punctuation">,</span> <span class="token variable">$default</span> <span class="token operator">=</span> <span class="token constant boolean">false</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+   <span class="token keyword">return</span> <span class="token function">array_key_exists</span><span class="token punctuation">(</span><span class="token variable">$key</span><span class="token punctuation">,</span> <span class="token variable">$array</span><span class="token punctuation">)</span> <span class="token operator">?</span> <span class="token variable">$array</span><span class="token punctuation">[</span><span class="token variable">$key</span><span class="token punctuation">]</span> <span class="token punctuation">:</span> <span class="token variable">$default</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div></blockquote> <h3 id="_5-控制器初步查询不带关联角色表"><a href="#_5-控制器初步查询不带关联角色表" class="header-anchor">#</a> 5. 控制器初步查询不带关联角色表</h3> <p><code>app/controller/admin/ShopManager.php</code></p> <blockquote><div class="language-php extra-class"><pre class="language-php"><code><span class="token operator">...</span>
+<span class="token keyword">class</span> <span class="token class-name-definition class-name">ShopManager</span> <span class="token keyword">extends</span> <span class="token class-name">BaseController</span>
+<span class="token punctuation">{</span>
+    <span class="token comment">//是否自动实例化模型</span>
+    <span class="token comment">// protected $autoModel = true;</span>
+    <span class="token comment">//自定义一下模型路径(如果存在这个模型的话)</span>
+    <span class="token comment">// protected $modelPath = 'admin/ShopManager';</span>
+    <span class="token comment">//是否自动进行参数验证</span>
+    <span class="token comment">// protected $autoValidate = true;</span>
+    <span class="token comment">//自定义参数验证场景名</span>
+    <span class="token comment">// protected $autoValidateScenes = [</span>
+    <span class="token comment">//     'save'=&gt;'save1'   // 方法名 =&gt; 验证场景名</span>
+    <span class="token comment">// ];</span>
+    <span class="token comment">//某个方法，不需要进行自动参数验证</span>
+    <span class="token comment">// protected $excludeValidateCheck = ['index'];</span>
+    <span class="token comment">/**
+     * 管理员列表
+     *
+     * @return \think\Response
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function-definition function">index</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token comment">//拿到参数数组, 如：页码等</span>
+        <span class="token variable">$param</span> <span class="token operator">=</span> <span class="token variable">$this</span><span class="token operator">-&gt;</span><span class="token property">request</span><span class="token operator">-&gt;</span><span class="token function">param</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">//可选参数，如limit:每页多少条，查询keyword:搜索关键字</span>
+        <span class="token variable">$limit</span> <span class="token operator">=</span> <span class="token function">getValueByKey</span><span class="token punctuation">(</span><span class="token string single-quoted-string">'limit'</span><span class="token punctuation">,</span> <span class="token variable">$param</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//没传，就每页默认10条</span>
+        <span class="token variable">$keyword</span> <span class="token operator">=</span> <span class="token function">getValueByKey</span><span class="token punctuation">(</span><span class="token string single-quoted-string">'keyword'</span><span class="token punctuation">,</span> <span class="token variable">$param</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">''</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//没传，就默认空</span>
+
+        <span class="token comment">//组织查询条件</span>
+        <span class="token variable">$where</span> <span class="token operator">=</span> <span class="token punctuation">[</span>
+            <span class="token comment">//管理员用户名模糊查询</span>
+            <span class="token punctuation">[</span><span class="token string single-quoted-string">'username'</span><span class="token punctuation">,</span><span class="token string single-quoted-string">'like'</span><span class="token punctuation">,</span><span class="token string single-quoted-string">'%'</span><span class="token operator">.</span><span class="token variable">$keyword</span><span class="token operator">.</span><span class="token string single-quoted-string">'%'</span><span class="token punctuation">]</span>
+        <span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+        <span class="token comment">//计算一下一共查了多少条数据</span>
+        <span class="token variable">$totalCount</span> <span class="token operator">=</span> <span class="token variable">$this</span><span class="token operator">-&gt;</span><span class="token property">model</span> <span class="token operator">-&gt;</span><span class="token function">where</span><span class="token punctuation">(</span><span class="token variable">$where</span><span class="token punctuation">)</span><span class="token operator">-&gt;</span><span class="token function">count</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">//那列表数据</span>
+        <span class="token variable">$list</span> <span class="token operator">=</span> <span class="token variable">$this</span><span class="token operator">-&gt;</span><span class="token property">model</span> <span class="token operator">-&gt;</span>
+                <span class="token comment">//条件</span>
+                <span class="token function">where</span><span class="token punctuation">(</span><span class="token variable">$where</span><span class="token punctuation">)</span> <span class="token operator">-&gt;</span>
+                <span class="token comment">//分页</span>
+                <span class="token function">page</span><span class="token punctuation">(</span><span class="token variable">$param</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'page'</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token variable">$limit</span><span class="token punctuation">)</span> <span class="token operator">-&gt;</span>
+                <span class="token comment">//排序</span>
+                <span class="token function">order</span><span class="token punctuation">(</span><span class="token string single-quoted-string">'id'</span><span class="token punctuation">,</span><span class="token string single-quoted-string">'desc'</span><span class="token punctuation">)</span> <span class="token operator">-&gt;</span>
+                <span class="token comment">//查询</span>
+                <span class="token function">select</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">-&gt;</span>
+                <span class="token comment">//隐藏密码等敏感信息</span>
+                <span class="token function">hidden</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'password'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> <span class="token function">apiSuccess</span><span class="token punctuation">(</span><span class="token punctuation">[</span>
+            <span class="token string single-quoted-string">'list'</span><span class="token operator">=&gt;</span><span class="token variable">$list</span><span class="token punctuation">,</span>
+            <span class="token string single-quoted-string">'totalCount'</span><span class="token operator">=&gt;</span><span class="token variable">$totalCount</span>
+        <span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div></blockquote> <p><code>postman测试</code>:<code>http://thinkphp.shop/admin/shopmanager/1?limit=10&amp;keyword=admin1</code></p> <h2 id="二、管理员列表要关联角色表role数据"><a href="#二、管理员列表要关联角色表role数据" class="header-anchor">#</a> 二、管理员列表要关联角色表role数据</h2> <blockquote><p>关于关联查询其它表，用到tp框架的模型关联，它和我们的egg.js项目一样，都有模型关联的概念【搜索文档：<code>模型关联</code>】，感兴趣同学可以去学习一下我们第二学期第三季课程，讲得很透彻，并且用sql语句给大家讲了模型关联的原理。<br>
+thinkphp的模型关联：<a href="https://www.kancloud.cn/manual/thinkphp6_0/1037599" target="_blank" rel="noopener noreferrer">https://www.kancloud.cn/manual/thinkphp6_0/1037599<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a><br></p></blockquote> <h3 id="具体操作"><a href="#具体操作" class="header-anchor">#</a> 具体操作：</h3> <h3 id="_1-已经有shopmanager模型-现在关联role表-需要创建一下role表的模型"><a href="#_1-已经有shopmanager模型-现在关联role表-需要创建一下role表的模型" class="header-anchor">#</a> 1. 已经有shopManager模型，现在关联role表，需要创建一下role表的模型</h3> <blockquote><h4 id="_1-创建role表模型role"><a href="#_1-创建role表模型role" class="header-anchor">#</a> ① 创建role表模型Role</h4> <p>输入命令：<code>php think make:model Role</code></p> <h4 id="_2-来到role表的模型-app-model-role-php-创建关联关系"><a href="#_2-来到role表的模型-app-model-role-php-创建关联关系" class="header-anchor">#</a> ② 来到role表的模型 <code>app/model/Role.php</code>，创建关联关系</h4> <blockquote><div class="language-php extra-class"><pre class="language-php"><code><span class="token operator">...</span>
+<span class="token keyword">class</span> <span class="token class-name-definition class-name">Role</span> <span class="token keyword">extends</span> <span class="token class-name">Model</span>
+<span class="token punctuation">{</span>
+    <span class="token comment">//角色表role对应管理员，一个角色，比如：普通管理员角色</span>
+    <span class="token comment">//普通管理员角色可以有很多个管理员，即很多管理员都是普通管理员角色</span>
+    <span class="token comment">// 即：角色对应管理员，就是 一对多 的关系</span>
+    <span class="token comment">// 接下来定义的写法，写对应关联的表名，一对多，多个shop_manager加s：</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function-definition function">shop_managers</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token variable">$this</span><span class="token operator">-&gt;</span><span class="token function">hasMany</span><span class="token punctuation">(</span><span class="token string single-quoted-string">'ShopManager'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div></blockquote></blockquote> <h3 id="_2-来到管理员表模型shopmanager-同样创建一下与角色表的关联关系"><a href="#_2-来到管理员表模型shopmanager-同样创建一下与角色表的关联关系" class="header-anchor">#</a> 2.来到管理员表模型shopManager，同样创建一下与角色表的关联关系</h3> <blockquote><p><code>app/model/ShopManager.php</code></p> <blockquote><div class="language-php extra-class"><pre class="language-php"><code><span class="token operator">...</span>
+<span class="token keyword">class</span> <span class="token class-name-definition class-name">ShopManager</span> <span class="token keyword">extends</span> <span class="token class-name">Model</span>
+<span class="token punctuation">{</span>
+    <span class="token operator">...</span>
+    <span class="token comment">//当前shop_manager表模型关联role表模型</span>
+    <span class="token comment">// 管理员表对应角色表：反向一对多</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function-definition function">role</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token comment">//更多参数看文档 https://www.kancloud.cn/manual/thinkphp6_0/1037601</span>
+        <span class="token comment">//belongsTo('关联模型','外键','主键');</span>
+        <span class="token comment">//hasMany('关联模型','外键','主键');</span>
+        <span class="token comment">// return $this-&gt;belongsTo('Role','role_id','id');//关联模型，外键，主键</span>
+        <span class="token keyword">return</span> <span class="token variable">$this</span><span class="token operator">-&gt;</span><span class="token function">belongsTo</span><span class="token punctuation">(</span><span class="token string single-quoted-string">'Role'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div></blockquote></blockquote> <h3 id="_3-来到控制器返回-管理员列表关联角色表的数据-完整代码"><a href="#_3-来到控制器返回-管理员列表关联角色表的数据-完整代码" class="header-anchor">#</a> 3. 来到控制器返回：管理员列表关联角色表的数据 [完整代码]</h3> <p><code>app/controller/admin/ShopManager.php</code></p> <blockquote><blockquote><div class="language-php extra-class"><pre class="language-php"><code>    <span class="token comment">/**
+     * 管理员列表
+     *
+     * @return \think\Response
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function-definition function">index</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token comment">//拿到参数数组, 如：页码等</span>
+        <span class="token comment">// $param = $request -&gt;param();</span>
+        <span class="token variable">$param</span> <span class="token operator">=</span> <span class="token variable">$this</span><span class="token operator">-&gt;</span><span class="token property">request</span><span class="token operator">-&gt;</span><span class="token function">param</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">// halt($param);</span>
+        <span class="token comment">//可选参数，如limit:每页多少条，查询keyword:搜索关键字</span>
+        <span class="token variable">$limit</span> <span class="token operator">=</span> <span class="token function">getValueByKey</span><span class="token punctuation">(</span><span class="token string single-quoted-string">'limit'</span><span class="token punctuation">,</span><span class="token variable">$param</span><span class="token punctuation">,</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token variable">$keyword</span> <span class="token operator">=</span> <span class="token function">getValueByKey</span><span class="token punctuation">(</span><span class="token string single-quoted-string">'keyword'</span><span class="token punctuation">,</span><span class="token variable">$param</span><span class="token punctuation">,</span><span class="token string single-quoted-string">''</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token comment">//组织一下查询条件</span>
+        <span class="token variable">$where</span> <span class="token operator">=</span> <span class="token punctuation">[</span>
+            <span class="token comment">//管理员用户名模糊查询</span>
+            <span class="token punctuation">[</span><span class="token string single-quoted-string">'username'</span><span class="token punctuation">,</span><span class="token string single-quoted-string">'like'</span><span class="token punctuation">,</span><span class="token string single-quoted-string">'%'</span><span class="token operator">.</span><span class="token variable">$keyword</span><span class="token operator">.</span><span class="token string single-quoted-string">'%'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+        <span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+        <span class="token comment">//计算一下一共查了多少条数据</span>
+        <span class="token variable">$totalCount</span> <span class="token operator">=</span> <span class="token variable">$this</span><span class="token operator">-&gt;</span><span class="token property">model</span> <span class="token operator">-&gt;</span><span class="token function">where</span><span class="token punctuation">(</span><span class="token variable">$where</span><span class="token punctuation">)</span> <span class="token operator">-&gt;</span> <span class="token function">count</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">//查询列表数据</span>
+        <span class="token variable">$list</span> <span class="token operator">=</span> <span class="token variable">$this</span><span class="token operator">-&gt;</span><span class="token property">model</span> <span class="token operator">-&gt;</span>
+               <span class="token comment">//关联查询role角色表</span>
+               <span class="token function">with</span><span class="token punctuation">(</span><span class="token punctuation">[</span> <span class="token comment">//数组，可以关联多个模型</span>
+                <span class="token string single-quoted-string">'role'</span><span class="token punctuation">,</span> <span class="token comment">//对应shop_manager模型中的role方法</span>
+               <span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">-&gt;</span>
+               <span class="token comment">//条件</span>
+               <span class="token function">where</span><span class="token punctuation">(</span><span class="token variable">$where</span><span class="token punctuation">)</span> <span class="token operator">-&gt;</span>
+               <span class="token comment">//分页</span>
+               <span class="token function">page</span><span class="token punctuation">(</span><span class="token variable">$param</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'page'</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token variable">$limit</span><span class="token punctuation">)</span> <span class="token operator">-&gt;</span>
+               <span class="token comment">//排序</span>
+               <span class="token function">order</span><span class="token punctuation">(</span><span class="token string single-quoted-string">'id'</span><span class="token punctuation">,</span><span class="token string single-quoted-string">'desc'</span><span class="token punctuation">)</span> <span class="token operator">-&gt;</span>
+               <span class="token comment">//结果</span>
+               <span class="token function">select</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">-&gt;</span>
+               <span class="token comment">//过滤敏感字段，比如密码</span>
+               <span class="token function">hidden</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'password'</span><span class="token punctuation">,</span><span class="token string single-quoted-string">'super'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token comment">//顺便把角色表信息也返回一下</span>
+        <span class="token variable">$role</span> <span class="token operator">=</span> <span class="token class-name class-name-fully-qualified static-context"><span class="token punctuation">\</span>app<span class="token punctuation">\</span>model<span class="token punctuation">\</span>Role</span><span class="token operator">::</span><span class="token function">field</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'id'</span><span class="token punctuation">,</span><span class="token string single-quoted-string">'name'</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">-&gt;</span> <span class="token function">select</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">return</span> <span class="token function">apiSuccess</span><span class="token punctuation">(</span><span class="token punctuation">[</span>
+            <span class="token string single-quoted-string">'list'</span> <span class="token operator">=&gt;</span> <span class="token variable">$list</span><span class="token punctuation">,</span>
+            <span class="token string single-quoted-string">'totalCount'</span> <span class="token operator">=&gt;</span> <span class="token variable">$totalCount</span><span class="token punctuation">,</span>
+            <span class="token string single-quoted-string">'role'</span><span class="token operator">=&gt;</span><span class="token variable">$role</span><span class="token punctuation">,</span>
+        <span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token punctuation">}</span>
+</code></pre></div></blockquote></blockquote> <h2 id="三、返回结果示例"><a href="#三、返回结果示例" class="header-anchor">#</a> 三、返回结果示例</h2> <p>[需要登录token] <code>http://thinkphp.shop/admin/shopmanager/1?limit=5&amp;keyword=admin</code></p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token punctuation">{</span>
+    <span class="token string-property property">&quot;msg&quot;</span><span class="token operator">:</span> <span class="token string">&quot;ok&quot;</span><span class="token punctuation">,</span>
+    <span class="token string-property property">&quot;data&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token string-property property">&quot;list&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+            <span class="token punctuation">{</span>
+                <span class="token string-property property">&quot;id&quot;</span><span class="token operator">:</span> <span class="token number">2</span><span class="token punctuation">,</span>
+                <span class="token string-property property">&quot;username&quot;</span><span class="token operator">:</span> <span class="token string">&quot;admin3&quot;</span><span class="token punctuation">,</span>
+                <span class="token string-property property">&quot;avatar&quot;</span><span class="token operator">:</span> <span class="token string">&quot;&quot;</span><span class="token punctuation">,</span>
+                <span class="token string-property property">&quot;status&quot;</span><span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+                <span class="token string-property property">&quot;role_id&quot;</span><span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+                <span class="token string-property property">&quot;create_time&quot;</span><span class="token operator">:</span> <span class="token string">&quot;2025-03-21 16:02:50&quot;</span><span class="token punctuation">,</span>
+                <span class="token string-property property">&quot;update_time&quot;</span><span class="token operator">:</span> <span class="token string">&quot;2025-03-21 16:02:50&quot;</span><span class="token punctuation">,</span>
+                <span class="token string-property property">&quot;role&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+                    <span class="token string-property property">&quot;id&quot;</span><span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+                    <span class="token string-property property">&quot;name&quot;</span><span class="token operator">:</span> <span class="token string">&quot;普通管理员&quot;</span><span class="token punctuation">,</span>
+                    <span class="token string-property property">&quot;desc&quot;</span><span class="token operator">:</span> <span class="token string">&quot;普通管理员角色&quot;</span><span class="token punctuation">,</span>
+                    <span class="token string-property property">&quot;status&quot;</span><span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+                    <span class="token string-property property">&quot;create_time&quot;</span><span class="token operator">:</span> <span class="token string">&quot;2025-03-21 17:43:25&quot;</span><span class="token punctuation">,</span>
+                    <span class="token string-property property">&quot;update_time&quot;</span><span class="token operator">:</span> <span class="token string">&quot;2025-03-21 17:43:25&quot;</span>
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span><span class="token punctuation">,</span>
+            <span class="token punctuation">{</span>
+                <span class="token string-property property">&quot;id&quot;</span><span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+                <span class="token string-property property">&quot;username&quot;</span><span class="token operator">:</span> <span class="token string">&quot;admin2&quot;</span><span class="token punctuation">,</span>
+                <span class="token string-property property">&quot;avatar&quot;</span><span class="token operator">:</span> <span class="token string">&quot;&quot;</span><span class="token punctuation">,</span>
+                <span class="token string-property property">&quot;status&quot;</span><span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+                <span class="token string-property property">&quot;role_id&quot;</span><span class="token operator">:</span> <span class="token number">3</span><span class="token punctuation">,</span>
+                <span class="token string-property property">&quot;create_time&quot;</span><span class="token operator">:</span> <span class="token string">&quot;2025-03-21 12:29:52&quot;</span><span class="token punctuation">,</span>
+                <span class="token string-property property">&quot;update_time&quot;</span><span class="token operator">:</span> <span class="token string">&quot;2025-03-21 12:29:52&quot;</span><span class="token punctuation">,</span>
+                <span class="token string-property property">&quot;role&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+                    <span class="token string-property property">&quot;id&quot;</span><span class="token operator">:</span> <span class="token number">3</span><span class="token punctuation">,</span>
+                    <span class="token string-property property">&quot;name&quot;</span><span class="token operator">:</span> <span class="token string">&quot;超级管理员&quot;</span><span class="token punctuation">,</span>
+                    <span class="token string-property property">&quot;desc&quot;</span><span class="token operator">:</span> <span class="token string">&quot;超级管理员，角色最多，最高级&quot;</span><span class="token punctuation">,</span>
+                    <span class="token string-property property">&quot;status&quot;</span><span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+                    <span class="token string-property property">&quot;create_time&quot;</span><span class="token operator">:</span> <span class="token string">&quot;2025-03-21 18:24:08&quot;</span><span class="token punctuation">,</span>
+                    <span class="token string-property property">&quot;update_time&quot;</span><span class="token operator">:</span> <span class="token string">&quot;2025-03-21 18:24:08&quot;</span>
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">]</span><span class="token punctuation">,</span>
+        <span class="token string-property property">&quot;totalCount&quot;</span><span class="token operator">:</span> <span class="token number">2</span><span class="token punctuation">,</span>
+        <span class="token string-property property">&quot;role&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+            <span class="token punctuation">{</span>
+                <span class="token string-property property">&quot;id&quot;</span><span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+                <span class="token string-property property">&quot;name&quot;</span><span class="token operator">:</span> <span class="token string">&quot;普通管理员&quot;</span>
+            <span class="token punctuation">}</span><span class="token punctuation">,</span>
+            <span class="token punctuation">{</span>
+                <span class="token string-property property">&quot;id&quot;</span><span class="token operator">:</span> <span class="token number">2</span><span class="token punctuation">,</span>
+                <span class="token string-property property">&quot;name&quot;</span><span class="token operator">:</span> <span class="token string">&quot;销售人员&quot;</span>
+            <span class="token punctuation">}</span><span class="token punctuation">,</span>
+            <span class="token punctuation">{</span>
+                <span class="token string-property property">&quot;id&quot;</span><span class="token operator">:</span> <span class="token number">3</span><span class="token punctuation">,</span>
+                <span class="token string-property property">&quot;name&quot;</span><span class="token operator">:</span> <span class="token string">&quot;超级管理员&quot;</span>
+            <span class="token punctuation">}</span><span class="token punctuation">,</span>
+            <span class="token punctuation">{</span>
+                <span class="token string-property property">&quot;id&quot;</span><span class="token operator">:</span> <span class="token number">4</span><span class="token punctuation">,</span>
+                <span class="token string-property property">&quot;name&quot;</span><span class="token operator">:</span> <span class="token string">&quot;技术人员&quot;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">]</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">更新时间:</span> <span class="time">2025年3月21日星期五晚上7点21分</span></div></footer> <!----> </main></div><div class="global-ui"><!----><!----></div></div>
+    <script src="/assets/js/app.fc0e6538.js" defer></script><script src="/assets/js/9.13d458ed.js" defer></script><script src="/assets/js/2.6281e0bb.js" defer></script><script src="/assets/js/26.534cc012.js" defer></script><script src="/assets/js/3.e6827fa8.js" defer></script>
+  </body>
+</html>
