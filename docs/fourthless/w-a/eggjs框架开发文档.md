@@ -46,4 +46,10 @@ title: eggjs框架开发文档
 > ### ② 加入缓存redis中
 > 具体查看：<a href="/fourthless/w-a/eggjs.管理员板块.html#三、商城系统管理员登录信息加入缓存redis中" target="_blank">加入缓存redis中</a><br/>
 > ### ③ 管理员信息token验证
-> 具体查看：<a href="/fourthless/w-a/eggjs.管理员板块.html#四、管理员信息token验证" target="_blank">管理员信息token验证</a><br/>
+> 具体查看：<a href="/fourthless/w-a/eggjs.管理员板块.html#五、token权限验证中间件开发" target="_blank">管理员信息token验证</a><br/>
+
+### 7. 角色管理
+具体查看：<a href="/fourthless/w-a/eggjs.管理员板块.html#六、角色管理" target="_blank">角色管理</a><br/>
+
+### 8. 商城管理员
+具体查看：<a href="/fourthless/w-a/eggjs.商城管理员" target="_blank">商城管理员</a><br/>

@@ -1047,6 +1047,9 @@ module.exports = app => {
             return ctx.apiFail('角色不存在');
         }
         //存在，由于唯一性，你不能修改的时候，修改成存在的名称
+        if(role && role.name == '超级管理员'){
+            return ctx.apiFail('超级管理员角色不能修改');
+        }
         const Op = this.app.Sequelize.Op;//拿Op,固定写法
         if (await app.model.Role.findOne({
             where: {
