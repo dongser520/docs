@@ -191,3 +191,124 @@ class Shop_managerService extends Service {
 module.exports = Shop_managerService;
 
 ```
+
+## 二、商城管理员列表
+字体图标，查看：<https://fontawesome.dashgame.com/>
+### 1. 后台左侧菜单
+`data/root.json`
+```json
+[
+  ...
+  {"id":17,"pid":0, "name": "商城", "icon": "fa fa-shopping-cart", "url": "" },
+  {"id":18,"pid":17, "name": "角色管理", "icon": "fa fa-users", "url": "/shop/admin/role" },
+  {"id":19,"pid":17, "name": "管理员管理", "icon": "fa fa-user-circle-o", "url": "/shop/admin/shopmanager" }
+]
+```
+### 2. 控制器
+`app/controller/admin/shop_manager.js`
+```js
+  // 管理员列表页面
+  async index() {
+    const { ctx, app } = this;
+    //分页：可以提炼成一个公共方法page(模型名称，where条件，其他参数options)
+    let data = await ctx.page('ShopManager',{},{
+        include: [
+            { 
+                model: app.model.Role, 
+                attrbutes: ['id', 'name','desc','status'],
+            }
+        ],
+    });
+
+    // console.log('拿到管理员列表', JSON.parse(JSON.stringify(data)));
+    
+    //渲染公共模版
+    await ctx.renderTemplate({
+      title: '管理员列表',//现在网页title,面包屑导航title,页面标题
+      data,
+      tempType: 'table', //模板类型：table表格模板 ，form表单模板
+      table: {
+        //表格上方按钮,没有不要填buttons
+        buttons: [
+          {
+            url: '/shop/admin/shopmanager/create',//新增路径
+            desc: '新增管理员',//新增 //按钮名称
+            // icon: 'fa fa-plus fa-lg',//按钮图标
+          }
+        ],
+        //表头
+        columns: [
+          {
+            title: '管理员账号',
+            // key: 'username',
+            render(item) {
+              const type = item.super == 1 ? '超级管理员' : '普通管理员';
+              return `
+                <h2 class="table-avatar">
+                  <a href="#" class="avatar avatar-sm mr-2">
+                      <img
+                          class="avatar-img rounded-circle"
+                          src="${item.avatar}"
+                          alt="User Image"></a>
+                      <a href="#"> ${item.username}
+                      <span>${item.role.name}</span></a>
+                </h2>
+                `;
+            },
+          },
+          {
+            title: '可用状态',
+            key: 'status',
+            width: 200,//可选
+            class: 'text-center',//可选
+            hidekeyData: true,//是否隐藏key对应的数据
+            render(item) {
+              console.log('可用状态里面每个item', item);
+              let arr = [
+                { value: 1, name: '启用' },
+                { value: 0, name: '禁用' },
+              ];
+              let str = `<div class="btn-group btn-group-${item.id}">`;
+              for (let i = 0; i < arr.length; i++) {
+                str += `<button type="button" class="btn btn-light" data="${item.status}"
+                      value="${arr[i].value}"
+                      @click="changeBtnStatus('status','btn-group-${item.id}',${arr[i].value},${i},${item.id},'/shop/admin/shopmanager','ShopManager')">${arr[i].name}</button>`;
+              }
+              str += `</div>`;
+              return str;
+            }
+          },
+          {
+            title: '操作',
+            class: 'text-right',//可选
+            action: {
+              //修改
+              edit: function (id) {
+                return `/shop/admin/shopmanager/edit/${id}`;
+              },
+              //删除
+              delete: function (id) {
+                return `/shop/admin/shopmanager/${id}/delete`;
+              }
+            }
+          },
+        ],
+      },
+    });
+  }
+```
+### 3. 模型
+`app/model/shop_manager.js`
+```js
+...
+module.exports = app => {
+  ...
+  // 模型关联关系
+  ShopManager.associate = function (models) {
+      // 关联角色 反向一对多(一个角色可以有多个管理员，角色对于管理员是一对多的关系，反过来管理员属于角色belongsTo，就是反向一对多)
+      ShopManager.belongsTo(app.model.Role);
+  }
+
+  return ShopManager;
+}
+```
