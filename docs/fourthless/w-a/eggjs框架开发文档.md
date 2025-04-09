@@ -56,3 +56,6 @@ title: eggjs框架开发文档
 
 ### 9. 权限管理
 具体查看：<a href="/fourthless/w-a/eggjs.权限管理" target="_blank">权限管理</a><br/>
+
+### 10. 给角色配置权限及删除权限
+具体查看：<a href="/fourthless/w-a/eggjs.给角色配置权限" target="_blank">给角色配置权限及删除权限</a><br/>
