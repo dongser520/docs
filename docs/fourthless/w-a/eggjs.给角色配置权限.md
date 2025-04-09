@@ -497,3 +497,128 @@ module.exports = app => {
     return RoleRule;
 };
 ```
+
+## 二、给角色配置权限API
+### 1. 控制器
+`app/controller/admin/role.js`
+```js
+    // 给角色配置权限（授权）
+    async setRules() {
+        const { ctx, app } = this;
+        //1.参数验证
+        this.ctx.validate({
+            id: {
+                type: 'int',
+                required: true,
+                desc: '角色id'
+            },
+            rule_ids: {
+                type: 'string',
+                required: false,
+                defValue: '',
+                desc: '权限id集合',
+            }
+        });
+        let { id, rule_ids } = ctx.request.body;
+        console.log('角色id', id);
+        // 是否存在
+        const role = await app.model.Role.findOne({ where: { id } });
+        if (!role) {
+            return ctx.pageFail('角色不存在');
+        }
+        // 给角色授权
+        console.log('角色授权id集合', typeof rule_ids);//终端输出：角色授权id集合 "4,5,6,7,8" [6,7,10]
+        if (rule_ids) {
+            if (typeof rule_ids == 'string' && rule_ids.startsWith('[') && rule_ids.endsWith(']')) {
+                rule_ids = rule_ids.replace('[', '').replace(']', '').split(',').map(v => parseInt(v));
+            }
+            console.log('角色授权id集合数组', rule_ids); //终端输出：角色授权id集合数组 [6,7,10]
+            // 授权以前，先看一下当前角色在role_rule表中有没有数据
+            let rolerule = await app.model.RoleRule.findAll({
+                where: {
+                    role_id: id
+                },
+                // 主表查询字段限制
+                attributes: ['rule_id'],
+            });
+            console.log('当前角色在role_rule表拥有的权限', JSON.parse(JSON.stringify(rolerule)));
+            //终端输出：当前角色在role_rule表拥有的权限 [ { rule_id: 6 }, { rule_id: 7 } ]
+            // 数据对象转换为数组，只要rule_id的值
+            let has_ruleids = rolerule.map(item => item.rule_id);
+            console.log('当前角色在role_rule表拥有的权限id数组', JSON.parse(JSON.stringify(has_ruleids)));
+            //终端输出： 当前角色在role_rule表拥有的权限id数组 [ 6, 7 ]
+
+            // 当前已拥有的权限id: [6,7], 当前传递过来的权限id: [4, 5, 6, 7, 8]，相当于增加 4, 5, 8
+            // 还有情况，比如已经拥有[6,7], 传过来 [6] 相当于要删除7
+            // 还有情况，比如已经拥有[6,7], 传过来 [6,8,10] 相当于要删除7，增加8,10
+
+            //将权限加入到role_rule表中
+            // 使用Set数据结构优化差异计算（时间复杂度从O(n²)降为O(n)）
+            const existingSet = new Set(has_ruleids);
+            const newSet = new Set(rule_ids);
+
+            // 使用Array.from+filter代替展开运算符，更节省内存
+            const needAdd = Array.from(newSet).filter(id => !existingSet.has(id));
+            const needRemove = Array.from(existingSet).filter(id => !newSet.has(id));
+
+            // 定义批量操作的分片大小（根据数据库性能调整）
+            const BATCH_SIZE = 500; // 推荐500-1000之间
+
+            await app.model.transaction(async t => {
+                // 批量删除优化（分片处理）
+                if (needRemove.length > 0) {
+                    const deleteBatches = [];
+                    for (let i = 0; i < needRemove.length; i += BATCH_SIZE) {
+                        deleteBatches.push(
+                            app.model.RoleRule.destroy({
+                                where: {
+                                    role_id: id,
+                                    rule_id: needRemove.slice(i, i + BATCH_SIZE)
+                                },
+                                transaction: t
+                            })
+                        );
+                    }
+                    await Promise.all(deleteBatches);
+                }
+
+                // 批量插入优化（分片+防重）
+                if (needAdd.length > 0) {
+                    const insertBatches = [];
+                    for (let i = 0; i < needAdd.length; i += BATCH_SIZE) {
+                        const chunk = needAdd.slice(i, i + BATCH_SIZE);
+                        insertBatches.push(
+                            app.model.RoleRule.bulkCreate(
+                                chunk.map(rule_id => ({ role_id: id, rule_id })),
+                                {
+                                    transaction: t,
+                                    ignoreDuplicates: true // 防止重复插入
+                                }
+                            )
+                        );
+                    }
+                    await Promise.all(insertBatches);
+                }
+            });
+            console.log('权限更新完成');
+            // 给一个反馈
+            ctx.apiSuccess('配置权限成功');
+        }else{
+            ctx.apiFail('请输入权限id');
+        }
+    }
+```
+
+### 2. 配置
+`config/config.default.js`
+```js
+...
+// 对中间件adminAuth进一步配置
+  config.adminAuth = {
+    ignore: [
+       ...
+      '/shop/admin',
+    ],
+  };
+...
+```
