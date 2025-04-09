@@ -611,4 +611,262 @@ module.exports = app => {
     }
 ```
 
+## 三、修改权限
+### 1. 控制器
+`app/controller/admin/rule.js`
+```js
+    // 修改权限界面
+    async edit() {
+        const { ctx, app } = this;
+        const id = ctx.params.id;
+        let currentdata = await app.model.Rule.findOne({
+            where: {
+                id
+            }
+        });
+        if (!currentdata) {
+            return ctx.apiFail('该权限不存在');
+        }
+        currentdata = JSON.parse(JSON.stringify(currentdata));
+        // console.log('当前权限数据', currentdata);
+        // return;
 
+        // 渲染模版前先拿到所有权限
+        let data = await ctx.service.rule.dropdown_Rulelist();
+        // console.log('下拉框显示的所有权限', JSON.stringify(data));
+        // return;
+
+        //渲染公共模版
+        await ctx.renderTemplate({
+            id,
+            title: '修改权限:' + currentdata.name,//现在网页title,面包屑导航title,页面标题
+            tempType: 'form', //模板类型：table表格模板 ，form表单模板
+            form: {
+                //修改直播功能中的礼物提交地址
+                action: '/shop/admin/rule/' + id,
+                //  字段
+                fields: [
+                    {
+                        label: '放在哪个权限里面',
+                        type: 'dropdown', //下拉框
+                        name: 'pid',
+                        default: JSON.stringify(data),
+                        placeholder: '不调整（如需调整请选择）',
+                    },
+                    {
+                        label: '后台栏目或者功能名称',
+                        type: 'text',
+                        name: 'name',
+                        placeholder: '请输入后台栏目或者功能名称',
+                        // default:'默认值测试', //新增时候默认值，可选
+                    },
+                    {
+                        label: '前端路由name值',
+                        type: 'text',
+                        name: 'frontname',
+                        placeholder: '请输入前端路由name值,选填',
+                    },
+                    {
+                        label: '前端路由路径',
+                        type: 'text',
+                        name: 'frontpath',
+                        placeholder: '请输入前端路由路径,选填',
+                    },
+                    {
+                        label: '路由方法',
+                        type: 'text',
+                        name: 'condition',
+                        placeholder: '请输入路由方法,选填',
+                    },
+                    {
+                        label: '菜单/规则',
+                        type: 'btncheck', //按钮组选择
+                        name: 'menu',
+                        default: JSON.stringify([
+                            { value: 1, name: '菜单', checked: currentdata.menu === 1 },
+                            { value: 0, name: '规则', checked: currentdata.menu === 0 },
+                        ]),
+                        placeholder: '分类状态 0不可用 1可用 等等状态',
+                    },
+                    {
+                        label: '权限排序',
+                        type: 'number',
+                        name: 'order',
+                        placeholder: '请输入排序，默认50',
+                        default:50,
+                    },
+                    {
+                        label: '图标',
+                        type: 'text',
+                        name: 'icon',
+                        placeholder: '请输入图标,选填',
+                        // default:'默认值测试', //新增时候默认值，可选
+                    },
+                    {
+                        label: '请求类型',
+                        type: 'btncheck', //按钮组选择
+                        name: 'method',
+                        default: JSON.stringify([
+                            { value: 'GET', name: 'GET', checked: currentdata.method === 'GET' },
+                            { value: 'POST', name: 'POST', checked: currentdata.method === 'POST' },
+                            { value: 'PUT', name: 'PUT',checked: currentdata.method === 'PUT' },
+                            { value: 'DELETE', name: 'DELETE',checked: currentdata.method === 'DELETE' },
+                        ]),
+                        placeholder: '请求类型：GET POST PUT DELETE',
+                    },
+                    {
+                        label: '可用状态',
+                        type: 'btncheck', //按钮组选择
+                        name: 'status',
+                        default: JSON.stringify([
+                            { value: 1, name: '可用',  checked: currentdata.status === 1},
+                            { value: 0, name: '不可用' , checked: currentdata.status === 0},
+                        ]),
+                        placeholder: '状态 0不可用 1可用 等等状态',
+                    },
+                ],
+                //修改内容默认值
+                data:currentdata,
+            },
+            //修改成功之后跳转到哪个页面
+            successUrl: '/shop/admin/rule',
+        });
+
+    }
+    // 修改权限数据功能
+    async update() {
+        const { ctx, app } = this;
+        //1.参数验证
+        this.ctx.validate({
+            id: {
+                type: 'int',
+                required: true,
+                desc: '权限id'
+            },
+            name: {
+                type: 'string',  //参数类型
+                required: true, //是否必须
+                // defValue: '', 
+                desc: '后台栏目或者功能名称', //字段含义
+                range:{
+                    min:2,
+                    max:100
+                },
+            },
+            frontname: {
+                type: 'string',
+                required: false,
+                defValue: '',
+                desc: '前端路由name值',
+                range:{
+                    min:0,
+                    max:100
+                },
+            },
+            frontpath: {
+                type: 'string',
+                required: false,
+                defValue: '',
+                desc: '前端路由路径',
+                range:{
+                    min:0,
+                    max:100
+                },
+            },
+            status: {
+                type: 'int',
+                required: false,
+                defValue: 1,
+                desc: '状态 0不可用 1可用 等等状态',
+                range:{
+                    in:[0,1]
+                },
+            },
+            pid: {
+                type: 'int',
+                required: true,
+                defValue: 0,
+                desc: '上一级(父级)id'
+            },
+            condition: {
+                type: 'string',
+                required: false,
+                defValue: '',
+                desc: '路由方法'
+            },
+            menu: {
+                type: 'int',
+                required: false,
+                defValue: 1,
+                desc: '0规则 1菜单',
+                range:{
+                    in:[0,1]
+                },
+            },
+            order: {
+                type: 'int',
+                required: false,
+                defValue: 50,
+                desc: '分类排序'
+            },
+            icon: {
+                type: 'string',  //参数类型
+                required: false, //是否必须
+                defValue: '', 
+                desc: '图标', //字段含义
+                range:{
+                    min:0,
+                    max:100
+                },
+            },
+            method: {
+                type: 'string',  //参数类型
+                required: false, //是否必须
+                defValue: 'POST', 
+                desc: '请求类型', //字段含义
+                range:{
+                    in:['GET', 'POST', 'PUT', 'DELETE'],
+                },
+            },
+        });
+
+        // 参数
+        const id = ctx.params.id;
+        const {  name, frontname, status, pid,frontpath,order,
+            condition, menu,icon,method } = ctx.request.body;
+        // 先看一下是否存在
+        const data = await app.model.Rule.findOne({ where: { id } });
+        if (!data) {
+            return ctx.apiFail('该权限记录不存在');
+        }
+        //存在，权限名称可以一样，只要保证它在不同的分类下面
+        const Op = this.app.Sequelize.Op;//拿Op,固定写法
+        //先查一下修改的分类名称，是否已经存在，如果存在，但是只要不放在同一分类下还是可以的
+        const hasdata = await app.model.Category.findOne({
+            where: {
+                name,
+                id: {
+                    [Op.ne]: id
+                }
+            }
+        });
+        if (hasdata && hasdata.pid == pid) {
+            return ctx.apiFail('同一级别权限下不能有相同的权限名称');
+        }
+        // 修改数据
+        data.name = name;
+        data.frontname = frontname;
+        data.status = status;
+        data.pid = pid;
+        data.frontpath = frontpath;
+        data.order = order; 
+        data.condition = condition; 
+        data.menu = menu;
+        data.icon = icon; 
+        data.method = method; 
+
+        await data.save();
+        // 给一个反馈
+        ctx.apiSuccess('修改权限成功');
+    }
+```
