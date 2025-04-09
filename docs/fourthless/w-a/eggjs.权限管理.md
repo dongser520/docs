@@ -383,5 +383,232 @@ module.exports = app => {
 
 
 
-## 二、权限列表
+## 二、权限列表和修改权限状态
 字体图标，查看：<https://fontawesome.dashgame.com/>
+### 1. 后台菜单
+`data/root.json`
+```json
+...
+{"id":17,"pid":0, "name": "商城", "icon": "fa fa-shopping-cart", "url": "" },
+{"id":18,"pid":17, "name": "角色管理", "icon": "fa fa-users", "url": "/shop/admin/role" },
+{"id":19,"pid":17, "name": "管理员管理", "icon": "fa fa-user-circle-o", "url": "/shop/admin/shopmanager" },
+{"id":20,"pid":17, "name": "权限管理", "icon": "fa fa-legal", "url": "/shop/admin/rule" }
+```
+### 2. 控制器
+`app/controller/admin/rule.js`
+```js
+    // 权限列表页面
+    async index() {
+        const { ctx, app } = this;
+        //分页：可以提炼成一个公共方法page(模型名称，where条件，其他参数options)
+        // let data = await ctx.page('Category');
+        let data = await ctx.service.rule.datalist({ limit: 1000 });
+        // console.log('权限数据', data);
+        // return;
+        data = data.rules;
+        //渲染公共模版
+        await ctx.renderTemplate({
+            title: '权限列表',//现在网页title,面包屑导航title,页面标题
+            data,
+            tempType: 'table', //模板类型：table表格模板 ，form表单模板
+            table: {
+                //表格上方按钮,没有不要填buttons
+                buttons: [
+                    {
+                        url: '/shop/admin/rule/create',//新增路径
+                        desc: '新增权限',//新增 //按钮名称
+                        // icon: 'fa fa-plus fa-lg',//按钮图标
+                    }
+                ],
+                //表头
+                columns: [
+                    {
+                        title: '权限名称',
+                        key: 'name',
+                        class: 'text-left',//可选
+                        render(item) { //树形数据
+                            // console.log('每个item',item);
+                            if (item.level) {
+                                let w = item.level * 40;
+                                return `<span style="display:inline-block;width:${w}px"></span>`;
+                            }
+                        }
+                    },
+                    // {
+                    //     title: '是否是导航栏栏目',
+                    //     key: 'isnav',
+                    //     width: 200,//可选
+                    //     class: 'text-center',//可选
+                    //     hidekeyData: true,//是否隐藏key对应的数据
+                    //     render(item) {
+                    //         console.log('可用状态里面每个item', item);
+                    //         let arr = [
+                    //             { value: 1, name: '是' },
+                    //             { value: 0, name: '否' },
+                    //         ];
+                    //         let str = `<div class="btn-group btn-group-${item.id}">`;
+                    //         for (let i = 0; i < arr.length; i++) {
+                    //             str += `<button type="button" class="btn btn-light" data="${item.isnav}"
+                    //             value="${arr[i].value}"
+                    //             @click="changeBtnStatus('isnav','btn-group-${item.id}',${arr[i].value},${i},${item.id},'category','Category')">${arr[i].name}</button>`;
+                    //         }
+                    //         str += `</div>`;
+                    //         return str;
+                    //     }
+                    // },
+                    {
+                        title: '前端路由name值',
+                        key: 'frontname',
+                        class: 'text-center',//可选
+                    },
+                    {
+                        title: '前端路由路径',
+                        key: 'frontpath',
+                        class: 'text-center',//可选
+                    },
+                    {
+                        title: '路由方法',
+                        key: 'condition',
+                        class: 'text-center',//可选
+                    },
+                    {
+                        title: '图标',
+                        key: 'icon',
+                        class: 'text-center',//可选
+                    },
+                    {
+                        title: '请求类型',
+                        key: 'method',
+                        class: 'text-center',//可选
+                    },
+                    {
+                        title: '排序',
+                        key: 'order',
+                        class: 'text-center',//可选
+                    },
+                    {
+                        title: '可用状态',
+                        key: 'status',
+                        width: 200,//可选
+                        class: 'text-center',//可选
+                        hidekeyData: true,//是否隐藏key对应的数据
+                        render(item) {
+                            // console.log('可用状态里面每个item', item);
+                            let arr = [
+                                { value: 1, name: '可用' },
+                                { value: 0, name: '不可用' },
+                            ];
+                            let str = `<div class="btn-group btn-group-${item.id}">`;
+                            for (let i = 0; i < arr.length; i++) {
+                                str += `<button type="button" class="btn btn-light" data="${item.status}"
+                                value="${arr[i].value}"
+                                @click="changeBtnStatus('status','btn-group-${item.id}',${arr[i].value},${i},${item.id},'/shop/admin/rule','Rule')">${arr[i].name}</button>`;
+                            }
+                            str += `</div>`;
+                            return str;
+                        }
+                    },
+                    {
+                        title: '操作',
+                        class: 'text-right',//可选
+                        action: {
+                            //修改
+                            edit: function (id) {
+                                return `/shop/admin/rule/edit/${id}`;
+                            },
+                            //删除
+                            delete: function (id) {
+                                return `/shop/admin/rule/${id}/delete`;
+                            }
+                        }
+                    },
+                ],
+            },
+        });
+    }
+    // 修改权限状态功能
+    async updateStatus(){
+        const { ctx, app } = this;
+        //1.参数验证
+        this.ctx.validate({
+            id: {
+                type: 'int',
+                required: true,
+                desc: '权限id'
+            },
+            status: {
+                type: 'int',  //参数类型
+                required: true, //是否必须
+                // defValue: '', 
+                desc: '权限状态', //字段含义
+                range:{
+                    in:[0,1]
+                },
+            },
+        });
+        // 参数
+        const id = ctx.params.id;
+        const { status } = ctx.request.body;
+        // 是否存在
+        const data = await app.model.Rule.findOne({ where: { id } });
+        if (!data) {
+            return ctx.apiFail('权限不存在');
+        }
+        // 修改数据
+        data.status = status;
+        
+        await data.save();
+        // 给一个反馈
+        ctx.apiSuccess('修改权限状态成功');
+    }
+```
+
+### 3. 服务
+`app/service/rule.js`
+```js
+    //权限数据
+    async datalist(options) {
+        const { ctx, app } = this;
+        //分页：可以提炼成一个公共方法page(模型名称，where条件，其他参数options)
+        let data = await ctx.page('Rule', {}, {
+            order: [
+                ['order', 'asc'],
+                ['id', 'asc'],
+            ],
+            attributes: {
+                exclude: ['create_time', 'update_time'],//除了这些字段，其他字段都显示
+            },
+            limit: options && options.limit ? options.limit : 1000,
+        });
+        // 转一下data处理
+        let list = JSON.parse(JSON.stringify(data));
+        // console.log('list', list);
+        let rules = JSON.parse(JSON.stringify(data));
+        // console.log('rules', rules);
+
+        // 数据集组合分类树(一维数组) 带level
+        let $rule = [];
+        function list_to_tree($array, $field = 'pid', $pid = 0, $level = 0) {
+            $array.forEach(($value, $index) => {
+                // console.log($value);
+                if ($value[$field] == $pid) {
+                    $value['level'] = $level;
+                    $rule.push($value);
+                    // unset($array[$key]);
+                    // console.log('看一下rule',$rule);
+                    // $array.splice($index, 1);
+                    list_to_tree($array, $field, $value['id'], $level + 1);
+                }
+            });
+            return $rule;
+        }
+
+        return {
+            totalCount: data.length,
+            rules: list_to_tree(rules),
+        }
+
+    }
+```
+
+
