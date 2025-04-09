@@ -53,3 +53,6 @@ title: eggjs框架开发文档
 
 ### 8. 商城管理员
 具体查看：<a href="/fourthless/w-a/eggjs.商城管理员" target="_blank">商城管理员</a><br/>
+
+### 9. 权限管理
+具体查看：<a href="/fourthless/w-a/eggjs.权限管理" target="_blank">权限管理</a><br/>
