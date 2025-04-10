@@ -29,6 +29,30 @@ title: shop_manager表接口
 >> }
 >>
 
+### ② eggjs框架接口
+<a href="/fourthless/w-a/eggjs.商城管理员.html#一、创建商城管理员" target="_blank">点击查看具体文档：【一、创建商城管理员】</a>  <br/>
+
+> 1. 请求方式：`POST` `[用postman测试]`
+> 2. 本地路由：`http://127.0.0.1:7001/shop/admin/shopmanager` <br/>
+> 本地路由地址示例：<http://127.0.0.1:7001/shop/admin/shopmanager>
+> 3. 网络地址(需登录)：<http://lesson11.eggjsshop.51yrc.com/shop/admin/shopmanager>
+> 4. 请求参数：<br/>`body请求体发送` , `x-www-form-urlencoded`格式
+>> | 字段名（属性名） |  值（例如）    |   说明    |
+>> | :---:           | :---:         |  :---:    |
+>> | username |  admin1    |   必填，管理员账号    |
+>> | password |  123456    |   必填，管理员密码(模型已自动加密)    |
+>> | avatar |      |   选填，默认：https://thinkphp-all.oss-cn-hangzhou.aliyuncs.com/public/67b3001b2aedd.png    |
+>> | status |  1    |   选填，默认：1，管理员可用状态：0禁用1启用    |
+>> | role_id |  1    |   必填，默认：0，角色role表的id    |
+>> | super |  1    |   选填，默认：0，已采取过滤，填写无效，是否超级管理员：0否1是    |
+> 5. 返回
+>>```js
+>> {
+>>    "msg": "ok",
+>>    "data": true
+>> }
+>>
+
 ## 二、修改管理员
 ### ① thinkphp框架接口
 <a href="/fourthless/w-a/thinkphp.修改管理员.html" target="_blank">点击查看具体文档：【修改管理员】</a>  <br/>
@@ -54,6 +78,30 @@ title: shop_manager表接口
 >> }
 >>```
 
+### ② eggjs框架接口
+<a href="/fourthless/w-a/eggjs.商城管理员.html#三、商城管理员修改、删除、修改可用状态" target="_blank">点击查看具体文档：【三、商城管理员修改、删除、修改可用状态】</a>  <br/>
+
+> 1. 请求方式：`POST` `[用postman测试]`
+> 2. 本地路由地址：`http://127.0.0.1:7001/shop/admin/shopmanager/:id` <br/>
+>   本地路由地址示例：<http://127.0.0.1:7001/shop/admin/shopmanager/35> `35`为id值，管理员的id
+> 3. 网络地址(需登录)：<http://lesson11.eggjsshop.51yrc.com/shop/admin/shopmanager/35> `35`为id值，管理员的id
+> 4. 请求参数：<br/>`body请求体发送` , `x-www-form-urlencoded`格式
+>> | 字段名（属性名） |  值（例如）    |   说明    |
+>> | :---:           | :---:         |  :---:    |
+>> | username |  admin1    |   必填，管理员账号    |
+>> | password |  123456    |   必填，管理员密码(模型已自动加密)    |
+>> | avatar |      |   选填，默认：https://thinkphp-all.oss-cn-hangzhou.aliyuncs.com/public/67b3001b2aedd.png    |
+>> | status |  1    |   选填，默认：1，管理员可用状态：0禁用1启用    |
+>> | role_id |  1    |   必填，默认：0，角色role表的id    |
+>> | super |  1    |   选填，默认：0，已采取过滤，填写无效，是否超级管理员：0否1是    |
+> 5. 返回
+>>```js
+>> {
+>>    "msg": "ok",
+>>    "data": '修改成功'
+>> }
+>>```
+
 
 ## 三、删除管理员
 ### ① thinkphp框架接口
@@ -63,6 +111,21 @@ title: shop_manager表接口
 > 2. 本地路由: `http://thinkphp.shop/admin/shopmanager/:id/delete` <br/>
 > 本地路由地址：<http://thinkphp.shop/admin/shopmanager/35/delete> `35`为id值，管理员的id
 > 3. 网络地址(需登录)：<http://lesson11.thinkphpshop.51yrc.com/admin/shopmanager/35/delete> `35`为id值，管理员的id
+> 4. 请求参数：<br/> `请求体body无需传递参数、只需传递id即可，已经在网址传递了id值`
+> 5. 返回
+>>```js
+>> {
+>>    "msg": "ok",
+>>    "data": true
+>> }
+>> ```
+### ② eggjs框架接口
+<a href="/fourthless/w-a/eggjs.商城管理员.html#三、商城管理员修改、删除、修改可用状态" target="_blank">点击查看具体文档：【三、商城管理员修改、删除、修改可用状态】</a>  <br/>
+
+> 1. 请求方式：`POST` `[用postman测试]`
+> 2. 本地路由: `http://127.0.0.1:7001/shop/admin/shopmanager/:id/delete` <br/>
+> 本地路由地址：<http://127.0.0.1:7001/shop/admin/shopmanager/35/delete> `35`为id值，管理员的id
+> 3. 网络地址(需登录)：<http://lesson11.eggjsshop.51yrc.com/shop/admin/shopmanager/35/delete> `35`为id值，管理员的id
 > 4. 请求参数：<br/> `请求体body无需传递参数、只需传递id即可，已经在网址传递了id值`
 > 5. 返回
 >>```js
@@ -158,6 +221,75 @@ title: shop_manager表接口
 >     }
 > }
 >```
+### ② eggjs框架接口
+<a href="/fourthless/w-a/eggjs.商城管理员.html#五、商城管理员列表-api接口" target="_blank">点击查看具体文档：【五、商城管理员列表（API接口）】</a>  <br/>
+
+> 1. 请求方式：`GET` `[用postman测试]`
+> 2. 接口示例：<br/>
+> 本地路由： `http://127.0.0.1:7001/shop/admin/shopmanager/:page` <br/>
+> 本地路由地址：<http://127.0.0.1:7001/shop/admin/shopmanager/1> `1`代表第1页 <br/>
+> 完整演示：<http://127.0.0.1:7001/shop/admin/shopmanager/1?limit=5&keyword=admin1>
+> 3. header头
+>
+> | 参数   |  是否必填    |  类型    |  说明     |
+> | :---:  | :---:       |  :---:   | :---:    |
+> | token  |  是         |  String  |  token值  |
+>
+> 4. 请求参数
+>
+> | 参数     |  是否必填    |  类型    |  说明     |
+> | :---:    | :---:       |  :---:   | :---:    |
+> | page     |  是         |  int  |  分页页码     |
+> | limit    |  否         |  int  |  每页显示多少条数据     |
+> | keyword  |  否         |  string  |  查询关键字，如：管理员的账号，admin1     |
+> 5. 返回
+>  ```js
+> {
+>     "msg": "ok",
+>     "data": {
+>         "list": [
+>             {
+>                 "create_time": "2025-04-08 16:04:27",
+>                 "id": 13,
+>                "username": "admin1",
+>                "avatar": "https://thinkphp-all.oss-cn-hangzhou.aliyuncs.com/public/67b3001b2aedd.png",
+>                "status": 1,
+>                "super": 1,
+>                "role_id": 1,
+>                "update_time": "2025-04-08T11:10:00.000Z",
+>                "roleId": 1,
+>                "role": {
+>                    "create_time": "2025-04-01 12:17:54",
+>                    "id": 1,
+>                    "name": "超级管理员",
+>                    "desc": "这是商城的超级管理员角色，它拥有最高权限，可以管理商城后台的所有功能，并且只有一个商城超级管理员",
+>                    "status": 1,
+>                    "update_time": "2025-04-08T11:08:53.000Z"
+>                }
+>            }
+>        ],
+>        "totalCount": 1,
+>        "role": [
+>            {
+>                "id": 1,
+>                "name": "超级管理员"
+>            },
+>            {
+>                "id": 7,
+>                "name": "库管"
+>            },
+>            {
+>                "id": 8,
+>                "name": "销售人员"
+>            },
+>            {
+>                "id": 9,
+>                "name": "普通管理人员"
+>            }
+>        ]
+>    }
+>}
+> ```
 
 ## 五、管理员登录和退出登录
 ### ① thinkphp框架接口

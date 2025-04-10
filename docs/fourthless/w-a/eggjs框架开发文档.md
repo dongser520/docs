@@ -59,3 +59,7 @@ title: eggjs框架开发文档
 
 ### 10. 给角色配置权限及删除权限
 具体查看：<a href="/fourthless/w-a/eggjs.给角色配置权限" target="_blank">给角色配置权限及删除权限</a><br/>
+
+### 11. 管理员板块所有接口
+> #### 1. shop_manager表接口 <br/>
+> 具体查看：<a href="/web/mysql/shop_manager表接口.html" target="_blank">shop_manager表接口</a><br/>
