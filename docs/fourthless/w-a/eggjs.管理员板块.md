@@ -1125,3 +1125,40 @@ module.exports = app => {
     }
 ...
 ```
+
+
+## 八、删除角色最终代码
+控制器`app/controller/admin/role.js`
+```javascript
+    //删除角色功能
+    async delete(){
+        const { ctx, app } = this;
+        const id = ctx.params.id;
+        const role = await app.model.Role.findOne({ where: { id } });
+        if(role && role.name == '超级管理员'){
+            return ctx.apiFail('超级管理员角色不能删除');
+        }
+
+        //由于管理员配置了角色，删除角色，关联查询管理员缺乏角色会报错，要做一下提示
+        let shopmanager = await app.model.ShopManager.findAndCountAll({
+            where:{
+                role_id:id,
+            }
+        });
+        // console.log('管理员使用该角色',JSON.parse(JSON.stringify(shopmanager)));
+        if(shopmanager.count>0){
+            return ctx.apiFail('您删除的这个角色，有管理员在使用，请先删除这些管理员或修改这些管理员角色，在删除当前角色');
+        }
+
+
+        await app.model.Role.destroy({
+            where: {
+                id
+            }
+        });
+        //提示
+        ctx.toast('角色删除成功', 'success');
+        //跳转
+        ctx.redirect('/shop/admin/role');
+    }
+```
