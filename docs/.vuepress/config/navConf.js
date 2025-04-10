@@ -53,7 +53,8 @@ module.exports = [
                 ariaLabel: '实用方法菜单',
                 items: [
                     { text: '定位相关', link: '/web/methods/定位相关' },
-                    { text: '地图相关', link: '/web/methods/地图相关' }
+                    { text: '地图相关', link: '/web/methods/地图相关' },
+                    { text: '树形结构数据转换', link: '/web/methods/树形结构数据转换' }
                 ]
             },
             {
