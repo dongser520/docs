@@ -948,7 +948,66 @@ module.exports = app => {
 ```
 
 ## 五、删除权限（最终代码）
-### 1. 控制器最终代码
+### 1. 控制器代码
+`app/controller/admin/rule.js`
+```js
+    // 删除权限功能
+    async delete() {
+        const { ctx, app } = this;
+        let id = ctx.params.id;
+
+        // 开启事务 使用transaction保证数据一致性，所有数据库操作要么全部成功，要么全部回滚
+        const transaction = await app.model.transaction();
+
+        try {
+            // 获取所有子权限ID
+            let Childrules = await app.model.Rule.findAll({
+                where:{
+                    id:id
+                },
+                attributes:['id'],
+                include:[{
+                    model:app.model.Rule,
+                    as:'ChildRule',//指定别名
+                    attributes:['id']
+                }]
+            });
+            Childrules = JSON.parse(JSON.stringify(Childrules));
+            let ids = [];
+            Childrules.forEach(item=>{
+                ids.push(item.id);
+                ids = ids.concat(item.ChildRule.map(item=>item.id));
+            });
+            console.log('当前权限的子权限及自己', ids);
+
+            // 批量删除权限（会自动触发role_rule的级联删除）
+            const { Op } = app.Sequelize; // 拿到Op对象
+            await app.model.Rule.destroy({
+                where: {
+                    id: {
+                        [Op.in]: ids
+                    }
+                },
+                transaction,
+            });
+
+            // 提交事务
+            await transaction.commit();
+
+            ctx.toast('删除权限成功', 'success');
+
+        } catch (error) {
+            // 回滚事务
+            await transaction.rollback();
+            ctx.toast(`删除权限失败: ${error.message}`, 'error');
+        }
+
+        // 跳转
+        ctx.redirect('/shop/admin/rule');
+    }
+```
+### 2. 控制器代码（通过phpMyadmin创建表的同学）
+如果同学们执行上面的代码发现`rule`表或者`role_rule`表数据没有删除，则用下面的方法删除
 `app/controller/admin/rule.js`
 ```js
     // 删除权限功能-事务处理
@@ -1007,7 +1066,7 @@ module.exports = app => {
     }
 ```
 
-### 2. 代码说明
+### 3. 代码说明
 1. 事务处理
 > 使用transaction保证数据一致性，所有数据库操作要么全部成功，要么全部回滚
 2. 递归删除子权限
