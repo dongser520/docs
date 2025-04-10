@@ -733,3 +733,79 @@ module.exports = app => {
   ...
 ```
 
+
+## 五、商城管理员列表（API接口）
+### 1. 路由
+`app/router/admin/shop.js`
+```js
+module.exports = app => {
+    const { router, controller } = app;
+    ...
+    //管理员列表页面
+    router.get('/shop/admin/shopmanager/:page', controller.admin.shopManager.indexlist);
+    router.get('/shop/admin/shopmanager', controller.admin.shopManager.index);
+    
+    ...
+};
+```
+### 2. 控制器
+`app/controller/admin/shop_manager.js`
+```js
+//管理员列表(API功能)
+  async indexlist() {
+    const { ctx, app } = this;
+    //参数
+    let keyword = ctx.query.keyword || '';
+    let limit = parseInt(ctx.query.limit) || 10;
+    //组织查询条件
+    let where = {
+      status: 1
+    };
+    const { Op } = app.Sequelize; // 拿到Op对象
+    if (keyword) {
+      where.username = {
+        [Op.like]: '%' + keyword + '%',
+      }
+    }
+    //管理员表
+    let shopmanager = await app.model.ShopManager.findAndCountAll({
+      /*
+      where:{
+        status:1,
+        username:{
+            [Op.like]: '%' + keyword + '%',
+        },
+      },
+      */
+      where: where,
+      attributes: {
+        exclude: ['password']
+      },
+      order: [
+        ['id', 'desc']
+      ],
+      limit,
+      include: [
+        {
+          model: app.model.Role,
+          // attributes: ['id', 'name', 'desc', 'status'],
+        }
+      ],
+    });
+    // ctx.body = shopmanager;
+    // 获取角色
+    let role = await app.model.Role.findAll({
+      where: {
+        status: 1,
+      },
+      attributes: ['id', 'name']
+    });
+    //返回数据
+    ctx.apiSuccess({
+      list: shopmanager.rows,
+      totalCount: shopmanager.count,
+      role
+    });
+  }
+```
+
