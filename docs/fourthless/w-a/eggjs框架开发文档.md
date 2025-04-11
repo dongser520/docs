@@ -58,7 +58,9 @@ title: eggjs框架开发文档
 具体查看：<a href="/fourthless/w-a/eggjs.权限管理" target="_blank">权限管理</a><br/>
 
 ### 10. 给角色配置权限及删除权限
-具体查看：<a href="/fourthless/w-a/eggjs.给角色配置权限" target="_blank">给角色配置权限及删除权限</a><br/>
+具体查看：<a href="/fourthless/w-a/eggjs.给角色配置权限" target="_blank">给角色配置权限及删除权限</a><br/><br/>
+`特别说明`： 角色列表关联查询权限信息（通过中间表）<br/>
+> 角色列表关联查询权限信息（通过中间表）`模型关联`的用法：<a href="/fourthless/w-a/eggjs.管理员板块.html#九、角色列表-包含角色对应的权限api接口" target="_blank">【九、角色列表（包含角色对应的权限API接口）】</a><br/>
 
 ### 11. 管理员板块所有接口
 > #### 1. shop_manager表接口 <br/>
