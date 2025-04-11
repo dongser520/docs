@@ -870,3 +870,30 @@ module.exports = app => {
         ctx.apiSuccess('修改权限成功');
     }
 ```
+
+
+## 四、权限列表API
+### 1. 新建路由
+`app/router/admin/shop.js`
+```js
+    ...
+    //权限列表页面
+    router.get('/shop/admin/rule/:page', controller.admin.rule.indexAPI);
+    ...
+```
+### 2.控制器
+`app/controller/admin/rule.js`
+```js
+    // 权限列表页面API接口
+    async indexAPI(){
+        const { ctx, app } = this;
+        let rule = await app.model.Rule.findAll({
+            where: {
+                status: 1
+            }
+        });
+        rule = ctx.treeify(JSON.parse(JSON.stringify(rule)));
+        // ctx.body = rule;
+        ctx.apiSuccess(rule);
+    }
+```
