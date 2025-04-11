@@ -108,7 +108,7 @@ title: shop_manager表说明
 ### 1、技术栈php(thinkphp)文档地址
 > 点击查看：<a href="/web/mysql/shop_manager表接口" target="_blank">文档说明</a>
 ### 2、技术栈node(egg.js)文档地址
-> 点击查看：
+> 点击查看：<a href="/fourthless/w-a/eggjs框架开发文档.html#一、管理员板块" target="_blank">文档说明</a>
 
 
 ## 四、shop_manager 表 所有接口
