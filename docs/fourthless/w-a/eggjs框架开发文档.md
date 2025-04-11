@@ -67,3 +67,5 @@ title: eggjs框架开发文档
 > 具体查看：<a href="/web/mysql/shop_manager表接口.html" target="_blank">shop_manager表接口</a><br/>
 > #### 2. role表接口 <br/>
 > 具体查看：<a href="/web/mysql/role表接口.html" target="_blank">role表接口</a><br/>
+> #### 3. rule表接口 <br/>
+> 具体查看：<a href="/web/mysql/rule表接口.html" target="_blank">rule表接口</a><br/>
