@@ -1162,3 +1162,380 @@ module.exports = app => {
         ctx.redirect('/shop/admin/role');
     }
 ```
+
+
+## 九、角色列表（包含角色对应的权限API接口）
+### 1. 路由
+`app/router/admin/shop.js`
+```js
+module.exports = app => {
+    const { router, controller } = app;
+    ...
+    //角色列表包含角色对应的权限api接口
+    router.get('/shop/admin/role/:page', controller.admin.role.indexlist);
+    //角色列表页面
+    router.get('/shop/admin/role', controller.admin.role.index);
+}
+```
+
+### 2. 模型关联
+#### 1. 角色role表模型Role
+`app/model/role.js`
+```js
+...
+module.exports = app => {
+    ...   
+    const Role = app.model.define('role', {
+        ...
+    });
+
+    Role.associate = function (models) {
+        // 多对多关联到权限表
+        Role.belongsToMany(app.model.Rule, {
+            through: app.model.RoleRule, // 指定中间模型
+            foreignKey: 'role_id',    // 中间表中关联Role的外键
+            otherKey: 'rule_id'      // 中间表中关联Rule的外键
+        });
+    };
+
+    return Role;
+}
+```
+#### 2. 权限rule表模型Rule
+`app/model/rule.js`
+```js
+...
+module.exports = app => {
+    ...
+    const Rule = app.model.define('rule', {
+        id: {
+            type: INTEGER(20).UNSIGNED,
+            primaryKey: true,
+            autoIncrement: true,
+            comment: '权限主键id'
+        },
+        pid: {
+            type: INTEGER(20).UNSIGNED,
+            allowNull: false,
+            defaultValue: 0,
+            comment: '上一级(父级)id',
+            index: true // 添加索引
+        },
+        ...
+    });
+
+
+    // 模型关联关系
+    Rule.associate = function (models) {
+        // 关联到自己 （通过pid关联）
+        this.hasMany(app.model.Rule,{
+            foreignKey: 'pid',
+            as:'ChildRule' // 别名（可选）
+        });
+        //在 Rule 模型中，同样建立反向的多对多关联：
+        // 多对多关联到角色表
+        Rule.belongsToMany(app.model.Role, {
+            through: app.model.RoleRule,
+            foreignKey: 'rule_id',   // 中间表中关联Rule的外键
+            otherKey: 'role_id'      // 中间表中关联Role的外键
+        });
+    }
+
+    return Rule;
+}
+```
+
+#### 3. 中间表role_rule
+`app/model/role_rule.js`
+> 中间表模型关联可不填，如果要写关联，则如下：
+```js
+...
+module.exports = app => {
+    ...
+    const RoleRule = app.model.define('role_rule', {
+        ...
+    });
+
+    // 模型关联关系
+    RoleRule.associate = function (models) {
+        // 关联角色
+        RoleRule.belongsTo(app.model.Role);
+        // RoleRule.belongsTo(app.model.Role, { foreignKey: 'role_id' });
+        // 关联权限
+        RoleRule.belongsTo(app.model.Rule);
+        // RoleRule.belongsTo(app.model.Rule, { foreignKey: 'rule_id' });
+    }
+
+    return RoleRule;
+}
+```
+### 3. 控制器API接口代码
+`app/controller/admin/role.js`
+```js
+    //角色列表包含角色对应的权限api接口
+    async indexlist(){
+        const { ctx, app } = this;
+        let limit = parseInt(ctx.query.limit) || 10;
+        let role = await app.model.Role.findAll({
+            where:{
+                status:1
+            },
+            order:[
+                ['id','desc']
+            ],
+            limit,
+            include: [
+                {
+                    model: app.model.Rule, // 直接关联权限
+                    through: { 
+                        attributes: []      // 不需要返回中间表字段
+                    },
+                    /*
+                    // 如果需要权限的子权限（如树形结构），可添加子关联
+                    include: [
+                        {
+                            model: app.model.Rule,
+                            as: 'ChildRule' // 自关联别名
+                        }
+                    ]
+                    */
+                }
+            ],
+        });
+        let rolecount = await app.model.Role.count({
+            where:{
+                status:1
+            }
+        });
+        // ctx.body = role;
+        ctx.apiSuccess({
+            list: role,
+            totalCount: rolecount
+        });
+    }
+```
+
+### 4. 返回结果
+```json
+{
+    "msg": "ok",
+    "data": {
+        "list": [
+            {
+                "create_time": "2025-04-09 16:47:28",
+                "id": 9,
+                "name": "普通管理人员",
+                "desc": "对商城系统拥有一般的关联权限",
+                "status": 1,
+                "update_time": "2025-04-09T08:47:28.000Z",
+                "rules": [
+                    {
+                        "create_time": "2025-04-10 17:15:10",
+                        "id": 34,
+                        "pid": 33,
+                        "status": 1,
+                        "name": "创建角色",
+                        "frontname": "",
+                        "frontpath": "",
+                        "condition": "",
+                        "menu": 0,
+                        "order": 50,
+                        "icon": "",
+                        "method": "GET",
+                        "update_time": "2025-04-10T09:15:10.000Z",
+                        "ChildRule": []
+                    },
+                    {
+                        "create_time": "2025-04-10 17:13:54",
+                        "id": 30,
+                        "pid": 0,
+                        "status": 1,
+                        "name": "管理员管理",
+                        "frontname": "",
+                        "frontpath": "",
+                        "condition": "",
+                        "menu": 1,
+                        "order": 50,
+                        "icon": "",
+                        "method": "GET",
+                        "update_time": "2025-04-10T09:13:54.000Z",
+                        "ChildRule": [
+                            {
+                                "create_time": "2025-04-10 17:14:07",
+                                "id": 31,
+                                "pid": 30,
+                                "status": 1,
+                                "name": "创建管理员",
+                                "frontname": "",
+                                "frontpath": "",
+                                "condition": "",
+                                "menu": 1,
+                                "order": 50,
+                                "icon": "",
+                                "method": "POST",
+                                "update_time": "2025-04-10T09:14:44.000Z"
+                            },
+                            {
+                                "create_time": "2025-04-10 17:14:21",
+                                "id": 32,
+                                "pid": 30,
+                                "status": 1,
+                                "name": "修改管理员",
+                                "frontname": "",
+                                "frontpath": "",
+                                "condition": "",
+                                "menu": 1,
+                                "order": 50,
+                                "icon": "",
+                                "method": "POST",
+                                "update_time": "2025-04-10T09:14:49.000Z"
+                            }
+                        ]
+                    },
+                    {
+                        "create_time": "2025-04-10 17:14:07",
+                        "id": 31,
+                        "pid": 30,
+                        "status": 1,
+                        "name": "创建管理员",
+                        "frontname": "",
+                        "frontpath": "",
+                        "condition": "",
+                        "menu": 1,
+                        "order": 50,
+                        "icon": "",
+                        "method": "POST",
+                        "update_time": "2025-04-10T09:14:44.000Z",
+                        "ChildRule": []
+                    },
+                    {
+                        "create_time": "2025-04-10 17:14:21",
+                        "id": 32,
+                        "pid": 30,
+                        "status": 1,
+                        "name": "修改管理员",
+                        "frontname": "",
+                        "frontpath": "",
+                        "condition": "",
+                        "menu": 1,
+                        "order": 50,
+                        "icon": "",
+                        "method": "POST",
+                        "update_time": "2025-04-10T09:14:49.000Z",
+                        "ChildRule": []
+                    },
+                    {
+                        "create_time": "2025-04-10 17:14:37",
+                        "id": 33,
+                        "pid": 0,
+                        "status": 1,
+                        "name": "角色管理",
+                        "frontname": "",
+                        "frontpath": "",
+                        "condition": "",
+                        "menu": 1,
+                        "order": 50,
+                        "icon": "",
+                        "method": "GET",
+                        "update_time": "2025-04-10T09:14:37.000Z",
+                        "ChildRule": [
+                            {
+                                "create_time": "2025-04-10 17:15:10",
+                                "id": 34,
+                                "pid": 33,
+                                "status": 1,
+                                "name": "创建角色",
+                                "frontname": "",
+                                "frontpath": "",
+                                "condition": "",
+                                "menu": 0,
+                                "order": 50,
+                                "icon": "",
+                                "method": "GET",
+                                "update_time": "2025-04-10T09:15:10.000Z"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "create_time": "2025-04-07 17:48:53",
+                "id": 8,
+                "name": "销售人员",
+                "desc": "对商城产品销售做一些统计等等",
+                "status": 1,
+                "update_time": "2025-04-07T09:48:53.000Z",
+                "rules": [
+                    {
+                        "create_time": "2025-04-10 17:14:37",
+                        "id": 33,
+                        "pid": 0,
+                        "status": 1,
+                        "name": "角色管理",
+                        "frontname": "",
+                        "frontpath": "",
+                        "condition": "",
+                        "menu": 1,
+                        "order": 50,
+                        "icon": "",
+                        "method": "GET",
+                        "update_time": "2025-04-10T09:14:37.000Z",
+                        "ChildRule": [
+                            {
+                                "create_time": "2025-04-10 17:15:10",
+                                "id": 34,
+                                "pid": 33,
+                                "status": 1,
+                                "name": "创建角色",
+                                "frontname": "",
+                                "frontpath": "",
+                                "condition": "",
+                                "menu": 0,
+                                "order": 50,
+                                "icon": "",
+                                "method": "GET",
+                                "update_time": "2025-04-10T09:15:10.000Z"
+                            }
+                        ]
+                    },
+                    {
+                        "create_time": "2025-04-10 17:15:10",
+                        "id": 34,
+                        "pid": 33,
+                        "status": 1,
+                        "name": "创建角色",
+                        "frontname": "",
+                        "frontpath": "",
+                        "condition": "",
+                        "menu": 0,
+                        "order": 50,
+                        "icon": "",
+                        "method": "GET",
+                        "update_time": "2025-04-10T09:15:10.000Z",
+                        "ChildRule": []
+                    }
+                ]
+            },
+            {
+                "create_time": "2025-04-02 17:52:13",
+                "id": 7,
+                "name": "库管",
+                "desc": "管理商城日常库存，上架、下架商品",
+                "status": 1,
+                "update_time": "2025-04-08T11:09:00.000Z",
+                "rules": []
+            },
+            {
+                "create_time": "2025-04-01 12:17:54",
+                "id": 1,
+                "name": "超级管理员",
+                "desc": "这是商城的超级管理员角色，它拥有最高权限，可以管理商城后台的所有功能，并且只有一个商城超级管理员",
+                "status": 1,
+                "update_time": "2025-04-08T11:08:53.000Z",
+                "rules": []
+            }
+        ],
+        "totalCount": 4
+    }
+}
+```
