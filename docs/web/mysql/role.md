@@ -121,6 +121,9 @@ title: role 表及其权限表 rule 表说明
 <a href="/fourthless/w-a/thinkphp.权限管理.html" target="_blank">【文档】</a> 和 <a href="/web/mysql/rule表接口.html" target="_blank">【接口】</a>
 
 ### 2、技术栈node(egg.js)同学
+### 权限表 `rule`相关【文档】和【接口】
+<a href="/fourthless/w-a/eggjs框架开发文档.html#_9-权限管理" target="_blank">【文档】</a> 和 <a href="/web/mysql/rule表接口.html" target="_blank">【接口】</a>
+
 > 1. 直接在`phpMyAdmin`中根据表字段设计创建表，或者通过数据库插件写sql语句创建表。<br/>
 > 2. 通过迁移命名创建角色表role的权限表`rule`，具体步骤如下：
 >> 1. 创建迁移文件命令：
@@ -247,6 +250,10 @@ title: role 表及其权限表 rule 表说明
 <a href="/fourthless/w-a/thinkphp.管理员角色管理和状态设置.html#四、角色列表数据中-包含该角色对应的权限" target="_blank">【文档】</a> 和 <a href="/fourthless/w-a/thinkphp.角色管理.html#五、给角色role配置权限rule" target="_blank">【接口】</a>
 
 ### 2、技术栈node(egg.js)同学
+
+### 角色权限中间表 `role_rule`相关【文档】和【接口】
+<a href="/fourthless/w-a/eggjs框架开发文档.html#_10-给角色配置权限及删除权限" target="_blank">【文档】</a> 和 <a href="/fourthless/w-a/eggjs.管理员板块.html#九、角色列表-包含角色对应的权限api接口" target="_blank">【接口】</a>
+
 > 1. 直接在`phpMyAdmin`中根据表字段设计创建表，或者通过数据库插件写sql语句创建表。<br/>
 > 2. 通过迁移命名创建角色表role和权限表rule的中间表`role_rule`，具体步骤如下：
 >> 1. 创建迁移文件命令：
