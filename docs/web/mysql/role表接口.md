@@ -33,6 +33,34 @@ title: role表接口
 > }
 > ```
 
+### ② eggjs框架接口
+<a href="/fourthless/w-a/eggjs.管理员板块.html#_2-完成创建角色、角色列表功能" target="_blank">点击查看具体文档：【2. 完成创建角色、角色列表功能】</a>  <br/>
+
+> 1. 请求方式：`post` `[用postman测试]`
+> 2. 接口示例：<br/>
+> 本地路由地址：`http://127.0.0.1:7001/shop/admin/role` <br/>
+> 本地路由示例：<http://127.0.0.1:7001/shop/admin/role>  
+> 3. header头
+>
+> | 参数   |  是否必填    |  类型    |  说明     |
+> | :---:  | :---:       |  :---:   | :---:    |
+> | token  |  是         |  String  |  token值  |
+> 4. 请求参数
+>
+> | 参数     |  是否必填    |  类型    |  说明     |
+> | :---:    | :---:       |  :---:   | :---:    |
+> | status     |  是         |  int  |  状态值：0不可用，1可用     |
+> | name     |  是         |  string  |  角色名称，最多30个字符     |
+> | desc     |  否         |  string  |  角色描述，最多255个字符     |
+> 
+> 5. 返回
+> ```js
+> {
+>     "msg": "ok",
+>     "data": '创建角色成功'
+> }
+> ```
+
 ## 二、修改角色
 ### ① thinkphp框架接口
 <a href="/fourthless/w-a/thinkphp.角色管理.html#二、修改角色" target="_blank">点击查看具体文档：【修改角色】</a>  <br/>
@@ -41,6 +69,34 @@ title: role表接口
 > 2. 接口示例：<br/>
 > 本地路由地址：`http://thinkphp.shop/admin/role/:id` <br/>
 > 本地路由示例：<http://thinkphp.shop/admin/role/7>  `7`代表角色id
+> 3. header头
+>
+> | 参数   |  是否必填    |  类型    |  说明     |
+> | :---:  | :---:       |  :---:   | :---:    |
+> | token  |  是         |  String  |  token值  |
+> 4. 请求参数
+>
+> | 参数     |  是否必填    |  类型    |  说明     |
+> | :---:    | :---:       |  :---:   | :---:    |
+> | status     |  是         |  int  |  状态值：0不可用，1可用     |
+> | name     |  是         |  string  |  角色名称，最多30个字符     |
+> | desc     |  否         |  string  |  角色描述，最多255个字符     |
+> 
+> 5. 返回
+> ```js
+> {
+>     "msg": "ok",
+>     "data": true
+> }
+> ```
+
+### ② eggjs框架接口
+<a href="/fourthless/w-a/eggjs.管理员板块.html#七、修改角色、删除角色、修改角色状态" target="_blank">点击查看具体文档：【七、修改角色、删除角色、修改角色状态】</a>  <br/>
+
+> 1. 请求方式：`post` `[用postman测试]`
+> 2. 接口示例：<br/>
+> 本地路由地址：`http://127.0.0.1:7001/shop/admin/role/:id` <br/>
+> 本地路由示例：<http://127.0.0.1:7001/shop/admin/role/7>  `7`代表角色id
 > 3. header头
 >
 > | 参数   |  是否必填    |  类型    |  说明     |
@@ -88,6 +144,32 @@ title: role表接口
 > }
 > ```
 
+### ② eggjs框架接口
+<a href="/fourthless/w-a/eggjs.管理员板块.html#七、修改角色、删除角色、修改角色状态" target="_blank">点击查看具体文档：【七、修改角色、删除角色、修改角色状态】</a>  <br/>
+
+> 1. 请求方式：`post` `[用postman测试]`
+> 2. 接口示例：<br/>
+> 本地路由地址：`http://127.0.0.1:7001/shop/admin/role/:id/update_status` <br/>
+> 本地路由示例：<http://127.0.0.1:7001/shop/admin/role/1/update_status>  `1`代表角色id
+> 3. header头
+>
+> | 参数   |  是否必填    |  类型    |  说明     |
+> | :---:  | :---:       |  :---:   | :---:    |
+> | token  |  是         |  String  |  token值  |
+> 4. 请求参数
+>
+> | 参数     |  是否必填    |  类型    |  说明     |
+> | :---:    | :---:       |  :---:   | :---:    |
+> | status     |  是         |  int  |  状态值：0不可用，1可用     |
+> 
+> 5. 返回
+> ```js
+> {
+>     "msg": "ok",
+>     "data": "修改角色状态成功"
+> }
+> ```
+
 
 ## 四、删除角色
 ### ① thinkphp框架接口
@@ -110,6 +192,26 @@ title: role表接口
 >> }
 >> ```
 
+### ② eggjs框架接口
+<a href="/fourthless/w-a/eggjs.管理员板块.html#七、修改角色、删除角色、修改角色状态" target="_blank">点击查看具体文档：【七、修改角色、删除角色、修改角色状态】</a>  <br/>
+
+> 1. 请求方式：`POST` `[用postman测试]`
+> 2. 本地路由: `http://127.0.0.1:7001/shop/admin/role/:id/delete` <br/>
+> 本地路由地址：<http://127.0.0.1:7001/shop/admin/role/35/delete> `35`为角色的id
+> 3. header头
+>
+> | 参数   |  是否必填    |  类型    |  说明     |
+> | :---:  | :---:       |  :---:   | :---:    |
+> | token  |  是         |  String  |  token值  |
+> 4. 请求参数：<br/> `请求体body无需传递参数、只需传递id即可，已经在网址传递了id值`
+> 5. 返回
+>>```js
+>> {
+>>    "msg": "ok",
+>>    "data": true
+>> }
+>> ```
+
 
 ## 五、给角色role配置权限rule
 ### ① thinkphp框架接口
@@ -118,6 +220,38 @@ title: role表接口
 > 1. 请求方式：`POST` `[用postman测试]`
 > 2. 本地路由: `http://thinkphp.shop/admin/role/set_rules` <br/>
 > 本地路由地址：<http://thinkphp.shop/admin/role/set_rules>
+> 3. header头
+>
+> | 参数   |  是否必填    |  类型    |  说明     |
+> | :---:  | :---:       |  :---:   | :---:    |
+> | token  |  是         |  String  |  token值  |
+> 4. 请求参数
+>
+> | 参数     |  是否必填    |  类型    |  说明     |
+> | :---:    | :---:       |  :---:   | :---:    |
+> |      |  是         |  JSON  |   权限表id集合及角色id的json数据    |
+> 
+> 在`postman`中，`Body` -> `raw` -> `JSON` -> 输入json数据:
+> ```js
+> {
+>   "id":2, // 角色id
+>   "rule_ids":[6,7,8,9] // 权限id集合
+> }
+> ```
+> 5. 返回
+> ```js
+> {
+>     "msg": "ok",
+>     "data": true
+> }
+> ```
+
+### ② eggjs框架接口
+<a href="/fourthless/w-a/eggjs.给角色配置权限.html#二、给角色配置权限api" target="_blank">点击查看具体文档：【二、给角色配置权限API】</a>  <br/>
+
+> 1. 请求方式：`POST` `[用postman测试]`
+> 2. 本地路由: `http://127.0.0.1:7001/shop/admin/role/set_rules` <br/>
+> 本地路由地址：<http://127.0.0.1:7001/shop/admin/role/set_rules>
 > 3. header头
 >
 > | 参数   |  是否必填    |  类型    |  说明     |

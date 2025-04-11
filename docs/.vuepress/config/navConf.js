@@ -58,6 +58,13 @@ module.exports = [
                 ]
             },
             {
+                text: 'uni-app专栏',
+                ariaLabel: 'uni-app专栏',
+                items: [
+                    { text: 'uni-app的UI框架', link: '/web/methods/uni-app专栏' },
+                ]
+            },
+            {
                 text: '实用网站',
                 ariaLabel: '实用网站菜单',
                 items: [
