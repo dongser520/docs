@@ -290,4 +290,7 @@ title: thinkphp框架开发文档
 
 ## 七、管理员板块所有接口
 > 具体查看，<a href="/web/mysql/shop_manager表接口.html" target="_blank">点击查看</a><br/>
+
+## 八、图片管理板块
+> 具体查看，<a href="/fourthless/w-a/thinkphp.图片管理板块" target="_blank">图片管理板块</a><br/>
  
