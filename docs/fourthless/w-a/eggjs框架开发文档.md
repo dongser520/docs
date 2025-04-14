@@ -73,3 +73,5 @@ title: eggjs框架开发文档
 
 ## 二、图片管理板块
 > 具体查看，<a href="/fourthless/w-a/eggjs.图片管理板块" target="_blank">图片管理板块</a><br/>
+> 特别说明：
+>> 1. <a href="/secondless/w-c/上传文件.html#三、上传文件-图片-到阿里云存储oss" target="_blank">上传图片</a><br/>

@@ -184,3 +184,6 @@ Route::group('admin',function(){
 //加入中间件代码
 })->middleware(\app\middleware\checkShopManagerToken::class);
 ```
+
+## 五、上传图片
+> 具体查看，<a href="/fourthless/w-a/thinkphp.上传图片" target="_blank">上传图片</a><br/>

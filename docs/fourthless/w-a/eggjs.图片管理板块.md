@@ -445,7 +445,7 @@ module.exports = Image_classService;
             limit: limit,
             order: [
                 ['order', 'asc'],
-                ['id', 'asc'],
+                ['id', 'desc'],
             ],
         });
         data = ctx.treeify(JSON.parse(JSON.stringify(data)));    
@@ -654,9 +654,9 @@ module.exports = Image_classService;
     async delete() {
         const { ctx, app } = this;
         const id = ctx.params.id;
- 
+
         let data = await ctx.service.imageClass.imageclass_list();
-        // console.log('所有分类', data);
+        // console.log('所有图片分类', data);
         let ids = app._collectNodeIds(data,Number(id));
         // console.log(ids);
         // return;
@@ -667,9 +667,8 @@ module.exports = Image_classService;
                 }
             }
         });
-         
         //提示
-        ctx.toast('删除成功', 'success');
+        ctx.toast('图片分类删除成功', 'success');
         //跳转
         ctx.redirect('/shop/admin/imageclass');
     }
@@ -677,9 +676,14 @@ module.exports = Image_classService;
     async deleteAPI() {
         const { ctx, app } = this;
         const id = ctx.params.id;
- 
+        // 先看一下是否存在
+        let _data = await app.model.ImageClass.findOne({ where: { id } });
+        if (!_data) {
+            return ctx.apiFail('该图片分类记录不存在');
+        }
+
         let data = await ctx.service.imageClass.imageclass_list();
-        // console.log('所有分类', data);
+        // console.log('所有图片分类', data);
         let ids = app._collectNodeIds(data,Number(id));
         // console.log(ids);
         // return;
@@ -690,7 +694,58 @@ module.exports = Image_classService;
                 }
             }
         });
+
         ctx.apiSuccess(true);
     }
 ```
 
+### 4. 服务
+`app/service/image_class.js`
+```js
+    //图片分类数据
+    async datalist(options) {
+        const { ctx, app } = this;
+        //分页：可以提炼成一个公共方法page(模型名称，where条件，其他参数options)
+        let data = await ctx.page('ImageClass', {}, {
+            order: [
+                ['order', 'asc'],
+                ['id', 'asc'],
+            ],
+            attributes: {
+                exclude: ['create_time', 'update_time'],//除了这些字段，其他字段都显示
+            },
+            limit: options && options.limit ? options.limit : 1000,
+        });
+        // 转一下data处理
+        let list = JSON.parse(JSON.stringify(data));
+        // console.log('list', list);
+        let rules = JSON.parse(JSON.stringify(data));
+        // console.log('rules', rules);
+
+        // 数据集组合分类树(一维数组) 带level
+        let $rule = [];
+        function list_to_tree($array, $field = 'pid', $pid = 0, $level = 0) {
+            $array.forEach(($value, $index) => {
+                // console.log($value);
+                if ($value[$field] == $pid) {
+                    $value['level'] = $level;
+                    $rule.push($value);
+                    // unset($array[$key]);
+                    // console.log('看一下rule',$rule);
+                    // $array.splice($index, 1);
+                    list_to_tree($array, $field, $value['id'], $level + 1);
+                }
+            });
+            return $rule;
+        }
+
+        return {
+            totalCount: data.length,
+            rules: list_to_tree(rules),
+        }
+
+    }
+```
+
+## 五、图片分类所有接口
+> 具体查看，<a href="/web/mysql/image_class表接口" target="_blank">image_class表接口</a><br/>
