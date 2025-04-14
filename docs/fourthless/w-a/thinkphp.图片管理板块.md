@@ -76,15 +76,15 @@ class ImageClass extends BaseController
                 'id'=>'desc',
                 ]) ->
                //查询
-               select();
+               select()
                //转成数组
-               // -> toArray();
+               -> toArray();
         
         return apiSuccess([
             'totalCount' => $totalCount,
             'list' => $list,
-            // 'list' => list_to_tree2($list,'pid'),
-            // 'rules' => list_to_tree($list,'pid')
+            'list_tree2' => list_to_tree2($list,'pid'),
+            'list_tree' => list_to_tree($list,'pid')
         ]);
     }
 
