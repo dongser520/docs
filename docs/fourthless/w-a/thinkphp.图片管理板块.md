@@ -187,3 +187,108 @@ Route::group('admin',function(){
 
 ## 五、上传图片
 > 具体查看，<a href="/fourthless/w-a/thinkphp文件上传说明" target="_blank">上传图片</a><br/>
+
+
+## 六、某个图片分类下的图片列表
+某个图片分类下的图片列表要求路由可以这样: <br/>
+> `http://thinkphp.shop/admin/imageclass/27/image/1?limit=10&keyword=电脑&order=asc`<br/><br/>
+> `27`代表分类id, `1`代表页码, `limit`代表每页多少条, `keyword`代表搜索关键字, `order`代表排序规则<br/>
+> `limit` 和 `keyword` 是可选参数，`limit`默认为 `20`，`keyword`默认为 空字符串，`order` 是可选参数，默认为 `desc`<br/>
+
+### 1. 路由
+`route/admin.php`
+```php
+    ...
+    //图片分类下的所有图片列表 $代表后面的参数可以没有
+    Route::get('imageclass/:id/image/:page','admin.ImageClass/images');
+    //删除图片分类
+    Route::post('imageclass/:id/delete','admin.ImageClass/delete');
+    ...
+```
+### 2. 验证器
+`app/validate/admin/ImageClass.php`
+```php
+...
+use app\validate\BaseValidate;
+
+class ImageClass extends BaseValidate
+{
+    ...
+    //定义一个场景（场景名称可自定义，方便我们观察，可用控制器的方法名称）
+    protected $scene = [
+        ...
+        // 图片列表
+        'images' => ['id','page'],
+
+    ];
+}
+
+```
+### 3. 模型
+`app/model/ImageClass.php`
+```php
+...
+class ImageClass extends Model
+{
+    //获取当前图片分类下的图片
+    public function images()
+    {
+        return $this->hasMany('Image','image_class_id','id');
+    }
+}
+```
+### 4. 控制器
+`app/controller/admin/ImageClass.php`
+```php
+    ...
+    //图片列表
+    public function images(Request $request)
+    {
+        //拿到参数数组, 如：页码等
+        // $param = $request ->param();
+        $param = $this->request->param();
+        //可选参数，如limit:每页多少条
+        $limit = intval(getValueByKey('limit',$param,20));
+        $page = getValueByKey('page',$param,1);
+
+        //拿到图片分类下面的图片，模型关联(当然也可以用where查询语句)
+        // 拿到图片模型
+        // $model = $this -> request -> Model -> hasMany('Image','image_class_id','id'); //关联模型名
+        $model = $this -> request -> Model -> images(); //关联模型名
+
+        //计算一下一共查了多少条数据
+        $totalCount = $model -> count();
+
+        //排序
+        $order = getValueByKey('order',$param,'desc'); //默认降序
+
+        //查询条件
+        $where = [];
+        // 如果存在查询条件参数keyword
+        $keyword = getValueByKey('keyword',$param,''); 
+        if($keyword){
+            $where[] = [
+                ['name','like','%'.$keyword.'%']
+            ];
+        }
+
+        // 图片列表数据
+        $list = $model ->
+               //分页
+               page($page,$limit) ->
+               // where 条件
+               where($where) ->
+               //排序
+               order('id',$order) ->
+               //查询
+               select();
+               //转成数组
+               //-> toArray();
+
+        return apiSuccess([
+            'totalCount' => $totalCount,
+            'list' => $list,
+        ]);
+
+    }
+```
