@@ -123,7 +123,8 @@ function uploadFile($fieldName, $classId = 0,$bucketFolder = 'images') {
             ];
         }
         
-        return count($result) > 1 ? $result : $result[0];
+        //return count($result) > 1 ? $result : $result[0];
+        return $result;
         
     } catch (OssException $e) {
         throw new \Exception('OSS上传失败: ' . $e->getMessage());
@@ -185,12 +186,12 @@ class Image extends BaseController
 >> {
 >>     "code": 200,
 >>     "msg": "上传成功",
->>     "data": {
+>>     "data": [{
 >>         "url": "https://thinkphp-eggjs.oss-cn-hangzhou.aliyuncs.com/images/20250416/67ff3076776bd.png",
 >>         "path": "images/20250416/67ff3076776bd.png",
 >>         "image_class_id": 0,
 >>         "create_time": 1744777334
->>     }
+>>     }]
 >> }
 >> //多图
 >> {
@@ -224,7 +225,7 @@ class Image extends BaseValidate
 {
     
     protected $rule = [
-        'image_class_id|图片分类id'=>'integer|>=:0|isExist:ImageClass,false',
+        'image_class_id|图片分类id'=>'require|integer|>:0|isExist:ImageClass,false',
 
     ];
 
@@ -234,6 +235,80 @@ class Image extends BaseValidate
         // 上传图片到阿里云OSS
         'uploadAliyunOSS' => ['image_class_id'],
     ];
+}
+```
+
+#### 2. 控制器代码完整代码
+`app/controller/admin/Image.php`
+```php
+...
+use app\BaseController;
+
+class Image extends BaseController
+{
+    //上传图片到阿里云oss
+    public function uploadAliyunOSS(Request $request)
+    {
+        try {
+            //获取图片分类id,不传默认分类id为0
+            $classId = getValueByKey('image_class_id',$this->request->param(),0);
+            // 上传图片
+            $result = uploadFile('img', $classId,'images');
+
+            // 根据你的业务需求，这里可以将结果保存到数据库
+            $data = [];
+            foreach ($result as $v) {
+                $data[] = [
+                    'url' => $v['url'],
+                    'path' => $v['path'],
+                    'image_class_id' => $classId,
+                ];
+            }
+            
+            // return json([
+            //     'code' => 200,
+            //     'msg' => '上传成功',
+            //     'data' => $result
+            // ]);
+
+            $res =  $this->model -> saveAll($data);
+            return apiSuccess($res);
+
+
+
+        } catch (\Exception $e) {
+            return json([
+                'code' => 500,
+                'msg' => $e->getMessage(),
+                'data' => null
+            ]);
+        }
+    }
+}
+
+```
+返回结果示例：
+```json
+{
+    "msg": "ok",
+    "data": [
+        {
+            "url": "https://thinkphp-eggjs.oss-cn-hangzhou.aliyuncs.com/images/20250416/67ff78a47202f.png",
+            "path": "images/20250416/67ff78a47202f.png",
+            "image_class_id": "27",
+            "create_time": "2025-04-16 17:30:12",
+            "update_time": "2025-04-16 17:30:12",
+            "id": 6
+        },
+        {
+            "url": "https://thinkphp-eggjs.oss-cn-hangzhou.aliyuncs.com/images/20250416/67ff78a4a89e8.jpg",
+            "path": "images/20250416/67ff78a4a89e8.jpg",
+            "image_class_id": "27",
+            "create_time": "2025-04-16 17:30:12",
+            "update_time": "2025-04-16 17:30:12",
+            "id": 7
+        }
+    ]
 }
 ```
 
