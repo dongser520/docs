@@ -292,3 +292,85 @@ class ImageClass extends Model
 
     }
 ```
+
+## 七、删除单个图片、自定义图片名称
+### 1. 路由
+`route/admin.php`
+```php
+...
+// 必须是登录之后，才能访问（管理员身份）
+Route::group('admin',function(){
+    ...
+    //删除某个图片
+    Route::post('image/:id/delete','admin.Image/delete');
+    // Route::delete('image/:id','admin.Image/delete');
+    //重命名图片
+    Route::post('image/:id','admin.Image/updatename');
+    //上传图片到阿里云oss
+    Route::post('image/uploadAliyun','admin.Image/uploadAliyunOSS');
+      
+//加入中间件代码
+})->middleware(\app\middleware\checkShopManagerToken::class);
+```
+### 2. 删除单个图片
+由于删除功能已经定义到了基类控制器里面，代码无差异，因此不用重新写删除代码，只需要定义路由和场景即可。
+```php
+    //删除
+    public function delete($id)
+    {
+        $data = $this->request -> Model;
+        return apiSuccess($data -> delete());
+    }
+```
+
+### 3. 验证器
+`app/validate/admin/Image.php`
+```php
+...
+use app\validate\BaseValidate;
+
+class Image extends BaseValidate
+{
+    
+    protected $rule = [
+        //isExist是我们自定义的一个规则
+        'id|图片id' => 'require|integer|>:0|isExist:Image',
+        //image_class_id无需挂载这条数据，防止挂载冲突
+        'image_class_id|图片分类id' => 'require|integer|>:0|isExist:ImageClass,false',
+
+        'name|图片名称' => 'max:30',
+    ];
+
+    ...
+    //定义一个场景（场景名称可自定义，方便我们观察，可用控制器的方法名称）
+    protected $scene = [
+        ...
+        //删除图片
+        'delete' => ['id'],
+        //重命名图片
+        'updatename' => ['id','name'],
+
+    ];
+    
+}
+
+```
+
+### 4. 控制器
+`app/controller/admin/Image.php`
+```php
+    ...
+    //重命令图片名称
+    public function updatename(Request $request, $id)
+    {
+        //拿到数据（已经自动化验证参数合法性）
+        $param = $this->request -> only([
+            // 'id',
+            'name',
+            // 'status',
+        ]);
+        // $param = $this->request -> param();
+        $res = $this->request -> Model -> save($param);
+        return apiSuccess($res);
+    }
+```
