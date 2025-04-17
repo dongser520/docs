@@ -752,3 +752,143 @@ module.exports = Image_classService;
 
 ## 六、上传图片
 > 具体查看，<a href="/secondless/w-c/上传文件.html#三、上传文件-图片-到阿里云存储oss" target="_blank">上传图片</a><br/>
+
+
+## 七、阿里云OSS图片上传功能并将结果写入数据库完整代码
+### 1. 模型
+`app/model/Image.js`
+```js
+'use strict';
+
+module.exports = app => {
+    const { INTEGER, STRING, DATE, ENUM, TEXT, BIGINT } = app.Sequelize;
+
+    const Image = app.model.define('image', {
+        id: {
+            type: INTEGER(20).UNSIGNED,
+            primaryKey: true,
+            autoIncrement: true,
+            comment: '主键id'
+        },
+        image_class_id: {
+            type: INTEGER(20).UNSIGNED,
+            allowNull: true,
+            defaultValue: 0,
+            comment: '图片分类id',
+            references: { //关联关系
+                model: 'image_class', //关联的表
+                key: 'id' //关联表的主键
+            },
+            onDelete: 'cascade', //删除时操作
+            onUpdate: 'restrict', // 更新时操作
+        },
+        path: {
+            type: STRING(255),
+            allowNull: true,
+            defaultValue: '',
+            comment: '图片默认名称（上传图片后服务器反馈的地址名称）'
+        },
+        name: {
+            type: STRING(30),
+            allowNull: true,
+            defaultValue: '',
+            comment: '图片自定义名称'
+        },
+        url: {
+            type: STRING(1000),
+            allowNull: true,
+            defaultValue: '',
+            comment: '图片地址'
+        },
+        order: {
+            type: INTEGER,//不限定长度.默认int(11)
+            allowNull: true,
+            defaultValue: 50,
+            comment: '排序，默认50'
+        },
+        status: {
+            type: INTEGER(1),
+            allowNull: false,
+            defaultValue: 1,
+            comment: '状态：1：启用，0：禁用'
+        },
+        // sex: { type: ENUM, values: ['男','女','保密'], allowNull: true, defaultValue: '保密', comment: '留言用户性别'},
+        create_time: {
+            type: DATE,
+            allowNull: false,
+            defaultValue: app.Sequelize.fn('NOW'),
+            get() {
+                return app.formatTime(this.getDataValue('create_time'));
+            }
+        },
+        update_time: { type: DATE, allowNull: false, defaultValue: app.Sequelize.fn('NOW') }
+    });
+
+
+    // 模型关联关系
+    Image.associate = function (models) {
+        // 关联图片分类 反向一对多
+        Image.belongsTo(app.model.ImageClass);
+    }
+
+    return Image;
+}
+```
+
+### 2. 控制器
+`app/controller/admin/image.js`
+```js
+'use strict';
+
+const Controller = require('egg').Controller;
+
+class ImageController extends Controller {
+  // 图片上传阿里云
+  async uploadAliyunOSS() {
+     const { ctx, app } = this;
+     try {
+        // 获取图片分类id
+        const imageClassId = ctx.query.imageClassId;
+        console.log('imageClassId',imageClassId);
+        if(!imageClassId){
+            return ctx.apiFail('请输入图片分类id');
+        }
+        //查询分类是否存在
+        let imageClass = await ctx.model.ImageClass.findOne({
+            where:{
+                id:imageClassId,
+                status:1
+            }
+        });
+        if(!imageClass){
+            return ctx.apiFail('图片分类不存在');
+        }
+        // 通用文件上传到阿里云OSS方法--File模式
+        // let result = await ctx.uploadOSS_File('img', imageClassId, 'images');
+        // 通用文件上传到阿里云OSS方法--Stream 流模式
+        let result = await ctx.uploadOSS_Stream('img', imageClassId, 'images');
+
+         // 保存到数据库
+         const data = result.map(item => ({
+            url: item.url,
+            path: item.path,
+            image_class_id: imageClassId,
+         }));
+
+         const res = await this.app.model.Image.bulkCreate(data);
+         return ctx.apiSuccess(res);
+
+     } catch (error) {
+        ctx.status = 500;
+        ctx.body = {
+            code: 500,
+            msg: error.message,
+            data: []
+        };
+     }
+  }
+}
+
+module.exports = ImageController;
+
+```
