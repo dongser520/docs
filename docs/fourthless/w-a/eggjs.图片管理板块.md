@@ -749,3 +749,6 @@ module.exports = Image_classService;
 
 ## 五、图片分类所有接口
 > 具体查看，<a href="/web/mysql/image_class表接口" target="_blank">image_class表接口</a><br/>
+
+## 六、上传图片
+> 具体查看，<a href="/secondless/w-c/上传文件.html#三、上传文件-图片-到阿里云存储oss" target="_blank">上传图片</a><br/>
