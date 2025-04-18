@@ -843,52 +843,138 @@ module.exports = app => {
 const Controller = require('egg').Controller;
 
 class ImageController extends Controller {
-  // 图片上传阿里云
-  async uploadAliyunOSS() {
-     const { ctx, app } = this;
-     try {
-        // 获取图片分类id
-        const imageClassId = ctx.query.imageClassId;
-        console.log('imageClassId',imageClassId);
-        if(!imageClassId){
-            return ctx.apiFail('请输入图片分类id');
-        }
-        //查询分类是否存在
-        let imageClass = await ctx.model.ImageClass.findOne({
-            where:{
-                id:imageClassId,
-                status:1
+    // 图片上传阿里云
+    async uploadAliyunOSS() {
+        const { ctx, app } = this;
+        try {
+            // 获取图片分类id
+            let imageClassId = ctx.query.imageClassId;
+            if(!imageClassId){
+                imageClassId = 0;
+                // 通用文件上传到阿里云OSS方法--File模式
+                // let result = await ctx.uploadOSS_File('img', imageClassId, 'images');
+                // 通用文件上传到阿里云OSS方法--Stream 流模式
+                let result = await ctx.uploadOSS_Stream('img', imageClassId, 'images');
+                ctx.apiSuccess(result);
+            }else{
+                // 判断这个分类id是否存在
+                let imageclass = await ctx.model.ImageClass.findOne({
+                    where: {
+                        id: imageClassId,
+                        status: 1
+                    }
+                });
+                if(!imageclass){
+                    return ctx.apiFail('图片分类不存在');
+                }
+
+                // 通用文件上传到阿里云OSS方法--File模式
+                // let result = await ctx.uploadOSS_File('img', imageClassId, 'images');
+                // 通用文件上传到阿里云OSS方法--Stream 流模式
+                let result = await ctx.uploadOSS_Stream('img', imageClassId, 'images');
+                // 写进数据库
+                let data =  result.map(item => {
+                    return {
+                        image_class_id:imageClassId,
+                        url:item.url,
+                        path:item.path,
+                    }
+                });
+                // console.log('插入数据库的数据',data);
+                let res = await ctx.model.Image.bulkCreate(data);
+                ctx.apiSuccess(res);
             }
-        });
-        if(!imageClass){
-            return ctx.apiFail('图片分类不存在');
+            
+        } catch (error) {
+            ctx.apiFail(error.message);
         }
-        // 通用文件上传到阿里云OSS方法--File模式
-        // let result = await ctx.uploadOSS_File('img', imageClassId, 'images');
-        // 通用文件上传到阿里云OSS方法--Stream 流模式
-        let result = await ctx.uploadOSS_Stream('img', imageClassId, 'images');
-
-         // 保存到数据库
-         const data = result.map(item => ({
-            url: item.url,
-            path: item.path,
-            image_class_id: imageClassId,
-         }));
-
-         const res = await this.app.model.Image.bulkCreate(data);
-         return ctx.apiSuccess(res);
-
-     } catch (error) {
-        ctx.status = 500;
-        ctx.body = {
-            code: 500,
-            msg: error.message,
-            data: []
-        };
-     }
-  }
+    }
 }
 
 module.exports = ImageController;
 
 ```
+
+## 八、某个图片分类下的图片列表
+路由示例： <br/> 
+`http://127.0.0.1:7001/shop/admin/imageclass/27/image/1?limit=10&order=desc&keyword=小米` <br/>问号后面为选填项，`27`为图片分类id，`1`为页码，`limit`为每页显示条数，默认10，`order`为排序，默认`asc`，`keyword`为搜索关键词，默认为空
+### 1.路由
+`app/router/admin/shop.js`
+```js
+    ...
+    //某个图片分类下的所有图片列表 
+    router.get('/shop/admin/imageclass/:id/image/:page',controller.admin.imageClass.images);
+    //删除图片分类功能
+    router.post('/shop/admin/imageclass/:id/delete', controller.admin.imageClass.deleteAPI);
+    router.get('/shop/admin/imageclass/:id/delete', controller.admin.imageClass.delete);
+    ...
+```
+### 2. 控制器
+`app/controller/admin/image_class.js`
+```js
+    //某个图片分类下的所有图片列表 
+    async images(){
+        const { ctx, app } = this; 
+        // 参数
+        let classId = parseInt(ctx.params.id);
+        let page = parseInt(ctx.params.page) || 1;
+
+        let limit = parseInt(ctx.query.limit) || 10;
+        let order = ctx.query.order || 'asc';
+        let keyword = ctx.query.keyword || '';
+        let where = {};
+        if (keyword) {
+            where.name = {
+                [this.app.Sequelize.Op.like]: '%' + keyword + '%'
+            }
+        }
+
+        //查看分类id是否存在
+        let classdata = await app.model.ImageClass.findOne({
+            where:{
+                id:classId,
+                status:1,
+            },
+        });
+        if(!classdata){
+            return ctx.apiFail('该图片分类不存在或已禁用');
+        }
+        //存在，则查图片列表
+        let list = await app.model.Image.findAll({
+            where:{
+                image_class_id:classId,
+                status:1,
+                ...where,
+            },
+            order:[
+                ['order', order]
+            ],
+            offset: (page - 1) * limit,
+            limit: limit,
+            // attributes:['id','url','name','path','image_class_id'],
+            // 去掉时间 其他字段都要查
+            attributes:{
+                exclude: ['create_time','update_time'],//排除字段
+            },
+            include:[
+                {
+                    model:app.model.ImageClass,
+                    // attributes:['name'],
+                }
+            ],
+        });
+        let totalCount = await app.model.Image.count({
+            where:{
+                image_class_id:classId,
+                status:1,
+                ...where,
+            },
+        });
+
+        ctx.apiSuccess({
+            list,
+            totalCount,
+        });
+    }
+```
+
