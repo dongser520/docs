@@ -978,3 +978,117 @@ module.exports = ImageController;
     }
 ```
 
+## 九、删除单个图片、自定义图片名称
+### 1. 路由
+`app/router/admin/shop.js`
+```js
+    ...
+    // 图片上传阿里云uploadAliyunOSS
+    router.post('/shop/admin/image/uploadAliyun', controller.admin.image.uploadAliyunOSS);
+    //删除某个图片
+    router.post('/shop/admin/image/:id/delete', controller.admin.image.deleteAPI);
+    router.get('/shop/admin/image/:id/delete', controller.admin.image.delete);
+    //给图片重命名(修改图片信息)
+    router.post('/shop/admin/image/:id', controller.admin.image.update);
+```
+
+### 2. 控制器
+`app/controller/admin/image.js`
+```js
+   // 删除某个图片
+   async delete() {
+      const { ctx, app } = this;
+      const id = ctx.params.id;
+      await app.model.Image.destroy({
+         where: {
+            id,
+         }
+      });
+      //提示
+      ctx.toast('图片删除成功', 'success');
+      //跳转
+      ctx.redirect('/shop/admin/imageclass');
+   }
+   // 删除某个图片api
+   async deleteAPI() {
+      const { ctx, app } = this;
+      const id = ctx.params.id;
+      await app.model.Image.destroy({
+         where: {
+            id,
+         }
+      });
+      ctx.apiSuccess('图片删除成功');
+   }
+
+   //给图片重命名(修改图片信息)
+   async update(){
+      const { ctx, app } = this;
+        //1.参数验证
+        this.ctx.validate({
+            id: {
+                type: 'int',
+                required: true,
+                desc: '图片id'
+            },
+            name: {
+                type: 'string',  //参数类型
+                required: true, //是否必须
+                // defValue: '', 
+                desc: '图片名称', //字段含义
+                range:{
+                    min:2,
+                    max:30
+                }
+            },
+            status: {
+                type: 'int',
+                required: false,
+                defValue: 1,
+                desc: '分类状态 0不可用 1可用 等等状态',
+                range:{
+                    in:[0,1]
+                }
+            },
+            image_class_id: {
+                type: 'int',
+                required: false,
+                //defValue: 0,
+                desc: '图片分类id',
+                range:{
+                   min:1
+                }
+            },
+            order: {
+                type: 'int',
+                required: false,
+                defValue: 50,
+                desc: '排序'
+            }
+        });
+
+        // 参数
+        const id = ctx.params.id;
+        const {  name,  status, image_class_id,order } = ctx.request.body;
+        // 先看一下是否存在
+        let data = await app.model.Image.findOne({ where: { id } });
+        if (!data) {
+            return ctx.apiFail('该图片记录不存在');
+        }
+
+        if(image_class_id){
+           let classdata = await app.model.ImageClass.findOne({ where: { id: image_class_id } });
+           if (!classdata) {
+               return ctx.apiFail('该图片分类不存在，不能修改成这个分类');
+           }
+        }
+        // 修改数据
+        data.name = name;
+        data.status = status;
+        data.image_class_id = image_class_id;
+        data.order = order;
+        await data.save();
+        // 给一个反馈
+        ctx.apiSuccess('修改图片成功');
+   }
+```
