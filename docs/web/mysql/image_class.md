@@ -23,11 +23,11 @@ title:  图片管理板块表说明
 ### 1、技术栈php(thinkphp)同学
 > 直接在`phpMyAdmin`中根据表字段设计创建表，或者通过数据库插件写sql语句创建表。<br/>
 > ### [图片分类表] `image_class` 相关【文档】和【接口】
-> <a href="#" target="_blank">thinkphp框架【文档】</a> 和 <a href="#" target="_blank">【接口】</a>
+> <a href="/fourthless/w-a/thinkphp.图片管理板块.html" target="_blank">thinkphp框架【文档】</a> 和 <a href="/web/mysql/image_class表接口.html" target="_blank">【接口】</a>
 
 ### 2、技术栈node(egg.js)同学
 > ### [图片分类表] `image_class` 相关【文档】和【接口】
-> <a href="#" target="_blank">eggjs框架【文档】</a> 和 <a href="#" target="_blank">【接口】</a>
+> <a href="/fourthless/w-a/eggjs.图片管理板块.html" target="_blank">eggjs框架【文档】</a> 和 <a href="/web/mysql/image_class表接口.html" target="_blank">【接口】</a>
 > 1. 直接在`phpMyAdmin`中根据表字段设计创建表，或者通过数据库插件写sql语句创建表。<br/>
 > 2. 通过迁移命名创建`image_class`表：
 >> 1. 创建迁移文件 命令：
@@ -121,11 +121,11 @@ title:  图片管理板块表说明
 ### 1、技术栈php(thinkphp)同学
 > 直接在`phpMyAdmin`中根据表字段设计创建表，或者通过数据库插件写sql语句创建表。<br/>
 > ### [图片表] `image` 相关【文档】和【接口】
-> <a href="#" target="_blank">thinkphp框架【文档】</a> 和 <a href="#" target="_blank">【接口】</a>
+> <a href="/fourthless/w-a/thinkphp.图片管理板块.html" target="_blank">thinkphp框架【文档】</a> 和 <a href="/web/mysql/image表接口.html" target="_blank">【接口】</a>
 
 ### 2、技术栈node(egg.js)同学
 > ### [图片表] `image` 相关【文档】和【接口】
-> <a href="#" target="_blank">eggjs框架【文档】</a> 和 <a href="#" target="_blank">【接口】</a>
+> <a href="/fourthless/w-a/eggjs.图片管理板块.html" target="_blank">eggjs框架【文档】</a> 和 <a href="/web/mysql/image表接口.html" target="_blank">【接口】</a>
 > 1. 直接在`phpMyAdmin`中根据表字段设计创建表，或者通过数据库插件写sql语句创建表。<br/>
 > 2. 通过迁移命名创建`image`表：
 >> 1. 创建迁移文件 命令：

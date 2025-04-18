@@ -247,3 +247,6 @@ this.ctx.validate({
 ## 十六、角色表 `role`和权限表 `rule`的中间表 `role_rule`
 具体查看：<a href="/web/mysql/role.html#五、角色表role和权限表rule的中间表-role-rule-表字段设计" target="_blank">点击查看 角色表 `role`和权限表 `rule`的中间表 `role_rule`</a><br/>
 
+## 十七、图片管理板块表：`image_class`[图片分类表]、`image`[图片表] 说明
+具体查看：<a href="/web/mysql/image_class.html" target="_blank">点击查看 图片管理板块表 `image_class` `image`</a><br/>
+

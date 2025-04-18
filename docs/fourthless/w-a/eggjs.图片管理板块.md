@@ -1092,3 +1092,8 @@ module.exports = ImageController;
         ctx.apiSuccess('修改图片成功');
    }
 ```
+## 十、图片表所有接口
+> 具体查看，<a href="/web/mysql/image表接口" target="_blank">image表接口</a><br/>
+
+## 十一、图片管理板块网站后台相关接口说明
+> 具体查看，<a href="/fourthless/w-a/eggjs.图片管理板块网站后台" target="_blank">图片管理板块网站后台相关接口说明</a><br/>
