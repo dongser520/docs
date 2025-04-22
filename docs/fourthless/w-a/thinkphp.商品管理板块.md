@@ -178,3 +178,63 @@ class GoodsClass extends BaseController
 }
 ```
 
+## 四、商品分类拖拽排序
+### 1. 路由
+`route/admin.php`
+```php
+...
+
+// 必须是登录之后，才能访问（管理员身份）
+Route::group('admin',function(){ 
+    ...
+
+    //商品分类拖拽排序
+    Route::post('goodsclass/sort','admin.GoodsClass/sort');
+    //删除商品分类
+    Route::post('goodsclass/:id/delete','admin.GoodsClass/delete');
+    //修改商品分类状态
+    Route::post('goodsclass/:id/update_status','admin.GoodsClass/updateStatus');
+    //更新商品分类
+    Route::post('goodsclass/:id','admin.GoodsClass/update');
+    //创建商品分类
+    Route::post('goodsclass','admin.GoodsClass/save');
+    //商品分类列表
+    Route::get('goodsclass/:page','admin.GoodsClass/index');
+      
+//加入中间件代码
+})->middleware(\app\middleware\checkShopManagerToken::class);
+```
+
+### 2. 商品分类验证器
+`app/validate/admin/GoodsClass.php`
+```php
+protected $rule = [
+    ...
+
+    'sortdata' => 'require',
+];
+...
+protected $scene = [
+    ...
+    //商品分类拖拽排序
+    'sort' => ['sortdata'],
+
+];
+```
+
+### 3. 商品分类控制器
+`app/controller/admin/GoodsClass.php`
+```php
+    //商品分类拖拽排序
+    public function sort()
+    {
+        // 这里的'sortdata'是前端传过来的，包含排序order 和 pid 及 id的数据集合
+        // 一个整理之后的数据集合数组数据，如：
+        // [{"id":26,"order":0, "pid":0},{"id":28,"order":1, "pid":26},{"id":27,"order":2, "pid":26}]
+        $sortdata = $this->request->param('sortdata');
+        $sortdata = json_decode($sortdata,true);
+        // halt($sortdata);
+        // saveAll : 注意$sortdata里面包含id，则是更新操作，没有id，则是创建操作
+        return apiSuccess($this->model -> saveAll($sortdata));
+    }
+```
