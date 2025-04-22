@@ -78,3 +78,7 @@ title: eggjs框架开发文档
 >> 2. <a href="/web/mysql/image_class表接口" target="_blank">图片分类image_class表接口</a><br/>
 >> 3. <a href="/web/mysql/image表接口" target="_blank">图片image表接口</a><br/>
 >> 4. <a href="/fourthless/w-a/eggjs.图片管理板块网站后台.html" target="_blank">eggjs图片管理板块网站后台说明</a><br/>
+
+
+## 三、商品管理板块
+> 具体查看，<a href="/fourthless/w-a/eggjs.商品管理板块" target="_blank">商品管理板块</a><br/>

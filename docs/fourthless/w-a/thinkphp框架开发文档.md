@@ -295,4 +295,8 @@ title: thinkphp框架开发文档
 > 具体查看，<a href="/fourthless/w-a/thinkphp.图片管理板块" target="_blank">图片管理板块</a><br/>
 > 特别说明：
 >> 1. <a href="/fourthless/w-a/thinkphp文件上传说明" target="_blank">上传图片</a><br/>
+
+
+## 九、商品管理板块
+> 具体查看，<a href="/fourthless/w-a/thinkphp.商品管理板块" target="_blank">商品管理板块</a><br/>
  

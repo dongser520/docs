@@ -30,3 +30,6 @@ title: 第四学期第一季（课程学习顺序：11）
 ### <a >章节4.图片管理板块</a>
 ####  <a href="/fourthless/w-a/thinkphp框架开发文档.html#八、图片管理板块" target="_blank" style="margin-left:40px;">1.thinkphp框架：图片管理板块</a>
 ####  <a href="/fourthless/w-a/eggjs框架开发文档.html#二、图片管理板块" target="_blank" style="margin-left:40px;">2.eggjs框架：图片管理板块</a>
+### <a >章节5.商品管理板块</a>
+####  <a href="/fourthless/w-a/thinkphp框架开发文档.html#九、商品管理板块" target="_blank" style="margin-left:40px;">1.thinkphp框架：商品管理板块</a>
+####  <a href="/fourthless/w-a/eggjs框架开发文档.html#三、商品管理板块" target="_blank" style="margin-left:40px;">2.eggjs框架：商品管理板块</a>
