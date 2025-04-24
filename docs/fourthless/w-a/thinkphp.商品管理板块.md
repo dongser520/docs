@@ -238,3 +238,14 @@ protected $scene = [
         return apiSuccess($this->model -> saveAll($sortdata));
     }
 ```
+
+## 五、商品规格模块
+### 1. 商品规格表 skus
+> 具体查看，<a href="/web/mysql/goods_class.html#三、skus-商品规格表-字段设计" target="_blank">三、skus[商品规格表] 字段设计</a><br/>
+
+### 2. 商品规格模块接口开发
+> 具体查看，<a href="/fourthless/w-a/thinkphp.商品规格模块" target="_blank">商品规格模块</a><br/>
+
+
+### 3. 商品规格 skus 所有接口
+> 具体查看，<a href="/web/mysql/skus表接口.html" target="_blank">skus[商品规格表] 所有接口</a><br/>

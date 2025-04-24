@@ -791,3 +791,10 @@ module.exports = Goods_classService;
 
 ## 四、商品分类所有接口
 > 具体查看，<a href="/web/mysql/goods_class表接口" target="_blank">goods_class表接口</a><br/>
+
+## 五、商品规格模块
+### 1. 商品规格表 skus
+> 具体查看，<a href="/web/mysql/goods_class.html#三、skus-商品规格表-字段设计" target="_blank">三、skus[商品规格表] 字段设计</a><br/>
+
+### 2.商品规格模块api及后台开发
+> 具体查看，<a href="/fourthless/w-a/eggjs.商品规格模块" target="_blank">商品规格模块api及后台开发</a><br/>
