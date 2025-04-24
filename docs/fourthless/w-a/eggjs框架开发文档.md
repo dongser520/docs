@@ -82,5 +82,10 @@ title: eggjs框架开发文档
 
 ## 三、商品管理板块
 > 具体查看，<a href="/fourthless/w-a/eggjs.商品管理板块" target="_blank">商品管理板块</a><br/>
+> 特别说明：
+>> 1. <a href="/web/mysql/goods_class.html#一、goods-class-商品分类表-字段设计" target="_blank">商品分类表 goods_class</a><br/>
+>> 2. <a href="/web/mysql/goods_class表接口.html" target="_blank">商品分类表 goods_class 所有接口</a><br/>
+>> 3. <a href="/web/mysql/goods_class.html#三、skus-商品规格表-字段设计" target="_blank">商品规格表 skus：【三、skus[商品规格表] 字段设计】</a><br/>
+>> 2. <a href="/web/mysql/skus表接口.html" target="_blank">商品规格表 skus 所有接口</a><br/>
 
 

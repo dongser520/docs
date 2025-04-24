@@ -741,3 +741,6 @@ module.exports = SkusController;
         ctx.apiSuccess(true);
     }
 ```
+
+## 四. 商品规格所有接口
+> 具体查看，<a href="/web/mysql/skus表接口.html" target="_blank">skus[商品规格表] 所有接口</a><br/>

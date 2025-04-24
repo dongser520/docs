@@ -250,3 +250,6 @@ this.ctx.validate({
 ## 十七、图片管理板块表：`image_class`[图片分类表]、`image`[图片表] 说明
 具体查看：<a href="/web/mysql/image_class.html" target="_blank">点击查看 图片管理板块表 `image_class` `image`</a><br/>
 
+## 十八、商品管理板块表：`goods_class`[商品分类表]、`skus`[商品规格表] 说明
+具体查看：<a href="/web/mysql/goods_class.html" target="_blank">点击查看 商品管理板块表 `goods_class` `skus`</a><br/>
+
