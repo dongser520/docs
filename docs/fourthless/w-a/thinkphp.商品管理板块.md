@@ -249,3 +249,7 @@ protected $scene = [
 
 ### 3. 商品规格 skus 所有接口
 > 具体查看，<a href="/web/mysql/skus表接口.html" target="_blank">skus[商品规格表] 所有接口</a><br/>
+
+## 六、商品模块
+### 1. 商品表 goods
+> 具体查看，<a href="/web/mysql/goods_class.html#五、商品相关表字段设计" target="_blank">五、goods[商品表] 字段设计</a><br/>

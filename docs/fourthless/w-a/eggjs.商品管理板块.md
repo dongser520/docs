@@ -798,3 +798,8 @@ module.exports = Goods_classService;
 
 ### 2.商品规格模块api及后台开发
 > 具体查看，<a href="/fourthless/w-a/eggjs.商品规格模块" target="_blank">商品规格模块api及后台开发</a><br/>
+
+
+## 六、商品模块
+### 1. 商品表 goods
+> 具体查看，<a href="/web/mysql/goods_class.html#五、商品相关表字段设计" target="_blank">五、goods[商品表] 字段设计</a><br/>

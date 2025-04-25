@@ -65,6 +65,17 @@ module.exports = [
                 ]
             },
             {
+                text: 'Egg.js专栏',
+                ariaLabel: 'Egg.js专栏',
+                items: [
+                    { text: 'Egg.js基础', link: '/secondless/w-c/Egg.js.html' },
+                    { text: 'Egg.js基础总结', link: '/secondless/w-c/egg.js基础总结.html' },
+                    { text: 'Egg.js重要知识详细文档', link: '/secondless/w-c/egg.js重要知识详细文档.html' },
+                    { text: 'Egg.js参数验证说明', link: '/secondless/w-c/ValParams%20API%20说明.html' },
+                    { text: 'Egg.js迁移文件Sequelize数据类型', link: '/web/mysql/Sequelize数据类型.html' },
+                ]
+            },
+            {
                 text: '实用网站',
                 ariaLabel: '实用网站菜单',
                 items: [
