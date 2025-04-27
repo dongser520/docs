@@ -221,7 +221,7 @@ title:  商品管理板块表说明
 | <b>coupon_price </b>      | decimal(10,2)	 |  是    |                |   券后价                          |
 | <b>discount_price </b>      | decimal(10,2)	 |  是    |                |   折后价                          |
 | <b>spike_price </b>      | decimal(10,2)	 |  是    |                |   秒杀价                          |
-| <b>orther_price </b>      | decimal(10,2)	 |  是    |                |   其它设置价（如:首件价，新客价，30天低价等等）                          |
+| <b>other_price </b>      | decimal(10,2)	 |  是    |                |   其它设置价（如:首件价，新客价，30天低价等等）                          |
 | <b>... </b>      |  |      |                |                            |
 | <b>unit </b>      | varchar(10) |     是    |    件          |   单位（默认：件）                        |
 | <b>stock </b>      | int(11) |  是    |         0       |   库存                         |
