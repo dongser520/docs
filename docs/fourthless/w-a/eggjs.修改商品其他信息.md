@@ -1269,7 +1269,7 @@ module.exports = app => {
         }
 
 
-        //查看分类id是否存在
+        //查看是否存在
         let classdata = await app.model.Goods.findOne({
             where:{
                 id:classId,
@@ -1279,8 +1279,8 @@ module.exports = app => {
         if(!classdata){
             return ctx.apiFail('该商品不存在或已禁用');
         }
-        /*
         //存在，则查图片列表
+        /*
         let list = await app.model.GoodsBanner.findAll({
             where:{
                 goods_id:classId,
@@ -1306,7 +1306,7 @@ module.exports = app => {
                     // attributes:{
                     //     exclude:['create_time','update_time']
                     // },
-                    attributes:['name'],
+                    attributes:['name','id'],
                 }
             ]
         });
@@ -1345,7 +1345,7 @@ module.exports = app => {
                 //表格上方按钮,没有不要填buttons
                 buttons: [
                     {
-                        url: '/shop/admin/goods-/'+ classId +'/createGoodsBanner',//新增路径
+                        url: '/shop/admin/goods-/'+classId+'/createGoodsBanner',//新增路径
                         desc: '上传图片',//新增 //按钮名称
                         // icon: 'fa fa-plus fa-lg',//按钮图标
                     }
@@ -1442,7 +1442,8 @@ module.exports = app => {
         const id = ctx.params.id;
         let currentdata = await app.model.GoodsBanner.findOne({
             where: {
-                id
+                id,
+                // status:1
             }
         });
         if (!currentdata) {
@@ -1498,7 +1499,6 @@ module.exports = app => {
                         ]),
                         placeholder: '状态 0不可用 1可用 等等状态',
                     },
-                    
                 ],
                 //修改内容默认值
                 data:currentdata,
@@ -1515,7 +1515,7 @@ module.exports = app => {
             id: {
                 type: 'int',
                 required: true,
-                desc: '商品id'
+                desc: '图片id'
             },
             status: {
                 type: 'int',
@@ -1542,12 +1542,12 @@ module.exports = app => {
 
         // 参数
         const id = ctx.params.id;
-        const {  status, order, url } = ctx.request.body;
         // 先看一下是否存在
         let data = await app.model.GoodsBanner.findOne({ where: { id } });
         if (!data) {
             return ctx.apiFail('该图片不存在');
         }
+        const {  status, order, url } = ctx.request.body;
         let goods_id = data.goods_id;
         //存在
         // const Op = this.app.Sequelize.Op;//拿Op,固定写法
@@ -1564,10 +1564,10 @@ module.exports = app => {
         //     return ctx.apiFail('同一个分类下不能有相同的商品分类名称');
         // }
         // 修改数据
-        data.goods_id = goods_id;
-        data.status = status;
-        data.order = order;
         data.url = url;
+        data.status = status;
+        data.goods_id = goods_id;
+        data.order = order;
         await data.save();
         // 给一个反馈
         ctx.apiSuccess('修改图片成功');
@@ -1579,7 +1579,7 @@ module.exports = app => {
 
         let data = await app.model.GoodsBanner.findOne({ where: { id } });
         if (!data) {
-            return ctx.apiFail('该图片不存在');
+            return ctx.apiFail('该商品图片不存在');
         }
         await app.model.GoodsBanner.destroy({
             where: {
@@ -1587,8 +1587,14 @@ module.exports = app => {
             }
         });
         //提示
-        ctx.toast('图片删除成功', 'success');
+        ctx.toast('商品图片删除成功', 'success');
         //跳转
         ctx.redirect('/shop/admin/goods-/'+data.goods_id+'/indexGoodsBanner');
     }
 ```
+   
+## 四、修改商品参数信息 `goods_param`表
+### 1. 商品参数表 `goods_param`
+> 具体查看，<a href="/web/mysql/goods_class.html#_3-商品表goods的外联表goods-param-商品参数表-字段设计" target="_blank">3. 商品表goods的外联表goods_param[商品参数表]字段设计</a><br/>
+### 2. 修改商品参数信息说明
+> 具体查看，<a href="eggjs.修改商品参数信息" target="_blank">修改商品参数信息</a><br/>

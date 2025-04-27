@@ -555,3 +555,89 @@ module.exports = {
 >> // 可以通过 `db:migrate:undo:all` 回退到初始状态
 >> npx sequelize db:migrate:undo:all
 >> ```
+
+
+### 3. 商品表`goods`的外联表`goods_param`[商品参数表]字段设计
+| 字段名  |  数据类型及描述    |   空    | <p style="width:150px;">默认值 </p>  | <p style="width:100px;">字段含义 </p>     |
+| :---:   | :---:      |  :---:    | :---:       |        :---:                             |
+| <b>id </b>  | <span>int(20) </span><br/> <span style="font-size:12px">主键、自增长、UNSIGNED无符号 </span>    |    否      |    |         主键id  |
+| <b>goods_id </b>      | int(20) | 否    |                               |   商品`goods`表的id            |
+| <b>paraminfo </b>      | varchar(5000) |     否    |   |   商品参数信息(skus表每个属性的键值对数据)|
+| <b>order </b>     | int(11) |  是    |       50                 |   排序，默认50            |
+| <b> status </b>  | int(1)  |    否    |        1	 |   可用状态：0禁用1启用                         |
+| <b> create_time </b>  | datetime  |    否    |      CURRENT_TIMESTAMP	   |   数据创建时间   |
+| <b> update_time </b>  | datetime  |      否  |        CURRENT_TIMESTAMP	|   数据更新时间   |
+
+### 创建商品参数表 `goods_param`
+> 1. 直接在`phpMyAdmin`中根据表字段设计创建表，或者通过数据库插件写sql语句创建表。<br/>
+> 2. 通过迁移命名创建`goods_param`表：
+>> 1. 创建迁移文件 命令：
+>> ```js
+>> npx sequelize migration:generate --name=goods_param
+>> ```
+>> 2. 创建迁移文件 `goods_param.js`，内容如下：<br/>
+```js
+'use strict';
+
+/** @type {import('sequelize-cli').Migration} */
+module.exports = {
+  async up (queryInterface, Sequelize) {
+    const { INTEGER, STRING, DATE, ENUM, TEXT, BIGINT} = Sequelize;
+    // 创建表 --- 类似我们sql语句定义表结构
+    await queryInterface.createTable('goods_param', {
+      id: { 
+        type: INTEGER(20).UNSIGNED, 
+        primaryKey: true, 
+        autoIncrement: true,
+        comment: '主键id'
+      },
+      goods_id:{
+        type: INTEGER(20).UNSIGNED, 
+        allowNull: false, 
+        // defaultValue:0,
+        comment: '商品id',
+        references: { //关联关系
+          model: 'goods', //关联的表
+          key: 'id' //关联表的主键
+        },
+        onDelete: 'cascade', //删除时操作
+        onUpdate: 'restrict', // 更新时操作
+      },
+      paraminfo: { 
+        type: STRING(5000), 
+        allowNull: false, 
+        defaultValue: '', 
+        comment: '商品参数信息'
+      },
+      order: {
+        type: INTEGER,//不限定长度.默认int(11)
+        allowNull: true,
+        defaultValue: 50,
+        comment: '排序，默认50'
+      },
+      status:{
+        type: INTEGER(1),
+        allowNull: false, 
+        defaultValue:1,
+        comment: '状态：1：启用，0：禁用'
+      },
+      // sex: { type: ENUM, values: ['男','女','保密'], allowNull: true, defaultValue: '保密', comment: '留言用户性别'},
+      create_time: {type: DATE, allowNull: false, defaultValue:Sequelize.fn('NOW')},
+      update_time: {type: DATE, allowNull: false, defaultValue:Sequelize.fn('NOW')}
+    });
+  },
+
+  async down (queryInterface, Sequelize) {
+    await queryInterface.dropTable('goods_param')
+  }
+};
+```
+> 3. 执行迁移文件命令生成数据库表：
+>> ```js
+>> // 创建数据库
+>> npx sequelize db:migrate
+>> // 如果有问题需要回滚，可以通过 `db:migrate:undo` 回退一个变更
+>> npx sequelize db:migrate:undo
+>> // 可以通过 `db:migrate:undo:all` 回退到初始状态
+>> npx sequelize db:migrate:undo:all
+>> ```
