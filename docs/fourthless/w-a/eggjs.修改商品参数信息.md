@@ -556,11 +556,18 @@ cursor: pointer;background:none;"
 
 <div class="card">
     <div class="card-body">
+        <div class="mb-4">
+            <div class="bg-light">
+                <button class="btn btn-default btn-sm" onclick="history.back()"
+                title="点击返回上一页"><span class="fa fa-arrow-left"></span> 返回上一页</button>
+            </div>
+        </div>
         {% if form %}
         <form action="{{form.action}}" method="post">
             {% for item in form.fields %}
             <div class="form-group row">
-                <label class="col-form-label col-md-2">{{item.label}}</label>
+                <label class="col-form-label col-md-2" 
+                style="display: {% if item.hidekeyData %}none{% else %}block{% endif %};">{{item.label}}</label>
                 <div class="col-md-10">
                     {# 如果是文件类型 #}
                     {% if item.type == 'file' %}
@@ -639,7 +646,15 @@ cursor: pointer;background:none;"
                     {# {{item.default}} #}
                     {% set forformParsed = item.default | safe | fromJson %}
                     {# {{ forformParsed | dump }} #}
-                       {% if item.id %}
+                    {% if forformParsed.length == 0 %}
+                        {% set ortherdataParsed = item.ortherdata | safe | fromJson %}
+                        {# {{ ortherdataParsed | dump }} #}
+                        {# 如果有html字段 #}
+                        {% if ortherdataParsed.html %}
+                            {{ ortherdataParsed.html | safe }}
+                        {% endif %}
+                    {% else %}
+                        {% if item.id %}
                             <div class="param-groups">
                                 {% for dataItem in forformParsed %}
                                 <div class="param-group" data-id="{{ dataItem.id }}">
@@ -664,7 +679,7 @@ cursor: pointer;background:none;"
                                 {% if not loop.last %}<hr>{% endif %}
                                 {% endfor %}
                             </div>
-                       {% else %}
+                        {% else %}
                             <div class="param-groups">
                                 {% for dataItem in forformParsed %}
                                 <div class="param-group" data-id="{{ dataItem.id }}">
@@ -688,7 +703,9 @@ cursor: pointer;background:none;"
                                 {% if not loop.last %}<hr>{% endif %}
                                 {% endfor %}
                             </div>
-                       {% endif %}
+                        {% endif %}
+                    {% endif %}
+                       
 
                     
                     {# 如果是树形结构数据选择 #}
@@ -699,7 +716,9 @@ cursor: pointer;background:none;"
                     {% call renderMenu(itemDefaultParsed,item.name,item.type) %}
                     {% endcall %}
                     {% else %}
-                    <input type="{{item.type}}" class="form-control"
+                    <input 
+                    style="display: {% if item.hidekeyData %}none{% else %}block{% endif %};"
+                    type="{{item.type}}" class="form-control"
                         name="{{item.name}}"
                         placeholder="{{item.placeholder}}..."
                         v-model="form.{{item.name}}">
@@ -803,8 +822,16 @@ cursor: pointer;background:none;"
                             type:'success',
                             delay:1000,
                             success:function(){
-                                // 跳转到某个页面
-                                window.location.href = "{{successUrl}}";
+                                // 查询当前网址是否有gourl参数
+                                let gourl = window.location.search.match(/gourl=([^&]*)/);
+                                gourl = decodeURIComponent(gourl).split(',');
+                                if(gourl && gourl[1]){
+                                    // 跳转到gourl对应的页面
+                                    window.location.href = gourl[1];
+                                } else{
+                                    // 跳转到某个页面
+                                    window.location.href = "{{successUrl}}";
+                                }
                             }
                         });
                     },
@@ -1001,6 +1028,8 @@ cursor: pointer;background:none;"
     });
 </script>
 ```
+
+
 
 
 ## 三、商品参数信息列表及删除
@@ -1275,7 +1304,7 @@ cursor: pointer;background:none;"
                     //     placeholder: '不调整（如需调整请选择）',
                     // },
                     {
-                        label: '商品图片地址',
+                        label: '商品参数信息',
                         type: 'for_form', 
                         name: 'paraminfo',
                         placeholder: '',
@@ -1363,5 +1392,325 @@ cursor: pointer;background:none;"
         await data.save();
         // 给一个反馈
         ctx.apiSuccess('修改商品参数成功');
+    }
+```
+
+## 五、商品的参数没有对应的skus信息，先添加skus信息
+### 1. 控制器
+`app/controller/admin/goods.js`
+```js
+    //新增商品参数界面
+    async createGoodsParam(){
+        const { ctx, app } = this;
+        //1.参数验证
+        this.ctx.validate({
+            goods_id: {
+                type: 'int',
+                required: true,
+                desc: '商品id',
+                // defValue: 0,
+                range:{
+                    min:1,
+                }
+            },
+        });
+        // 参数
+        const goods_id = ctx.params.goods_id;
+        let data = await app.model.Goods.findOne({ where: { id:goods_id } });
+        if (!data) {
+            return ctx.apiFail('该商品不存在');
+        }
+        // 根据商品id获取商品分类，然后获取分类里面的skus值
+        let goodsClassId = data.goods_class_id;
+        // ctx.body = goodsClassId; return;
+        // 根据商品分类id读取商品分类及其子分类，并转成树形结构
+        let goodsClassTree = await this.datatree_byid(goodsClassId, 'GoodsClass');
+        // ctx.body = goodsClassTree; return;
+        /*
+        //渲染公共模版
+        await ctx.renderTemplate({
+            title: '创建商品参数',//现在网页title,面包屑导航title,页面标题
+            tempType: 'form', //模板类型：table表格模板 ，form表单模板
+            form: {
+                //提交地址
+                action: "",
+                //  字段
+                fields: [
+                    {
+                        label: '商品分类',
+                        type: 'dropdown', //下拉框
+                        name: 'pid',
+                        default: JSON.stringify(goodsClassTree),
+                        placeholder: '请选择一个商品分类',
+                    },
+                ],
+            },
+            //新增成功之后跳转到哪个页面
+            successUrl: '',
+        });
+        */
+        //看一下当前商品分类在商品skus里面有没有创建的信息
+        let skusdata = await app.model.Skus.findAll({
+            where:{
+                goods_class_id:goodsClassId
+            }
+        });
+        // ctx.body = skusdata; return;
+        // 获取当前页面网址
+        let gourl = encodeURIComponent(ctx.url);
+        if(skusdata.length){
+            // ctx.body = '有对应的skus信息，可继续添加skus信息'
+            await ctx.renderTemplate({
+                title: '创建商品参数',//现在网页title,面包屑导航title,页面标题
+                tempType: 'form', //模板类型：table表格模板 ，form表单模板,for_form循环模版
+                form: {
+                    //提交地址
+                    action: "/shop/admin/goods-/"+goods_id+"/saveGoodsParam",
+                    //  字段
+                    fields: [
+                        // {
+                        //     label: '商品分类',
+                        //     type: 'dropdown', //下拉框
+                        //     name: 'pid',
+                        //     default: JSON.stringify(goodsClassTree),
+                        //     placeholder: '请选择一个商品分类',
+                        // },
+                        {
+                            label: '商品参数',
+                            type: 'for_form', //循环遍历数组数据到表单
+                            name: 'paraminfo',
+                            default: JSON.stringify(skusdata),
+                            placeholder: '',
+                        },
+                        {
+                            label: '排序',
+                            type: 'number',
+                            name: 'order',
+                            placeholder: '请输入排序',
+                            default:50,
+                        },
+                        {
+                            label: '可用状态',
+                            type: 'btncheck', //按钮组选择
+                            name: 'status',
+                            default: JSON.stringify([
+                                { value: 1, name: '可用', checked: true },
+                                { value: 0, name: '不可用',  },
+                            ]),
+                            placeholder: '状态 0不可用 1可用 等等状态',
+                        },
+                    ],
+                },
+                //新增成功之后跳转到哪个页面
+                successUrl: '/shop/admin/goods-/'+goods_id+'/indexGoodsParam',
+            });
+        }else{
+            // ctx.body = '没有对应的skus信息，先添加skus信息'
+            await ctx.renderTemplate({
+                title: '创建商品参数',//现在网页title,面包屑导航title,页面标题
+                tempType: 'form', //模板类型：table表格模板 ，form表单模板,for_form循环模版
+                form: {
+                    //提交地址
+                    action: "/shop/admin/goods-/"+goods_id+"/saveGoodsParam",
+                    //  字段
+                    fields: [
+                        // {
+                        //     label: '商品分类',
+                        //     type: 'dropdown', //下拉框
+                        //     name: 'pid',
+                        //     default: JSON.stringify(goodsClassTree),
+                        //     placeholder: '请选择一个商品分类',
+                        // },
+                        {
+                            label: '商品参数',
+                            type: 'for_form', //循环遍历数组数据到表单
+                            name: 'paraminfo',
+                            default: JSON.stringify(skusdata),//没有值的情况
+                            placeholder: '',
+                            //自定义一些数据
+                            ortherdata:JSON.stringify({
+                                html:`
+                                    <a href="/shop/admin/skus/create?gourl=${gourl}&goods_class_id=${goodsClassId}">
+                                       请先创建规格数据，再来创建商品参数
+                                    </a>
+                                `,
+                            }),
+                        },
+                        {
+                            label: '排序',
+                            type: 'number',
+                            name: 'order',
+                            placeholder: '请输入排序',
+                            default:50,
+                        },
+                        {
+                            label: '可用状态',
+                            type: 'btncheck', //按钮组选择
+                            name: 'status',
+                            default: JSON.stringify([
+                                { value: 1, name: '可用', checked: true },
+                                { value: 0, name: '不可用',  },
+                            ]),
+                            placeholder: '状态 0不可用 1可用 等等状态',
+                        },
+                    ],
+                },
+                //新增成功之后跳转到哪个页面
+                successUrl: '/shop/admin/goods-/'+goods_id+'/indexGoodsParam',
+            });
+        }
+    }
+    //新增商品参数数据
+    async saveGoodsParam(){
+        const { ctx, app } = this;
+        //1.参数验证
+        this.ctx.validate({
+            goods_id: {
+                type: 'int',
+                required: true,
+                desc: '商品id',
+                // defValue: 0,
+                range:{
+                    min:1,
+                }
+            },
+            paraminfo: {
+                type: 'string',
+                required: true,
+                desc: '商品参数信息',
+                // defValue: 0,
+                range:{
+                    max:5000
+                }
+            },
+            status: {
+                type: 'int',
+                required: false,
+                defValue: 1,
+                desc: '状态 0不可用 1可用 等等状态',
+                range:{
+                    in:[0,1]
+                }
+            },
+            order: {
+                type: 'int',
+                required: false,
+                defValue: 50,
+                desc: '排序'
+            },
+        });
+        // 参数
+        const goods_id = ctx.params.goods_id;
+        let data = await app.model.Goods.findOne({ where: { id:goods_id } });
+        if (!data) {
+            return ctx.apiFail('该商品不存在');
+        }
+        let {paraminfo,status,order} = ctx.request.body;
+        if(paraminfo == '[]'){
+             return ctx.apiFail('请先创建规格数据，再来创建商品参数');
+        }
+        const res = await app.model.GoodsParam.create({
+            paraminfo,status,order,
+            goods_id
+        });
+        this.ctx.apiSuccess('添加商品参数成功');
+    }
+```
+
+### 2. skus的控制器
+`app/controller/admin/skus.js`
+```js
+    // 创建商品规格界面
+    async create() {
+        const { ctx, app } = this;
+
+        // 渲染模版前先拿到所有分类
+        let data = await ctx.service.goodsClass.dropdown_goodsclass_list();
+        data.shift();
+        // console.log('分类数据', data);
+        if(data.length == 0){
+            //提示
+            ctx.toast('请先创建商品分类，在创建商品规格', 'danger');
+            //跳转
+            return  ctx.redirect('/shop/admin/goodsclass/create');
+        }
+
+        // ctx.body = data;return;
+        //看一下网址上是否有商品分类id    goods_class_id
+        let _fields = [
+            {
+                label: '放在哪个商品分类里面',
+                type: 'dropdown', //下拉框
+                name: 'goods_class_id',
+                default: JSON.stringify(data),
+                placeholder: '请选择一个商品分类',
+            }
+        ];
+        // ctx.body = _fields;return;
+        if(ctx.query.goods_class_id){
+            let goodsClass = await app.model.GoodsClass.findByPk(parseInt(ctx.query.goods_class_id));
+            if(goodsClass){
+                data = [];
+                data.push(goodsClass);
+                _fields[0].default = goodsClass.id;
+                _fields[0].placeholder = '';
+                _fields[0].type = 'number';
+                _fields[0].hidekeyData = true; //隐藏数据
+            }
+            // ctx.body = _fields;return;
+        }
+
+        //渲染公共模版
+        await ctx.renderTemplate({
+            title: '创建商品规格',//现在网页title,面包屑导航title,页面标题
+            tempType: 'form', //模板类型：table表格模板 ，form表单模板
+            form: {
+                //提交地址
+                action: "/shop/admin/skus",
+                //  字段
+                fields: [
+                    ..._fields,
+                    {
+                        label: '商品规格名称',
+                        type: 'text',
+                        name: 'name',
+                        placeholder: '请输入商品规格名称',
+                        // default:'默认值测试', //新增时候默认值，可选
+                    },
+                    {
+                        label: '商品规格值',
+                        type: 'textarea',
+                        name: 'default',
+                        placeholder: '请输入商品规格值，多个值用逗号隔开',
+                    },
+                    {
+                        label: '规格类型',
+                        type: 'number',
+                        name: 'type',
+                        placeholder: '请输入商品规格类型：0无限制，1颜色，2图片，3尺寸等等,选填，默认0',
+                        default:0,
+                    },
+                    {
+                        label: '排序',
+                        type: 'number',
+                        name: 'order',
+                        placeholder: '请输入排序',
+                        default:50,
+                    },
+                    {
+                        label: '可用状态',
+                        type: 'btncheck', //按钮组选择
+                        name: 'status',
+                        default: JSON.stringify([
+                            { value: 1, name: '可用', checked: true },
+                            { value: 0, name: '不可用' },
+                        ]),
+                        placeholder: '状态 0不可用 1可用 等等状态',
+                    },
+                ],
+            },
+            //新增成功之后跳转到哪个页面
+            successUrl: '/shop/admin/skus',
+        });
     }
 ```
