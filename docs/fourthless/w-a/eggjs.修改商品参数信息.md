@@ -966,3 +966,225 @@ cursor: pointer;background:none;"
 
 
 ```
+
+
+## 三、商品参数信息列表及删除
+### 1. 控制器
+`app/controller/admin/goods.js`
+```js
+    //商品参数列表
+    async indexGoodsParam(){
+        const { ctx, app } = this;
+        //1.参数验证
+        this.ctx.validate({
+            goods_id: {
+                type: 'int',
+                required: true,
+                desc: '商品id',
+                // defValue: 0,
+                range:{
+                    min:1,
+                }
+            },
+        });
+        // 参数
+        const goods_id = ctx.params.goods_id;
+        let Goodsdata = await app.model.Goods.findOne({ where: { id:goods_id } });
+        if (!Goodsdata) {
+            return ctx.apiFail('该商品不存在');
+        }
+        let GoodsClassdata = await app.model.GoodsClass.findOne({
+            where: { 
+                id:Goodsdata.goods_class_id 
+            },
+            include: [
+                { model: app.model.Skus},
+            ] 
+        });
+        // ctx.body = GoodsClassdata;return;
+        //分页：可以提炼成一个公共方法page(模型名称，where条件，其他参数options)
+        let data = await ctx.page('GoodsParam');
+        // let data = await ctx.service.goodsClass.datalist({ limit: 10000 });
+        // console.log('分类数据', data);
+        // ctx.body = data;
+        // return;
+        // data = data.rules;
+        //渲染公共模版
+        await ctx.renderTemplate({
+            title: '商品：' + Goodsdata.name + '参数列表',//现在网页title,面包屑导航title,页面标题
+            data,
+            tempType: 'table', //模板类型：table表格模板 ，form表单模板
+            table: {
+                //表格上方按钮,没有不要填buttons
+                buttons: [
+                    {
+                        url: '/shop/admin/goods-/'+goods_id+'/createGoodsParam',//新增路径
+                        desc: '创建商品参数',//新增 //按钮名称
+                        // icon: 'fa fa-plus fa-lg',//按钮图标
+                    },
+                    // {
+                    //     url: '/shop/admin/goods/create',//新增路径
+                    //     desc: '上传商品',//新增 //按钮名称
+                    //     // icon: 'fa fa-plus fa-lg',//按钮图标
+                    // }
+                ],
+                //表头
+                columns: [
+                    {
+                        title: '商品参数',
+                        // key: 'paraminfo',
+                        class: 'text-left',//可选
+                        render(item) { //树形数据
+                            // console.log('每个item',item);
+                            // if (item.level) {
+                            //     let w = item.level * 40;
+                            //     return `<span style="display:inline-block;width:${w}px"></span>`;
+                            // }
+                            let str = ``;
+                            let data = JSON.parse(item.paraminfo);
+                            for (let i = 0; i < data.length; i++) {
+                                let _str = `<p style="width:100%;margin-top:15px;">${data[i].title}</p>`;
+                                let valuearr = data[i].data;
+                                let _str_ = ``;
+                                for(let j=0;j<valuearr.length;j++){
+                                    _str_ += `
+                                        <p style="font-size:12px;border:1px solid #ccc;margin:5px;padding:5px;">
+                                            <span >${valuearr[j].name}</span>：
+                                            <span style="color:#f00">${valuearr[j].value}</span>
+                                        </p>
+                                    `;
+                                }
+                                str += `<div style="display:flex;flex-wrap:wrap;">${_str}${_str_}</div>`;
+                            }
+                            return `<div>${str}</div>`;
+                        }
+                    },
+                    // {
+                    //     title: '分类下的商品',
+                    //     // key: 'name',
+                    //     class: 'text-left',//可选
+                    //     render(item) { //树形数据
+                    //         // console.log('每个item',item);
+                    //         // if (item.level) {
+                    //         //     let w = item.level * 40;
+                    //         //     return `<span style="display:inline-block;width:${w}px"></span>`;
+                    //         // }
+                    //         return `<a href="/shop/admin/imageclass/${item.id}/imgList">${item.images.length}张</a>`;
+                    //     }
+                    // },
+                    // {
+                    //     title: '是否是导航栏栏目',
+                    //     key: 'isnav',
+                    //     width: 200,//可选
+                    //     class: 'text-center',//可选
+                    //     hidekeyData: true,//是否隐藏key对应的数据
+                    //     render(item) {
+                    //         console.log('可用状态里面每个item', item);
+                    //         let arr = [
+                    //             { value: 1, name: '是' },
+                    //             { value: 0, name: '否' },
+                    //         ];
+                    //         let str = `<div class="btn-group btn-group-${item.id}">`;
+                    //         for (let i = 0; i < arr.length; i++) {
+                    //             str += `<button type="button" class="btn btn-light" data="${item.isnav}"
+                    //             value="${arr[i].value}"
+                    //             @click="changeBtnStatus('isnav','btn-group-${item.id}',${arr[i].value},${i},${item.id},'category','Category')">${arr[i].name}</button>`;
+                    //         }
+                    //         str += `</div>`;
+                    //         return str;
+                    //     }
+                    // },
+                    {
+                        title: '排序',
+                        key: 'order',
+                        class: 'text-center',//可选
+                    },
+                    {
+                        title: '可用状态',
+                        key: 'status',
+                        width: 200,//可选
+                        class: 'text-center',//可选
+                        hidekeyData: true,//是否隐藏key对应的数据
+                        render(item) {
+                            // console.log('可用状态里面每个item', item);
+                            let arr = [
+                                { value: 1, name: '可用' },
+                                { value: 0, name: '不可用' },
+                            ];
+                            let str = `<div class="btn-group btn-group-${item.id}">`;
+                            for (let i = 0; i < arr.length; i++) {
+                                str += `<button type="button" class="btn btn-light" data="${item.status}"
+                                value="${arr[i].value}"
+                                @click="changeBtnStatus('status','btn-group-${item.id}',${arr[i].value},${i},${item.id},'/shop/admin/goods-/${goods_id}/indexGoodsParam','GoodsParam')">${arr[i].name}</button>`;
+                            }
+                            str += `</div>`;
+                            return str;
+                        }
+                    },
+                    {
+                        title: '操作',
+                        class: 'text-right',//可选
+                        action: {
+                            //修改
+                            edit: function (id) {
+                                return `/shop/admin/goods-/${id}/editGoodsParam`;
+                            },
+                            //删除
+                            delete: function (id) {
+                                return `/shop/admin/goods-/${id}/deleteGoodsParam`;
+                            }
+                        }
+                    },
+                ],
+            },
+        });
+    }
+    //删除商品参数
+    async deleteGoodsParam(){
+        const { ctx, app } = this;
+        const id = ctx.params.id;
+
+        let data = await app.model.GoodsParam.findOne({ where: { id } });
+        if (!data) {
+            return ctx.apiFail('该商品参数不存在');
+        }
+        await app.model.GoodsParam.destroy({
+            where: {
+                id
+            }
+        });
+        //提示
+        ctx.toast('商品参数删除成功', 'success');
+        //跳转
+        ctx.redirect('/shop/admin/goods-/'+data.goods_id+'/indexGoodsParam');
+    }
+```
+
+### 2. 商品分类的模型关联
+`app/model/goods_class.js`
+```js
+...
+    // 模型关联关系
+    GoodsClass.associate = function (models) {
+        // 关联到自己 （通过pid关联）
+        this.hasMany(app.model.GoodsClass, {
+            foreignKey: 'pid',
+            as: 'ChildGoodsClass' // 别名（可选）
+        });
+
+        // 关联商品
+        this.hasMany(app.model.Goods, {
+            foreignKey: 'goods_class_id',
+            // as: 'images' // 别名（可选）
+        });
+
+        // 关联skus
+        this.hasMany(app.model.Skus, {
+            foreignKey: 'goods_class_id',
+            // as: 'images' // 别名（可选）
+        });
+
+
+    }
+...
+```
