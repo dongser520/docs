@@ -528,7 +528,6 @@ module.exports = app => {
 ### 2. 模版
 `app/view/admin/layout/_form.html`
 ```html
-
 {# 定义一个可递归调用的子模板 #}
 {% macro renderMenu(items,keyname,type) %}
 {% for item in items %}
@@ -640,30 +639,57 @@ cursor: pointer;background:none;"
                     {# {{item.default}} #}
                     {% set forformParsed = item.default | safe | fromJson %}
                     {# {{ forformParsed | dump }} #}
-                        <div class="param-groups">
-                            {% for dataItem in forformParsed %}
-                            <div class="param-group" data-id="{{ dataItem.id }}">
-                                {# 参数{{ loop.index }} #}
-                                <h5 class="mb-3">{{ dataItem.name }} 参数设置</h5>
-                                {% set params = dataItem.default.split('，') %}
-                                <div class="row">
-                                    {% for param in params %}
-                                    <div class="col-lg-3 col-md-4 mb-3">
-                                        <div class="form-group">
-                                            {# {{ param | trim }}--{{ dataItem.id }}-{{ loop.index0 }} #}
-                                            <label data="{{ param | trim }}">{{ param | trim }}</label>
-                                            <input type="text"
-                                                class="form-control"
-                                                placeholder="请输入{{ param | trim }}">
+                       {% if item.id %}
+                            <div class="param-groups">
+                                {% for dataItem in forformParsed %}
+                                <div class="param-group" data-id="{{ dataItem.id }}">
+                                    {# 参数{{ loop.index }} #}
+                                    <h5 class="mb-3">{{ dataItem.title }} 参数设置</h5>
+                                    {% set params = dataItem.data %}
+                                    <div class="row">
+                                        {% for param in params %}
+                                        {# param的值{{ param }} #}
+                                        <div class="col-lg-3 col-md-4 mb-3">
+                                            <div class="form-group">
+                                                <label data="{{ param.name | trim }}">{{ param.name | trim }}</label>
+                                                <input type="text"  inputId="{{item.id}}"
+                                                    class="form-control"
+                                                    value="{{ param.value | trim }}"
+                                                    placeholder="请输入{{ param.name | trim }}">
+                                            </div>
                                         </div>
+                                        {% endfor %}
                                     </div>
-                                    {% endfor %}
                                 </div>
+                                {% if not loop.last %}<hr>{% endif %}
+                                {% endfor %}
                             </div>
-                            {% if not loop.last %}<hr>{% endif %}
-                            {% endfor %}
-                        </div>
-                        
+                       {% else %}
+                            <div class="param-groups">
+                                {% for dataItem in forformParsed %}
+                                <div class="param-group" data-id="{{ dataItem.id }}">
+                                    {# 参数{{ loop.index }} #}
+                                    <h5 class="mb-3">{{ dataItem.name }} 参数设置</h5>
+                                    {% set params = dataItem.default.split('，') %}
+                                    <div class="row">
+                                        {% for param in params %}
+                                        <div class="col-lg-3 col-md-4 mb-3">
+                                            <div class="form-group">
+                                                {# {{ param | trim }}--{{ dataItem.id }}-{{ loop.index0 }} #}
+                                                <label data="{{ param | trim }}">{{ param | trim }}</label>
+                                                <input type="text"
+                                                    class="form-control"
+                                                    placeholder="请输入{{ param | trim }}">
+                                            </div>
+                                        </div>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                                {% if not loop.last %}<hr>{% endif %}
+                                {% endfor %}
+                            </div>
+                       {% endif %}
+
                     
                     {# 如果是树形结构数据选择 #}
                     {% elif item.type == 'treeDataSelect' %}
@@ -707,6 +733,12 @@ cursor: pointer;background:none;"
         mounted(){
             console.log('form',this.form);
             console.log('btn',typeof this.form.status);
+
+            $('.form-group input').on('input',function(){
+                // console.log($(this).val());
+                let val = $(this).val();
+                $(this).attr('datavalue',val);
+            });
         },
         methods:{
             getparaminfo(){
@@ -721,7 +753,7 @@ cursor: pointer;background:none;"
                     formGroups.each(function(index1,element1){
                         arr_eve.data.push({
                             name: $(element1).find('label').attr('data'),
-                            value: $(element1).find('input').val()
+                            value: $(element1).find('input').attr('datavalue') || $(element1).find('input').val(),
                         });
                     });
                     arr.push(arr_eve);
@@ -736,13 +768,18 @@ cursor: pointer;background:none;"
                 for(const key in this.form){
                    const value = this.form[key];
                    console.log('value:',value);
-                   if(typeof value == 'string' && value.length > 0  && value.indexOf('&quot;')>-1){
+                    if(typeof value == 'string' && value.length > 0  && value.indexOf('&quot;')>-1){
                       if(key == 'paraminfo'){
                         this.form[key] = JSON.stringify(this.getparaminfo());
                       }else{
                         this.form[key] = JSON.parse(value.replaceAll('&quot;','"'))[0].value;
                       }
-                   }
+                    }else{
+                        // goods_param表 paraminfo修改的时候单独处理
+                        if(key == 'paraminfo'){
+                            this.form[key] = JSON.stringify(this.getparaminfo());
+                        }
+                    }
                 }
                 //提交之前，针对商品多参数的处理，如 paraminfo的处理
                 // console.log(this.getparaminfo());;
@@ -963,8 +1000,6 @@ cursor: pointer;background:none;"
         }
     });
 </script>
-
-
 ```
 
 
@@ -1187,4 +1222,146 @@ cursor: pointer;background:none;"
 
     }
 ...
+```
+
+
+## 四、修改商品参数信息
+### 1. 控制器
+`app/controller/admin/goods.js`
+```js
+    //修改商品参数界面
+    async editGoodsParam(){
+        const { ctx, app } = this;
+        const id = ctx.params.id;
+        let currentdata = await app.model.GoodsParam.findOne({
+            where: {
+                id,
+                // status:1
+            }
+        });
+        if (!currentdata) {
+            return ctx.apiFail('该商品参数信息不存在');
+        }
+        currentdata = JSON.parse(JSON.stringify(currentdata));
+        // console.log('当前商品分类数据', currentdata);
+        // return;
+        let Goodsdata = await app.model.Goods.findOne({
+            where: {
+                id: currentdata.goods_id,
+                // status:1
+            }
+        });
+
+        // 渲染模版前先拿到所有分类
+        // let data = await ctx.service.goodsClass.dropdown_goodsclass_list();
+        // console.log('下拉框显示的所有分类', JSON.stringify(data));
+        // return;
+
+        //渲染公共模版
+        await ctx.renderTemplate({
+            id,
+            title: '修改商品：'+Goodsdata.name+'的参数',//现在网页title,面包屑导航title,页面标题
+            tempType: 'form', //模板类型：table表格模板 ，form表单模板
+            form: {
+                //修改提交地址
+                action: '/shop/admin/goods-/' + id + '/updateGoodsParam',
+                //  字段
+                fields: [
+                    // {
+                    //     label: '放在哪个商品分类里面',
+                    //     type: 'dropdown', //下拉框
+                    //     name: 'goods_class_id',
+                    //     default: JSON.stringify(data),
+                    //     placeholder: '不调整（如需调整请选择）',
+                    // },
+                    {
+                        label: '商品图片地址',
+                        type: 'for_form', 
+                        name: 'paraminfo',
+                        placeholder: '',
+                        default:currentdata.paraminfo,
+                        id: id, //加一个id，代表修改，没有代表新增
+                    },
+                    {
+                        label: '排序',
+                        type: 'number',
+                        name: 'order',
+                        placeholder: '请输入排序',
+                        // default:50,
+                    },
+                    {
+                        label: '可用状态',
+                        type: 'btncheck', //按钮组选择
+                        name: 'status',
+                        default: JSON.stringify([
+                            { value: 1, name: '可用', checked: currentdata.status === 1 },
+                            { value: 0, name: '不可用', checked: currentdata.status === 0 },
+                        ]),
+                        placeholder: '状态 0不可用 1可用 等等状态',
+                    },
+                ],
+                //修改内容默认值
+                data:currentdata,
+            },
+            //修改成功之后跳转到哪个页面
+            successUrl: '/shop/admin/goods-/'+currentdata.goods_id+'/indexGoodsParam',
+        });
+    }
+    //修改商品参数数据
+    async updateGoodsParam(){
+        const { ctx, app } = this;
+        //1.参数验证
+        this.ctx.validate({
+            id: {
+                type: 'int',
+                required: true,
+                desc: '商品参数id',
+                // defValue: 0,
+                range:{
+                    min:1,
+                }
+            },
+            paraminfo: {
+                type: 'string',
+                required: true,
+                desc: '商品参数信息',
+                // defValue: 0,
+                range:{
+                    max:5000
+                }
+            },
+            status: {
+                type: 'int',
+                required: false,
+                defValue: 1,
+                desc: '状态 0不可用 1可用 等等状态',
+                range:{
+                    in:[0,1]
+                }
+            },
+            order: {
+                type: 'int',
+                required: false,
+                defValue: 50,
+                desc: '排序'
+            },
+        });
+        // 参数
+        const id = ctx.params.id;
+        // 先看一下是否存在
+        let data = await app.model.GoodsParam.findOne({ where: { id } });
+        if (!data) {
+            return ctx.apiFail('该商品参数不存在');
+        }
+        const {  status, order, paraminfo } = ctx.request.body;
+        let goods_id = data.goods_id;
+        // 修改数据
+        data.paraminfo = paraminfo;
+        data.status = status;
+        data.goods_id = goods_id;
+        data.order = order;
+        await data.save();
+        // 给一个反馈
+        ctx.apiSuccess('修改商品参数成功');
+    }
 ```
