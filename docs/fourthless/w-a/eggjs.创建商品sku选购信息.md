@@ -16,6 +16,7 @@ title: eggjs商品sku选购信息管理
     router.get('/shop/admin/goods-/:goods_id/createGoodsSku', controller.admin.goods.createGoodsSku);
     router.post('/shop/admin/goods-/:goods_id/saveGoodsSku', controller.admin.goods.saveGoodsSku);
     router.get('/shop/admin/goods-/:goods_id/indexGoodsSku', controller.admin.goods.indexGoodsSku);
+    router.get('/shop/admin/goods-/:id/deleteGoodsSku', controller.admin.goods.deleteGoodsSku);
     //商品参数goods_param处理
     //选择一个商品分类下的skus添加到商品参数中
     ...
@@ -1058,5 +1059,223 @@ cursor: pointer;background:none;"
     // 商品sku列表
     async indexGoodsSku(){
 
+    }
+```
+
+
+### 三、 商品sku列表和删除
+### 1. 控制器
+`app/controller/admin/goods.js`
+```js
+    // 商品sku列表
+    async indexGoodsSku(){
+        const { ctx, app } = this;
+        //1.参数验证
+        this.ctx.validate({
+            goods_id: {
+                type: 'int',
+                required: true,
+                desc: '商品id',
+                // defValue: 0,
+                range:{
+                    min:1,
+                }
+            },
+            page: {
+                type: 'int',
+                required: false,
+                desc: '页码',
+                defValue: 1,
+            },
+            limit: {
+                type: 'int',
+                required: false,
+                desc: '每页条数',
+                defValue: 10,
+            },
+        });
+        // 参数
+        const goods_id = ctx.params.goods_id;
+        let Goodsdata = await app.model.Goods.findOne({ where: { id:goods_id } });
+        if (!Goodsdata) {
+            return ctx.apiFail('该商品不存在');
+        }
+        // let GoodsClassdata = await app.model.GoodsClass.findOne({
+        //     where:{
+        //         id:Goodsdata.goods_class_id
+        //     },
+        //     include: [
+        //         { 
+        //             model: app.model.Skus, 
+        //             // as: 'children' 
+        //         },
+        //     ],
+        // });
+        // ctx.body = GoodsClassdata; return;
+        //分页：可以提炼成一个公共方法page(模型名称，where条件，其他参数options)
+        let data = await ctx.page('GoodsSku',{
+            goods_id:goods_id
+        },{
+            order:[
+                ['order','asc'],
+                ['id','asc']
+            ],
+        });
+        // let data = await ctx.service.goodsClass.datalist({ limit: 10000 });
+        // console.log('分类数据', data);
+        // ctx.body = data;
+        // return;
+        // data = data.rules;
+        //渲染公共模版
+        await ctx.renderTemplate({
+            title: '商品：' + Goodsdata.name + ' 选购sku列表',//现在网页title,面包屑导航title,页面标题
+            data,
+            tempType: 'table', //模板类型：table表格模板 ，form表单模板
+            table: {
+                //表格上方按钮,没有不要填buttons
+                buttons: [
+                    {
+                        url: '/shop/admin/goods-/'+goods_id+'/createGoodsSku',//新增路径
+                        desc: '创建商品选购sku',//新增 //按钮名称
+                        // icon: 'fa fa-plus fa-lg',//按钮图标
+                    },
+                    // {
+                    //     url: '/shop/admin/goods/create',//新增路径
+                    //     desc: '上传商品',//新增 //按钮名称
+                    //     // icon: 'fa fa-plus fa-lg',//按钮图标
+                    // }
+                ],
+                //表头
+                columns: [
+                    {
+                        title: '选购组合名称',
+                        // key: 'name',
+                        class: 'text-left',//可选
+                        render(item) { //树形数据
+                            let name = JSON.parse(item.name);
+                            // 遍历对象属性值
+                            let result = '';
+                            for (let key in name) {
+                                if (name.hasOwnProperty(key)) {
+                                    result += `<span style="background-color: #f0f0f0; 
+                                    margin: 5px; padding: 2px 5px;font-size: 14px;">${name[key]}</span>`;
+                                }
+                            }
+                            return result;
+                        }
+                    },
+                    {
+                        title: '选购图片',
+                        // key: 'cover',
+                        class: 'text-left',//可选
+                        render(item) { //树形数据
+                            let str = '无';
+                            if(item.cover){
+                                str = `<img src="${item.cover}" style="width:100px;height:100px;" />`;
+                            }
+                            return `${str}`;
+                        }
+                    },
+                    // {
+                    //     title: '是否是导航栏栏目',
+                    //     key: 'isnav',
+                    //     width: 200,//可选
+                    //     class: 'text-center',//可选
+                    //     hidekeyData: true,//是否隐藏key对应的数据
+                    //     render(item) {
+                    //         console.log('可用状态里面每个item', item);
+                    //         let arr = [
+                    //             { value: 1, name: '是' },
+                    //             { value: 0, name: '否' },
+                    //         ];
+                    //         let str = `<div class="btn-group btn-group-${item.id}">`;
+                    //         for (let i = 0; i < arr.length; i++) {
+                    //             str += `<button type="button" class="btn btn-light" data="${item.isnav}"
+                    //             value="${arr[i].value}"
+                    //             @click="changeBtnStatus('isnav','btn-group-${item.id}',${arr[i].value},${i},${item.id},'category','Category')">${arr[i].name}</button>`;
+                    //         }
+                    //         str += `</div>`;
+                    //         return str;
+                    //     }
+                    // },
+                    {
+                        title: '库存',
+                        key: 'stock',
+                        class: 'text-center',//可选
+                    },
+                    {
+                        title: '价格',
+                        key: 'price',
+                        class: 'text-center',//可选
+                    },
+                    {
+                        title: '优惠价',
+                        key: 'special_price',
+                        class: 'text-center',//可选
+                    },
+                    {
+                        title: '排序',
+                        key: 'order',
+                        class: 'text-center',//可选
+                    },
+                    {
+                        title: '可用状态',
+                        key: 'status',
+                        width: 200,//可选
+                        class: 'text-center',//可选
+                        hidekeyData: true,//是否隐藏key对应的数据
+                        render(item) {
+                            // console.log('可用状态里面每个item', item);
+                            let arr = [
+                                { value: 1, name: '可用' },
+                                { value: 0, name: '不可用' },
+                            ];
+                            let str = `<div class="btn-group btn-group-${item.id}">`;
+                            for (let i = 0; i < arr.length; i++) {
+                                str += `<button type="button" class="btn btn-light" data="${item.status}"
+                                value="${arr[i].value}"
+                                @click="changeBtnStatus('status','btn-group-${item.id}',${arr[i].value},${i},${item.id},'/shop/admin/goods-/${goods_id}/indexGoodsSku','GoodsSku')">${arr[i].name}</button>`;
+                            }
+                            str += `</div>`;
+                            return str;
+                        }
+                    },
+                    {
+                        title: '操作',
+                        class: 'text-right',//可选
+                        action: {
+                            //修改
+                            // edit: function (id) {
+                            //     return `/shop/admin/goods-/${id}/editGoodsSku`;
+                            // },
+                            //删除
+                            delete: function (id) {
+                                return `/shop/admin/goods-/${id}/deleteGoodsSku`;
+                            }
+                        }
+                    },
+                ],
+            },
+        });
+    }
+
+    // 删除sku
+    async deleteGoodsSku(){
+        const { ctx, app } = this;
+        const id = ctx.params.id;
+
+        let data = await app.model.GoodsSku.findOne({ where: { id } });
+        if (!data) {
+            return ctx.apiFail('该商品sku不存在');
+        }
+        await app.model.GoodsSku.destroy({
+            where: {
+                id
+            }
+        });
+        //提示
+        ctx.toast('商品sku删除成功', 'success');
+        //跳转
+        ctx.redirect('/shop/admin/goods-/'+data.goods_id+'/indexGoodsSku');
     }
 ```
