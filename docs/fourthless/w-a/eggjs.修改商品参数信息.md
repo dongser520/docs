@@ -2327,3 +2327,7 @@ cursor: pointer;background:none;"
     router.get('/shop/admin/goods-/:goods_id/indexGoodsParam', controller.admin.goods.indexGoodsParam);
 ...
 ```
+
+
+## 七、商品选购信息管理
+> 具体查看，<a href="eggjs.创建商品sku选购信息" target="_blank">eggjs.创建商品sku选购信息</a><br/>

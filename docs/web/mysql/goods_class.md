@@ -641,3 +641,115 @@ module.exports = {
 >> // 可以通过 `db:migrate:undo:all` 回退到初始状态
 >> npx sequelize db:migrate:undo:all
 >> ```
+
+
+### 4. 商品表`goods`的选购sku表`goods_sku`[商品选购sku表]字段设计
+| 字段名  |  数据类型及描述    |   空    | <p style="width:150px;">默认值 </p>  | <p style="width:100px;">字段含义 </p>     |
+| :---:   | :---:      |  :---:    | :---:       |        :---:                             |
+| <b>id </b>  | <span>int(20) </span><br/> <span style="font-size:12px">主键、自增长、UNSIGNED无符号 </span>    |    否      |    |         主键id  |
+| <b>goods_id </b>      | int(20) | 否    |                               |   商品`goods`表的id            |
+| <b>name </b>      | varchar(255) |     否    |   |   选购组合名称  |
+| <b>cover </b>      | varchar(2000) |     是    |   |   选购组合封面图  |
+| <b>stock </b>      | int(11) | 是    |       0                        |   商品选购组合库存数量          |
+| <b>price </b>      | decimal(10,2) | 是    |                               |   商品选购组合价格        |
+| <b>special_price </b>      | decimal(10,2) | 是    |      |   商品选购组合优惠价格        |
+| <b>order </b>     | int(11) |  是    |       50                 |   排序，默认50            |
+| <b> status </b>  | int(1)  |    否    |        1	 |   可用状态：0禁用1启用                         |
+| <b> create_time </b>  | datetime  |    否    |      CURRENT_TIMESTAMP	   |   数据创建时间   |
+| <b> update_time </b>  | datetime  |      否  |        CURRENT_TIMESTAMP	|   数据更新时间   |
+
+### 创建商品参数表 `goods_sku`
+> 1. 直接在`phpMyAdmin`中根据表字段设计创建表，或者通过数据库插件写sql语句创建表。<br/>
+> 2. 通过迁移命名创建`goods_sku`表：
+>> 1. 创建迁移文件 命令：
+>> ```js
+>> npx sequelize migration:generate --name=goods_sku
+>> ```
+>> 2. 创建迁移文件 `goods_sku.js`，内容如下：<br/>
+```js
+'use strict';
+
+/** @type {import('sequelize-cli').Migration} */
+module.exports = {
+  async up (queryInterface, Sequelize) {
+    const { INTEGER, STRING, DATE, ENUM, TEXT, BIGINT,DECIMAL} = Sequelize;
+    // 创建表 --- 类似我们sql语句定义表结构
+    await queryInterface.createTable('goods_sku', {
+      id: { 
+        type: INTEGER(20).UNSIGNED, 
+        primaryKey: true, 
+        autoIncrement: true,
+        comment: '主键id'
+      },
+      goods_id:{
+        type: INTEGER(20).UNSIGNED, 
+        allowNull: false, 
+        // defaultValue:0,
+        comment: '商品id',
+        references: { //关联关系
+          model: 'goods', //关联的表
+          key: 'id' //关联表的主键
+        },
+        onDelete: 'cascade', //删除时操作
+        onUpdate: 'restrict', // 更新时操作
+      },
+      name: { 
+        type: STRING(255), 
+        allowNull: false, 
+        defaultValue: '', 
+        comment: '选购组合名称'
+      },
+      cover: { 
+        type: STRING(2000), 
+        allowNull: true, 
+        defaultValue: '', 
+        comment: '选购组合封面图'
+      },
+      stock: {
+        type: INTEGER,//不限定长度.默认int(11)
+        allowNull: true,
+        defaultValue: 0,
+        comment: '商品选购组合库存数量'
+      },
+      price: {
+        type: DECIMAL(10, 2),
+        allowNull: true,
+        comment: '商品选购组合价格'
+      },
+      special_price: {
+        type: DECIMAL(10, 2),
+        allowNull: true,
+        comment: '商品选购组合优惠价格'
+      },
+      order: {
+        type: INTEGER,//不限定长度.默认int(11)
+        allowNull: true,
+        defaultValue: 50,
+        comment: '排序，默认50'
+      },
+      status:{
+        type: INTEGER(1),
+        allowNull: false, 
+        defaultValue:1,
+        comment: '状态：1：启用，0：禁用'
+      },
+      // sex: { type: ENUM, values: ['男','女','保密'], allowNull: true, defaultValue: '保密', comment: '留言用户性别'},
+      create_time: {type: DATE, allowNull: false, defaultValue:Sequelize.fn('NOW')},
+      update_time: {type: DATE, allowNull: false, defaultValue:Sequelize.fn('NOW')}
+    });
+  },
+
+  async down (queryInterface, Sequelize) {
+    await queryInterface.dropTable('goods_sku')
+  }
+};
+```
+> 3. 执行迁移文件命令生成数据库表：
+>> ```js
+>> // 创建数据库
+>> npx sequelize db:migrate
+>> // 如果有问题需要回滚，可以通过 `db:migrate:undo` 回退一个变更
+>> npx sequelize db:migrate:undo
+>> // 可以通过 `db:migrate:undo:all` 回退到初始状态
+>> npx sequelize db:migrate:undo:all
+>> ```
