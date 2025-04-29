@@ -598,7 +598,8 @@ cursor: pointer;background:none;"
 
                     {# 如果是下拉框类型 #}
                     {% elif item.type == 'dropdown' %}
-                    <div class="dropdown">
+                    {# {{ item.ortherdata | safe }} #}
+                    <div class="dropdown dropdown-maindiv" ortherdata="{{ item.ortherdata }}">
                         <button type="button"
                             class="btn dropdown-toggle dropdown-{{item.name}}"
                             data-toggle="dropdown" id="dropdownData">
@@ -611,6 +612,7 @@ cursor: pointer;background:none;"
                             <!-- 在上面的代码块之前或之外的合适位置，提前解析item.default为JSON对象 -->
                             {% set itemDefaultParsed = item.default | safe |
                             fromJson %}
+                            {# {{item.callback | dump}} #}
                             {% call
                             renderMenu(itemDefaultParsed,item.name,item.type) %}
                             {% endcall %}
@@ -796,7 +798,13 @@ cursor: pointer;background:none;"
                     }else{
                         // goods_param表 paraminfo修改的时候单独处理
                         if(key == 'paraminfo'){
-                            this.form[key] = JSON.stringify(this.getparaminfo());
+                            // 针对 for-form 类型 写入paraminfo数据
+                            console.log('for-form 类型的paraminfo',this.getparaminfo());
+                            // 针对dropdown类型，写入paraminfo数据
+                            console.log('dropdown 类型的paraminfo',this.form[key]);
+                            if(this.getparaminfo().length){
+                                this.form[key] = JSON.stringify(this.getparaminfo());
+                            }
                         }
                     }
                 }
@@ -943,6 +951,104 @@ cursor: pointer;background:none;"
                 // $('#dropdownData').text(name);
                 $('.dropdown-' + keyname).text(name);
                 this.form[keyname] = id;
+                let _vue_this = this;
+                
+                // 如果下拉框有额外值的情况，比如：app/controller/admin/goods.js中的selectGoodsParamBytree()方法
+                if($('.dropdown-maindiv').attr('ortherdata')){
+                    $('.dropdown-maindiv').parent().find('.ortherdata').remove();
+                    //如果有额外值，根据情况读取这些额外值
+                    let ortherdata = JSON.parse($('.dropdown-maindiv').attr('ortherdata'));
+                    console.log('额外值',ortherdata);
+                    let skus = ortherdata.find(v=> v.id == id);
+                    skus = skus.skus;
+                    console.log('skus',skus);
+                    let str = ``;
+                    for(let i=0;i<skus.length;i++){
+                       // let evedata = [];
+                       // evedata.push(encodeURIComponent(JSON.stringify([{
+                       //    title: skus[i].name,
+                       //    data: skus[i].default,
+                       // }])));
+                       let evedata = encodeURIComponent(JSON.stringify([{
+                          title: skus[i].name,
+                          data: skus[i].default,
+                          id:skus[i].id,
+                       }]));
+                       let _str = `<div class="evedata" 
+                       evedata = "${evedata}"
+                       style="margin-top:20px;font-size:12px;display:flex;">`;
+                        _str += `
+                            <div style="margin-right:10px;">
+                              <input type="checkbox" checked class="evedata-checkbox" data-id="${skus[i].id}" />
+                            </div>
+                            <div>
+                               <div style="margin-bottom:10px;"><span>规格名称</span>：<span>${skus[i].name}</span></div>
+                               <div><span>规格值</span>：<span>${skus[i].default}</span></div>
+                            </div>
+                        `;
+                       _str += `</div>`;
+                       str += _str;
+                    }
+                    str = `<div class="ortherdata">` + str + `</div>`;
+                    $('.dropdown-maindiv').parent().append(str);
+                    //重新给表单字段赋值
+                    getcheck();
+                    $('.evedata-checkbox').on('click',getcheck);
+                    function getcheck(){
+                        let arr = [];
+                        $('.dropdown-maindiv').parent().find('.ortherdata').find('.evedata').each(function(index,ele){
+                            let input = $(ele).find('input[type="checkbox"]');
+                            //如果input为选中状态
+                            // console.log('input的个数'+index+'的选中状态',input.prop('checked'));
+                            if(input.prop('checked')){
+                                let evedata = $(ele).attr('evedata');
+                                evedata = JSON.parse(decodeURIComponent(evedata));
+                                // console.log('evedata',evedata[0]);
+                                arr.push(evedata[0]);
+                                // console.log('写进paraminfo的数据',arr);
+                            }else{
+                                let removeid = input.attr('data-id');
+                                arr.forEach(function(v,i){
+                                    if(v.id == removeid){
+                                        arr.splice(i,1);
+                                    }
+                                });
+                                // console.log('移除之后写进paraminfo的数据',arr);
+                            }
+                            //最终写进paraminfo的数据
+                            console.log('最终写进paraminfo的数据',arr);
+                            // 需要符合paraminfo的数据特性，在改造一下
+                            let newarr = [];
+                            for(let i=0;i<arr.length;i++){
+                                let _string = arr[i].data;
+                                // console.log('看一下data',typeof arr[i].data);
+                                let _data = _string.split(/[,，]/); 
+                                // console.log('看一下_data',_data);
+                                let _arr = [];
+                                for(let j=0;j<_data.length;j++){
+                                    let obj = {
+                                       name:_data[j],
+                                       value:"",
+                                    };
+                                    _arr.push(obj);
+                                }
+                                // console.log('看一下_arr',_arr);
+                                // console.log('看一下其中的data',arr[i]['data']);
+                                // arr[i]['data'] = _arr;
+                                let _obj = {
+                                    title:arr[i].title,
+                                    data:_arr,
+                                    id:arr[i].id,
+                                };
+                                newarr.push(_obj);
+                            }
+                            console.log('看一下写入值',newarr);
+                            _vue_this.form[keyname] = JSON.stringify(newarr);
+                        });
+                    }
+                    
+                    
+                }
             },
             //按钮组选中项
             changeBtnStatus(keyname,classname,btnValue,index){
@@ -1027,7 +1133,10 @@ cursor: pointer;background:none;"
         }
     });
 </script>
+
+
 ```
+
 
 
 
@@ -1713,4 +1822,508 @@ cursor: pointer;background:none;"
             successUrl: '/shop/admin/skus',
         });
     }
+```
+
+
+## 六、商品多条参数信息的创建
+### 1. 控制器
+`app/controller/admin/goods.js`
+```js
+//商品参数部分
+    //新增商品参数界面
+    async createGoodsParam(){
+        const { ctx, app } = this;
+        //1.参数验证
+        this.ctx.validate({
+            goods_id: {
+                type: 'int',
+                required: true,
+                desc: '商品id',
+                // defValue: 0,
+                range:{
+                    min:1,
+                }
+            },
+        });
+        // 参数
+        const goods_id = ctx.params.goods_id;
+        let data = await app.model.Goods.findOne({ where: { id:goods_id } });
+        if (!data) {
+            return ctx.apiFail('该商品不存在');
+        }
+        // 根据商品id获取商品分类，然后获取分类里面的skus值
+        let goodsClassId = data.goods_class_id;
+        // ctx.body = goodsClassId; return;
+        // 根据商品分类id读取商品分类及其子分类，并转成树形结构
+        let goodsClassTree = await this.datatree_byid(goodsClassId, 'GoodsClass');
+        // ctx.body = goodsClassTree; return;
+        /*
+        //渲染公共模版
+        await ctx.renderTemplate({
+            title: '创建商品参数',//现在网页title,面包屑导航title,页面标题
+            tempType: 'form', //模板类型：table表格模板 ，form表单模板
+            form: {
+                //提交地址
+                action: "",
+                //  字段
+                fields: [
+                    {
+                        label: '商品分类',
+                        type: 'dropdown', //下拉框
+                        name: 'pid',
+                        default: JSON.stringify(goodsClassTree),
+                        placeholder: '请选择一个商品分类',
+                    },
+                ],
+            },
+            //新增成功之后跳转到哪个页面
+            successUrl: '',
+        });
+        */
+        //看一下当前商品分类在商品skus里面有没有创建的信息
+        let skusdata = await app.model.Skus.findAll({
+            where:{
+                goods_class_id:goodsClassId
+            }
+        });
+        // ctx.body = skusdata; return;
+        //获取当前页面的网站
+        let gourl = encodeURIComponent(ctx.url);
+        if(skusdata.length){
+            // ctx.body = '有对应的skus信息，可继续添加skus信息'
+            await ctx.renderTemplate({
+                title: '创建商品参数',//现在网页title,面包屑导航title,页面标题
+                tempType: 'form', //模板类型：table表格模板 ，form表单模板,for_form循环模版
+                form: {
+                    //提交地址
+                    action: "/shop/admin/goods-/"+goods_id+"/saveGoodsParam",
+                    //  字段
+                    fields: [
+                        // {
+                        //     label: '商品分类',
+                        //     type: 'dropdown', //下拉框
+                        //     name: 'pid',
+                        //     default: JSON.stringify(goodsClassTree),
+                        //     placeholder: '请选择一个商品分类',
+                        // },
+                        {
+                            label: '商品参数',
+                            type: 'for_form', //循环遍历数组数据到表单
+                            name: 'paraminfo',
+                            default: JSON.stringify(skusdata),
+                            placeholder: '',
+                        },
+                        {
+                            label: '排序',
+                            type: 'number',
+                            name: 'order',
+                            placeholder: '请输入排序',
+                            default:50,
+                        },
+                        {
+                            label: '可用状态',
+                            type: 'btncheck', //按钮组选择
+                            name: 'status',
+                            default: JSON.stringify([
+                                { value: 1, name: '可用', checked: true },
+                                { value: 0, name: '不可用',  },
+                            ]),
+                            placeholder: '状态 0不可用 1可用 等等状态',
+                        },
+                    ],
+                },
+                //新增成功之后跳转到哪个页面
+                successUrl: '/shop/admin/goods-/'+goods_id+'/indexGoodsParam',
+            });
+        }else{
+            // ctx.body = '没有对应的skus信息，先添加skus信息'
+            await ctx.renderTemplate({
+                title: '创建商品参数',//现在网页title,面包屑导航title,页面标题
+                tempType: 'form', //模板类型：table表格模板 ，form表单模板,for_form循环模版
+                form: {
+                    //提交地址
+                    action: "/shop/admin/goods-/"+goods_id+"/saveGoodsParam",
+                    //  字段
+                    fields: [
+                        // {
+                        //     label: '商品分类',
+                        //     type: 'dropdown', //下拉框
+                        //     name: 'pid',
+                        //     default: JSON.stringify(goodsClassTree),
+                        //     placeholder: '请选择一个商品分类',
+                        // },
+                        {
+                            label: '商品参数',
+                            type: 'for_form', //循环遍历数组数据到表单
+                            name: 'paraminfo',
+                            default: JSON.stringify(skusdata),//没有值的情况
+                            placeholder: '',
+                            // 自定义一些数据
+                            ortherdata:JSON.stringify({
+                                html:`
+                                    <a href="/shop/admin/skus/create?gourl=${gourl}&goods_class_id=${goodsClassId}">
+                                      请先创建规格数据，再来创建商品参数
+                                    </a>
+                                `,
+                            }),
+                        },
+                        {
+                            label: '排序',
+                            type: 'number',
+                            name: 'order',
+                            placeholder: '请输入排序',
+                            default:50,
+                        },
+                        {
+                            label: '可用状态',
+                            type: 'btncheck', //按钮组选择
+                            name: 'status',
+                            default: JSON.stringify([
+                                { value: 1, name: '可用', checked: true },
+                                { value: 0, name: '不可用',  },
+                            ]),
+                            placeholder: '状态 0不可用 1可用 等等状态',
+                        },
+                    ],
+                },
+                //新增成功之后跳转到哪个页面
+                successUrl: '/shop/admin/goods-/'+goods_id+'/indexGoodsParam',
+            });
+        }
+    }
+    //新增商品参数数据
+    async saveGoodsParam(){
+        const { ctx, app } = this;
+        //1.参数验证
+        this.ctx.validate({
+            goods_id: {
+                type: 'int',
+                required: true,
+                desc: '商品id',
+                // defValue: 0,
+                range:{
+                    min:1,
+                }
+            },
+            paraminfo: {
+                type: 'string',
+                required: true,
+                desc: '商品参数信息',
+                // defValue: 0,
+                range:{
+                    max:5000
+                }
+            },
+            status: {
+                type: 'int',
+                required: false,
+                defValue: 1,
+                desc: '状态 0不可用 1可用 等等状态',
+                range:{
+                    in:[0,1]
+                }
+            },
+            order: {
+                type: 'int',
+                required: false,
+                defValue: 50,
+                desc: '排序'
+            },
+        });
+        // 参数
+        const goods_id = ctx.params.goods_id;
+        let data = await app.model.Goods.findOne({ where: { id:goods_id } });
+        if (!data) {
+            return ctx.apiFail('该商品不存在');
+        }
+        let {paraminfo,status,order} = ctx.request.body;
+        const res = await app.model.GoodsParam.create({
+            paraminfo,status,order,
+            goods_id
+        });
+        this.ctx.apiSuccess('添加商品参数成功');
+    }
+    //选择一个商品分类下的skus添加到商品参数中
+    async selectGoodsParamBytree(){
+        const { ctx, app } = this;
+        //1.参数验证
+        this.ctx.validate({
+            goods_id: {
+                type: 'int',
+                required: true,
+                desc: '商品id',
+                // defValue: 0,
+                range:{
+                    min:1,
+                }
+            },
+        });
+        // 参数
+        const goods_id = ctx.params.goods_id;
+        let data = await app.model.Goods.findOne({ where: { id:goods_id } });
+        if (!data) {
+            return ctx.apiFail('该商品不存在');
+        }
+        // 选择一个商品分类（读取有skus信息的商品分类）
+        let getskus = await app.model.Skus.findAll({
+            attributes:['goods_class_id'],
+        });
+        // ctx.body = getskus; return;
+        let goodsclass_ids = [];
+        // 如果goodsclass_ids没有item.goods_class_id的值，就添加进去
+        getskus.forEach(item=>{
+            if(goodsclass_ids.indexOf(item.goods_class_id) == -1){
+                goodsclass_ids.push(item.goods_class_id);
+            }
+        });
+        // ctx.body = goodsclass_ids; return;
+        // 根据goodsclass_ids查商品分类信息
+        let goodsClassTree = await app.model.GoodsClass.findAll({
+            where:{
+                id:{
+                    [this.app.Sequelize.Op.in]:goodsclass_ids
+                }
+            },
+            attributes:['id','name','pid'],
+            include: [
+                { 
+                    model: app.model.Skus,
+                    attributes:['id','name','goods_class_id','default'], 
+                    // as: 'children' 
+                },
+            ],
+        });
+        goodsClassTree = JSON.parse(JSON.stringify(goodsClassTree)); 
+        // ctx.body = goodsClassTree; return;
+        // ctx.body = ctx.treeify(goodsClassTree); return;
+        let treedata = ctx.treeify(goodsClassTree);
+        await ctx.renderTemplate({
+            title: '创建商品多条参数前，请先选择一个商品分类，将该分类下的规格数据添加到商品参数中',//现在网页title,面包屑导航title,页面标题
+            tempType: 'form', //模板类型：table表格模板 ，form表单模板,for_form循环模版
+            form: {
+                //提交地址
+                action: "/shop/admin/goods-/"+goods_id+"/saveGoodsParam",
+                //  字段
+                fields: [
+                    {
+                        label: '请选择一个商品分类得到分类下的规格数据',
+                        type: 'dropdown', //下拉框
+                        name: 'paraminfo',
+                        default: JSON.stringify(treedata),
+                        placeholder: '请选择一个商品分类',
+                        //其他数据
+                        ortherdata:JSON.stringify(goodsClassTree),
+                        
+                    },
+                    // {
+                    //     label: '商品参数',
+                    //     type: 'for_form', //循环遍历数组数据到表单
+                    //     name: 'paraminfo',
+                    //     default: JSON.stringify(skusdata),//没有值的情况
+                    //     placeholder: '',
+                    //     // 自定义一些数据
+                    //     ortherdata:JSON.stringify({
+                    //         html:`
+                    //             <a href="/shop/admin/skus/create?gourl=${gourl}&goods_class_id=${goodsClassId}">
+                    //               请先创建规格数据，再来创建商品参数
+                    //             </a>
+                    //         `,
+                    //     }),
+                    // },
+                ],
+            },
+            //新增成功之后跳转到哪个页面
+            successUrl: '/shop/admin/goods-/'+goods_id+'/indexGoodsParam',
+        });
+    }
+    //商品参数列表
+    async indexGoodsParam(){
+        const { ctx, app } = this;
+        //1.参数验证
+        this.ctx.validate({
+            goods_id: {
+                type: 'int',
+                required: true,
+                desc: '商品id',
+                // defValue: 0,
+                range:{
+                    min:1,
+                }
+            },
+        });
+        // 参数
+        const goods_id = ctx.params.goods_id;
+        let Goodsdata = await app.model.Goods.findOne({ where: { id:goods_id } });
+        if (!Goodsdata) {
+            return ctx.apiFail('该商品不存在');
+        }
+        let GoodsClassdata = await app.model.GoodsClass.findOne({
+            where:{
+                id:Goodsdata.goods_class_id
+            },
+            include: [
+                { 
+                    model: app.model.Skus, 
+                    // as: 'children' 
+                },
+            ],
+        });
+        // ctx.body = GoodsClassdata; return;
+        //分页：可以提炼成一个公共方法page(模型名称，where条件，其他参数options)
+        let data = await ctx.page('GoodsParam',{
+            goods_id:goods_id
+        });
+        // let data = await ctx.service.goodsClass.datalist({ limit: 10000 });
+        // console.log('分类数据', data);
+        // ctx.body = data;
+        // return;
+        // data = data.rules;
+        //渲染公共模版
+        await ctx.renderTemplate({
+            title: '商品：' + Goodsdata.name + ' 参数列表',//现在网页title,面包屑导航title,页面标题
+            data,
+            tempType: 'table', //模板类型：table表格模板 ，form表单模板
+            table: {
+                //表格上方按钮,没有不要填buttons
+                buttons: [
+                    {
+                        url: '/shop/admin/goods-/'+goods_id+'/createGoodsParam',//新增路径
+                        desc: '创建商品（单条）参数',//新增 //按钮名称
+                        // icon: 'fa fa-plus fa-lg',//按钮图标
+                    },
+                    {
+                        url: '/shop/admin/goods-/'+goods_id+'/selectGoodsParamBytree',//新增路径
+                        desc: '创建商品（多条）参数',//新增 //按钮名称
+                        // icon: 'fa fa-plus fa-lg',//按钮图标
+                    },
+                    // {
+                    //     url: '/shop/admin/goods/create',//新增路径
+                    //     desc: '上传商品',//新增 //按钮名称
+                    //     // icon: 'fa fa-plus fa-lg',//按钮图标
+                    // }
+                ],
+                //表头
+                columns: [
+                    {
+                        title: '商品参数信息',
+                        // key: 'paraminfo',
+                        class: 'text-left',//可选
+                        render(item) { //树形数据
+                            // console.log('每个item',item);
+                            // if (item.level) {
+                            //     let w = item.level * 40;
+                            //     return `<span style="display:inline-block;width:${w}px"></span>`;
+                            // }
+                            let str =``;
+                            let data = JSON.parse(item.paraminfo);
+                            for(let i=0; i<data.length; i++){
+                                let _str = `<p style="width:100%;margin-top:15px;">${data[i].title}</p>`;
+                                let valuearr = data[i].data;
+                                let _str_ = ``;
+                                for(let j=0; j<valuearr.length; j++){
+                                  _str_ += `
+                                    <p style="font-size:12px;border:1px solid #ccc;padding:5px;margin-right:10px;">
+                                      <span>${valuearr[j].name}</span>：
+                                      <span style="color:#ff0000">${valuearr[j].value}</span>
+                                    </p>
+                                  `;
+                                }
+                                str += `<div style="display:flex;flex-wrap:wrap;">${_str}${_str_}</div>`;
+                            }
+                            return `<div>${str}</div>`;
+                        }
+                    },
+                    // {
+                    //     title: '分类下的商品',
+                    //     // key: 'name',
+                    //     class: 'text-left',//可选
+                    //     render(item) { //树形数据
+                    //         // console.log('每个item',item);
+                    //         // if (item.level) {
+                    //         //     let w = item.level * 40;
+                    //         //     return `<span style="display:inline-block;width:${w}px"></span>`;
+                    //         // }
+                    //         return `<a href="/shop/admin/imageclass/${item.id}/imgList">${item.images.length}张</a>`;
+                    //     }
+                    // },
+                    // {
+                    //     title: '是否是导航栏栏目',
+                    //     key: 'isnav',
+                    //     width: 200,//可选
+                    //     class: 'text-center',//可选
+                    //     hidekeyData: true,//是否隐藏key对应的数据
+                    //     render(item) {
+                    //         console.log('可用状态里面每个item', item);
+                    //         let arr = [
+                    //             { value: 1, name: '是' },
+                    //             { value: 0, name: '否' },
+                    //         ];
+                    //         let str = `<div class="btn-group btn-group-${item.id}">`;
+                    //         for (let i = 0; i < arr.length; i++) {
+                    //             str += `<button type="button" class="btn btn-light" data="${item.isnav}"
+                    //             value="${arr[i].value}"
+                    //             @click="changeBtnStatus('isnav','btn-group-${item.id}',${arr[i].value},${i},${item.id},'category','Category')">${arr[i].name}</button>`;
+                    //         }
+                    //         str += `</div>`;
+                    //         return str;
+                    //     }
+                    // },
+                    {
+                        title: '排序',
+                        key: 'order',
+                        class: 'text-center',//可选
+                    },
+                    {
+                        title: '可用状态',
+                        key: 'status',
+                        width: 200,//可选
+                        class: 'text-center',//可选
+                        hidekeyData: true,//是否隐藏key对应的数据
+                        render(item) {
+                            // console.log('可用状态里面每个item', item);
+                            let arr = [
+                                { value: 1, name: '可用' },
+                                { value: 0, name: '不可用' },
+                            ];
+                            let str = `<div class="btn-group btn-group-${item.id}">`;
+                            for (let i = 0; i < arr.length; i++) {
+                                str += `<button type="button" class="btn btn-light" data="${item.status}"
+                                value="${arr[i].value}"
+                                @click="changeBtnStatus('status','btn-group-${item.id}',${arr[i].value},${i},${item.id},'/shop/admin/goods-/${goods_id}/indexGoodsParam','GoodsParam')">${arr[i].name}</button>`;
+                            }
+                            str += `</div>`;
+                            return str;
+                        }
+                    },
+                    {
+                        title: '操作',
+                        class: 'text-right',//可选
+                        action: {
+                            //修改
+                            edit: function (id) {
+                                return `/shop/admin/goods-/${id}/editGoodsParam`;
+                            },
+                            //删除
+                            delete: function (id) {
+                                return `/shop/admin/goods-/${id}/deleteGoodsParam`;
+                            }
+                        }
+                    },
+                ],
+            },
+        });
+    }
+```
+
+### 2. 路由
+`app/router/admin/shop.js`
+```js
+...
+    //商品参数goods_param处理
+    //选择一个商品分类下的skus添加到商品参数中
+    router.get('/shop/admin/goods-/:goods_id/selectGoodsParamBytree', controller.admin.goods.selectGoodsParamBytree);
+    router.get('/shop/admin/goods-/:goods_id/createGoodsParam', controller.admin.goods.createGoodsParam);
+    router.post('/shop/admin/goods-/:goods_id/saveGoodsParam', controller.admin.goods.saveGoodsParam);
+    router.get('/shop/admin/goods-/:goods_id/indexGoodsParam', controller.admin.goods.indexGoodsParam);
+...
 ```
