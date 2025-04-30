@@ -82,10 +82,24 @@ title: eggjs框架开发文档
 
 ## 三、商品管理板块
 > 具体查看，<a href="/fourthless/w-a/eggjs.商品管理板块" target="_blank">商品管理板块</a><br/>
-> 特别说明：
->> 1. <a href="/web/mysql/goods_class.html#一、goods-class-商品分类表-字段设计" target="_blank">商品分类表 goods_class</a><br/>
->> 2. <a href="/web/mysql/goods_class表接口.html" target="_blank">商品分类表 goods_class 所有接口</a><br/>
->> 3. <a href="/web/mysql/goods_class.html#三、skus-商品规格表-字段设计" target="_blank">商品规格表 skus：【三、skus[商品规格表] 字段设计】</a><br/>
+> 特别说明：<br/>
+>> 1. 商品分类 `goods_class`
+>>> 1. <a href="/web/mysql/goods_class.html#一、goods-class-商品分类表-字段设计" target="_blank">商品分类表 goods_class</a><br/>
+>>> 2. <a href="/web/mysql/goods_class表接口.html" target="_blank">商品分类表 goods_class 所有接口</a><br/>
+>> 2. 商品规格 `skus`
+>> 1. <a href="/web/mysql/goods_class.html#三、skus-商品规格表-字段设计" target="_blank">商品规格表 skus：【三、skus[商品规格表] 字段设计】</a><br/>
 >> 2. <a href="/web/mysql/skus表接口.html" target="_blank">商品规格表 skus 所有接口</a><br/>
+>> 3. 商品表 `goods` 相关联信息
+>>> 1. <a href="/web/mysql/goods_class.html#_1-商品表goods字段设计" target="_blank">商品表goods字段设计</a><br/>
+>>> 2. <a href="/fourthless/w-a/eggjs.商品模块后台开发.html" target="_blank">商品模块后台开发</a><br/>
+>>> 3. <a href="/fourthless/w-a/eggjs.修改商品其他信息.html" target="_blank">修改商品其他信息</a><br/>
+>>> 4. <a href="/fourthless/w-a/eggjs.修改商品参数信息.html" target="_blank">修改商品参数信息</a><br/>
+>>> 5. <a href="/fourthless/w-a/eggjs.创建商品sku选购信息.html" target="_blank">商品sku选购信息管理</a><br/>
+
+## 四、后台（选修课）内容
+> 特别说明：<br/>
+>> ###  1. 用户表 `user` 相关
+>>> 1. <a href="/web/mysql/user.html" target="_blank">用户管理user表相关表说明</a><br/>
+
 
 

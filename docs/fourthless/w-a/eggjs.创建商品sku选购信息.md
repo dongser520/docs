@@ -903,6 +903,18 @@ cursor: pointer;background:none;"
         });
 
         $('#addGoodsSkuSubmit').click(function() {
+            //  获取选项及属性值
+            let skuItems = [];
+            $(this).parent().find('.sku-form .sku-item').each(function() {
+                const name = $(this).find('.sku-name').val();
+                const values = $(this).find('.sku-values').val().trim().split(/[,，]\s*/);
+                skuItems.push({
+                    name:name,
+                    values:values
+                });
+            });
+            // console.log('选项及属性值：', skuItems);return;
+            //  获取SKU数据
             const skuData = [];
             $('.sku-table tbody tr').each(function() {
                 const $row = $(this);
@@ -930,6 +942,7 @@ cursor: pointer;background:none;"
             });
 
             console.log('SKU数据：', skuData);
+            // console.log('选项及属性值：', skuItems);return;
             // alert('数据已输出到控制台，请查看');
             // alert('跳转到哪个页面:' + '{{successUrl|safe}}');
             // alert('提交到哪个页面:' + '{{form.action|safe}}');
@@ -943,7 +956,7 @@ cursor: pointer;background:none;"
                     //     sex:'女'
                     // },
                     contentType:'application/json;charset=UTF-8;',
-                    data:JSON.stringify({skuData:skuData}),
+                    data:JSON.stringify({skuData:skuData, skuItems:skuItems}),
                     success: function (response, stutas, xhr) {
                         console.log(response)
                         // 查询当前网址是否有gourl参数
@@ -971,6 +984,8 @@ cursor: pointer;background:none;"
     });
 </script>
 ```
+
+
 
 ### 4. 控制器
 `app/controller/admin/goods.js`
@@ -1063,7 +1078,7 @@ cursor: pointer;background:none;"
 ```
 
 
-### 三、 商品sku列表和删除
+## 三、 商品sku列表和删除
 ### 1. 控制器
 `app/controller/admin/goods.js`
 ```js
@@ -1277,5 +1292,387 @@ cursor: pointer;background:none;"
         ctx.toast('商品sku删除成功', 'success');
         //跳转
         ctx.redirect('/shop/admin/goods-/'+data.goods_id+'/indexGoodsSku');
+    }
+```
+
+## 四、最后补充商品sku选购项展示
+在控制器 `app/controller/admin/goods.js`
+```js
+    // 动态生成商品sku选购信息提交数据
+    async saveGoodsSku(){
+        const { ctx, app } = this;
+        //1.参数验证
+        this.ctx.validate({
+            goods_id: {
+                type: 'int',
+                required: true,
+                desc: '商品id',
+                // defValue: 0,
+                range:{
+                    min:1,
+                }
+            },
+            skuData: {
+                type: 'string',
+                required: true,
+                desc: '商品sku信息',
+                // defValue: 0,
+                range:{
+                    // min:1,
+                }
+            },
+            skuItems: {
+                type: 'string',
+                required: true,
+                desc: '商品sku项目',
+                // defValue: 0,
+                range:{
+                    // min:1,
+                }
+            },
+        });
+        // 参数
+        const goods_id = ctx.params.goods_id;
+        let data = await app.model.Goods.findOne({ where: { id:goods_id } });
+        if (!data) {
+            return ctx.apiFail('该商品不存在');
+        }
+        let {skuData,skuItems} = ctx.request.body;
+        skuData = JSON.parse(skuData);
+        //给skuData添加goods_id
+        skuData.forEach(item=>{
+            item.goods_id = goods_id;
+            item.name = JSON.stringify(item.name);
+        })
+        //保存数据
+        await app.model.GoodsSku.bulkCreate(skuData);
+        // 更新skuItems到goods表的sku_value字段
+        data.sku_value = skuItems;
+        await data.save();
+        ctx.apiSuccess('创建成功');
+    }
+
+    // 商品列表页面
+    async index() {
+        const { ctx, app } = this;
+        //分页：可以提炼成一个公共方法page(模型名称，where条件，其他参数options)
+        let keyword = ctx.query.keyword || '';
+        let data = await ctx.page('Goods',{
+            name:{
+                [this.app.Sequelize.Op.like]: '%' + keyword + '%',
+            }
+        },{
+            include:[{
+                model:app.model.GoodsClass,
+                attributes:['id','name'],
+            }],
+        });
+        // let data = await ctx.service.goodsClass.datalist({ limit: 10000 });
+        // console.log('数据', data);
+        // ctx.body = data;
+        // return;
+        // data = data.rules;
+        //渲染公共模版
+        await ctx.renderTemplate({
+            title: '商品列表',//现在网页title,面包屑导航title,页面标题
+            data,
+            tempType: 'table', //模板类型：table表格模板 ，form表单模板
+            table: {
+                //表格上方按钮,没有不要填buttons
+                buttons: [
+                    {
+                        url: '/shop/admin/goods-/create',//新增路径
+                        desc: '创建商品',//新增 //按钮名称
+                        // icon: 'fa fa-plus fa-lg',//按钮图标
+                    },
+                    // {
+                    //     url: '/shop/admin/goods/create',//新增路径
+                    //     desc: '上传商品',//新增 //按钮名称
+                    //     // icon: 'fa fa-plus fa-lg',//按钮图标
+                    // }
+                ],
+                //表头
+                columns: [
+                    {
+                        title: '商品分类和商品名称等',
+                        // key: 'name',
+                        class: 'text-left',//可选
+                        width:150,
+                        render(item) { 
+                            // console.log('每个item',item);
+                            return `<div style="font-size:12px;">
+                                 <p style="color:#999000;"><span>商品分类：</span><span>${item.goods_class.name}</span></p>
+                                 <div style="display:flex;">
+                                     <img src="${item.cover}" style="width:50px;height:50px;margin-right:10px;">
+                                     <p style="width:90px;display:flex;
+                                     flex-wrap:wrap;white-space:wrap;"><span>${item.name}</span></p>
+                                 </div>
+                                 <p><a href="/shop/admin/goods-/${item.id}/indexGoodsBanner"
+                                 style="color:green;">商品图片管理</a></p>
+                                 <p><a href="/shop/admin/goods-/${item.id}/indexGoodsParam"
+                                 style="color:green;">商品参数管理</a></p>
+                                 <p><a href="/shop/admin/goods-/${item.id}/indexGoodsSku"
+                                 style="color:green;">商品选购sku管理</a></p>
+                            </div>`;
+                        }
+                    },
+                    {
+                        title: '商品选购项',
+                        // key: 'sku_value',
+                        class: 'text-left',//可选
+                        width:300,
+                        render(item) { 
+                            // console.log('每个item',item);
+                            let str = ``;
+                            if(item.sku_value){
+                                let sku_value = JSON.parse(item.sku_value);
+                                for(let i=0;i<sku_value.length;i++){
+                                    str += `<div style="color:#333333;margin-bottom:15px;">`;
+                                    str += `<div style="margin-bottom:10px;font-weight:bold;">${sku_value[i].name}</div>`;
+                                    let str_arr = sku_value[i].values;
+                                    for(let j=0;j<str_arr.length;j++){
+                                        str += `<span style="padding:2px 5px;background-color:#f0f0f0;margin-right:5px;">${str_arr[j]}</span>`;
+                                    }
+                                    str += `</div>`;
+                               }
+                            }
+                            return `<div style="font-size:12px;">
+                                 ${str}
+                            </div>`;
+                        }
+                    },
+                    {
+                        title: '价格相关',
+                        // key: 'name',
+                        class: 'text-left',//可选
+                        render(item) { 
+                            // console.log('每个item',item);
+                            return `<div style="font-size:12px;">
+                                 <p style="color:#999000;"><span>起售价（最低售价，多少元起）：</span>
+                                 <span>${item.min_price?item.min_price:'暂无'}</span></p>
+                                 <p style="color:#999000;"><span>历史最低价：</span>
+                                 <span>${item.history_min_price?item.history_min_price:'暂无'}</span></p>
+                                 <p style="color:#999000;"><span>券后价：</span>
+                                 <span>${item.coupon_price?item.coupon_price:'暂无'}</span></p>
+                                 <p style="color:#999000;"><span>折后价：</span>
+                                 <span>${item.discount_price?item.discount_price:'暂无'}</span></p>
+                                 <p style="color:#999000;"><span>秒杀价：</span>
+                                 <span>${item.spike_price?item.spike_price:'暂无'}</span></p>
+                                 <p style="color:#999000;"><span>其它设置价（如:首件价，新客价，30天低价等等）：</span>
+                                 <span>${item.other_price?item.other_price:'暂无'}</span></p>
+                                 <p><a href="/shop/admin/goods-/${item.id}/editPrice"
+                                 style="color:green;">修改商品价格相关信息</a></p>
+                            </div>`;
+                        }
+                    },
+                    {
+                        title: '库存相关',
+                        // key: 'name',
+                        class: 'text-left',//可选
+                        render(item) { 
+                            // console.log('每个item',item);
+                            return `<div style="font-size:12px;">
+                                 <p style="color:#999000;"><span>单位（默认：件）：</span>
+                                 <span>${item.unit?item.unit:'件'}</span></p>
+                                 <p style="color:#999000;"><span>库存：</span>
+                                 <span>${item.stock?item.stock:'暂无'}</span></p>
+                                 <p style="color:#999000;"><span>库存预警：</span>
+                                 <span>${item.min_stock?item.min_stock:'暂无'}</span></p>
+                                 <p><a href="/shop/admin/goods-/${item.id}/editStock"
+                                 style="color:green;">修改商品库存相关信息</a></p>
+                            </div>`;
+                        }
+                    },
+                    {
+                        title: '库存是否显示',
+                        key: 'stock_display',
+                        // width: 200,//可选
+                        class: 'text-left',//可选
+                        hidekeyData: true,//是否隐藏key对应的数据
+                        render(item) {
+                            // console.log('可用状态里面每个item', item);
+                            let arr = [
+                                { value: 1, name: '显示' },
+                                { value: 0, name: '隐藏' },
+                            ];
+                            let str = `<div class="btn-group btn-group-${item.id}">`;
+                            for (let i = 0; i < arr.length; i++) {
+                                str += `<button type="button" class="btn btn-light" data="${item.stock_display}"
+                                value="${arr[i].value}"
+                                @click="changeBtnStatus('stock_display','btn-group-${item.id}',${arr[i].value},${i},${item.id},'/shop/admin/goods-','Goods')">${arr[i].name}</button>`;
+                            }
+                            str += `</div>`;
+                            return str;
+                        }
+                    },
+                    {
+                        title: '统计相关',
+                        // key: 'name',
+                        class: 'text-left',//可选
+                        render(item) { 
+                            // console.log('每个item',item);
+                            return `<div style="font-size:12px;">
+                                 <p style="color:#999000;"><span>商品评分：</span>
+                                 <span>${item.rating?item.rating:5.0}</span></p>
+                                 <p style="color:#999000;"><span>总销量：</span>
+                                 <span>${item.sale_count?item.sale_count:'暂无'}</span></p>
+                                 <p style="color:#999000;"><span>商品评论数量：</span>
+                                 <span>${item.review_count?item.review_count:'暂无'}</span></p>
+                                 <p style="color:#999000;"><span>商品收藏量：</span>
+                                 <span>${item.love_count?item.love_count:'暂无'}</span></p>
+                                 <p style="color:#999000;"><span>商品推荐量：</span>
+                                 <span>${item.recommend_count?item.recommend_count:'暂无'}</span></p>
+                                 <p><a href="/shop/admin/goods-/${item.id}/editTotalinfo"
+                                 style="color:green;">修改商品统计相关信息</a></p>
+                            </div>`;
+                        }
+                    },
+                    {
+                        title: '商品标签',
+                        // key: 'goods_tags',
+                        class: 'text-left',//可选
+                        render(item) { 
+                            // console.log('每个item',item);
+                            let str = ``;
+                            if(item.goods_tags){
+                                let arr = item.goods_tags.split(/[,，]/);
+                                for(let i=0;i<arr.length;i++){
+                                    str += `<span style="border:1px solid #909090;padding:2px;margin:2px;">${arr[i]}</span>`;
+                                }
+                            }
+                            return `<div style="font-size:12px;width:100px;display:flex;flex-wrap:wrap;">
+                                 ${str}
+                                 <p style="margin-top:10px;"><a href="/shop/admin/goods-/${item.id}/editTags"
+                                 style="color:green;">修改商品标签信息</a></p>
+                            </div>`;
+                        }
+                    },
+                    {
+                        title: '审核状态',
+                        key: 'ischeck',
+                        // width: 200,//可选
+                        class: 'text-left',//可选
+                        hidekeyData: true,//是否隐藏key对应的数据
+                        render(item) {
+                            // console.log('可用状态里面每个item', item);
+                            let arr = [
+                                { value: 1, name: '通过' },
+                                { value: 0, name: '审核中' },
+                                { value: 2, name: '拒绝' },
+                            ];
+                            let str = `<div class="btn-group btn-group-${item.id}">`;
+                            for (let i = 0; i < arr.length; i++) {
+                                str += `<button type="button" class="btn btn-light" data="${item.ischeck}"
+                                value="${arr[i].value}"
+                                @click="changeBtnStatus('ischeck','btn-group-${item.id}',${arr[i].value},${i},${item.id},'/shop/admin/goods-','Goods')">${arr[i].name}</button>`;
+                            }
+                            str += `</div>`;
+                            return str;
+                        }
+                    },
+                    {
+                        title: '商品状态',
+                        key: 'goods_status',
+                        // width: 200,//可选
+                        class: 'text-left',//可选
+                        hidekeyData: true,//是否隐藏key对应的数据
+                        render(item) {
+                            // console.log('可用状态里面每个item', item);
+                            let arr = [
+                                { value: 1, name: '上架' },
+                                { value: 0, name: '仓库' },
+                                { value: 2, name: '下架' },
+                                { value: 3, name: '违规下架' },
+                                { value: 4, name: '回收站' },
+                            ];
+                            let str = `<div class="btn-group btn-group-${item.id}">`;
+                            for (let i = 0; i < arr.length; i++) {
+                                str += `<button type="button" class="btn btn-light" data="${item.goods_status}"
+                                value="${arr[i].value}"
+                                @click="changeBtnStatus('goods_status','btn-group-${item.id}',${arr[i].value},${i},${item.id},'/shop/admin/goods-','Goods')">${arr[i].name}</button>`;
+                            }
+                            str += `</div>`;
+                            return str;
+                        }
+                    },
+                    // {
+                    //     title: '分类下的商品',
+                    //     // key: 'name',
+                    //     class: 'text-left',//可选
+                    //     render(item) { //树形数据
+                    //         // console.log('每个item',item);
+                    //         // if (item.level) {
+                    //         //     let w = item.level * 40;
+                    //         //     return `<span style="display:inline-block;width:${w}px"></span>`;
+                    //         // }
+                    //         return `<a href="/shop/admin/imageclass/${item.id}/imgList">${item.images.length}张</a>`;
+                    //     }
+                    // },
+                    // {
+                    //     title: '是否是导航栏栏目',
+                    //     key: 'isnav',
+                    //     width: 200,//可选
+                    //     class: 'text-center',//可选
+                    //     hidekeyData: true,//是否隐藏key对应的数据
+                    //     render(item) {
+                    //         console.log('可用状态里面每个item', item);
+                    //         let arr = [
+                    //             { value: 1, name: '是' },
+                    //             { value: 0, name: '否' },
+                    //         ];
+                    //         let str = `<div class="btn-group btn-group-${item.id}">`;
+                    //         for (let i = 0; i < arr.length; i++) {
+                    //             str += `<button type="button" class="btn btn-light" data="${item.isnav}"
+                    //             value="${arr[i].value}"
+                    //             @click="changeBtnStatus('isnav','btn-group-${item.id}',${arr[i].value},${i},${item.id},'category','Category')">${arr[i].name}</button>`;
+                    //         }
+                    //         str += `</div>`;
+                    //         return str;
+                    //     }
+                    // },
+                    {
+                        title: '排序',
+                        key: 'order',
+                        class: 'text-center',//可选
+                    },
+                    {
+                        title: '状态',
+                        key: 'status',
+                        width: 200,//可选
+                        class: 'text-center',//可选
+                        hidekeyData: true,//是否隐藏key对应的数据
+                        render(item) {
+                            // console.log('可用状态里面每个item', item);
+                            let arr = [
+                                { value: 1, name: '可用' },
+                                { value: 0, name: '不可用' },
+                            ];
+                            let str = `<div class="btn-group btn-group-${item.id}">`;
+                            for (let i = 0; i < arr.length; i++) {
+                                str += `<button type="button" class="btn btn-light" data="${item.status}"
+                                value="${arr[i].value}"
+                                @click="changeBtnStatus('status','btn-group-${item.id}',${arr[i].value},${i},${item.id},'/shop/admin/goods-','Goods')">${arr[i].name}</button>`;
+                            }
+                            str += `</div>`;
+                            return str;
+                        }
+                    },
+                    {
+                        title: '操作',
+                        class: 'text-right',//可选
+                        action: {
+                            //修改
+                            edit: function (id) {
+                                return `/shop/admin/goods-/edit/${id}`;
+                            },
+                            //删除
+                            delete: function (id) {
+                                return `/shop/admin/goods-/${id}/delete`;
+                            }
+                        }
+                    },
+                ],
+            },
+        });
     }
 ```

@@ -33,3 +33,8 @@ title: 第四学期第一季（课程学习顺序：11）
 ### <a >章节5.商品管理板块</a>
 ####  <a href="/fourthless/w-a/thinkphp框架开发文档.html#九、商品管理板块" target="_blank" style="margin-left:40px;">1.thinkphp框架：商品管理板块</a>
 ####  <a href="/fourthless/w-a/eggjs框架开发文档.html#三、商品管理板块" target="_blank" style="margin-left:40px;">2.eggjs框架：商品管理板块</a>
+
+### <a >后台（选修课）内容</a>
+### 1. 用户表 user 相关说明
+####  <a href="/web/mysql/user.html" target="_blank" style="margin-left:40px;">1.用户管理user表相关表说明</a>
+####  <a href="/fourthless/w-a/eggjs.user表用户管理" target="_blank" style="margin-left:40px;">2.用户管理user相关文档</a>
