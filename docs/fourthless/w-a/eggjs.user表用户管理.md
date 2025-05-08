@@ -619,3 +619,580 @@ class UserService extends Service {
 // 临时替代方案（非标准UUID）
 const tempId = Math.random().toString(36).substr(2, 9); // 输出类似 '4f90d13a7'
 ```
+
+
+## 六、在创建完用户之后，创建一条用户资料记录
+### 1. 方式一：简单方式写在创建用户方法之后
+在控制器 `app/controller/admin/user.js`
+```js
+    //创建用户提交数据
+    async save() {
+
+        //超级用户的特殊权限
+        // console.log(ctx.session.auth); 
+        // if (this.ctx.session.auth.super != 1) {
+        //   return this.ctx.apiFail('您无权操作此项功能');
+        // }
+        //一般处理流程
+        //1.参数验证
+        this.ctx.validate({
+            username: {
+                type: 'string',  //参数类型
+                required: true, //是否必须
+                // defValue: '', 
+                desc: '招商局人员账号' //字段含义
+            },
+            password: {
+                type: 'string',
+                required: true,
+                // defValue: '', 
+                desc: '招商局人员密码'
+            },
+            avatar: {
+                type: 'string',
+                required: false,
+                // defValue: '', 
+                desc: '招商局人员头像'
+            },
+            //   auth: {
+            //     type: 'string',
+            //     required: false,
+            //     defValue: '',
+            //     desc: '权限id'
+            //   },
+        });
+        //先判断一下账号是否存在，不存在在写入数据库
+        //2.写入数据库
+        //3.成功之后给页面反馈
+
+        //  let params = this.ctx.request.body; 
+        //  console.log(params); //{ username: 'admin', password: '123456', avatar: '' }
+        let { username, password,
+            avatar,
+            // auth 
+        } = this.ctx.request.body;
+        // let manager = await this.app.model.Manager.findOne({where: {username}});
+        if (await this.app.model.User.findOne({ where: { username } })) {
+            return this.ctx.apiFail('招商局人员账号已存在');
+        }
+        //否则不存在则写入数据库
+        const res = await this.app.model.User.create({
+            username,
+            password,
+            avatar,
+            //auth
+        });
+        // 创建用户资料
+        await this.ctx.model.UserInfo.create({
+            user_id: res.id
+        });
+        this.ctx.apiSuccess('创建成功');
+    }
+
+```
+<br/><br/>
+
+有同学问，有没有类似`thinkphp`的`onAfterInsert` 的后置操作，在创建完用户之后，创建一条用户资料记录？<br/><br/>
+答案是：`有的`，可以通过 `模型生命周期钩子` 或 `Service 层逻辑` 来实现类似 `onAfterInsert` 的后置操作，具体取决于你使用的 ORM（如 Sequelize 或 Mongoose）。讲这个知识的主要原因是带领大家更深入理解一下`Eggjs`的模型`model`和服务`service`用法。以下是两种常见实现方式：
+### 2.方式二：`模型生命周期钩子`即使用 ORM 的钩子
+以 Sequelize 为例，可以通过模型的生命周期钩子 `afterCreate` 实现插入后操作：
+#### 1. `app/model/user.js`
+```js
+'use strict';
+//哈希函数 
+const crypto = require('node:crypto');
+// 引入 uuid 库 `npm install uuid`
+const { v4: uuidv4 } = require('uuid'); 
+
+module.exports = app => {
+    const { INTEGER, STRING, DATE, TINYINT, ENUM } = app.Sequelize;
+
+    const User = app.model.define('user', {
+        id: {
+            type: INTEGER(20).UNSIGNED,
+            primaryKey: true,
+            autoIncrement: true,
+            comment: '主键ID'
+        },
+        uuid: {
+            type: STRING(36),
+            allowNull: false,
+            unique: true,
+            comment: '用户UUID',
+            defaultValue: () => uuidv4(), // 自动生成 UUID
+        },
+        username: {
+            type: STRING(50),
+            allowNull: false,
+            unique: true,
+            comment: '登录账号'
+        },
+        password: {
+            type: STRING(255),
+            allowNull: false,
+            comment: '加密密码',
+            set(val) {
+                //'sha256'加密
+                let hash = crypto.createHash('sha256', app.config.crypto.secret); //或者md5
+                hash.update(val);
+                let result = hash.digest('hex');
+                // console.log(result);
+                this.setDataValue('password', result);
+            }
+        },
+        nickname: {
+            type: STRING(50),
+            allowNull: false,
+            defaultValue: '',
+            comment: '用户昵称'
+        },
+        avatar: {
+            type: STRING(1000),
+            allowNull: true,
+            defaultValue: 'https://thinkphp-all.oss-cn-hangzhou.aliyuncs.com/public/67b3001b2aedd.png',
+            comment: '管理员头像（本地、网络图片地址）'
+        },
+        mobile: {
+            type: STRING(20),
+            unique: true,
+            comment: '手机号'
+        },
+        email: {
+            type: STRING(100),
+            unique: true,
+            comment: '邮箱'
+        },
+        status: {
+            type: TINYINT(1),
+            allowNull: false,
+            defaultValue: 1,
+            comment: '用户状态 1：启用，0：禁用'
+        },
+        last_login: {
+            type: DATE,
+            comment: '最后登录时间'
+        },
+        last_login_ip: {
+            type: STRING(45),
+            comment: '最后登录IP'
+        },
+        register_time: {
+            type: DATE,
+            allowNull: false,
+            defaultValue: app.Sequelize.literal('CURRENT_TIMESTAMP'),
+            comment: '注册时间'
+        },
+        register_ip: {
+            type: STRING(45),
+            comment: '注册IP'
+        },
+        is_deleted: {
+            type: TINYINT(1),
+            allowNull: false,
+            defaultValue: 0,
+            comment: '软删除标记'
+        },
+        wechat_openid: {
+            type: STRING(128),
+            unique: true,
+            comment: '微信OpenID'
+        },
+        qq_openid: {
+            type: STRING(128),
+            unique: true,
+            comment: 'QQ OpenID'
+        },
+        weibo_uid: {
+            type: STRING(128),
+            unique: true,
+            comment: '微博UID'
+        },
+        role: {
+            type: STRING(20),
+            allowNull: false,
+            defaultValue: 'user',
+            comment: '用户角色'
+        },
+        is_email_verified: {
+            type: TINYINT(1),
+            allowNull: false,
+            defaultValue: 0,
+            comment: '邮箱验证'
+        },
+        is_mobile_verified: {
+            type: TINYINT(1),
+            allowNull: false,
+            defaultValue: 0,
+            comment: '手机验证'
+        },
+        order: {
+            type: INTEGER,//不限定长度.默认int(11)
+            allowNull: true,
+            defaultValue: 50,
+            comment: '排序，默认50'
+        },
+        // sex: { type: ENUM, values: ['男','女','保密'], allowNull: true, defaultValue: '保密', comment: '留言用户性别'},
+        create_time: {
+            type: DATE,
+            allowNull: false,
+            defaultValue: app.Sequelize.fn('NOW'),
+            get() {
+                return app.formatTime(this.getDataValue('create_time'));
+            }
+        },
+        update_time: { type: DATE, allowNull: false, defaultValue: app.Sequelize.fn('NOW') },
+    });
+
+    // 定义 afterCreate 钩子
+    User.afterCreate(async (user, options) => {
+        // 创建匿名上下文,这是因为：
+        // 1. 模型层（Model） 通常不直接持有请求上下文（ctx）。
+        // 2. Service 方法 需要 ctx 才能访问框架资源（如数据库、配置等）。
+        // 3. app.createAnonymousContext() 会生成一个“匿名”的上下文（无真实请求来源），专门用于此类场景。
+        const ctx = app.createAnonymousContext();  // 创建匿名上下文
+        // 创建用户信息，调用用户信息服务的 create 方法
+        // `app/service/user_info.js`
+        await ctx.service.userInfo.create({ user_id: user.id });
+    });
+
+    return User;
+}
+```
+#### 2. `app/service/user_info.js`
+```js
+'use strict';
+
+const Service = require('egg').Service;
+
+class User_infoService extends Service {
+    // 定义一个 create 方法
+    async create(data) {
+        const { app } = this.ctx;
+        // 插入用户资料到数据库
+        return await app.model.UserInfo.create(data);
+    }
+}
+
+module.exports = User_infoService;
+```
+
+### 3.方式三：`在 Service 层封装逻辑`
+在 Service 中显式处理创建用户后的操作(和第一种方式在写入用户数据后，再创建用户资料类似，只是写法不一样)：
+#### ① `app/controller/admin/user.js`
+```js
+    //创建用户提交数据
+    async save() {
+        //超级用户的特殊权限
+        // console.log(ctx.session.auth); 
+        // if (this.ctx.session.auth.super != 1) {
+        //   return this.ctx.apiFail('您无权操作此项功能');
+        // }
+        //一般处理流程
+        //1.参数验证
+        this.ctx.validate({
+            username: {
+                type: 'string',  //参数类型
+                required: true, //是否必须
+                // defValue: '', 
+                desc: '招商局人员账号' //字段含义
+            },
+            password: {
+                type: 'string',
+                required: true,
+                // defValue: '', 
+                desc: '招商局人员密码'
+            },
+            avatar: {
+                type: 'string',
+                required: false,
+                // defValue: '', 
+                desc: '招商局人员头像'
+            },
+            //   auth: {
+            //     type: 'string',
+            //     required: false,
+            //     defValue: '',
+            //     desc: '权限id'
+            //   },
+        });
+        //先判断一下账号是否存在，不存在在写入数据库
+        //2.写入数据库
+        //3.成功之后给页面反馈
+
+        //  let params = this.ctx.request.body; 
+        //  console.log(params); //{ username: 'admin', password: '123456', avatar: '' }
+        let { username, password,
+            avatar,
+            // auth 
+        } = this.ctx.request.body;
+        // let manager = await this.app.model.Manager.findOne({where: {username}});
+        if (await this.app.model.User.findOne({ where: { username } })) {
+            return this.ctx.apiFail('招商局人员账号已存在');
+        }
+        //否则不存在则写入数据库
+        /*
+        const res = await this.app.model.User.create({
+            username,
+            password,
+            avatar,
+            //auth
+        });
+        // 创建用户资料
+        await this.app.model.UserInfo.create({
+            user_id: res.id
+        });
+        */
+        await this.ctx.service.user.createdata({
+            username,
+            password,
+            avatar,
+            //auth
+        });
+        this.ctx.apiSuccess('创建成功');
+    }
+```
+#### ② `app/service/user.js`
+```js
+'use strict';
+
+const Service = require('egg').Service;
+
+class UserService extends Service {
+    async createdata(userData) {
+        const { app } = this.ctx;
+        let user;
+    
+        // 使用事务确保原子性
+        await app.model.transaction(async t => {
+          user = await app.model.User.create(userData, { transaction: t });
+          await app.model.UserInfo.create({ user_id: user.id }, { transaction: t });
+        });
+    
+        return user;
+    }
+}
+
+module.exports = UserService;
+
+```
+
+
+## 七、用户简单登录和注册（信息存储在客户端）
+### 1. user路由
+`app/router/admin/admin.js`
+```js
+    ...
+    //删除用户功能
+    router.get('/admin/user/delete/:id', controller.admin.user.delete);
+    //修改用户界面
+    router.get('/admin/user/edit/:id', controller.admin.user.edit);
+    //修改用户数据功能
+    router.post('/admin/user/update/:id', controller.admin.user.update);
+    // 创建用户界面
+    router.get('/admin/user/create', controller.admin.user.create);
+    //创建用户提交数据
+    router.post('/admin/user/save', controller.admin.user.save);
+    //用户列表页面
+    router.get('/admin/user/index', controller.admin.user.index);
+    router.get('/admin/user', controller.admin.user.index);
+
+    //用户登录
+    router.post('/api/user/login', controller.admin.user.userlogin);
+    //用户注册
+    router.post('/api/user/userregister', controller.admin.user.userregister);
+
+    // 公共方法，根据id修改某张表中的某个字段
+    router.post('/admin/commonUpdateById', controller.admin.home.commonUpdateById);
+    // 后台首页
+    router.get('/admin', controller.admin.home.index);
+```
+### 2. 控制器
+`app/controller/admin/user.js`
+```js
+'use strict';
+//哈希函数 
+const crypto = require('node:crypto');
+const Controller = require('egg').Controller;
+class UserController extends Controller {
+    // 用户登录
+    async userlogin() {
+        const { ctx, app } = this;
+        //1.参数验证
+        this.ctx.validate({
+            username: {
+                type: 'string',  //参数类型
+                required: true, //是否必须
+                // defValue: '', 
+                desc: '账号' //字段含义
+            },
+            password: {
+                type: 'string',
+                required: true,
+                // defValue: '', 
+                desc: '密码'
+            },
+        });
+        // 拿参数
+        const { username, password } = ctx.request.body;
+        // 判断是否存在
+        const user = await app.model.User.findOne({
+            where: {
+                username: username,
+                status: 1,
+            },
+        });
+        if (!user) {
+            ctx.throw(400, '账号不存在或者被禁用');
+        }
+        // 存在则验证密码
+        await this.checkPassword(password, user.password);
+        //存储在session中，定义session中的一个属性authuser存储用户登录信息
+        // ctx.session.authuser = user; //存储到客户端
+        return ctx.apiSuccess(user);
+    }
+    // 验证密码
+    async checkPassword(password, hash_password) {
+        let hash = crypto.createHash('sha256', this.app.config.crypto.secret); //或者md5
+        hash.update(password);
+        password = hash.digest('hex');
+        if (password !== hash_password) {
+            this.ctx.throw(400, '账户或密码错误');
+        }
+        return true;
+    }
+    // 用户注册
+    async userregister() {
+        //1.参数验证
+        this.ctx.validate({
+            username: {
+                type: 'string',  //参数类型
+                required: true, //是否必须
+                // defValue: '', 
+                desc: '账号', //字段含义
+                range:{
+                    min: 2,
+                    max: 50
+                }
+            },
+            password: {
+                type: 'string',
+                required: true,
+                // defValue: '', 
+                desc: '密码'
+            },
+            nickname: {
+                type: 'string',
+                required: true,
+                defValue: '', 
+                desc: '姓名',
+                range:{
+                    min: 2,
+                    max: 50
+                }
+            },
+            role: {
+                type: 'string',
+                required: true,
+                defValue: '',
+                desc: '所属招商局名称',
+                range:{
+                    min: 2,
+                    max: 20
+                }
+            },
+            mobile: {
+                type: 'phone',
+                required: true,
+                defValue: '',
+                desc: '手机号'
+            },
+            status: {
+                type: 'number',
+                required: false,
+                defValue: 0,
+                desc: '状态'
+            },
+        });
+        let { username, password,
+            nickname,role,mobile
+            // auth 
+        } = this.ctx.request.body;
+        // let user = await this.app.model.User.findOne({where: {username}});
+        if (await this.app.model.User.findOne({ where: { nickname, role,mobile} })) {
+            return this.ctx.apiFail('当前姓名的工作人员已经注册过，可能在审核中，无需再次注册');
+        }
+        if (await this.app.model.User.findOne({ where: { username } })) {
+            return this.ctx.apiFail('该账号已存在，请换一个账号注册');
+        }
+        //否则不存在则写入数据库
+        let status = 0;
+        const res = await this.app.model.User.create({
+            username,
+            password,
+            nickname,
+            role,mobile,status
+        });
+        // 创建用户资料
+        await this.ctx.model.UserInfo.create({
+            user_id: res.id
+        });
+        this.ctx.apiSuccess('创建成功，请等待审核');
+    }
+}
+module.exports = UserController;
+```
+
+### 3. postman/Apipost登录测试
+1. 路由地址： `http://127.0.0.1:7001/api/user/login`
+2. 请求：`POST`
+3. `body` -> `urlencoded`
+> 1. key(参数名): username, value（值）: `张三|13945375408|769558989@qq.com` <br/>
+> 2. key(参数名): password, value（值）: `123456`
+4. 返回结果
+```js
+{
+	"msg": "ok",
+	"data": {
+		"create_time": "2025-05-06 10:48:50",
+		"id": 3,
+		"uuid": "8540efaf-648a-4a4f-a930-9f247dd23375",
+		"username": "张三",
+		"password": "8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92",
+		"nickname": "",
+		"avatar": "https://thinkphp-all.oss-cn-hangzhou.aliyuncs.com/public/67b3001b2aedd.png",
+		"mobile": null,
+		"email": null,
+		"status": 1,
+		"last_login": null,
+		"last_login_ip": null,
+		"register_time": "2025-05-06T02:48:50.000Z",
+		"register_ip": null,
+		"is_deleted": 0,
+		"wechat_openid": null,
+		"qq_openid": null,
+		"weibo_uid": null,
+		"role": "user",
+		"is_email_verified": 0,
+		"is_mobile_verified": 0,
+		"order": 50,
+		"update_time": "2025-05-06T02:48:50.000Z"
+	}
+}
+```
+
+### 3. postman/Apipost注册测试
+1. 路由地址： `http://127.0.0.1:7001/api/user/userregister`
+2. 请求：`POST`
+3. `body` -> `urlencoded`
+> 1. key(参数名): `username`, value（值）: `zhangsan` <br/>
+> 2. key(参数名): `password`, value（值）: `123456`<br/>
+> 3. key(参数名): `nickname`, value（值）: `张三`<br/>
+> 4. key(参数名): `role`, value（值）: `汉中市招商局`<br/>
+> 5. key(参数名): `mobile`, value（值）: `13858585548`<br/>
+4. 返回结果
+```js
+{
+	"msg": "ok",
+	"data": "创建成功，请等待审核"
+}
+```

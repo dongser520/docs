@@ -649,6 +649,7 @@ module.exports = {
 | <b>id </b>  | <span>int(20) </span><br/> <span style="font-size:12px">主键、自增长、UNSIGNED无符号 </span>    |    否      |    |         主键id  |
 | <b>goods_id </b>      | int(20) | 否    |                               |   商品`goods`表的id            |
 | <b>name </b>      | varchar(255) |     否    |   |   选购组合名称  |
+| <b>namestr </b>      | varchar(255) |     否    |   |   选购组合名称纯文字  |
 | <b>cover </b>      | varchar(2000) |     是    |   |   选购组合封面图  |
 | <b>stock </b>      | int(11) | 是    |       0                        |   商品选购组合库存数量          |
 | <b>price </b>      | decimal(10,2) | 是    |                               |   商品选购组合价格        |
@@ -698,6 +699,12 @@ module.exports = {
         allowNull: false, 
         defaultValue: '', 
         comment: '选购组合名称'
+      },
+      namestr: { 
+        type: STRING(255), 
+        allowNull: false, 
+        defaultValue: '', 
+        comment: '选购组合名称纯文字'
       },
       cover: { 
         type: STRING(2000), 
