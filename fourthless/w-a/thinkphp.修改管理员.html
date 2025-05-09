@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>thinkphp框架修改管理员 | 睿晨网</title>
+    <meta name="generator" content="VuePress 1.9.9">
+    <link rel="icon" href="/assets/img/favicon.png">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="apple-touch-icon" href="/icons/apple-touch-icon-152x152.png">
+    <link rel="#icon-pengyouquan" href="/icons/iconfont.svg" color="#3eaf7c">
+    <meta name="description" content="睿晨网|睿晨编程|零基础学做网站、app、小程序就从这里开始">
+    <meta name="keywords" content="睿晨网,睿晨编程,零基础学做网站,零基础学app,零基础学小程序">
+    <meta name="author" content="睿晨网,睿晨编程,阿东老师">
+    <meta name="theme-color" content="#3eaf7c">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="msapplication-TileImage" content="/icons/msapplication-icon-144x144.png">
+    <meta name="msapplication-TileColor" content="#000000">
+    
+    <link rel="preload" href="/assets/css/0.styles.9f36b4a6.css" as="style"><link rel="preload" href="/assets/js/app.dbdded2c.js" as="script"><link rel="preload" href="/assets/js/9.13d458ed.js" as="script"><link rel="preload" href="/assets/js/2.6281e0bb.js" as="script"><link rel="preload" href="/assets/js/37.2cea817e.js" as="script"><link rel="preload" href="/assets/js/3.e6827fa8.js" as="script"><link rel="prefetch" href="/assets/js/10.63ed790c.js"><link rel="prefetch" href="/assets/js/100.ef25be54.js"><link rel="prefetch" href="/assets/js/101.6b3777ff.js"><link rel="prefetch" href="/assets/js/102.46c78ed6.js"><link rel="prefetch" href="/assets/js/103.17a368be.js"><link rel="prefetch" href="/assets/js/104.737e36dc.js"><link rel="prefetch" href="/assets/js/105.95d761ee.js"><link rel="prefetch" href="/assets/js/106.dbb48938.js"><link rel="prefetch" href="/assets/js/107.fb7d7391.js"><link rel="prefetch" href="/assets/js/108.fed91c3d.js"><link rel="prefetch" href="/assets/js/109.c68b22b3.js"><link rel="prefetch" href="/assets/js/11.934eb133.js"><link rel="prefetch" href="/assets/js/110.5a6c03ed.js"><link rel="prefetch" href="/assets/js/111.8b89668a.js"><link rel="prefetch" href="/assets/js/112.877f01d7.js"><link rel="prefetch" href="/assets/js/113.05a01a82.js"><link rel="prefetch" href="/assets/js/114.2ca982c9.js"><link rel="prefetch" href="/assets/js/115.683f2db1.js"><link rel="prefetch" href="/assets/js/116.9a5097ea.js"><link rel="prefetch" href="/assets/js/117.ba96cc94.js"><link rel="prefetch" href="/assets/js/118.b8d1f644.js"><link rel="prefetch" href="/assets/js/119.ba7c8a1c.js"><link rel="prefetch" href="/assets/js/12.2665a2a8.js"><link rel="prefetch" href="/assets/js/120.1a036941.js"><link rel="prefetch" href="/assets/js/121.4473741f.js"><link rel="prefetch" href="/assets/js/122.b7e5fc5c.js"><link rel="prefetch" href="/assets/js/123.c3d79cd1.js"><link rel="prefetch" href="/assets/js/124.a8667e74.js"><link rel="prefetch" href="/assets/js/125.6c375550.js"><link rel="prefetch" href="/assets/js/126.e1870390.js"><link rel="prefetch" href="/assets/js/127.65e242f5.js"><link rel="prefetch" href="/assets/js/128.22948822.js"><link rel="prefetch" href="/assets/js/129.cf5a1212.js"><link rel="prefetch" href="/assets/js/13.50c9a147.js"><link rel="prefetch" href="/assets/js/130.da5bbffe.js"><link rel="prefetch" href="/assets/js/131.14236bca.js"><link rel="prefetch" href="/assets/js/132.c08cb3ab.js"><link rel="prefetch" href="/assets/js/133.ae36dc80.js"><link rel="prefetch" href="/assets/js/134.2d57960d.js"><link rel="prefetch" href="/assets/js/135.46bcc31b.js"><link rel="prefetch" href="/assets/js/136.b9038915.js"><link rel="prefetch" href="/assets/js/137.452a71e8.js"><link rel="prefetch" href="/assets/js/138.52321a12.js"><link rel="prefetch" href="/assets/js/139.7cb0cd51.js"><link rel="prefetch" href="/assets/js/14.0ca13a9a.js"><link rel="prefetch" href="/assets/js/140.148e1051.js"><link rel="prefetch" href="/assets/js/141.ce1bd4af.js"><link rel="prefetch" href="/assets/js/142.da6b83c7.js"><link rel="prefetch" href="/assets/js/143.63179b88.js"><link rel="prefetch" href="/assets/js/144.cd9a1a00.js"><link rel="prefetch" href="/assets/js/145.b6e0df15.js"><link rel="prefetch" href="/assets/js/146.aefb270c.js"><link rel="prefetch" href="/assets/js/147.8954cb6f.js"><link rel="prefetch" href="/assets/js/148.f0e058cf.js"><link rel="prefetch" href="/assets/js/149.2e2efb25.js"><link rel="prefetch" href="/assets/js/15.967ec7b7.js"><link rel="prefetch" href="/assets/js/150.beb734bf.js"><link rel="prefetch" href="/assets/js/151.4e5866b8.js"><link rel="prefetch" href="/assets/js/152.6c22c300.js"><link rel="prefetch" href="/assets/js/153.8c705d68.js"><link rel="prefetch" href="/assets/js/154.7ca242e7.js"><link rel="prefetch" href="/assets/js/155.1bc76c80.js"><link rel="prefetch" href="/assets/js/156.3f2840dd.js"><link rel="prefetch" href="/assets/js/157.5874c19d.js"><link rel="prefetch" href="/assets/js/158.2d65e48f.js"><link rel="prefetch" href="/assets/js/159.0bf117f4.js"><link rel="prefetch" href="/assets/js/16.019e1693.js"><link rel="prefetch" href="/assets/js/160.d06ba1d9.js"><link rel="prefetch" href="/assets/js/161.1ccdf630.js"><link rel="prefetch" href="/assets/js/162.fc661b8f.js"><link rel="prefetch" href="/assets/js/163.655bd61f.js"><link rel="prefetch" href="/assets/js/164.8d4bb914.js"><link rel="prefetch" href="/assets/js/165.69777a48.js"><link rel="prefetch" href="/assets/js/166.85189d1e.js"><link rel="prefetch" href="/assets/js/167.ab6ce807.js"><link rel="prefetch" href="/assets/js/168.bbffc4e3.js"><link rel="prefetch" href="/assets/js/169.2e80a326.js"><link rel="prefetch" href="/assets/js/17.130ae7cc.js"><link rel="prefetch" href="/assets/js/170.5da583d0.js"><link rel="prefetch" href="/assets/js/171.97b2fa15.js"><link rel="prefetch" href="/assets/js/172.e9ebff93.js"><link rel="prefetch" href="/assets/js/18.220e9a9f.js"><link rel="prefetch" href="/assets/js/19.16768c75.js"><link rel="prefetch" href="/assets/js/20.3f7b431f.js"><link rel="prefetch" href="/assets/js/21.67cba0cf.js"><link rel="prefetch" href="/assets/js/22.4e436eee.js"><link rel="prefetch" href="/assets/js/23.aeb8e1ec.js"><link rel="prefetch" href="/assets/js/24.ecba817a.js"><link rel="prefetch" href="/assets/js/25.c52d9917.js"><link rel="prefetch" href="/assets/js/26.b536dcc8.js"><link rel="prefetch" href="/assets/js/27.3aa81d80.js"><link rel="prefetch" href="/assets/js/28.31b54f4d.js"><link rel="prefetch" href="/assets/js/29.1e43fed6.js"><link rel="prefetch" href="/assets/js/30.e16b45de.js"><link rel="prefetch" href="/assets/js/31.08dd5612.js"><link rel="prefetch" href="/assets/js/32.9856c470.js"><link rel="prefetch" href="/assets/js/33.532b881d.js"><link rel="prefetch" href="/assets/js/34.a193025e.js"><link rel="prefetch" href="/assets/js/35.bcbb1104.js"><link rel="prefetch" href="/assets/js/36.5391e427.js"><link rel="prefetch" href="/assets/js/38.841b49cf.js"><link rel="prefetch" href="/assets/js/39.603dee2b.js"><link rel="prefetch" href="/assets/js/4.54a138d4.js"><link rel="prefetch" href="/assets/js/40.85df89d3.js"><link rel="prefetch" href="/assets/js/41.b12252c9.js"><link rel="prefetch" href="/assets/js/42.a558e2a7.js"><link rel="prefetch" href="/assets/js/43.9f708a7a.js"><link rel="prefetch" href="/assets/js/44.1ce5d1d2.js"><link rel="prefetch" href="/assets/js/45.7f31e45b.js"><link rel="prefetch" href="/assets/js/46.7fc3379a.js"><link rel="prefetch" href="/assets/js/47.4821d451.js"><link rel="prefetch" href="/assets/js/48.775e9a18.js"><link rel="prefetch" href="/assets/js/49.c7613ebc.js"><link rel="prefetch" href="/assets/js/5.3e24e7be.js"><link rel="prefetch" href="/assets/js/50.b154132b.js"><link rel="prefetch" href="/assets/js/51.634f467d.js"><link rel="prefetch" href="/assets/js/52.02f14f46.js"><link rel="prefetch" href="/assets/js/53.6b9e7657.js"><link rel="prefetch" href="/assets/js/54.23b84aff.js"><link rel="prefetch" href="/assets/js/55.f1124d6a.js"><link rel="prefetch" href="/assets/js/56.ed076a6e.js"><link rel="prefetch" href="/assets/js/57.0edab8c4.js"><link rel="prefetch" href="/assets/js/58.bde96ec2.js"><link rel="prefetch" href="/assets/js/59.74badb68.js"><link rel="prefetch" href="/assets/js/6.ca2525e2.js"><link rel="prefetch" href="/assets/js/60.61476aa0.js"><link rel="prefetch" href="/assets/js/61.1d5052ac.js"><link rel="prefetch" href="/assets/js/62.ff58ba94.js"><link rel="prefetch" href="/assets/js/63.ac0eba02.js"><link rel="prefetch" href="/assets/js/64.c6ceb8d2.js"><link rel="prefetch" href="/assets/js/65.b2ee3fa0.js"><link rel="prefetch" href="/assets/js/66.4121f933.js"><link rel="prefetch" href="/assets/js/67.1f67d3ec.js"><link rel="prefetch" href="/assets/js/68.57a3a1fb.js"><link rel="prefetch" href="/assets/js/69.60d0ec9d.js"><link rel="prefetch" href="/assets/js/7.cdb343a4.js"><link rel="prefetch" href="/assets/js/70.a7ceddc2.js"><link rel="prefetch" href="/assets/js/71.77ec6b72.js"><link rel="prefetch" href="/assets/js/72.af1f8d46.js"><link rel="prefetch" href="/assets/js/73.233cd9e6.js"><link rel="prefetch" href="/assets/js/74.83e70a2e.js"><link rel="prefetch" href="/assets/js/75.5fef7e44.js"><link rel="prefetch" href="/assets/js/76.5c335134.js"><link rel="prefetch" href="/assets/js/77.05367a79.js"><link rel="prefetch" href="/assets/js/78.235a8e12.js"><link rel="prefetch" href="/assets/js/79.83015d38.js"><link rel="prefetch" href="/assets/js/8.3e1266d1.js"><link rel="prefetch" href="/assets/js/80.bac6276c.js"><link rel="prefetch" href="/assets/js/81.cb2597c0.js"><link rel="prefetch" href="/assets/js/82.8c3cf17c.js"><link rel="prefetch" href="/assets/js/83.89f9cf5d.js"><link rel="prefetch" href="/assets/js/84.71b4cc23.js"><link rel="prefetch" href="/assets/js/85.317963e6.js"><link rel="prefetch" href="/assets/js/86.a1a487b0.js"><link rel="prefetch" href="/assets/js/87.6a406082.js"><link rel="prefetch" href="/assets/js/88.b62e9069.js"><link rel="prefetch" href="/assets/js/89.1afb2908.js"><link rel="prefetch" href="/assets/js/90.e41278dc.js"><link rel="prefetch" href="/assets/js/91.d4d3215a.js"><link rel="prefetch" href="/assets/js/92.94e98ff9.js"><link rel="prefetch" href="/assets/js/93.2cb84419.js"><link rel="prefetch" href="/assets/js/94.2bb23fd9.js"><link rel="prefetch" href="/assets/js/95.e6ecb1f0.js"><link rel="prefetch" href="/assets/js/96.d342a211.js"><link rel="prefetch" href="/assets/js/97.6bb886c4.js"><link rel="prefetch" href="/assets/js/98.7975eca6.js"><link rel="prefetch" href="/assets/js/99.418d69ac.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.9f36b4a6.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">睿晨网</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">
+  主页
+</a></div><div class="nav-item"><a href="/aboutless.html" class="nav-link">
+  第一学期课程
+</a></div><div class="nav-item"><a href="/secondless/" class="nav-link">
+  第二学期课程
+</a></div><div class="nav-item"><a href="/thirdless/" class="nav-link">
+  第三期移动端课程
+</a></div><div class="nav-item"><a href="/fourthless/" class="nav-link router-link-active">
+  第四学期课程
+</a></div><div class="nav-item"><a href="/web/software/" class="nav-link">
+  课程软件小案例
+</a></div><div class="nav-item"><a href="/web/mysql/" class="nav-link">
+  课程案例数据表
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="课程答疑汇总" class="dropdown-title"><span class="title">课程答疑</span> <span class="arrow down"></span></button> <button type="button" aria-label="课程答疑汇总" class="mobile-dropdown-title"><span class="title">课程答疑</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/web/answer/课程常见问题.html" class="nav-link">
+  课程常见问题
+</a></li><li class="dropdown-item"><!----> <a href="/deploy/" class="nav-link">
+  项目部署
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="课程学习网站" class="dropdown-title"><span class="title">课程学习网站</span> <span class="arrow down"></span></button> <button type="button" aria-label="课程学习网站" class="mobile-dropdown-title"><span class="title">课程学习网站</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          视频学习网站
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://study.163.com/provider/480000002289674/index.htm?share=2&amp;shareId=480000002289674" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  腾讯云课堂
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://space.bilibili.com/3493114067028034/pugv" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  B站
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="实用菜单" class="dropdown-title"><span class="title">实用网站和方法</span> <span class="arrow down"></span></button> <button type="button" aria-label="实用菜单" class="mobile-dropdown-title"><span class="title">实用网站和方法</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          实用方法
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/web/methods/定位相关.html" class="nav-link">
+  定位相关
+</a></li><li class="dropdown-subitem"><a href="/web/methods/地图相关.html" class="nav-link">
+  地图相关
+</a></li><li class="dropdown-subitem"><a href="/web/methods/树形结构数据转换.html" class="nav-link">
+  树形结构数据转换
+</a></li></ul></li><li class="dropdown-item"><h4>
+          uni-app专栏
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/web/methods/uni-app专栏.html" class="nav-link">
+  uni-app的UI框架
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Egg.js专栏
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/secondless/w-c/Egg.js.html" class="nav-link">
+  Egg.js基础
+</a></li><li class="dropdown-subitem"><a href="/secondless/w-c/egg.js基础总结.html" class="nav-link">
+  Egg.js基础总结
+</a></li><li class="dropdown-subitem"><a href="/secondless/w-c/egg.js重要知识详细文档.html" class="nav-link">
+  Egg.js重要知识详细文档
+</a></li><li class="dropdown-subitem"><a href="/secondless/w-c/ValParams API 说明.html" class="nav-link">
+  Egg.js参数验证说明
+</a></li><li class="dropdown-subitem"><a href="/web/mysql/Sequelize数据类型.html" class="nav-link">
+  Egg.js迁移文件Sequelize数据类型
+</a></li></ul></li><li class="dropdown-item"><h4>
+          实用网站
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/web/methods/实用接口.html" class="nav-link">
+  实用接口
+</a></li><li class="dropdown-subitem"><a href="/web/css/" class="nav-link">
+  css
+</a></li><li class="dropdown-subitem"><a href="/web/vue.js/" class="nav-link">
+  Vue.js
+</a></li><li class="dropdown-subitem"><a href="/web/Vue3+ElementPlus/" class="nav-link">
+  Vue3+ElementPlus系统
+</a></li><li class="dropdown-subitem"><a href="/web/echarts/" class="nav-link">
+  echarts图表
+</a></li><li class="dropdown-subitem"><a href="/web/bootstrap/" class="nav-link">
+  Bootstrap
+</a></li><li class="dropdown-subitem"><a href="/web/IIS/" class="nav-link">
+  IIS
+</a></li><li class="dropdown-subitem"><a href="/web/github/" class="nav-link">
+  Github
+</a></li><li class="dropdown-subitem"><a href="/web/Vanta.js/" class="nav-link">
+  Vanta.js网页3D背景
+</a></li><li class="dropdown-subitem"><a href="/web/shop/" class="nav-link">
+  商城系统推荐
+</a></li></ul></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">
+  主页
+</a></div><div class="nav-item"><a href="/aboutless.html" class="nav-link">
+  第一学期课程
+</a></div><div class="nav-item"><a href="/secondless/" class="nav-link">
+  第二学期课程
+</a></div><div class="nav-item"><a href="/thirdless/" class="nav-link">
+  第三期移动端课程
+</a></div><div class="nav-item"><a href="/fourthless/" class="nav-link router-link-active">
+  第四学期课程
+</a></div><div class="nav-item"><a href="/web/software/" class="nav-link">
+  课程软件小案例
+</a></div><div class="nav-item"><a href="/web/mysql/" class="nav-link">
+  课程案例数据表
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="课程答疑汇总" class="dropdown-title"><span class="title">课程答疑</span> <span class="arrow down"></span></button> <button type="button" aria-label="课程答疑汇总" class="mobile-dropdown-title"><span class="title">课程答疑</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/web/answer/课程常见问题.html" class="nav-link">
+  课程常见问题
+</a></li><li class="dropdown-item"><!----> <a href="/deploy/" class="nav-link">
+  项目部署
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="课程学习网站" class="dropdown-title"><span class="title">课程学习网站</span> <span class="arrow down"></span></button> <button type="button" aria-label="课程学习网站" class="mobile-dropdown-title"><span class="title">课程学习网站</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          视频学习网站
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://study.163.com/provider/480000002289674/index.htm?share=2&amp;shareId=480000002289674" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  腾讯云课堂
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://space.bilibili.com/3493114067028034/pugv" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  B站
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="实用菜单" class="dropdown-title"><span class="title">实用网站和方法</span> <span class="arrow down"></span></button> <button type="button" aria-label="实用菜单" class="mobile-dropdown-title"><span class="title">实用网站和方法</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          实用方法
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/web/methods/定位相关.html" class="nav-link">
+  定位相关
+</a></li><li class="dropdown-subitem"><a href="/web/methods/地图相关.html" class="nav-link">
+  地图相关
+</a></li><li class="dropdown-subitem"><a href="/web/methods/树形结构数据转换.html" class="nav-link">
+  树形结构数据转换
+</a></li></ul></li><li class="dropdown-item"><h4>
+          uni-app专栏
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/web/methods/uni-app专栏.html" class="nav-link">
+  uni-app的UI框架
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Egg.js专栏
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/secondless/w-c/Egg.js.html" class="nav-link">
+  Egg.js基础
+</a></li><li class="dropdown-subitem"><a href="/secondless/w-c/egg.js基础总结.html" class="nav-link">
+  Egg.js基础总结
+</a></li><li class="dropdown-subitem"><a href="/secondless/w-c/egg.js重要知识详细文档.html" class="nav-link">
+  Egg.js重要知识详细文档
+</a></li><li class="dropdown-subitem"><a href="/secondless/w-c/ValParams API 说明.html" class="nav-link">
+  Egg.js参数验证说明
+</a></li><li class="dropdown-subitem"><a href="/web/mysql/Sequelize数据类型.html" class="nav-link">
+  Egg.js迁移文件Sequelize数据类型
+</a></li></ul></li><li class="dropdown-item"><h4>
+          实用网站
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/web/methods/实用接口.html" class="nav-link">
+  实用接口
+</a></li><li class="dropdown-subitem"><a href="/web/css/" class="nav-link">
+  css
+</a></li><li class="dropdown-subitem"><a href="/web/vue.js/" class="nav-link">
+  Vue.js
+</a></li><li class="dropdown-subitem"><a href="/web/Vue3+ElementPlus/" class="nav-link">
+  Vue3+ElementPlus系统
+</a></li><li class="dropdown-subitem"><a href="/web/echarts/" class="nav-link">
+  echarts图表
+</a></li><li class="dropdown-subitem"><a href="/web/bootstrap/" class="nav-link">
+  Bootstrap
+</a></li><li class="dropdown-subitem"><a href="/web/IIS/" class="nav-link">
+  IIS
+</a></li><li class="dropdown-subitem"><a href="/web/github/" class="nav-link">
+  Github
+</a></li><li class="dropdown-subitem"><a href="/web/Vanta.js/" class="nav-link">
+  Vanta.js网页3D背景
+</a></li><li class="dropdown-subitem"><a href="/web/shop/" class="nav-link">
+  商城系统推荐
+</a></li></ul></li></ul></div></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>thinkphp框架修改管理员</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/fourthless/w-a/thinkphp.%E4%BF%AE%E6%94%B9%E7%AE%A1%E7%90%86%E5%91%98.html#一、修改管理员" class="sidebar-link">一、修改管理员</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/fourthless/w-a/thinkphp.%E4%BF%AE%E6%94%B9%E7%AE%A1%E7%90%86%E5%91%98.html#_1-先查询是否存在-再修改" class="sidebar-link">1.先查询是否存在，再修改</a></li><li class="sidebar-sub-header"><a href="/fourthless/w-a/thinkphp.%E4%BF%AE%E6%94%B9%E7%AE%A1%E7%90%86%E5%91%98.html#_2-针对类似经常查询id判断数据是否存在的情况-考虑在验证器里自定义验证规则完成自动化" class="sidebar-link">2.针对类似经常查询id判断数据是否存在的情况，考虑在验证器里自定义验证规则完成自动化</a></li></ul></li><li><a href="/fourthless/w-a/thinkphp.%E4%BF%AE%E6%94%B9%E7%AE%A1%E7%90%86%E5%91%98.html#二、字段唯一性验证处理" class="sidebar-link">二、字段唯一性验证处理</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/fourthless/w-a/thinkphp.%E4%BF%AE%E6%94%B9%E7%AE%A1%E7%90%86%E5%91%98.html#_1-添加字段唯一性验证规则" class="sidebar-link">1. 添加字段唯一性验证规则</a></li></ul></li><li><a href="/fourthless/w-a/thinkphp.%E4%BF%AE%E6%94%B9%E7%AE%A1%E7%90%86%E5%91%98.html#三、验证场景写成函数" class="sidebar-link">三、验证场景写成函数</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/fourthless/w-a/thinkphp.%E4%BF%AE%E6%94%B9%E7%AE%A1%E7%90%86%E5%91%98.html#四、验证器完整代码查看" class="sidebar-link">四、验证器完整代码查看</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/fourthless/w-a/thinkphp.%E4%BF%AE%E6%94%B9%E7%AE%A1%E7%90%86%E5%91%98.html#五、删除管理员" class="sidebar-link">五、删除管理员</a><ul class="sidebar-sub-headers"></ul></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h2 id="一、修改管理员"><a href="#一、修改管理员" class="header-anchor">#</a> 一、修改管理员</h2> <blockquote><p>查看tp框架文档，找到<code>模型-更新</code><a href="https://www.kancloud.cn/manual/thinkphp6_0/1037583" target="_blank" rel="noopener noreferrer">https://www.kancloud.cn/manual/thinkphp6_0/1037583<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a> <br>
+当然，它的更新逻辑和我们的<code>egg.js</code>框架也是差不多的，只是语法不一样，搜索<code>egg.js项目sequelize模型更新数据</code>回忆一下<code>egg.js</code>框架的更新用法<br></p> <blockquote><ol><li>路由 <code>route/admin.php</code></li></ol> <blockquote><div class="language-php extra-class"><pre class="language-php"><code><span class="token operator">...</span>
+<span class="token comment">/*
+//创建管理员
+Route::post('admin/shopmanager','admin.ShopManager/save');
+//管理员列表
+Route::get('admin/shopmanager/:page','admin.ShopManager/index');
+*/</span>
+
+<span class="token class-name static-context">Route</span><span class="token operator">::</span><span class="token function">group</span><span class="token punctuation">(</span><span class="token string single-quoted-string">'admin'</span><span class="token punctuation">,</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token comment">//更新管理员信息</span>
+    <span class="token class-name static-context">Route</span><span class="token operator">::</span><span class="token function">post</span><span class="token punctuation">(</span><span class="token string single-quoted-string">'shopmanager/:id'</span><span class="token punctuation">,</span><span class="token string single-quoted-string">'admin.ShopManager/update'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment">//创建管理员</span>
+    <span class="token class-name static-context">Route</span><span class="token operator">::</span><span class="token function">post</span><span class="token punctuation">(</span><span class="token string single-quoted-string">'shopmanager'</span><span class="token punctuation">,</span><span class="token string single-quoted-string">'admin.ShopManager/save'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment">//管理员列表</span>
+    <span class="token class-name static-context">Route</span><span class="token operator">::</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string single-quoted-string">'shopmanager/:page'</span><span class="token punctuation">,</span><span class="token string single-quoted-string">'admin.ShopManager/index'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div></blockquote> <ol start="2"><li>验证器 <code>app/validate/admin/ShopManager.php</code></li></ol> <blockquote><div class="language-php extra-class"><pre class="language-php"><code><span class="token php language-php"><span class="token delimiter important">&lt;?php</span>
+<span class="token operator">...</span>
+<span class="token keyword">class</span> <span class="token class-name-definition class-name">ShopManager</span> <span class="token keyword">extends</span> <span class="token class-name">Validate</span>
+<span class="token punctuation">{</span>
+    <span class="token comment">/**
+     * 定义验证规则
+     * 格式：'字段名' =&gt;  ['规则1','规则2'...]
+     *
+     * @var array
+     */</span>
+    <span class="token keyword">protected</span> <span class="token variable">$rule</span> <span class="token operator">=</span> <span class="token punctuation">[</span>
+        <span class="token string single-quoted-string">'page'</span> <span class="token operator">=&gt;</span> <span class="token string single-quoted-string">'require|integer|&gt;:0'</span><span class="token punctuation">,</span>
+        <span class="token string single-quoted-string">'id'</span> <span class="token operator">=&gt;</span> <span class="token string single-quoted-string">'require|integer|&gt;:0'</span><span class="token punctuation">,</span>
+        <span class="token string single-quoted-string">'username'</span> <span class="token operator">=&gt;</span> <span class="token string single-quoted-string">'require|max:25|min:6'</span><span class="token punctuation">,</span>
+        <span class="token string single-quoted-string">'password'</span> <span class="token operator">=&gt;</span> <span class="token string single-quoted-string">'require|max:20|min:6'</span><span class="token punctuation">,</span>
+        <span class="token string single-quoted-string">'avatar'</span> <span class="token operator">=&gt;</span> <span class="token string single-quoted-string">'url'</span><span class="token punctuation">,</span>
+        <span class="token string single-quoted-string">'role_id'</span> <span class="token operator">=&gt;</span> <span class="token string single-quoted-string">'require|integer|&gt;:0'</span><span class="token punctuation">,</span>
+        <span class="token string single-quoted-string">'status'</span> <span class="token operator">=&gt;</span> <span class="token string single-quoted-string">'require|integer|in:0,1'</span><span class="token punctuation">,</span>
+    <span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+    <span class="token comment">/**
+     * 定义错误信息
+     * 格式：'字段名.规则名' =&gt;  '错误信息'
+     *
+     * @var array
+     */</span>
+    <span class="token keyword">protected</span> <span class="token variable">$message</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+    <span class="token comment">//定义一个场景（场景名称可自定义，方便我们观察，可用控制器的方法名称）</span>
+    <span class="token keyword">protected</span> <span class="token variable">$scene</span> <span class="token operator">=</span> <span class="token punctuation">[</span>
+        <span class="token comment">//定义save新增管理员，只验证username和password</span>
+        <span class="token comment">// 'edit' =&gt; ['username', 'password'],</span>
+        <span class="token string single-quoted-string">'save'</span> <span class="token operator">=&gt;</span> <span class="token punctuation">[</span><span class="token string single-quoted-string">'username'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'password'</span><span class="token punctuation">,</span><span class="token string single-quoted-string">'role_id'</span><span class="token punctuation">,</span><span class="token string single-quoted-string">'status'</span><span class="token punctuation">,</span><span class="token string single-quoted-string">'avatar'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+        <span class="token string single-quoted-string">'update'</span> <span class="token operator">=&gt;</span> <span class="token punctuation">[</span><span class="token string single-quoted-string">'id'</span><span class="token punctuation">,</span><span class="token string single-quoted-string">'username'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'password'</span><span class="token punctuation">,</span><span class="token string single-quoted-string">'role_id'</span><span class="token punctuation">,</span><span class="token string single-quoted-string">'status'</span><span class="token punctuation">,</span><span class="token string single-quoted-string">'avatar'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+</span></code></pre></div></blockquote> <ol start="3"><li>控制器 <code>app/controller/admin/ShopManager.php</code></li></ol> <h3 id="_1-先查询是否存在-再修改"><a href="#_1-先查询是否存在-再修改" class="header-anchor">#</a> 1.先查询是否存在，再修改</h3> <blockquote><div class="language-php extra-class"><pre class="language-php"><code><span class="token operator">...</span>
+<span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function-definition function">update</span><span class="token punctuation">(</span><span class="token class-name type-declaration">Request</span> <span class="token variable">$request</span><span class="token punctuation">,</span> <span class="token variable">$id</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token comment">//拿到数据（已经自动化验证参数合法性）</span>
+        <span class="token variable">$param</span> <span class="token operator">=</span> <span class="token variable">$request</span> <span class="token operator">-&gt;</span> <span class="token function">only</span><span class="token punctuation">(</span><span class="token punctuation">[</span>
+            <span class="token string single-quoted-string">'id'</span><span class="token punctuation">,</span>
+            <span class="token string single-quoted-string">'username'</span><span class="token punctuation">,</span>
+            <span class="token string single-quoted-string">'password'</span><span class="token punctuation">,</span>
+            <span class="token string single-quoted-string">'role_id'</span><span class="token punctuation">,</span>
+            <span class="token string single-quoted-string">'status'</span><span class="token punctuation">,</span>
+            <span class="token string single-quoted-string">'avatar'</span>
+        <span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">//查询数据是否存在(模型已在基类自动实例化)</span>
+        <span class="token variable">$_model</span> <span class="token operator">=</span> <span class="token variable">$this</span><span class="token operator">-&gt;</span><span class="token property">model</span> <span class="token operator">-&gt;</span> <span class="token function">find</span><span class="token punctuation">(</span><span class="token variable">$param</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'id'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">// halt($_model);</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span><span class="token variable">$_model</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token function">ApiException</span><span class="token punctuation">(</span><span class="token string single-quoted-string">'管理员不存在'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token comment">//修改数据</span>
+        <span class="token variable">$res</span> <span class="token operator">=</span> <span class="token variable">$_model</span> <span class="token operator">-&gt;</span> <span class="token function">save</span><span class="token punctuation">(</span><span class="token variable">$param</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> <span class="token function">apiSuccess</span><span class="token punctuation">(</span><span class="token variable">$res</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token punctuation">}</span>
+</code></pre></div></blockquote></blockquote> <p>接下来思考一个地方：<code>我们会发现，我们在更新管理员、删除管理员等情况，都需要先拿到id获取数据，不存在抛出异常</code>的这么一个操作，也就是这个地方会经常用到<br>
+因此，我们可以考虑在验证器里面，把这部分自动化完成一下 <br></p> <h3 id="_2-针对类似经常查询id判断数据是否存在的情况-考虑在验证器里自定义验证规则完成自动化"><a href="#_2-针对类似经常查询id判断数据是否存在的情况-考虑在验证器里自定义验证规则完成自动化" class="header-anchor">#</a> 2.针对类似经常查询id判断数据是否存在的情况，考虑在验证器里自定义验证规则完成自动化</h3> <blockquote><ol><li>来到验证器 <code>app/validate/admin/ShopManager.php</code></li></ol> <blockquote><div class="language-php extra-class"><pre class="language-php"><code><span class="token operator">...</span>
+<span class="token keyword">class</span> <span class="token class-name-definition class-name">ShopManager</span> <span class="token keyword">extends</span> <span class="token class-name">Validate</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">protected</span> <span class="token variable">$rule</span> <span class="token operator">=</span> <span class="token punctuation">[</span>
+        <span class="token operator">...</span>
+        <span class="token comment">//将id查询是否存在数据的部分通过isExist:ShopManager自动化</span>
+        <span class="token comment">//ShopManager可以看成表名称或者模型名称</span>
+        <span class="token comment">//isExist是我们自定义的一个规则</span>
+        <span class="token string single-quoted-string">'id|管理员id'</span> <span class="token operator">=&gt;</span> <span class="token string single-quoted-string">'require|integer|&gt;:0|isExist:ShopManager'</span><span class="token punctuation">,</span>
+        <span class="token operator">...</span>
+    <span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+    <span class="token operator">...</span>
+
+    <span class="token comment">//isExist是我们自定义的一个规则，用于判断id的数据是否存在</span>
+    <span class="token keyword">protected</span> <span class="token keyword">function</span> <span class="token function-definition function">isExist</span><span class="token punctuation">(</span><span class="token variable">$value</span><span class="token punctuation">,</span> <span class="token variable">$rule</span><span class="token operator">=</span><span class="token string single-quoted-string">''</span><span class="token punctuation">,</span> <span class="token variable">$data</span><span class="token operator">=</span><span class="token string single-quoted-string">''</span><span class="token punctuation">,</span> <span class="token variable">$field</span><span class="token operator">=</span><span class="token string single-quoted-string">''</span><span class="token punctuation">,</span> <span class="token variable">$title</span><span class="token operator">=</span><span class="token string single-quoted-string">'记录'</span><span class="token punctuation">,</span> <span class="token variable">$message</span><span class="token operator">=</span><span class="token string single-quoted-string">''</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token comment">// halt($value, $rule, $data, $field, $title, $message);</span>
+        <span class="token comment">// $value id的值，如35</span>
+        <span class="token comment">// $rule 即：isExist:ShopManager冒号后面这部分 如ShopManager</span>
+        <span class="token comment">// $data 验证的数据，即你提交的数据</span>
+        <span class="token comment">// $field 字段名称，如 id</span>
+        <span class="token comment">// $title 字段别名，如 管理员id，用于提示作用</span>
+        <span class="token comment">// 'id|管理员id' =&gt; 'require|integer|&gt;:0|isExist:ShopManager',</span>
+
+        <span class="token comment">//如果$value不存在或者为0</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span><span class="token variable">$value</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword">return</span> <span class="token constant boolean">true</span><span class="token punctuation">;</span><span class="token comment">//则不往下继续验证了</span>
+        <span class="token punctuation">}</span>
+        <span class="token comment">// 拿到模型</span>
+        <span class="token variable">$model</span> <span class="token operator">=</span> <span class="token string single-quoted-string">'\app\model\\'</span><span class="token operator">.</span><span class="token variable">$rule</span><span class="token punctuation">;</span>
+        <span class="token comment">//静态调用，查找数据库</span>
+        <span class="token variable">$_m</span> <span class="token operator">=</span> <span class="token variable">$model</span><span class="token operator">::</span><span class="token function">find</span><span class="token punctuation">(</span><span class="token variable">$value</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">//halt($_m);</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span><span class="token variable">$_m</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+           <span class="token keyword">return</span> <span class="token string single-quoted-string">'该'</span><span class="token operator">.</span><span class="token variable">$title</span><span class="token operator">.</span><span class="token string single-quoted-string">'不存在'</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token comment">//当然如果存在，既然我们已经查询了一次，没必要在控制器再次查询</span>
+        <span class="token comment">//可以考虑挂载到 request类里面</span>
+        <span class="token function">request</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-&gt;</span> <span class="token property">Model</span> <span class="token operator">=</span> <span class="token variable">$_m</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">return</span> <span class="token constant boolean">true</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> 
+<span class="token punctuation">}</span>
+
+</code></pre></div></blockquote> <ol start="2"><li>来到控制器 <code>app/controller/admin/ShopManager.php</code></li></ol> <blockquote><div class="language-php extra-class"><pre class="language-php"><code><span class="token operator">...</span>
+<span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function-definition function">update</span><span class="token punctuation">(</span><span class="token class-name type-declaration">Request</span> <span class="token variable">$request</span><span class="token punctuation">,</span> <span class="token variable">$id</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token comment">//拿到数据（已经自动化验证参数合法性）</span>
+        <span class="token variable">$param</span> <span class="token operator">=</span> <span class="token variable">$request</span> <span class="token operator">-&gt;</span> <span class="token function">only</span><span class="token punctuation">(</span><span class="token punctuation">[</span>
+            <span class="token string single-quoted-string">'id'</span><span class="token punctuation">,</span>
+            <span class="token string single-quoted-string">'username'</span><span class="token punctuation">,</span>
+            <span class="token string single-quoted-string">'password'</span><span class="token punctuation">,</span>
+            <span class="token string single-quoted-string">'role_id'</span><span class="token punctuation">,</span>
+            <span class="token string single-quoted-string">'status'</span><span class="token punctuation">,</span>
+            <span class="token string single-quoted-string">'avatar'</span>
+        <span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token comment">/*
+        //查询数据是否存在(模型已在基类自动实例化)
+        $_model = $this-&gt;model -&gt;find($param['id']);
+        // halt($_model);
+        if(!$_model){
+           ApiException('管理员不存在');
+        }
+        */</span>
+
+        <span class="token comment">// 已经在验证器写了自定义规则, 查询id的数据是否存在</span>
+        <span class="token comment">// 并且如果存在数据，已经挂载到Request类里面</span>
+        <span class="token comment">// halt($request -&gt; Model);</span>
+        
+        <span class="token comment">// 更新数据</span>
+        <span class="token comment">// $res = $_model -&gt; save($param);</span>
+        <span class="token variable">$res</span> <span class="token operator">=</span> <span class="token variable">$request</span> <span class="token operator">-&gt;</span> <span class="token property">Model</span> <span class="token operator">-&gt;</span> <span class="token function">save</span><span class="token punctuation">(</span><span class="token variable">$param</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> <span class="token function">apiSuccess</span><span class="token punctuation">(</span><span class="token variable">$res</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+</code></pre></div></blockquote> <ol start="3"><li>当然可以把自定义验证规则放在基类验证器里面</li></ol> <blockquote><ol><li>创建基类验证器 <code>php think make:validate BaseValidate</code></li> <li>来到基类验证器 <code>app/validate/BaseValidate.php</code></li></ol> <blockquote><div class="language-php extra-class"><pre class="language-php"><code><span class="token operator">...</span>
+
+<span class="token keyword">class</span> <span class="token class-name-definition class-name">BaseValidate</span> <span class="token keyword">extends</span> <span class="token class-name">Validate</span>
+<span class="token punctuation">{</span>
+    <span class="token comment">//isExist是我们自定义的一个规则，用于判断id的数据是否存在</span>
+    <span class="token comment">//验证记录是否存在</span>
+    <span class="token keyword">protected</span> <span class="token keyword">function</span> <span class="token function-definition function">isExist</span><span class="token punctuation">(</span><span class="token variable">$value</span><span class="token punctuation">,</span> <span class="token variable">$rule</span><span class="token operator">=</span><span class="token string single-quoted-string">''</span><span class="token punctuation">,</span> <span class="token variable">$data</span><span class="token operator">=</span><span class="token string single-quoted-string">''</span><span class="token punctuation">,</span> <span class="token variable">$field</span><span class="token operator">=</span><span class="token string single-quoted-string">''</span><span class="token punctuation">,</span> <span class="token variable">$title</span><span class="token operator">=</span><span class="token string single-quoted-string">'记录'</span><span class="token punctuation">,</span> <span class="token variable">$message</span><span class="token operator">=</span><span class="token string single-quoted-string">''</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token comment">// halt($value, $rule, $data, $field, $title, $message);</span>
+        <span class="token comment">// $value id的值，如35</span>
+        <span class="token comment">// $rule 即：isExist:ShopManager冒号后面这部分 如ShopManager</span>
+        <span class="token comment">// $data 验证的数据，即你提交的数据</span>
+        <span class="token comment">// $field 字段名称，如 id</span>
+        <span class="token comment">// $title 字段别名，如 管理员id，用于提示作用</span>
+        <span class="token comment">// 'id|管理员id' =&gt; 'require|integer|&gt;:0|isExist:ShopManager',</span>
+
+        <span class="token comment">//如果$value不存在或者为0</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span><span class="token variable">$value</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword">return</span> <span class="token constant boolean">true</span><span class="token punctuation">;</span><span class="token comment">//则不往下继续验证了</span>
+        <span class="token punctuation">}</span>
+        <span class="token comment">// 拿到模型</span>
+        <span class="token variable">$model</span> <span class="token operator">=</span> <span class="token string single-quoted-string">'\app\model\\'</span><span class="token operator">.</span><span class="token variable">$rule</span><span class="token punctuation">;</span>
+        <span class="token comment">//静态调用，查找数据库</span>
+        <span class="token variable">$_m</span> <span class="token operator">=</span> <span class="token variable">$model</span><span class="token operator">::</span><span class="token function">find</span><span class="token punctuation">(</span><span class="token variable">$value</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">//halt($_m);</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span><span class="token variable">$_m</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+           <span class="token keyword">return</span> <span class="token string single-quoted-string">'该'</span><span class="token operator">.</span><span class="token variable">$title</span><span class="token operator">.</span><span class="token string single-quoted-string">'不存在'</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token comment">//当然如果存在，既然我们已经查询了一次，没必要在控制器再次查询</span>
+        <span class="token comment">//可以考虑挂载到 request类里面</span>
+        <span class="token function">request</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-&gt;</span> <span class="token property">Model</span> <span class="token operator">=</span> <span class="token variable">$_m</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">return</span> <span class="token constant boolean">true</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> 
+<span class="token punctuation">}</span>
+
+</code></pre></div></blockquote> <ol start="3"><li>然后就要注意验证器 <code>app/validate/admin/ShopManager.php</code>继承问题了</li></ol> <blockquote><div class="language-php extra-class"><pre class="language-php"><code><span class="token operator">...</span>
+<span class="token keyword">use</span> <span class="token package">app<span class="token punctuation">\</span>validate<span class="token punctuation">\</span>BaseValidate</span><span class="token punctuation">;</span>
+<span class="token keyword">class</span> <span class="token class-name-definition class-name">ShopManager</span> <span class="token keyword">extends</span> <span class="token class-name">BaseValidate</span>
+<span class="token punctuation">{</span>
+    <span class="token operator">...</span>
+<span class="token punctuation">}</span>
+</code></pre></div></blockquote></blockquote></blockquote></blockquote> <h2 id="二、字段唯一性验证处理"><a href="#二、字段唯一性验证处理" class="header-anchor">#</a> 二、字段唯一性验证处理</h2> <blockquote><p>引言</p> <blockquote><p>当我们在<code>postman</code>里面修改管理员账号，如果这个账号存在，它尽然还可以修改成功，这显然是不对，因为不同的管理员账号肯定是不一样的，因此，我们来处理一下这个问题。<br></p></blockquote> <p>文档查阅 <br></p> <blockquote><p>打开文档： <a href="https://www.kancloud.cn/manual/thinkphp6_0/1037629" target="_blank" rel="noopener noreferrer">https://www.kancloud.cn/manual/thinkphp6_0/1037629<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a> 搜索：<code>unique</code></p> <blockquote><p><code>unique:table(表名),field（字段）,except（排除某个主键值）,pk（指定某个主键值排除）</code></p></blockquote></blockquote> <p>来到验证器 <code>app/validate/admin/ShopManager.php</code> <br></p> <h3 id="_1-添加字段唯一性验证规则"><a href="#_1-添加字段唯一性验证规则" class="header-anchor">#</a> 1. 添加字段唯一性验证规则</h3> <blockquote><div class="language-php extra-class"><pre class="language-php"><code><span class="token operator">...</span>
+<span class="token keyword">class</span> <span class="token class-name-definition class-name">ShopManager</span> <span class="token keyword">extends</span> <span class="token class-name">BaseValidate</span>
+<span class="token punctuation">{</span>
+    <span class="token operator">...</span>
+    <span class="token keyword">protected</span> <span class="token variable">$rule</span> <span class="token operator">=</span> <span class="token punctuation">[</span>
+        <span class="token operator">...</span>
+        <span class="token comment">// 增加唯一性验证，unique:shop_manager,username，不写username，则默认验证username</span>
+        <span class="token string single-quoted-string">'username|管理员账号'</span> <span class="token operator">=&gt;</span> <span class="token string single-quoted-string">'require|max:25|min:6|unique:shop_manager'</span><span class="token punctuation">,</span>
+        <span class="token operator">...</span>
+    <span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+    <span class="token operator">...</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>发现修改成存在的账号，提示<code>管理员账号已存在</code><br></p></blockquote></blockquote> <h2 id="三、验证场景写成函数"><a href="#三、验证场景写成函数" class="header-anchor">#</a> 三、验证场景写成函数</h2> <blockquote><p>我们在验证规则中，比如：<code>username|管理员账号' =&gt; 'require|max:25|min:6|unique:shop_manager</code>，这里的<code>unique:shop_manager</code>是验证字段的唯一性，在管理员的<code>修改</code>，及后面<code>管理员登录</code>都会验证唯一性，因此，我们可以考虑将验证场景写在函数中。<br><br></p> <p>来到验证器 <code>app/validate/admin/ShopManager.php</code> <br></p> <blockquote><div class="language-php extra-class"><pre class="language-php"><code><span class="token operator">...</span>
+<span class="token keyword">class</span> <span class="token class-name-definition class-name">ShopManager</span> <span class="token keyword">extends</span> <span class="token class-name">BaseValidate</span>
+<span class="token punctuation">{</span>
+    <span class="token operator">...</span>
+    <span class="token keyword">protected</span> <span class="token variable">$rule</span> <span class="token operator">=</span> <span class="token punctuation">[</span>
+        <span class="token operator">...</span>
+        <span class="token comment">// 增加唯一性验证，unique:shop_manager,username，不写username，则默认验证username</span>
+        <span class="token comment">// 'username|管理员账号' =&gt; 'require|max:25|min:6|unique:shop_manager',</span>
+        <span class="token comment">// 也可以写入到验证场景函数：sceneSave()</span>
+        <span class="token string single-quoted-string">'username|管理员账号'</span> <span class="token operator">=&gt;</span> <span class="token string single-quoted-string">'require|max:25|min:6'</span><span class="token punctuation">,</span>
+        <span class="token operator">...</span>
+    <span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token operator">...</span>
+    <span class="token keyword">protected</span> <span class="token variable">$message</span> <span class="token operator">=</span> <span class="token punctuation">[</span>
+       <span class="token string single-quoted-string">'username.unique'</span> <span class="token operator">=&gt;</span> <span class="token string single-quoted-string">'管理员账号已存在'</span><span class="token punctuation">,</span>
+    <span class="token punctuation">]</span><span class="token punctuation">;</span>
+    
+    <span class="token comment">//定义一个场景（场景名称可自定义，方便我们观察，可用控制器的方法名称）</span>
+    <span class="token keyword">protected</span> <span class="token variable">$scene</span> <span class="token operator">=</span> <span class="token punctuation">[</span>
+        <span class="token operator">...</span>
+        <span class="token comment">// 也可以写入到验证场景函数：sceneSave()</span>
+        <span class="token comment">// 'save' =&gt; ['username', 'password','role_id','status','avatar'],</span>
+        <span class="token operator">...</span>
+    <span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+    <span class="token comment">//创建管理员验证场景</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function-definition function">sceneSave</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token comment">//验证场景</span>
+        <span class="token comment">//指定验证规则字段</span>
+        <span class="token keyword">return</span> <span class="token variable">$this</span><span class="token operator">-&gt;</span><span class="token function">only</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'username'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'password'</span><span class="token punctuation">,</span><span class="token string single-quoted-string">'role_id'</span><span class="token punctuation">,</span><span class="token string single-quoted-string">'status'</span><span class="token punctuation">,</span><span class="token string single-quoted-string">'avatar'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+        <span class="token comment">//追加验证规则：字段唯一性验证</span>
+        <span class="token operator">-&gt;</span><span class="token function">append</span><span class="token punctuation">(</span><span class="token string single-quoted-string">'username'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'unique:shop_manager'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    
+<span class="token punctuation">}</span>
+
+</code></pre></div></blockquote></blockquote> <h2 id="四、验证器完整代码查看"><a href="#四、验证器完整代码查看" class="header-anchor">#</a> 四、验证器完整代码查看</h2> <blockquote><p>来到验证器 <code>app/validate/admin/ShopManager.php</code> <br></p> <blockquote><div class="language-php extra-class"><pre class="language-php"><code><span class="token operator">...</span>
+<span class="token keyword">class</span> <span class="token class-name-definition class-name">ShopManager</span> <span class="token keyword">extends</span> <span class="token class-name">BaseValidate</span>
+<span class="token punctuation">{</span>
+    <span class="token comment">/**
+     * 定义验证规则
+     * 格式：'字段名' =&gt;  ['规则1','规则2'...]
+     *
+     * @var array
+     */</span>
+    <span class="token keyword">protected</span> <span class="token variable">$rule</span> <span class="token operator">=</span> <span class="token punctuation">[</span>
+        <span class="token string single-quoted-string">'page'</span> <span class="token operator">=&gt;</span> <span class="token string single-quoted-string">'require|integer|&gt;:0'</span><span class="token punctuation">,</span>
+
+        <span class="token comment">//将id查询是否存在数据的部分通过isExist:ShopManager自动化</span>
+        <span class="token comment">//ShopManager可以看成表名称或者模型名称</span>
+        <span class="token comment">//isExist是我们自定义的一个规则</span>
+        <span class="token string single-quoted-string">'id|管理员id'</span> <span class="token operator">=&gt;</span> <span class="token string single-quoted-string">'require|integer|&gt;:0|isExist:ShopManager'</span><span class="token punctuation">,</span>
+
+        <span class="token comment">// 增加唯一性验证，unique:shop_manager,username，不写username，则默认验证username</span>
+        <span class="token comment">// 'username|管理员账号' =&gt; 'require|max:25|min:6|unique:shop_manager',</span>
+        <span class="token comment">// 也可以写入到验证场景函数：sceneSave()</span>
+        <span class="token string single-quoted-string">'username|管理员账号'</span> <span class="token operator">=&gt;</span> <span class="token string single-quoted-string">'require|max:25|min:6'</span><span class="token punctuation">,</span>
+
+        <span class="token string single-quoted-string">'password'</span> <span class="token operator">=&gt;</span> <span class="token string single-quoted-string">'require|max:20|min:6'</span><span class="token punctuation">,</span>
+        <span class="token string single-quoted-string">'avatar'</span> <span class="token operator">=&gt;</span> <span class="token string single-quoted-string">'url'</span><span class="token punctuation">,</span>
+        <span class="token string single-quoted-string">'role_id'</span> <span class="token operator">=&gt;</span> <span class="token string single-quoted-string">'require|integer|&gt;:0'</span><span class="token punctuation">,</span>
+        <span class="token string single-quoted-string">'status'</span> <span class="token operator">=&gt;</span> <span class="token string single-quoted-string">'require|integer|in:0,1'</span><span class="token punctuation">,</span>
+    <span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+    <span class="token comment">/**
+     * 定义错误信息
+     * 格式：'字段名.规则名' =&gt;  '错误信息'
+     *
+     * @var array
+     */</span>
+    <span class="token keyword">protected</span> <span class="token variable">$message</span> <span class="token operator">=</span> <span class="token punctuation">[</span>
+        <span class="token string single-quoted-string">'username.unique'</span> <span class="token operator">=&gt;</span> <span class="token string single-quoted-string">'管理员账号已存在'</span><span class="token punctuation">,</span>
+    <span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+    <span class="token comment">//定义一个场景（场景名称可自定义，方便我们观察，可用控制器的方法名称）</span>
+    <span class="token keyword">protected</span> <span class="token variable">$scene</span> <span class="token operator">=</span> <span class="token punctuation">[</span>
+        <span class="token comment">//定义edit场景（一般和方法名相同），只验证username和password</span>
+        <span class="token comment">// 'edit' =&gt; ['username', 'password'],</span>
+        <span class="token comment">// 也可以写入到验证场景函数：sceneSave()</span>
+        <span class="token comment">// 'save' =&gt; ['username', 'password','role_id','status','avatar'],</span>
+        <span class="token comment">// 也可以写入到验证场景函数：sceneUpdate()</span>
+        <span class="token comment">// 'update' =&gt;['id', 'username', 'password','role_id','status','avatar'],</span>
+    <span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+    <span class="token comment">//创建管理员验证场景</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function-definition function">sceneSave</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token comment">//验证场景</span>
+        <span class="token comment">//指定验证规则字段</span>
+        <span class="token keyword">return</span> <span class="token variable">$this</span><span class="token operator">-&gt;</span><span class="token function">only</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'username'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'password'</span><span class="token punctuation">,</span><span class="token string single-quoted-string">'role_id'</span><span class="token punctuation">,</span><span class="token string single-quoted-string">'status'</span><span class="token punctuation">,</span><span class="token string single-quoted-string">'avatar'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+        <span class="token comment">//追加验证规则：字段唯一性验证</span>
+        <span class="token operator">-&gt;</span><span class="token function">append</span><span class="token punctuation">(</span><span class="token string single-quoted-string">'username'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'unique:shop_manager'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">//更新管理员验证场景</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function-definition function">sceneUpdate</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token comment">/*
+        return $this-&gt;only(['id', 'username', 'password','role_id','status','avatar'])
+        -&gt;append('username', 'unique:shop_manager');
+        */</span>
+        
+        <span class="token variable">$id</span> <span class="token operator">=</span> <span class="token function">request</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">-&gt;</span><span class="token function">param</span><span class="token punctuation">(</span><span class="token string single-quoted-string">'id'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> <span class="token variable">$this</span><span class="token operator">-&gt;</span><span class="token function">only</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'id'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'username'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'password'</span><span class="token punctuation">,</span><span class="token string single-quoted-string">'role_id'</span><span class="token punctuation">,</span><span class="token string single-quoted-string">'status'</span><span class="token punctuation">,</span><span class="token string single-quoted-string">'avatar'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+        <span class="token comment">//体验一下验证规则：字段唯一性验证，排除自身（当前管理员id）</span>
+        <span class="token operator">-&gt;</span><span class="token function">append</span><span class="token punctuation">(</span><span class="token string single-quoted-string">'username'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'unique:shop_manager,username,'</span><span class="token operator">.</span><span class="token variable">$id</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    
+<span class="token punctuation">}</span>
+
+</code></pre></div></blockquote></blockquote> <h2 id="五、删除管理员"><a href="#五、删除管理员" class="header-anchor">#</a> 五、删除管理员</h2> <blockquote><ol><li>来到路由 <code>route/admin.php</code> <br></li></ol> <blockquote><div class="language-php extra-class"><pre class="language-php"><code><span class="token class-name static-context">Route</span><span class="token operator">::</span><span class="token function">group</span><span class="token punctuation">(</span><span class="token string single-quoted-string">'admin'</span><span class="token punctuation">,</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token comment">//删除管理员 如： `/admin/shopmanager/36/delete`</span>
+    <span class="token class-name static-context">Route</span><span class="token operator">::</span><span class="token function">post</span><span class="token punctuation">(</span><span class="token string single-quoted-string">'shopmanager/:id/delete'</span><span class="token punctuation">,</span><span class="token string single-quoted-string">'admin.ShopManager/delete'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token operator">...</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+</code></pre></div></blockquote> <ol start="2"><li>来到验证器 <code>app/validate/admin/ShopManager.php</code> <br></li></ol> <blockquote><div class="language-php extra-class"><pre class="language-php"><code>   <span class="token comment">//定义一个场景（场景名称可自定义，方便我们观察，可用控制器的方法名称）</span>
+   <span class="token keyword">protected</span> <span class="token variable">$scene</span> <span class="token operator">=</span> <span class="token punctuation">[</span>
+       <span class="token operator">...</span>
+       <span class="token string single-quoted-string">'delete'</span> <span class="token operator">=&gt;</span> <span class="token punctuation">[</span><span class="token string single-quoted-string">'id'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+   <span class="token punctuation">]</span><span class="token punctuation">;</span>
+</code></pre></div></blockquote> <ol start="3"><li>来到控制器 <code>app/controller/admin/ShopManager.php</code> <br></li></ol> <blockquote><div class="language-php extra-class"><pre class="language-php"><code>   <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function-definition function">delete</span><span class="token punctuation">(</span><span class="token variable">$id</span><span class="token punctuation">)</span>
+   <span class="token punctuation">{</span>
+       <span class="token comment">// 已经在验证器写了自定义规则, 查询id的数据是否存在</span>
+       <span class="token comment">// 并且如果存在数据，已经挂载到Request类里面</span>
+       <span class="token comment">// halt($this-&gt;request -&gt; Model);</span>
+
+       <span class="token comment">//不能删除超级管理员</span>
+       <span class="token variable">$manager</span> <span class="token operator">=</span> <span class="token variable">$this</span><span class="token operator">-&gt;</span><span class="token property">request</span> <span class="token operator">-&gt;</span> <span class="token property">Model</span><span class="token punctuation">;</span>
+       <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token variable">$manager</span><span class="token operator">-&gt;</span><span class="token property">super</span> <span class="token operator">===</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+           <span class="token function">ApiException</span><span class="token punctuation">(</span><span class="token string single-quoted-string">'不能删除超级管理员'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+       <span class="token punctuation">}</span>
+
+       <span class="token keyword">return</span> <span class="token function">apiSuccess</span><span class="token punctuation">(</span> <span class="token variable">$manager</span> <span class="token operator">-&gt;</span> <span class="token function">delete</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+   <span class="token punctuation">}</span>
+</code></pre></div></blockquote></blockquote></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">更新时间:</span> <span class="time">2025年3月9日星期日下午5点15分</span></div></footer> <!----> </main></div><div class="global-ui"><!----><!----></div></div>
+    <script src="/assets/js/app.dbdded2c.js" defer></script><script src="/assets/js/9.13d458ed.js" defer></script><script src="/assets/js/2.6281e0bb.js" defer></script><script src="/assets/js/37.2cea817e.js" defer></script><script src="/assets/js/3.e6827fa8.js" defer></script>
+  </body>
+</html>
