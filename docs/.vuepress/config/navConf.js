@@ -13,6 +13,7 @@ module.exports = [
         items: [
             { text: '课程常见问题', link: '/web/answer/课程常见问题' },
             { text: '项目部署', link: '/deploy/' },
+            { text: '免费部署SSL证书', link: '/web/answer/免费部署SSL证书' },
         ]
     },
     {
