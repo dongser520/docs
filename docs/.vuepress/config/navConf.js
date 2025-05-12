@@ -73,6 +73,7 @@ module.exports = [
                     { text: 'Egg.js重要知识详细文档', link: '/secondless/w-c/egg.js重要知识详细文档.html' },
                     { text: 'Egg.js参数验证说明', link: '/secondless/w-c/ValParams%20API%20说明.html' },
                     { text: 'Egg.js迁移文件Sequelize数据类型', link: '/web/mysql/Sequelize数据类型.html' },
+                    { text: 'Egg.js接口安全防护方案', link: '/secondless/w-c/Egg.js接口安全防护方案.html' },
                 ]
             },
             {
