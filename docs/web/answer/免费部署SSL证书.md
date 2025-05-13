@@ -5,7 +5,10 @@ title: 免费部署SSL证书
 ---
 
 ## 一、自动化部署流程
-我们采用 `ALLinSSL`开源免费的SSL证书自动化管理平台部署SSL证书， 官方网站：<https://allinssl.com/>
+我们采用 `ALLinSSL`开源免费的SSL证书自动化管理平台部署SSL证书， 官方网站：<https://allinssl.com/> <br/>
+
+具体查看视频，<a href="https://www.bilibili.com/video/BV1qz7ZzXEJv/?spm_id_from=333.1387.homepage.video_card.click&vd_source=9a6ee0d7e6c1657e4a7381c1f8f18f4b" target="_blank"> 自动化部署流程视频查看[B站] </a>
+
 ### 1. 系统及准备工作
 >  1. 操作系统： Linux (推荐 CentOS 7.x，Ubuntu 18.04+，Debian 9+) / Windows / MacOS
 >  2. 硬件要求： 至少1核CUP, 512M内存, 1G磁盘空间
@@ -59,7 +62,7 @@ curl -sSO http://download.allinssl.com/install_allinssl.sh && bash install_allin
 >>>> 2. 接口密钥： 复制一下
 >>>> 3. IP白名单(每行一个)： 127.0.0.1  
 >>>> 4. 保存
->> 最后面板URL:  `http://127.0.0.1:面板端口/`
+>> 最后面板URL:  `https://127.0.0.1:面板端口/`
 >> 4. API密钥：刚才复制的接口密钥
 >> 5. 忽略 SSL/TLS证书错误： 可打开
 
@@ -79,7 +82,8 @@ curl -sSO http://download.allinssl.com/install_allinssl.sh && bash install_allin
 > 6. `执行`
 > 7. `查看执行历史`
 
-
+## 二、自动化部署流程视频查看
+具体查看视频，<a href="https://www.bilibili.com/video/BV1qz7ZzXEJv/?spm_id_from=333.1387.homepage.video_card.click&vd_source=9a6ee0d7e6c1657e4a7381c1f8f18f4b" target="_blank"> 自动化部署流程视频查看 </a>
 
 
 
