@@ -182,6 +182,12 @@ module.exports = app => {
             defaultValue: '',
             comment: '角色描述，对角色的简单介绍'
         },
+        showurl: { 
+            type: STRING(255), 
+            allowNull: true, 
+            defaultValue: '' , 
+            comment: '浏览地址'
+        },
         status: {
             type: INTEGER(1),
             allowNull: false,

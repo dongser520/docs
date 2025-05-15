@@ -11,6 +11,7 @@ title: rolecategory表说明
 | <b>id </b>            | <span>int(20) </span><br/> <span style="font-size:12px">主键、自增长、UNSIGNED无符号 </span>    |    否      |            |         主键id                               |
 | <b>name </b>      | varchar(30) |     否    |              |   角色名称                        |
 | <b>desc </b>      | varchar(255) |  是    |                |   角色描述，对角色的简单介绍                          |
+| <b>showurl </b>      | varchar(255) |  是    |                |   浏览地址                         |
 | <b> create_time </b>  | datetime  |    否    |      CURRENT_TIMESTAMP	   |   数据创建时间                         |
 | <b> update_time </b>  | datetime  |      否  |        CURRENT_TIMESTAMP	|   数据更新时间                         |
 | <b> status </b>  | int(1)  |    否    |        1	 |   管理员可用状态：0禁用1启用                         |
@@ -65,6 +66,12 @@ title: rolecategory表说明
 >>         allowNull: true, 
 >>         defaultValue: '' , 
 >>         comment: '角色描述，对角色的简单介绍'
+>>       },
+>>       showurl: { 
+>>         type: STRING(255), 
+>>         allowNull: true, 
+>>         defaultValue: '' , 
+>>         comment: '浏览地址'
 >>       },
 >>       status:{
 >>         type: INTEGER(1),
