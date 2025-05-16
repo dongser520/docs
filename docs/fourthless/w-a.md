@@ -40,3 +40,4 @@ title: 第四学期第一季（课程学习顺序：11）
 ####  <a href="/fourthless/w-a/eggjs.user表用户管理" target="_blank" style="margin-left:40px;">2.用户管理user相关文档</a>
 ### 2. 后台 `rolecategory`、`category`、`news`等补充功能说明
 ####  <a href="/fourthless/w-a/eggjs.后台补充功能说明" target="_blank" style="margin-left:40px;">1.后台 `rolecategory`、`category`、`news`表等补充功能说明</a>
+####  <a href="/fourthless/w-a/eggjs.超级管理员自定义表单" target="_blank" style="margin-left:40px;">2.后台超级管理员自定义表单新增修改（以网站配置为例）</a>
