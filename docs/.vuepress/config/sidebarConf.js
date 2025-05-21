@@ -40,12 +40,25 @@ module.exports = [
     //     ]
     // },
     {
-        title: '第四学期课程',   // 必要的
+        title: '第四学期web全栈课程',   // 必要的
         path: '/fourthless/',      // 可选的, 标题的跳转链接，应为绝对路径且必须存在
         collapsable: false, // 可选的, 默认值是 true,
         sidebarDepth: 1,    // 可选的, 默认值是 1
         children: [
           '/fourthless/w-a',
+          '/fourthless/w-b',
+          '/fourthless/w-c',
+          '/fourthless/w-d',
+          '/fourthless/w-e',
+        ]
+    },
+    {
+        title: '第五学期python课程',   // 必要的
+        path: '/fiveless/',      // 可选的, 标题的跳转链接，应为绝对路径且必须存在
+        collapsable: false, // 可选的, 默认值是 true,
+        sidebarDepth: 1,    // 可选的, 默认值是 1
+        children: [
+          '/fiveless/w-a',
         ]
     },
     // '/deploy/', //部署专题课
