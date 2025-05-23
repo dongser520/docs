@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>用户管理user表相关表说明 | 睿晨网</title>
+    <meta name="generator" content="VuePress 1.9.9">
+    <link rel="icon" href="/assets/img/favicon.png">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="apple-touch-icon" href="/icons/apple-touch-icon-152x152.png">
+    <link rel="#icon-pengyouquan" href="/icons/iconfont.svg" color="#3eaf7c">
+    <meta name="description" content="睿晨网|睿晨编程|零基础学做网站、app、小程序就从这里开始">
+    <meta name="keywords" content="睿晨网,睿晨编程,零基础学做网站,零基础学app,零基础学小程序">
+    <meta name="author" content="睿晨网,睿晨编程,阿东老师">
+    <meta name="theme-color" content="#3eaf7c">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="msapplication-TileImage" content="/icons/msapplication-icon-144x144.png">
+    <meta name="msapplication-TileColor" content="#000000">
+    
+    <link rel="preload" href="/assets/css/0.styles.4e2a0a09.css" as="style"><link rel="preload" href="/assets/js/app.0cbe4140.js" as="script"><link rel="preload" href="/assets/js/9.13d458ed.js" as="script"><link rel="preload" href="/assets/js/2.6281e0bb.js" as="script"><link rel="preload" href="/assets/js/174.2e627955.js" as="script"><link rel="preload" href="/assets/js/3.e6827fa8.js" as="script"><link rel="prefetch" href="/assets/js/10.63ed790c.js"><link rel="prefetch" href="/assets/js/100.498defc6.js"><link rel="prefetch" href="/assets/js/101.f167dc33.js"><link rel="prefetch" href="/assets/js/102.b7b07759.js"><link rel="prefetch" href="/assets/js/103.cf5bfbc7.js"><link rel="prefetch" href="/assets/js/104.fd9e13ad.js"><link rel="prefetch" href="/assets/js/105.ebe3a25a.js"><link rel="prefetch" href="/assets/js/106.96c6114d.js"><link rel="prefetch" href="/assets/js/107.c07fdf9c.js"><link rel="prefetch" href="/assets/js/108.78b810f2.js"><link rel="prefetch" href="/assets/js/109.13f90bdf.js"><link rel="prefetch" href="/assets/js/11.934eb133.js"><link rel="prefetch" href="/assets/js/110.380729b1.js"><link rel="prefetch" href="/assets/js/111.b4896a64.js"><link rel="prefetch" href="/assets/js/112.9e267baa.js"><link rel="prefetch" href="/assets/js/113.36c04d0b.js"><link rel="prefetch" href="/assets/js/114.d6e15b05.js"><link rel="prefetch" href="/assets/js/115.bc62f772.js"><link rel="prefetch" href="/assets/js/116.8a84cd67.js"><link rel="prefetch" href="/assets/js/117.03e3bf80.js"><link rel="prefetch" href="/assets/js/118.15ebfcf1.js"><link rel="prefetch" href="/assets/js/119.0dfc505c.js"><link rel="prefetch" href="/assets/js/12.cc2380d1.js"><link rel="prefetch" href="/assets/js/120.7006c4b0.js"><link rel="prefetch" href="/assets/js/121.f43e52a6.js"><link rel="prefetch" href="/assets/js/122.97d0ba83.js"><link rel="prefetch" href="/assets/js/123.8f725102.js"><link rel="prefetch" href="/assets/js/124.4e6f978a.js"><link rel="prefetch" href="/assets/js/125.8a007a03.js"><link rel="prefetch" href="/assets/js/126.2fc70fc4.js"><link rel="prefetch" href="/assets/js/127.3d485c5b.js"><link rel="prefetch" href="/assets/js/128.f67ffb88.js"><link rel="prefetch" href="/assets/js/129.4f4a2241.js"><link rel="prefetch" href="/assets/js/13.50c9a147.js"><link rel="prefetch" href="/assets/js/130.73934271.js"><link rel="prefetch" href="/assets/js/131.f5e9344a.js"><link rel="prefetch" href="/assets/js/132.e43e48a0.js"><link rel="prefetch" href="/assets/js/133.d334938a.js"><link rel="prefetch" href="/assets/js/134.75fea4a9.js"><link rel="prefetch" href="/assets/js/135.a017e4e4.js"><link rel="prefetch" href="/assets/js/136.16f7069a.js"><link rel="prefetch" href="/assets/js/137.24f863ce.js"><link rel="prefetch" href="/assets/js/138.d9c82ec8.js"><link rel="prefetch" href="/assets/js/139.07e5b618.js"><link rel="prefetch" href="/assets/js/14.753ae0f9.js"><link rel="prefetch" href="/assets/js/140.fe97a741.js"><link rel="prefetch" href="/assets/js/141.bcc98c0f.js"><link rel="prefetch" href="/assets/js/142.39ff5e73.js"><link rel="prefetch" href="/assets/js/143.0e159a42.js"><link rel="prefetch" href="/assets/js/144.c9f7b2dc.js"><link rel="prefetch" href="/assets/js/145.207d322f.js"><link rel="prefetch" href="/assets/js/146.756c1180.js"><link rel="prefetch" href="/assets/js/147.d7d9dff7.js"><link rel="prefetch" href="/assets/js/148.593f101a.js"><link rel="prefetch" href="/assets/js/149.7099ed49.js"><link rel="prefetch" href="/assets/js/15.5333b525.js"><link rel="prefetch" href="/assets/js/150.61c52a11.js"><link rel="prefetch" href="/assets/js/151.2e0d42f6.js"><link rel="prefetch" href="/assets/js/152.cf9bbb5b.js"><link rel="prefetch" href="/assets/js/153.49459ce6.js"><link rel="prefetch" href="/assets/js/154.7fc0bc35.js"><link rel="prefetch" href="/assets/js/155.ebb2cee6.js"><link rel="prefetch" href="/assets/js/156.7c0e2844.js"><link rel="prefetch" href="/assets/js/157.4b54004c.js"><link rel="prefetch" href="/assets/js/158.38d90487.js"><link rel="prefetch" href="/assets/js/159.984b591e.js"><link rel="prefetch" href="/assets/js/16.019e1693.js"><link rel="prefetch" href="/assets/js/160.df2f9838.js"><link rel="prefetch" href="/assets/js/161.d9312c4d.js"><link rel="prefetch" href="/assets/js/162.0d40a6c6.js"><link rel="prefetch" href="/assets/js/163.96dd21c4.js"><link rel="prefetch" href="/assets/js/164.7d1e57f5.js"><link rel="prefetch" href="/assets/js/165.e3bfbbfa.js"><link rel="prefetch" href="/assets/js/166.5064ab09.js"><link rel="prefetch" href="/assets/js/167.a231ca75.js"><link rel="prefetch" href="/assets/js/168.5f92f2e2.js"><link rel="prefetch" href="/assets/js/169.f15d391b.js"><link rel="prefetch" href="/assets/js/17.130ae7cc.js"><link rel="prefetch" href="/assets/js/170.1fd74e19.js"><link rel="prefetch" href="/assets/js/171.1ca6b9ef.js"><link rel="prefetch" href="/assets/js/172.54d2b98d.js"><link rel="prefetch" href="/assets/js/173.b0a77095.js"><link rel="prefetch" href="/assets/js/175.a7200327.js"><link rel="prefetch" href="/assets/js/176.db59af62.js"><link rel="prefetch" href="/assets/js/177.1fdd318e.js"><link rel="prefetch" href="/assets/js/178.0fc98aa3.js"><link rel="prefetch" href="/assets/js/179.da6956c8.js"><link rel="prefetch" href="/assets/js/18.220e9a9f.js"><link rel="prefetch" href="/assets/js/180.31ac5fb5.js"><link rel="prefetch" href="/assets/js/181.f35ae6ad.js"><link rel="prefetch" href="/assets/js/182.cd45ea61.js"><link rel="prefetch" href="/assets/js/183.87c7adc2.js"><link rel="prefetch" href="/assets/js/19.fed05912.js"><link rel="prefetch" href="/assets/js/20.1f640f7c.js"><link rel="prefetch" href="/assets/js/21.6b19aaf1.js"><link rel="prefetch" href="/assets/js/22.506a36f0.js"><link rel="prefetch" href="/assets/js/23.27b2ac3b.js"><link rel="prefetch" href="/assets/js/24.78c8a20f.js"><link rel="prefetch" href="/assets/js/25.d11b0a65.js"><link rel="prefetch" href="/assets/js/26.c2cb446c.js"><link rel="prefetch" href="/assets/js/27.0e9dd536.js"><link rel="prefetch" href="/assets/js/28.5cce89ac.js"><link rel="prefetch" href="/assets/js/29.9ab56bc1.js"><link rel="prefetch" href="/assets/js/30.0f0f87aa.js"><link rel="prefetch" href="/assets/js/31.6a94da55.js"><link rel="prefetch" href="/assets/js/32.09d25855.js"><link rel="prefetch" href="/assets/js/33.03a8f8c9.js"><link rel="prefetch" href="/assets/js/34.1cfcda03.js"><link rel="prefetch" href="/assets/js/35.04acbaf7.js"><link rel="prefetch" href="/assets/js/36.468c07c3.js"><link rel="prefetch" href="/assets/js/37.d4ec5a13.js"><link rel="prefetch" href="/assets/js/38.42e19944.js"><link rel="prefetch" href="/assets/js/39.5c213f11.js"><link rel="prefetch" href="/assets/js/4.2bcb0199.js"><link rel="prefetch" href="/assets/js/40.fa629e0d.js"><link rel="prefetch" href="/assets/js/41.050a5510.js"><link rel="prefetch" href="/assets/js/42.0c9468a4.js"><link rel="prefetch" href="/assets/js/43.43c5f2e6.js"><link rel="prefetch" href="/assets/js/44.f2c320c8.js"><link rel="prefetch" href="/assets/js/45.8d934cb4.js"><link rel="prefetch" href="/assets/js/46.8a4acd8b.js"><link rel="prefetch" href="/assets/js/47.0412e653.js"><link rel="prefetch" href="/assets/js/48.c35fed07.js"><link rel="prefetch" href="/assets/js/49.5a72b493.js"><link rel="prefetch" href="/assets/js/5.874fd3ce.js"><link rel="prefetch" href="/assets/js/50.b272cdf8.js"><link rel="prefetch" href="/assets/js/51.94c3f74e.js"><link rel="prefetch" href="/assets/js/52.9e68d063.js"><link rel="prefetch" href="/assets/js/53.03b48783.js"><link rel="prefetch" href="/assets/js/54.32727209.js"><link rel="prefetch" href="/assets/js/55.e0b7936a.js"><link rel="prefetch" href="/assets/js/56.d5928acd.js"><link rel="prefetch" href="/assets/js/57.6aaef5e1.js"><link rel="prefetch" href="/assets/js/58.f41299ef.js"><link rel="prefetch" href="/assets/js/59.77f9d607.js"><link rel="prefetch" href="/assets/js/6.5324478b.js"><link rel="prefetch" href="/assets/js/60.39b94e6c.js"><link rel="prefetch" href="/assets/js/61.1e4311f0.js"><link rel="prefetch" href="/assets/js/62.91057282.js"><link rel="prefetch" href="/assets/js/63.a3dc3707.js"><link rel="prefetch" href="/assets/js/64.a1e12cad.js"><link rel="prefetch" href="/assets/js/65.a7ea8318.js"><link rel="prefetch" href="/assets/js/66.268d7e2a.js"><link rel="prefetch" href="/assets/js/67.5f5d1101.js"><link rel="prefetch" href="/assets/js/68.ef2179e4.js"><link rel="prefetch" href="/assets/js/69.78f0d285.js"><link rel="prefetch" href="/assets/js/7.1b150f10.js"><link rel="prefetch" href="/assets/js/70.bb8a1392.js"><link rel="prefetch" href="/assets/js/71.6eeaf0fd.js"><link rel="prefetch" href="/assets/js/72.9809c37c.js"><link rel="prefetch" href="/assets/js/73.6de32790.js"><link rel="prefetch" href="/assets/js/74.21af0152.js"><link rel="prefetch" href="/assets/js/75.8fd8319c.js"><link rel="prefetch" href="/assets/js/76.30fcdb90.js"><link rel="prefetch" href="/assets/js/77.89b4742d.js"><link rel="prefetch" href="/assets/js/78.7dd59ad5.js"><link rel="prefetch" href="/assets/js/79.e845a152.js"><link rel="prefetch" href="/assets/js/8.767bfbad.js"><link rel="prefetch" href="/assets/js/80.5bdea057.js"><link rel="prefetch" href="/assets/js/81.6d74ba30.js"><link rel="prefetch" href="/assets/js/82.ab6fc301.js"><link rel="prefetch" href="/assets/js/83.3af21ed1.js"><link rel="prefetch" href="/assets/js/84.c80beda0.js"><link rel="prefetch" href="/assets/js/85.b4c783d5.js"><link rel="prefetch" href="/assets/js/86.864b21b8.js"><link rel="prefetch" href="/assets/js/87.cc269c3b.js"><link rel="prefetch" href="/assets/js/88.3a0f9962.js"><link rel="prefetch" href="/assets/js/89.e2636986.js"><link rel="prefetch" href="/assets/js/90.d6db3b1e.js"><link rel="prefetch" href="/assets/js/91.01f9eafb.js"><link rel="prefetch" href="/assets/js/92.01710280.js"><link rel="prefetch" href="/assets/js/93.d0c43db3.js"><link rel="prefetch" href="/assets/js/94.28a03a51.js"><link rel="prefetch" href="/assets/js/95.cd8af1e1.js"><link rel="prefetch" href="/assets/js/96.d8df0eab.js"><link rel="prefetch" href="/assets/js/97.d725b974.js"><link rel="prefetch" href="/assets/js/98.0d957e66.js"><link rel="prefetch" href="/assets/js/99.24455942.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.4e2a0a09.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">睿晨网</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">
+  主页
+</a></div><div class="nav-item"><a href="/aboutless.html" class="nav-link">
+  第一期网页开发
+</a></div><div class="nav-item"><a href="/secondless/" class="nav-link">
+  第二期企业网站开发
+</a></div><div class="nav-item"><a href="/thirdless/" class="nav-link">
+  第三期移动端课程
+</a></div><div class="nav-item"><a href="/fourthless/" class="nav-link">
+  第四期web全栈课程
+</a></div><div class="nav-item"><a href="/fiveless/" class="nav-link">
+  第五期python课程
+</a></div><div class="nav-item"><a href="/web/software/" class="nav-link">
+  课程软件小案例
+</a></div><div class="nav-item"><a href="/web/mysql/" class="nav-link router-link-active">
+  课程案例数据表
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="课程答疑汇总" class="dropdown-title"><span class="title">课程答疑</span> <span class="arrow down"></span></button> <button type="button" aria-label="课程答疑汇总" class="mobile-dropdown-title"><span class="title">课程答疑</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/web/answer/课程常见问题.html" class="nav-link">
+  课程常见问题
+</a></li><li class="dropdown-item"><!----> <a href="/deploy/" class="nav-link">
+  项目部署
+</a></li><li class="dropdown-item"><!----> <a href="/web/answer/免费部署SSL证书.html" class="nav-link">
+  免费部署SSL证书
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="课程学习网站" class="dropdown-title"><span class="title">课程学习网站</span> <span class="arrow down"></span></button> <button type="button" aria-label="课程学习网站" class="mobile-dropdown-title"><span class="title">课程学习网站</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          视频学习网站
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://study.163.com/provider/480000002289674/index.htm?share=2&amp;shareId=480000002289674" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  腾讯云课堂
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://space.bilibili.com/3493114067028034/pugv" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  B站
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="实用菜单" class="dropdown-title"><span class="title">实用网站和方法</span> <span class="arrow down"></span></button> <button type="button" aria-label="实用菜单" class="mobile-dropdown-title"><span class="title">实用网站和方法</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          实用方法
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/web/methods/定位相关.html" class="nav-link">
+  定位相关
+</a></li><li class="dropdown-subitem"><a href="/web/methods/地图相关.html" class="nav-link">
+  地图相关
+</a></li><li class="dropdown-subitem"><a href="/web/methods/树形结构数据转换.html" class="nav-link">
+  树形结构数据转换
+</a></li></ul></li><li class="dropdown-item"><h4>
+          uni-app专栏
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/web/methods/uni-app专栏.html" class="nav-link">
+  uni-app的UI框架
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Egg.js专栏
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/secondless/w-c/Egg.js.html" class="nav-link">
+  Egg.js基础
+</a></li><li class="dropdown-subitem"><a href="/secondless/w-c/egg.js基础总结.html" class="nav-link">
+  Egg.js基础总结
+</a></li><li class="dropdown-subitem"><a href="/secondless/w-c/egg.js重要知识详细文档.html" class="nav-link">
+  Egg.js重要知识详细文档
+</a></li><li class="dropdown-subitem"><a href="/secondless/w-c/ValParams API 说明.html" class="nav-link">
+  Egg.js参数验证说明
+</a></li><li class="dropdown-subitem"><a href="/web/mysql/Sequelize数据类型.html" class="nav-link">
+  Egg.js迁移文件Sequelize数据类型
+</a></li><li class="dropdown-subitem"><a href="/secondless/w-c/Egg.js接口安全防护方案.html" class="nav-link">
+  Egg.js接口安全防护方案
+</a></li><li class="dropdown-subitem"><a href="/web/answer/课程常见问题.html#_3-eggjs如何重置数据表-保证id每次从1开始计算" class="nav-link">
+  Egg.js重置数据表每次ID为1
+</a></li></ul></li><li class="dropdown-item"><h4>
+          实用网站
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/web/methods/实用接口.html" class="nav-link">
+  实用接口
+</a></li><li class="dropdown-subitem"><a href="/web/css/" class="nav-link">
+  css
+</a></li><li class="dropdown-subitem"><a href="/web/vue.js/" class="nav-link">
+  Vue.js
+</a></li><li class="dropdown-subitem"><a href="/web/Vue3+ElementPlus/" class="nav-link">
+  Vue3+ElementPlus系统
+</a></li><li class="dropdown-subitem"><a href="/web/echarts/" class="nav-link">
+  echarts图表
+</a></li><li class="dropdown-subitem"><a href="/web/bootstrap/" class="nav-link">
+  Bootstrap
+</a></li><li class="dropdown-subitem"><a href="/web/IIS/" class="nav-link">
+  IIS
+</a></li><li class="dropdown-subitem"><a href="/web/github/" class="nav-link">
+  Github
+</a></li><li class="dropdown-subitem"><a href="/web/Vanta.js/" class="nav-link">
+  Vanta.js网页3D背景
+</a></li><li class="dropdown-subitem"><a href="/web/shop/" class="nav-link">
+  商城系统推荐
+</a></li></ul></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">
+  主页
+</a></div><div class="nav-item"><a href="/aboutless.html" class="nav-link">
+  第一期网页开发
+</a></div><div class="nav-item"><a href="/secondless/" class="nav-link">
+  第二期企业网站开发
+</a></div><div class="nav-item"><a href="/thirdless/" class="nav-link">
+  第三期移动端课程
+</a></div><div class="nav-item"><a href="/fourthless/" class="nav-link">
+  第四期web全栈课程
+</a></div><div class="nav-item"><a href="/fiveless/" class="nav-link">
+  第五期python课程
+</a></div><div class="nav-item"><a href="/web/software/" class="nav-link">
+  课程软件小案例
+</a></div><div class="nav-item"><a href="/web/mysql/" class="nav-link router-link-active">
+  课程案例数据表
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="课程答疑汇总" class="dropdown-title"><span class="title">课程答疑</span> <span class="arrow down"></span></button> <button type="button" aria-label="课程答疑汇总" class="mobile-dropdown-title"><span class="title">课程答疑</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/web/answer/课程常见问题.html" class="nav-link">
+  课程常见问题
+</a></li><li class="dropdown-item"><!----> <a href="/deploy/" class="nav-link">
+  项目部署
+</a></li><li class="dropdown-item"><!----> <a href="/web/answer/免费部署SSL证书.html" class="nav-link">
+  免费部署SSL证书
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="课程学习网站" class="dropdown-title"><span class="title">课程学习网站</span> <span class="arrow down"></span></button> <button type="button" aria-label="课程学习网站" class="mobile-dropdown-title"><span class="title">课程学习网站</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          视频学习网站
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://study.163.com/provider/480000002289674/index.htm?share=2&amp;shareId=480000002289674" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  腾讯云课堂
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://space.bilibili.com/3493114067028034/pugv" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  B站
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="实用菜单" class="dropdown-title"><span class="title">实用网站和方法</span> <span class="arrow down"></span></button> <button type="button" aria-label="实用菜单" class="mobile-dropdown-title"><span class="title">实用网站和方法</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          实用方法
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/web/methods/定位相关.html" class="nav-link">
+  定位相关
+</a></li><li class="dropdown-subitem"><a href="/web/methods/地图相关.html" class="nav-link">
+  地图相关
+</a></li><li class="dropdown-subitem"><a href="/web/methods/树形结构数据转换.html" class="nav-link">
+  树形结构数据转换
+</a></li></ul></li><li class="dropdown-item"><h4>
+          uni-app专栏
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/web/methods/uni-app专栏.html" class="nav-link">
+  uni-app的UI框架
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Egg.js专栏
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/secondless/w-c/Egg.js.html" class="nav-link">
+  Egg.js基础
+</a></li><li class="dropdown-subitem"><a href="/secondless/w-c/egg.js基础总结.html" class="nav-link">
+  Egg.js基础总结
+</a></li><li class="dropdown-subitem"><a href="/secondless/w-c/egg.js重要知识详细文档.html" class="nav-link">
+  Egg.js重要知识详细文档
+</a></li><li class="dropdown-subitem"><a href="/secondless/w-c/ValParams API 说明.html" class="nav-link">
+  Egg.js参数验证说明
+</a></li><li class="dropdown-subitem"><a href="/web/mysql/Sequelize数据类型.html" class="nav-link">
+  Egg.js迁移文件Sequelize数据类型
+</a></li><li class="dropdown-subitem"><a href="/secondless/w-c/Egg.js接口安全防护方案.html" class="nav-link">
+  Egg.js接口安全防护方案
+</a></li><li class="dropdown-subitem"><a href="/web/answer/课程常见问题.html#_3-eggjs如何重置数据表-保证id每次从1开始计算" class="nav-link">
+  Egg.js重置数据表每次ID为1
+</a></li></ul></li><li class="dropdown-item"><h4>
+          实用网站
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/web/methods/实用接口.html" class="nav-link">
+  实用接口
+</a></li><li class="dropdown-subitem"><a href="/web/css/" class="nav-link">
+  css
+</a></li><li class="dropdown-subitem"><a href="/web/vue.js/" class="nav-link">
+  Vue.js
+</a></li><li class="dropdown-subitem"><a href="/web/Vue3+ElementPlus/" class="nav-link">
+  Vue3+ElementPlus系统
+</a></li><li class="dropdown-subitem"><a href="/web/echarts/" class="nav-link">
+  echarts图表
+</a></li><li class="dropdown-subitem"><a href="/web/bootstrap/" class="nav-link">
+  Bootstrap
+</a></li><li class="dropdown-subitem"><a href="/web/IIS/" class="nav-link">
+  IIS
+</a></li><li class="dropdown-subitem"><a href="/web/github/" class="nav-link">
+  Github
+</a></li><li class="dropdown-subitem"><a href="/web/Vanta.js/" class="nav-link">
+  Vanta.js网页3D背景
+</a></li><li class="dropdown-subitem"><a href="/web/shop/" class="nav-link">
+  商城系统推荐
+</a></li></ul></li></ul></div></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>用户管理user表相关表说明</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/web/mysql/user.html#一、-user表字段设计" class="sidebar-link">一、 user表字段设计</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/web/mysql/user.html#user表模型" class="sidebar-link">user表模型</a></li></ul></li><li><a href="/web/mysql/user.html#二、-user-info表字段设计" class="sidebar-link">二、 user_info表字段设计</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/web/mysql/user.html#user-info表模型" class="sidebar-link">user_info表模型</a></li></ul></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h2 id="一、-user表字段设计"><a href="#一、-user表字段设计" class="header-anchor">#</a> 一、 <code>user</code>表字段设计</h2> <table><thead><tr><th style="text-align:center;">字段名</th> <th style="text-align:center;">数据类型及描述</th> <th style="text-align:center;">空</th> <th style="text-align:center;"><p>默认值 </p></th> <th style="text-align:center;"><p>字段含义 </p></th></tr></thead> <tbody><tr><td style="text-align:center;"><b>id</b></td> <td style="text-align:center;"><span><code>INTEGER(20).UNSIGNED</code></span><br> <span style="font-size:12px;">主键、自增长、UNSIGNED无符号 </span></td> <td style="text-align:center;">否</td> <td style="text-align:center;">无</td> <td style="text-align:center;">主键id</td></tr> <tr><td style="text-align:center;"><b>uuid</b></td> <td style="text-align:center;"><span><code>string(36)</code>唯一用户标识 </span></td> <td style="text-align:center;">否</td> <td style="text-align:center;">无</td> <td style="text-align:center;"><span style="font-size:12px;">用户ID(UUID) </span></td></tr> <tr><td style="text-align:center;"><b>username</b></td> <td style="text-align:center;"><span><code>STRING(50)</code>唯一登录账号 </span></td> <td style="text-align:center;">否</td> <td style="text-align:center;">无</td> <td style="text-align:center;"><span style="font-size:12px;">  登录账号 </span></td></tr> <tr><td style="text-align:center;"><b>password</b></td> <td style="text-align:center;"><span><code>STRING(255)</code></span></td> <td style="text-align:center;">否</td> <td style="text-align:center;">无</td> <td style="text-align:center;"><span style="font-size:12px;">加密密码 </span></td></tr> <tr><td style="text-align:center;"><b>nickname</b></td> <td style="text-align:center;"><span><code>STRING(50)</code></span></td> <td style="text-align:center;">否</td> <td style="text-align:center;"><code>''</code></td> <td style="text-align:center;"><span style="font-size:12px;">用户昵称 </span></td></tr> <tr><td style="text-align:center;"><b>avatar</b></td> <td style="text-align:center;"><span><code>STRING(1000)</code></span></td> <td style="text-align:center;">是</td> <td style="text-align:center;"><span style="font-size:9px;">如：https://thinkphp-all.oss-cn-hangzhou.aliyuncs.com/public/67b3001b2aedd.png</span></td> <td style="text-align:center;"><span style="font-size:12px;">头像地址（本地、网络图片地址）</span></td></tr> <tr><td style="text-align:center;"><b>mobile</b></td> <td style="text-align:center;"><span><code>STRING(20)</code></span></td> <td style="text-align:center;">是</td> <td style="text-align:center;"><code>NULL</code></td> <td style="text-align:center;"><span style="font-size:12px;">手机号 </span></td></tr> <tr><td style="text-align:center;"><b>email</b></td> <td style="text-align:center;"><span><code>STRING(100)</code></span></td> <td style="text-align:center;">是</td> <td style="text-align:center;"><code>NULL</code></td> <td style="text-align:center;"><span style="font-size:12px;">邮箱 </span></td></tr> <tr><td style="text-align:center;"><b>last_login</b></td> <td style="text-align:center;"><span><code>DATE</code></span></td> <td style="text-align:center;">是</td> <td style="text-align:center;"><code>NULL</code></td> <td style="text-align:center;"><span style="font-size:12px;">最后登录时间 </span></td></tr> <tr><td style="text-align:center;"><b>last_login_ip</b></td> <td style="text-align:center;"><span><code>STRING(45)</code></span></td> <td style="text-align:center;">是</td> <td style="text-align:center;"><code>NULL</code></td> <td style="text-align:center;"><span style="font-size:12px;">最后登录IP </span></td></tr> <tr><td style="text-align:center;"><b>register_time </b></td> <td style="text-align:center;"><span><code>DATE</code></span></td> <td style="text-align:center;">否</td> <td style="text-align:center;"><code>CURRENT_TIMESTAMP</code></td> <td style="text-align:center;"><span style="font-size:12px;">注册时间 </span></td></tr> <tr><td style="text-align:center;"><b>register_ip </b></td> <td style="text-align:center;"><span><code>STRING(45)</code></span></td> <td style="text-align:center;">是</td> <td style="text-align:center;"><code>NULL</code></td> <td style="text-align:center;"><span style="font-size:12px;"> 注册IP</span></td></tr> <tr><td style="text-align:center;"><b>is_deleted  </b></td> <td style="text-align:center;"><span><code>TINYINT(1)</code></span></td> <td style="text-align:center;">否</td> <td style="text-align:center;"><code>0</code></td> <td style="text-align:center;"><span style="font-size:12px;"> 软删除标记</span></td></tr> <tr><td style="text-align:center;"><b>wechat_openid </b></td> <td style="text-align:center;"><span><code>STRING(128)</code></span></td> <td style="text-align:center;">是</td> <td style="text-align:center;"><code>NULL</code></td> <td style="text-align:center;"><span style="font-size:12px;"> 微信OpenID </span></td></tr> <tr><td style="text-align:center;"><b>qq_openid  </b></td> <td style="text-align:center;"><span><code>STRING(128)</code></span></td> <td style="text-align:center;">是</td> <td style="text-align:center;"><code>NULL</code></td> <td style="text-align:center;"><span style="font-size:12px;"> QQ OpenID  </span></td></tr> <tr><td style="text-align:center;"><b>weibo_uid  </b></td> <td style="text-align:center;"><span><code>STRING(128)</code></span></td> <td style="text-align:center;">是</td> <td style="text-align:center;"><code>NULL</code></td> <td style="text-align:center;"><span style="font-size:12px;"> 微博UID </span></td></tr> <tr><td style="text-align:center;"><b>role  </b></td> <td style="text-align:center;"><span><code>STRING(20)</code></span></td> <td style="text-align:center;">否</td> <td style="text-align:center;"><code>'user'</code></td> <td style="text-align:center;"><span style="font-size:12px;">用户角色  </span></td></tr> <tr><td style="text-align:center;"><b>is_email_verified </b></td> <td style="text-align:center;"><span><code>TINYINT(1)</code></span></td> <td style="text-align:center;">否</td> <td style="text-align:center;"><code>0</code></td> <td style="text-align:center;"><span style="font-size:12px;"> 邮箱验证状态  </span></td></tr> <tr><td style="text-align:center;"><b>is_mobile_verified </b></td> <td style="text-align:center;"><span><code>TINYINT(1)</code></span></td> <td style="text-align:center;">否</td> <td style="text-align:center;"><code>0</code></td> <td style="text-align:center;"><span style="font-size:12px;"> 手机验证状态  </span></td></tr> <tr><td style="text-align:center;"><b>status </b></td> <td style="text-align:center;"><span><code>TINYINT(1)</code></span></td> <td style="text-align:center;">否</td> <td style="text-align:center;"><code>1</code></td> <td style="text-align:center;"><span style="font-size:12px;"> 用户状态(0-禁用 1-正常 2-锁定)</span></td></tr> <tr><td style="text-align:center;"><b>order </b></td> <td style="text-align:center;"><span><code>int(11)</code></span></td> <td style="text-align:center;">是</td> <td style="text-align:center;">50</td> <td style="text-align:center;"><span style="font-size:12px;"> 排序，默认50  </span></td></tr> <tr><td style="text-align:center;"><b>create_time </b></td> <td style="text-align:center;"><span><code>DATE</code></span></td> <td style="text-align:center;">否</td> <td style="text-align:center;"><code>CURRENT_TIMESTAMP</code></td> <td style="text-align:center;"><span style="font-size:12px;">数据创建时间  </span></td></tr> <tr><td style="text-align:center;"><b>update_time </b></td> <td style="text-align:center;"><span><code>DATE</code></span></td> <td style="text-align:center;">否</td> <td style="text-align:center;"><code>CURRENT_TIMESTAMP</code></td> <td style="text-align:center;"><span style="font-size:12px;"> 更新时间 </span></td></tr></tbody></table> <blockquote><ol><li>直接在<code>phpMyAdmin</code>中根据表字段设计创建表，或者通过数据库插件写sql语句创建表。<br></li> <li>通过迁移命名创建<code>user</code>表：</li></ol> <blockquote><ol><li>创建迁移文件 命令：</li></ol> <div class="language-js extra-class"><pre class="language-js"><code>npx sequelize migration<span class="token operator">:</span>generate <span class="token operator">--</span>name<span class="token operator">=</span>user
+</code></pre></div><ol start="2"><li>创建迁移文件 <code>user.js</code>，内容如下：<br></li></ol></blockquote></blockquote> <div class="language-js extra-class"><pre class="language-js"><code><span class="token string">'use strict'</span><span class="token punctuation">;</span>
+
+module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <span class="token keyword">async</span> <span class="token function">up</span><span class="token punctuation">(</span><span class="token parameter">queryInterface<span class="token punctuation">,</span> Sequelize</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> <span class="token punctuation">{</span> <span class="token constant">INTEGER</span><span class="token punctuation">,</span> <span class="token constant">STRING</span><span class="token punctuation">,</span> <span class="token constant">DATE</span><span class="token punctuation">,</span> <span class="token constant">TINYINT</span><span class="token punctuation">,</span> <span class="token constant">ENUM</span> <span class="token punctuation">}</span> <span class="token operator">=</span> Sequelize<span class="token punctuation">;</span>
+    <span class="token keyword">await</span> queryInterface<span class="token punctuation">.</span><span class="token function">createTable</span><span class="token punctuation">(</span><span class="token string">'user'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+      <span class="token literal-property property">id</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token literal-property property">type</span><span class="token operator">:</span> <span class="token constant">INTEGER</span><span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token constant">UNSIGNED</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">primaryKey</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">autoIncrement</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">comment</span><span class="token operator">:</span> <span class="token string">'主键ID'</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token literal-property property">uuid</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token literal-property property">type</span><span class="token operator">:</span> <span class="token constant">STRING</span><span class="token punctuation">(</span><span class="token number">36</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">allowNull</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">unique</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">comment</span><span class="token operator">:</span> <span class="token string">'用户UUID'</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token literal-property property">username</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token literal-property property">type</span><span class="token operator">:</span> <span class="token constant">STRING</span><span class="token punctuation">(</span><span class="token number">50</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">allowNull</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">unique</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">comment</span><span class="token operator">:</span> <span class="token string">'登录账号'</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token literal-property property">password</span><span class="token operator">:</span> <span class="token punctuation">{</span> 
+        <span class="token literal-property property">type</span><span class="token operator">:</span> <span class="token constant">STRING</span><span class="token punctuation">(</span><span class="token number">255</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">allowNull</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">comment</span><span class="token operator">:</span> <span class="token string">'加密密码'</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token literal-property property">nickname</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token literal-property property">type</span><span class="token operator">:</span> <span class="token constant">STRING</span><span class="token punctuation">(</span><span class="token number">50</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">allowNull</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">defaultValue</span><span class="token operator">:</span> <span class="token string">''</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">comment</span><span class="token operator">:</span> <span class="token string">'用户昵称'</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token literal-property property">avatar</span> <span class="token operator">:</span> <span class="token punctuation">{</span> 
+        <span class="token literal-property property">type</span><span class="token operator">:</span> <span class="token constant">STRING</span><span class="token punctuation">(</span><span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">,</span> 
+        <span class="token literal-property property">allowNull</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> 
+        <span class="token literal-property property">defaultValue</span><span class="token operator">:</span> <span class="token string">'https://thinkphp-all.oss-cn-hangzhou.aliyuncs.com/public/67b3001b2aedd.png'</span><span class="token punctuation">,</span> 
+        <span class="token literal-property property">comment</span><span class="token operator">:</span> <span class="token string">'管理员头像（本地、网络图片地址）'</span> 
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token literal-property property">mobile</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token literal-property property">type</span><span class="token operator">:</span> <span class="token constant">STRING</span><span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">unique</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">comment</span><span class="token operator">:</span> <span class="token string">'手机号'</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token literal-property property">email</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token literal-property property">type</span><span class="token operator">:</span> <span class="token constant">STRING</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">unique</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">comment</span><span class="token operator">:</span> <span class="token string">'邮箱'</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token literal-property property">status</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token literal-property property">type</span><span class="token operator">:</span> <span class="token constant">TINYINT</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">allowNull</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">defaultValue</span><span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">comment</span><span class="token operator">:</span> <span class="token string">'用户状态 1：启用，0：禁用'</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token literal-property property">last_login</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token literal-property property">type</span><span class="token operator">:</span> <span class="token constant">DATE</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">comment</span><span class="token operator">:</span> <span class="token string">'最后登录时间'</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token literal-property property">last_login_ip</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token literal-property property">type</span><span class="token operator">:</span> <span class="token constant">STRING</span><span class="token punctuation">(</span><span class="token number">45</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">comment</span><span class="token operator">:</span> <span class="token string">'最后登录IP'</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token literal-property property">register_time</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token literal-property property">type</span><span class="token operator">:</span> <span class="token constant">DATE</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">allowNull</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">defaultValue</span><span class="token operator">:</span> Sequelize<span class="token punctuation">.</span><span class="token function">literal</span><span class="token punctuation">(</span><span class="token string">'CURRENT_TIMESTAMP'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">comment</span><span class="token operator">:</span> <span class="token string">'注册时间'</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token literal-property property">register_ip</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token literal-property property">type</span><span class="token operator">:</span> <span class="token constant">STRING</span><span class="token punctuation">(</span><span class="token number">45</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">comment</span><span class="token operator">:</span> <span class="token string">'注册IP'</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token literal-property property">is_deleted</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token literal-property property">type</span><span class="token operator">:</span> <span class="token constant">TINYINT</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">allowNull</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">defaultValue</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">comment</span><span class="token operator">:</span> <span class="token string">'软删除标记'</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token literal-property property">wechat_openid</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token literal-property property">type</span><span class="token operator">:</span> <span class="token constant">STRING</span><span class="token punctuation">(</span><span class="token number">128</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">unique</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">comment</span><span class="token operator">:</span> <span class="token string">'微信OpenID'</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token literal-property property">qq_openid</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token literal-property property">type</span><span class="token operator">:</span> <span class="token constant">STRING</span><span class="token punctuation">(</span><span class="token number">128</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">unique</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">comment</span><span class="token operator">:</span> <span class="token string">'QQ OpenID'</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token literal-property property">weibo_uid</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token literal-property property">type</span><span class="token operator">:</span> <span class="token constant">STRING</span><span class="token punctuation">(</span><span class="token number">128</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">unique</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">comment</span><span class="token operator">:</span> <span class="token string">'微博UID'</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token literal-property property">role</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token literal-property property">type</span><span class="token operator">:</span> <span class="token constant">STRING</span><span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">allowNull</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">defaultValue</span><span class="token operator">:</span> <span class="token string">'user'</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">comment</span><span class="token operator">:</span> <span class="token string">'用户角色'</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token literal-property property">is_email_verified</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token literal-property property">type</span><span class="token operator">:</span> <span class="token constant">TINYINT</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">allowNull</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">defaultValue</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">comment</span><span class="token operator">:</span> <span class="token string">'邮箱验证'</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token literal-property property">is_mobile_verified</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token literal-property property">type</span><span class="token operator">:</span> <span class="token constant">TINYINT</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">allowNull</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">defaultValue</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">comment</span><span class="token operator">:</span> <span class="token string">'手机验证'</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token literal-property property">order</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token literal-property property">type</span><span class="token operator">:</span> <span class="token constant">INTEGER</span><span class="token punctuation">,</span><span class="token comment">//不限定长度.默认int(11)</span>
+        <span class="token literal-property property">allowNull</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">defaultValue</span><span class="token operator">:</span> <span class="token number">50</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">comment</span><span class="token operator">:</span> <span class="token string">'排序，默认50'</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token comment">// sex: { type: ENUM, values: ['男','女','保密'], allowNull: true, defaultValue: '保密', comment: '留言用户性别'},</span>
+      <span class="token literal-property property">create_time</span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token literal-property property">type</span><span class="token operator">:</span> <span class="token constant">DATE</span><span class="token punctuation">,</span> <span class="token literal-property property">allowNull</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span> <span class="token literal-property property">defaultValue</span><span class="token operator">:</span>Sequelize<span class="token punctuation">.</span><span class="token function">fn</span><span class="token punctuation">(</span><span class="token string">'NOW'</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token literal-property property">update_time</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token literal-property property">type</span><span class="token operator">:</span> <span class="token constant">DATE</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">allowNull</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">defaultValue</span><span class="token operator">:</span> Sequelize<span class="token punctuation">.</span><span class="token function">literal</span><span class="token punctuation">(</span><span class="token string">'CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">comment</span><span class="token operator">:</span> <span class="token string">'更新时间'</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+
+  <span class="token keyword">async</span> <span class="token function">down</span><span class="token punctuation">(</span><span class="token parameter">queryInterface</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">await</span> queryInterface<span class="token punctuation">.</span><span class="token function">dropTable</span><span class="token punctuation">(</span><span class="token string">'user'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre></div><blockquote><ol start="3"><li>执行迁移文件命令生成数据库表：</li></ol> <blockquote><div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// 创建数据库</span>
+npx sequelize db<span class="token operator">:</span>migrate
+<span class="token comment">// 如果有问题需要回滚，可以通过 `db:migrate:undo` 回退一个变更</span>
+npx sequelize db<span class="token operator">:</span>migrate<span class="token operator">:</span>undo
+<span class="token comment">// 可以通过 `db:migrate:undo:all` 回退到初始状态</span>
+npx sequelize db<span class="token operator">:</span>migrate<span class="token operator">:</span>undo<span class="token operator">:</span>all
+</code></pre></div></blockquote></blockquote> <h3 id="user表模型"><a href="#user表模型" class="header-anchor">#</a> <code>user</code>表模型</h3> <p><code>app/model/user.js</code></p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token string">'use strict'</span><span class="token punctuation">;</span>
+<span class="token comment">//哈希函数 </span>
+<span class="token keyword">const</span> crypto <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'node:crypto'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// 引入 uuid 库 `npm install uuid`</span>
+<span class="token keyword">const</span> <span class="token punctuation">{</span> <span class="token literal-property property">v4</span><span class="token operator">:</span> uuidv4 <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'uuid'</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+
+module<span class="token punctuation">.</span><span class="token function-variable function">exports</span> <span class="token operator">=</span> <span class="token parameter">app</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> <span class="token punctuation">{</span> <span class="token constant">INTEGER</span><span class="token punctuation">,</span> <span class="token constant">STRING</span><span class="token punctuation">,</span> <span class="token constant">DATE</span><span class="token punctuation">,</span> <span class="token constant">TINYINT</span><span class="token punctuation">,</span> <span class="token constant">ENUM</span> <span class="token punctuation">}</span> <span class="token operator">=</span> app<span class="token punctuation">.</span>Sequelize<span class="token punctuation">;</span>
+
+    <span class="token keyword">const</span> User <span class="token operator">=</span> app<span class="token punctuation">.</span>model<span class="token punctuation">.</span><span class="token function">define</span><span class="token punctuation">(</span><span class="token string">'user'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+        <span class="token literal-property property">id</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+            <span class="token literal-property property">type</span><span class="token operator">:</span> <span class="token constant">INTEGER</span><span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token constant">UNSIGNED</span><span class="token punctuation">,</span>
+            <span class="token literal-property property">primaryKey</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+            <span class="token literal-property property">autoIncrement</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+            <span class="token literal-property property">comment</span><span class="token operator">:</span> <span class="token string">'主键ID'</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">uuid</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+            <span class="token literal-property property">type</span><span class="token operator">:</span> <span class="token constant">STRING</span><span class="token punctuation">(</span><span class="token number">36</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+            <span class="token literal-property property">allowNull</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+            <span class="token literal-property property">unique</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+            <span class="token literal-property property">comment</span><span class="token operator">:</span> <span class="token string">'用户UUID'</span><span class="token punctuation">,</span>
+            <span class="token function-variable function">defaultValue</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token function">uuidv4</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token comment">// 自动生成 UUID</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">username</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+            <span class="token literal-property property">type</span><span class="token operator">:</span> <span class="token constant">STRING</span><span class="token punctuation">(</span><span class="token number">50</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+            <span class="token literal-property property">allowNull</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+            <span class="token literal-property property">unique</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+            <span class="token literal-property property">comment</span><span class="token operator">:</span> <span class="token string">'登录账号'</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">password</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+            <span class="token literal-property property">type</span><span class="token operator">:</span> <span class="token constant">STRING</span><span class="token punctuation">(</span><span class="token number">255</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+            <span class="token literal-property property">allowNull</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+            <span class="token literal-property property">comment</span><span class="token operator">:</span> <span class="token string">'加密密码'</span><span class="token punctuation">,</span>
+            <span class="token function">set</span><span class="token punctuation">(</span>val<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token comment">//'sha256'加密</span>
+                <span class="token keyword">let</span> hash <span class="token operator">=</span> crypto<span class="token punctuation">.</span><span class="token function">createHash</span><span class="token punctuation">(</span><span class="token string">'sha256'</span><span class="token punctuation">,</span> app<span class="token punctuation">.</span>config<span class="token punctuation">.</span>crypto<span class="token punctuation">.</span>secret<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//或者md5</span>
+                hash<span class="token punctuation">.</span><span class="token function">update</span><span class="token punctuation">(</span>val<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token keyword">let</span> result <span class="token operator">=</span> hash<span class="token punctuation">.</span><span class="token function">digest</span><span class="token punctuation">(</span><span class="token string">'hex'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token comment">// console.log(result);</span>
+                <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">setDataValue</span><span class="token punctuation">(</span><span class="token string">'password'</span><span class="token punctuation">,</span> result<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">nickname</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+            <span class="token literal-property property">type</span><span class="token operator">:</span> <span class="token constant">STRING</span><span class="token punctuation">(</span><span class="token number">50</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+            <span class="token literal-property property">allowNull</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+            <span class="token literal-property property">defaultValue</span><span class="token operator">:</span> <span class="token string">''</span><span class="token punctuation">,</span>
+            <span class="token literal-property property">comment</span><span class="token operator">:</span> <span class="token string">'用户昵称'</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">avatar</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+            <span class="token literal-property property">type</span><span class="token operator">:</span> <span class="token constant">STRING</span><span class="token punctuation">(</span><span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+            <span class="token literal-property property">allowNull</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+            <span class="token literal-property property">defaultValue</span><span class="token operator">:</span> <span class="token string">'https://thinkphp-all.oss-cn-hangzhou.aliyuncs.com/public/67b3001b2aedd.png'</span><span class="token punctuation">,</span>
+            <span class="token literal-property property">comment</span><span class="token operator">:</span> <span class="token string">'管理员头像（本地、网络图片地址）'</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">mobile</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+            <span class="token literal-property property">type</span><span class="token operator">:</span> <span class="token constant">STRING</span><span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+            <span class="token literal-property property">unique</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+            <span class="token literal-property property">comment</span><span class="token operator">:</span> <span class="token string">'手机号'</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">email</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+            <span class="token literal-property property">type</span><span class="token operator">:</span> <span class="token constant">STRING</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+            <span class="token literal-property property">unique</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+            <span class="token literal-property property">comment</span><span class="token operator">:</span> <span class="token string">'邮箱'</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">status</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+            <span class="token literal-property property">type</span><span class="token operator">:</span> <span class="token constant">TINYINT</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+            <span class="token literal-property property">allowNull</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+            <span class="token literal-property property">defaultValue</span><span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+            <span class="token literal-property property">comment</span><span class="token operator">:</span> <span class="token string">'用户状态 1：启用，0：禁用'</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">last_login</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+            <span class="token literal-property property">type</span><span class="token operator">:</span> <span class="token constant">DATE</span><span class="token punctuation">,</span>
+            <span class="token literal-property property">comment</span><span class="token operator">:</span> <span class="token string">'最后登录时间'</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">last_login_ip</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+            <span class="token literal-property property">type</span><span class="token operator">:</span> <span class="token constant">STRING</span><span class="token punctuation">(</span><span class="token number">45</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+            <span class="token literal-property property">comment</span><span class="token operator">:</span> <span class="token string">'最后登录IP'</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">register_time</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+            <span class="token literal-property property">type</span><span class="token operator">:</span> <span class="token constant">DATE</span><span class="token punctuation">,</span>
+            <span class="token literal-property property">allowNull</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+            <span class="token literal-property property">defaultValue</span><span class="token operator">:</span> app<span class="token punctuation">.</span>Sequelize<span class="token punctuation">.</span><span class="token function">literal</span><span class="token punctuation">(</span><span class="token string">'CURRENT_TIMESTAMP'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+            <span class="token literal-property property">comment</span><span class="token operator">:</span> <span class="token string">'注册时间'</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">register_ip</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+            <span class="token literal-property property">type</span><span class="token operator">:</span> <span class="token constant">STRING</span><span class="token punctuation">(</span><span class="token number">45</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+            <span class="token literal-property property">comment</span><span class="token operator">:</span> <span class="token string">'注册IP'</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">is_deleted</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+            <span class="token literal-property property">type</span><span class="token operator">:</span> <span class="token constant">TINYINT</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+            <span class="token literal-property property">allowNull</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+            <span class="token literal-property property">defaultValue</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+            <span class="token literal-property property">comment</span><span class="token operator">:</span> <span class="token string">'软删除标记'</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">wechat_openid</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+            <span class="token literal-property property">type</span><span class="token operator">:</span> <span class="token constant">STRING</span><span class="token punctuation">(</span><span class="token number">128</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+            <span class="token literal-property property">unique</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+            <span class="token literal-property property">comment</span><span class="token operator">:</span> <span class="token string">'微信OpenID'</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">qq_openid</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+            <span class="token literal-property property">type</span><span class="token operator">:</span> <span class="token constant">STRING</span><span class="token punctuation">(</span><span class="token number">128</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+            <span class="token literal-property property">unique</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+            <span class="token literal-property property">comment</span><span class="token operator">:</span> <span class="token string">'QQ OpenID'</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">weibo_uid</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+            <span class="token literal-property property">type</span><span class="token operator">:</span> <span class="token constant">STRING</span><span class="token punctuation">(</span><span class="token number">128</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+            <span class="token literal-property property">unique</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+            <span class="token literal-property property">comment</span><span class="token operator">:</span> <span class="token string">'微博UID'</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">role</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+            <span class="token literal-property property">type</span><span class="token operator">:</span> <span class="token constant">STRING</span><span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+            <span class="token literal-property property">allowNull</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+            <span class="token literal-property property">defaultValue</span><span class="token operator">:</span> <span class="token string">'user'</span><span class="token punctuation">,</span>
+            <span class="token literal-property property">comment</span><span class="token operator">:</span> <span class="token string">'用户角色'</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">is_email_verified</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+            <span class="token literal-property property">type</span><span class="token operator">:</span> <span class="token constant">TINYINT</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+            <span class="token literal-property property">allowNull</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+            <span class="token literal-property property">defaultValue</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+            <span class="token literal-property property">comment</span><span class="token operator">:</span> <span class="token string">'邮箱验证'</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">is_mobile_verified</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+            <span class="token literal-property property">type</span><span class="token operator">:</span> <span class="token constant">TINYINT</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+            <span class="token literal-property property">allowNull</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+            <span class="token literal-property property">defaultValue</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+            <span class="token literal-property property">comment</span><span class="token operator">:</span> <span class="token string">'手机验证'</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">order</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+            <span class="token literal-property property">type</span><span class="token operator">:</span> <span class="token constant">INTEGER</span><span class="token punctuation">,</span><span class="token comment">//不限定长度.默认int(11)</span>
+            <span class="token literal-property property">allowNull</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+            <span class="token literal-property property">defaultValue</span><span class="token operator">:</span> <span class="token number">50</span><span class="token punctuation">,</span>
+            <span class="token literal-property property">comment</span><span class="token operator">:</span> <span class="token string">'排序，默认50'</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token comment">// sex: { type: ENUM, values: ['男','女','保密'], allowNull: true, defaultValue: '保密', comment: '留言用户性别'},</span>
+        <span class="token literal-property property">create_time</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+            <span class="token literal-property property">type</span><span class="token operator">:</span> <span class="token constant">DATE</span><span class="token punctuation">,</span>
+            <span class="token literal-property property">allowNull</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+            <span class="token literal-property property">defaultValue</span><span class="token operator">:</span> app<span class="token punctuation">.</span>Sequelize<span class="token punctuation">.</span><span class="token function">fn</span><span class="token punctuation">(</span><span class="token string">'NOW'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+            <span class="token function">get</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token keyword">return</span> app<span class="token punctuation">.</span><span class="token function">formatTime</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">getDataValue</span><span class="token punctuation">(</span><span class="token string">'create_time'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">update_time</span><span class="token operator">:</span> <span class="token punctuation">{</span> <span class="token literal-property property">type</span><span class="token operator">:</span> <span class="token constant">DATE</span><span class="token punctuation">,</span> <span class="token literal-property property">allowNull</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span> <span class="token literal-property property">defaultValue</span><span class="token operator">:</span> app<span class="token punctuation">.</span>Sequelize<span class="token punctuation">.</span><span class="token function">fn</span><span class="token punctuation">(</span><span class="token string">'NOW'</span><span class="token punctuation">)</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">return</span> User<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h2 id="二、-user-info表字段设计"><a href="#二、-user-info表字段设计" class="header-anchor">#</a> 二、 <code>user_info</code>表字段设计</h2> <table><thead><tr><th style="text-align:center;">字段名</th> <th style="text-align:center;">数据类型及描述</th> <th style="text-align:center;">空</th> <th style="text-align:center;"><p>默认值 </p></th> <th style="text-align:center;"><p>字段含义 </p></th></tr></thead> <tbody><tr><td style="text-align:center;"><b>id</b></td> <td style="text-align:center;"><span><code>INTEGER(20).UNSIGNED</code></span><br> <span style="font-size:12px;">主键、自增长、UNSIGNED无符号 </span></td> <td style="text-align:center;">否</td> <td style="text-align:center;"><code>无</code></td> <td style="text-align:center;">主键id</td></tr> <tr><td style="text-align:center;"><b>user_id </b></td> <td style="text-align:center;"><span><code>INTEGER(20).UNSIGNED 外键关联user.id</code></span></td> <td style="text-align:center;">否</td> <td style="text-align:center;"><code>无</code></td> <td style="text-align:center;"><span style="font-size:12px;"> 用户ID </span></td></tr> <tr><td style="text-align:center;"><b>gender </b></td> <td style="text-align:center;"><span><code>ENUM('male','female','unknown')</code></span></td> <td style="text-align:center;">否</td> <td style="text-align:center;"><code>'unknown'</code></td> <td style="text-align:center;"><span style="font-size:12px;"> 性别 </span></td></tr> <tr><td style="text-align:center;"><b>birthday </b></td> <td style="text-align:center;"><span><code>DATE</code></span></td> <td style="text-align:center;">是</td> <td style="text-align:center;"><code>NULL</code></td> <td style="text-align:center;"><span style="font-size:12px;"> 出生日期 </span></td></tr> <tr><td style="text-align:center;"><b>bio </b></td> <td style="text-align:center;"><span><code>STRING(200)</code></span></td> <td style="text-align:center;">是</td> <td style="text-align:center;"><code>NULL</code></td> <td style="text-align:center;"><span style="font-size:12px;"> 个人简介 </span></td></tr> <tr><td style="text-align:center;"><b>location </b></td> <td style="text-align:center;"><span><code>STRING(100)</code></span></td> <td style="text-align:center;">是</td> <td style="text-align:center;"><code>NULL</code></td> <td style="text-align:center;"><span style="font-size:12px;"> 所在地 </span></td></tr> <tr><td style="text-align:center;"><b>website </b></td> <td style="text-align:center;"><span><code>STRING(255)</code></span></td> <td style="text-align:center;">是</td> <td style="text-align:center;"><code>NULL</code></td> <td style="text-align:center;"><span style="font-size:12px;"> 个人网站 </span></td></tr> <tr><td style="text-align:center;"><b>order </b></td> <td style="text-align:center;"><span><code>int(11)</code></span></td> <td style="text-align:center;">是</td> <td style="text-align:center;">50</td> <td style="text-align:center;"><span style="font-size:12px;"> 排序，默认50  </span></td></tr> <tr><td style="text-align:center;"><b>create_time </b></td> <td style="text-align:center;"><span><code>DATE</code></span></td> <td style="text-align:center;">否</td> <td style="text-align:center;"><code>CURRENT_TIMESTAMP</code></td> <td style="text-align:center;"><span style="font-size:12px;">数据创建时间  </span></td></tr> <tr><td style="text-align:center;"><b>update_time </b></td> <td style="text-align:center;"><span><code>DATE</code></span></td> <td style="text-align:center;">否</td> <td style="text-align:center;"><code>CURRENT_TIMESTAMP</code></td> <td style="text-align:center;"><span style="font-size:12px;"> 更新时间 </span></td></tr></tbody></table> <blockquote><ol><li>直接在<code>phpMyAdmin</code>中根据表字段设计创建表，或者通过数据库插件写sql语句创建表。<br></li> <li>通过迁移命名创建<code>user_info</code>表：</li></ol> <blockquote><ol><li>创建迁移文件 命令：</li></ol> <div class="language-js extra-class"><pre class="language-js"><code>npx sequelize migration<span class="token operator">:</span>generate <span class="token operator">--</span>name<span class="token operator">=</span>user_info
+</code></pre></div><ol start="2"><li>创建迁移文件 <code>user_info.js</code>，内容如下：<br></li></ol></blockquote></blockquote> <div class="language-js extra-class"><pre class="language-js"><code><span class="token string">'use strict'</span><span class="token punctuation">;</span>
+
+module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <span class="token keyword">async</span> <span class="token function">up</span><span class="token punctuation">(</span><span class="token parameter">queryInterface<span class="token punctuation">,</span> Sequelize</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> <span class="token punctuation">{</span> <span class="token constant">INTEGER</span><span class="token punctuation">,</span> <span class="token constant">STRING</span><span class="token punctuation">,</span> <span class="token constant">DATE</span><span class="token punctuation">,</span> <span class="token constant">ENUM</span> <span class="token punctuation">}</span> <span class="token operator">=</span> Sequelize<span class="token punctuation">;</span>
+    <span class="token keyword">await</span> queryInterface<span class="token punctuation">.</span><span class="token function">createTable</span><span class="token punctuation">(</span><span class="token string">'user_info'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+      <span class="token literal-property property">id</span><span class="token operator">:</span> <span class="token punctuation">{</span> 
+        <span class="token literal-property property">type</span><span class="token operator">:</span> <span class="token constant">INTEGER</span><span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token constant">UNSIGNED</span><span class="token punctuation">,</span> 
+        <span class="token literal-property property">primaryKey</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> 
+        <span class="token literal-property property">autoIncrement</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">comment</span><span class="token operator">:</span> <span class="token string">'主键id'</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token literal-property property">user_id</span><span class="token operator">:</span><span class="token punctuation">{</span>
+        <span class="token literal-property property">type</span><span class="token operator">:</span> <span class="token constant">INTEGER</span><span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token constant">UNSIGNED</span><span class="token punctuation">,</span> 
+        <span class="token literal-property property">allowNull</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> 
+        <span class="token literal-property property">defaultValue</span><span class="token operator">:</span><span class="token number">0</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">comment</span><span class="token operator">:</span> <span class="token string">'用户ID'</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">references</span><span class="token operator">:</span> <span class="token punctuation">{</span> <span class="token comment">//关联关系</span>
+          <span class="token literal-property property">model</span><span class="token operator">:</span> <span class="token string">'user'</span><span class="token punctuation">,</span> <span class="token comment">//关联的表</span>
+          <span class="token literal-property property">key</span><span class="token operator">:</span> <span class="token string">'id'</span> <span class="token comment">//关联表的主键</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">onDelete</span><span class="token operator">:</span> <span class="token string">'cascade'</span><span class="token punctuation">,</span> <span class="token comment">//删除时操作</span>
+        <span class="token literal-property property">onUpdate</span><span class="token operator">:</span> <span class="token string">'restrict'</span><span class="token punctuation">,</span> <span class="token comment">// 更新时操作</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token literal-property property">gender</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token literal-property property">type</span><span class="token operator">:</span> <span class="token constant">ENUM</span><span class="token punctuation">(</span><span class="token string">'male'</span><span class="token punctuation">,</span> <span class="token string">'female'</span><span class="token punctuation">,</span> <span class="token string">'unknown'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">allowNull</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">defaultValue</span><span class="token operator">:</span> <span class="token string">'unknown'</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">comment</span><span class="token operator">:</span> <span class="token string">'性别'</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token literal-property property">birthday</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token literal-property property">type</span><span class="token operator">:</span> <span class="token constant">DATE</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">comment</span><span class="token operator">:</span> <span class="token string">'出生日期'</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token literal-property property">bio</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token literal-property property">type</span><span class="token operator">:</span> <span class="token constant">STRING</span><span class="token punctuation">(</span><span class="token number">200</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">comment</span><span class="token operator">:</span> <span class="token string">'个人简介'</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token literal-property property">location</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token literal-property property">type</span><span class="token operator">:</span> <span class="token constant">STRING</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">comment</span><span class="token operator">:</span> <span class="token string">'所在地'</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token literal-property property">website</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token literal-property property">type</span><span class="token operator">:</span> <span class="token constant">STRING</span><span class="token punctuation">(</span><span class="token number">255</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">comment</span><span class="token operator">:</span> <span class="token string">'个人网站'</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token literal-property property">order</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token literal-property property">type</span><span class="token operator">:</span> <span class="token constant">INTEGER</span><span class="token punctuation">,</span><span class="token comment">//不限定长度.默认int(11)</span>
+        <span class="token literal-property property">allowNull</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">defaultValue</span><span class="token operator">:</span> <span class="token number">50</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">comment</span><span class="token operator">:</span> <span class="token string">'排序，默认50'</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token comment">// sex: { type: ENUM, values: ['男','女','保密'], allowNull: true, defaultValue: '保密', comment: '留言用户性别'},</span>
+      <span class="token literal-property property">create_time</span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token literal-property property">type</span><span class="token operator">:</span> <span class="token constant">DATE</span><span class="token punctuation">,</span> <span class="token literal-property property">allowNull</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span> <span class="token literal-property property">defaultValue</span><span class="token operator">:</span>Sequelize<span class="token punctuation">.</span><span class="token function">fn</span><span class="token punctuation">(</span><span class="token string">'NOW'</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token literal-property property">update_time</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token literal-property property">type</span><span class="token operator">:</span> <span class="token constant">DATE</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">allowNull</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">defaultValue</span><span class="token operator">:</span> Sequelize<span class="token punctuation">.</span><span class="token function">literal</span><span class="token punctuation">(</span><span class="token string">'CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">comment</span><span class="token operator">:</span> <span class="token string">'更新时间'</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+
+  <span class="token keyword">async</span> <span class="token function">down</span><span class="token punctuation">(</span><span class="token parameter">queryInterface</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">await</span> queryInterface<span class="token punctuation">.</span><span class="token function">dropTable</span><span class="token punctuation">(</span><span class="token string">'user_info'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre></div><blockquote><ol start="3"><li>执行迁移文件命令生成数据库表：</li></ol> <blockquote><div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// 创建数据库</span>
+npx sequelize db<span class="token operator">:</span>migrate
+<span class="token comment">// 如果有问题需要回滚，可以通过 `db:migrate:undo` 回退一个变更</span>
+npx sequelize db<span class="token operator">:</span>migrate<span class="token operator">:</span>undo
+<span class="token comment">// 可以通过 `db:migrate:undo:all` 回退到初始状态</span>
+npx sequelize db<span class="token operator">:</span>migrate<span class="token operator">:</span>undo<span class="token operator">:</span>all
+</code></pre></div></blockquote></blockquote> <h3 id="user-info表模型"><a href="#user-info表模型" class="header-anchor">#</a> <code>user_info</code>表模型</h3> <p><code>app/model/user_info.js</code></p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token string">'use strict'</span><span class="token punctuation">;</span>
+
+module<span class="token punctuation">.</span><span class="token function-variable function">exports</span> <span class="token operator">=</span> <span class="token parameter">app</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> <span class="token punctuation">{</span> <span class="token constant">INTEGER</span><span class="token punctuation">,</span> <span class="token constant">STRING</span><span class="token punctuation">,</span> <span class="token constant">DATE</span><span class="token punctuation">,</span> <span class="token constant">ENUM</span> <span class="token punctuation">}</span> <span class="token operator">=</span> app<span class="token punctuation">.</span>Sequelize<span class="token punctuation">;</span>
+
+    <span class="token keyword">const</span> UserInfo <span class="token operator">=</span> app<span class="token punctuation">.</span>model<span class="token punctuation">.</span><span class="token function">define</span><span class="token punctuation">(</span><span class="token string">'user_info'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+        <span class="token literal-property property">id</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+            <span class="token literal-property property">type</span><span class="token operator">:</span> <span class="token constant">INTEGER</span><span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token constant">UNSIGNED</span><span class="token punctuation">,</span>
+            <span class="token literal-property property">primaryKey</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+            <span class="token literal-property property">autoIncrement</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+            <span class="token literal-property property">comment</span><span class="token operator">:</span> <span class="token string">'主键id'</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">user_id</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+            <span class="token literal-property property">type</span><span class="token operator">:</span> <span class="token constant">INTEGER</span><span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token constant">UNSIGNED</span><span class="token punctuation">,</span>
+            <span class="token literal-property property">allowNull</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+            <span class="token literal-property property">defaultValue</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+            <span class="token literal-property property">comment</span><span class="token operator">:</span> <span class="token string">'用户ID'</span><span class="token punctuation">,</span>
+            <span class="token literal-property property">references</span><span class="token operator">:</span> <span class="token punctuation">{</span> <span class="token comment">//关联关系</span>
+                <span class="token literal-property property">model</span><span class="token operator">:</span> <span class="token string">'user'</span><span class="token punctuation">,</span> <span class="token comment">//关联的表</span>
+                <span class="token literal-property property">key</span><span class="token operator">:</span> <span class="token string">'id'</span> <span class="token comment">//关联表的主键</span>
+            <span class="token punctuation">}</span><span class="token punctuation">,</span>
+            <span class="token literal-property property">onDelete</span><span class="token operator">:</span> <span class="token string">'cascade'</span><span class="token punctuation">,</span> <span class="token comment">//删除时操作</span>
+            <span class="token literal-property property">onUpdate</span><span class="token operator">:</span> <span class="token string">'restrict'</span><span class="token punctuation">,</span> <span class="token comment">// 更新时操作</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">gender</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+            <span class="token literal-property property">type</span><span class="token operator">:</span> <span class="token constant">ENUM</span><span class="token punctuation">(</span><span class="token string">'male'</span><span class="token punctuation">,</span> <span class="token string">'female'</span><span class="token punctuation">,</span> <span class="token string">'unknown'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+            <span class="token literal-property property">allowNull</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+            <span class="token literal-property property">defaultValue</span><span class="token operator">:</span> <span class="token string">'unknown'</span><span class="token punctuation">,</span>
+            <span class="token literal-property property">comment</span><span class="token operator">:</span> <span class="token string">'性别'</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">birthday</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+            <span class="token literal-property property">type</span><span class="token operator">:</span> <span class="token constant">DATE</span><span class="token punctuation">,</span>
+            <span class="token literal-property property">comment</span><span class="token operator">:</span> <span class="token string">'出生日期'</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">bio</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+            <span class="token literal-property property">type</span><span class="token operator">:</span> <span class="token constant">STRING</span><span class="token punctuation">(</span><span class="token number">200</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+            <span class="token literal-property property">comment</span><span class="token operator">:</span> <span class="token string">'个人简介'</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">location</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+            <span class="token literal-property property">type</span><span class="token operator">:</span> <span class="token constant">STRING</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+            <span class="token literal-property property">comment</span><span class="token operator">:</span> <span class="token string">'所在地'</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">website</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+            <span class="token literal-property property">type</span><span class="token operator">:</span> <span class="token constant">STRING</span><span class="token punctuation">(</span><span class="token number">255</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+            <span class="token literal-property property">comment</span><span class="token operator">:</span> <span class="token string">'个人网站'</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">order</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+            <span class="token literal-property property">type</span><span class="token operator">:</span> <span class="token constant">INTEGER</span><span class="token punctuation">,</span><span class="token comment">//不限定长度.默认int(11)</span>
+            <span class="token literal-property property">allowNull</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+            <span class="token literal-property property">defaultValue</span><span class="token operator">:</span> <span class="token number">50</span><span class="token punctuation">,</span>
+            <span class="token literal-property property">comment</span><span class="token operator">:</span> <span class="token string">'排序，默认50'</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token comment">// sex: { type: ENUM, values: ['男','女','保密'], allowNull: true, defaultValue: '保密', comment: '留言用户性别'},</span>
+        <span class="token literal-property property">create_time</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+            <span class="token literal-property property">type</span><span class="token operator">:</span> <span class="token constant">DATE</span><span class="token punctuation">,</span>
+            <span class="token literal-property property">allowNull</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+            <span class="token literal-property property">defaultValue</span><span class="token operator">:</span> app<span class="token punctuation">.</span>Sequelize<span class="token punctuation">.</span><span class="token function">fn</span><span class="token punctuation">(</span><span class="token string">'NOW'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+            <span class="token function">get</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token keyword">return</span> app<span class="token punctuation">.</span><span class="token function">formatTime</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">getDataValue</span><span class="token punctuation">(</span><span class="token string">'create_time'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">update_time</span><span class="token operator">:</span> <span class="token punctuation">{</span> <span class="token literal-property property">type</span><span class="token operator">:</span> <span class="token constant">DATE</span><span class="token punctuation">,</span> <span class="token literal-property property">allowNull</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span> <span class="token literal-property property">defaultValue</span><span class="token operator">:</span> app<span class="token punctuation">.</span>Sequelize<span class="token punctuation">.</span><span class="token function">fn</span><span class="token punctuation">(</span><span class="token string">'NOW'</span><span class="token punctuation">)</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// 模型关联关系</span>
+    UserInfo<span class="token punctuation">.</span><span class="token function-variable function">associate</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">models</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment">// 关联user </span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">belongsTo</span><span class="token punctuation">(</span>app<span class="token punctuation">.</span>model<span class="token punctuation">.</span>User<span class="token punctuation">,</span> <span class="token punctuation">{</span>
+            <span class="token literal-property property">foreignKey</span><span class="token operator">:</span> <span class="token string">'user_id'</span><span class="token punctuation">,</span>  <span class="token comment">// 关联外键</span>
+            <span class="token comment">// as: 'UserInfo', // 别名（可选）</span>
+            
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">return</span> UserInfo<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">更新时间:</span> <span class="time">2025年4月30日星期三下午3点41分</span></div></footer> <!----> </main></div><div class="global-ui"><!----><!----></div></div>
+    <script src="/assets/js/app.0cbe4140.js" defer></script><script src="/assets/js/9.13d458ed.js" defer></script><script src="/assets/js/2.6281e0bb.js" defer></script><script src="/assets/js/174.2e627955.js" defer></script><script src="/assets/js/3.e6827fa8.js" defer></script>
+  </body>
+</html>
