@@ -21,3 +21,12 @@ title:  第三学期移动端课程总述
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <a style="margin-left:20px;" href="/web/answer/课程常见问题.html" target="_blank">[课程答疑]</a>
 </b>
+
+### 第二季
+> 有了我们第一季的`uni-app入门`课程的讲解，从本季开始我们来进行`uni-app`项目的实战开发，根据同学们的需求反馈，我们对课程大纲的课程录制顺序做了调整，按照同学们迫切学习的需求，我们本季先讲`即时通讯`功能。<br/><br/>
+> 当然，我们在上一季度的入门课程教会大家如何使用第三方组件，我们在本季度会带领大家如何手写 `组件`、`样式`等等实操和知识的讲解，让大家的技术体系更加完善。<br/><br/>
+<b><a href="/thirdless/w-b.html" target="_blank">[第二季课程文档]</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a style="margin-left:20px;" href="#" target="_blank">[第二季课程视频]</a>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a style="margin-left:20px;" href="/web/answer/课程常见问题.html" target="_blank">[课程答疑]</a>
+</b>
