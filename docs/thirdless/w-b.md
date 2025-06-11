@@ -27,6 +27,15 @@ title: 第三学期第二季（课程学习顺序：07）
 ### 章节2.开发前环境搭建及准备
 > 与 <a href="https://study.163.com/course/courseMain.htm?courseId=1213808807&share=2&shareId=480000002289674" target="_blank" title="点击查看第三学期第一季课程">第三学期第一季课程</a> `课时4-课时10`内容相同，可查阅对应文档。
 ### <a href="/thirdless/w-b/03项目自定义配置" target="_blank" title="点击查看课程文档">章节3.项目自定义配置</a>
+####  <a href="/thirdless/w-b/03项目自定义配置.html#一、nvue说明和项目配置说明" style="margin-left:40px;">一、nvue说明和项目配置说明</a>
+#####  <a href="/thirdless/w-b/03项目自定义配置.html#_1-针对nvue引入一个css样式库" style="margin-left:70px;">1. 针对nvue引入一个css样式库</a>
+#####  <a href="/thirdless/w-b/03项目自定义配置.html#_2-针对本项目写一个公共的样式文件" style="margin-left:70px;">2. 针对本项目写一个公共的样式文件</a>
+####  <a href="/thirdless/w-b/03项目自定义配置.html#二、nvue页面和vue页面引入自定义图标" style="margin-left:40px;">二、nvue页面和vue页面引入自定义图标</a>
+#####  <a href="/thirdless/w-b/03项目自定义配置.html#_1-app端-nvue页面引入自定义图标" style="margin-left:70px;">1. APP端 nvue页面引入自定义图标</a>
+#####  <a href="/thirdless/w-b/03项目自定义配置.html#_2-h5端和小程序端-nvue页面引入自定义图标" style="margin-left:70px;">2. H5端和小程序端 nvue页面引入自定义图标</a>
+####  <a href="/thirdless/w-b/03项目自定义配置.html#三、自定义底部导航栏" style="margin-left:40px;">三、自定义底部导航栏</a>
+####  <a href="/thirdless/w-b/03项目自定义配置.html#四、globalstyle-用于设置应用的状态栏、导航条、标题、窗口背景色等" style="margin-left:40px;">四、globalStyle：用于设置应用的状态栏、导航条、标题、窗口背景色等</a>
+### <a href="/thirdless/w-b/04消息页开发" target="_blank" title="点击查看课程文档">章节4.消息页开发</a>
 
 
 
