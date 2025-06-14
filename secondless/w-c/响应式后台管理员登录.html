@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>响应式后台管理员登录 | 睿晨网</title>
+    <meta name="generator" content="VuePress 1.9.9">
+    <link rel="icon" href="/assets/img/favicon.png">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="apple-touch-icon" href="/icons/apple-touch-icon-152x152.png">
+    <link rel="#icon-pengyouquan" href="/icons/iconfont.svg" color="#3eaf7c">
+    <meta name="description" content="睿晨网|睿晨编程|零基础学做网站、app、小程序就从这里开始">
+    <meta name="keywords" content="睿晨网,睿晨编程,零基础学做网站,零基础学app,零基础学小程序">
+    <meta name="author" content="睿晨网,睿晨编程,阿东老师">
+    <meta name="theme-color" content="#3eaf7c">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="msapplication-TileImage" content="/icons/msapplication-icon-144x144.png">
+    <meta name="msapplication-TileColor" content="#000000">
+    
+    <link rel="preload" href="/assets/css/0.styles.9f36b4a6.css" as="style"><link rel="preload" href="/assets/js/app.b38a6bcb.js" as="script"><link rel="preload" href="/assets/js/9.13d458ed.js" as="script"><link rel="preload" href="/assets/js/2.6281e0bb.js" as="script"><link rel="preload" href="/assets/js/115.e99a0039.js" as="script"><link rel="preload" href="/assets/js/3.e6827fa8.js" as="script"><link rel="prefetch" href="/assets/js/10.63ed790c.js"><link rel="prefetch" href="/assets/js/100.fd6525db.js"><link rel="prefetch" href="/assets/js/101.f167dc33.js"><link rel="prefetch" href="/assets/js/102.13cf0cd3.js"><link rel="prefetch" href="/assets/js/103.c30182f9.js"><link rel="prefetch" href="/assets/js/104.fd9e13ad.js"><link rel="prefetch" href="/assets/js/105.064786e1.js"><link rel="prefetch" href="/assets/js/106.dbb2a704.js"><link rel="prefetch" href="/assets/js/107.b6f698fb.js"><link rel="prefetch" href="/assets/js/108.830f7b91.js"><link rel="prefetch" href="/assets/js/109.b2f8c23b.js"><link rel="prefetch" href="/assets/js/11.934eb133.js"><link rel="prefetch" href="/assets/js/110.0db4437b.js"><link rel="prefetch" href="/assets/js/111.100335be.js"><link rel="prefetch" href="/assets/js/112.f6019cfa.js"><link rel="prefetch" href="/assets/js/113.6ceb52bf.js"><link rel="prefetch" href="/assets/js/114.5a52f130.js"><link rel="prefetch" href="/assets/js/116.bb47ced6.js"><link rel="prefetch" href="/assets/js/117.50d195dd.js"><link rel="prefetch" href="/assets/js/118.4f56a391.js"><link rel="prefetch" href="/assets/js/119.2711bd2b.js"><link rel="prefetch" href="/assets/js/12.3ebb90ce.js"><link rel="prefetch" href="/assets/js/120.18bb61ce.js"><link rel="prefetch" href="/assets/js/121.915bae1a.js"><link rel="prefetch" href="/assets/js/122.5c61a7e1.js"><link rel="prefetch" href="/assets/js/123.4dc97968.js"><link rel="prefetch" href="/assets/js/124.abc7ccd5.js"><link rel="prefetch" href="/assets/js/125.8a007a03.js"><link rel="prefetch" href="/assets/js/126.2fc70fc4.js"><link rel="prefetch" href="/assets/js/127.3d485c5b.js"><link rel="prefetch" href="/assets/js/128.f67ffb88.js"><link rel="prefetch" href="/assets/js/129.50bee0c2.js"><link rel="prefetch" href="/assets/js/13.d81ea01c.js"><link rel="prefetch" href="/assets/js/130.6ed91de6.js"><link rel="prefetch" href="/assets/js/131.600e6f41.js"><link rel="prefetch" href="/assets/js/132.6eef2402.js"><link rel="prefetch" href="/assets/js/133.1f4a0890.js"><link rel="prefetch" href="/assets/js/134.d68018c3.js"><link rel="prefetch" href="/assets/js/135.a017e4e4.js"><link rel="prefetch" href="/assets/js/136.0d79b0ed.js"><link rel="prefetch" href="/assets/js/137.04ef6fe5.js"><link rel="prefetch" href="/assets/js/138.1361e573.js"><link rel="prefetch" href="/assets/js/139.07e5b618.js"><link rel="prefetch" href="/assets/js/14.a1283673.js"><link rel="prefetch" href="/assets/js/140.6fbbf832.js"><link rel="prefetch" href="/assets/js/141.4079a350.js"><link rel="prefetch" href="/assets/js/142.5b44c7c0.js"><link rel="prefetch" href="/assets/js/143.c42f65a7.js"><link rel="prefetch" href="/assets/js/144.af870ed3.js"><link rel="prefetch" href="/assets/js/145.6fc4ad97.js"><link rel="prefetch" href="/assets/js/146.3eb5876d.js"><link rel="prefetch" href="/assets/js/147.03bb6a68.js"><link rel="prefetch" href="/assets/js/148.2a584f7c.js"><link rel="prefetch" href="/assets/js/149.a2e4bced.js"><link rel="prefetch" href="/assets/js/15.3517fd53.js"><link rel="prefetch" href="/assets/js/150.27a82d93.js"><link rel="prefetch" href="/assets/js/151.398ef41f.js"><link rel="prefetch" href="/assets/js/152.e3927479.js"><link rel="prefetch" href="/assets/js/153.14c8282f.js"><link rel="prefetch" href="/assets/js/154.ebedff53.js"><link rel="prefetch" href="/assets/js/155.0606c240.js"><link rel="prefetch" href="/assets/js/156.0c11d07a.js"><link rel="prefetch" href="/assets/js/157.63ff63c1.js"><link rel="prefetch" href="/assets/js/158.a300eb51.js"><link rel="prefetch" href="/assets/js/159.2849882e.js"><link rel="prefetch" href="/assets/js/16.fb7104b3.js"><link rel="prefetch" href="/assets/js/160.aca931ce.js"><link rel="prefetch" href="/assets/js/161.a48d9e62.js"><link rel="prefetch" href="/assets/js/162.5143d4bf.js"><link rel="prefetch" href="/assets/js/163.fa58b6b8.js"><link rel="prefetch" href="/assets/js/164.fffd3d8f.js"><link rel="prefetch" href="/assets/js/165.f98dfe36.js"><link rel="prefetch" href="/assets/js/166.9b0d034b.js"><link rel="prefetch" href="/assets/js/167.794cd82a.js"><link rel="prefetch" href="/assets/js/168.01a239f3.js"><link rel="prefetch" href="/assets/js/169.d5b8c64c.js"><link rel="prefetch" href="/assets/js/17.0e4cf41a.js"><link rel="prefetch" href="/assets/js/170.007330ec.js"><link rel="prefetch" href="/assets/js/171.2aadc14d.js"><link rel="prefetch" href="/assets/js/172.3af9ab45.js"><link rel="prefetch" href="/assets/js/173.546dc7d6.js"><link rel="prefetch" href="/assets/js/174.8d1bf668.js"><link rel="prefetch" href="/assets/js/175.13a11f07.js"><link rel="prefetch" href="/assets/js/176.9bbde2c3.js"><link rel="prefetch" href="/assets/js/177.5ff1b556.js"><link rel="prefetch" href="/assets/js/178.3edc141c.js"><link rel="prefetch" href="/assets/js/179.0140399b.js"><link rel="prefetch" href="/assets/js/18.220e9a9f.js"><link rel="prefetch" href="/assets/js/180.19a30d47.js"><link rel="prefetch" href="/assets/js/181.0d482279.js"><link rel="prefetch" href="/assets/js/182.d4465764.js"><link rel="prefetch" href="/assets/js/183.db986de4.js"><link rel="prefetch" href="/assets/js/184.ebb10e8f.js"><link rel="prefetch" href="/assets/js/185.978e8155.js"><link rel="prefetch" href="/assets/js/19.9b93a5ae.js"><link rel="prefetch" href="/assets/js/20.de16845e.js"><link rel="prefetch" href="/assets/js/21.22b2e998.js"><link rel="prefetch" href="/assets/js/22.45e71598.js"><link rel="prefetch" href="/assets/js/23.3336ba28.js"><link rel="prefetch" href="/assets/js/24.ee1cb8c7.js"><link rel="prefetch" href="/assets/js/25.84d4dc3b.js"><link rel="prefetch" href="/assets/js/26.bda31902.js"><link rel="prefetch" href="/assets/js/27.e38fe372.js"><link rel="prefetch" href="/assets/js/28.59841283.js"><link rel="prefetch" href="/assets/js/29.bf61bc8e.js"><link rel="prefetch" href="/assets/js/30.f6a67899.js"><link rel="prefetch" href="/assets/js/31.79c93d30.js"><link rel="prefetch" href="/assets/js/32.a6aaebf5.js"><link rel="prefetch" href="/assets/js/33.8f9cab4c.js"><link rel="prefetch" href="/assets/js/34.4bb62371.js"><link rel="prefetch" href="/assets/js/35.13e0e3e7.js"><link rel="prefetch" href="/assets/js/36.1a49cd3f.js"><link rel="prefetch" href="/assets/js/37.d4ec5a13.js"><link rel="prefetch" href="/assets/js/38.42e19944.js"><link rel="prefetch" href="/assets/js/39.8c29a6cd.js"><link rel="prefetch" href="/assets/js/4.3ecc0188.js"><link rel="prefetch" href="/assets/js/40.1f9d3bb0.js"><link rel="prefetch" href="/assets/js/41.56a28071.js"><link rel="prefetch" href="/assets/js/42.5f1c0f0b.js"><link rel="prefetch" href="/assets/js/43.59eb19b2.js"><link rel="prefetch" href="/assets/js/44.f2c320c8.js"><link rel="prefetch" href="/assets/js/45.3ac0ceff.js"><link rel="prefetch" href="/assets/js/46.81b90320.js"><link rel="prefetch" href="/assets/js/47.e1eff617.js"><link rel="prefetch" href="/assets/js/48.c8548512.js"><link rel="prefetch" href="/assets/js/49.f2713d52.js"><link rel="prefetch" href="/assets/js/5.3e24e7be.js"><link rel="prefetch" href="/assets/js/50.0a0102bb.js"><link rel="prefetch" href="/assets/js/51.994bd669.js"><link rel="prefetch" href="/assets/js/52.a7a99d9f.js"><link rel="prefetch" href="/assets/js/53.4f8b1ea9.js"><link rel="prefetch" href="/assets/js/54.c6af5b20.js"><link rel="prefetch" href="/assets/js/55.46e271d0.js"><link rel="prefetch" href="/assets/js/56.5000b788.js"><link rel="prefetch" href="/assets/js/57.4576ac4d.js"><link rel="prefetch" href="/assets/js/58.73dcdba7.js"><link rel="prefetch" href="/assets/js/59.77f9d607.js"><link rel="prefetch" href="/assets/js/6.ca2525e2.js"><link rel="prefetch" href="/assets/js/60.39b94e6c.js"><link rel="prefetch" href="/assets/js/61.89d49db7.js"><link rel="prefetch" href="/assets/js/62.4c6247ce.js"><link rel="prefetch" href="/assets/js/63.0672b63d.js"><link rel="prefetch" href="/assets/js/64.a1e12cad.js"><link rel="prefetch" href="/assets/js/65.e10653de.js"><link rel="prefetch" href="/assets/js/66.fae37504.js"><link rel="prefetch" href="/assets/js/67.5f5d1101.js"><link rel="prefetch" href="/assets/js/68.829a99a3.js"><link rel="prefetch" href="/assets/js/69.78f0d285.js"><link rel="prefetch" href="/assets/js/7.91cf56cc.js"><link rel="prefetch" href="/assets/js/70.bb8a1392.js"><link rel="prefetch" href="/assets/js/71.57a23c00.js"><link rel="prefetch" href="/assets/js/72.ea8268ff.js"><link rel="prefetch" href="/assets/js/73.fafcd2ec.js"><link rel="prefetch" href="/assets/js/74.21af0152.js"><link rel="prefetch" href="/assets/js/75.8fd8319c.js"><link rel="prefetch" href="/assets/js/76.7d28c79b.js"><link rel="prefetch" href="/assets/js/77.89b4742d.js"><link rel="prefetch" href="/assets/js/78.e4b797df.js"><link rel="prefetch" href="/assets/js/79.e845a152.js"><link rel="prefetch" href="/assets/js/8.c0f426a7.js"><link rel="prefetch" href="/assets/js/80.06fbde31.js"><link rel="prefetch" href="/assets/js/81.319f0714.js"><link rel="prefetch" href="/assets/js/82.1acd4580.js"><link rel="prefetch" href="/assets/js/83.3af21ed1.js"><link rel="prefetch" href="/assets/js/84.60c8d43a.js"><link rel="prefetch" href="/assets/js/85.c6baaeac.js"><link rel="prefetch" href="/assets/js/86.b3ae0de9.js"><link rel="prefetch" href="/assets/js/87.510c0f33.js"><link rel="prefetch" href="/assets/js/88.6a9746f0.js"><link rel="prefetch" href="/assets/js/89.8a411bd3.js"><link rel="prefetch" href="/assets/js/90.ae17e7df.js"><link rel="prefetch" href="/assets/js/91.01f9eafb.js"><link rel="prefetch" href="/assets/js/92.01710280.js"><link rel="prefetch" href="/assets/js/93.d0c43db3.js"><link rel="prefetch" href="/assets/js/94.a4f46775.js"><link rel="prefetch" href="/assets/js/95.8526cda1.js"><link rel="prefetch" href="/assets/js/96.0e5543ac.js"><link rel="prefetch" href="/assets/js/97.80fc3967.js"><link rel="prefetch" href="/assets/js/98.f1930def.js"><link rel="prefetch" href="/assets/js/99.bacc3805.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.9f36b4a6.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">睿晨网</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">
+  主页
+</a></div><div class="nav-item"><a href="/aboutless.html" class="nav-link">
+  第一期网页开发
+</a></div><div class="nav-item"><a href="/secondless/" class="nav-link router-link-active">
+  第二期企业网站开发
+</a></div><div class="nav-item"><a href="/thirdless/" class="nav-link">
+  第三期移动端课程
+</a></div><div class="nav-item"><a href="/fourthless/" class="nav-link">
+  第四期web全栈课程
+</a></div><div class="nav-item"><a href="/fiveless/" class="nav-link">
+  第五期python课程
+</a></div><div class="nav-item"><a href="/web/software/" class="nav-link">
+  课程软件小案例
+</a></div><div class="nav-item"><a href="/web/mysql/" class="nav-link">
+  课程案例数据表
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="课程答疑汇总" class="dropdown-title"><span class="title">课程答疑</span> <span class="arrow down"></span></button> <button type="button" aria-label="课程答疑汇总" class="mobile-dropdown-title"><span class="title">课程答疑</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/web/answer/课程常见问题.html" class="nav-link">
+  课程常见问题
+</a></li><li class="dropdown-item"><!----> <a href="/deploy/" class="nav-link">
+  项目部署
+</a></li><li class="dropdown-item"><!----> <a href="/web/answer/免费部署SSL证书.html" class="nav-link">
+  免费部署SSL证书
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="课程学习网站" class="dropdown-title"><span class="title">课程学习网站</span> <span class="arrow down"></span></button> <button type="button" aria-label="课程学习网站" class="mobile-dropdown-title"><span class="title">课程学习网站</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          视频学习网站
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://study.163.com/provider/480000002289674/index.htm?share=2&amp;shareId=480000002289674" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  腾讯云课堂
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://space.bilibili.com/3493114067028034/pugv" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  B站
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="实用菜单" class="dropdown-title"><span class="title">实用网站和方法</span> <span class="arrow down"></span></button> <button type="button" aria-label="实用菜单" class="mobile-dropdown-title"><span class="title">实用网站和方法</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          实用方法
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/web/methods/定位相关.html" class="nav-link">
+  定位相关
+</a></li><li class="dropdown-subitem"><a href="/web/methods/地图相关.html" class="nav-link">
+  地图相关
+</a></li><li class="dropdown-subitem"><a href="/web/methods/树形结构数据转换.html" class="nav-link">
+  树形结构数据转换
+</a></li></ul></li><li class="dropdown-item"><h4>
+          uni-app专栏
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/web/methods/uni-app专栏.html" class="nav-link">
+  uni-app的UI框架
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Egg.js专栏
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/secondless/w-c/Egg.js.html" class="nav-link">
+  Egg.js基础
+</a></li><li class="dropdown-subitem"><a href="/secondless/w-c/egg.js基础总结.html" class="nav-link">
+  Egg.js基础总结
+</a></li><li class="dropdown-subitem"><a href="/secondless/w-c/egg.js重要知识详细文档.html" class="nav-link">
+  Egg.js重要知识详细文档
+</a></li><li class="dropdown-subitem"><a href="/secondless/w-c/ValParams API 说明.html" class="nav-link">
+  Egg.js参数验证说明
+</a></li><li class="dropdown-subitem"><a href="/web/mysql/Sequelize数据类型.html" class="nav-link">
+  Egg.js迁移文件Sequelize数据类型
+</a></li><li class="dropdown-subitem"><a href="/secondless/w-c/Egg.js接口安全防护方案.html" class="nav-link">
+  Egg.js接口安全防护方案
+</a></li><li class="dropdown-subitem"><a href="/web/answer/课程常见问题.html#_3-eggjs如何重置数据表-保证id每次从1开始计算" class="nav-link">
+  Egg.js重置数据表每次ID为1
+</a></li></ul></li><li class="dropdown-item"><h4>
+          实用网站
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/web/methods/实用接口.html" class="nav-link">
+  实用接口
+</a></li><li class="dropdown-subitem"><a href="/web/css/" class="nav-link">
+  css
+</a></li><li class="dropdown-subitem"><a href="/web/vue.js/" class="nav-link">
+  Vue.js
+</a></li><li class="dropdown-subitem"><a href="/web/Vue3+ElementPlus/" class="nav-link">
+  Vue3+ElementPlus系统
+</a></li><li class="dropdown-subitem"><a href="/web/echarts/" class="nav-link">
+  echarts图表
+</a></li><li class="dropdown-subitem"><a href="/web/bootstrap/" class="nav-link">
+  Bootstrap
+</a></li><li class="dropdown-subitem"><a href="/web/IIS/" class="nav-link">
+  IIS
+</a></li><li class="dropdown-subitem"><a href="/web/github/" class="nav-link">
+  Github
+</a></li><li class="dropdown-subitem"><a href="/web/Vanta.js/" class="nav-link">
+  Vanta.js网页3D背景
+</a></li><li class="dropdown-subitem"><a href="/web/shop/" class="nav-link">
+  商城系统推荐
+</a></li></ul></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">
+  主页
+</a></div><div class="nav-item"><a href="/aboutless.html" class="nav-link">
+  第一期网页开发
+</a></div><div class="nav-item"><a href="/secondless/" class="nav-link router-link-active">
+  第二期企业网站开发
+</a></div><div class="nav-item"><a href="/thirdless/" class="nav-link">
+  第三期移动端课程
+</a></div><div class="nav-item"><a href="/fourthless/" class="nav-link">
+  第四期web全栈课程
+</a></div><div class="nav-item"><a href="/fiveless/" class="nav-link">
+  第五期python课程
+</a></div><div class="nav-item"><a href="/web/software/" class="nav-link">
+  课程软件小案例
+</a></div><div class="nav-item"><a href="/web/mysql/" class="nav-link">
+  课程案例数据表
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="课程答疑汇总" class="dropdown-title"><span class="title">课程答疑</span> <span class="arrow down"></span></button> <button type="button" aria-label="课程答疑汇总" class="mobile-dropdown-title"><span class="title">课程答疑</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/web/answer/课程常见问题.html" class="nav-link">
+  课程常见问题
+</a></li><li class="dropdown-item"><!----> <a href="/deploy/" class="nav-link">
+  项目部署
+</a></li><li class="dropdown-item"><!----> <a href="/web/answer/免费部署SSL证书.html" class="nav-link">
+  免费部署SSL证书
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="课程学习网站" class="dropdown-title"><span class="title">课程学习网站</span> <span class="arrow down"></span></button> <button type="button" aria-label="课程学习网站" class="mobile-dropdown-title"><span class="title">课程学习网站</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          视频学习网站
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://study.163.com/provider/480000002289674/index.htm?share=2&amp;shareId=480000002289674" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  腾讯云课堂
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://space.bilibili.com/3493114067028034/pugv" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  B站
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="实用菜单" class="dropdown-title"><span class="title">实用网站和方法</span> <span class="arrow down"></span></button> <button type="button" aria-label="实用菜单" class="mobile-dropdown-title"><span class="title">实用网站和方法</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          实用方法
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/web/methods/定位相关.html" class="nav-link">
+  定位相关
+</a></li><li class="dropdown-subitem"><a href="/web/methods/地图相关.html" class="nav-link">
+  地图相关
+</a></li><li class="dropdown-subitem"><a href="/web/methods/树形结构数据转换.html" class="nav-link">
+  树形结构数据转换
+</a></li></ul></li><li class="dropdown-item"><h4>
+          uni-app专栏
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/web/methods/uni-app专栏.html" class="nav-link">
+  uni-app的UI框架
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Egg.js专栏
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/secondless/w-c/Egg.js.html" class="nav-link">
+  Egg.js基础
+</a></li><li class="dropdown-subitem"><a href="/secondless/w-c/egg.js基础总结.html" class="nav-link">
+  Egg.js基础总结
+</a></li><li class="dropdown-subitem"><a href="/secondless/w-c/egg.js重要知识详细文档.html" class="nav-link">
+  Egg.js重要知识详细文档
+</a></li><li class="dropdown-subitem"><a href="/secondless/w-c/ValParams API 说明.html" class="nav-link">
+  Egg.js参数验证说明
+</a></li><li class="dropdown-subitem"><a href="/web/mysql/Sequelize数据类型.html" class="nav-link">
+  Egg.js迁移文件Sequelize数据类型
+</a></li><li class="dropdown-subitem"><a href="/secondless/w-c/Egg.js接口安全防护方案.html" class="nav-link">
+  Egg.js接口安全防护方案
+</a></li><li class="dropdown-subitem"><a href="/web/answer/课程常见问题.html#_3-eggjs如何重置数据表-保证id每次从1开始计算" class="nav-link">
+  Egg.js重置数据表每次ID为1
+</a></li></ul></li><li class="dropdown-item"><h4>
+          实用网站
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/web/methods/实用接口.html" class="nav-link">
+  实用接口
+</a></li><li class="dropdown-subitem"><a href="/web/css/" class="nav-link">
+  css
+</a></li><li class="dropdown-subitem"><a href="/web/vue.js/" class="nav-link">
+  Vue.js
+</a></li><li class="dropdown-subitem"><a href="/web/Vue3+ElementPlus/" class="nav-link">
+  Vue3+ElementPlus系统
+</a></li><li class="dropdown-subitem"><a href="/web/echarts/" class="nav-link">
+  echarts图表
+</a></li><li class="dropdown-subitem"><a href="/web/bootstrap/" class="nav-link">
+  Bootstrap
+</a></li><li class="dropdown-subitem"><a href="/web/IIS/" class="nav-link">
+  IIS
+</a></li><li class="dropdown-subitem"><a href="/web/github/" class="nav-link">
+  Github
+</a></li><li class="dropdown-subitem"><a href="/web/Vanta.js/" class="nav-link">
+  Vanta.js网页3D背景
+</a></li><li class="dropdown-subitem"><a href="/web/shop/" class="nav-link">
+  商城系统推荐
+</a></li></ul></li></ul></div></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>响应式后台管理员登录</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/secondless/w-c/%E5%93%8D%E5%BA%94%E5%BC%8F%E5%90%8E%E5%8F%B0%E7%AE%A1%E7%90%86%E5%91%98%E7%99%BB%E5%BD%95.html#一、配置session" class="sidebar-link">一、配置session</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/secondless/w-c/%E5%93%8D%E5%BA%94%E5%BC%8F%E5%90%8E%E5%8F%B0%E7%AE%A1%E7%90%86%E5%91%98%E7%99%BB%E5%BD%95.html#二、定义控制器和路由" class="sidebar-link">二、定义控制器和路由</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/secondless/w-c/%E5%93%8D%E5%BA%94%E5%BC%8F%E5%90%8E%E5%8F%B0%E7%AE%A1%E7%90%86%E5%91%98%E7%99%BB%E5%BD%95.html#三、实现管理员登录功能" class="sidebar-link">三、实现管理员登录功能</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/secondless/w-c/%E5%93%8D%E5%BA%94%E5%BC%8F%E5%90%8E%E5%8F%B0%E7%AE%A1%E7%90%86%E5%91%98%E7%99%BB%E5%BD%95.html#四、权限验证-即后台所有栏目需要管理员登录才能查看" class="sidebar-link">四、权限验证，即后台所有栏目需要管理员登录才能查看</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/secondless/w-c/%E5%93%8D%E5%BA%94%E5%BC%8F%E5%90%8E%E5%8F%B0%E7%AE%A1%E7%90%86%E5%91%98%E7%99%BB%E5%BD%95.html#_1-需要新建一个中间件做权限验证-app-middleware-admin-auth-js" class="sidebar-link">① 需要新建一个中间件做权限验证，app/middleware/admin_auth.js</a></li><li class="sidebar-sub-header"><a href="/secondless/w-c/%E5%93%8D%E5%BA%94%E5%BC%8F%E5%90%8E%E5%8F%B0%E7%AE%A1%E7%90%86%E5%91%98%E7%99%BB%E5%BD%95.html#_2-中间件配置-config-config-default-js" class="sidebar-link">② 中间件配置 config/config.default.js</a></li><li class="sidebar-sub-header"><a href="/secondless/w-c/%E5%93%8D%E5%BA%94%E5%BC%8F%E5%90%8E%E5%8F%B0%E7%AE%A1%E7%90%86%E5%91%98%E7%99%BB%E5%BD%95.html#_3-控制器管理员登录方法完善-app-controller-admin-home-js" class="sidebar-link">③ 控制器管理员登录方法完善 app/controller/admin/home.js</a></li><li class="sidebar-sub-header"><a href="/secondless/w-c/%E5%93%8D%E5%BA%94%E5%BC%8F%E5%90%8E%E5%8F%B0%E7%AE%A1%E7%90%86%E5%91%98%E7%99%BB%E5%BD%95.html#_4-登录页面提示请先登录-app-view-admin-home-login-html" class="sidebar-link">④ 登录页面提示请先登录 app/view/admin/home/login.html</a></li></ul></li><li><a href="/secondless/w-c/%E5%93%8D%E5%BA%94%E5%BC%8F%E5%90%8E%E5%8F%B0%E7%AE%A1%E7%90%86%E5%91%98%E7%99%BB%E5%BD%95.html#五、管理员退出登录" class="sidebar-link">五、管理员退出登录</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/secondless/w-c/%E5%93%8D%E5%BA%94%E5%BC%8F%E5%90%8E%E5%8F%B0%E7%AE%A1%E7%90%86%E5%91%98%E7%99%BB%E5%BD%95.html#_1-退出登录方法-app-controller-admin-home-js" class="sidebar-link">① 退出登录方法 app/controller/admin/home.js</a></li><li class="sidebar-sub-header"><a href="/secondless/w-c/%E5%93%8D%E5%BA%94%E5%BC%8F%E5%90%8E%E5%8F%B0%E7%AE%A1%E7%90%86%E5%91%98%E7%99%BB%E5%BD%95.html#_2-定义路由-app-router-admin-js" class="sidebar-link">② 定义路由 app/router/admin.js</a></li><li class="sidebar-sub-header"><a href="/secondless/w-c/%E5%93%8D%E5%BA%94%E5%BC%8F%E5%90%8E%E5%8F%B0%E7%AE%A1%E7%90%86%E5%91%98%E7%99%BB%E5%BD%95.html#_3-模版页面退出-app-view-admin-layout-header-html" class="sidebar-link">③ 模版页面退出 app/view/admin/layout/_header.html</a></li></ul></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h2 id="一、配置session"><a href="#一、配置session" class="header-anchor">#</a> 一、配置session</h2> <blockquote><p>管理员登录信息我们采用session存储，先配置一下session <br> <code>config/config.default.js</code></p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">//配置session</span>
+  config<span class="token punctuation">.</span>session <span class="token operator">=</span> <span class="token punctuation">{</span>
+    <span class="token comment">//在有些场景下，我们希望用户如果长时间都在访问我们的站点</span>
+    <span class="token comment">//则延长他们的session有效期，不让用户退出状态</span>
+    <span class="token literal-property property">renew</span><span class="token operator">:</span><span class="token boolean">true</span><span class="token punctuation">,</span>
+    <span class="token comment">//key代表存储session的cookie键值对的</span>
+    <span class="token literal-property property">key</span><span class="token operator">:</span><span class="token string">'EGG_SESS'</span><span class="token punctuation">,</span>
+    <span class="token comment">//最长保留时间（毫秒)</span>
+    <span class="token literal-property property">maxAge</span><span class="token operator">:</span><span class="token number">24</span><span class="token operator">*</span><span class="token number">3600</span><span class="token operator">*</span><span class="token number">1000</span><span class="token operator">*</span><span class="token number">30</span><span class="token punctuation">,</span><span class="token comment">//30天</span>
+    <span class="token comment">//设置键值对是否可以被js访问，默认true,不容许被js访问</span>
+    <span class="token literal-property property">httpOnly</span><span class="token operator">:</span><span class="token boolean">true</span><span class="token punctuation">,</span>
+    <span class="token comment">//加密</span>
+    <span class="token literal-property property">encrypt</span><span class="token operator">:</span><span class="token boolean">true</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre></div></blockquote> <h2 id="二、定义控制器和路由"><a href="#二、定义控制器和路由" class="header-anchor">#</a> 二、定义控制器和路由</h2> <blockquote><ol><li>定义一个控制器将后台首页、管理员登录退出等功能写在里面 <br>
+新建控制器 <code>app/controller/admin/home.js</code></li></ol> <div class="language-js extra-class"><pre class="language-js"><code><span class="token string">'use strict'</span><span class="token punctuation">;</span>
+
+<span class="token comment">// 哈希函数加密</span>
+<span class="token keyword">const</span> crypto <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'node:crypto'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> Controller <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'egg'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>Controller<span class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">HomeController</span> <span class="token keyword">extends</span> <span class="token class-name">Controller</span> <span class="token punctuation">{</span>
+    <span class="token comment">//管理员登录页面---后台登录页面</span>
+    <span class="token keyword">async</span> <span class="token function">login</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">let</span> <span class="token punctuation">{</span> ctx <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">;</span>
+        <span class="token keyword">await</span> ctx<span class="token punctuation">.</span><span class="token function">render</span><span class="token punctuation">(</span><span class="token string">'admin/home/login.html'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">//管理员登录逻辑</span>
+    <span class="token keyword">async</span> <span class="token function">loginevent</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">let</span> <span class="token punctuation">{</span> ctx<span class="token punctuation">,</span> app <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">;</span>
+        <span class="token comment">//参数验证</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>ctx<span class="token punctuation">.</span><span class="token function">validate</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+            <span class="token literal-property property">username</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+                <span class="token literal-property property">type</span><span class="token operator">:</span> <span class="token string">'string'</span><span class="token punctuation">,</span>  <span class="token comment">//参数类型</span>
+                <span class="token literal-property property">required</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> <span class="token comment">//是否必须</span>
+                <span class="token comment">// defValue: '', </span>
+                <span class="token literal-property property">desc</span><span class="token operator">:</span> <span class="token string">'管理员账号'</span> <span class="token comment">//字段含义</span>
+            <span class="token punctuation">}</span><span class="token punctuation">,</span>
+            <span class="token literal-property property">password</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+                <span class="token literal-property property">type</span><span class="token operator">:</span> <span class="token string">'string'</span><span class="token punctuation">,</span>
+                <span class="token literal-property property">required</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+                <span class="token comment">// defValue: '', </span>
+                <span class="token literal-property property">desc</span><span class="token operator">:</span> <span class="token string">'管理员密码'</span>
+            <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">// 拿参数</span>
+        <span class="token keyword">let</span> <span class="token punctuation">{</span> username<span class="token punctuation">,</span> password <span class="token punctuation">}</span> <span class="token operator">=</span> ctx<span class="token punctuation">.</span>request<span class="token punctuation">.</span>body<span class="token punctuation">;</span>
+        <span class="token comment">// 判断管理员是否存在</span>
+        <span class="token keyword">let</span> manager <span class="token operator">=</span> <span class="token keyword">await</span> ctx<span class="token punctuation">.</span>model<span class="token punctuation">.</span>Manager<span class="token punctuation">.</span><span class="token function">findOne</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+            <span class="token literal-property property">where</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+                <span class="token literal-property property">username</span><span class="token operator">:</span> username
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">// 不存在则抛出异常</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>manager<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            ctx<span class="token punctuation">.</span><span class="token function">throw</span><span class="token punctuation">(</span><span class="token number">400</span><span class="token punctuation">,</span> <span class="token string">'该管理员不存在或者被禁用了'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token comment">// 存在则验证密码</span>
+        <span class="token keyword">await</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">checkPassword</span><span class="token punctuation">(</span>password<span class="token punctuation">,</span> manager<span class="token punctuation">.</span>password<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">//存储在session中，定义session中的一个属性auth存储登录信息</span>
+        ctx<span class="token punctuation">.</span>session<span class="token punctuation">.</span>auth <span class="token operator">=</span> manager<span class="token punctuation">;</span>
+        <span class="token keyword">return</span> ctx<span class="token punctuation">.</span><span class="token function">apiSuccess</span><span class="token punctuation">(</span><span class="token string">'ok'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">// 验证密码</span>
+    <span class="token keyword">async</span> <span class="token function">checkPassword</span><span class="token punctuation">(</span><span class="token parameter">password<span class="token punctuation">,</span> hash_password</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment">// 先对需要验证的密码进行加密</span>
+        <span class="token keyword">const</span> hmac <span class="token operator">=</span> crypto<span class="token punctuation">.</span><span class="token function">createHash</span><span class="token punctuation">(</span><span class="token string">&quot;sha256&quot;</span><span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">.</span>app<span class="token punctuation">.</span>config<span class="token punctuation">.</span>crypto<span class="token punctuation">.</span>secret<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        hmac<span class="token punctuation">.</span><span class="token function">update</span><span class="token punctuation">(</span>password<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        password <span class="token operator">=</span> hmac<span class="token punctuation">.</span><span class="token function">digest</span><span class="token punctuation">(</span><span class="token string">&quot;hex&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">let</span> res <span class="token operator">=</span> password <span class="token operator">===</span> hash_password<span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>res<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span>ctx<span class="token punctuation">.</span><span class="token function">throw</span><span class="token punctuation">(</span><span class="token number">400</span><span class="token punctuation">,</span> <span class="token string">'密码错误'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span>
+
+module<span class="token punctuation">.</span>exports <span class="token operator">=</span> HomeController<span class="token punctuation">;</span>
+
+</code></pre></div><ol start="2"><li>定义路由 <br> <code>app/router/admin.js</code></li></ol> <div class="language-js extra-class"><pre class="language-js"><code> <span class="token comment">// 管理员登录界面</span>
+ router<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">'/admin/login'</span><span class="token punctuation">,</span> controller<span class="token punctuation">.</span>admin<span class="token punctuation">.</span>home<span class="token punctuation">.</span>login<span class="token punctuation">)</span><span class="token punctuation">;</span>
+ <span class="token comment">//管理员登录逻辑</span>
+ router<span class="token punctuation">.</span><span class="token function">post</span><span class="token punctuation">(</span><span class="token string">'/admin/loginevent'</span><span class="token punctuation">,</span> controller<span class="token punctuation">.</span>admin<span class="token punctuation">.</span>home<span class="token punctuation">.</span>loginevent<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><ol start="3"><li>登录页面 <br> <code>app/view/admin/home/login.html</code></li></ol> <div class="language-html extra-class"><pre class="language-html"><code><span class="token doctype"><span class="token punctuation">&lt;!</span><span class="token doctype-tag">DOCTYPE</span> <span class="token name">html</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>en<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>utf-8<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>viewport<span class="token punctuation">&quot;</span></span> <span class="token attr-name">content</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>width=device-width, initial-scale=1.0, user-scalable=0<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>title</span><span class="token punctuation">&gt;</span></span>后台管理中心 - 登录<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>title</span><span class="token punctuation">&gt;</span></span>
+		
+		<span class="token comment">&lt;!-- Favicon --&gt;</span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>link</span> <span class="token attr-name">rel</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>shortcut icon<span class="token punctuation">&quot;</span></span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>image/x-icon<span class="token punctuation">&quot;</span></span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>/public/assets/img/favicon.png<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+
+		<span class="token comment">&lt;!-- Bootstrap CSS --&gt;</span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>link</span> <span class="token attr-name">rel</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>stylesheet<span class="token punctuation">&quot;</span></span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>http://cdn.bootstrapmb.com/bootstrap/4.3.1/css/bootstrap.min.css<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+		
+		<span class="token comment">&lt;!-- Fontawesome CSS --&gt;</span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>link</span> <span class="token attr-name">rel</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>stylesheet<span class="token punctuation">&quot;</span></span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>/public/assets/css/font-awesome.min.css<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+		
+		<span class="token comment">&lt;!-- Main CSS --&gt;</span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>link</span> <span class="token attr-name">rel</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>stylesheet<span class="token punctuation">&quot;</span></span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>/public/assets/css/style.css<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+		
+		<span class="token comment">&lt;!--[if lt IE 9]&gt;
+			&lt;script src=&quot;/public/assets/js/html5shiv.min.js&quot;&gt;&lt;/script&gt;
+			&lt;script src=&quot;/public/assets/js/respond.min.js&quot;&gt;&lt;/script&gt;
+		&lt;![endif]--&gt;</span>
+
+        <span class="token comment">&lt;!-- jQuery --&gt;</span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>/public/assets/js/jquery-3.2.1.min.js<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span><span class="token script"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
+		
+		<span class="token comment">&lt;!-- Bootstrap Core JS --&gt;</span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>/public/assets/js/popper.min.js<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span><span class="token script"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>http://cdn.bootstrapmb.com/bootstrap/4.3.1/js/bootstrap.min.js<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span><span class="token script"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
+		
+		<span class="token comment">&lt;!-- Custom JS --&gt;</span>
+		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>/public/assets/js/script.js<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span><span class="token script"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
+
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>/public/assets/js/vue.2.7.0.min.js<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span><span class="token script"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
+		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>/public/assets/js/vue.component.js<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span><span class="token script"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">&gt;</span></span>
+	
+		<span class="token comment">&lt;!-- Main Wrapper --&gt;</span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>main-wrapper login-body<span class="token punctuation">&quot;</span></span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>vueapp<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+
+            {# 消息提示组件 #}
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>toast</span> <span class="token attr-name">ref</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>toast<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>toast</span><span class="token punctuation">&gt;</span></span>
+			{# 弹出确认框组件 #}
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>confirm</span> <span class="token attr-name">ref</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>confirm<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>confirm</span><span class="token punctuation">&gt;</span></span>
+
+
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>login-wrapper<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+            	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>container<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+                	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>loginbox<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+                    	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>login-left<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+							<span class="token comment">&lt;!-- &lt;img class=&quot;img-fluid&quot; src=&quot;/public/assets/img/logo.png&quot; alt=&quot;Logo&quot;&gt;  --&gt;</span>
+                            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>img-fluid<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+								<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h3</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>text-white<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>后台管理中心入口<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h3</span><span class="token punctuation">&gt;</span></span>
+							<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+                        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+                        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>login-right<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+							<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>login-right-wrap<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+								<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h1</span><span class="token punctuation">&gt;</span></span>登 录<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h1</span><span class="token punctuation">&gt;</span></span>
+								<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>account-subtitle<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>后台管理中心欢迎您<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">&gt;</span></span>
+								
+								<span class="token comment">&lt;!-- Form --&gt;</span>
+								<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>form</span> <span class="token punctuation">&gt;</span></span>
+									<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>form-group<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+										<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>form-control<span class="token punctuation">&quot;</span></span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>text<span class="token punctuation">&quot;</span></span> 
+										<span class="token attr-name">placeholder</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>输入用户名...<span class="token punctuation">&quot;</span></span> <span class="token attr-name">v-model</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>form.username<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+									<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+									<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>form-group<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+										<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>form-control<span class="token punctuation">&quot;</span></span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>text<span class="token punctuation">&quot;</span></span> 
+                                       <span class="token attr-name">placeholder</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>输入密码...<span class="token punctuation">&quot;</span></span> <span class="token attr-name">v-model</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>form.password<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+									<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+									<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>form-group<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+										<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>btn btn-primary btn-block<span class="token punctuation">&quot;</span></span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>submit<span class="token punctuation">&quot;</span></span> 
+										<span class="token attr-name">@click.stop.prevent</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>submit<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>登 录<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">&gt;</span></span>
+									<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+								<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>form</span><span class="token punctuation">&gt;</span></span>
+								  
+							<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+                        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+                    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+		<span class="token comment">&lt;!-- /Main Wrapper --&gt;</span>
+		
+		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">&gt;</span></span><span class="token script"><span class="token language-javascript">
+            <span class="token keyword">var</span> Vueapp <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Vue</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+				<span class="token literal-property property">el</span><span class="token operator">:</span><span class="token string">'#vueapp'</span><span class="token punctuation">,</span>
+                <span class="token function">data</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                    <span class="token keyword">return</span> <span class="token punctuation">{</span>
+                        <span class="token literal-property property">form</span><span class="token operator">:</span><span class="token punctuation">{</span>
+                            <span class="token literal-property property">username</span><span class="token operator">:</span><span class="token string">''</span><span class="token punctuation">,</span>
+                            <span class="token literal-property property">password</span><span class="token operator">:</span><span class="token string">''</span><span class="token punctuation">,</span>
+                        <span class="token punctuation">}</span>
+                    <span class="token punctuation">}</span>
+                <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                <span class="token literal-property property">methods</span><span class="token operator">:</span><span class="token punctuation">{</span>
+                    <span class="token function">submit</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'执行登录'</span><span class="token punctuation">,</span><span class="token keyword">this</span><span class="token punctuation">.</span>form<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token punctuation">}</span>
+                <span class="token punctuation">}</span>
+			<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        </span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
+		
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">&gt;</span></span>
+</code></pre></div></blockquote> <h2 id="三、实现管理员登录功能"><a href="#三、实现管理员登录功能" class="header-anchor">#</a> 三、实现管理员登录功能</h2> <blockquote><p><code>app/view/admin/home/login.html</code></p> <div class="language-html extra-class"><pre class="language-html"><code>...
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">&gt;</span></span><span class="token script"><span class="token language-javascript">
+    <span class="token keyword">var</span> Vueapp <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Vue</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+        <span class="token literal-property property">el</span><span class="token operator">:</span><span class="token string">'#vueapp'</span><span class="token punctuation">,</span>
+        <span class="token function">data</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword">return</span> <span class="token punctuation">{</span>
+                <span class="token literal-property property">form</span><span class="token operator">:</span><span class="token punctuation">{</span>
+                    <span class="token literal-property property">username</span><span class="token operator">:</span><span class="token string">''</span><span class="token punctuation">,</span>
+                    <span class="token literal-property property">password</span><span class="token operator">:</span><span class="token string">''</span><span class="token punctuation">,</span>
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">methods</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+            <span class="token function">submit</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'提交登录'</span><span class="token punctuation">,</span><span class="token keyword">this</span><span class="token punctuation">.</span>form<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                $<span class="token punctuation">.</span><span class="token function">ajax</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+                    <span class="token literal-property property">type</span><span class="token operator">:</span> <span class="token string">'POST'</span><span class="token punctuation">,</span> 
+                    <span class="token literal-property property">url</span><span class="token operator">:</span> <span class="token string">&quot;/admin/loginevent?_csrf={{ctx.csrf|safe}}&quot;</span><span class="token punctuation">,</span>
+                    <span class="token literal-property property">contentType</span><span class="token operator">:</span><span class="token string">'application/json;charset=UTF-8;'</span><span class="token punctuation">,</span>
+                    <span class="token literal-property property">data</span><span class="token operator">:</span><span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>form<span class="token punctuation">)</span><span class="token punctuation">,</span>
+                    <span class="token function-variable function">success</span><span class="token operator">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">response<span class="token punctuation">,</span> stutas<span class="token punctuation">,</span> xhr</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>response<span class="token punctuation">)</span>
+                        Vueapp<span class="token punctuation">.</span>$refs<span class="token punctuation">.</span>toast<span class="token punctuation">.</span><span class="token function">show</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+                            <span class="token literal-property property">msg</span><span class="token operator">:</span><span class="token string">&quot;登录成功&quot;</span><span class="token punctuation">,</span>
+                            <span class="token literal-property property">type</span><span class="token operator">:</span><span class="token string">'success'</span><span class="token punctuation">,</span>
+                            <span class="token literal-property property">delay</span><span class="token operator">:</span><span class="token number">1000</span><span class="token punctuation">,</span>
+                            <span class="token function-variable function">success</span><span class="token operator">:</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                                <span class="token comment">// 跳转到某个页面</span>
+                                window<span class="token punctuation">.</span>location<span class="token punctuation">.</span>href <span class="token operator">=</span> <span class="token string">&quot;/admin/manager/index&quot;</span><span class="token punctuation">;</span>
+                            <span class="token punctuation">}</span>
+                        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                    <span class="token function-variable function">error</span><span class="token operator">:</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">e</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span>
+                        Vueapp<span class="token punctuation">.</span>$refs<span class="token punctuation">.</span>toast<span class="token punctuation">.</span><span class="token function">show</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+                            <span class="token literal-property property">msg</span><span class="token operator">:</span>e<span class="token punctuation">.</span>responseJSON<span class="token punctuation">.</span>data<span class="token punctuation">,</span>
+                            <span class="token literal-property property">type</span><span class="token operator">:</span><span class="token string">'danger'</span><span class="token punctuation">,</span>
+                            <span class="token literal-property property">delay</span><span class="token operator">:</span><span class="token number">3000</span>
+                        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token punctuation">}</span>
+                <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">&gt;</span></span>
+</code></pre></div></blockquote> <h2 id="四、权限验证-即后台所有栏目需要管理员登录才能查看"><a href="#四、权限验证-即后台所有栏目需要管理员登录才能查看" class="header-anchor">#</a> 四、权限验证，即后台所有栏目需要管理员登录才能查看</h2> <blockquote><h3 id="_1-需要新建一个中间件做权限验证-app-middleware-admin-auth-js"><a href="#_1-需要新建一个中间件做权限验证-app-middleware-admin-auth-js" class="header-anchor">#</a> ① 需要新建一个中间件做权限验证，<code>app/middleware/admin_auth.js</code></h3> <div class="language-javascript extra-class"><pre class="language-javascript"><code>module<span class="token punctuation">.</span><span class="token function-variable function">exports</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">option<span class="token punctuation">,</span> app</span><span class="token punctuation">)</span><span class="token operator">=&gt;</span><span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">adminAuth</span><span class="token punctuation">(</span><span class="token parameter">ctx<span class="token punctuation">,</span>next</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+       <span class="token comment">//拿到管理员的登录信息</span>
+       <span class="token comment">//  console.log(ctx.session.auth);</span>
+       <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span>ctx<span class="token punctuation">.</span>session<span class="token punctuation">.</span>auth<span class="token punctuation">)</span><span class="token punctuation">{</span>
+          ctx<span class="token punctuation">.</span><span class="token function">toast</span><span class="token punctuation">(</span><span class="token string">'请先登录！'</span><span class="token punctuation">,</span><span class="token string">'danger'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+          <span class="token keyword">return</span> ctx<span class="token punctuation">.</span><span class="token function">redirect</span><span class="token punctuation">(</span><span class="token string">'/admin/login'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+       <span class="token punctuation">}</span>
+
+      <span class="token keyword">await</span> <span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+       <span class="token keyword">if</span><span class="token punctuation">(</span>ctx<span class="token punctuation">.</span>status <span class="token operator">===</span> <span class="token number">404</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+          <span class="token keyword">await</span> ctx<span class="token punctuation">.</span><span class="token function">pageFail</span><span class="token punctuation">(</span><span class="token string">'页面不存在'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+       <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h3 id="_2-中间件配置-config-config-default-js"><a href="#_2-中间件配置-config-config-default-js" class="header-anchor">#</a> ② 中间件配置 <code>config/config.default.js</code></h3> <div class="language-javascript extra-class"><pre class="language-javascript"><code><span class="token operator">...</span>
+config<span class="token punctuation">.</span>middleware <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'errorHandler'</span><span class="token punctuation">,</span><span class="token string">'adminAuth'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+config<span class="token punctuation">.</span>adminAuth <span class="token operator">=</span> <span class="token punctuation">{</span>
+    <span class="token literal-property property">ignore</span><span class="token operator">:</span><span class="token punctuation">[</span>
+      <span class="token string">&quot;/admin/login&quot;</span><span class="token punctuation">,</span>
+      <span class="token string">&quot;/admin/loginevent&quot;</span><span class="token punctuation">,</span>
+    <span class="token punctuation">]</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token operator">...</span>
+</code></pre></div><h3 id="_3-控制器管理员登录方法完善-app-controller-admin-home-js"><a href="#_3-控制器管理员登录方法完善-app-controller-admin-home-js" class="header-anchor">#</a> ③ 控制器管理员登录方法完善 <code>app/controller/admin/home.js</code></h3> <div class="language-javascript extra-class"><pre class="language-javascript"><code>  <span class="token comment">//管理员登录页面---后台登录页面</span>
+  <span class="token keyword">async</span> <span class="token function">login</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// const { ctx,app } = this;</span>
+    <span class="token keyword">let</span> toast <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>ctx<span class="token punctuation">.</span>cookies<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">'toast'</span><span class="token punctuation">,</span><span class="token punctuation">{</span><span class="token literal-property property">encrypt</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    toast <span class="token operator">=</span> toast <span class="token operator">?</span> <span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span>toast<span class="token punctuation">)</span> <span class="token operator">:</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+    <span class="token keyword">await</span> <span class="token keyword">this</span><span class="token punctuation">.</span>ctx<span class="token punctuation">.</span><span class="token function">render</span><span class="token punctuation">(</span><span class="token string">'admin/home/login.html'</span><span class="token punctuation">,</span><span class="token punctuation">{</span>
+        toast
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+</code></pre></div><h3 id="_4-登录页面提示请先登录-app-view-admin-home-login-html"><a href="#_4-登录页面提示请先登录-app-view-admin-home-login-html" class="header-anchor">#</a> ④ 登录页面提示请先登录 <code>app/view/admin/home/login.html</code></h3> <div class="language-html extra-class"><pre class="language-html"><code>...
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">&gt;</span></span><span class="token script"><span class="token language-javascript">
+<span class="token keyword">var</span> Vueapp <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Vue</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    <span class="token operator">...</span>
+    <span class="token comment">//页面加载完毕</span>
+    <span class="token function">mounted</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">var</span> toast <span class="token operator">=</span> <span class="token string">&quot;{{toast.msg}}&quot;</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>$refs<span class="token punctuation">.</span>toast <span class="token operator">&amp;&amp;</span> toast<span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span>$refs<span class="token punctuation">.</span>toast<span class="token punctuation">.</span><span class="token function">show</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+                <span class="token literal-property property">msg</span><span class="token operator">:</span><span class="token string">'{{toast.msg}}'</span><span class="token punctuation">,</span>
+                <span class="token literal-property property">type</span><span class="token operator">:</span><span class="token string">'{{toast.type}}'</span><span class="token punctuation">,</span>
+                <span class="token literal-property property">delay</span><span class="token operator">:</span><span class="token number">1500</span>
+            <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token operator">...</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
+</code></pre></div></blockquote> <h2 id="五、管理员退出登录"><a href="#五、管理员退出登录" class="header-anchor">#</a> 五、管理员退出登录</h2> <blockquote><h3 id="_1-退出登录方法-app-controller-admin-home-js"><a href="#_1-退出登录方法-app-controller-admin-home-js" class="header-anchor">#</a> ① 退出登录方法 <code>app/controller/admin/home.js</code></h3> <div class="language-javascript extra-class"><pre class="language-javascript"><code>    <span class="token comment">//管理员退出登录</span>
+    <span class="token keyword">async</span> <span class="token function">logout</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">let</span> <span class="token punctuation">{</span>ctx<span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">;</span>
+        <span class="token comment">//清除session</span>
+        ctx<span class="token punctuation">.</span>session<span class="token punctuation">.</span>auth <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+        ctx<span class="token punctuation">.</span><span class="token function">toast</span><span class="token punctuation">(</span><span class="token string">'退出登录成功'</span><span class="token punctuation">,</span><span class="token string">'success'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        ctx<span class="token punctuation">.</span><span class="token function">redirect</span><span class="token punctuation">(</span><span class="token string">'/admin/login'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+</code></pre></div><h3 id="_2-定义路由-app-router-admin-js"><a href="#_2-定义路由-app-router-admin-js" class="header-anchor">#</a> ② 定义路由 <code>app/router/admin.js</code></h3> <div class="language-javascript extra-class"><pre class="language-javascript"><code>    <span class="token comment">//管理员退出登录</span>
+    router<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">'/admin/logout'</span><span class="token punctuation">,</span> controller<span class="token punctuation">.</span>admin<span class="token punctuation">.</span>home<span class="token punctuation">.</span>logout<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><h3 id="_3-模版页面退出-app-view-admin-layout-header-html"><a href="#_3-模版页面退出-app-view-admin-layout-header-html" class="header-anchor">#</a> ③ 模版页面退出 <code>app/view/admin/layout/_header.html</code></h3> <div class="language-html extra-class"><pre class="language-html"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>dropdown-item<span class="token punctuation">&quot;</span></span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>/admin/logout<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>退出登录<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">&gt;</span></span>
+</code></pre></div></blockquote></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">更新时间:</span> <span class="time">2024年3月7日星期四下午5点46分</span></div></footer> <!----> </main></div><div class="global-ui"><!----><!----></div></div>
+    <script src="/assets/js/app.b38a6bcb.js" defer></script><script src="/assets/js/9.13d458ed.js" defer></script><script src="/assets/js/2.6281e0bb.js" defer></script><script src="/assets/js/115.e99a0039.js" defer></script><script src="/assets/js/3.e6827fa8.js" defer></script>
+  </body>
+</html>
