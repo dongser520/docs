@@ -87,36 +87,6 @@ export const siteData = {
   ],
   "pages": [
     {
-      "title": "全栈开发项目部署专题课",
-      "frontmatter": {
-        "navbar": true,
-        "title": "全栈开发项目部署专题课"
-      },
-      "regularPath": "/deploy/",
-      "relativePath": "deploy/README.md",
-      "key": "v-d0c42adc",
-      "path": "/deploy/",
-      "headers": [
-        {
-          "level": 3,
-          "title": "eggjs + 即时通讯功能后端部署上线",
-          "slug": "eggjs-即时通讯功能后端部署上线"
-        },
-        {
-          "level": 3,
-          "title": "Vite项目上线部署",
-          "slug": "vite项目上线部署"
-        },
-        {
-          "level": 3,
-          "title": "thinkphp商城后台管理系统上线部署",
-          "slug": "thinkphp商城后台管理系统上线部署"
-        }
-      ],
-      "lastUpdated": "2025年2月19日星期三下午4点08分",
-      "lastUpdatedTimestamp": 1739952528000
-    },
-    {
       "title": "首页",
       "frontmatter": {
         "home": true,
@@ -146,46 +116,6 @@ export const siteData = {
       "path": "/",
       "lastUpdated": "2023年8月29日星期二下午3点20分",
       "lastUpdatedTimestamp": 1693293632000
-    },
-    {
-      "title": "第一学期课程",
-      "frontmatter": {
-        "navbar": true,
-        "title": "第一学期课程"
-      },
-      "regularPath": "/aboutless.html",
-      "relativePath": "aboutless.md",
-      "key": "v-5387826c",
-      "path": "/aboutless.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "1.第一学期课程视频介绍及效果图",
-          "slug": "_1-第一学期课程视频介绍及效果图"
-        },
-        {
-          "level": 2,
-          "title": "2.完整课程学习",
-          "slug": "_2-完整课程学习"
-        },
-        {
-          "level": 2,
-          "title": "3.课程免费试看（1-13课）",
-          "slug": "_3-课程免费试看-1-13课"
-        },
-        {
-          "level": 2,
-          "title": "4.课程体系介绍",
-          "slug": "_4-课程体系介绍"
-        },
-        {
-          "level": 2,
-          "title": "5.睿晨网所有课程集合",
-          "slug": "_5-睿晨网所有课程集合"
-        }
-      ],
-      "lastUpdated": "2025年2月14日星期五晚上7点31分",
-      "lastUpdatedTimestamp": 1739532672000
     },
     {
       "title": "关于我们html",
@@ -246,6 +176,211 @@ export const siteData = {
       ],
       "lastUpdated": "2023年3月2日星期四晚上7点51分",
       "lastUpdatedTimestamp": 1677757906000
+    },
+    {
+      "title": "markdown的基本语法示例",
+      "frontmatter": {
+        "navbar": true,
+        "sidebar": "auto",
+        "title": "markdown的基本语法示例"
+      },
+      "regularPath": "/about/",
+      "relativePath": "about/README.md",
+      "key": "v-2c6c8e00",
+      "path": "/about/",
+      "headers": [
+        {
+          "level": 2,
+          "title": "二级标题",
+          "slug": "二级标题"
+        },
+        {
+          "level": 3,
+          "title": "三级标题",
+          "slug": "三级标题"
+        }
+      ],
+      "lastUpdated": "2023年3月3日星期五晚上8点31分",
+      "lastUpdatedTimestamp": 1677846686000
+    },
+    {
+      "title": "第一学期课程",
+      "frontmatter": {
+        "navbar": true,
+        "title": "第一学期课程"
+      },
+      "regularPath": "/aboutless.html",
+      "relativePath": "aboutless.md",
+      "key": "v-5387826c",
+      "path": "/aboutless.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "1.第一学期课程视频介绍及效果图",
+          "slug": "_1-第一学期课程视频介绍及效果图"
+        },
+        {
+          "level": 2,
+          "title": "2.完整课程学习",
+          "slug": "_2-完整课程学习"
+        },
+        {
+          "level": 2,
+          "title": "3.课程免费试看（1-13课）",
+          "slug": "_3-课程免费试看-1-13课"
+        },
+        {
+          "level": 2,
+          "title": "4.课程体系介绍",
+          "slug": "_4-课程体系介绍"
+        },
+        {
+          "level": 2,
+          "title": "5.睿晨网所有课程集合",
+          "slug": "_5-睿晨网所有课程集合"
+        }
+      ],
+      "lastUpdated": "2025年2月14日星期五晚上7点31分",
+      "lastUpdatedTimestamp": 1739532672000
+    },
+    {
+      "title": "Vite项目上线部署",
+      "frontmatter": {
+        "navbar": true,
+        "title": "Vite项目上线部署"
+      },
+      "regularPath": "/deploy/vitevue3.shop.html",
+      "relativePath": "deploy/vitevue3.shop.md",
+      "key": "v-6be3ba2f",
+      "path": "/deploy/vitevue3.shop.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "解析一个域名",
+          "slug": "解析一个域名"
+        },
+        {
+          "level": 2,
+          "title": "配置设置",
+          "slug": "配置设置"
+        },
+        {
+          "level": 2,
+          "title": "服务器面板操作（以宝塔面板为例）",
+          "slug": "服务器面板操作-以宝塔面板为例"
+        },
+        {
+          "level": 3,
+          "title": "创建网站，前端地址：http://vitevue3.html.shop.51yrc.com",
+          "slug": "创建网站-前端地址-http-vitevue3-html-shop-51yrc-com"
+        },
+        {
+          "level": 3,
+          "title": "上传打包文件到服务器",
+          "slug": "上传打包文件到服务器"
+        }
+      ],
+      "lastUpdated": "2025年2月19日星期三下午4点08分",
+      "lastUpdatedTimestamp": 1739952528000
+    },
+    {
+      "title": "thinkphp商城后台管理系统上线部署",
+      "frontmatter": {
+        "navbar": true,
+        "title": "thinkphp商城后台管理系统上线部署"
+      },
+      "regularPath": "/deploy/vuecli.shop.html",
+      "relativePath": "deploy/vuecli.shop.md",
+      "key": "v-be98967e",
+      "path": "/deploy/vuecli.shop.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "解析一个域名",
+          "slug": "解析一个域名"
+        },
+        {
+          "level": 2,
+          "title": "服务器面板操作（以宝塔面板为例）",
+          "slug": "服务器面板操作-以宝塔面板为例"
+        },
+        {
+          "level": 3,
+          "title": "1. 创建网站",
+          "slug": "_1-创建网站"
+        },
+        {
+          "level": 3,
+          "title": "2.部署项目后端",
+          "slug": "_2-部署项目后端"
+        },
+        {
+          "level": 3,
+          "title": "3.部署项目前端vuecli页面部分",
+          "slug": "_3-部署项目前端vuecli页面部分"
+        }
+      ],
+      "lastUpdated": "2025年2月19日星期三下午4点08分",
+      "lastUpdatedTimestamp": 1739952528000
+    },
+    {
+      "title": "第五学期课程总述",
+      "frontmatter": {
+        "navbar": true,
+        "title": "第五学期课程总述"
+      },
+      "regularPath": "/fiveless/",
+      "relativePath": "fiveless/README.md",
+      "key": "v-163ee0d2",
+      "path": "/fiveless/",
+      "headers": [
+        {
+          "level": 2,
+          "title": "第五学期课程总述",
+          "slug": "第五学期课程总述"
+        }
+      ],
+      "lastUpdated": "2025年5月21日星期三下午12点33分",
+      "lastUpdatedTimestamp": 1747801989000
+    },
+    {
+      "title": "第五学期第一季（课程学习顺序：16）",
+      "frontmatter": {
+        "title": "第五学期第一季（课程学习顺序：16）"
+      },
+      "regularPath": "/fiveless/w-a.html",
+      "relativePath": "fiveless/w-a.md",
+      "key": "v-2a996777",
+      "path": "/fiveless/w-a.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "课程名称",
+          "slug": "课程名称"
+        },
+        {
+          "level": 2,
+          "title": "课程文档",
+          "slug": "课程文档"
+        },
+        {
+          "level": 3,
+          "title": "章节1.课程介绍",
+          "slug": "章节1-课程介绍"
+        },
+        {
+          "level": 3,
+          "title": "",
+          "slug": "章节2-开发前环境搭建及准备"
+        },
+        {
+          "level": 3,
+          "title": "",
+          "slug": "章节3-python基础"
+        }
+      ],
+      "lastUpdated": "2025年5月23日星期五下午5点19分",
+      "lastUpdatedTimestamp": 1747991945000
     },
     {
       "title": "eggjs + 即时通讯后端部署上线",
@@ -318,129 +453,34 @@ export const siteData = {
       "lastUpdatedTimestamp": 1739952528000
     },
     {
-      "title": "markdown的基本语法示例",
+      "title": "全栈开发项目部署专题课",
       "frontmatter": {
         "navbar": true,
-        "sidebar": "auto",
-        "title": "markdown的基本语法示例"
+        "title": "全栈开发项目部署专题课"
       },
-      "regularPath": "/about/",
-      "relativePath": "about/README.md",
-      "key": "v-2c6c8e00",
-      "path": "/about/",
+      "regularPath": "/deploy/",
+      "relativePath": "deploy/README.md",
+      "key": "v-d0c42adc",
+      "path": "/deploy/",
       "headers": [
         {
-          "level": 2,
-          "title": "二级标题",
-          "slug": "二级标题"
+          "level": 3,
+          "title": "eggjs + 即时通讯功能后端部署上线",
+          "slug": "eggjs-即时通讯功能后端部署上线"
         },
         {
           "level": 3,
-          "title": "三级标题",
-          "slug": "三级标题"
-        }
-      ],
-      "lastUpdated": "2023年3月3日星期五晚上8点31分",
-      "lastUpdatedTimestamp": 1677846686000
-    },
-    {
-      "title": "第五学期第一季（课程学习顺序：16）",
-      "frontmatter": {
-        "title": "第五学期第一季（课程学习顺序：16）"
-      },
-      "regularPath": "/fiveless/w-a.html",
-      "relativePath": "fiveless/w-a.md",
-      "key": "v-2a996777",
-      "path": "/fiveless/w-a.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "课程名称",
-          "slug": "课程名称"
-        },
-        {
-          "level": 2,
-          "title": "课程文档",
-          "slug": "课程文档"
+          "title": "Vite项目上线部署",
+          "slug": "vite项目上线部署"
         },
         {
           "level": 3,
-          "title": "章节1.课程介绍",
-          "slug": "章节1-课程介绍"
-        },
-        {
-          "level": 3,
-          "title": "",
-          "slug": "章节2-开发前环境搭建及准备"
-        },
-        {
-          "level": 3,
-          "title": "",
-          "slug": "章节3-python基础"
-        }
-      ],
-      "lastUpdated": "2025年5月23日星期五下午5点19分",
-      "lastUpdatedTimestamp": 1747991945000
-    },
-    {
-      "title": "Vite项目上线部署",
-      "frontmatter": {
-        "navbar": true,
-        "title": "Vite项目上线部署"
-      },
-      "regularPath": "/deploy/vitevue3.shop.html",
-      "relativePath": "deploy/vitevue3.shop.md",
-      "key": "v-6be3ba2f",
-      "path": "/deploy/vitevue3.shop.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "解析一个域名",
-          "slug": "解析一个域名"
-        },
-        {
-          "level": 2,
-          "title": "配置设置",
-          "slug": "配置设置"
-        },
-        {
-          "level": 2,
-          "title": "服务器面板操作（以宝塔面板为例）",
-          "slug": "服务器面板操作-以宝塔面板为例"
-        },
-        {
-          "level": 3,
-          "title": "创建网站，前端地址：http://vitevue3.html.shop.51yrc.com",
-          "slug": "创建网站-前端地址-http-vitevue3-html-shop-51yrc-com"
-        },
-        {
-          "level": 3,
-          "title": "上传打包文件到服务器",
-          "slug": "上传打包文件到服务器"
+          "title": "thinkphp商城后台管理系统上线部署",
+          "slug": "thinkphp商城后台管理系统上线部署"
         }
       ],
       "lastUpdated": "2025年2月19日星期三下午4点08分",
       "lastUpdatedTimestamp": 1739952528000
-    },
-    {
-      "title": "第五学期课程总述",
-      "frontmatter": {
-        "navbar": true,
-        "title": "第五学期课程总述"
-      },
-      "regularPath": "/fiveless/",
-      "relativePath": "fiveless/README.md",
-      "key": "v-163ee0d2",
-      "path": "/fiveless/",
-      "headers": [
-        {
-          "level": 2,
-          "title": "第五学期课程总述",
-          "slug": "第五学期课程总述"
-        }
-      ],
-      "lastUpdated": "2025年5月21日星期三下午12点33分",
-      "lastUpdatedTimestamp": 1747801989000
     },
     {
       "title": "章节2.开发前环境搭建及准备",
@@ -605,31 +645,6 @@ export const siteData = {
       "lastUpdatedTimestamp": 1747991945000
     },
     {
-      "title": "第四学期课程总述",
-      "frontmatter": {
-        "navbar": true,
-        "title": "第四学期课程总述"
-      },
-      "regularPath": "/fourthless/",
-      "relativePath": "fourthless/README.md",
-      "key": "v-5e2d0adc",
-      "path": "/fourthless/",
-      "headers": [
-        {
-          "level": 2,
-          "title": "第四学期课程总述",
-          "slug": "第四学期课程总述"
-        },
-        {
-          "level": 3,
-          "title": "第一季",
-          "slug": "第一季"
-        }
-      ],
-      "lastUpdated": "2025年5月21日星期三下午12点33分",
-      "lastUpdatedTimestamp": 1747801989000
-    },
-    {
       "title": "第四学期第一季（课程学习顺序：11）",
       "frontmatter": {
         "title": "第四学期第一季（课程学习顺序：11）"
@@ -702,6 +717,37 @@ export const siteData = {
       ],
       "lastUpdated": "2025年5月16日星期五晚上10点20分",
       "lastUpdatedTimestamp": 1747405242000
+    },
+    {
+      "title": "章节2.开发前环境搭建及项目准备",
+      "frontmatter": {
+        "navbar": true,
+        "sidebar": "auto",
+        "title": "章节2.开发前环境搭建及项目准备"
+      },
+      "regularPath": "/fourthless/w-a/02%E5%BC%80%E5%8F%91%E5%89%8D%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA.html",
+      "relativePath": "fourthless/w-a/02开发前环境搭建.md",
+      "key": "v-95e1ab6c",
+      "path": "/fourthless/w-a/02%E5%BC%80%E5%8F%91%E5%89%8D%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "1.开发工具准备",
+          "slug": "_1-开发工具准备"
+        },
+        {
+          "level": 2,
+          "title": "2.技术栈（node【egg.js框架】）同学准备",
+          "slug": "_2-技术栈-node【egg-js框架】-同学准备"
+        },
+        {
+          "level": 2,
+          "title": "3.技术栈（php【thinkphp框架】）同学准备",
+          "slug": "_3-技术栈-php【thinkphp框架】-同学准备"
+        }
+      ],
+      "lastUpdated": "2025年2月19日星期三下午4点08分",
+      "lastUpdatedTimestamp": 1739952528000
     },
     {
       "title": "eggjs用户管理user相关文档",
@@ -1027,6 +1073,218 @@ export const siteData = {
       "lastUpdatedTimestamp": 1746688609000
     },
     {
+      "title": "eggjs商品模块后台开发",
+      "frontmatter": {
+        "navbar": true,
+        "sidebar": "auto",
+        "title": "eggjs商品模块后台开发"
+      },
+      "regularPath": "/fourthless/w-a/eggjs.%E5%95%86%E5%93%81%E6%A8%A1%E5%9D%97%E5%90%8E%E5%8F%B0%E5%BC%80%E5%8F%91.html",
+      "relativePath": "fourthless/w-a/eggjs.商品模块后台开发.md",
+      "key": "v-0e3652d7",
+      "path": "/fourthless/w-a/eggjs.%E5%95%86%E5%93%81%E6%A8%A1%E5%9D%97%E5%90%8E%E5%8F%B0%E5%BC%80%E5%8F%91.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "一、调整商品规格表 skus 字段及 商品规格后台功能",
+          "slug": "一、调整商品规格表-skus-字段及-商品规格后台功能"
+        },
+        {
+          "level": 3,
+          "title": "1. 修改迁移文件",
+          "slug": "_1-修改迁移文件"
+        },
+        {
+          "level": 3,
+          "title": "2. 回退迁移文件，重新创建表",
+          "slug": "_2-回退迁移文件-重新创建表"
+        },
+        {
+          "level": 3,
+          "title": "3. 修改模型文件",
+          "slug": "_3-修改模型文件"
+        },
+        {
+          "level": 3,
+          "title": "4. 修改控制器文件",
+          "slug": "_4-修改控制器文件"
+        },
+        {
+          "level": 2,
+          "title": "二、创建商品",
+          "slug": "二、创建商品"
+        },
+        {
+          "level": 3,
+          "title": "1. 路由",
+          "slug": "_1-路由"
+        },
+        {
+          "level": 3,
+          "title": "2. 新建模型",
+          "slug": "_2-新建模型"
+        },
+        {
+          "level": 3,
+          "title": "3. 新建控制器",
+          "slug": "_3-新建控制器"
+        },
+        {
+          "level": 2,
+          "title": "三、商品列表数据、修改、删除",
+          "slug": "三、商品列表数据、修改、删除"
+        },
+        {
+          "level": 3,
+          "title": "1. 字体图标查看",
+          "slug": "_1-字体图标查看-https-fontawesome-dashgame-com"
+        },
+        {
+          "level": 3,
+          "title": "2. 后台左侧菜单",
+          "slug": "_2-后台左侧菜单"
+        },
+        {
+          "level": 3,
+          "title": "3. 路由",
+          "slug": "_3-路由"
+        },
+        {
+          "level": 3,
+          "title": "4. 控制器",
+          "slug": "_4-控制器"
+        },
+        {
+          "level": 2,
+          "title": "四、修改商品其他信息",
+          "slug": "四、修改商品其他信息"
+        }
+      ],
+      "lastUpdated": "2025年4月27日星期日下午3点49分",
+      "lastUpdatedTimestamp": 1745740160000
+    },
+    {
+      "title": "eggjs修改商品参数信息",
+      "frontmatter": {
+        "navbar": true,
+        "sidebar": "auto",
+        "title": "eggjs修改商品参数信息"
+      },
+      "regularPath": "/fourthless/w-a/eggjs.%E4%BF%AE%E6%94%B9%E5%95%86%E5%93%81%E5%8F%82%E6%95%B0%E4%BF%A1%E6%81%AF.html",
+      "relativePath": "fourthless/w-a/eggjs.修改商品参数信息.md",
+      "key": "v-7098c238",
+      "path": "/fourthless/w-a/eggjs.%E4%BF%AE%E6%94%B9%E5%95%86%E5%93%81%E5%8F%82%E6%95%B0%E4%BF%A1%E6%81%AF.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "一、初步创建界面",
+          "slug": "一、初步创建界面"
+        },
+        {
+          "level": 3,
+          "title": "1. 总路由",
+          "slug": "_1-总路由"
+        },
+        {
+          "level": 3,
+          "title": "2.新建模型",
+          "slug": "_2-新建模型"
+        },
+        {
+          "level": 3,
+          "title": "3. 传递一个id值，根据id和pid的关系，得到它下面的所有子集，并返回树形结构的数据",
+          "slug": "_3-传递一个id值-根据id和pid的关系-得到它下面的所有子集-并返回树形结构的数据"
+        },
+        {
+          "level": 3,
+          "title": "4.控制器",
+          "slug": "_4-控制器"
+        },
+        {
+          "level": 3,
+          "title": "5. 调整一下模版",
+          "slug": "_5-调整一下模版"
+        },
+        {
+          "level": 2,
+          "title": "二、创建商品参数",
+          "slug": "二、创建商品参数"
+        },
+        {
+          "level": 3,
+          "title": "1. 控制器",
+          "slug": "_1-控制器"
+        },
+        {
+          "level": 3,
+          "title": "2. 模版",
+          "slug": "_2-模版"
+        },
+        {
+          "level": 2,
+          "title": "三、商品参数信息列表及删除",
+          "slug": "三、商品参数信息列表及删除"
+        },
+        {
+          "level": 3,
+          "title": "1. 控制器",
+          "slug": "_1-控制器-2"
+        },
+        {
+          "level": 3,
+          "title": "2. 商品分类的模型关联",
+          "slug": "_2-商品分类的模型关联"
+        },
+        {
+          "level": 2,
+          "title": "四、修改商品参数信息",
+          "slug": "四、修改商品参数信息"
+        },
+        {
+          "level": 3,
+          "title": "1. 控制器",
+          "slug": "_1-控制器-3"
+        },
+        {
+          "level": 2,
+          "title": "五、商品的参数没有对应的skus信息，先添加skus信息",
+          "slug": "五、商品的参数没有对应的skus信息-先添加skus信息"
+        },
+        {
+          "level": 3,
+          "title": "1. 控制器",
+          "slug": "_1-控制器-4"
+        },
+        {
+          "level": 3,
+          "title": "2. skus的控制器",
+          "slug": "_2-skus的控制器"
+        },
+        {
+          "level": 2,
+          "title": "六、商品多条参数信息的创建",
+          "slug": "六、商品多条参数信息的创建"
+        },
+        {
+          "level": 3,
+          "title": "1. 控制器",
+          "slug": "_1-控制器-5"
+        },
+        {
+          "level": 3,
+          "title": "2. 路由",
+          "slug": "_2-路由"
+        },
+        {
+          "level": 2,
+          "title": "七、商品选购信息管理",
+          "slug": "七、商品选购信息管理"
+        }
+      ],
+      "lastUpdated": "2025年4月29日星期二晚上7点32分",
+      "lastUpdatedTimestamp": 1745926336000
+    },
+    {
       "title": "eggjs商品管理板块",
       "frontmatter": {
         "navbar": true,
@@ -1199,440 +1457,6 @@ export const siteData = {
       "lastUpdatedTimestamp": 1745498047000
     },
     {
-      "title": "eggjs后台 rolecategory、category、news表等补充功能说明",
-      "frontmatter": {
-        "navbar": true,
-        "sidebar": "auto",
-        "title": "eggjs后台 `rolecategory`、`category`、`news`表等补充功能说明"
-      },
-      "regularPath": "/fourthless/w-a/eggjs.%E5%90%8E%E5%8F%B0%E8%A1%A5%E5%85%85%E5%8A%9F%E8%83%BD%E8%AF%B4%E6%98%8E.html",
-      "relativePath": "fourthless/w-a/eggjs.后台补充功能说明.md",
-      "key": "v-22f8c890",
-      "path": "/fourthless/w-a/eggjs.%E5%90%8E%E5%8F%B0%E8%A1%A5%E5%85%85%E5%8A%9F%E8%83%BD%E8%AF%B4%E6%98%8E.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "一、rolecategory 分类角色表（网站名称表）说明",
-          "slug": "一、rolecategory-分类角色表-网站名称表-说明"
-        },
-        {
-          "level": 3,
-          "title": "1. 先创建中间表 rolecategory_category字段设计及迁移文件",
-          "slug": "_1-先创建中间表-rolecategory-category字段设计及迁移文件"
-        },
-        {
-          "level": 3,
-          "title": "2. 中间表 rolecategory_category 模型 （重点查看模型关联）",
-          "slug": "_2-中间表-rolecategory-category-模型-重点查看模型关联"
-        },
-        {
-          "level": 3,
-          "title": "3. rolecategory 分类角色表（网站名称表）模型 (重点关注模型关联)",
-          "slug": "_3-rolecategory-分类角色表-网站名称表-模型-重点关注模型关联"
-        },
-        {
-          "level": 3,
-          "title": "4. 后台左侧栏目",
-          "slug": "_4-后台左侧栏目"
-        },
-        {
-          "level": 3,
-          "title": "5. rolecategory 控制器",
-          "slug": "_5-rolecategory-控制器"
-        },
-        {
-          "level": 3,
-          "title": "6. 路由",
-          "slug": "_6-路由"
-        },
-        {
-          "level": 3,
-          "title": "7. category 模型 （重点关注模型关联）",
-          "slug": "_7-category-模型-重点关注模型关联"
-        },
-        {
-          "level": 3,
-          "title": "8. 扩展新增一个通用方法",
-          "slug": "_8-扩展新增一个通用方法"
-        },
-        {
-          "level": 3,
-          "title": "9. category 控制器（重点学习index列表方法，采用的是模型关联查询，嵌套查询）",
-          "slug": "_9-category-控制器-重点学习index列表方法-采用的是模型关联查询-嵌套查询"
-        },
-        {
-          "level": 3,
-          "title": "10. 表格模版： 新增返回上一页",
-          "slug": "_10-表格模版-新增返回上一页"
-        },
-        {
-          "level": 2,
-          "title": "二、新增news、category表功能",
-          "slug": "二、新增news、category表功能"
-        },
-        {
-          "level": 3,
-          "title": "1. 先创建中间表 rolecategory_news字段设计及迁移文件",
-          "slug": "_1-先创建中间表-rolecategory-news字段设计及迁移文件"
-        },
-        {
-          "level": 3,
-          "title": "2. 中间表 rolecategory_news 模型 （重点查看模型关联）",
-          "slug": "_2-中间表-rolecategory-news-模型-重点查看模型关联"
-        },
-        {
-          "level": 3,
-          "title": "3. news表模型（重点模型关联）",
-          "slug": "_3-news表模型-重点模型关联"
-        },
-        {
-          "level": 3,
-          "title": "4. rolecategory表模型（重点模型关联）",
-          "slug": "_4-rolecategory表模型-重点模型关联"
-        },
-        {
-          "level": 3,
-          "title": "5. rolecategory表控制器（重点index、create、save方法）",
-          "slug": "_5-rolecategory表控制器-重点index、create、save方法"
-        },
-        {
-          "level": 3,
-          "title": "6.category表控制器（重点index、create、save方法）",
-          "slug": "_6-category表控制器-重点index、create、save方法"
-        },
-        {
-          "level": 3,
-          "title": "7.news表控制器（重点index、create、save方法）",
-          "slug": "_7-news表控制器-重点index、create、save方法"
-        },
-        {
-          "level": 2,
-          "title": "三、代码说明",
-          "slug": "三、代码说明"
-        }
-      ],
-      "lastUpdated": "2025年5月15日星期四下午12点57分",
-      "lastUpdatedTimestamp": 1747285045000
-    },
-    {
-      "title": "eggjs商城管理员",
-      "frontmatter": {
-        "navbar": true,
-        "sidebar": "auto",
-        "title": "eggjs商城管理员"
-      },
-      "regularPath": "/fourthless/w-a/eggjs.%E5%95%86%E5%9F%8E%E7%AE%A1%E7%90%86%E5%91%98.html",
-      "relativePath": "fourthless/w-a/eggjs.商城管理员.md",
-      "key": "v-222e0744",
-      "path": "/fourthless/w-a/eggjs.%E5%95%86%E5%9F%8E%E7%AE%A1%E7%90%86%E5%91%98.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "一、创建商城管理员",
-          "slug": "一、创建商城管理员"
-        },
-        {
-          "level": 3,
-          "title": "1. 路由",
-          "slug": "_1-路由"
-        },
-        {
-          "level": 3,
-          "title": "2. 控制器",
-          "slug": "_2-控制器"
-        },
-        {
-          "level": 3,
-          "title": "3. 服务",
-          "slug": "_3-服务"
-        },
-        {
-          "level": 2,
-          "title": "二、商城管理员列表",
-          "slug": "二、商城管理员列表"
-        },
-        {
-          "level": 3,
-          "title": "1. 后台左侧菜单",
-          "slug": "_1-后台左侧菜单"
-        },
-        {
-          "level": 3,
-          "title": "2. 控制器",
-          "slug": "_2-控制器-2"
-        },
-        {
-          "level": 3,
-          "title": "3. 模型",
-          "slug": "_3-模型"
-        },
-        {
-          "level": 2,
-          "title": "三、商城管理员修改、删除、修改可用状态",
-          "slug": "三、商城管理员修改、删除、修改可用状态"
-        },
-        {
-          "level": 3,
-          "title": "1. 控制器代码",
-          "slug": "_1-控制器代码"
-        },
-        {
-          "level": 3,
-          "title": "2.后台管理员manager在修改超级管理员的时候做一下调整，同时修改一下商城超级管理员账号",
-          "slug": "_2-后台管理员manager在修改超级管理员的时候做一下调整-同时修改一下商城超级管理员账号"
-        },
-        {
-          "level": 2,
-          "title": "四、商城管理员登录和退出功能（API接口）",
-          "slug": "四、商城管理员登录和退出功能-api接口"
-        },
-        {
-          "level": 3,
-          "title": "1. 路由",
-          "slug": "_1-路由-2"
-        },
-        {
-          "level": 3,
-          "title": "2. 控制器",
-          "slug": "_2-控制器-3"
-        },
-        {
-          "level": 3,
-          "title": "3. 中间件配置",
-          "slug": "_3-中间件配置"
-        },
-        {
-          "level": 2,
-          "title": "五、商城管理员列表（API接口）",
-          "slug": "五、商城管理员列表-api接口"
-        },
-        {
-          "level": 3,
-          "title": "1. 路由",
-          "slug": "_1-路由-3"
-        },
-        {
-          "level": 3,
-          "title": "2. 控制器",
-          "slug": "_2-控制器-4"
-        }
-      ],
-      "lastUpdated": "2025年4月10日星期四晚上8点30分",
-      "lastUpdatedTimestamp": 1744288214000
-    },
-    {
-      "title": "eggjs修改商品参数信息",
-      "frontmatter": {
-        "navbar": true,
-        "sidebar": "auto",
-        "title": "eggjs修改商品参数信息"
-      },
-      "regularPath": "/fourthless/w-a/eggjs.%E4%BF%AE%E6%94%B9%E5%95%86%E5%93%81%E5%8F%82%E6%95%B0%E4%BF%A1%E6%81%AF.html",
-      "relativePath": "fourthless/w-a/eggjs.修改商品参数信息.md",
-      "key": "v-7098c238",
-      "path": "/fourthless/w-a/eggjs.%E4%BF%AE%E6%94%B9%E5%95%86%E5%93%81%E5%8F%82%E6%95%B0%E4%BF%A1%E6%81%AF.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "一、初步创建界面",
-          "slug": "一、初步创建界面"
-        },
-        {
-          "level": 3,
-          "title": "1. 总路由",
-          "slug": "_1-总路由"
-        },
-        {
-          "level": 3,
-          "title": "2.新建模型",
-          "slug": "_2-新建模型"
-        },
-        {
-          "level": 3,
-          "title": "3. 传递一个id值，根据id和pid的关系，得到它下面的所有子集，并返回树形结构的数据",
-          "slug": "_3-传递一个id值-根据id和pid的关系-得到它下面的所有子集-并返回树形结构的数据"
-        },
-        {
-          "level": 3,
-          "title": "4.控制器",
-          "slug": "_4-控制器"
-        },
-        {
-          "level": 3,
-          "title": "5. 调整一下模版",
-          "slug": "_5-调整一下模版"
-        },
-        {
-          "level": 2,
-          "title": "二、创建商品参数",
-          "slug": "二、创建商品参数"
-        },
-        {
-          "level": 3,
-          "title": "1. 控制器",
-          "slug": "_1-控制器"
-        },
-        {
-          "level": 3,
-          "title": "2. 模版",
-          "slug": "_2-模版"
-        },
-        {
-          "level": 2,
-          "title": "三、商品参数信息列表及删除",
-          "slug": "三、商品参数信息列表及删除"
-        },
-        {
-          "level": 3,
-          "title": "1. 控制器",
-          "slug": "_1-控制器-2"
-        },
-        {
-          "level": 3,
-          "title": "2. 商品分类的模型关联",
-          "slug": "_2-商品分类的模型关联"
-        },
-        {
-          "level": 2,
-          "title": "四、修改商品参数信息",
-          "slug": "四、修改商品参数信息"
-        },
-        {
-          "level": 3,
-          "title": "1. 控制器",
-          "slug": "_1-控制器-3"
-        },
-        {
-          "level": 2,
-          "title": "五、商品的参数没有对应的skus信息，先添加skus信息",
-          "slug": "五、商品的参数没有对应的skus信息-先添加skus信息"
-        },
-        {
-          "level": 3,
-          "title": "1. 控制器",
-          "slug": "_1-控制器-4"
-        },
-        {
-          "level": 3,
-          "title": "2. skus的控制器",
-          "slug": "_2-skus的控制器"
-        },
-        {
-          "level": 2,
-          "title": "六、商品多条参数信息的创建",
-          "slug": "六、商品多条参数信息的创建"
-        },
-        {
-          "level": 3,
-          "title": "1. 控制器",
-          "slug": "_1-控制器-5"
-        },
-        {
-          "level": 3,
-          "title": "2. 路由",
-          "slug": "_2-路由"
-        },
-        {
-          "level": 2,
-          "title": "七、商品选购信息管理",
-          "slug": "七、商品选购信息管理"
-        }
-      ],
-      "lastUpdated": "2025年4月29日星期二晚上7点32分",
-      "lastUpdatedTimestamp": 1745926336000
-    },
-    {
-      "title": "eggjs商品模块后台开发",
-      "frontmatter": {
-        "navbar": true,
-        "sidebar": "auto",
-        "title": "eggjs商品模块后台开发"
-      },
-      "regularPath": "/fourthless/w-a/eggjs.%E5%95%86%E5%93%81%E6%A8%A1%E5%9D%97%E5%90%8E%E5%8F%B0%E5%BC%80%E5%8F%91.html",
-      "relativePath": "fourthless/w-a/eggjs.商品模块后台开发.md",
-      "key": "v-0e3652d7",
-      "path": "/fourthless/w-a/eggjs.%E5%95%86%E5%93%81%E6%A8%A1%E5%9D%97%E5%90%8E%E5%8F%B0%E5%BC%80%E5%8F%91.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "一、调整商品规格表 skus 字段及 商品规格后台功能",
-          "slug": "一、调整商品规格表-skus-字段及-商品规格后台功能"
-        },
-        {
-          "level": 3,
-          "title": "1. 修改迁移文件",
-          "slug": "_1-修改迁移文件"
-        },
-        {
-          "level": 3,
-          "title": "2. 回退迁移文件，重新创建表",
-          "slug": "_2-回退迁移文件-重新创建表"
-        },
-        {
-          "level": 3,
-          "title": "3. 修改模型文件",
-          "slug": "_3-修改模型文件"
-        },
-        {
-          "level": 3,
-          "title": "4. 修改控制器文件",
-          "slug": "_4-修改控制器文件"
-        },
-        {
-          "level": 2,
-          "title": "二、创建商品",
-          "slug": "二、创建商品"
-        },
-        {
-          "level": 3,
-          "title": "1. 路由",
-          "slug": "_1-路由"
-        },
-        {
-          "level": 3,
-          "title": "2. 新建模型",
-          "slug": "_2-新建模型"
-        },
-        {
-          "level": 3,
-          "title": "3. 新建控制器",
-          "slug": "_3-新建控制器"
-        },
-        {
-          "level": 2,
-          "title": "三、商品列表数据、修改、删除",
-          "slug": "三、商品列表数据、修改、删除"
-        },
-        {
-          "level": 3,
-          "title": "1. 字体图标查看",
-          "slug": "_1-字体图标查看-https-fontawesome-dashgame-com"
-        },
-        {
-          "level": 3,
-          "title": "2. 后台左侧菜单",
-          "slug": "_2-后台左侧菜单"
-        },
-        {
-          "level": 3,
-          "title": "3. 路由",
-          "slug": "_3-路由"
-        },
-        {
-          "level": 3,
-          "title": "4. 控制器",
-          "slug": "_4-控制器"
-        },
-        {
-          "level": 2,
-          "title": "四、修改商品其他信息",
-          "slug": "四、修改商品其他信息"
-        }
-      ],
-      "lastUpdated": "2025年4月27日星期日下午3点49分",
-      "lastUpdatedTimestamp": 1745740160000
-    },
-    {
       "title": "eggjs图片管理板块",
       "frontmatter": {
         "navbar": true,
@@ -1774,35 +1598,297 @@ export const siteData = {
       "lastUpdatedTimestamp": 1744968569000
     },
     {
-      "title": "章节2.开发前环境搭建及项目准备",
+      "title": "eggjs图片管理板块网站后台说明",
       "frontmatter": {
         "navbar": true,
         "sidebar": "auto",
-        "title": "章节2.开发前环境搭建及项目准备"
+        "title": "eggjs图片管理板块网站后台说明"
       },
-      "regularPath": "/fourthless/w-a/02%E5%BC%80%E5%8F%91%E5%89%8D%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA.html",
-      "relativePath": "fourthless/w-a/02开发前环境搭建.md",
-      "key": "v-95e1ab6c",
-      "path": "/fourthless/w-a/02%E5%BC%80%E5%8F%91%E5%89%8D%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA.html",
+      "regularPath": "/fourthless/w-a/eggjs.%E5%9B%BE%E7%89%87%E7%AE%A1%E7%90%86%E6%9D%BF%E5%9D%97%E7%BD%91%E7%AB%99%E5%90%8E%E5%8F%B0.html",
+      "relativePath": "fourthless/w-a/eggjs.图片管理板块网站后台.md",
+      "key": "v-21d0eb29",
+      "path": "/fourthless/w-a/eggjs.%E5%9B%BE%E7%89%87%E7%AE%A1%E7%90%86%E6%9D%BF%E5%9D%97%E7%BD%91%E7%AB%99%E5%90%8E%E5%8F%B0.html",
       "headers": [
         {
           "level": 2,
-          "title": "1.开发工具准备",
-          "slug": "_1-开发工具准备"
+          "title": "一、后台图片分类下的所有图片列表",
+          "slug": "一、后台图片分类下的所有图片列表"
+        },
+        {
+          "level": 3,
+          "title": "1. 路由",
+          "slug": "_1-路由"
+        },
+        {
+          "level": 3,
+          "title": "2. 控制器",
+          "slug": "_2-控制器"
         },
         {
           "level": 2,
-          "title": "2.技术栈（node【egg.js框架】）同学准备",
-          "slug": "_2-技术栈-node【egg-js框架】-同学准备"
+          "title": "二、删除图片",
+          "slug": "二、删除图片"
+        },
+        {
+          "level": 3,
+          "title": "1. 控制器",
+          "slug": "_1-控制器"
         },
         {
           "level": 2,
-          "title": "3.技术栈（php【thinkphp框架】）同学准备",
-          "slug": "_3-技术栈-php【thinkphp框架】-同学准备"
+          "title": "三、修改图片（包括图片重命名）",
+          "slug": "三、修改图片-包括图片重命名"
+        },
+        {
+          "level": 3,
+          "title": "1. 控制器",
+          "slug": "_1-控制器-2"
+        },
+        {
+          "level": 2,
+          "title": "四、添加图片",
+          "slug": "四、添加图片"
+        },
+        {
+          "level": 3,
+          "title": "1. 模版",
+          "slug": "_1-模版"
+        },
+        {
+          "level": 3,
+          "title": "2. 控制器",
+          "slug": "_2-控制器-2"
+        },
+        {
+          "level": 3,
+          "title": "3. 图片分类控制器",
+          "slug": "_3-图片分类控制器"
         }
       ],
-      "lastUpdated": "2025年2月19日星期三下午4点08分",
-      "lastUpdatedTimestamp": 1739952528000
+      "lastUpdated": "2025年4月18日星期五下午5点29分",
+      "lastUpdatedTimestamp": 1744968569000
+    },
+    {
+      "title": "eggjs商城管理员",
+      "frontmatter": {
+        "navbar": true,
+        "sidebar": "auto",
+        "title": "eggjs商城管理员"
+      },
+      "regularPath": "/fourthless/w-a/eggjs.%E5%95%86%E5%9F%8E%E7%AE%A1%E7%90%86%E5%91%98.html",
+      "relativePath": "fourthless/w-a/eggjs.商城管理员.md",
+      "key": "v-222e0744",
+      "path": "/fourthless/w-a/eggjs.%E5%95%86%E5%9F%8E%E7%AE%A1%E7%90%86%E5%91%98.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "一、创建商城管理员",
+          "slug": "一、创建商城管理员"
+        },
+        {
+          "level": 3,
+          "title": "1. 路由",
+          "slug": "_1-路由"
+        },
+        {
+          "level": 3,
+          "title": "2. 控制器",
+          "slug": "_2-控制器"
+        },
+        {
+          "level": 3,
+          "title": "3. 服务",
+          "slug": "_3-服务"
+        },
+        {
+          "level": 2,
+          "title": "二、商城管理员列表",
+          "slug": "二、商城管理员列表"
+        },
+        {
+          "level": 3,
+          "title": "1. 后台左侧菜单",
+          "slug": "_1-后台左侧菜单"
+        },
+        {
+          "level": 3,
+          "title": "2. 控制器",
+          "slug": "_2-控制器-2"
+        },
+        {
+          "level": 3,
+          "title": "3. 模型",
+          "slug": "_3-模型"
+        },
+        {
+          "level": 2,
+          "title": "三、商城管理员修改、删除、修改可用状态",
+          "slug": "三、商城管理员修改、删除、修改可用状态"
+        },
+        {
+          "level": 3,
+          "title": "1. 控制器代码",
+          "slug": "_1-控制器代码"
+        },
+        {
+          "level": 3,
+          "title": "2.后台管理员manager在修改超级管理员的时候做一下调整，同时修改一下商城超级管理员账号",
+          "slug": "_2-后台管理员manager在修改超级管理员的时候做一下调整-同时修改一下商城超级管理员账号"
+        },
+        {
+          "level": 2,
+          "title": "四、商城管理员登录和退出功能（API接口）",
+          "slug": "四、商城管理员登录和退出功能-api接口"
+        },
+        {
+          "level": 3,
+          "title": "1. 路由",
+          "slug": "_1-路由-2"
+        },
+        {
+          "level": 3,
+          "title": "2. 控制器",
+          "slug": "_2-控制器-3"
+        },
+        {
+          "level": 3,
+          "title": "3. 中间件配置",
+          "slug": "_3-中间件配置"
+        },
+        {
+          "level": 2,
+          "title": "五、商城管理员列表（API接口）",
+          "slug": "五、商城管理员列表-api接口"
+        },
+        {
+          "level": 3,
+          "title": "1. 路由",
+          "slug": "_1-路由-3"
+        },
+        {
+          "level": 3,
+          "title": "2. 控制器",
+          "slug": "_2-控制器-4"
+        }
+      ],
+      "lastUpdated": "2025年4月10日星期四晚上8点30分",
+      "lastUpdatedTimestamp": 1744288214000
+    },
+    {
+      "title": "eggjs后台 rolecategory、category、news表等补充功能说明",
+      "frontmatter": {
+        "navbar": true,
+        "sidebar": "auto",
+        "title": "eggjs后台 `rolecategory`、`category`、`news`表等补充功能说明"
+      },
+      "regularPath": "/fourthless/w-a/eggjs.%E5%90%8E%E5%8F%B0%E8%A1%A5%E5%85%85%E5%8A%9F%E8%83%BD%E8%AF%B4%E6%98%8E.html",
+      "relativePath": "fourthless/w-a/eggjs.后台补充功能说明.md",
+      "key": "v-22f8c890",
+      "path": "/fourthless/w-a/eggjs.%E5%90%8E%E5%8F%B0%E8%A1%A5%E5%85%85%E5%8A%9F%E8%83%BD%E8%AF%B4%E6%98%8E.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "一、rolecategory 分类角色表（网站名称表）说明",
+          "slug": "一、rolecategory-分类角色表-网站名称表-说明"
+        },
+        {
+          "level": 3,
+          "title": "1. 先创建中间表 rolecategory_category字段设计及迁移文件",
+          "slug": "_1-先创建中间表-rolecategory-category字段设计及迁移文件"
+        },
+        {
+          "level": 3,
+          "title": "2. 中间表 rolecategory_category 模型 （重点查看模型关联）",
+          "slug": "_2-中间表-rolecategory-category-模型-重点查看模型关联"
+        },
+        {
+          "level": 3,
+          "title": "3. rolecategory 分类角色表（网站名称表）模型 (重点关注模型关联)",
+          "slug": "_3-rolecategory-分类角色表-网站名称表-模型-重点关注模型关联"
+        },
+        {
+          "level": 3,
+          "title": "4. 后台左侧栏目",
+          "slug": "_4-后台左侧栏目"
+        },
+        {
+          "level": 3,
+          "title": "5. rolecategory 控制器",
+          "slug": "_5-rolecategory-控制器"
+        },
+        {
+          "level": 3,
+          "title": "6. 路由",
+          "slug": "_6-路由"
+        },
+        {
+          "level": 3,
+          "title": "7. category 模型 （重点关注模型关联）",
+          "slug": "_7-category-模型-重点关注模型关联"
+        },
+        {
+          "level": 3,
+          "title": "8. 扩展新增一个通用方法",
+          "slug": "_8-扩展新增一个通用方法"
+        },
+        {
+          "level": 3,
+          "title": "9. category 控制器（重点学习index列表方法，采用的是模型关联查询，嵌套查询）",
+          "slug": "_9-category-控制器-重点学习index列表方法-采用的是模型关联查询-嵌套查询"
+        },
+        {
+          "level": 3,
+          "title": "10. 表格模版： 新增返回上一页",
+          "slug": "_10-表格模版-新增返回上一页"
+        },
+        {
+          "level": 2,
+          "title": "二、新增news、category表功能",
+          "slug": "二、新增news、category表功能"
+        },
+        {
+          "level": 3,
+          "title": "1. 先创建中间表 rolecategory_news字段设计及迁移文件",
+          "slug": "_1-先创建中间表-rolecategory-news字段设计及迁移文件"
+        },
+        {
+          "level": 3,
+          "title": "2. 中间表 rolecategory_news 模型 （重点查看模型关联）",
+          "slug": "_2-中间表-rolecategory-news-模型-重点查看模型关联"
+        },
+        {
+          "level": 3,
+          "title": "3. news表模型（重点模型关联）",
+          "slug": "_3-news表模型-重点模型关联"
+        },
+        {
+          "level": 3,
+          "title": "4. rolecategory表模型（重点模型关联）",
+          "slug": "_4-rolecategory表模型-重点模型关联"
+        },
+        {
+          "level": 3,
+          "title": "5. rolecategory表控制器（重点index、create、save方法）",
+          "slug": "_5-rolecategory表控制器-重点index、create、save方法"
+        },
+        {
+          "level": 3,
+          "title": "6.category表控制器（重点index、create、save方法）",
+          "slug": "_6-category表控制器-重点index、create、save方法"
+        },
+        {
+          "level": 3,
+          "title": "7.news表控制器（重点index、create、save方法）",
+          "slug": "_7-news表控制器-重点index、create、save方法"
+        },
+        {
+          "level": 2,
+          "title": "三、代码说明",
+          "slug": "三、代码说明"
+        }
+      ],
+      "lastUpdated": "2025年5月15日星期四下午12点57分",
+      "lastUpdatedTimestamp": 1747285045000
     },
     {
       "title": "eggjs权限管理",
@@ -1889,6 +1975,117 @@ export const siteData = {
       ],
       "lastUpdated": "2025年4月11日星期五下午4点44分",
       "lastUpdatedTimestamp": 1744361089000
+    },
+    {
+      "title": "eggjs框架开发文档",
+      "frontmatter": {
+        "navbar": true,
+        "sidebar": "auto",
+        "title": "eggjs框架开发文档"
+      },
+      "regularPath": "/fourthless/w-a/eggjs%E6%A1%86%E6%9E%B6%E5%BC%80%E5%8F%91%E6%96%87%E6%A1%A3.html",
+      "relativePath": "fourthless/w-a/eggjs框架开发文档.md",
+      "key": "v-4fe9214c",
+      "path": "/fourthless/w-a/eggjs%E6%A1%86%E6%9E%B6%E5%BC%80%E5%8F%91%E6%96%87%E6%A1%A3.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "一、管理员板块",
+          "slug": "一、管理员板块"
+        },
+        {
+          "level": 3,
+          "title": "1. 管理员表 shop_manager",
+          "slug": "_1-管理员表-shop-manager"
+        },
+        {
+          "level": 3,
+          "title": "2. 管理员角色表 role",
+          "slug": "_2-管理员角色表-role"
+        },
+        {
+          "level": 3,
+          "title": "3. [新增]分类表category的角色表 rolecategory",
+          "slug": "_3-新增-分类表category的角色表-rolecategory"
+        },
+        {
+          "level": 3,
+          "title": "4. 角色权限表 rule",
+          "slug": "_4-角色权限表-rule"
+        },
+        {
+          "level": 3,
+          "title": "5. 角色权限中间表 role_rule",
+          "slug": "_5-角色权限中间表-role-rule"
+        },
+        {
+          "level": 3,
+          "title": "6. 创建超级管理员",
+          "slug": "_6-创建超级管理员"
+        },
+        {
+          "level": 3,
+          "title": "① 生成token",
+          "slug": "_1-生成token"
+        },
+        {
+          "level": 3,
+          "title": "② 加入缓存redis中",
+          "slug": "_2-加入缓存redis中"
+        },
+        {
+          "level": 3,
+          "title": "③ 管理员信息token验证",
+          "slug": "_3-管理员信息token验证"
+        },
+        {
+          "level": 3,
+          "title": "7. 角色管理",
+          "slug": "_7-角色管理"
+        },
+        {
+          "level": 3,
+          "title": "8. 商城管理员",
+          "slug": "_8-商城管理员"
+        },
+        {
+          "level": 3,
+          "title": "9. 权限管理",
+          "slug": "_9-权限管理"
+        },
+        {
+          "level": 3,
+          "title": "10. 给角色配置权限及删除权限",
+          "slug": "_10-给角色配置权限及删除权限"
+        },
+        {
+          "level": 3,
+          "title": "11. 管理员板块所有接口",
+          "slug": "_11-管理员板块所有接口"
+        },
+        {
+          "level": 2,
+          "title": "二、图片管理板块",
+          "slug": "二、图片管理板块"
+        },
+        {
+          "level": 2,
+          "title": "三、商品管理板块",
+          "slug": "三、商品管理板块"
+        },
+        {
+          "level": 2,
+          "title": "四、后台（选修课）内容",
+          "slug": "四、后台-选修课-内容"
+        },
+        {
+          "level": 3,
+          "title": "1. 用户表 user 相关",
+          "slug": "_1-用户表-user-相关"
+        }
+      ],
+      "lastUpdated": "2025年4月30日星期三下午3点41分",
+      "lastUpdatedTimestamp": 1745998916000
     },
     {
       "title": "eggjs框架管理员板块",
@@ -2077,117 +2274,6 @@ export const siteData = {
       "lastUpdatedTimestamp": 1744344181000
     },
     {
-      "title": "eggjs框架开发文档",
-      "frontmatter": {
-        "navbar": true,
-        "sidebar": "auto",
-        "title": "eggjs框架开发文档"
-      },
-      "regularPath": "/fourthless/w-a/eggjs%E6%A1%86%E6%9E%B6%E5%BC%80%E5%8F%91%E6%96%87%E6%A1%A3.html",
-      "relativePath": "fourthless/w-a/eggjs框架开发文档.md",
-      "key": "v-4fe9214c",
-      "path": "/fourthless/w-a/eggjs%E6%A1%86%E6%9E%B6%E5%BC%80%E5%8F%91%E6%96%87%E6%A1%A3.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "一、管理员板块",
-          "slug": "一、管理员板块"
-        },
-        {
-          "level": 3,
-          "title": "1. 管理员表 shop_manager",
-          "slug": "_1-管理员表-shop-manager"
-        },
-        {
-          "level": 3,
-          "title": "2. 管理员角色表 role",
-          "slug": "_2-管理员角色表-role"
-        },
-        {
-          "level": 3,
-          "title": "3. [新增]分类表category的角色表 rolecategory",
-          "slug": "_3-新增-分类表category的角色表-rolecategory"
-        },
-        {
-          "level": 3,
-          "title": "4. 角色权限表 rule",
-          "slug": "_4-角色权限表-rule"
-        },
-        {
-          "level": 3,
-          "title": "5. 角色权限中间表 role_rule",
-          "slug": "_5-角色权限中间表-role-rule"
-        },
-        {
-          "level": 3,
-          "title": "6. 创建超级管理员",
-          "slug": "_6-创建超级管理员"
-        },
-        {
-          "level": 3,
-          "title": "① 生成token",
-          "slug": "_1-生成token"
-        },
-        {
-          "level": 3,
-          "title": "② 加入缓存redis中",
-          "slug": "_2-加入缓存redis中"
-        },
-        {
-          "level": 3,
-          "title": "③ 管理员信息token验证",
-          "slug": "_3-管理员信息token验证"
-        },
-        {
-          "level": 3,
-          "title": "7. 角色管理",
-          "slug": "_7-角色管理"
-        },
-        {
-          "level": 3,
-          "title": "8. 商城管理员",
-          "slug": "_8-商城管理员"
-        },
-        {
-          "level": 3,
-          "title": "9. 权限管理",
-          "slug": "_9-权限管理"
-        },
-        {
-          "level": 3,
-          "title": "10. 给角色配置权限及删除权限",
-          "slug": "_10-给角色配置权限及删除权限"
-        },
-        {
-          "level": 3,
-          "title": "11. 管理员板块所有接口",
-          "slug": "_11-管理员板块所有接口"
-        },
-        {
-          "level": 2,
-          "title": "二、图片管理板块",
-          "slug": "二、图片管理板块"
-        },
-        {
-          "level": 2,
-          "title": "三、商品管理板块",
-          "slug": "三、商品管理板块"
-        },
-        {
-          "level": 2,
-          "title": "四、后台（选修课）内容",
-          "slug": "四、后台-选修课-内容"
-        },
-        {
-          "level": 3,
-          "title": "1. 用户表 user 相关",
-          "slug": "_1-用户表-user-相关"
-        }
-      ],
-      "lastUpdated": "2025年4月30日星期三下午3点41分",
-      "lastUpdatedTimestamp": 1745998916000
-    },
-    {
       "title": "eggjs给角色配置权限及删除权限",
       "frontmatter": {
         "navbar": true,
@@ -2292,62 +2378,6 @@ export const siteData = {
       ],
       "lastUpdated": "2025年4月10日星期四下午4点11分",
       "lastUpdatedTimestamp": 1744272710000
-    },
-    {
-      "title": "thinkphp框架修改管理员",
-      "frontmatter": {
-        "navbar": true,
-        "sidebar": "auto",
-        "title": "thinkphp框架修改管理员"
-      },
-      "regularPath": "/fourthless/w-a/thinkphp.%E4%BF%AE%E6%94%B9%E7%AE%A1%E7%90%86%E5%91%98.html",
-      "relativePath": "fourthless/w-a/thinkphp.修改管理员.md",
-      "key": "v-1256ef8b",
-      "path": "/fourthless/w-a/thinkphp.%E4%BF%AE%E6%94%B9%E7%AE%A1%E7%90%86%E5%91%98.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "一、修改管理员",
-          "slug": "一、修改管理员"
-        },
-        {
-          "level": 3,
-          "title": "1.先查询是否存在，再修改",
-          "slug": "_1-先查询是否存在-再修改"
-        },
-        {
-          "level": 3,
-          "title": "2.针对类似经常查询id判断数据是否存在的情况，考虑在验证器里自定义验证规则完成自动化",
-          "slug": "_2-针对类似经常查询id判断数据是否存在的情况-考虑在验证器里自定义验证规则完成自动化"
-        },
-        {
-          "level": 2,
-          "title": "二、字段唯一性验证处理",
-          "slug": "二、字段唯一性验证处理"
-        },
-        {
-          "level": 3,
-          "title": "1. 添加字段唯一性验证规则",
-          "slug": "_1-添加字段唯一性验证规则"
-        },
-        {
-          "level": 2,
-          "title": "三、验证场景写成函数",
-          "slug": "三、验证场景写成函数"
-        },
-        {
-          "level": 2,
-          "title": "四、验证器完整代码查看",
-          "slug": "四、验证器完整代码查看"
-        },
-        {
-          "level": 2,
-          "title": "五、删除管理员",
-          "slug": "五、删除管理员"
-        }
-      ],
-      "lastUpdated": "2025年3月9日星期日下午5点15分",
-      "lastUpdatedTimestamp": 1741511716000
     },
     {
       "title": "thinkphp商品管理板块",
@@ -2471,161 +2501,60 @@ export const siteData = {
       "lastUpdatedTimestamp": 1745586378000
     },
     {
-      "title": "eggjs后台超级管理员自定义表单新增修改（以网站配置为例）",
+      "title": "thinkphp框架修改管理员",
       "frontmatter": {
         "navbar": true,
         "sidebar": "auto",
-        "title": "eggjs后台超级管理员自定义表单新增修改（以网站配置为例）"
+        "title": "thinkphp框架修改管理员"
       },
-      "regularPath": "/fourthless/w-a/eggjs.%E8%B6%85%E7%BA%A7%E7%AE%A1%E7%90%86%E5%91%98%E8%87%AA%E5%AE%9A%E4%B9%89%E8%A1%A8%E5%8D%95.html",
-      "relativePath": "fourthless/w-a/eggjs.超级管理员自定义表单.md",
-      "key": "v-7beb956a",
-      "path": "/fourthless/w-a/eggjs.%E8%B6%85%E7%BA%A7%E7%AE%A1%E7%90%86%E5%91%98%E8%87%AA%E5%AE%9A%E4%B9%89%E8%A1%A8%E5%8D%95.html",
+      "regularPath": "/fourthless/w-a/thinkphp.%E4%BF%AE%E6%94%B9%E7%AE%A1%E7%90%86%E5%91%98.html",
+      "relativePath": "fourthless/w-a/thinkphp.修改管理员.md",
+      "key": "v-1256ef8b",
+      "path": "/fourthless/w-a/thinkphp.%E4%BF%AE%E6%94%B9%E7%AE%A1%E7%90%86%E5%91%98.html",
       "headers": [
         {
           "level": 2,
-          "title": "一、模版",
-          "slug": "一、模版"
+          "title": "一、修改管理员",
+          "slug": "一、修改管理员"
         },
         {
           "level": 3,
-          "title": "1. _form.html模版",
-          "slug": "_1-form-html模版"
+          "title": "1.先查询是否存在，再修改",
+          "slug": "_1-先查询是否存在-再修改"
         },
         {
           "level": 3,
-          "title": "2. _table.html模版",
-          "slug": "_2-table-html模版"
-        },
-        {
-          "level": 3,
-          "title": "3. 新增 _diyform.html模版",
-          "slug": "_3-新增-diyform-html模版"
+          "title": "2.针对类似经常查询id判断数据是否存在的情况，考虑在验证器里自定义验证规则完成自动化",
+          "slug": "_2-针对类似经常查询id判断数据是否存在的情况-考虑在验证器里自定义验证规则完成自动化"
         },
         {
           "level": 2,
-          "title": "二、路由",
-          "slug": "二、路由"
+          "title": "二、字段唯一性验证处理",
+          "slug": "二、字段唯一性验证处理"
+        },
+        {
+          "level": 3,
+          "title": "1. 添加字段唯一性验证规则",
+          "slug": "_1-添加字段唯一性验证规则"
         },
         {
           "level": 2,
-          "title": "三、控制器",
-          "slug": "三、控制器"
+          "title": "三、验证场景写成函数",
+          "slug": "三、验证场景写成函数"
+        },
+        {
+          "level": 2,
+          "title": "四、验证器完整代码查看",
+          "slug": "四、验证器完整代码查看"
+        },
+        {
+          "level": 2,
+          "title": "五、删除管理员",
+          "slug": "五、删除管理员"
         }
       ],
-      "lastUpdated": "2025年5月16日星期五晚上10点20分",
-      "lastUpdatedTimestamp": 1747405242000
-    },
-    {
-      "title": "thinkphp商城后台管理系统上线部署",
-      "frontmatter": {
-        "navbar": true,
-        "title": "thinkphp商城后台管理系统上线部署"
-      },
-      "regularPath": "/deploy/vuecli.shop.html",
-      "relativePath": "deploy/vuecli.shop.md",
-      "key": "v-be98967e",
-      "path": "/deploy/vuecli.shop.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "解析一个域名",
-          "slug": "解析一个域名"
-        },
-        {
-          "level": 2,
-          "title": "服务器面板操作（以宝塔面板为例）",
-          "slug": "服务器面板操作-以宝塔面板为例"
-        },
-        {
-          "level": 3,
-          "title": "1. 创建网站",
-          "slug": "_1-创建网站"
-        },
-        {
-          "level": 3,
-          "title": "2.部署项目后端",
-          "slug": "_2-部署项目后端"
-        },
-        {
-          "level": 3,
-          "title": "3.部署项目前端vuecli页面部分",
-          "slug": "_3-部署项目前端vuecli页面部分"
-        }
-      ],
-      "lastUpdated": "2025年2月19日星期三下午4点08分",
-      "lastUpdatedTimestamp": 1739952528000
-    },
-    {
-      "title": "eggjs图片管理板块网站后台说明",
-      "frontmatter": {
-        "navbar": true,
-        "sidebar": "auto",
-        "title": "eggjs图片管理板块网站后台说明"
-      },
-      "regularPath": "/fourthless/w-a/eggjs.%E5%9B%BE%E7%89%87%E7%AE%A1%E7%90%86%E6%9D%BF%E5%9D%97%E7%BD%91%E7%AB%99%E5%90%8E%E5%8F%B0.html",
-      "relativePath": "fourthless/w-a/eggjs.图片管理板块网站后台.md",
-      "key": "v-21d0eb29",
-      "path": "/fourthless/w-a/eggjs.%E5%9B%BE%E7%89%87%E7%AE%A1%E7%90%86%E6%9D%BF%E5%9D%97%E7%BD%91%E7%AB%99%E5%90%8E%E5%8F%B0.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "一、后台图片分类下的所有图片列表",
-          "slug": "一、后台图片分类下的所有图片列表"
-        },
-        {
-          "level": 3,
-          "title": "1. 路由",
-          "slug": "_1-路由"
-        },
-        {
-          "level": 3,
-          "title": "2. 控制器",
-          "slug": "_2-控制器"
-        },
-        {
-          "level": 2,
-          "title": "二、删除图片",
-          "slug": "二、删除图片"
-        },
-        {
-          "level": 3,
-          "title": "1. 控制器",
-          "slug": "_1-控制器"
-        },
-        {
-          "level": 2,
-          "title": "三、修改图片（包括图片重命名）",
-          "slug": "三、修改图片-包括图片重命名"
-        },
-        {
-          "level": 3,
-          "title": "1. 控制器",
-          "slug": "_1-控制器-2"
-        },
-        {
-          "level": 2,
-          "title": "四、添加图片",
-          "slug": "四、添加图片"
-        },
-        {
-          "level": 3,
-          "title": "1. 模版",
-          "slug": "_1-模版"
-        },
-        {
-          "level": 3,
-          "title": "2. 控制器",
-          "slug": "_2-控制器-2"
-        },
-        {
-          "level": 3,
-          "title": "3. 图片分类控制器",
-          "slug": "_3-图片分类控制器"
-        }
-      ],
-      "lastUpdated": "2025年4月18日星期五下午5点29分",
-      "lastUpdatedTimestamp": 1744968569000
+      "lastUpdated": "2025年3月9日星期日下午5点15分",
+      "lastUpdatedTimestamp": 1741511716000
     },
     {
       "title": "thinkphp商品规格模块",
@@ -2835,6 +2764,234 @@ export const siteData = {
       "lastUpdatedTimestamp": 1744808032000
     },
     {
+      "title": "thinkphp框架管理员列表",
+      "frontmatter": {
+        "navbar": true,
+        "sidebar": "auto",
+        "title": "thinkphp框架管理员列表"
+      },
+      "regularPath": "/fourthless/w-a/thinkphp.%E7%AE%A1%E7%90%86%E5%91%98%E5%88%97%E8%A1%A8.html",
+      "relativePath": "fourthless/w-a/thinkphp.管理员列表.md",
+      "key": "v-3977bfbd",
+      "path": "/fourthless/w-a/thinkphp.%E7%AE%A1%E7%90%86%E5%91%98%E5%88%97%E8%A1%A8.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "一、管理员列表",
+          "slug": "一、管理员列表"
+        },
+        {
+          "level": 3,
+          "title": "1. 接口说明",
+          "slug": "_1-接口说明"
+        },
+        {
+          "level": 3,
+          "title": "2. 路由 route/admin.php",
+          "slug": "_2-路由-route-admin-php"
+        },
+        {
+          "level": 3,
+          "title": "3. 验证器 app/validate/admin/ShopManager.php",
+          "slug": "_3-验证器-app-validate-admin-shopmanager-php"
+        },
+        {
+          "level": 3,
+          "title": "4. 由于limit和keyword为选填，模型方法获取参数时，需要判断一下否则报错，写个方法",
+          "slug": "_4-由于limit和keyword为选填-模型方法获取参数时-需要判断一下否则报错-写个方法"
+        },
+        {
+          "level": 3,
+          "title": "5. 控制器初步查询不带关联角色表",
+          "slug": "_5-控制器初步查询不带关联角色表"
+        },
+        {
+          "level": 2,
+          "title": "二、管理员列表要关联角色表role数据",
+          "slug": "二、管理员列表要关联角色表role数据"
+        },
+        {
+          "level": 3,
+          "title": "具体操作：",
+          "slug": "具体操作"
+        },
+        {
+          "level": 3,
+          "title": "1. 已经有shopManager模型，现在关联role表，需要创建一下role表的模型",
+          "slug": "_1-已经有shopmanager模型-现在关联role表-需要创建一下role表的模型"
+        },
+        {
+          "level": 3,
+          "title": "2.来到管理员表模型shopManager，同样创建一下与角色表的关联关系",
+          "slug": "_2-来到管理员表模型shopmanager-同样创建一下与角色表的关联关系"
+        },
+        {
+          "level": 3,
+          "title": "3. 来到控制器返回：管理员列表关联角色表的数据 [完整代码]",
+          "slug": "_3-来到控制器返回-管理员列表关联角色表的数据-完整代码"
+        },
+        {
+          "level": 2,
+          "title": "三、返回结果示例",
+          "slug": "三、返回结果示例"
+        }
+      ],
+      "lastUpdated": "2025年3月21日星期五晚上7点21分",
+      "lastUpdatedTimestamp": 1742556085000
+    },
+    {
+      "title": "thinkphp框架管理员登录和退出",
+      "frontmatter": {
+        "navbar": true,
+        "sidebar": "auto",
+        "title": "thinkphp框架管理员登录和退出"
+      },
+      "regularPath": "/fourthless/w-a/thinkphp.%E7%AE%A1%E7%90%86%E5%91%98%E7%99%BB%E5%BD%95%E9%80%80%E5%87%BA.html",
+      "relativePath": "fourthless/w-a/thinkphp.管理员登录退出.md",
+      "key": "v-9adb6c10",
+      "path": "/fourthless/w-a/thinkphp.%E7%AE%A1%E7%90%86%E5%91%98%E7%99%BB%E5%BD%95%E9%80%80%E5%87%BA.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "一、管理员登录（初步登录流程）",
+          "slug": "一、管理员登录-初步登录流程"
+        },
+        {
+          "level": 3,
+          "title": "1. 路由 app/route/admin.php",
+          "slug": "_1-路由-app-route-admin-php"
+        },
+        {
+          "level": 3,
+          "title": "2. 验证器 app/validate/admin/ShopManager.php",
+          "slug": "_2-验证器-app-validate-admin-shopmanager-php"
+        },
+        {
+          "level": 3,
+          "title": "3. 控制器 app/controller/admin/ShopManager.php",
+          "slug": "_3-控制器-app-controller-admin-shopmanager-php"
+        },
+        {
+          "level": 2,
+          "title": "二、管理员登录（封装登录方法，通用到用户、商家登录等，设置并存储token）",
+          "slug": "二、管理员登录-封装登录方法-通用到用户、商家登录等-设置并存储token"
+        },
+        {
+          "level": 3,
+          "title": "1、控制器 app/controller/admin/ShopManager.php",
+          "slug": "_1、控制器-app-controller-admin-shopmanager-php"
+        },
+        {
+          "level": 3,
+          "title": "2、封装登录方法 app/common.php",
+          "slug": "_2、封装登录方法-app-common-php"
+        },
+        {
+          "level": 3,
+          "title": "3、新建 config/cms.php 配置缓存类型",
+          "slug": "_3、新建-config-cms-php-配置缓存类型"
+        },
+        {
+          "level": 2,
+          "title": "三、完成管理员登录功能后，创建中间件，完善之前和之后的API请求，需要进行权限验证",
+          "slug": "三、完成管理员登录功能后-创建中间件-完善之前和之后的api请求-需要进行权限验证"
+        },
+        {
+          "level": 3,
+          "title": "1. 创建中间件",
+          "slug": "_1-创建中间件"
+        },
+        {
+          "level": 3,
+          "title": "2. 路由中使用中间件 route/admin.php",
+          "slug": "_2-路由中使用中间件-route-admin-php"
+        },
+        {
+          "level": 3,
+          "title": "3. 中间件 app/middleware/checkShopManagerToken.php",
+          "slug": "_3-中间件-app-middleware-checkshopmanagertoken-php"
+        },
+        {
+          "level": 3,
+          "title": "4. 公共方法通过token找本地用户信息 app/common.php",
+          "slug": "_4-公共方法通过token找本地用户信息-app-common-php"
+        },
+        {
+          "level": 2,
+          "title": "四、管理员退出登录",
+          "slug": "四、管理员退出登录"
+        },
+        {
+          "level": 3,
+          "title": "1、先补充删除管理员功能里面的：不能删除管理员自己",
+          "slug": "_1、先补充删除管理员功能里面的-不能删除管理员自己"
+        },
+        {
+          "level": 3,
+          "title": "2、控制器退出登录",
+          "slug": "_2、控制器退出登录"
+        },
+        {
+          "level": 3,
+          "title": "3、公共方法退出登录 app/common.php",
+          "slug": "_3、公共方法退出登录-app-common-php"
+        },
+        {
+          "level": 3,
+          "title": "4、路由 route/admin.php",
+          "slug": "_4、路由-route-admin-php"
+        }
+      ],
+      "lastUpdated": "2025年3月25日星期二下午5点37分",
+      "lastUpdatedTimestamp": 1742895463000
+    },
+    {
+      "title": "eggjs后台超级管理员自定义表单新增修改（以网站配置为例）",
+      "frontmatter": {
+        "navbar": true,
+        "sidebar": "auto",
+        "title": "eggjs后台超级管理员自定义表单新增修改（以网站配置为例）"
+      },
+      "regularPath": "/fourthless/w-a/eggjs.%E8%B6%85%E7%BA%A7%E7%AE%A1%E7%90%86%E5%91%98%E8%87%AA%E5%AE%9A%E4%B9%89%E8%A1%A8%E5%8D%95.html",
+      "relativePath": "fourthless/w-a/eggjs.超级管理员自定义表单.md",
+      "key": "v-7beb956a",
+      "path": "/fourthless/w-a/eggjs.%E8%B6%85%E7%BA%A7%E7%AE%A1%E7%90%86%E5%91%98%E8%87%AA%E5%AE%9A%E4%B9%89%E8%A1%A8%E5%8D%95.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "一、模版",
+          "slug": "一、模版"
+        },
+        {
+          "level": 3,
+          "title": "1. _form.html模版",
+          "slug": "_1-form-html模版"
+        },
+        {
+          "level": 3,
+          "title": "2. _table.html模版",
+          "slug": "_2-table-html模版"
+        },
+        {
+          "level": 3,
+          "title": "3. 新增 _diyform.html模版",
+          "slug": "_3-新增-diyform-html模版"
+        },
+        {
+          "level": 2,
+          "title": "二、路由",
+          "slug": "二、路由"
+        },
+        {
+          "level": 2,
+          "title": "三、控制器",
+          "slug": "三、控制器"
+        }
+      ],
+      "lastUpdated": "2025年5月16日星期五晚上10点20分",
+      "lastUpdatedTimestamp": 1747405242000
+    },
+    {
       "title": "thinkphp框架权限rule表管理文档",
       "frontmatter": {
         "navbar": true,
@@ -2994,6 +3151,31 @@ export const siteData = {
       ],
       "lastUpdated": "2025年3月28日星期五晚上8点03分",
       "lastUpdatedTimestamp": 1743163403000
+    },
+    {
+      "title": "第四学期课程总述",
+      "frontmatter": {
+        "navbar": true,
+        "title": "第四学期课程总述"
+      },
+      "regularPath": "/fourthless/",
+      "relativePath": "fourthless/README.md",
+      "key": "v-5e2d0adc",
+      "path": "/fourthless/",
+      "headers": [
+        {
+          "level": 2,
+          "title": "第四学期课程总述",
+          "slug": "第四学期课程总述"
+        },
+        {
+          "level": 3,
+          "title": "第一季",
+          "slug": "第一季"
+        }
+      ],
+      "lastUpdated": "2025年5月21日星期三下午12点33分",
+      "lastUpdatedTimestamp": 1747801989000
     },
     {
       "title": "thinkphp框架管理员板块",
@@ -3228,112 +3410,6 @@ export const siteData = {
       "lastUpdatedTimestamp": 1743047255000
     },
     {
-      "title": "thinkphp框架管理员登录和退出",
-      "frontmatter": {
-        "navbar": true,
-        "sidebar": "auto",
-        "title": "thinkphp框架管理员登录和退出"
-      },
-      "regularPath": "/fourthless/w-a/thinkphp.%E7%AE%A1%E7%90%86%E5%91%98%E7%99%BB%E5%BD%95%E9%80%80%E5%87%BA.html",
-      "relativePath": "fourthless/w-a/thinkphp.管理员登录退出.md",
-      "key": "v-9adb6c10",
-      "path": "/fourthless/w-a/thinkphp.%E7%AE%A1%E7%90%86%E5%91%98%E7%99%BB%E5%BD%95%E9%80%80%E5%87%BA.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "一、管理员登录（初步登录流程）",
-          "slug": "一、管理员登录-初步登录流程"
-        },
-        {
-          "level": 3,
-          "title": "1. 路由 app/route/admin.php",
-          "slug": "_1-路由-app-route-admin-php"
-        },
-        {
-          "level": 3,
-          "title": "2. 验证器 app/validate/admin/ShopManager.php",
-          "slug": "_2-验证器-app-validate-admin-shopmanager-php"
-        },
-        {
-          "level": 3,
-          "title": "3. 控制器 app/controller/admin/ShopManager.php",
-          "slug": "_3-控制器-app-controller-admin-shopmanager-php"
-        },
-        {
-          "level": 2,
-          "title": "二、管理员登录（封装登录方法，通用到用户、商家登录等，设置并存储token）",
-          "slug": "二、管理员登录-封装登录方法-通用到用户、商家登录等-设置并存储token"
-        },
-        {
-          "level": 3,
-          "title": "1、控制器 app/controller/admin/ShopManager.php",
-          "slug": "_1、控制器-app-controller-admin-shopmanager-php"
-        },
-        {
-          "level": 3,
-          "title": "2、封装登录方法 app/common.php",
-          "slug": "_2、封装登录方法-app-common-php"
-        },
-        {
-          "level": 3,
-          "title": "3、新建 config/cms.php 配置缓存类型",
-          "slug": "_3、新建-config-cms-php-配置缓存类型"
-        },
-        {
-          "level": 2,
-          "title": "三、完成管理员登录功能后，创建中间件，完善之前和之后的API请求，需要进行权限验证",
-          "slug": "三、完成管理员登录功能后-创建中间件-完善之前和之后的api请求-需要进行权限验证"
-        },
-        {
-          "level": 3,
-          "title": "1. 创建中间件",
-          "slug": "_1-创建中间件"
-        },
-        {
-          "level": 3,
-          "title": "2. 路由中使用中间件 route/admin.php",
-          "slug": "_2-路由中使用中间件-route-admin-php"
-        },
-        {
-          "level": 3,
-          "title": "3. 中间件 app/middleware/checkShopManagerToken.php",
-          "slug": "_3-中间件-app-middleware-checkshopmanagertoken-php"
-        },
-        {
-          "level": 3,
-          "title": "4. 公共方法通过token找本地用户信息 app/common.php",
-          "slug": "_4-公共方法通过token找本地用户信息-app-common-php"
-        },
-        {
-          "level": 2,
-          "title": "四、管理员退出登录",
-          "slug": "四、管理员退出登录"
-        },
-        {
-          "level": 3,
-          "title": "1、先补充删除管理员功能里面的：不能删除管理员自己",
-          "slug": "_1、先补充删除管理员功能里面的-不能删除管理员自己"
-        },
-        {
-          "level": 3,
-          "title": "2、控制器退出登录",
-          "slug": "_2、控制器退出登录"
-        },
-        {
-          "level": 3,
-          "title": "3、公共方法退出登录 app/common.php",
-          "slug": "_3、公共方法退出登录-app-common-php"
-        },
-        {
-          "level": 3,
-          "title": "4、路由 route/admin.php",
-          "slug": "_4、路由-route-admin-php"
-        }
-      ],
-      "lastUpdated": "2025年3月25日星期二下午5点37分",
-      "lastUpdatedTimestamp": 1742895463000
-    },
-    {
       "title": "thinkphp框架角色role表管理文档",
       "frontmatter": {
         "navbar": true,
@@ -3475,30 +3551,6 @@ export const siteData = {
       "lastUpdatedTimestamp": 1743069203000
     },
     {
-      "title": "第四学期第二季（课程学习顺序：12）",
-      "frontmatter": {
-        "title": "第四学期第二季（课程学习顺序：12）"
-      },
-      "regularPath": "/fourthless/w-b.html",
-      "relativePath": "fourthless/w-b.md",
-      "key": "v-8422aeb6",
-      "path": "/fourthless/w-b.html",
-      "lastUpdated": "2025年5月21日星期三下午12点33分",
-      "lastUpdatedTimestamp": 1747801989000
-    },
-    {
-      "title": "第四学期第三季（课程学习顺序：13）",
-      "frontmatter": {
-        "title": "第四学期第三季（课程学习顺序：13）"
-      },
-      "regularPath": "/fourthless/w-c.html",
-      "relativePath": "fourthless/w-c.md",
-      "key": "v-88b5dfba",
-      "path": "/fourthless/w-c.html",
-      "lastUpdated": "2025年5月21日星期三下午12点33分",
-      "lastUpdatedTimestamp": 1747801989000
-    },
-    {
       "title": "第四学期第四季（课程学习顺序：14）",
       "frontmatter": {
         "title": "第四学期第四季（课程学习顺序：14）"
@@ -3511,62 +3563,6 @@ export const siteData = {
       "lastUpdatedTimestamp": 1747801989000
     },
     {
-      "title": "thinkphp上传图片文件",
-      "frontmatter": {
-        "navbar": true,
-        "sidebar": "auto",
-        "title": "thinkphp上传图片文件"
-      },
-      "regularPath": "/fourthless/w-a/thinkphp%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E8%AF%B4%E6%98%8E.html",
-      "relativePath": "fourthless/w-a/thinkphp文件上传说明.md",
-      "key": "v-34a3ea4a",
-      "path": "/fourthless/w-a/thinkphp%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E8%AF%B4%E6%98%8E.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "一、配置阿里云存储，拿到密钥和bucket等信息",
-          "slug": "一、配置阿里云存储-拿到密钥和bucket等信息"
-        },
-        {
-          "level": 2,
-          "title": "二、 阿里云OSS图片上传功能实现",
-          "slug": "二、-阿里云oss图片上传功能实现"
-        },
-        {
-          "level": 3,
-          "title": "1. 路由",
-          "slug": "_1-路由"
-        },
-        {
-          "level": 3,
-          "title": "2. 首先安装阿里云OSS SDK",
-          "slug": "_2-首先安装阿里云oss-sdk"
-        },
-        {
-          "level": 3,
-          "title": "3. 配置oss",
-          "slug": "_3-配置oss"
-        },
-        {
-          "level": 3,
-          "title": "4. 创建公共方法 (common.php)",
-          "slug": "_4-创建公共方法-common-php"
-        },
-        {
-          "level": 3,
-          "title": "5. 控制器代码： 测试上传效果",
-          "slug": "_5-控制器代码-测试上传效果"
-        },
-        {
-          "level": 3,
-          "title": "6. 控制器代码完整代码",
-          "slug": "_6-控制器代码完整代码"
-        }
-      ],
-      "lastUpdated": "2025年4月16日星期三下午5点31分",
-      "lastUpdatedTimestamp": 1744795890000
-    },
-    {
       "title": "第四学期第五季（课程学习顺序：15）",
       "frontmatter": {
         "title": "第四学期第五季（课程学习顺序：15）"
@@ -3577,477 +3573,6 @@ export const siteData = {
       "path": "/fourthless/w-e.html",
       "lastUpdated": "2025年5月21日星期三下午12点33分",
       "lastUpdatedTimestamp": 1747801989000
-    },
-    {
-      "title": "thinkphp框架管理员列表",
-      "frontmatter": {
-        "navbar": true,
-        "sidebar": "auto",
-        "title": "thinkphp框架管理员列表"
-      },
-      "regularPath": "/fourthless/w-a/thinkphp.%E7%AE%A1%E7%90%86%E5%91%98%E5%88%97%E8%A1%A8.html",
-      "relativePath": "fourthless/w-a/thinkphp.管理员列表.md",
-      "key": "v-3977bfbd",
-      "path": "/fourthless/w-a/thinkphp.%E7%AE%A1%E7%90%86%E5%91%98%E5%88%97%E8%A1%A8.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "一、管理员列表",
-          "slug": "一、管理员列表"
-        },
-        {
-          "level": 3,
-          "title": "1. 接口说明",
-          "slug": "_1-接口说明"
-        },
-        {
-          "level": 3,
-          "title": "2. 路由 route/admin.php",
-          "slug": "_2-路由-route-admin-php"
-        },
-        {
-          "level": 3,
-          "title": "3. 验证器 app/validate/admin/ShopManager.php",
-          "slug": "_3-验证器-app-validate-admin-shopmanager-php"
-        },
-        {
-          "level": 3,
-          "title": "4. 由于limit和keyword为选填，模型方法获取参数时，需要判断一下否则报错，写个方法",
-          "slug": "_4-由于limit和keyword为选填-模型方法获取参数时-需要判断一下否则报错-写个方法"
-        },
-        {
-          "level": 3,
-          "title": "5. 控制器初步查询不带关联角色表",
-          "slug": "_5-控制器初步查询不带关联角色表"
-        },
-        {
-          "level": 2,
-          "title": "二、管理员列表要关联角色表role数据",
-          "slug": "二、管理员列表要关联角色表role数据"
-        },
-        {
-          "level": 3,
-          "title": "具体操作：",
-          "slug": "具体操作"
-        },
-        {
-          "level": 3,
-          "title": "1. 已经有shopManager模型，现在关联role表，需要创建一下role表的模型",
-          "slug": "_1-已经有shopmanager模型-现在关联role表-需要创建一下role表的模型"
-        },
-        {
-          "level": 3,
-          "title": "2.来到管理员表模型shopManager，同样创建一下与角色表的关联关系",
-          "slug": "_2-来到管理员表模型shopmanager-同样创建一下与角色表的关联关系"
-        },
-        {
-          "level": 3,
-          "title": "3. 来到控制器返回：管理员列表关联角色表的数据 [完整代码]",
-          "slug": "_3-来到控制器返回-管理员列表关联角色表的数据-完整代码"
-        },
-        {
-          "level": 2,
-          "title": "三、返回结果示例",
-          "slug": "三、返回结果示例"
-        }
-      ],
-      "lastUpdated": "2025年3月21日星期五晚上7点21分",
-      "lastUpdatedTimestamp": 1742556085000
-    },
-    {
-      "title": "我是pc总页",
-      "frontmatter": {
-        "navbar": true,
-        "title": "我是pc总页"
-      },
-      "regularPath": "/pc/",
-      "relativePath": "pc/README.md",
-      "key": "v-7ba60f92",
-      "path": "/pc/",
-      "lastUpdated": "2023年3月1日星期三下午12点33分",
-      "lastUpdatedTimestamp": 1677645233000
-    },
-    {
-      "title": "p-a页面",
-      "frontmatter": {
-        "title": "p-a页面"
-      },
-      "regularPath": "/pc/p-a.html",
-      "relativePath": "pc/p-a.md",
-      "key": "v-7fa37fb5",
-      "path": "/pc/p-a.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "p-a页面二级标题1",
-          "slug": "p-a页面二级标题1"
-        },
-        {
-          "level": 3,
-          "title": "1.三级标题1",
-          "slug": "_1-三级标题1"
-        },
-        {
-          "level": 3,
-          "title": "2.三级标题2",
-          "slug": "_2-三级标题2"
-        },
-        {
-          "level": 3,
-          "title": "3.三级标题3",
-          "slug": "_3-三级标题3"
-        },
-        {
-          "level": 2,
-          "title": "p-a页面二级标题2",
-          "slug": "p-a页面二级标题2"
-        },
-        {
-          "level": 3,
-          "title": "1.三级标题1",
-          "slug": "_1-三级标题1-2"
-        },
-        {
-          "level": 3,
-          "title": "2.三级标题2",
-          "slug": "_2-三级标题2-2"
-        },
-        {
-          "level": 3,
-          "title": "3.三级标题3",
-          "slug": "_3-三级标题3-2"
-        }
-      ],
-      "lastUpdated": "2023年3月1日星期三下午12点33分",
-      "lastUpdatedTimestamp": 1677645233000
-    },
-    {
-      "title": "p-b页面",
-      "frontmatter": {
-        "title": "p-b页面"
-      },
-      "regularPath": "/pc/p-b.html",
-      "relativePath": "pc/p-b.md",
-      "key": "v-62ea3633",
-      "path": "/pc/p-b.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "p-b页面二级标题1",
-          "slug": "p-b页面二级标题1"
-        },
-        {
-          "level": 3,
-          "title": "1.三级标题1",
-          "slug": "_1-三级标题1"
-        },
-        {
-          "level": 3,
-          "title": "2.三级标题2",
-          "slug": "_2-三级标题2"
-        },
-        {
-          "level": 3,
-          "title": "3.三级标题3",
-          "slug": "_3-三级标题3"
-        },
-        {
-          "level": 2,
-          "title": "p-b页面二级标题2",
-          "slug": "p-b页面二级标题2"
-        },
-        {
-          "level": 3,
-          "title": "1.三级标题1",
-          "slug": "_1-三级标题1-2"
-        },
-        {
-          "level": 3,
-          "title": "2.三级标题2",
-          "slug": "_2-三级标题2-2"
-        },
-        {
-          "level": 3,
-          "title": "3.三级标题3",
-          "slug": "_3-三级标题3-2"
-        }
-      ],
-      "lastUpdated": "2023年3月1日星期三下午12点33分",
-      "lastUpdatedTimestamp": 1677645233000
-    },
-    {
-      "title": "p-c页面",
-      "frontmatter": {
-        "title": "p-c页面"
-      },
-      "regularPath": "/pc/p-c.html",
-      "relativePath": "pc/p-c.md",
-      "key": "v-4630ecb1",
-      "path": "/pc/p-c.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "p-c页面二级标题1",
-          "slug": "p-c页面二级标题1"
-        },
-        {
-          "level": 3,
-          "title": "1.三级标题1",
-          "slug": "_1-三级标题1"
-        },
-        {
-          "level": 3,
-          "title": "2.三级标题2",
-          "slug": "_2-三级标题2"
-        },
-        {
-          "level": 3,
-          "title": "3.三级标题3",
-          "slug": "_3-三级标题3"
-        },
-        {
-          "level": 2,
-          "title": "p-c页面二级标题2",
-          "slug": "p-c页面二级标题2"
-        },
-        {
-          "level": 3,
-          "title": "1.三级标题1",
-          "slug": "_1-三级标题1-2"
-        },
-        {
-          "level": 3,
-          "title": "2.三级标题2",
-          "slug": "_2-三级标题2-2"
-        },
-        {
-          "level": 3,
-          "title": "3.三级标题3",
-          "slug": "_3-三级标题3-2"
-        }
-      ],
-      "lastUpdated": "2023年3月1日星期三下午12点33分",
-      "lastUpdatedTimestamp": 1677645233000
-    },
-    {
-      "title": "我是phone总页",
-      "frontmatter": {
-        "navbar": true,
-        "title": "我是phone总页"
-      },
-      "regularPath": "/phone/",
-      "relativePath": "phone/README.md",
-      "key": "v-4f90747e",
-      "path": "/phone/",
-      "lastUpdated": "2023年3月1日星期三下午12点33分",
-      "lastUpdatedTimestamp": 1677645233000
-    },
-    {
-      "title": "phone-a页面",
-      "frontmatter": {
-        "title": "phone-a页面"
-      },
-      "regularPath": "/phone/phone-a.html",
-      "relativePath": "phone/phone-a.md",
-      "key": "v-10de5a02",
-      "path": "/phone/phone-a.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "phone-a页面二级标题1",
-          "slug": "phone-a页面二级标题1"
-        },
-        {
-          "level": 3,
-          "title": "1.三级标题1",
-          "slug": "_1-三级标题1"
-        },
-        {
-          "level": 3,
-          "title": "2.三级标题2",
-          "slug": "_2-三级标题2"
-        },
-        {
-          "level": 3,
-          "title": "3.三级标题3",
-          "slug": "_3-三级标题3"
-        },
-        {
-          "level": 2,
-          "title": "phone-a页面二级标题2",
-          "slug": "phone-a页面二级标题2"
-        },
-        {
-          "level": 3,
-          "title": "1.三级标题1",
-          "slug": "_1-三级标题1-2"
-        },
-        {
-          "level": 3,
-          "title": "2.三级标题2",
-          "slug": "_2-三级标题2-2"
-        },
-        {
-          "level": 3,
-          "title": "3.三级标题3",
-          "slug": "_3-三级标题3-2"
-        }
-      ],
-      "lastUpdated": "2023年3月1日星期三下午12点33分",
-      "lastUpdatedTimestamp": 1677645233000
-    },
-    {
-      "title": "phone-b页面",
-      "frontmatter": {
-        "title": "phone-b页面"
-      },
-      "regularPath": "/phone/phone-b.html",
-      "relativePath": "phone/phone-b.md",
-      "key": "v-437744df",
-      "path": "/phone/phone-b.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "phone-b页面二级标题1",
-          "slug": "phone-b页面二级标题1"
-        },
-        {
-          "level": 3,
-          "title": "1.三级标题1",
-          "slug": "_1-三级标题1"
-        },
-        {
-          "level": 3,
-          "title": "2.三级标题2",
-          "slug": "_2-三级标题2"
-        },
-        {
-          "level": 3,
-          "title": "3.三级标题3",
-          "slug": "_3-三级标题3"
-        },
-        {
-          "level": 2,
-          "title": "phone-b页面二级标题2",
-          "slug": "phone-b页面二级标题2"
-        },
-        {
-          "level": 3,
-          "title": "1.三级标题1",
-          "slug": "_1-三级标题1-2"
-        },
-        {
-          "level": 3,
-          "title": "2.三级标题2",
-          "slug": "_2-三级标题2-2"
-        },
-        {
-          "level": 3,
-          "title": "3.三级标题3",
-          "slug": "_3-三级标题3-2"
-        }
-      ],
-      "lastUpdated": "2023年3月1日星期三下午12点33分",
-      "lastUpdatedTimestamp": 1677645233000
-    },
-    {
-      "title": "phone-c页面",
-      "frontmatter": {
-        "title": "phone-c页面"
-      },
-      "regularPath": "/phone/phone-c.html",
-      "relativePath": "phone/phone-c.md",
-      "key": "v-e1449282",
-      "path": "/phone/phone-c.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "phone-c页面二级标题1",
-          "slug": "phone-c页面二级标题1"
-        },
-        {
-          "level": 3,
-          "title": "1.三级标题1",
-          "slug": "_1-三级标题1"
-        },
-        {
-          "level": 3,
-          "title": "2.三级标题2",
-          "slug": "_2-三级标题2"
-        },
-        {
-          "level": 3,
-          "title": "3.三级标题3",
-          "slug": "_3-三级标题3"
-        },
-        {
-          "level": 2,
-          "title": "phone-c页面二级标题2",
-          "slug": "phone-c页面二级标题2"
-        },
-        {
-          "level": 3,
-          "title": "1.三级标题1",
-          "slug": "_1-三级标题1-2"
-        },
-        {
-          "level": 3,
-          "title": "2.三级标题2",
-          "slug": "_2-三级标题2-2"
-        },
-        {
-          "level": 3,
-          "title": "3.三级标题3",
-          "slug": "_3-三级标题3-2"
-        }
-      ],
-      "lastUpdated": "2023年3月1日星期三下午12点33分",
-      "lastUpdatedTimestamp": 1677645233000
-    },
-    {
-      "title": "第二学期课程总述",
-      "frontmatter": {
-        "navbar": true,
-        "title": "第二学期课程总述"
-      },
-      "regularPath": "/secondless/",
-      "relativePath": "secondless/README.md",
-      "key": "v-17cd735c",
-      "path": "/secondless/",
-      "headers": [
-        {
-          "level": 2,
-          "title": "第二学期课程",
-          "slug": "第二学期课程"
-        },
-        {
-          "level": 3,
-          "title": "第一季",
-          "slug": "第一季"
-        },
-        {
-          "level": 3,
-          "title": "第二季",
-          "slug": "第二季"
-        },
-        {
-          "level": 3,
-          "title": "第三季",
-          "slug": "第三季"
-        },
-        {
-          "level": 3,
-          "title": "第四季",
-          "slug": "第四季"
-        },
-        {
-          "level": 2,
-          "title": "睿晨网所有课程集合",
-          "slug": "睿晨网所有课程集合"
-        }
-      ],
-      "lastUpdated": "2024年11月21日星期四下午5点41分",
-      "lastUpdatedTimestamp": 1732182099000
     },
     {
       "title": "thinkphp框架开发文档",
@@ -4181,133 +3706,479 @@ export const siteData = {
       "lastUpdatedTimestamp": 1745305221000
     },
     {
-      "title": "第二学期第一季（课程学习顺序：02）",
+      "title": "thinkphp上传图片文件",
       "frontmatter": {
-        "title": "第二学期第一季（课程学习顺序：02）"
+        "navbar": true,
+        "sidebar": "auto",
+        "title": "thinkphp上传图片文件"
       },
-      "regularPath": "/secondless/w-a.html",
-      "relativePath": "secondless/w-a.md",
-      "key": "v-00ea391a",
-      "path": "/secondless/w-a.html",
+      "regularPath": "/fourthless/w-a/thinkphp%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E8%AF%B4%E6%98%8E.html",
+      "relativePath": "fourthless/w-a/thinkphp文件上传说明.md",
+      "key": "v-34a3ea4a",
+      "path": "/fourthless/w-a/thinkphp%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E8%AF%B4%E6%98%8E.html",
       "headers": [
         {
           "level": 2,
-          "title": "1.第二学期第一季课程介绍",
-          "slug": "_1-第二学期第一季课程介绍"
+          "title": "一、配置阿里云存储，拿到密钥和bucket等信息",
+          "slug": "一、配置阿里云存储-拿到密钥和bucket等信息"
         },
         {
           "level": 2,
-          "title": "2.本季课程视频介绍",
-          "slug": "_2-本季课程视频介绍"
-        },
-        {
-          "level": 2,
-          "title": "3.课程免费试看（1-5课）",
-          "slug": "_3-课程免费试看-1-5课"
-        },
-        {
-          "level": 2,
-          "title": "4.课程视频学习",
-          "slug": "_4-课程视频学习"
-        },
-        {
-          "level": 2,
-          "title": "5.查看课程文档目录",
-          "slug": "_5-查看课程文档目录"
+          "title": "二、 阿里云OSS图片上传功能实现",
+          "slug": "二、-阿里云oss图片上传功能实现"
         },
         {
           "level": 3,
-          "title": "章节1.第一季课程介绍",
-          "slug": "章节1-第一季课程介绍"
+          "title": "1. 路由",
+          "slug": "_1-路由"
         },
         {
           "level": 3,
-          "title": "",
-          "slug": "章节2-javascript基础"
+          "title": "2. 首先安装阿里云OSS SDK",
+          "slug": "_2-首先安装阿里云oss-sdk"
         },
         {
           "level": 3,
-          "title": "",
-          "slug": "章节3-javascript运算符"
+          "title": "3. 配置oss",
+          "slug": "_3-配置oss"
         },
         {
           "level": 3,
-          "title": "",
-          "slug": "章节4-流程控制语句"
+          "title": "4. 创建公共方法 (common.php)",
+          "slug": "_4-创建公共方法-common-php"
         },
         {
           "level": 3,
-          "title": "",
-          "slug": "章节5-javascript函数"
+          "title": "5. 控制器代码： 测试上传效果",
+          "slug": "_5-控制器代码-测试上传效果"
         },
         {
           "level": 3,
-          "title": "",
-          "slug": "章节6-javascript对象"
-        },
-        {
-          "level": 3,
-          "title": "",
-          "slug": "章节7-javascript数组"
-        },
-        {
-          "level": 3,
-          "title": "",
-          "slug": "章节8-date类型-时间和日期"
-        },
-        {
-          "level": 3,
-          "title": "",
-          "slug": "章节9-function类型-函数进阶"
-        },
-        {
-          "level": 3,
-          "title": "",
-          "slug": "章节10-内置对象-global、math对象-变量、作用域和内存问题"
-        },
-        {
-          "level": 3,
-          "title": "",
-          "slug": "章节11-匿名函数和闭包"
-        },
-        {
-          "level": 3,
-          "title": "",
-          "slug": "章节12-javascript基本包装类型"
-        },
-        {
-          "level": 3,
-          "title": "",
-          "slug": "章节13-函数对象数组小结"
-        },
-        {
-          "level": 3,
-          "title": "",
-          "slug": "章节14-浏览器对象模型bom及浏览器检测"
-        },
-        {
-          "level": 3,
-          "title": "",
-          "slug": "章节15-网页文档对象模型dom"
-        },
-        {
-          "level": 3,
-          "title": "",
-          "slug": "章节16-事件"
-        },
-        {
-          "level": 3,
-          "title": "",
-          "slug": "章节17-表单处理及错误处理与调试"
-        },
-        {
-          "level": 3,
-          "title": "",
-          "slug": "章节18-数据cookie、xml、json"
+          "title": "6. 控制器代码完整代码",
+          "slug": "_6-控制器代码完整代码"
         }
       ],
-      "lastUpdated": "2025年2月14日星期五晚上7点31分",
-      "lastUpdatedTimestamp": 1739532672000
+      "lastUpdated": "2025年4月16日星期三下午5点31分",
+      "lastUpdatedTimestamp": 1744795890000
+    },
+    {
+      "title": "p-a页面",
+      "frontmatter": {
+        "title": "p-a页面"
+      },
+      "regularPath": "/pc/p-a.html",
+      "relativePath": "pc/p-a.md",
+      "key": "v-7fa37fb5",
+      "path": "/pc/p-a.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "p-a页面二级标题1",
+          "slug": "p-a页面二级标题1"
+        },
+        {
+          "level": 3,
+          "title": "1.三级标题1",
+          "slug": "_1-三级标题1"
+        },
+        {
+          "level": 3,
+          "title": "2.三级标题2",
+          "slug": "_2-三级标题2"
+        },
+        {
+          "level": 3,
+          "title": "3.三级标题3",
+          "slug": "_3-三级标题3"
+        },
+        {
+          "level": 2,
+          "title": "p-a页面二级标题2",
+          "slug": "p-a页面二级标题2"
+        },
+        {
+          "level": 3,
+          "title": "1.三级标题1",
+          "slug": "_1-三级标题1-2"
+        },
+        {
+          "level": 3,
+          "title": "2.三级标题2",
+          "slug": "_2-三级标题2-2"
+        },
+        {
+          "level": 3,
+          "title": "3.三级标题3",
+          "slug": "_3-三级标题3-2"
+        }
+      ],
+      "lastUpdated": "2023年3月1日星期三下午12点33分",
+      "lastUpdatedTimestamp": 1677645233000
+    },
+    {
+      "title": "第四学期第三季（课程学习顺序：13）",
+      "frontmatter": {
+        "title": "第四学期第三季（课程学习顺序：13）"
+      },
+      "regularPath": "/fourthless/w-c.html",
+      "relativePath": "fourthless/w-c.md",
+      "key": "v-88b5dfba",
+      "path": "/fourthless/w-c.html",
+      "lastUpdated": "2025年5月21日星期三下午12点33分",
+      "lastUpdatedTimestamp": 1747801989000
+    },
+    {
+      "title": "p-b页面",
+      "frontmatter": {
+        "title": "p-b页面"
+      },
+      "regularPath": "/pc/p-b.html",
+      "relativePath": "pc/p-b.md",
+      "key": "v-62ea3633",
+      "path": "/pc/p-b.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "p-b页面二级标题1",
+          "slug": "p-b页面二级标题1"
+        },
+        {
+          "level": 3,
+          "title": "1.三级标题1",
+          "slug": "_1-三级标题1"
+        },
+        {
+          "level": 3,
+          "title": "2.三级标题2",
+          "slug": "_2-三级标题2"
+        },
+        {
+          "level": 3,
+          "title": "3.三级标题3",
+          "slug": "_3-三级标题3"
+        },
+        {
+          "level": 2,
+          "title": "p-b页面二级标题2",
+          "slug": "p-b页面二级标题2"
+        },
+        {
+          "level": 3,
+          "title": "1.三级标题1",
+          "slug": "_1-三级标题1-2"
+        },
+        {
+          "level": 3,
+          "title": "2.三级标题2",
+          "slug": "_2-三级标题2-2"
+        },
+        {
+          "level": 3,
+          "title": "3.三级标题3",
+          "slug": "_3-三级标题3-2"
+        }
+      ],
+      "lastUpdated": "2023年3月1日星期三下午12点33分",
+      "lastUpdatedTimestamp": 1677645233000
+    },
+    {
+      "title": "p-c页面",
+      "frontmatter": {
+        "title": "p-c页面"
+      },
+      "regularPath": "/pc/p-c.html",
+      "relativePath": "pc/p-c.md",
+      "key": "v-4630ecb1",
+      "path": "/pc/p-c.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "p-c页面二级标题1",
+          "slug": "p-c页面二级标题1"
+        },
+        {
+          "level": 3,
+          "title": "1.三级标题1",
+          "slug": "_1-三级标题1"
+        },
+        {
+          "level": 3,
+          "title": "2.三级标题2",
+          "slug": "_2-三级标题2"
+        },
+        {
+          "level": 3,
+          "title": "3.三级标题3",
+          "slug": "_3-三级标题3"
+        },
+        {
+          "level": 2,
+          "title": "p-c页面二级标题2",
+          "slug": "p-c页面二级标题2"
+        },
+        {
+          "level": 3,
+          "title": "1.三级标题1",
+          "slug": "_1-三级标题1-2"
+        },
+        {
+          "level": 3,
+          "title": "2.三级标题2",
+          "slug": "_2-三级标题2-2"
+        },
+        {
+          "level": 3,
+          "title": "3.三级标题3",
+          "slug": "_3-三级标题3-2"
+        }
+      ],
+      "lastUpdated": "2023年3月1日星期三下午12点33分",
+      "lastUpdatedTimestamp": 1677645233000
+    },
+    {
+      "title": "第四学期第二季（课程学习顺序：12）",
+      "frontmatter": {
+        "title": "第四学期第二季（课程学习顺序：12）"
+      },
+      "regularPath": "/fourthless/w-b.html",
+      "relativePath": "fourthless/w-b.md",
+      "key": "v-8422aeb6",
+      "path": "/fourthless/w-b.html",
+      "lastUpdated": "2025年5月21日星期三下午12点33分",
+      "lastUpdatedTimestamp": 1747801989000
+    },
+    {
+      "title": "我是phone总页",
+      "frontmatter": {
+        "navbar": true,
+        "title": "我是phone总页"
+      },
+      "regularPath": "/phone/",
+      "relativePath": "phone/README.md",
+      "key": "v-4f90747e",
+      "path": "/phone/",
+      "lastUpdated": "2023年3月1日星期三下午12点33分",
+      "lastUpdatedTimestamp": 1677645233000
+    },
+    {
+      "title": "phone-a页面",
+      "frontmatter": {
+        "title": "phone-a页面"
+      },
+      "regularPath": "/phone/phone-a.html",
+      "relativePath": "phone/phone-a.md",
+      "key": "v-10de5a02",
+      "path": "/phone/phone-a.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "phone-a页面二级标题1",
+          "slug": "phone-a页面二级标题1"
+        },
+        {
+          "level": 3,
+          "title": "1.三级标题1",
+          "slug": "_1-三级标题1"
+        },
+        {
+          "level": 3,
+          "title": "2.三级标题2",
+          "slug": "_2-三级标题2"
+        },
+        {
+          "level": 3,
+          "title": "3.三级标题3",
+          "slug": "_3-三级标题3"
+        },
+        {
+          "level": 2,
+          "title": "phone-a页面二级标题2",
+          "slug": "phone-a页面二级标题2"
+        },
+        {
+          "level": 3,
+          "title": "1.三级标题1",
+          "slug": "_1-三级标题1-2"
+        },
+        {
+          "level": 3,
+          "title": "2.三级标题2",
+          "slug": "_2-三级标题2-2"
+        },
+        {
+          "level": 3,
+          "title": "3.三级标题3",
+          "slug": "_3-三级标题3-2"
+        }
+      ],
+      "lastUpdated": "2023年3月1日星期三下午12点33分",
+      "lastUpdatedTimestamp": 1677645233000
+    },
+    {
+      "title": "我是pc总页",
+      "frontmatter": {
+        "navbar": true,
+        "title": "我是pc总页"
+      },
+      "regularPath": "/pc/",
+      "relativePath": "pc/README.md",
+      "key": "v-7ba60f92",
+      "path": "/pc/",
+      "lastUpdated": "2023年3月1日星期三下午12点33分",
+      "lastUpdatedTimestamp": 1677645233000
+    },
+    {
+      "title": "phone-b页面",
+      "frontmatter": {
+        "title": "phone-b页面"
+      },
+      "regularPath": "/phone/phone-b.html",
+      "relativePath": "phone/phone-b.md",
+      "key": "v-437744df",
+      "path": "/phone/phone-b.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "phone-b页面二级标题1",
+          "slug": "phone-b页面二级标题1"
+        },
+        {
+          "level": 3,
+          "title": "1.三级标题1",
+          "slug": "_1-三级标题1"
+        },
+        {
+          "level": 3,
+          "title": "2.三级标题2",
+          "slug": "_2-三级标题2"
+        },
+        {
+          "level": 3,
+          "title": "3.三级标题3",
+          "slug": "_3-三级标题3"
+        },
+        {
+          "level": 2,
+          "title": "phone-b页面二级标题2",
+          "slug": "phone-b页面二级标题2"
+        },
+        {
+          "level": 3,
+          "title": "1.三级标题1",
+          "slug": "_1-三级标题1-2"
+        },
+        {
+          "level": 3,
+          "title": "2.三级标题2",
+          "slug": "_2-三级标题2-2"
+        },
+        {
+          "level": 3,
+          "title": "3.三级标题3",
+          "slug": "_3-三级标题3-2"
+        }
+      ],
+      "lastUpdated": "2023年3月1日星期三下午12点33分",
+      "lastUpdatedTimestamp": 1677645233000
+    },
+    {
+      "title": "第二学期课程总述",
+      "frontmatter": {
+        "navbar": true,
+        "title": "第二学期课程总述"
+      },
+      "regularPath": "/secondless/",
+      "relativePath": "secondless/README.md",
+      "key": "v-17cd735c",
+      "path": "/secondless/",
+      "headers": [
+        {
+          "level": 2,
+          "title": "第二学期课程",
+          "slug": "第二学期课程"
+        },
+        {
+          "level": 3,
+          "title": "第一季",
+          "slug": "第一季"
+        },
+        {
+          "level": 3,
+          "title": "第二季",
+          "slug": "第二季"
+        },
+        {
+          "level": 3,
+          "title": "第三季",
+          "slug": "第三季"
+        },
+        {
+          "level": 3,
+          "title": "第四季",
+          "slug": "第四季"
+        },
+        {
+          "level": 2,
+          "title": "睿晨网所有课程集合",
+          "slug": "睿晨网所有课程集合"
+        }
+      ],
+      "lastUpdated": "2024年11月21日星期四下午5点41分",
+      "lastUpdatedTimestamp": 1732182099000
+    },
+    {
+      "title": "phone-c页面",
+      "frontmatter": {
+        "title": "phone-c页面"
+      },
+      "regularPath": "/phone/phone-c.html",
+      "relativePath": "phone/phone-c.md",
+      "key": "v-e1449282",
+      "path": "/phone/phone-c.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "phone-c页面二级标题1",
+          "slug": "phone-c页面二级标题1"
+        },
+        {
+          "level": 3,
+          "title": "1.三级标题1",
+          "slug": "_1-三级标题1"
+        },
+        {
+          "level": 3,
+          "title": "2.三级标题2",
+          "slug": "_2-三级标题2"
+        },
+        {
+          "level": 3,
+          "title": "3.三级标题3",
+          "slug": "_3-三级标题3"
+        },
+        {
+          "level": 2,
+          "title": "phone-c页面二级标题2",
+          "slug": "phone-c页面二级标题2"
+        },
+        {
+          "level": 3,
+          "title": "1.三级标题1",
+          "slug": "_1-三级标题1-2"
+        },
+        {
+          "level": 3,
+          "title": "2.三级标题2",
+          "slug": "_2-三级标题2-2"
+        },
+        {
+          "level": 3,
+          "title": "3.三级标题3",
+          "slug": "_3-三级标题3-2"
+        }
+      ],
+      "lastUpdated": "2023年3月1日星期三下午12点33分",
+      "lastUpdatedTimestamp": 1677645233000
     },
     {
       "title": "章节8.Date类型：时间和日期",
@@ -4489,6 +4360,135 @@ export const siteData = {
       ],
       "lastUpdated": "2024年11月19日星期二中午11点54分",
       "lastUpdatedTimestamp": 1731988442000
+    },
+    {
+      "title": "第二学期第一季（课程学习顺序：02）",
+      "frontmatter": {
+        "title": "第二学期第一季（课程学习顺序：02）"
+      },
+      "regularPath": "/secondless/w-a.html",
+      "relativePath": "secondless/w-a.md",
+      "key": "v-00ea391a",
+      "path": "/secondless/w-a.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "1.第二学期第一季课程介绍",
+          "slug": "_1-第二学期第一季课程介绍"
+        },
+        {
+          "level": 2,
+          "title": "2.本季课程视频介绍",
+          "slug": "_2-本季课程视频介绍"
+        },
+        {
+          "level": 2,
+          "title": "3.课程免费试看（1-5课）",
+          "slug": "_3-课程免费试看-1-5课"
+        },
+        {
+          "level": 2,
+          "title": "4.课程视频学习",
+          "slug": "_4-课程视频学习"
+        },
+        {
+          "level": 2,
+          "title": "5.查看课程文档目录",
+          "slug": "_5-查看课程文档目录"
+        },
+        {
+          "level": 3,
+          "title": "章节1.第一季课程介绍",
+          "slug": "章节1-第一季课程介绍"
+        },
+        {
+          "level": 3,
+          "title": "",
+          "slug": "章节2-javascript基础"
+        },
+        {
+          "level": 3,
+          "title": "",
+          "slug": "章节3-javascript运算符"
+        },
+        {
+          "level": 3,
+          "title": "",
+          "slug": "章节4-流程控制语句"
+        },
+        {
+          "level": 3,
+          "title": "",
+          "slug": "章节5-javascript函数"
+        },
+        {
+          "level": 3,
+          "title": "",
+          "slug": "章节6-javascript对象"
+        },
+        {
+          "level": 3,
+          "title": "",
+          "slug": "章节7-javascript数组"
+        },
+        {
+          "level": 3,
+          "title": "",
+          "slug": "章节8-date类型-时间和日期"
+        },
+        {
+          "level": 3,
+          "title": "",
+          "slug": "章节9-function类型-函数进阶"
+        },
+        {
+          "level": 3,
+          "title": "",
+          "slug": "章节10-内置对象-global、math对象-变量、作用域和内存问题"
+        },
+        {
+          "level": 3,
+          "title": "",
+          "slug": "章节11-匿名函数和闭包"
+        },
+        {
+          "level": 3,
+          "title": "",
+          "slug": "章节12-javascript基本包装类型"
+        },
+        {
+          "level": 3,
+          "title": "",
+          "slug": "章节13-函数对象数组小结"
+        },
+        {
+          "level": 3,
+          "title": "",
+          "slug": "章节14-浏览器对象模型bom及浏览器检测"
+        },
+        {
+          "level": 3,
+          "title": "",
+          "slug": "章节15-网页文档对象模型dom"
+        },
+        {
+          "level": 3,
+          "title": "",
+          "slug": "章节16-事件"
+        },
+        {
+          "level": 3,
+          "title": "",
+          "slug": "章节17-表单处理及错误处理与调试"
+        },
+        {
+          "level": 3,
+          "title": "",
+          "slug": "章节18-数据cookie、xml、json"
+        }
+      ],
+      "lastUpdated": "2025年2月14日星期五晚上7点31分",
+      "lastUpdatedTimestamp": 1739532672000
     },
     {
       "title": "章节9.Function类型：函数进阶",
@@ -4757,6 +4757,247 @@ export const siteData = {
           "level": 2,
           "title": "3、函数的arguments 对象",
           "slug": "_3、函数的arguments-对象"
+        },
+        {
+          "level": 2,
+          "title": "课程其它章节",
+          "slug": "课程其它章节"
+        },
+        {
+          "level": 3,
+          "title": "章节1.课程介绍",
+          "slug": "章节1-课程介绍"
+        },
+        {
+          "level": 3,
+          "title": "章节2.javascript基础",
+          "slug": "章节2-javascript基础"
+        },
+        {
+          "level": 3,
+          "title": "章节3.javascript运算符",
+          "slug": "章节3-javascript运算符"
+        },
+        {
+          "level": 3,
+          "title": "章节4.流程控制语句",
+          "slug": "章节4-流程控制语句"
+        },
+        {
+          "level": 3,
+          "title": "章节5.javascript函数",
+          "slug": "章节5-javascript函数"
+        },
+        {
+          "level": 3,
+          "title": "章节6.javascript对象",
+          "slug": "章节6-javascript对象"
+        },
+        {
+          "level": 3,
+          "title": "章节7.javascript数组",
+          "slug": "章节7-javascript数组"
+        },
+        {
+          "level": 3,
+          "title": "章节8.Date类型：时间和日期",
+          "slug": "章节8-date类型-时间和日期"
+        },
+        {
+          "level": 3,
+          "title": "章节9.Function类型：函数进阶",
+          "slug": "章节9-function类型-函数进阶"
+        },
+        {
+          "level": 3,
+          "title": "章节10.内置对象：Global、Math对象，变量、作用域和内存问题",
+          "slug": "章节10-内置对象-global、math对象-变量、作用域和内存问题"
+        },
+        {
+          "level": 3,
+          "title": "章节11.匿名函数和闭包",
+          "slug": "章节11-匿名函数和闭包"
+        },
+        {
+          "level": 3,
+          "title": "章节12.javascript基本包装类型",
+          "slug": "章节12-javascript基本包装类型"
+        },
+        {
+          "level": 3,
+          "title": "章节13.函数对象数组小结",
+          "slug": "章节13-函数对象数组小结"
+        },
+        {
+          "level": 3,
+          "title": "章节14.浏览器对象模型BOM及浏览器检测",
+          "slug": "章节14-浏览器对象模型bom及浏览器检测"
+        },
+        {
+          "level": 3,
+          "title": "章节15.网页文档对象模型DOM",
+          "slug": "章节15-网页文档对象模型dom"
+        },
+        {
+          "level": 3,
+          "title": "章节16.事件",
+          "slug": "章节16-事件"
+        },
+        {
+          "level": 3,
+          "title": "章节17.表单处理及错误处理与调试",
+          "slug": "章节17-表单处理及错误处理与调试"
+        },
+        {
+          "level": 3,
+          "title": "章节18.数据Cookie、XML、JSON",
+          "slug": "章节18-数据cookie、xml、json"
+        },
+        {
+          "level": 2,
+          "title": "其它学期课程",
+          "slug": "其它学期课程"
+        },
+        {
+          "level": 3,
+          "title": "第一学期（学习顺序：01）",
+          "slug": "第一学期-学习顺序-01"
+        },
+        {
+          "level": 3,
+          "title": "第二学期【第1季】（学习顺序：02）",
+          "slug": "第二学期【第1季】-学习顺序-02"
+        },
+        {
+          "level": 3,
+          "title": "第二学期【第2季】（学习顺序：03）",
+          "slug": "第二学期【第2季】-学习顺序-03"
+        },
+        {
+          "level": 3,
+          "title": "第二学期【第3季】（学习顺序：04）",
+          "slug": "第二学期【第3季】-学习顺序-04"
+        },
+        {
+          "level": 3,
+          "title": "第二学期【第4季】（学习顺序：05）",
+          "slug": "第二学期【第4季】-学习顺序-05"
+        }
+      ],
+      "lastUpdated": "2024年11月19日星期二中午11点54分",
+      "lastUpdatedTimestamp": 1731988442000
+    },
+    {
+      "title": "章节2.javascript基础",
+      "frontmatter": {
+        "navbar": true,
+        "sidebar": "auto",
+        "title": "章节2.javascript基础"
+      },
+      "regularPath": "/secondless/w-a/javascript%E5%9F%BA%E7%A1%80.html",
+      "relativePath": "secondless/w-a/javascript基础.md",
+      "key": "v-57c86994",
+      "path": "/secondless/w-a/javascript%E5%9F%BA%E7%A1%80.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "1、变量",
+          "slug": "_1、变量"
+        },
+        {
+          "level": 3,
+          "title": "操作符",
+          "slug": "操作符"
+        },
+        {
+          "level": 2,
+          "title": "2、关键保留字",
+          "slug": "_2、关键保留字"
+        },
+        {
+          "level": 3,
+          "title": "关键字",
+          "slug": "关键字"
+        },
+        {
+          "level": 3,
+          "title": "保留字",
+          "slug": "保留字"
+        },
+        {
+          "level": 2,
+          "title": "3、语法构成",
+          "slug": "_3、语法构成"
+        },
+        {
+          "level": 3,
+          "title": "标识符",
+          "slug": "标识符"
+        },
+        {
+          "level": 3,
+          "title": "区分大小写",
+          "slug": "区分大小写"
+        },
+        {
+          "level": 3,
+          "title": "代码注释",
+          "slug": "代码注释"
+        },
+        {
+          "level": 2,
+          "title": "4、数据类型",
+          "slug": "_4、数据类型"
+        },
+        {
+          "level": 3,
+          "title": "Undefined 类型",
+          "slug": "undefined-类型"
+        },
+        {
+          "level": 3,
+          "title": "Null 类型",
+          "slug": "null-类型"
+        },
+        {
+          "level": 3,
+          "title": "Boolean 类型",
+          "slug": "boolean-类型"
+        },
+        {
+          "level": 3,
+          "title": "Number 类型",
+          "slug": "number-类型"
+        },
+        {
+          "level": 3,
+          "title": "String 类型",
+          "slug": "string-类型"
+        },
+        {
+          "level": 3,
+          "title": "Object 类型",
+          "slug": "object-类型"
+        },
+        {
+          "level": 3,
+          "title": "总结 typeof操作符及初始化变量声明",
+          "slug": "总结-typeof操作符及初始化变量声明"
+        },
+        {
+          "level": 3,
+          "title": "总结 Boolean 类型转换",
+          "slug": "总结-boolean-类型转换"
+        },
+        {
+          "level": 3,
+          "title": "Number()函数",
+          "slug": "number-函数"
+        },
+        {
+          "level": 3,
+          "title": "parseInt()函数、parseFloat()函数",
+          "slug": "parseint-函数、parsefloat-函数"
         },
         {
           "level": 2,
@@ -5209,6 +5450,312 @@ export const siteData = {
           "level": 3,
           "title": "随着课程深入，后面通过案例再讲解",
           "slug": "随着课程深入-后面通过案例再讲解"
+        },
+        {
+          "level": 2,
+          "title": "课程其它章节",
+          "slug": "课程其它章节"
+        },
+        {
+          "level": 3,
+          "title": "章节1.课程介绍",
+          "slug": "章节1-课程介绍"
+        },
+        {
+          "level": 3,
+          "title": "章节2.javascript基础",
+          "slug": "章节2-javascript基础"
+        },
+        {
+          "level": 3,
+          "title": "章节3.javascript运算符",
+          "slug": "章节3-javascript运算符"
+        },
+        {
+          "level": 3,
+          "title": "章节4.流程控制语句",
+          "slug": "章节4-流程控制语句"
+        },
+        {
+          "level": 3,
+          "title": "章节5.javascript函数",
+          "slug": "章节5-javascript函数"
+        },
+        {
+          "level": 3,
+          "title": "章节6.javascript对象",
+          "slug": "章节6-javascript对象"
+        },
+        {
+          "level": 3,
+          "title": "章节7.javascript数组",
+          "slug": "章节7-javascript数组"
+        },
+        {
+          "level": 3,
+          "title": "章节8.Date类型：时间和日期",
+          "slug": "章节8-date类型-时间和日期"
+        },
+        {
+          "level": 3,
+          "title": "章节9.Function类型：函数进阶",
+          "slug": "章节9-function类型-函数进阶"
+        },
+        {
+          "level": 3,
+          "title": "章节10.内置对象：Global、Math对象，变量、作用域和内存问题",
+          "slug": "章节10-内置对象-global、math对象-变量、作用域和内存问题"
+        },
+        {
+          "level": 3,
+          "title": "章节11.匿名函数和闭包",
+          "slug": "章节11-匿名函数和闭包"
+        },
+        {
+          "level": 3,
+          "title": "章节12.javascript基本包装类型",
+          "slug": "章节12-javascript基本包装类型"
+        },
+        {
+          "level": 3,
+          "title": "章节13.函数对象数组小结",
+          "slug": "章节13-函数对象数组小结"
+        },
+        {
+          "level": 3,
+          "title": "章节14.浏览器对象模型BOM及浏览器检测",
+          "slug": "章节14-浏览器对象模型bom及浏览器检测"
+        },
+        {
+          "level": 3,
+          "title": "章节15.网页文档对象模型DOM",
+          "slug": "章节15-网页文档对象模型dom"
+        },
+        {
+          "level": 3,
+          "title": "章节16.事件",
+          "slug": "章节16-事件"
+        },
+        {
+          "level": 3,
+          "title": "章节17.表单处理及错误处理与调试",
+          "slug": "章节17-表单处理及错误处理与调试"
+        },
+        {
+          "level": 3,
+          "title": "章节18.数据Cookie、XML、JSON",
+          "slug": "章节18-数据cookie、xml、json"
+        },
+        {
+          "level": 2,
+          "title": "其它学期课程",
+          "slug": "其它学期课程"
+        },
+        {
+          "level": 3,
+          "title": "第一学期（学习顺序：01）",
+          "slug": "第一学期-学习顺序-01"
+        },
+        {
+          "level": 3,
+          "title": "第二学期【第1季】（学习顺序：02）",
+          "slug": "第二学期【第1季】-学习顺序-02"
+        },
+        {
+          "level": 3,
+          "title": "第二学期【第2季】（学习顺序：03）",
+          "slug": "第二学期【第2季】-学习顺序-03"
+        },
+        {
+          "level": 3,
+          "title": "第二学期【第3季】（学习顺序：04）",
+          "slug": "第二学期【第3季】-学习顺序-04"
+        },
+        {
+          "level": 3,
+          "title": "第二学期【第4季】（学习顺序：05）",
+          "slug": "第二学期【第4季】-学习顺序-05"
+        }
+      ],
+      "lastUpdated": "2024年11月19日星期二中午11点54分",
+      "lastUpdatedTimestamp": 1731988442000
+    },
+    {
+      "title": "章节3.javascript运算符",
+      "frontmatter": {
+        "navbar": true,
+        "sidebar": "auto",
+        "title": "章节3.javascript运算符"
+      },
+      "regularPath": "/secondless/w-a/javascript%E8%BF%90%E7%AE%97%E7%AC%A6.html",
+      "relativePath": "secondless/w-a/javascript运算符.md",
+      "key": "v-fe8bdd96",
+      "path": "/secondless/w-a/javascript%E8%BF%90%E7%AE%97%E7%AC%A6.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "1、一元运算符",
+          "slug": "_1、一元运算符"
+        },
+        {
+          "level": 3,
+          "title": "① 递增(++) 和 递减(--)",
+          "slug": "_1-递增-和-递减"
+        },
+        {
+          "level": 3,
+          "title": "② 前置后置递增(++)递减(--)的区别",
+          "slug": "_2-前置后置递增-递减-的区别"
+        },
+        {
+          "level": 3,
+          "title": "③ 其它类型在一元运算符的规则",
+          "slug": "_3-其它类型在一元运算符的规则"
+        },
+        {
+          "level": 3,
+          "title": "④ 加和减运算符",
+          "slug": "_4-加和减运算符"
+        },
+        {
+          "level": 2,
+          "title": "2、算术运算符",
+          "slug": "_2、算术运算符"
+        },
+        {
+          "level": 3,
+          "title": "① 加法 （+）",
+          "slug": "_1-加法"
+        },
+        {
+          "level": 3,
+          "title": "② 减法 （-）",
+          "slug": "_2-减法"
+        },
+        {
+          "level": 3,
+          "title": "③ 乘法 （*）",
+          "slug": "_3-乘法"
+        },
+        {
+          "level": 3,
+          "title": "④ 除法 （/）",
+          "slug": "_4-除法"
+        },
+        {
+          "level": 3,
+          "title": "⑤ 求余数 （%）",
+          "slug": "_5-求余数"
+        },
+        {
+          "level": 2,
+          "title": "3、赋值运算符",
+          "slug": "_3、赋值运算符"
+        },
+        {
+          "level": 3,
+          "title": "① 赋值给变量",
+          "slug": "_1-赋值给变量"
+        },
+        {
+          "level": 3,
+          "title": "② 复合赋值运算符",
+          "slug": "_2-复合赋值运算符"
+        },
+        {
+          "level": 2,
+          "title": "4、关系运算符",
+          "slug": "_4、关系运算符"
+        },
+        {
+          "level": 3,
+          "title": "① 两个操作数都是数值，则数值比较",
+          "slug": "_1-两个操作数都是数值-则数值比较"
+        },
+        {
+          "level": 3,
+          "title": "② 一个是数值字符串，一个是数值",
+          "slug": "_2-一个是数值字符串-一个是数值"
+        },
+        {
+          "level": 3,
+          "title": "③ 两个都是数值字符串",
+          "slug": "_3-两个都是数值字符串"
+        },
+        {
+          "level": 3,
+          "title": "④ 一个是对象，一个是数值",
+          "slug": "_4-一个是对象-一个是数值"
+        },
+        {
+          "level": 3,
+          "title": "⑤ 字母字符串比较",
+          "slug": "_5-字母字符串比较"
+        },
+        {
+          "level": 3,
+          "title": "⑥ 相等和不等的规则",
+          "slug": "_6-相等和不等的规则"
+        },
+        {
+          "level": 2,
+          "title": "5、逻辑运算符",
+          "slug": "_5、逻辑运算符"
+        },
+        {
+          "level": 3,
+          "title": "① 逻辑与(and) ：&& [并且的意思]",
+          "slug": "_1-逻辑与-and-并且的意思"
+        },
+        {
+          "level": 3,
+          "title": "② 逻辑或(or)：||  [或者的意思]",
+          "slug": "_2-逻辑或-or-或者的意思"
+        },
+        {
+          "level": 3,
+          "title": "③ 逻辑非(not)：!  [取反的意思]",
+          "slug": "_3-逻辑非-not-取反的意思"
+        },
+        {
+          "level": 3,
+          "title": "④ !! [取反再取反]",
+          "slug": "_4-取反再取反"
+        },
+        {
+          "level": 2,
+          "title": "6、字符串、逗号、三元条件运算符",
+          "slug": "_6、字符串、逗号、三元条件运算符"
+        },
+        {
+          "level": 3,
+          "title": "① 字符串运算符",
+          "slug": "_1-字符串运算符"
+        },
+        {
+          "level": 3,
+          "title": "② 逗号运算符",
+          "slug": "_2-逗号运算符"
+        },
+        {
+          "level": 3,
+          "title": "③ 三元条件运算符",
+          "slug": "_3-三元条件运算符"
+        },
+        {
+          "level": 2,
+          "title": "7、运算符优先级",
+          "slug": "_7、运算符优先级"
+        },
+        {
+          "level": 3,
+          "title": "① 有括号的情况",
+          "slug": "_1-有括号的情况"
+        },
+        {
+          "level": 3,
+          "title": "② 没有括号的情况",
+          "slug": "_2-没有括号的情况"
         },
         {
           "level": 2,
@@ -5800,553 +6347,6 @@ export const siteData = {
           "level": 3,
           "title": "② 获取数组中的随机项（验证码参考）",
           "slug": "_2-获取数组中的随机项-验证码参考"
-        },
-        {
-          "level": 2,
-          "title": "课程其它章节",
-          "slug": "课程其它章节"
-        },
-        {
-          "level": 3,
-          "title": "章节1.课程介绍",
-          "slug": "章节1-课程介绍"
-        },
-        {
-          "level": 3,
-          "title": "章节2.javascript基础",
-          "slug": "章节2-javascript基础"
-        },
-        {
-          "level": 3,
-          "title": "章节3.javascript运算符",
-          "slug": "章节3-javascript运算符"
-        },
-        {
-          "level": 3,
-          "title": "章节4.流程控制语句",
-          "slug": "章节4-流程控制语句"
-        },
-        {
-          "level": 3,
-          "title": "章节5.javascript函数",
-          "slug": "章节5-javascript函数"
-        },
-        {
-          "level": 3,
-          "title": "章节6.javascript对象",
-          "slug": "章节6-javascript对象"
-        },
-        {
-          "level": 3,
-          "title": "章节7.javascript数组",
-          "slug": "章节7-javascript数组"
-        },
-        {
-          "level": 3,
-          "title": "章节8.Date类型：时间和日期",
-          "slug": "章节8-date类型-时间和日期"
-        },
-        {
-          "level": 3,
-          "title": "章节9.Function类型：函数进阶",
-          "slug": "章节9-function类型-函数进阶"
-        },
-        {
-          "level": 3,
-          "title": "章节10.内置对象：Global、Math对象，变量、作用域和内存问题",
-          "slug": "章节10-内置对象-global、math对象-变量、作用域和内存问题"
-        },
-        {
-          "level": 3,
-          "title": "章节11.匿名函数和闭包",
-          "slug": "章节11-匿名函数和闭包"
-        },
-        {
-          "level": 3,
-          "title": "章节12.javascript基本包装类型",
-          "slug": "章节12-javascript基本包装类型"
-        },
-        {
-          "level": 3,
-          "title": "章节13.函数对象数组小结",
-          "slug": "章节13-函数对象数组小结"
-        },
-        {
-          "level": 3,
-          "title": "章节14.浏览器对象模型BOM及浏览器检测",
-          "slug": "章节14-浏览器对象模型bom及浏览器检测"
-        },
-        {
-          "level": 3,
-          "title": "章节15.网页文档对象模型DOM",
-          "slug": "章节15-网页文档对象模型dom"
-        },
-        {
-          "level": 3,
-          "title": "章节16.事件",
-          "slug": "章节16-事件"
-        },
-        {
-          "level": 3,
-          "title": "章节17.表单处理及错误处理与调试",
-          "slug": "章节17-表单处理及错误处理与调试"
-        },
-        {
-          "level": 3,
-          "title": "章节18.数据Cookie、XML、JSON",
-          "slug": "章节18-数据cookie、xml、json"
-        },
-        {
-          "level": 2,
-          "title": "其它学期课程",
-          "slug": "其它学期课程"
-        },
-        {
-          "level": 3,
-          "title": "第一学期（学习顺序：01）",
-          "slug": "第一学期-学习顺序-01"
-        },
-        {
-          "level": 3,
-          "title": "第二学期【第1季】（学习顺序：02）",
-          "slug": "第二学期【第1季】-学习顺序-02"
-        },
-        {
-          "level": 3,
-          "title": "第二学期【第2季】（学习顺序：03）",
-          "slug": "第二学期【第2季】-学习顺序-03"
-        },
-        {
-          "level": 3,
-          "title": "第二学期【第3季】（学习顺序：04）",
-          "slug": "第二学期【第3季】-学习顺序-04"
-        },
-        {
-          "level": 3,
-          "title": "第二学期【第4季】（学习顺序：05）",
-          "slug": "第二学期【第4季】-学习顺序-05"
-        }
-      ],
-      "lastUpdated": "2024年11月19日星期二中午11点54分",
-      "lastUpdatedTimestamp": 1731988442000
-    },
-    {
-      "title": "章节3.javascript运算符",
-      "frontmatter": {
-        "navbar": true,
-        "sidebar": "auto",
-        "title": "章节3.javascript运算符"
-      },
-      "regularPath": "/secondless/w-a/javascript%E8%BF%90%E7%AE%97%E7%AC%A6.html",
-      "relativePath": "secondless/w-a/javascript运算符.md",
-      "key": "v-fe8bdd96",
-      "path": "/secondless/w-a/javascript%E8%BF%90%E7%AE%97%E7%AC%A6.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "1、一元运算符",
-          "slug": "_1、一元运算符"
-        },
-        {
-          "level": 3,
-          "title": "① 递增(++) 和 递减(--)",
-          "slug": "_1-递增-和-递减"
-        },
-        {
-          "level": 3,
-          "title": "② 前置后置递增(++)递减(--)的区别",
-          "slug": "_2-前置后置递增-递减-的区别"
-        },
-        {
-          "level": 3,
-          "title": "③ 其它类型在一元运算符的规则",
-          "slug": "_3-其它类型在一元运算符的规则"
-        },
-        {
-          "level": 3,
-          "title": "④ 加和减运算符",
-          "slug": "_4-加和减运算符"
-        },
-        {
-          "level": 2,
-          "title": "2、算术运算符",
-          "slug": "_2、算术运算符"
-        },
-        {
-          "level": 3,
-          "title": "① 加法 （+）",
-          "slug": "_1-加法"
-        },
-        {
-          "level": 3,
-          "title": "② 减法 （-）",
-          "slug": "_2-减法"
-        },
-        {
-          "level": 3,
-          "title": "③ 乘法 （*）",
-          "slug": "_3-乘法"
-        },
-        {
-          "level": 3,
-          "title": "④ 除法 （/）",
-          "slug": "_4-除法"
-        },
-        {
-          "level": 3,
-          "title": "⑤ 求余数 （%）",
-          "slug": "_5-求余数"
-        },
-        {
-          "level": 2,
-          "title": "3、赋值运算符",
-          "slug": "_3、赋值运算符"
-        },
-        {
-          "level": 3,
-          "title": "① 赋值给变量",
-          "slug": "_1-赋值给变量"
-        },
-        {
-          "level": 3,
-          "title": "② 复合赋值运算符",
-          "slug": "_2-复合赋值运算符"
-        },
-        {
-          "level": 2,
-          "title": "4、关系运算符",
-          "slug": "_4、关系运算符"
-        },
-        {
-          "level": 3,
-          "title": "① 两个操作数都是数值，则数值比较",
-          "slug": "_1-两个操作数都是数值-则数值比较"
-        },
-        {
-          "level": 3,
-          "title": "② 一个是数值字符串，一个是数值",
-          "slug": "_2-一个是数值字符串-一个是数值"
-        },
-        {
-          "level": 3,
-          "title": "③ 两个都是数值字符串",
-          "slug": "_3-两个都是数值字符串"
-        },
-        {
-          "level": 3,
-          "title": "④ 一个是对象，一个是数值",
-          "slug": "_4-一个是对象-一个是数值"
-        },
-        {
-          "level": 3,
-          "title": "⑤ 字母字符串比较",
-          "slug": "_5-字母字符串比较"
-        },
-        {
-          "level": 3,
-          "title": "⑥ 相等和不等的规则",
-          "slug": "_6-相等和不等的规则"
-        },
-        {
-          "level": 2,
-          "title": "5、逻辑运算符",
-          "slug": "_5、逻辑运算符"
-        },
-        {
-          "level": 3,
-          "title": "① 逻辑与(and) ：&& [并且的意思]",
-          "slug": "_1-逻辑与-and-并且的意思"
-        },
-        {
-          "level": 3,
-          "title": "② 逻辑或(or)：||  [或者的意思]",
-          "slug": "_2-逻辑或-or-或者的意思"
-        },
-        {
-          "level": 3,
-          "title": "③ 逻辑非(not)：!  [取反的意思]",
-          "slug": "_3-逻辑非-not-取反的意思"
-        },
-        {
-          "level": 3,
-          "title": "④ !! [取反再取反]",
-          "slug": "_4-取反再取反"
-        },
-        {
-          "level": 2,
-          "title": "6、字符串、逗号、三元条件运算符",
-          "slug": "_6、字符串、逗号、三元条件运算符"
-        },
-        {
-          "level": 3,
-          "title": "① 字符串运算符",
-          "slug": "_1-字符串运算符"
-        },
-        {
-          "level": 3,
-          "title": "② 逗号运算符",
-          "slug": "_2-逗号运算符"
-        },
-        {
-          "level": 3,
-          "title": "③ 三元条件运算符",
-          "slug": "_3-三元条件运算符"
-        },
-        {
-          "level": 2,
-          "title": "7、运算符优先级",
-          "slug": "_7、运算符优先级"
-        },
-        {
-          "level": 3,
-          "title": "① 有括号的情况",
-          "slug": "_1-有括号的情况"
-        },
-        {
-          "level": 3,
-          "title": "② 没有括号的情况",
-          "slug": "_2-没有括号的情况"
-        },
-        {
-          "level": 2,
-          "title": "课程其它章节",
-          "slug": "课程其它章节"
-        },
-        {
-          "level": 3,
-          "title": "章节1.课程介绍",
-          "slug": "章节1-课程介绍"
-        },
-        {
-          "level": 3,
-          "title": "章节2.javascript基础",
-          "slug": "章节2-javascript基础"
-        },
-        {
-          "level": 3,
-          "title": "章节3.javascript运算符",
-          "slug": "章节3-javascript运算符"
-        },
-        {
-          "level": 3,
-          "title": "章节4.流程控制语句",
-          "slug": "章节4-流程控制语句"
-        },
-        {
-          "level": 3,
-          "title": "章节5.javascript函数",
-          "slug": "章节5-javascript函数"
-        },
-        {
-          "level": 3,
-          "title": "章节6.javascript对象",
-          "slug": "章节6-javascript对象"
-        },
-        {
-          "level": 3,
-          "title": "章节7.javascript数组",
-          "slug": "章节7-javascript数组"
-        },
-        {
-          "level": 3,
-          "title": "章节8.Date类型：时间和日期",
-          "slug": "章节8-date类型-时间和日期"
-        },
-        {
-          "level": 3,
-          "title": "章节9.Function类型：函数进阶",
-          "slug": "章节9-function类型-函数进阶"
-        },
-        {
-          "level": 3,
-          "title": "章节10.内置对象：Global、Math对象，变量、作用域和内存问题",
-          "slug": "章节10-内置对象-global、math对象-变量、作用域和内存问题"
-        },
-        {
-          "level": 3,
-          "title": "章节11.匿名函数和闭包",
-          "slug": "章节11-匿名函数和闭包"
-        },
-        {
-          "level": 3,
-          "title": "章节12.javascript基本包装类型",
-          "slug": "章节12-javascript基本包装类型"
-        },
-        {
-          "level": 3,
-          "title": "章节13.函数对象数组小结",
-          "slug": "章节13-函数对象数组小结"
-        },
-        {
-          "level": 3,
-          "title": "章节14.浏览器对象模型BOM及浏览器检测",
-          "slug": "章节14-浏览器对象模型bom及浏览器检测"
-        },
-        {
-          "level": 3,
-          "title": "章节15.网页文档对象模型DOM",
-          "slug": "章节15-网页文档对象模型dom"
-        },
-        {
-          "level": 3,
-          "title": "章节16.事件",
-          "slug": "章节16-事件"
-        },
-        {
-          "level": 3,
-          "title": "章节17.表单处理及错误处理与调试",
-          "slug": "章节17-表单处理及错误处理与调试"
-        },
-        {
-          "level": 3,
-          "title": "章节18.数据Cookie、XML、JSON",
-          "slug": "章节18-数据cookie、xml、json"
-        },
-        {
-          "level": 2,
-          "title": "其它学期课程",
-          "slug": "其它学期课程"
-        },
-        {
-          "level": 3,
-          "title": "第一学期（学习顺序：01）",
-          "slug": "第一学期-学习顺序-01"
-        },
-        {
-          "level": 3,
-          "title": "第二学期【第1季】（学习顺序：02）",
-          "slug": "第二学期【第1季】-学习顺序-02"
-        },
-        {
-          "level": 3,
-          "title": "第二学期【第2季】（学习顺序：03）",
-          "slug": "第二学期【第2季】-学习顺序-03"
-        },
-        {
-          "level": 3,
-          "title": "第二学期【第3季】（学习顺序：04）",
-          "slug": "第二学期【第3季】-学习顺序-04"
-        },
-        {
-          "level": 3,
-          "title": "第二学期【第4季】（学习顺序：05）",
-          "slug": "第二学期【第4季】-学习顺序-05"
-        }
-      ],
-      "lastUpdated": "2024年11月19日星期二中午11点54分",
-      "lastUpdatedTimestamp": 1731988442000
-    },
-    {
-      "title": "章节2.javascript基础",
-      "frontmatter": {
-        "navbar": true,
-        "sidebar": "auto",
-        "title": "章节2.javascript基础"
-      },
-      "regularPath": "/secondless/w-a/javascript%E5%9F%BA%E7%A1%80.html",
-      "relativePath": "secondless/w-a/javascript基础.md",
-      "key": "v-57c86994",
-      "path": "/secondless/w-a/javascript%E5%9F%BA%E7%A1%80.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "1、变量",
-          "slug": "_1、变量"
-        },
-        {
-          "level": 3,
-          "title": "操作符",
-          "slug": "操作符"
-        },
-        {
-          "level": 2,
-          "title": "2、关键保留字",
-          "slug": "_2、关键保留字"
-        },
-        {
-          "level": 3,
-          "title": "关键字",
-          "slug": "关键字"
-        },
-        {
-          "level": 3,
-          "title": "保留字",
-          "slug": "保留字"
-        },
-        {
-          "level": 2,
-          "title": "3、语法构成",
-          "slug": "_3、语法构成"
-        },
-        {
-          "level": 3,
-          "title": "标识符",
-          "slug": "标识符"
-        },
-        {
-          "level": 3,
-          "title": "区分大小写",
-          "slug": "区分大小写"
-        },
-        {
-          "level": 3,
-          "title": "代码注释",
-          "slug": "代码注释"
-        },
-        {
-          "level": 2,
-          "title": "4、数据类型",
-          "slug": "_4、数据类型"
-        },
-        {
-          "level": 3,
-          "title": "Undefined 类型",
-          "slug": "undefined-类型"
-        },
-        {
-          "level": 3,
-          "title": "Null 类型",
-          "slug": "null-类型"
-        },
-        {
-          "level": 3,
-          "title": "Boolean 类型",
-          "slug": "boolean-类型"
-        },
-        {
-          "level": 3,
-          "title": "Number 类型",
-          "slug": "number-类型"
-        },
-        {
-          "level": 3,
-          "title": "String 类型",
-          "slug": "string-类型"
-        },
-        {
-          "level": 3,
-          "title": "Object 类型",
-          "slug": "object-类型"
-        },
-        {
-          "level": 3,
-          "title": "总结 typeof操作符及初始化变量声明",
-          "slug": "总结-typeof操作符及初始化变量声明"
-        },
-        {
-          "level": 3,
-          "title": "总结 Boolean 类型转换",
-          "slug": "总结-boolean-类型转换"
-        },
-        {
-          "level": 3,
-          "title": "Number()函数",
-          "slug": "number-函数"
-        },
-        {
-          "level": 3,
-          "title": "parseInt()函数、parseFloat()函数",
-          "slug": "parseint-函数、parsefloat-函数"
         },
         {
           "level": 2,
@@ -7265,227 +7265,6 @@ export const siteData = {
       "lastUpdatedTimestamp": 1731988442000
     },
     {
-      "title": "章节11.匿名函数和闭包",
-      "frontmatter": {
-        "navbar": true,
-        "sidebar": "auto",
-        "title": "章节11.匿名函数和闭包"
-      },
-      "regularPath": "/secondless/w-a/%E5%8C%BF%E5%90%8D%E5%87%BD%E6%95%B0%E5%92%8C%E9%97%AD%E5%8C%85.html",
-      "relativePath": "secondless/w-a/匿名函数和闭包.md",
-      "key": "v-12e6c9f7",
-      "path": "/secondless/w-a/%E5%8C%BF%E5%90%8D%E5%87%BD%E6%95%B0%E5%92%8C%E9%97%AD%E5%8C%85.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "1、匿名函数",
-          "slug": "_1、匿名函数"
-        },
-        {
-          "level": 3,
-          "title": "① 普通函数",
-          "slug": "_1-普通函数"
-        },
-        {
-          "level": 3,
-          "title": "② 匿名函数-单独的匿名函数无法运行",
-          "slug": "_2-匿名函数-单独的匿名函数无法运行"
-        },
-        {
-          "level": 3,
-          "title": "③ 匿名函数赋值给变量-调用方式和函数调用相似",
-          "slug": "_3-匿名函数赋值给变量-调用方式和函数调用相似"
-        },
-        {
-          "level": 3,
-          "title": "④ 匿名函数如何自动执行-()()方式",
-          "slug": "_4-匿名函数如何自动执行-方式"
-        },
-        {
-          "level": 3,
-          "title": "⑤ 匿名函数放在普通函数里面",
-          "slug": "_5-匿名函数放在普通函数里面"
-        },
-        {
-          "level": 2,
-          "title": "2、闭包",
-          "slug": "_2、闭包"
-        },
-        {
-          "level": 3,
-          "title": "① 通过闭包可以返回局部变量",
-          "slug": "_1-通过闭包可以返回局部变量"
-        },
-        {
-          "level": 3,
-          "title": "② 通过全局变量来累加",
-          "slug": "_2-通过全局变量来累加"
-        },
-        {
-          "level": 3,
-          "title": "③ 局部变量无法实现累加",
-          "slug": "_3-局部变量无法实现累加"
-        },
-        {
-          "level": 3,
-          "title": "④ 通过闭包实现局部变量的累加",
-          "slug": "_4-通过闭包实现局部变量的累加"
-        },
-        {
-          "level": 3,
-          "title": "⑤ 循环里的匿名函数取值问题：任何变量都是最后一个值",
-          "slug": "_5-循环里的匿名函数取值问题-任何变量都是最后一个值"
-        },
-        {
-          "level": 3,
-          "title": "⑥ 闭包中的this对象问题",
-          "slug": "_6-闭包中的this对象问题"
-        },
-        {
-          "level": 3,
-          "title": "⑦ 闭包在IE浏览器中的内存泄漏",
-          "slug": "_7-闭包在ie浏览器中的内存泄漏"
-        },
-        {
-          "level": 3,
-          "title": "⑧ 匿名函数私有化：匿名函数自我执行模仿块级作用域，将变量私有化保护数据",
-          "slug": "_8-匿名函数私有化-匿名函数自我执行模仿块级作用域-将变量私有化保护数据"
-        },
-        {
-          "level": 3,
-          "title": "⑨ 私有变量、静态私有变量等",
-          "slug": "_9-私有变量、静态私有变量等"
-        },
-        {
-          "level": 2,
-          "title": "课程其它章节",
-          "slug": "课程其它章节"
-        },
-        {
-          "level": 3,
-          "title": "章节1.课程介绍",
-          "slug": "章节1-课程介绍"
-        },
-        {
-          "level": 3,
-          "title": "章节2.javascript基础",
-          "slug": "章节2-javascript基础"
-        },
-        {
-          "level": 3,
-          "title": "章节3.javascript运算符",
-          "slug": "章节3-javascript运算符"
-        },
-        {
-          "level": 3,
-          "title": "章节4.流程控制语句",
-          "slug": "章节4-流程控制语句"
-        },
-        {
-          "level": 3,
-          "title": "章节5.javascript函数",
-          "slug": "章节5-javascript函数"
-        },
-        {
-          "level": 3,
-          "title": "章节6.javascript对象",
-          "slug": "章节6-javascript对象"
-        },
-        {
-          "level": 3,
-          "title": "章节7.javascript数组",
-          "slug": "章节7-javascript数组"
-        },
-        {
-          "level": 3,
-          "title": "章节8.Date类型：时间和日期",
-          "slug": "章节8-date类型-时间和日期"
-        },
-        {
-          "level": 3,
-          "title": "章节9.Function类型：函数进阶",
-          "slug": "章节9-function类型-函数进阶"
-        },
-        {
-          "level": 3,
-          "title": "章节10.内置对象：Global、Math对象，变量、作用域和内存问题",
-          "slug": "章节10-内置对象-global、math对象-变量、作用域和内存问题"
-        },
-        {
-          "level": 3,
-          "title": "章节11.匿名函数和闭包",
-          "slug": "章节11-匿名函数和闭包"
-        },
-        {
-          "level": 3,
-          "title": "章节12.javascript基本包装类型",
-          "slug": "章节12-javascript基本包装类型"
-        },
-        {
-          "level": 3,
-          "title": "章节13.函数对象数组小结",
-          "slug": "章节13-函数对象数组小结"
-        },
-        {
-          "level": 3,
-          "title": "章节14.浏览器对象模型BOM及浏览器检测",
-          "slug": "章节14-浏览器对象模型bom及浏览器检测"
-        },
-        {
-          "level": 3,
-          "title": "章节15.网页文档对象模型DOM",
-          "slug": "章节15-网页文档对象模型dom"
-        },
-        {
-          "level": 3,
-          "title": "章节16.事件",
-          "slug": "章节16-事件"
-        },
-        {
-          "level": 3,
-          "title": "章节17.表单处理及错误处理与调试",
-          "slug": "章节17-表单处理及错误处理与调试"
-        },
-        {
-          "level": 3,
-          "title": "章节18.数据Cookie、XML、JSON",
-          "slug": "章节18-数据cookie、xml、json"
-        },
-        {
-          "level": 2,
-          "title": "其它学期课程",
-          "slug": "其它学期课程"
-        },
-        {
-          "level": 3,
-          "title": "第一学期（学习顺序：01）",
-          "slug": "第一学期-学习顺序-01"
-        },
-        {
-          "level": 3,
-          "title": "第二学期【第1季】（学习顺序：02）",
-          "slug": "第二学期【第1季】-学习顺序-02"
-        },
-        {
-          "level": 3,
-          "title": "第二学期【第2季】（学习顺序：03）",
-          "slug": "第二学期【第2季】-学习顺序-03"
-        },
-        {
-          "level": 3,
-          "title": "第二学期【第3季】（学习顺序：04）",
-          "slug": "第二学期【第3季】-学习顺序-04"
-        },
-        {
-          "level": 3,
-          "title": "第二学期【第4季】（学习顺序：05）",
-          "slug": "第二学期【第4季】-学习顺序-05"
-        }
-      ],
-      "lastUpdated": "2024年11月19日星期二中午11点54分",
-      "lastUpdatedTimestamp": 1731988442000
-    },
-    {
       "title": "章节18.数据Cookie、sessionStorage、localStorage、XML、JSON",
       "frontmatter": {
         "navbar": true,
@@ -7747,6 +7526,227 @@ export const siteData = {
       "lastUpdatedTimestamp": 1731988442000
     },
     {
+      "title": "章节11.匿名函数和闭包",
+      "frontmatter": {
+        "navbar": true,
+        "sidebar": "auto",
+        "title": "章节11.匿名函数和闭包"
+      },
+      "regularPath": "/secondless/w-a/%E5%8C%BF%E5%90%8D%E5%87%BD%E6%95%B0%E5%92%8C%E9%97%AD%E5%8C%85.html",
+      "relativePath": "secondless/w-a/匿名函数和闭包.md",
+      "key": "v-12e6c9f7",
+      "path": "/secondless/w-a/%E5%8C%BF%E5%90%8D%E5%87%BD%E6%95%B0%E5%92%8C%E9%97%AD%E5%8C%85.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "1、匿名函数",
+          "slug": "_1、匿名函数"
+        },
+        {
+          "level": 3,
+          "title": "① 普通函数",
+          "slug": "_1-普通函数"
+        },
+        {
+          "level": 3,
+          "title": "② 匿名函数-单独的匿名函数无法运行",
+          "slug": "_2-匿名函数-单独的匿名函数无法运行"
+        },
+        {
+          "level": 3,
+          "title": "③ 匿名函数赋值给变量-调用方式和函数调用相似",
+          "slug": "_3-匿名函数赋值给变量-调用方式和函数调用相似"
+        },
+        {
+          "level": 3,
+          "title": "④ 匿名函数如何自动执行-()()方式",
+          "slug": "_4-匿名函数如何自动执行-方式"
+        },
+        {
+          "level": 3,
+          "title": "⑤ 匿名函数放在普通函数里面",
+          "slug": "_5-匿名函数放在普通函数里面"
+        },
+        {
+          "level": 2,
+          "title": "2、闭包",
+          "slug": "_2、闭包"
+        },
+        {
+          "level": 3,
+          "title": "① 通过闭包可以返回局部变量",
+          "slug": "_1-通过闭包可以返回局部变量"
+        },
+        {
+          "level": 3,
+          "title": "② 通过全局变量来累加",
+          "slug": "_2-通过全局变量来累加"
+        },
+        {
+          "level": 3,
+          "title": "③ 局部变量无法实现累加",
+          "slug": "_3-局部变量无法实现累加"
+        },
+        {
+          "level": 3,
+          "title": "④ 通过闭包实现局部变量的累加",
+          "slug": "_4-通过闭包实现局部变量的累加"
+        },
+        {
+          "level": 3,
+          "title": "⑤ 循环里的匿名函数取值问题：任何变量都是最后一个值",
+          "slug": "_5-循环里的匿名函数取值问题-任何变量都是最后一个值"
+        },
+        {
+          "level": 3,
+          "title": "⑥ 闭包中的this对象问题",
+          "slug": "_6-闭包中的this对象问题"
+        },
+        {
+          "level": 3,
+          "title": "⑦ 闭包在IE浏览器中的内存泄漏",
+          "slug": "_7-闭包在ie浏览器中的内存泄漏"
+        },
+        {
+          "level": 3,
+          "title": "⑧ 匿名函数私有化：匿名函数自我执行模仿块级作用域，将变量私有化保护数据",
+          "slug": "_8-匿名函数私有化-匿名函数自我执行模仿块级作用域-将变量私有化保护数据"
+        },
+        {
+          "level": 3,
+          "title": "⑨ 私有变量、静态私有变量等",
+          "slug": "_9-私有变量、静态私有变量等"
+        },
+        {
+          "level": 2,
+          "title": "课程其它章节",
+          "slug": "课程其它章节"
+        },
+        {
+          "level": 3,
+          "title": "章节1.课程介绍",
+          "slug": "章节1-课程介绍"
+        },
+        {
+          "level": 3,
+          "title": "章节2.javascript基础",
+          "slug": "章节2-javascript基础"
+        },
+        {
+          "level": 3,
+          "title": "章节3.javascript运算符",
+          "slug": "章节3-javascript运算符"
+        },
+        {
+          "level": 3,
+          "title": "章节4.流程控制语句",
+          "slug": "章节4-流程控制语句"
+        },
+        {
+          "level": 3,
+          "title": "章节5.javascript函数",
+          "slug": "章节5-javascript函数"
+        },
+        {
+          "level": 3,
+          "title": "章节6.javascript对象",
+          "slug": "章节6-javascript对象"
+        },
+        {
+          "level": 3,
+          "title": "章节7.javascript数组",
+          "slug": "章节7-javascript数组"
+        },
+        {
+          "level": 3,
+          "title": "章节8.Date类型：时间和日期",
+          "slug": "章节8-date类型-时间和日期"
+        },
+        {
+          "level": 3,
+          "title": "章节9.Function类型：函数进阶",
+          "slug": "章节9-function类型-函数进阶"
+        },
+        {
+          "level": 3,
+          "title": "章节10.内置对象：Global、Math对象，变量、作用域和内存问题",
+          "slug": "章节10-内置对象-global、math对象-变量、作用域和内存问题"
+        },
+        {
+          "level": 3,
+          "title": "章节11.匿名函数和闭包",
+          "slug": "章节11-匿名函数和闭包"
+        },
+        {
+          "level": 3,
+          "title": "章节12.javascript基本包装类型",
+          "slug": "章节12-javascript基本包装类型"
+        },
+        {
+          "level": 3,
+          "title": "章节13.函数对象数组小结",
+          "slug": "章节13-函数对象数组小结"
+        },
+        {
+          "level": 3,
+          "title": "章节14.浏览器对象模型BOM及浏览器检测",
+          "slug": "章节14-浏览器对象模型bom及浏览器检测"
+        },
+        {
+          "level": 3,
+          "title": "章节15.网页文档对象模型DOM",
+          "slug": "章节15-网页文档对象模型dom"
+        },
+        {
+          "level": 3,
+          "title": "章节16.事件",
+          "slug": "章节16-事件"
+        },
+        {
+          "level": 3,
+          "title": "章节17.表单处理及错误处理与调试",
+          "slug": "章节17-表单处理及错误处理与调试"
+        },
+        {
+          "level": 3,
+          "title": "章节18.数据Cookie、XML、JSON",
+          "slug": "章节18-数据cookie、xml、json"
+        },
+        {
+          "level": 2,
+          "title": "其它学期课程",
+          "slug": "其它学期课程"
+        },
+        {
+          "level": 3,
+          "title": "第一学期（学习顺序：01）",
+          "slug": "第一学期-学习顺序-01"
+        },
+        {
+          "level": 3,
+          "title": "第二学期【第1季】（学习顺序：02）",
+          "slug": "第二学期【第1季】-学习顺序-02"
+        },
+        {
+          "level": 3,
+          "title": "第二学期【第2季】（学习顺序：03）",
+          "slug": "第二学期【第2季】-学习顺序-03"
+        },
+        {
+          "level": 3,
+          "title": "第二学期【第3季】（学习顺序：04）",
+          "slug": "第二学期【第3季】-学习顺序-04"
+        },
+        {
+          "level": 3,
+          "title": "第二学期【第4季】（学习顺序：05）",
+          "slug": "第二学期【第4季】-学习顺序-05"
+        }
+      ],
+      "lastUpdated": "2024年11月19日星期二中午11点54分",
+      "lastUpdatedTimestamp": 1731988442000
+    },
+    {
       "title": "章节4.流程控制语句",
       "frontmatter": {
         "navbar": true,
@@ -7817,6 +7817,317 @@ export const siteData = {
           "level": 2,
           "title": "6、with语句",
           "slug": "_6、with语句"
+        },
+        {
+          "level": 2,
+          "title": "课程其它章节",
+          "slug": "课程其它章节"
+        },
+        {
+          "level": 3,
+          "title": "章节1.课程介绍",
+          "slug": "章节1-课程介绍"
+        },
+        {
+          "level": 3,
+          "title": "章节2.javascript基础",
+          "slug": "章节2-javascript基础"
+        },
+        {
+          "level": 3,
+          "title": "章节3.javascript运算符",
+          "slug": "章节3-javascript运算符"
+        },
+        {
+          "level": 3,
+          "title": "章节4.流程控制语句",
+          "slug": "章节4-流程控制语句"
+        },
+        {
+          "level": 3,
+          "title": "章节5.javascript函数",
+          "slug": "章节5-javascript函数"
+        },
+        {
+          "level": 3,
+          "title": "章节6.javascript对象",
+          "slug": "章节6-javascript对象"
+        },
+        {
+          "level": 3,
+          "title": "章节7.javascript数组",
+          "slug": "章节7-javascript数组"
+        },
+        {
+          "level": 3,
+          "title": "章节8.Date类型：时间和日期",
+          "slug": "章节8-date类型-时间和日期"
+        },
+        {
+          "level": 3,
+          "title": "章节9.Function类型：函数进阶",
+          "slug": "章节9-function类型-函数进阶"
+        },
+        {
+          "level": 3,
+          "title": "章节10.内置对象：Global、Math对象，变量、作用域和内存问题",
+          "slug": "章节10-内置对象-global、math对象-变量、作用域和内存问题"
+        },
+        {
+          "level": 3,
+          "title": "章节11.匿名函数和闭包",
+          "slug": "章节11-匿名函数和闭包"
+        },
+        {
+          "level": 3,
+          "title": "章节12.javascript基本包装类型",
+          "slug": "章节12-javascript基本包装类型"
+        },
+        {
+          "level": 3,
+          "title": "章节13.函数对象数组小结",
+          "slug": "章节13-函数对象数组小结"
+        },
+        {
+          "level": 3,
+          "title": "章节14.浏览器对象模型BOM及浏览器检测",
+          "slug": "章节14-浏览器对象模型bom及浏览器检测"
+        },
+        {
+          "level": 3,
+          "title": "章节15.网页文档对象模型DOM",
+          "slug": "章节15-网页文档对象模型dom"
+        },
+        {
+          "level": 3,
+          "title": "章节16.事件",
+          "slug": "章节16-事件"
+        },
+        {
+          "level": 3,
+          "title": "章节17.表单处理及错误处理与调试",
+          "slug": "章节17-表单处理及错误处理与调试"
+        },
+        {
+          "level": 3,
+          "title": "章节18.数据Cookie、XML、JSON",
+          "slug": "章节18-数据cookie、xml、json"
+        },
+        {
+          "level": 2,
+          "title": "其它学期课程",
+          "slug": "其它学期课程"
+        },
+        {
+          "level": 3,
+          "title": "第一学期（学习顺序：01）",
+          "slug": "第一学期-学习顺序-01"
+        },
+        {
+          "level": 3,
+          "title": "第二学期【第1季】（学习顺序：02）",
+          "slug": "第二学期【第1季】-学习顺序-02"
+        },
+        {
+          "level": 3,
+          "title": "第二学期【第2季】（学习顺序：03）",
+          "slug": "第二学期【第2季】-学习顺序-03"
+        },
+        {
+          "level": 3,
+          "title": "第二学期【第3季】（学习顺序：04）",
+          "slug": "第二学期【第3季】-学习顺序-04"
+        },
+        {
+          "level": 3,
+          "title": "第二学期【第4季】（学习顺序：05）",
+          "slug": "第二学期【第4季】-学习顺序-05"
+        }
+      ],
+      "lastUpdated": "2024年11月19日星期二中午11点54分",
+      "lastUpdatedTimestamp": 1731988442000
+    },
+    {
+      "title": "章节14.浏览器对象模型BOM及浏览器检测",
+      "frontmatter": {
+        "navbar": true,
+        "sidebar": "auto",
+        "title": "章节14.浏览器对象模型BOM及浏览器检测"
+      },
+      "regularPath": "/secondless/w-a/%E6%B5%8F%E8%A7%88%E5%99%A8%E5%AF%B9%E8%B1%A1%E6%A8%A1%E5%9E%8BBOM%E5%8F%8A%E6%B5%8F%E8%A7%88%E5%99%A8%E6%A3%80%E6%B5%8B.html",
+      "relativePath": "secondless/w-a/浏览器对象模型BOM及浏览器检测.md",
+      "key": "v-355562ac",
+      "path": "/secondless/w-a/%E6%B5%8F%E8%A7%88%E5%99%A8%E5%AF%B9%E8%B1%A1%E6%A8%A1%E5%9E%8BBOM%E5%8F%8A%E6%B5%8F%E8%A7%88%E5%99%A8%E6%A3%80%E6%B5%8B.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "1、window 对象",
+          "slug": "_1、window-对象"
+        },
+        {
+          "level": 3,
+          "title": "① window 对象的属性和方法",
+          "slug": "_1-window-对象的属性和方法"
+        },
+        {
+          "level": 2,
+          "title": "2、window对象：系统对话框",
+          "slug": "_2、window对象-系统对话框"
+        },
+        {
+          "level": 3,
+          "title": "① 弹出警告:alert()",
+          "slug": "_1-弹出警告-alert"
+        },
+        {
+          "level": 3,
+          "title": "② 确定和取消:confirm()",
+          "slug": "_2-确定和取消-confirm"
+        },
+        {
+          "level": 3,
+          "title": "③ 输入提示框:prompt()",
+          "slug": "_3-输入提示框-prompt"
+        },
+        {
+          "level": 2,
+          "title": "3、window对象：调出打印机print()",
+          "slug": "_3、window对象-调出打印机print"
+        },
+        {
+          "level": 2,
+          "title": "4、window对象：网页新建窗口open()",
+          "slug": "_4、window对象-网页新建窗口open"
+        },
+        {
+          "level": 2,
+          "title": "5、window对象：窗口页面的位置和大小",
+          "slug": "_5、window对象-窗口页面的位置和大小"
+        },
+        {
+          "level": 3,
+          "title": "① 窗口页面的位置：screenX（screenLeft）和 screenY（screenTop）",
+          "slug": "_1-窗口页面的位置-screenx-screenleft-和-screeny-screentop"
+        },
+        {
+          "level": 3,
+          "title": "② 窗口页面的大小：innerWidth和 innerHeight，outerWidth 和 outerHeight，document.documentElement.clientWidth和document.documentElement.clientHeight",
+          "slug": "_2-窗口页面的大小-innerwidth和-innerheight-outerwidth-和-outerheight-document-documentelement-clientwidth和document-documentelement-clientheight"
+        },
+        {
+          "level": 2,
+          "title": "6、window对象：定时器（超时调用和间歇调用）",
+          "slug": "_6、window对象-定时器-超时调用和间歇调用"
+        },
+        {
+          "level": 3,
+          "title": "① 超时调用：setTimeout()方法",
+          "slug": "_1-超时调用-settimeout-方法"
+        },
+        {
+          "level": 3,
+          "title": "② 取消超时调用：clearTimeout()方法",
+          "slug": "_2-取消超时调用-cleartimeout-方法"
+        },
+        {
+          "level": 3,
+          "title": "③ 间歇调用：setInterval()方法",
+          "slug": "_3-间歇调用-setinterval-方法"
+        },
+        {
+          "level": 3,
+          "title": "④ 取消间歇调用：clearInterval()方法",
+          "slug": "_4-取消间歇调用-clearinterval-方法"
+        },
+        {
+          "level": 3,
+          "title": "⑤ 模拟定时器功能，超时调用模拟间歇调用",
+          "slug": "_5-模拟定时器功能-超时调用模拟间歇调用"
+        },
+        {
+          "level": 2,
+          "title": "7、location 对象",
+          "slug": "_7、location-对象"
+        },
+        {
+          "level": 3,
+          "title": "① location 对象：获取网址相关信息",
+          "slug": "_1-location-对象-获取网址相关信息"
+        },
+        {
+          "level": 3,
+          "title": "② location 对象：assign()方法跳转到指定页面，与 href 等效",
+          "slug": "_2-location-对象-assign-方法跳转到指定页面-与-href-等效"
+        },
+        {
+          "level": 3,
+          "title": "③ location 对象：reload()方法，刷新页面",
+          "slug": "_3-location-对象-reload-方法-刷新页面"
+        },
+        {
+          "level": 3,
+          "title": "④ location 对象：repalce()方法，用新的 URL 替换当前页面",
+          "slug": "_4-location-对象-repalce-方法-用新的-url-替换当前页面"
+        },
+        {
+          "level": 3,
+          "title": "⑤ 获取网址url参数中的键值对",
+          "slug": "_5-获取网址url参数中的键值对"
+        },
+        {
+          "level": 2,
+          "title": "8、history 对象 : 属性:length，方法：back()、forward()、go(num)",
+          "slug": "_8、history-对象-属性-length-方法-back-、forward-、go-num"
+        },
+        {
+          "level": 2,
+          "title": "9、navigator 对象：浏览器检测对象",
+          "slug": "_9、navigator-对象-浏览器检测对象"
+        },
+        {
+          "level": 3,
+          "title": "① 获取浏览器相关信息",
+          "slug": "_1-获取浏览器相关信息"
+        },
+        {
+          "level": 3,
+          "title": "② 浏览器插件检测",
+          "slug": "_2-浏览器插件检测"
+        },
+        {
+          "level": 3,
+          "title": "③ MIME 类型检测",
+          "slug": "_3-mime-类型检测"
+        },
+        {
+          "level": 2,
+          "title": "10、navigator 对象：浏览器检测场景使用",
+          "slug": "_10、navigator-对象-浏览器检测场景使用"
+        },
+        {
+          "level": 3,
+          "title": "① 用户代理检测",
+          "slug": "_1-用户代理检测"
+        },
+        {
+          "level": 3,
+          "title": "② 判断设备是不是安卓系统",
+          "slug": "_2-判断设备是不是安卓系统"
+        },
+        {
+          "level": 3,
+          "title": "③ 判断设备是不是苹果系统",
+          "slug": "_3-判断设备是不是苹果系统"
+        },
+        {
+          "level": 3,
+          "title": "④ 判断用户是否在微信上面浏览网页",
+          "slug": "_4-判断用户是否在微信上面浏览网页"
+        },
+        {
+          "level": 3,
+          "title": "⑤ 获取操作系统，判断用户查看网页的设备是电脑设备，还是手机设备",
+          "slug": "_5-获取操作系统-判断用户查看网页的设备是电脑设备-还是手机设备"
         },
         {
           "level": 2,
@@ -8584,6 +8895,282 @@ export const siteData = {
       "lastUpdatedTimestamp": 1731988442000
     },
     {
+      "title": "章节10.内置对象：Global、Math对象，变量、作用域和内存问题",
+      "frontmatter": {
+        "navbar": true,
+        "sidebar": "auto",
+        "title": "章节10.内置对象：Global、Math对象，变量、作用域和内存问题"
+      },
+      "regularPath": "/secondless/w-a/%E5%86%85%E7%BD%AE%E5%AF%B9%E8%B1%A1%EF%BC%9AGlobal%E3%80%81Math%E5%AF%B9%E8%B1%A1%EF%BC%8C%E5%8F%98%E9%87%8F%E3%80%81%E4%BD%9C%E7%94%A8%E5%9F%9F%E5%92%8C%E5%86%85%E5%AD%98%E9%97%AE%E9%A2%98.html",
+      "relativePath": "secondless/w-a/内置对象：Global、Math对象，变量、作用域和内存问题.md",
+      "key": "v-1d6f685a",
+      "path": "/secondless/w-a/%E5%86%85%E7%BD%AE%E5%AF%B9%E8%B1%A1%EF%BC%9AGlobal%E3%80%81Math%E5%AF%B9%E8%B1%A1%EF%BC%8C%E5%8F%98%E9%87%8F%E3%80%81%E4%BD%9C%E7%94%A8%E5%9F%9F%E5%92%8C%E5%86%85%E5%AD%98%E9%97%AE%E9%A2%98.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "1、内置对象： Global对象",
+          "slug": "_1、内置对象-global对象"
+        },
+        {
+          "level": 3,
+          "title": "① Global对象",
+          "slug": "_1-global对象"
+        },
+        {
+          "level": 3,
+          "title": "② Global对象内置的属性和方法：URI 编码方法",
+          "slug": "_2-global对象内置的属性和方法-uri-编码方法"
+        },
+        {
+          "level": 3,
+          "title": "③ URI 编码方法：encodeURI()、encodeURIComponent()",
+          "slug": "_3-uri-编码方法-encodeuri-、encodeuricomponent"
+        },
+        {
+          "level": 3,
+          "title": "④ URI 解码方法：decodeURI()、decodeURIComponent()",
+          "slug": "_4-uri-解码方法-decodeuri-、decodeuricomponent"
+        },
+        {
+          "level": 3,
+          "title": "⑤ eval()方法",
+          "slug": "_5-eval-方法"
+        },
+        {
+          "level": 3,
+          "title": "⑥ Global对象的属性",
+          "slug": "_6-global对象的属性"
+        },
+        {
+          "level": 3,
+          "title": "⑦ window 对象",
+          "slug": "_7-window-对象"
+        },
+        {
+          "level": 2,
+          "title": "2、内置对象： Math 对象",
+          "slug": "_2、内置对象-math-对象"
+        },
+        {
+          "level": 3,
+          "title": "① Math 对象的属性",
+          "slug": "_1-math-对象的属性"
+        },
+        {
+          "level": 3,
+          "title": "② Math.min()和 Math.max()方法分别求一组数值中的最小值、最大值",
+          "slug": "_2-math-min-和-math-max-方法分别求一组数值中的最小值、最大值"
+        },
+        {
+          "level": 3,
+          "title": "③ Math.ceil()向上舍入、Math.floor()向下舍入、Math.round()四舍五入",
+          "slug": "_3-math-ceil-向上舍入、math-floor-向下舍入、math-round-四舍五入"
+        },
+        {
+          "level": 3,
+          "title": "④ Math.random() 产生一个0 到 1 之间随机数，不包括 0 和 1",
+          "slug": "_4-math-random-产生一个0-到-1-之间随机数-不包括-0-和-1"
+        },
+        {
+          "level": 3,
+          "title": "⑤ 取任意两个数之间的随机整数通用函数（方法）",
+          "slug": "_5-取任意两个数之间的随机整数通用函数-方法"
+        },
+        {
+          "level": 3,
+          "title": "⑥ 其他方法",
+          "slug": "_6-其他方法"
+        },
+        {
+          "level": 2,
+          "title": "3、变量",
+          "slug": "_3、变量"
+        },
+        {
+          "level": 3,
+          "title": "① 基本类型和引用类型的值",
+          "slug": "_1-基本类型和引用类型的值"
+        },
+        {
+          "level": 3,
+          "title": "② 动态属性",
+          "slug": "_2-动态属性"
+        },
+        {
+          "level": 3,
+          "title": "③ 复制变量值",
+          "slug": "_3-复制变量值"
+        },
+        {
+          "level": 3,
+          "title": "④ 传递参数： 按值传参",
+          "slug": "_4-传递参数-按值传参"
+        },
+        {
+          "level": 3,
+          "title": "⑤ 传递参数： 传递一个引用类型的参数（对象），但是它不是按引用传递，它是按值传递的",
+          "slug": "_5-传递参数-传递一个引用类型的参数-对象-但是它不是按引用传递-它是按值传递的"
+        },
+        {
+          "level": 3,
+          "title": "⑥ 检测变量类型：typeof()、instanceof()",
+          "slug": "_6-检测变量类型-typeof-、instanceof"
+        },
+        {
+          "level": 2,
+          "title": "4、作用域（执行环境）",
+          "slug": "_4、作用域-执行环境"
+        },
+        {
+          "level": 3,
+          "title": "① 全局执行环境",
+          "slug": "_1-全局执行环境"
+        },
+        {
+          "level": 3,
+          "title": "② 局部执行环境",
+          "slug": "_2-局部执行环境"
+        },
+        {
+          "level": 3,
+          "title": "③ 没有块级作用域（var 操作符声明的变量）",
+          "slug": "_3-没有块级作用域-var-操作符声明的变量"
+        },
+        {
+          "level": 2,
+          "title": "5、 内存问题",
+          "slug": "_5、-内存问题"
+        },
+        {
+          "level": 2,
+          "title": "课程其它章节",
+          "slug": "课程其它章节"
+        },
+        {
+          "level": 3,
+          "title": "章节1.课程介绍",
+          "slug": "章节1-课程介绍"
+        },
+        {
+          "level": 3,
+          "title": "章节2.javascript基础",
+          "slug": "章节2-javascript基础"
+        },
+        {
+          "level": 3,
+          "title": "章节3.javascript运算符",
+          "slug": "章节3-javascript运算符"
+        },
+        {
+          "level": 3,
+          "title": "章节4.流程控制语句",
+          "slug": "章节4-流程控制语句"
+        },
+        {
+          "level": 3,
+          "title": "章节5.javascript函数",
+          "slug": "章节5-javascript函数"
+        },
+        {
+          "level": 3,
+          "title": "章节6.javascript对象",
+          "slug": "章节6-javascript对象"
+        },
+        {
+          "level": 3,
+          "title": "章节7.javascript数组",
+          "slug": "章节7-javascript数组"
+        },
+        {
+          "level": 3,
+          "title": "章节8.Date类型：时间和日期",
+          "slug": "章节8-date类型-时间和日期"
+        },
+        {
+          "level": 3,
+          "title": "章节9.Function类型：函数进阶",
+          "slug": "章节9-function类型-函数进阶"
+        },
+        {
+          "level": 3,
+          "title": "章节10.内置对象：Global、Math对象，变量、作用域和内存问题",
+          "slug": "章节10-内置对象-global、math对象-变量、作用域和内存问题"
+        },
+        {
+          "level": 3,
+          "title": "章节11.匿名函数和闭包",
+          "slug": "章节11-匿名函数和闭包"
+        },
+        {
+          "level": 3,
+          "title": "章节12.javascript基本包装类型",
+          "slug": "章节12-javascript基本包装类型"
+        },
+        {
+          "level": 3,
+          "title": "章节13.函数对象数组小结",
+          "slug": "章节13-函数对象数组小结"
+        },
+        {
+          "level": 3,
+          "title": "章节14.浏览器对象模型BOM及浏览器检测",
+          "slug": "章节14-浏览器对象模型bom及浏览器检测"
+        },
+        {
+          "level": 3,
+          "title": "章节15.网页文档对象模型DOM",
+          "slug": "章节15-网页文档对象模型dom"
+        },
+        {
+          "level": 3,
+          "title": "章节16.事件",
+          "slug": "章节16-事件"
+        },
+        {
+          "level": 3,
+          "title": "章节17.表单处理及错误处理与调试",
+          "slug": "章节17-表单处理及错误处理与调试"
+        },
+        {
+          "level": 3,
+          "title": "章节18.数据Cookie、XML、JSON",
+          "slug": "章节18-数据cookie、xml、json"
+        },
+        {
+          "level": 2,
+          "title": "其它学期课程",
+          "slug": "其它学期课程"
+        },
+        {
+          "level": 3,
+          "title": "第一学期（学习顺序：01）",
+          "slug": "第一学期-学习顺序-01"
+        },
+        {
+          "level": 3,
+          "title": "第二学期【第1季】（学习顺序：02）",
+          "slug": "第二学期【第1季】-学习顺序-02"
+        },
+        {
+          "level": 3,
+          "title": "第二学期【第2季】（学习顺序：03）",
+          "slug": "第二学期【第2季】-学习顺序-03"
+        },
+        {
+          "level": 3,
+          "title": "第二学期【第3季】（学习顺序：04）",
+          "slug": "第二学期【第3季】-学习顺序-04"
+        },
+        {
+          "level": 3,
+          "title": "第二学期【第4季】（学习顺序：05）",
+          "slug": "第二学期【第4季】-学习顺序-05"
+        }
+      ],
+      "lastUpdated": "2024年11月19日星期二中午11点54分",
+      "lastUpdatedTimestamp": 1731988442000
+    },
+    {
       "title": "章节17.表单处理及错误处理与调试",
       "frontmatter": {
         "navbar": true,
@@ -9024,6 +9611,403 @@ export const siteData = {
       "lastUpdatedTimestamp": 1739532672000
     },
     {
+      "title": "章节6.Ajax",
+      "frontmatter": {
+        "navbar": true,
+        "sidebar": "auto",
+        "title": "章节6.Ajax"
+      },
+      "regularPath": "/secondless/w-b/Ajax.html",
+      "relativePath": "secondless/w-b/Ajax.md",
+      "key": "v-020836b4",
+      "path": "/secondless/w-b/Ajax.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "一、原生js中的Ajax",
+          "slug": "一、原生js中的ajax"
+        },
+        {
+          "level": 2,
+          "title": "1、XMLHttpRequest (简称 XHR，XHR API)",
+          "slug": "_1、xmlhttprequest-简称-xhr-xhr-api"
+        },
+        {
+          "level": 3,
+          "title": "① 第一步：调用 open()方法准备发送请求（发送请求前的准备工作）：三个参数：要发送的请求类型(get、post)、请求的 URL 和表示是否异步",
+          "slug": "_1-第一步-调用-open-方法准备发送请求-发送请求前的准备工作-三个参数-要发送的请求类型-get、post-、请求的-url-和表示是否异步"
+        },
+        {
+          "level": 3,
+          "title": "② 第二步：通过 send()方法进行发送请求：一个参数：作为请求主体发送的数据，如果不需要则，必须填 null",
+          "slug": "_2-第二步-通过-send-方法进行发送请求-一个参数-作为请求主体发送的数据-如果不需要则-必须填-null"
+        },
+        {
+          "level": 3,
+          "title": "③ 第三步：发送完了之后，得监听结果（监听服务器给你的请求结果），通过readystatechange 事件监听服务器给你的结果",
+          "slug": "_3-第三步-发送完了之后-得监听结果-监听服务器给你的请求结果-通过readystatechange-事件监听服务器给你的结果"
+        },
+        {
+          "level": 2,
+          "title": "2、理解get、post请求",
+          "slug": "_2、理解get、post请求"
+        },
+        {
+          "level": 3,
+          "title": "① getAllResponseHeaders()获取整个响应头信息，getResponseHeader()获取单个响应头信息，setRequestHeader()设置请求头信息",
+          "slug": "_1-getallresponseheaders-获取整个响应头信息-getresponseheader-获取单个响应头信息-setrequestheader-设置请求头信息"
+        },
+        {
+          "level": 3,
+          "title": "② get请求",
+          "slug": "_2-get请求"
+        },
+        {
+          "level": 3,
+          "title": "③ post请求",
+          "slug": "_3-post请求"
+        },
+        {
+          "level": 3,
+          "title": "④ 小结get和post请求",
+          "slug": "_4-小结get和post请求"
+        },
+        {
+          "level": 2,
+          "title": "3、Fetch API",
+          "slug": "_3、fetch-api"
+        },
+        {
+          "level": 3,
+          "title": "① Fetch API基本用法介绍",
+          "slug": "_1-fetch-api基本用法介绍"
+        },
+        {
+          "level": 3,
+          "title": "② XHR 与 Fetch 中的Content-Type(或者小写content-type)",
+          "slug": "_2-xhr-与-fetch-中的content-type-或者小写content-type"
+        },
+        {
+          "level": 2,
+          "title": "4、 XHR（xhr） 与 Fetch（fetch）的区别 （包括：jQuery、Axios、umi-request的说明）",
+          "slug": "_4、-xhr-xhr-与-fetch-fetch-的区别-包括-jquery、axios、umi-request的说明"
+        },
+        {
+          "level": 2,
+          "title": "二、jQuery中的Ajax",
+          "slug": "二、jquery中的ajax"
+        },
+        {
+          "level": 2,
+          "title": "1、第二层封装：load()方法，$.get()和$.post()方法",
+          "slug": "_1、第二层封装-load-方法-get-和-post-方法"
+        },
+        {
+          "level": 3,
+          "title": "① load()方法是局部方法 ： 异步加载静态文件如：html文件、json文件等",
+          "slug": "_1-load-方法是局部方法-异步加载静态文件如-html文件、json文件等"
+        },
+        {
+          "level": 3,
+          "title": "② $.get()和$.post()方法：是全局方法，无须指定某个元素，适合传递参数到服务器请求数据",
+          "slug": "_2-get-和-post-方法-是全局方法-无须指定某个元素-适合传递参数到服务器请求数据"
+        },
+        {
+          "level": 2,
+          "title": "2、最高层封装：$.getJSON() 和 $.getScript()",
+          "slug": "_2、最高层封装-getjson-和-getscript"
+        },
+        {
+          "level": 3,
+          "title": "① $.getJSON()方法：专门用于加载 JSON 文件的",
+          "slug": "_1-getjson-方法-专门用于加载-json-文件的"
+        },
+        {
+          "level": 3,
+          "title": "② $.getScript()方法：按需加载接口或js文件",
+          "slug": "_2-getscript-方法-按需加载接口或js文件"
+        },
+        {
+          "level": 2,
+          "title": "3、最底层的封装：$.ajax()",
+          "slug": "_3、最底层的封装-ajax"
+        },
+        {
+          "level": 2,
+          "title": "4、表单序列化",
+          "slug": "_4、表单序列化"
+        },
+        {
+          "level": 3,
+          "title": "① 常规形式的表单提交（表单提交数据）",
+          "slug": "_1-常规形式的表单提交-表单提交数据"
+        },
+        {
+          "level": 3,
+          "title": "② jQuery中的表单序列化提交数据（表单提交数据）",
+          "slug": "_2-jquery中的表单序列化提交数据-表单提交数据"
+        },
+        {
+          "level": 3,
+          "title": "③ $.param()方法将对象转换为字符串键值对格式",
+          "slug": "_3-param-方法将对象转换为字符串键值对格式"
+        },
+        {
+          "level": 2,
+          "title": "5、jQuery中的跨域jsonp",
+          "slug": "_5、jquery中的跨域jsonp"
+        },
+        {
+          "level": 3,
+          "title": "① jQuery中的跨域jsonp使用",
+          "slug": "_1-jquery中的跨域jsonp使用"
+        },
+        {
+          "level": 3,
+          "title": "② 延伸一下：jQuery中的跨域jsonp模拟百度搜索提示数据",
+          "slug": "_2-延伸一下-jquery中的跨域jsonp模拟百度搜索提示数据"
+        },
+        {
+          "level": 2,
+          "title": "6、 jqXHR 对象: when()方法、done()方法、always()方法和fail()方法",
+          "slug": "_6、-jqxhr-对象-when-方法、done-方法、always-方法和fail-方法"
+        },
+        {
+          "level": 2,
+          "title": "【第二学期第2季课程】其它章节",
+          "slug": "【第二学期第2季课程】其它章节"
+        },
+        {
+          "level": 3,
+          "title": "章节1.课程介绍",
+          "slug": "章节1-课程介绍"
+        },
+        {
+          "level": 3,
+          "title": "章节2.面向对象与原型",
+          "slug": "章节2-面向对象与原型"
+        },
+        {
+          "level": 3,
+          "title": "章节3.封装js库过渡到jQuery",
+          "slug": "章节3-封装js库过渡到jquery"
+        },
+        {
+          "level": 3,
+          "title": "章节4.jQuery",
+          "slug": "章节4-jquery"
+        },
+        {
+          "level": 3,
+          "title": "章节5.jQuery事件、动画、插件",
+          "slug": "章节5-jquery事件、动画、插件"
+        },
+        {
+          "level": 3,
+          "title": "章节6.Ajax",
+          "slug": "章节6-ajax"
+        },
+        {
+          "level": 3,
+          "title": "章节7.Node.js基础",
+          "slug": "章节7-node-js基础"
+        },
+        {
+          "level": 3,
+          "title": "章节8.正则表达式",
+          "slug": "章节8-正则表达式"
+        },
+        {
+          "level": 3,
+          "title": "章节9.Vue.js基础",
+          "slug": "章节9-vue-js基础"
+        },
+        {
+          "level": 2,
+          "title": "其它学期课程",
+          "slug": "其它学期课程"
+        },
+        {
+          "level": 3,
+          "title": "第一学期（学习顺序：01）",
+          "slug": "第一学期-学习顺序-01"
+        },
+        {
+          "level": 3,
+          "title": "第二学期【第1季】（学习顺序：02）",
+          "slug": "第二学期【第1季】-学习顺序-02"
+        },
+        {
+          "level": 3,
+          "title": "第二学期【第2季】（学习顺序：03）",
+          "slug": "第二学期【第2季】-学习顺序-03"
+        },
+        {
+          "level": 3,
+          "title": "第二学期【第3季】（学习顺序：04）",
+          "slug": "第二学期【第3季】-学习顺序-04"
+        },
+        {
+          "level": 3,
+          "title": "第二学期【第4季】（学习顺序：05）",
+          "slug": "第二学期【第4季】-学习顺序-05"
+        }
+      ],
+      "lastUpdated": "2024年11月19日星期二中午11点54分",
+      "lastUpdatedTimestamp": 1731988442000
+    },
+    {
+      "title": "章节9.Vue.js基础",
+      "frontmatter": {
+        "navbar": true,
+        "sidebar": "auto",
+        "title": "章节9.Vue.js基础"
+      },
+      "regularPath": "/secondless/w-b/Vue.js.html",
+      "relativePath": "secondless/w-b/Vue.js.md",
+      "key": "v-46777246",
+      "path": "/secondless/w-b/Vue.js.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "一、课前准备",
+          "slug": "一、课前准备"
+        },
+        {
+          "level": 3,
+          "title": "① 启动node服务器，引入vue.js",
+          "slug": "_1-启动node服务器-引入vue-js"
+        },
+        {
+          "level": 2,
+          "title": "二、体验vue的数据响应式",
+          "slug": "二、体验vue的数据响应式"
+        },
+        {
+          "level": 3,
+          "title": "① 配置项data中的数据响应式，及渲染到页面上的真实DOM效果",
+          "slug": "_1-配置项data中的数据响应式-及渲染到页面上的真实dom效果"
+        },
+        {
+          "level": 3,
+          "title": "② 循环语句，事件处理体验",
+          "slug": "_2-循环语句-事件处理体验"
+        },
+        {
+          "level": 3,
+          "title": "③ vuejs计算属性体验",
+          "slug": "_3-vuejs计算属性体验"
+        },
+        {
+          "level": 2,
+          "title": "三、理解vue的注入、虚拟DOM及底层原理",
+          "slug": "三、理解vue的注入、虚拟dom及底层原理"
+        },
+        {
+          "level": 3,
+          "title": "① vue实例成员的注入",
+          "slug": "_1-vue实例成员的注入"
+        },
+        {
+          "level": 3,
+          "title": "② 虚拟DOM",
+          "slug": "_2-虚拟dom"
+        },
+        {
+          "level": 3,
+          "title": "③ 虚拟DOM的底层原理",
+          "slug": "_3-虚拟dom的底层原理"
+        },
+        {
+          "level": 2,
+          "title": "四、案例：node.js + vue.js 渲染企业网站",
+          "slug": "四、案例-node-js-vue-js-渲染企业网站"
+        },
+        {
+          "level": 2,
+          "title": "【第二学期第2季课程】其它章节",
+          "slug": "【第二学期第2季课程】其它章节"
+        },
+        {
+          "level": 3,
+          "title": "章节1.课程介绍",
+          "slug": "章节1-课程介绍"
+        },
+        {
+          "level": 3,
+          "title": "章节2.面向对象与原型",
+          "slug": "章节2-面向对象与原型"
+        },
+        {
+          "level": 3,
+          "title": "章节3.封装js库过渡到jQuery",
+          "slug": "章节3-封装js库过渡到jquery"
+        },
+        {
+          "level": 3,
+          "title": "章节4.jQuery",
+          "slug": "章节4-jquery"
+        },
+        {
+          "level": 3,
+          "title": "章节5.jQuery事件、动画、插件",
+          "slug": "章节5-jquery事件、动画、插件"
+        },
+        {
+          "level": 3,
+          "title": "章节6.Ajax",
+          "slug": "章节6-ajax"
+        },
+        {
+          "level": 3,
+          "title": "章节7.Node.js基础",
+          "slug": "章节7-node-js基础"
+        },
+        {
+          "level": 3,
+          "title": "章节8.正则表达式",
+          "slug": "章节8-正则表达式"
+        },
+        {
+          "level": 3,
+          "title": "章节9.Vue.js基础",
+          "slug": "章节9-vue-js基础"
+        },
+        {
+          "level": 2,
+          "title": "其它学期课程",
+          "slug": "其它学期课程"
+        },
+        {
+          "level": 3,
+          "title": "第一学期（学习顺序：01）",
+          "slug": "第一学期-学习顺序-01"
+        },
+        {
+          "level": 3,
+          "title": "第二学期【第1季】（学习顺序：02）",
+          "slug": "第二学期【第1季】-学习顺序-02"
+        },
+        {
+          "level": 3,
+          "title": "第二学期【第2季】（学习顺序：03）",
+          "slug": "第二学期【第2季】-学习顺序-03"
+        },
+        {
+          "level": 3,
+          "title": "第二学期【第3季】（学习顺序：04）",
+          "slug": "第二学期【第3季】-学习顺序-04"
+        },
+        {
+          "level": 3,
+          "title": "第二学期【第4季】（学习顺序：05）",
+          "slug": "第二学期【第4季】-学习顺序-05"
+        }
+      ],
+      "lastUpdated": "2024年11月19日星期二中午11点54分",
+      "lastUpdatedTimestamp": 1731988442000
+    },
+    {
       "title": "章节7.Node.js基础",
       "frontmatter": {
         "navbar": true,
@@ -9388,454 +10372,6 @@ export const siteData = {
       ],
       "lastUpdated": "2024年11月19日星期二中午11点54分",
       "lastUpdatedTimestamp": 1731988442000
-    },
-    {
-      "title": "章节9.Vue.js基础",
-      "frontmatter": {
-        "navbar": true,
-        "sidebar": "auto",
-        "title": "章节9.Vue.js基础"
-      },
-      "regularPath": "/secondless/w-b/Vue.js.html",
-      "relativePath": "secondless/w-b/Vue.js.md",
-      "key": "v-46777246",
-      "path": "/secondless/w-b/Vue.js.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "一、课前准备",
-          "slug": "一、课前准备"
-        },
-        {
-          "level": 3,
-          "title": "① 启动node服务器，引入vue.js",
-          "slug": "_1-启动node服务器-引入vue-js"
-        },
-        {
-          "level": 2,
-          "title": "二、体验vue的数据响应式",
-          "slug": "二、体验vue的数据响应式"
-        },
-        {
-          "level": 3,
-          "title": "① 配置项data中的数据响应式，及渲染到页面上的真实DOM效果",
-          "slug": "_1-配置项data中的数据响应式-及渲染到页面上的真实dom效果"
-        },
-        {
-          "level": 3,
-          "title": "② 循环语句，事件处理体验",
-          "slug": "_2-循环语句-事件处理体验"
-        },
-        {
-          "level": 3,
-          "title": "③ vuejs计算属性体验",
-          "slug": "_3-vuejs计算属性体验"
-        },
-        {
-          "level": 2,
-          "title": "三、理解vue的注入、虚拟DOM及底层原理",
-          "slug": "三、理解vue的注入、虚拟dom及底层原理"
-        },
-        {
-          "level": 3,
-          "title": "① vue实例成员的注入",
-          "slug": "_1-vue实例成员的注入"
-        },
-        {
-          "level": 3,
-          "title": "② 虚拟DOM",
-          "slug": "_2-虚拟dom"
-        },
-        {
-          "level": 3,
-          "title": "③ 虚拟DOM的底层原理",
-          "slug": "_3-虚拟dom的底层原理"
-        },
-        {
-          "level": 2,
-          "title": "四、案例：node.js + vue.js 渲染企业网站",
-          "slug": "四、案例-node-js-vue-js-渲染企业网站"
-        },
-        {
-          "level": 2,
-          "title": "【第二学期第2季课程】其它章节",
-          "slug": "【第二学期第2季课程】其它章节"
-        },
-        {
-          "level": 3,
-          "title": "章节1.课程介绍",
-          "slug": "章节1-课程介绍"
-        },
-        {
-          "level": 3,
-          "title": "章节2.面向对象与原型",
-          "slug": "章节2-面向对象与原型"
-        },
-        {
-          "level": 3,
-          "title": "章节3.封装js库过渡到jQuery",
-          "slug": "章节3-封装js库过渡到jquery"
-        },
-        {
-          "level": 3,
-          "title": "章节4.jQuery",
-          "slug": "章节4-jquery"
-        },
-        {
-          "level": 3,
-          "title": "章节5.jQuery事件、动画、插件",
-          "slug": "章节5-jquery事件、动画、插件"
-        },
-        {
-          "level": 3,
-          "title": "章节6.Ajax",
-          "slug": "章节6-ajax"
-        },
-        {
-          "level": 3,
-          "title": "章节7.Node.js基础",
-          "slug": "章节7-node-js基础"
-        },
-        {
-          "level": 3,
-          "title": "章节8.正则表达式",
-          "slug": "章节8-正则表达式"
-        },
-        {
-          "level": 3,
-          "title": "章节9.Vue.js基础",
-          "slug": "章节9-vue-js基础"
-        },
-        {
-          "level": 2,
-          "title": "其它学期课程",
-          "slug": "其它学期课程"
-        },
-        {
-          "level": 3,
-          "title": "第一学期（学习顺序：01）",
-          "slug": "第一学期-学习顺序-01"
-        },
-        {
-          "level": 3,
-          "title": "第二学期【第1季】（学习顺序：02）",
-          "slug": "第二学期【第1季】-学习顺序-02"
-        },
-        {
-          "level": 3,
-          "title": "第二学期【第2季】（学习顺序：03）",
-          "slug": "第二学期【第2季】-学习顺序-03"
-        },
-        {
-          "level": 3,
-          "title": "第二学期【第3季】（学习顺序：04）",
-          "slug": "第二学期【第3季】-学习顺序-04"
-        },
-        {
-          "level": 3,
-          "title": "第二学期【第4季】（学习顺序：05）",
-          "slug": "第二学期【第4季】-学习顺序-05"
-        }
-      ],
-      "lastUpdated": "2024年11月19日星期二中午11点54分",
-      "lastUpdatedTimestamp": 1731988442000
-    },
-    {
-      "title": "章节10.内置对象：Global、Math对象，变量、作用域和内存问题",
-      "frontmatter": {
-        "navbar": true,
-        "sidebar": "auto",
-        "title": "章节10.内置对象：Global、Math对象，变量、作用域和内存问题"
-      },
-      "regularPath": "/secondless/w-a/%E5%86%85%E7%BD%AE%E5%AF%B9%E8%B1%A1%EF%BC%9AGlobal%E3%80%81Math%E5%AF%B9%E8%B1%A1%EF%BC%8C%E5%8F%98%E9%87%8F%E3%80%81%E4%BD%9C%E7%94%A8%E5%9F%9F%E5%92%8C%E5%86%85%E5%AD%98%E9%97%AE%E9%A2%98.html",
-      "relativePath": "secondless/w-a/内置对象：Global、Math对象，变量、作用域和内存问题.md",
-      "key": "v-1d6f685a",
-      "path": "/secondless/w-a/%E5%86%85%E7%BD%AE%E5%AF%B9%E8%B1%A1%EF%BC%9AGlobal%E3%80%81Math%E5%AF%B9%E8%B1%A1%EF%BC%8C%E5%8F%98%E9%87%8F%E3%80%81%E4%BD%9C%E7%94%A8%E5%9F%9F%E5%92%8C%E5%86%85%E5%AD%98%E9%97%AE%E9%A2%98.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "1、内置对象： Global对象",
-          "slug": "_1、内置对象-global对象"
-        },
-        {
-          "level": 3,
-          "title": "① Global对象",
-          "slug": "_1-global对象"
-        },
-        {
-          "level": 3,
-          "title": "② Global对象内置的属性和方法：URI 编码方法",
-          "slug": "_2-global对象内置的属性和方法-uri-编码方法"
-        },
-        {
-          "level": 3,
-          "title": "③ URI 编码方法：encodeURI()、encodeURIComponent()",
-          "slug": "_3-uri-编码方法-encodeuri-、encodeuricomponent"
-        },
-        {
-          "level": 3,
-          "title": "④ URI 解码方法：decodeURI()、decodeURIComponent()",
-          "slug": "_4-uri-解码方法-decodeuri-、decodeuricomponent"
-        },
-        {
-          "level": 3,
-          "title": "⑤ eval()方法",
-          "slug": "_5-eval-方法"
-        },
-        {
-          "level": 3,
-          "title": "⑥ Global对象的属性",
-          "slug": "_6-global对象的属性"
-        },
-        {
-          "level": 3,
-          "title": "⑦ window 对象",
-          "slug": "_7-window-对象"
-        },
-        {
-          "level": 2,
-          "title": "2、内置对象： Math 对象",
-          "slug": "_2、内置对象-math-对象"
-        },
-        {
-          "level": 3,
-          "title": "① Math 对象的属性",
-          "slug": "_1-math-对象的属性"
-        },
-        {
-          "level": 3,
-          "title": "② Math.min()和 Math.max()方法分别求一组数值中的最小值、最大值",
-          "slug": "_2-math-min-和-math-max-方法分别求一组数值中的最小值、最大值"
-        },
-        {
-          "level": 3,
-          "title": "③ Math.ceil()向上舍入、Math.floor()向下舍入、Math.round()四舍五入",
-          "slug": "_3-math-ceil-向上舍入、math-floor-向下舍入、math-round-四舍五入"
-        },
-        {
-          "level": 3,
-          "title": "④ Math.random() 产生一个0 到 1 之间随机数，不包括 0 和 1",
-          "slug": "_4-math-random-产生一个0-到-1-之间随机数-不包括-0-和-1"
-        },
-        {
-          "level": 3,
-          "title": "⑤ 取任意两个数之间的随机整数通用函数（方法）",
-          "slug": "_5-取任意两个数之间的随机整数通用函数-方法"
-        },
-        {
-          "level": 3,
-          "title": "⑥ 其他方法",
-          "slug": "_6-其他方法"
-        },
-        {
-          "level": 2,
-          "title": "3、变量",
-          "slug": "_3、变量"
-        },
-        {
-          "level": 3,
-          "title": "① 基本类型和引用类型的值",
-          "slug": "_1-基本类型和引用类型的值"
-        },
-        {
-          "level": 3,
-          "title": "② 动态属性",
-          "slug": "_2-动态属性"
-        },
-        {
-          "level": 3,
-          "title": "③ 复制变量值",
-          "slug": "_3-复制变量值"
-        },
-        {
-          "level": 3,
-          "title": "④ 传递参数： 按值传参",
-          "slug": "_4-传递参数-按值传参"
-        },
-        {
-          "level": 3,
-          "title": "⑤ 传递参数： 传递一个引用类型的参数（对象），但是它不是按引用传递，它是按值传递的",
-          "slug": "_5-传递参数-传递一个引用类型的参数-对象-但是它不是按引用传递-它是按值传递的"
-        },
-        {
-          "level": 3,
-          "title": "⑥ 检测变量类型：typeof()、instanceof()",
-          "slug": "_6-检测变量类型-typeof-、instanceof"
-        },
-        {
-          "level": 2,
-          "title": "4、作用域（执行环境）",
-          "slug": "_4、作用域-执行环境"
-        },
-        {
-          "level": 3,
-          "title": "① 全局执行环境",
-          "slug": "_1-全局执行环境"
-        },
-        {
-          "level": 3,
-          "title": "② 局部执行环境",
-          "slug": "_2-局部执行环境"
-        },
-        {
-          "level": 3,
-          "title": "③ 没有块级作用域（var 操作符声明的变量）",
-          "slug": "_3-没有块级作用域-var-操作符声明的变量"
-        },
-        {
-          "level": 2,
-          "title": "5、 内存问题",
-          "slug": "_5、-内存问题"
-        },
-        {
-          "level": 2,
-          "title": "课程其它章节",
-          "slug": "课程其它章节"
-        },
-        {
-          "level": 3,
-          "title": "章节1.课程介绍",
-          "slug": "章节1-课程介绍"
-        },
-        {
-          "level": 3,
-          "title": "章节2.javascript基础",
-          "slug": "章节2-javascript基础"
-        },
-        {
-          "level": 3,
-          "title": "章节3.javascript运算符",
-          "slug": "章节3-javascript运算符"
-        },
-        {
-          "level": 3,
-          "title": "章节4.流程控制语句",
-          "slug": "章节4-流程控制语句"
-        },
-        {
-          "level": 3,
-          "title": "章节5.javascript函数",
-          "slug": "章节5-javascript函数"
-        },
-        {
-          "level": 3,
-          "title": "章节6.javascript对象",
-          "slug": "章节6-javascript对象"
-        },
-        {
-          "level": 3,
-          "title": "章节7.javascript数组",
-          "slug": "章节7-javascript数组"
-        },
-        {
-          "level": 3,
-          "title": "章节8.Date类型：时间和日期",
-          "slug": "章节8-date类型-时间和日期"
-        },
-        {
-          "level": 3,
-          "title": "章节9.Function类型：函数进阶",
-          "slug": "章节9-function类型-函数进阶"
-        },
-        {
-          "level": 3,
-          "title": "章节10.内置对象：Global、Math对象，变量、作用域和内存问题",
-          "slug": "章节10-内置对象-global、math对象-变量、作用域和内存问题"
-        },
-        {
-          "level": 3,
-          "title": "章节11.匿名函数和闭包",
-          "slug": "章节11-匿名函数和闭包"
-        },
-        {
-          "level": 3,
-          "title": "章节12.javascript基本包装类型",
-          "slug": "章节12-javascript基本包装类型"
-        },
-        {
-          "level": 3,
-          "title": "章节13.函数对象数组小结",
-          "slug": "章节13-函数对象数组小结"
-        },
-        {
-          "level": 3,
-          "title": "章节14.浏览器对象模型BOM及浏览器检测",
-          "slug": "章节14-浏览器对象模型bom及浏览器检测"
-        },
-        {
-          "level": 3,
-          "title": "章节15.网页文档对象模型DOM",
-          "slug": "章节15-网页文档对象模型dom"
-        },
-        {
-          "level": 3,
-          "title": "章节16.事件",
-          "slug": "章节16-事件"
-        },
-        {
-          "level": 3,
-          "title": "章节17.表单处理及错误处理与调试",
-          "slug": "章节17-表单处理及错误处理与调试"
-        },
-        {
-          "level": 3,
-          "title": "章节18.数据Cookie、XML、JSON",
-          "slug": "章节18-数据cookie、xml、json"
-        },
-        {
-          "level": 2,
-          "title": "其它学期课程",
-          "slug": "其它学期课程"
-        },
-        {
-          "level": 3,
-          "title": "第一学期（学习顺序：01）",
-          "slug": "第一学期-学习顺序-01"
-        },
-        {
-          "level": 3,
-          "title": "第二学期【第1季】（学习顺序：02）",
-          "slug": "第二学期【第1季】-学习顺序-02"
-        },
-        {
-          "level": 3,
-          "title": "第二学期【第2季】（学习顺序：03）",
-          "slug": "第二学期【第2季】-学习顺序-03"
-        },
-        {
-          "level": 3,
-          "title": "第二学期【第3季】（学习顺序：04）",
-          "slug": "第二学期【第3季】-学习顺序-04"
-        },
-        {
-          "level": 3,
-          "title": "第二学期【第4季】（学习顺序：05）",
-          "slug": "第二学期【第4季】-学习顺序-05"
-        }
-      ],
-      "lastUpdated": "2024年11月19日星期二中午11点54分",
-      "lastUpdatedTimestamp": 1731988442000
-    },
-    {
-      "title": "nodejs服务器端app.js文件",
-      "frontmatter": {
-        "navbar": true,
-        "sidebar": "auto",
-        "title": "nodejs服务器端app.js文件"
-      },
-      "regularPath": "/secondless/w-b/nodejs%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%AB%AFapp.js%E6%96%87%E4%BB%B6.html",
-      "relativePath": "secondless/w-b/nodejs服务器端app.js文件.md",
-      "key": "v-c701e7e6",
-      "path": "/secondless/w-b/nodejs%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%AB%AFapp.js%E6%96%87%E4%BB%B6.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "一、在留言板上对手机号进行加密",
-          "slug": "一、在留言板上对手机号进行加密"
-        }
-      ],
-      "lastUpdated": "2023年12月14日星期四下午3点15分",
-      "lastUpdatedTimestamp": 1702538120000
     },
     {
       "title": "章节4.jQuery",
@@ -10409,315 +10945,171 @@ export const siteData = {
       "lastUpdatedTimestamp": 1731988442000
     },
     {
-      "title": "章节14.浏览器对象模型BOM及浏览器检测",
+      "title": "案例：nodejs+jQuery开发企业网页的留言板功能",
       "frontmatter": {
         "navbar": true,
         "sidebar": "auto",
-        "title": "章节14.浏览器对象模型BOM及浏览器检测"
+        "title": "案例：nodejs+jQuery开发企业网页的留言板功能"
       },
-      "regularPath": "/secondless/w-a/%E6%B5%8F%E8%A7%88%E5%99%A8%E5%AF%B9%E8%B1%A1%E6%A8%A1%E5%9E%8BBOM%E5%8F%8A%E6%B5%8F%E8%A7%88%E5%99%A8%E6%A3%80%E6%B5%8B.html",
-      "relativePath": "secondless/w-a/浏览器对象模型BOM及浏览器检测.md",
-      "key": "v-355562ac",
-      "path": "/secondless/w-a/%E6%B5%8F%E8%A7%88%E5%99%A8%E5%AF%B9%E8%B1%A1%E6%A8%A1%E5%9E%8BBOM%E5%8F%8A%E6%B5%8F%E8%A7%88%E5%99%A8%E6%A3%80%E6%B5%8B.html",
+      "regularPath": "/secondless/w-b/nodejs+jQuery%E5%BC%80%E5%8F%91%E7%95%99%E8%A8%80%E6%9D%BF.html",
+      "relativePath": "secondless/w-b/nodejs+jQuery开发留言板.md",
+      "key": "v-38f9c12f",
+      "path": "/secondless/w-b/nodejs+jQuery%E5%BC%80%E5%8F%91%E7%95%99%E8%A8%80%E6%9D%BF.html",
       "headers": [
         {
           "level": 2,
-          "title": "1、window 对象",
-          "slug": "_1、window-对象"
+          "title": "一、基础准备",
+          "slug": "一、基础准备"
         },
         {
           "level": 3,
-          "title": "① window 对象的属性和方法",
-          "slug": "_1-window-对象的属性和方法"
+          "title": "① 搭建node服务器",
+          "slug": "_1-搭建node服务器"
+        },
+        {
+          "level": 3,
+          "title": "② contact.html页面",
+          "slug": "_2-contact-html页面"
         },
         {
           "level": 2,
-          "title": "2、window对象：系统对话框",
-          "slug": "_2、window对象-系统对话框"
+          "title": "二、获取留言板输入的内容",
+          "slug": "二、获取留言板输入的内容"
         },
         {
           "level": 3,
-          "title": "① 弹出警告:alert()",
-          "slug": "_1-弹出警告-alert"
+          "title": "① 补全留言板表单信息",
+          "slug": "_1-补全留言板表单信息"
         },
         {
           "level": 3,
-          "title": "② 确定和取消:confirm()",
-          "slug": "_2-确定和取消-confirm"
-        },
-        {
-          "level": 3,
-          "title": "③ 输入提示框:prompt()",
-          "slug": "_3-输入提示框-prompt"
+          "title": "② 监听输入数据的合法性",
+          "slug": "_2-监听输入数据的合法性"
         },
         {
           "level": 2,
-          "title": "3、window对象：调出打印机print()",
-          "slug": "_3、window对象-调出打印机print"
+          "title": "三、提交数据",
+          "slug": "三、提交数据"
+        },
+        {
+          "level": 3,
+          "title": "① 提交留言之后的页面处理",
+          "slug": "_1-提交留言之后的页面处理"
         },
         {
           "level": 2,
-          "title": "4、window对象：网页新建窗口open()",
-          "slug": "_4、window对象-网页新建窗口open"
+          "title": "四、nodejs服务器端处理留言",
+          "slug": "四、nodejs服务器端处理留言"
+        },
+        {
+          "level": 3,
+          "title": "① 首次留言处理",
+          "slug": "_1-首次留言处理"
+        },
+        {
+          "level": 3,
+          "title": "② 存储用户的留言",
+          "slug": "_2-存储用户的留言"
         },
         {
           "level": 2,
-          "title": "5、window对象：窗口页面的位置和大小",
-          "slug": "_5、window对象-窗口页面的位置和大小"
+          "title": "五、案例最终代码展示",
+          "slug": "五、案例最终代码展示"
         },
         {
           "level": 3,
-          "title": "① 窗口页面的位置：screenX（screenLeft）和 screenY（screenTop）",
-          "slug": "_1-窗口页面的位置-screenx-screenleft-和-screeny-screentop"
+          "title": "① contact.html页面",
+          "slug": "_1-contact-html页面"
         },
         {
           "level": 3,
-          "title": "② 窗口页面的大小：innerWidth和 innerHeight，outerWidth 和 outerHeight，document.documentElement.clientWidth和document.documentElement.clientHeight",
-          "slug": "_2-窗口页面的大小-innerwidth和-innerheight-outerwidth-和-outerheight-document-documentelement-clientwidth和document-documentelement-clientheight"
-        },
-        {
-          "level": 2,
-          "title": "6、window对象：定时器（超时调用和间歇调用）",
-          "slug": "_6、window对象-定时器-超时调用和间歇调用"
-        },
-        {
-          "level": 3,
-          "title": "① 超时调用：setTimeout()方法",
-          "slug": "_1-超时调用-settimeout-方法"
-        },
-        {
-          "level": 3,
-          "title": "② 取消超时调用：clearTimeout()方法",
-          "slug": "_2-取消超时调用-cleartimeout-方法"
-        },
-        {
-          "level": 3,
-          "title": "③ 间歇调用：setInterval()方法",
-          "slug": "_3-间歇调用-setinterval-方法"
-        },
-        {
-          "level": 3,
-          "title": "④ 取消间歇调用：clearInterval()方法",
-          "slug": "_4-取消间歇调用-clearinterval-方法"
-        },
-        {
-          "level": 3,
-          "title": "⑤ 模拟定时器功能，超时调用模拟间歇调用",
-          "slug": "_5-模拟定时器功能-超时调用模拟间歇调用"
-        },
-        {
-          "level": 2,
-          "title": "7、location 对象",
-          "slug": "_7、location-对象"
-        },
-        {
-          "level": 3,
-          "title": "① location 对象：获取网址相关信息",
-          "slug": "_1-location-对象-获取网址相关信息"
-        },
-        {
-          "level": 3,
-          "title": "② location 对象：assign()方法跳转到指定页面，与 href 等效",
-          "slug": "_2-location-对象-assign-方法跳转到指定页面-与-href-等效"
-        },
-        {
-          "level": 3,
-          "title": "③ location 对象：reload()方法，刷新页面",
-          "slug": "_3-location-对象-reload-方法-刷新页面"
-        },
-        {
-          "level": 3,
-          "title": "④ location 对象：repalce()方法，用新的 URL 替换当前页面",
-          "slug": "_4-location-对象-repalce-方法-用新的-url-替换当前页面"
-        },
-        {
-          "level": 3,
-          "title": "⑤ 获取网址url参数中的键值对",
-          "slug": "_5-获取网址url参数中的键值对"
-        },
-        {
-          "level": 2,
-          "title": "8、history 对象 : 属性:length，方法：back()、forward()、go(num)",
-          "slug": "_8、history-对象-属性-length-方法-back-、forward-、go-num"
-        },
-        {
-          "level": 2,
-          "title": "9、navigator 对象：浏览器检测对象",
-          "slug": "_9、navigator-对象-浏览器检测对象"
-        },
-        {
-          "level": 3,
-          "title": "① 获取浏览器相关信息",
-          "slug": "_1-获取浏览器相关信息"
-        },
-        {
-          "level": 3,
-          "title": "② 浏览器插件检测",
-          "slug": "_2-浏览器插件检测"
-        },
-        {
-          "level": 3,
-          "title": "③ MIME 类型检测",
-          "slug": "_3-mime-类型检测"
-        },
-        {
-          "level": 2,
-          "title": "10、navigator 对象：浏览器检测场景使用",
-          "slug": "_10、navigator-对象-浏览器检测场景使用"
-        },
-        {
-          "level": 3,
-          "title": "① 用户代理检测",
-          "slug": "_1-用户代理检测"
-        },
-        {
-          "level": 3,
-          "title": "② 判断设备是不是安卓系统",
-          "slug": "_2-判断设备是不是安卓系统"
-        },
-        {
-          "level": 3,
-          "title": "③ 判断设备是不是苹果系统",
-          "slug": "_3-判断设备是不是苹果系统"
-        },
-        {
-          "level": 3,
-          "title": "④ 判断用户是否在微信上面浏览网页",
-          "slug": "_4-判断用户是否在微信上面浏览网页"
-        },
-        {
-          "level": 3,
-          "title": "⑤ 获取操作系统，判断用户查看网页的设备是电脑设备，还是手机设备",
-          "slug": "_5-获取操作系统-判断用户查看网页的设备是电脑设备-还是手机设备"
-        },
-        {
-          "level": 2,
-          "title": "课程其它章节",
-          "slug": "课程其它章节"
-        },
-        {
-          "level": 3,
-          "title": "章节1.课程介绍",
-          "slug": "章节1-课程介绍"
-        },
-        {
-          "level": 3,
-          "title": "章节2.javascript基础",
-          "slug": "章节2-javascript基础"
-        },
-        {
-          "level": 3,
-          "title": "章节3.javascript运算符",
-          "slug": "章节3-javascript运算符"
-        },
-        {
-          "level": 3,
-          "title": "章节4.流程控制语句",
-          "slug": "章节4-流程控制语句"
-        },
-        {
-          "level": 3,
-          "title": "章节5.javascript函数",
-          "slug": "章节5-javascript函数"
-        },
-        {
-          "level": 3,
-          "title": "章节6.javascript对象",
-          "slug": "章节6-javascript对象"
-        },
-        {
-          "level": 3,
-          "title": "章节7.javascript数组",
-          "slug": "章节7-javascript数组"
-        },
-        {
-          "level": 3,
-          "title": "章节8.Date类型：时间和日期",
-          "slug": "章节8-date类型-时间和日期"
-        },
-        {
-          "level": 3,
-          "title": "章节9.Function类型：函数进阶",
-          "slug": "章节9-function类型-函数进阶"
-        },
-        {
-          "level": 3,
-          "title": "章节10.内置对象：Global、Math对象，变量、作用域和内存问题",
-          "slug": "章节10-内置对象-global、math对象-变量、作用域和内存问题"
-        },
-        {
-          "level": 3,
-          "title": "章节11.匿名函数和闭包",
-          "slug": "章节11-匿名函数和闭包"
-        },
-        {
-          "level": 3,
-          "title": "章节12.javascript基本包装类型",
-          "slug": "章节12-javascript基本包装类型"
-        },
-        {
-          "level": 3,
-          "title": "章节13.函数对象数组小结",
-          "slug": "章节13-函数对象数组小结"
-        },
-        {
-          "level": 3,
-          "title": "章节14.浏览器对象模型BOM及浏览器检测",
-          "slug": "章节14-浏览器对象模型bom及浏览器检测"
-        },
-        {
-          "level": 3,
-          "title": "章节15.网页文档对象模型DOM",
-          "slug": "章节15-网页文档对象模型dom"
-        },
-        {
-          "level": 3,
-          "title": "章节16.事件",
-          "slug": "章节16-事件"
-        },
-        {
-          "level": 3,
-          "title": "章节17.表单处理及错误处理与调试",
-          "slug": "章节17-表单处理及错误处理与调试"
-        },
-        {
-          "level": 3,
-          "title": "章节18.数据Cookie、XML、JSON",
-          "slug": "章节18-数据cookie、xml、json"
-        },
-        {
-          "level": 2,
-          "title": "其它学期课程",
-          "slug": "其它学期课程"
-        },
-        {
-          "level": 3,
-          "title": "第一学期（学习顺序：01）",
-          "slug": "第一学期-学习顺序-01"
-        },
-        {
-          "level": 3,
-          "title": "第二学期【第1季】（学习顺序：02）",
-          "slug": "第二学期【第1季】-学习顺序-02"
-        },
-        {
-          "level": 3,
-          "title": "第二学期【第2季】（学习顺序：03）",
-          "slug": "第二学期【第2季】-学习顺序-03"
-        },
-        {
-          "level": 3,
-          "title": "第二学期【第3季】（学习顺序：04）",
-          "slug": "第二学期【第3季】-学习顺序-04"
-        },
-        {
-          "level": 3,
-          "title": "第二学期【第4季】（学习顺序：05）",
-          "slug": "第二学期【第4季】-学习顺序-05"
+          "title": "② 服务器端app.js代码",
+          "slug": "_2-服务器端app-js代码"
         }
       ],
-      "lastUpdated": "2024年11月19日星期二中午11点54分",
-      "lastUpdatedTimestamp": 1731988442000
+      "lastUpdated": "2024年1月12日星期五上午10点54分",
+      "lastUpdatedTimestamp": 1705028061000
+    },
+    {
+      "title": "案例：node.js+vue.js 渲染企业网站",
+      "frontmatter": {
+        "navbar": true,
+        "sidebar": "auto",
+        "title": "案例：node.js+vue.js 渲染企业网站"
+      },
+      "regularPath": "/secondless/w-b/node.js+vue.js%20%E6%B8%B2%E6%9F%93%E4%BC%81%E4%B8%9A%E7%BD%91%E7%AB%99.html",
+      "relativePath": "secondless/w-b/node.js+vue.js 渲染企业网站.md",
+      "key": "v-366d64cf",
+      "path": "/secondless/w-b/node.js+vue.js%20%E6%B8%B2%E6%9F%93%E4%BC%81%E4%B8%9A%E7%BD%91%E7%AB%99.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "一、基础准备",
+          "slug": "一、基础准备"
+        },
+        {
+          "level": 3,
+          "title": "1. 启动node服务器",
+          "slug": "_1-启动node服务器"
+        },
+        {
+          "level": 3,
+          "title": "2. 网站数据准备",
+          "slug": "_2-网站数据准备"
+        },
+        {
+          "level": 2,
+          "title": "二、编写api接口获取数据",
+          "slug": "二、编写api接口获取数据"
+        },
+        {
+          "level": 3,
+          "title": "① 引入vue.js，设置请求接口，vue2生命周期",
+          "slug": "_1-引入vue-js-设置请求接口-vue2生命周期"
+        },
+        {
+          "level": 3,
+          "title": "② nodejs服务端读取、处理数据并响应给浏览器",
+          "slug": "_2-nodejs服务端读取、处理数据并响应给浏览器"
+        },
+        {
+          "level": 3,
+          "title": "③ 渲染到页面前进一步处理数据",
+          "slug": "_3-渲染到页面前进一步处理数据"
+        },
+        {
+          "level": 3,
+          "title": "④ 通过vue.js将数据渲染到页面上",
+          "slug": "_4-通过vue-js将数据渲染到页面上"
+        },
+        {
+          "level": 2,
+          "title": "三、最终代码",
+          "slug": "三、最终代码"
+        },
+        {
+          "level": 3,
+          "title": "1. 服务端Node代码： /app.js文件代码",
+          "slug": "_1-服务端node代码-app-js文件代码"
+        },
+        {
+          "level": 3,
+          "title": "2. 客户端(浏览器)代码： /static/js/index.vue.js代码",
+          "slug": "_2-客户端-浏览器-代码-static-js-index-vue-js代码"
+        },
+        {
+          "level": 3,
+          "title": "3. 网站首页代码： /index.html",
+          "slug": "_3-网站首页代码-index-html"
+        },
+        {
+          "level": 2,
+          "title": "四、点评总结",
+          "slug": "四、点评总结"
+        }
+      ],
+      "lastUpdated": "2024年1月5日星期五下午2点53分",
+      "lastUpdatedTimestamp": 1704437586000
     },
     {
       "title": "章节5.jQuery事件、动画、插件",
@@ -10971,6 +11363,86 @@ export const siteData = {
       "lastUpdatedTimestamp": 1731988442000
     },
     {
+      "title": "nodejs服务器端app.js文件",
+      "frontmatter": {
+        "navbar": true,
+        "sidebar": "auto",
+        "title": "nodejs服务器端app.js文件"
+      },
+      "regularPath": "/secondless/w-b/nodejs%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%AB%AFapp.js%E6%96%87%E4%BB%B6.html",
+      "relativePath": "secondless/w-b/nodejs服务器端app.js文件.md",
+      "key": "v-c701e7e6",
+      "path": "/secondless/w-b/nodejs%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%AB%AFapp.js%E6%96%87%E4%BB%B6.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "一、在留言板上对手机号进行加密",
+          "slug": "一、在留言板上对手机号进行加密"
+        }
+      ],
+      "lastUpdated": "2023年12月14日星期四下午3点15分",
+      "lastUpdatedTimestamp": 1702538120000
+    },
+    {
+      "title": "第二学期第三季（课程学习顺序：04）",
+      "frontmatter": {
+        "title": "第二学期第三季（课程学习顺序：04）"
+      },
+      "regularPath": "/secondless/w-c.html",
+      "relativePath": "secondless/w-c.md",
+      "key": "v-0a109b22",
+      "path": "/secondless/w-c.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "1.第二学期第三季课程介绍",
+          "slug": "_1-第二学期第三季课程介绍"
+        },
+        {
+          "level": 2,
+          "title": "2.本季课程视频介绍",
+          "slug": "_2-本季课程视频介绍"
+        },
+        {
+          "level": 2,
+          "title": "3.课程视频学习",
+          "slug": "_3-课程视频学习"
+        },
+        {
+          "level": 2,
+          "title": "4.查看课程文档",
+          "slug": "_4-查看课程文档"
+        },
+        {
+          "level": 3,
+          "title": "章节1.第三季课程介绍",
+          "slug": "章节1-第三季课程介绍"
+        },
+        {
+          "level": 3,
+          "title": "",
+          "slug": "章节2-egg-js基础"
+        },
+        {
+          "level": 3,
+          "title": "",
+          "slug": "章节3-响应式网页布局"
+        },
+        {
+          "level": 3,
+          "title": "",
+          "slug": "章节4-egg-js和mysql数据库进阶进一步开发网站后台"
+        },
+        {
+          "level": 3,
+          "title": "",
+          "slug": "章节5-企业网站前端部分"
+        }
+      ],
+      "lastUpdated": "2025年2月14日星期五晚上7点31分",
+      "lastUpdatedTimestamp": 1739532672000
+    },
+    {
       "title": "章节3.封装js库过渡到jQuery",
       "frontmatter": {
         "navbar": true,
@@ -11102,90 +11574,75 @@ export const siteData = {
       "lastUpdatedTimestamp": 1731988442000
     },
     {
-      "title": "案例：nodejs+jQuery开发企业网页的留言板功能",
+      "title": "Egg.js接口安全防护方案",
       "frontmatter": {
         "navbar": true,
         "sidebar": "auto",
-        "title": "案例：nodejs+jQuery开发企业网页的留言板功能"
+        "title": "Egg.js接口安全防护方案"
       },
-      "regularPath": "/secondless/w-b/nodejs+jQuery%E5%BC%80%E5%8F%91%E7%95%99%E8%A8%80%E6%9D%BF.html",
-      "relativePath": "secondless/w-b/nodejs+jQuery开发留言板.md",
-      "key": "v-38f9c12f",
-      "path": "/secondless/w-b/nodejs+jQuery%E5%BC%80%E5%8F%91%E7%95%99%E8%A8%80%E6%9D%BF.html",
+      "regularPath": "/secondless/w-c/Egg.js%E6%8E%A5%E5%8F%A3%E5%AE%89%E5%85%A8%E9%98%B2%E6%8A%A4%E6%96%B9%E6%A1%88.html",
+      "relativePath": "secondless/w-c/Egg.js接口安全防护方案.md",
+      "key": "v-89f03c42",
+      "path": "/secondless/w-c/Egg.js%E6%8E%A5%E5%8F%A3%E5%AE%89%E5%85%A8%E9%98%B2%E6%8A%A4%E6%96%B9%E6%A1%88.html",
       "headers": [
         {
           "level": 2,
-          "title": "一、基础准备",
-          "slug": "一、基础准备"
-        },
-        {
-          "level": 3,
-          "title": "① 搭建node服务器",
-          "slug": "_1-搭建node服务器"
-        },
-        {
-          "level": 3,
-          "title": "② contact.html页面",
-          "slug": "_2-contact-html页面"
+          "title": "1. 基础防护：HTTP Referer/Origin 校验",
+          "slug": "_1-基础防护-http-referer-origin-校验"
         },
         {
           "level": 2,
-          "title": "二、获取留言板输入的内容",
-          "slug": "二、获取留言板输入的内容"
-        },
-        {
-          "level": 3,
-          "title": "① 补全留言板表单信息",
-          "slug": "_1-补全留言板表单信息"
-        },
-        {
-          "level": 3,
-          "title": "② 监听输入数据的合法性",
-          "slug": "_2-监听输入数据的合法性"
+          "title": "2. 启用 CSRF 防护",
+          "slug": "_2-启用-csrf-防护"
         },
         {
           "level": 2,
-          "title": "三、提交数据",
-          "slug": "三、提交数据"
-        },
-        {
-          "level": 3,
-          "title": "① 提交留言之后的页面处理",
-          "slug": "_1-提交留言之后的页面处理"
+          "title": "3. CORS 严格配置",
+          "slug": "_3-cors-严格配置"
         },
         {
           "level": 2,
-          "title": "四、nodejs服务器端处理留言",
-          "slug": "四、nodejs服务器端处理留言"
-        },
-        {
-          "level": 3,
-          "title": "① 首次留言处理",
-          "slug": "_1-首次留言处理"
-        },
-        {
-          "level": 3,
-          "title": "② 存储用户的留言",
-          "slug": "_2-存储用户的留言"
+          "title": "4. 用户认证与授权",
+          "slug": "_4-用户认证与授权"
         },
         {
           "level": 2,
-          "title": "五、案例最终代码展示",
-          "slug": "五、案例最终代码展示"
+          "title": "5. 请求签名与防重放",
+          "slug": "_5-请求签名与防重放"
         },
         {
-          "level": 3,
-          "title": "① contact.html页面",
-          "slug": "_1-contact-html页面"
+          "level": 2,
+          "title": "6. 客户端指纹校验",
+          "slug": "_6-客户端指纹校验"
         },
         {
-          "level": 3,
-          "title": "② 服务器端app.js代码",
-          "slug": "_2-服务器端app-js代码"
+          "level": 2,
+          "title": "7. 动态 Token 防御",
+          "slug": "_7-动态-token-防御"
+        },
+        {
+          "level": 2,
+          "title": "8. 请求频率限制",
+          "slug": "_8-请求频率限制"
+        },
+        {
+          "level": 2,
+          "title": "9. 混淆接口路径",
+          "slug": "_9-混淆接口路径"
+        },
+        {
+          "level": 2,
+          "title": "10. 深度防御：行为分析与 WAF",
+          "slug": "_10-深度防御-行为分析与-waf"
+        },
+        {
+          "level": 2,
+          "title": "总结建议",
+          "slug": "总结建议"
         }
       ],
-      "lastUpdated": "2024年1月12日星期五上午10点54分",
-      "lastUpdatedTimestamp": 1705028061000
+      "lastUpdated": "2025年5月12日星期一下午1点31分",
+      "lastUpdatedTimestamp": 1747027866000
     },
     {
       "title": "章节8.正则表达式",
@@ -11569,65 +12026,6 @@ export const siteData = {
       "lastUpdatedTimestamp": 1731988442000
     },
     {
-      "title": "第二学期第三季（课程学习顺序：04）",
-      "frontmatter": {
-        "title": "第二学期第三季（课程学习顺序：04）"
-      },
-      "regularPath": "/secondless/w-c.html",
-      "relativePath": "secondless/w-c.md",
-      "key": "v-0a109b22",
-      "path": "/secondless/w-c.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "1.第二学期第三季课程介绍",
-          "slug": "_1-第二学期第三季课程介绍"
-        },
-        {
-          "level": 2,
-          "title": "2.本季课程视频介绍",
-          "slug": "_2-本季课程视频介绍"
-        },
-        {
-          "level": 2,
-          "title": "3.课程视频学习",
-          "slug": "_3-课程视频学习"
-        },
-        {
-          "level": 2,
-          "title": "4.查看课程文档",
-          "slug": "_4-查看课程文档"
-        },
-        {
-          "level": 3,
-          "title": "章节1.第三季课程介绍",
-          "slug": "章节1-第三季课程介绍"
-        },
-        {
-          "level": 3,
-          "title": "",
-          "slug": "章节2-egg-js基础"
-        },
-        {
-          "level": 3,
-          "title": "",
-          "slug": "章节3-响应式网页布局"
-        },
-        {
-          "level": 3,
-          "title": "",
-          "slug": "章节4-egg-js和mysql数据库进阶进一步开发网站后台"
-        },
-        {
-          "level": 3,
-          "title": "",
-          "slug": "章节5-企业网站前端部分"
-        }
-      ],
-      "lastUpdated": "2025年2月14日星期五晚上7点31分",
-      "lastUpdatedTimestamp": 1739532672000
-    },
-    {
       "title": "章节2.面向对象与原型",
       "frontmatter": {
         "navbar": true,
@@ -11883,6 +12281,249 @@ export const siteData = {
           "level": 3,
           "title": "章节9.Vue.js基础",
           "slug": "章节9-vue-js基础"
+        },
+        {
+          "level": 2,
+          "title": "其它学期课程",
+          "slug": "其它学期课程"
+        },
+        {
+          "level": 3,
+          "title": "第一学期（学习顺序：01）",
+          "slug": "第一学期-学习顺序-01"
+        },
+        {
+          "level": 3,
+          "title": "第二学期【第1季】（学习顺序：02）",
+          "slug": "第二学期【第1季】-学习顺序-02"
+        },
+        {
+          "level": 3,
+          "title": "第二学期【第2季】（学习顺序：03）",
+          "slug": "第二学期【第2季】-学习顺序-03"
+        },
+        {
+          "level": 3,
+          "title": "第二学期【第3季】（学习顺序：04）",
+          "slug": "第二学期【第3季】-学习顺序-04"
+        },
+        {
+          "level": 3,
+          "title": "第二学期【第4季】（学习顺序：05）",
+          "slug": "第二学期【第4季】-学习顺序-05"
+        }
+      ],
+      "lastUpdated": "2024年11月19日星期二中午11点54分",
+      "lastUpdatedTimestamp": 1731988442000
+    },
+    {
+      "title": "ValParams API 说明",
+      "frontmatter": {
+        "navbar": true,
+        "sidebar": "auto",
+        "title": "ValParams API 说明"
+      },
+      "regularPath": "/secondless/w-c/ValParams%20API%20%E8%AF%B4%E6%98%8E.html",
+      "relativePath": "secondless/w-c/ValParams API 说明.md",
+      "key": "v-6bd5359b",
+      "path": "/secondless/w-c/ValParams%20API%20%E8%AF%B4%E6%98%8E.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "参数验证处理",
+          "slug": "参数验证处理"
+        },
+        {
+          "level": 3,
+          "title": "1.参数说明",
+          "slug": "_1-参数说明"
+        },
+        {
+          "level": 3,
+          "title": "2.示例",
+          "slug": "_2-示例"
+        },
+        {
+          "level": 3,
+          "title": "3.返回支持的类型",
+          "slug": "_3-返回支持的类型"
+        },
+        {
+          "level": 3,
+          "title": "4.自定义本地化文件",
+          "slug": "_4-自定义本地化文件"
+        },
+        {
+          "level": 3,
+          "title": "5.更新已有本地化文件内容",
+          "slug": "_5-更新已有本地化文件内容"
+        },
+        {
+          "level": 3,
+          "title": "6.获取本地化文件内容",
+          "slug": "_6-获取本地化文件内容"
+        },
+        {
+          "level": 3,
+          "title": "7.列出已加载的本地化文件",
+          "slug": "_7-列出已加载的本地化文件"
+        },
+        {
+          "level": 3,
+          "title": "8.设置使用的本地化文件",
+          "slug": "_8-设置使用的本地化文件"
+        }
+      ],
+      "lastUpdated": "2024年2月6日星期二下午4点30分",
+      "lastUpdatedTimestamp": 1707208245000
+    },
+    {
+      "title": "案例：eggjs+postman测试工具将留言写入json文件",
+      "frontmatter": {
+        "navbar": true,
+        "sidebar": "auto",
+        "title": "案例：eggjs+postman测试工具将留言写入json文件"
+      },
+      "regularPath": "/secondless/w-c/eggjs+postman%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7%E5%B0%86%E7%95%99%E8%A8%80%E5%86%99%E5%85%A5json%E6%96%87%E4%BB%B6.html",
+      "relativePath": "secondless/w-c/eggjs+postman测试工具将留言写入json文件.md",
+      "key": "v-2dfeb776",
+      "path": "/secondless/w-c/eggjs+postman%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7%E5%B0%86%E7%95%99%E8%A8%80%E5%86%99%E5%85%A5json%E6%96%87%E4%BB%B6.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "一、基础准备",
+          "slug": "一、基础准备"
+        },
+        {
+          "level": 3,
+          "title": "① 安装eggjs项目、postman调试工具、关闭csrf开启跨域",
+          "slug": "_1-安装eggjs项目、postman调试工具、关闭csrf开启跨域"
+        },
+        {
+          "level": 3,
+          "title": "② 配置路由",
+          "slug": "_2-配置路由"
+        },
+        {
+          "level": 3,
+          "title": "③ 控制器代码",
+          "slug": "_3-控制器代码"
+        }
+      ],
+      "lastUpdated": "2024年1月12日星期五上午10点54分",
+      "lastUpdatedTimestamp": 1705028061000
+    },
+    {
+      "title": "章节4.Egg.js和Mysql数据库进阶进一步开发网站后台",
+      "frontmatter": {
+        "navbar": true,
+        "sidebar": "auto",
+        "title": "章节4.Egg.js和Mysql数据库进阶进一步开发网站后台"
+      },
+      "regularPath": "/secondless/w-c/Egg.js%E5%92%8CMysql%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%9B%E9%98%B6%E8%BF%9B%E4%B8%80%E6%AD%A5%E5%BC%80%E5%8F%91%E7%BD%91%E7%AB%99%E5%90%8E%E5%8F%B0.html",
+      "relativePath": "secondless/w-c/Egg.js和Mysql数据库进阶进一步开发网站后台.md",
+      "key": "v-159b195a",
+      "path": "/secondless/w-c/Egg.js%E5%92%8CMysql%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%9B%E9%98%B6%E8%BF%9B%E4%B8%80%E6%AD%A5%E5%BC%80%E5%8F%91%E7%BD%91%E7%AB%99%E5%90%8E%E5%8F%B0.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "一、用户管理板块(以直播功能中的用户表liveuser表为例)",
+          "slug": "一、用户管理板块-以直播功能中的用户表liveuser表为例"
+        },
+        {
+          "level": 2,
+          "title": "二、礼物管理(以直播功能中的礼物表livegift表为例)",
+          "slug": "二、礼物管理-以直播功能中的礼物表livegift表为例"
+        },
+        {
+          "level": 2,
+          "title": "三、订单管理(以直播功能中的订单表liveorder表为例)",
+          "slug": "三、订单管理-以直播功能中的订单表liveorder表为例"
+        },
+        {
+          "level": 3,
+          "title": "初步理解关联关系",
+          "slug": "初步理解关联关系"
+        },
+        {
+          "level": 2,
+          "title": "四、直播间管理(以直播功能中的直播间表live表为例)",
+          "slug": "四、直播间管理-以直播功能中的直播间表live表为例"
+        },
+        {
+          "level": 3,
+          "title": "多模型关联查询实践",
+          "slug": "多模型关联查询实践"
+        },
+        {
+          "level": 2,
+          "title": "五、mysql语句进一步理解模型关联关系（Mysql进阶）",
+          "slug": "五、mysql语句进一步理解模型关联关系-mysql进阶"
+        },
+        {
+          "level": 2,
+          "title": "六、企业网站栏目管理、内容管理",
+          "slug": "六、企业网站栏目管理、内容管理"
+        },
+        {
+          "level": 2,
+          "title": "七、网站配置管理",
+          "slug": "七、网站配置管理"
+        },
+        {
+          "level": 2,
+          "title": "八、后台初始化管理员登录逻辑",
+          "slug": "八、后台初始化管理员登录逻辑"
+        },
+        {
+          "level": 2,
+          "title": "九、简单权限管理",
+          "slug": "九、简单权限管理"
+        },
+        {
+          "level": 3,
+          "title": "1. 管理员栏目：超级管理员可以查看所有管理员，普通管理员只能看自己",
+          "slug": "_1-管理员栏目-超级管理员可以查看所有管理员-普通管理员只能看自己"
+        },
+        {
+          "level": 3,
+          "title": "2. 权限分配",
+          "slug": "_2-权限分配"
+        },
+        {
+          "level": 3,
+          "title": "3. 网站后台管理员简单权限分配功能实现",
+          "slug": "_3-网站后台管理员简单权限分配功能实现"
+        },
+        {
+          "level": 2,
+          "title": "【第二学期第3季课程】其它章节",
+          "slug": "【第二学期第3季课程】其它章节"
+        },
+        {
+          "level": 3,
+          "title": "章节1.课程介绍",
+          "slug": "章节1-课程介绍"
+        },
+        {
+          "level": 3,
+          "title": "章节2.Egg.js基础",
+          "slug": "章节2-egg-js基础"
+        },
+        {
+          "level": 3,
+          "title": "章节3.响应式网页布局",
+          "slug": "章节3-响应式网页布局"
+        },
+        {
+          "level": 3,
+          "title": "章节4.Egg.js和Mysql数据库进阶进一步开发网站后台",
+          "slug": "章节4-egg-js和mysql数据库进阶进一步开发网站后台"
+        },
+        {
+          "level": 3,
+          "title": "章节5.企业网站前端部分",
+          "slug": "章节5-企业网站前端部分"
         },
         {
           "level": 2,
@@ -12380,530 +13021,6 @@ export const siteData = {
       "lastUpdatedTimestamp": 1731988442000
     },
     {
-      "title": "章节6.Ajax",
-      "frontmatter": {
-        "navbar": true,
-        "sidebar": "auto",
-        "title": "章节6.Ajax"
-      },
-      "regularPath": "/secondless/w-b/Ajax.html",
-      "relativePath": "secondless/w-b/Ajax.md",
-      "key": "v-020836b4",
-      "path": "/secondless/w-b/Ajax.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "一、原生js中的Ajax",
-          "slug": "一、原生js中的ajax"
-        },
-        {
-          "level": 2,
-          "title": "1、XMLHttpRequest (简称 XHR，XHR API)",
-          "slug": "_1、xmlhttprequest-简称-xhr-xhr-api"
-        },
-        {
-          "level": 3,
-          "title": "① 第一步：调用 open()方法准备发送请求（发送请求前的准备工作）：三个参数：要发送的请求类型(get、post)、请求的 URL 和表示是否异步",
-          "slug": "_1-第一步-调用-open-方法准备发送请求-发送请求前的准备工作-三个参数-要发送的请求类型-get、post-、请求的-url-和表示是否异步"
-        },
-        {
-          "level": 3,
-          "title": "② 第二步：通过 send()方法进行发送请求：一个参数：作为请求主体发送的数据，如果不需要则，必须填 null",
-          "slug": "_2-第二步-通过-send-方法进行发送请求-一个参数-作为请求主体发送的数据-如果不需要则-必须填-null"
-        },
-        {
-          "level": 3,
-          "title": "③ 第三步：发送完了之后，得监听结果（监听服务器给你的请求结果），通过readystatechange 事件监听服务器给你的结果",
-          "slug": "_3-第三步-发送完了之后-得监听结果-监听服务器给你的请求结果-通过readystatechange-事件监听服务器给你的结果"
-        },
-        {
-          "level": 2,
-          "title": "2、理解get、post请求",
-          "slug": "_2、理解get、post请求"
-        },
-        {
-          "level": 3,
-          "title": "① getAllResponseHeaders()获取整个响应头信息，getResponseHeader()获取单个响应头信息，setRequestHeader()设置请求头信息",
-          "slug": "_1-getallresponseheaders-获取整个响应头信息-getresponseheader-获取单个响应头信息-setrequestheader-设置请求头信息"
-        },
-        {
-          "level": 3,
-          "title": "② get请求",
-          "slug": "_2-get请求"
-        },
-        {
-          "level": 3,
-          "title": "③ post请求",
-          "slug": "_3-post请求"
-        },
-        {
-          "level": 3,
-          "title": "④ 小结get和post请求",
-          "slug": "_4-小结get和post请求"
-        },
-        {
-          "level": 2,
-          "title": "3、Fetch API",
-          "slug": "_3、fetch-api"
-        },
-        {
-          "level": 3,
-          "title": "① Fetch API基本用法介绍",
-          "slug": "_1-fetch-api基本用法介绍"
-        },
-        {
-          "level": 3,
-          "title": "② XHR 与 Fetch 中的Content-Type(或者小写content-type)",
-          "slug": "_2-xhr-与-fetch-中的content-type-或者小写content-type"
-        },
-        {
-          "level": 2,
-          "title": "4、 XHR（xhr） 与 Fetch（fetch）的区别 （包括：jQuery、Axios、umi-request的说明）",
-          "slug": "_4、-xhr-xhr-与-fetch-fetch-的区别-包括-jquery、axios、umi-request的说明"
-        },
-        {
-          "level": 2,
-          "title": "二、jQuery中的Ajax",
-          "slug": "二、jquery中的ajax"
-        },
-        {
-          "level": 2,
-          "title": "1、第二层封装：load()方法，$.get()和$.post()方法",
-          "slug": "_1、第二层封装-load-方法-get-和-post-方法"
-        },
-        {
-          "level": 3,
-          "title": "① load()方法是局部方法 ： 异步加载静态文件如：html文件、json文件等",
-          "slug": "_1-load-方法是局部方法-异步加载静态文件如-html文件、json文件等"
-        },
-        {
-          "level": 3,
-          "title": "② $.get()和$.post()方法：是全局方法，无须指定某个元素，适合传递参数到服务器请求数据",
-          "slug": "_2-get-和-post-方法-是全局方法-无须指定某个元素-适合传递参数到服务器请求数据"
-        },
-        {
-          "level": 2,
-          "title": "2、最高层封装：$.getJSON() 和 $.getScript()",
-          "slug": "_2、最高层封装-getjson-和-getscript"
-        },
-        {
-          "level": 3,
-          "title": "① $.getJSON()方法：专门用于加载 JSON 文件的",
-          "slug": "_1-getjson-方法-专门用于加载-json-文件的"
-        },
-        {
-          "level": 3,
-          "title": "② $.getScript()方法：按需加载接口或js文件",
-          "slug": "_2-getscript-方法-按需加载接口或js文件"
-        },
-        {
-          "level": 2,
-          "title": "3、最底层的封装：$.ajax()",
-          "slug": "_3、最底层的封装-ajax"
-        },
-        {
-          "level": 2,
-          "title": "4、表单序列化",
-          "slug": "_4、表单序列化"
-        },
-        {
-          "level": 3,
-          "title": "① 常规形式的表单提交（表单提交数据）",
-          "slug": "_1-常规形式的表单提交-表单提交数据"
-        },
-        {
-          "level": 3,
-          "title": "② jQuery中的表单序列化提交数据（表单提交数据）",
-          "slug": "_2-jquery中的表单序列化提交数据-表单提交数据"
-        },
-        {
-          "level": 3,
-          "title": "③ $.param()方法将对象转换为字符串键值对格式",
-          "slug": "_3-param-方法将对象转换为字符串键值对格式"
-        },
-        {
-          "level": 2,
-          "title": "5、jQuery中的跨域jsonp",
-          "slug": "_5、jquery中的跨域jsonp"
-        },
-        {
-          "level": 3,
-          "title": "① jQuery中的跨域jsonp使用",
-          "slug": "_1-jquery中的跨域jsonp使用"
-        },
-        {
-          "level": 3,
-          "title": "② 延伸一下：jQuery中的跨域jsonp模拟百度搜索提示数据",
-          "slug": "_2-延伸一下-jquery中的跨域jsonp模拟百度搜索提示数据"
-        },
-        {
-          "level": 2,
-          "title": "6、 jqXHR 对象: when()方法、done()方法、always()方法和fail()方法",
-          "slug": "_6、-jqxhr-对象-when-方法、done-方法、always-方法和fail-方法"
-        },
-        {
-          "level": 2,
-          "title": "【第二学期第2季课程】其它章节",
-          "slug": "【第二学期第2季课程】其它章节"
-        },
-        {
-          "level": 3,
-          "title": "章节1.课程介绍",
-          "slug": "章节1-课程介绍"
-        },
-        {
-          "level": 3,
-          "title": "章节2.面向对象与原型",
-          "slug": "章节2-面向对象与原型"
-        },
-        {
-          "level": 3,
-          "title": "章节3.封装js库过渡到jQuery",
-          "slug": "章节3-封装js库过渡到jquery"
-        },
-        {
-          "level": 3,
-          "title": "章节4.jQuery",
-          "slug": "章节4-jquery"
-        },
-        {
-          "level": 3,
-          "title": "章节5.jQuery事件、动画、插件",
-          "slug": "章节5-jquery事件、动画、插件"
-        },
-        {
-          "level": 3,
-          "title": "章节6.Ajax",
-          "slug": "章节6-ajax"
-        },
-        {
-          "level": 3,
-          "title": "章节7.Node.js基础",
-          "slug": "章节7-node-js基础"
-        },
-        {
-          "level": 3,
-          "title": "章节8.正则表达式",
-          "slug": "章节8-正则表达式"
-        },
-        {
-          "level": 3,
-          "title": "章节9.Vue.js基础",
-          "slug": "章节9-vue-js基础"
-        },
-        {
-          "level": 2,
-          "title": "其它学期课程",
-          "slug": "其它学期课程"
-        },
-        {
-          "level": 3,
-          "title": "第一学期（学习顺序：01）",
-          "slug": "第一学期-学习顺序-01"
-        },
-        {
-          "level": 3,
-          "title": "第二学期【第1季】（学习顺序：02）",
-          "slug": "第二学期【第1季】-学习顺序-02"
-        },
-        {
-          "level": 3,
-          "title": "第二学期【第2季】（学习顺序：03）",
-          "slug": "第二学期【第2季】-学习顺序-03"
-        },
-        {
-          "level": 3,
-          "title": "第二学期【第3季】（学习顺序：04）",
-          "slug": "第二学期【第3季】-学习顺序-04"
-        },
-        {
-          "level": 3,
-          "title": "第二学期【第4季】（学习顺序：05）",
-          "slug": "第二学期【第4季】-学习顺序-05"
-        }
-      ],
-      "lastUpdated": "2024年11月19日星期二中午11点54分",
-      "lastUpdatedTimestamp": 1731988442000
-    },
-    {
-      "title": "章节4.Egg.js和Mysql数据库进阶进一步开发网站后台",
-      "frontmatter": {
-        "navbar": true,
-        "sidebar": "auto",
-        "title": "章节4.Egg.js和Mysql数据库进阶进一步开发网站后台"
-      },
-      "regularPath": "/secondless/w-c/Egg.js%E5%92%8CMysql%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%9B%E9%98%B6%E8%BF%9B%E4%B8%80%E6%AD%A5%E5%BC%80%E5%8F%91%E7%BD%91%E7%AB%99%E5%90%8E%E5%8F%B0.html",
-      "relativePath": "secondless/w-c/Egg.js和Mysql数据库进阶进一步开发网站后台.md",
-      "key": "v-159b195a",
-      "path": "/secondless/w-c/Egg.js%E5%92%8CMysql%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%9B%E9%98%B6%E8%BF%9B%E4%B8%80%E6%AD%A5%E5%BC%80%E5%8F%91%E7%BD%91%E7%AB%99%E5%90%8E%E5%8F%B0.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "一、用户管理板块(以直播功能中的用户表liveuser表为例)",
-          "slug": "一、用户管理板块-以直播功能中的用户表liveuser表为例"
-        },
-        {
-          "level": 2,
-          "title": "二、礼物管理(以直播功能中的礼物表livegift表为例)",
-          "slug": "二、礼物管理-以直播功能中的礼物表livegift表为例"
-        },
-        {
-          "level": 2,
-          "title": "三、订单管理(以直播功能中的订单表liveorder表为例)",
-          "slug": "三、订单管理-以直播功能中的订单表liveorder表为例"
-        },
-        {
-          "level": 3,
-          "title": "初步理解关联关系",
-          "slug": "初步理解关联关系"
-        },
-        {
-          "level": 2,
-          "title": "四、直播间管理(以直播功能中的直播间表live表为例)",
-          "slug": "四、直播间管理-以直播功能中的直播间表live表为例"
-        },
-        {
-          "level": 3,
-          "title": "多模型关联查询实践",
-          "slug": "多模型关联查询实践"
-        },
-        {
-          "level": 2,
-          "title": "五、mysql语句进一步理解模型关联关系（Mysql进阶）",
-          "slug": "五、mysql语句进一步理解模型关联关系-mysql进阶"
-        },
-        {
-          "level": 2,
-          "title": "六、企业网站栏目管理、内容管理",
-          "slug": "六、企业网站栏目管理、内容管理"
-        },
-        {
-          "level": 2,
-          "title": "七、网站配置管理",
-          "slug": "七、网站配置管理"
-        },
-        {
-          "level": 2,
-          "title": "八、后台初始化管理员登录逻辑",
-          "slug": "八、后台初始化管理员登录逻辑"
-        },
-        {
-          "level": 2,
-          "title": "九、简单权限管理",
-          "slug": "九、简单权限管理"
-        },
-        {
-          "level": 3,
-          "title": "1. 管理员栏目：超级管理员可以查看所有管理员，普通管理员只能看自己",
-          "slug": "_1-管理员栏目-超级管理员可以查看所有管理员-普通管理员只能看自己"
-        },
-        {
-          "level": 3,
-          "title": "2. 权限分配",
-          "slug": "_2-权限分配"
-        },
-        {
-          "level": 3,
-          "title": "3. 网站后台管理员简单权限分配功能实现",
-          "slug": "_3-网站后台管理员简单权限分配功能实现"
-        },
-        {
-          "level": 2,
-          "title": "【第二学期第3季课程】其它章节",
-          "slug": "【第二学期第3季课程】其它章节"
-        },
-        {
-          "level": 3,
-          "title": "章节1.课程介绍",
-          "slug": "章节1-课程介绍"
-        },
-        {
-          "level": 3,
-          "title": "章节2.Egg.js基础",
-          "slug": "章节2-egg-js基础"
-        },
-        {
-          "level": 3,
-          "title": "章节3.响应式网页布局",
-          "slug": "章节3-响应式网页布局"
-        },
-        {
-          "level": 3,
-          "title": "章节4.Egg.js和Mysql数据库进阶进一步开发网站后台",
-          "slug": "章节4-egg-js和mysql数据库进阶进一步开发网站后台"
-        },
-        {
-          "level": 3,
-          "title": "章节5.企业网站前端部分",
-          "slug": "章节5-企业网站前端部分"
-        },
-        {
-          "level": 2,
-          "title": "其它学期课程",
-          "slug": "其它学期课程"
-        },
-        {
-          "level": 3,
-          "title": "第一学期（学习顺序：01）",
-          "slug": "第一学期-学习顺序-01"
-        },
-        {
-          "level": 3,
-          "title": "第二学期【第1季】（学习顺序：02）",
-          "slug": "第二学期【第1季】-学习顺序-02"
-        },
-        {
-          "level": 3,
-          "title": "第二学期【第2季】（学习顺序：03）",
-          "slug": "第二学期【第2季】-学习顺序-03"
-        },
-        {
-          "level": 3,
-          "title": "第二学期【第3季】（学习顺序：04）",
-          "slug": "第二学期【第3季】-学习顺序-04"
-        },
-        {
-          "level": 3,
-          "title": "第二学期【第4季】（学习顺序：05）",
-          "slug": "第二学期【第4季】-学习顺序-05"
-        }
-      ],
-      "lastUpdated": "2024年11月19日星期二中午11点54分",
-      "lastUpdatedTimestamp": 1731988442000
-    },
-    {
-      "title": "Egg.js接口安全防护方案",
-      "frontmatter": {
-        "navbar": true,
-        "sidebar": "auto",
-        "title": "Egg.js接口安全防护方案"
-      },
-      "regularPath": "/secondless/w-c/Egg.js%E6%8E%A5%E5%8F%A3%E5%AE%89%E5%85%A8%E9%98%B2%E6%8A%A4%E6%96%B9%E6%A1%88.html",
-      "relativePath": "secondless/w-c/Egg.js接口安全防护方案.md",
-      "key": "v-89f03c42",
-      "path": "/secondless/w-c/Egg.js%E6%8E%A5%E5%8F%A3%E5%AE%89%E5%85%A8%E9%98%B2%E6%8A%A4%E6%96%B9%E6%A1%88.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "1. 基础防护：HTTP Referer/Origin 校验",
-          "slug": "_1-基础防护-http-referer-origin-校验"
-        },
-        {
-          "level": 2,
-          "title": "2. 启用 CSRF 防护",
-          "slug": "_2-启用-csrf-防护"
-        },
-        {
-          "level": 2,
-          "title": "3. CORS 严格配置",
-          "slug": "_3-cors-严格配置"
-        },
-        {
-          "level": 2,
-          "title": "4. 用户认证与授权",
-          "slug": "_4-用户认证与授权"
-        },
-        {
-          "level": 2,
-          "title": "5. 请求签名与防重放",
-          "slug": "_5-请求签名与防重放"
-        },
-        {
-          "level": 2,
-          "title": "6. 客户端指纹校验",
-          "slug": "_6-客户端指纹校验"
-        },
-        {
-          "level": 2,
-          "title": "7. 动态 Token 防御",
-          "slug": "_7-动态-token-防御"
-        },
-        {
-          "level": 2,
-          "title": "8. 请求频率限制",
-          "slug": "_8-请求频率限制"
-        },
-        {
-          "level": 2,
-          "title": "9. 混淆接口路径",
-          "slug": "_9-混淆接口路径"
-        },
-        {
-          "level": 2,
-          "title": "10. 深度防御：行为分析与 WAF",
-          "slug": "_10-深度防御-行为分析与-waf"
-        },
-        {
-          "level": 2,
-          "title": "总结建议",
-          "slug": "总结建议"
-        }
-      ],
-      "lastUpdated": "2025年5月12日星期一下午1点31分",
-      "lastUpdatedTimestamp": 1747027866000
-    },
-    {
-      "title": "ValParams API 说明",
-      "frontmatter": {
-        "navbar": true,
-        "sidebar": "auto",
-        "title": "ValParams API 说明"
-      },
-      "regularPath": "/secondless/w-c/ValParams%20API%20%E8%AF%B4%E6%98%8E.html",
-      "relativePath": "secondless/w-c/ValParams API 说明.md",
-      "key": "v-6bd5359b",
-      "path": "/secondless/w-c/ValParams%20API%20%E8%AF%B4%E6%98%8E.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "参数验证处理",
-          "slug": "参数验证处理"
-        },
-        {
-          "level": 3,
-          "title": "1.参数说明",
-          "slug": "_1-参数说明"
-        },
-        {
-          "level": 3,
-          "title": "2.示例",
-          "slug": "_2-示例"
-        },
-        {
-          "level": 3,
-          "title": "3.返回支持的类型",
-          "slug": "_3-返回支持的类型"
-        },
-        {
-          "level": 3,
-          "title": "4.自定义本地化文件",
-          "slug": "_4-自定义本地化文件"
-        },
-        {
-          "level": 3,
-          "title": "5.更新已有本地化文件内容",
-          "slug": "_5-更新已有本地化文件内容"
-        },
-        {
-          "level": 3,
-          "title": "6.获取本地化文件内容",
-          "slug": "_6-获取本地化文件内容"
-        },
-        {
-          "level": 3,
-          "title": "7.列出已加载的本地化文件",
-          "slug": "_7-列出已加载的本地化文件"
-        },
-        {
-          "level": 3,
-          "title": "8.设置使用的本地化文件",
-          "slug": "_8-设置使用的本地化文件"
-        }
-      ],
-      "lastUpdated": "2024年2月6日星期二下午4点30分",
-      "lastUpdatedTimestamp": 1707208245000
-    },
-    {
       "title": "Egg.js基础总结",
       "frontmatter": {
         "navbar": true,
@@ -13136,42 +13253,6 @@ export const siteData = {
       "lastUpdatedTimestamp": 1722674112000
     },
     {
-      "title": "案例：eggjs+postman测试工具将留言写入json文件",
-      "frontmatter": {
-        "navbar": true,
-        "sidebar": "auto",
-        "title": "案例：eggjs+postman测试工具将留言写入json文件"
-      },
-      "regularPath": "/secondless/w-c/eggjs+postman%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7%E5%B0%86%E7%95%99%E8%A8%80%E5%86%99%E5%85%A5json%E6%96%87%E4%BB%B6.html",
-      "relativePath": "secondless/w-c/eggjs+postman测试工具将留言写入json文件.md",
-      "key": "v-2dfeb776",
-      "path": "/secondless/w-c/eggjs+postman%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7%E5%B0%86%E7%95%99%E8%A8%80%E5%86%99%E5%85%A5json%E6%96%87%E4%BB%B6.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "一、基础准备",
-          "slug": "一、基础准备"
-        },
-        {
-          "level": 3,
-          "title": "① 安装eggjs项目、postman调试工具、关闭csrf开启跨域",
-          "slug": "_1-安装eggjs项目、postman调试工具、关闭csrf开启跨域"
-        },
-        {
-          "level": 3,
-          "title": "② 配置路由",
-          "slug": "_2-配置路由"
-        },
-        {
-          "level": 3,
-          "title": "③ 控制器代码",
-          "slug": "_3-控制器代码"
-        }
-      ],
-      "lastUpdated": "2024年1月12日星期五上午10点54分",
-      "lastUpdatedTimestamp": 1705028061000
-    },
-    {
       "title": "eggjs上传文件",
       "frontmatter": {
         "navbar": true,
@@ -13341,628 +13422,6 @@ export const siteData = {
       ],
       "lastUpdated": "2025年4月17日星期四晚上9点36分",
       "lastUpdatedTimestamp": 1744896974000
-    },
-    {
-      "title": "案例：node.js+vue.js 渲染企业网站",
-      "frontmatter": {
-        "navbar": true,
-        "sidebar": "auto",
-        "title": "案例：node.js+vue.js 渲染企业网站"
-      },
-      "regularPath": "/secondless/w-b/node.js+vue.js%20%E6%B8%B2%E6%9F%93%E4%BC%81%E4%B8%9A%E7%BD%91%E7%AB%99.html",
-      "relativePath": "secondless/w-b/node.js+vue.js 渲染企业网站.md",
-      "key": "v-366d64cf",
-      "path": "/secondless/w-b/node.js+vue.js%20%E6%B8%B2%E6%9F%93%E4%BC%81%E4%B8%9A%E7%BD%91%E7%AB%99.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "一、基础准备",
-          "slug": "一、基础准备"
-        },
-        {
-          "level": 3,
-          "title": "1. 启动node服务器",
-          "slug": "_1-启动node服务器"
-        },
-        {
-          "level": 3,
-          "title": "2. 网站数据准备",
-          "slug": "_2-网站数据准备"
-        },
-        {
-          "level": 2,
-          "title": "二、编写api接口获取数据",
-          "slug": "二、编写api接口获取数据"
-        },
-        {
-          "level": 3,
-          "title": "① 引入vue.js，设置请求接口，vue2生命周期",
-          "slug": "_1-引入vue-js-设置请求接口-vue2生命周期"
-        },
-        {
-          "level": 3,
-          "title": "② nodejs服务端读取、处理数据并响应给浏览器",
-          "slug": "_2-nodejs服务端读取、处理数据并响应给浏览器"
-        },
-        {
-          "level": 3,
-          "title": "③ 渲染到页面前进一步处理数据",
-          "slug": "_3-渲染到页面前进一步处理数据"
-        },
-        {
-          "level": 3,
-          "title": "④ 通过vue.js将数据渲染到页面上",
-          "slug": "_4-通过vue-js将数据渲染到页面上"
-        },
-        {
-          "level": 2,
-          "title": "三、最终代码",
-          "slug": "三、最终代码"
-        },
-        {
-          "level": 3,
-          "title": "1. 服务端Node代码： /app.js文件代码",
-          "slug": "_1-服务端node代码-app-js文件代码"
-        },
-        {
-          "level": 3,
-          "title": "2. 客户端(浏览器)代码： /static/js/index.vue.js代码",
-          "slug": "_2-客户端-浏览器-代码-static-js-index-vue-js代码"
-        },
-        {
-          "level": 3,
-          "title": "3. 网站首页代码： /index.html",
-          "slug": "_3-网站首页代码-index-html"
-        },
-        {
-          "level": 2,
-          "title": "四、点评总结",
-          "slug": "四、点评总结"
-        }
-      ],
-      "lastUpdated": "2024年1月5日星期五下午2点53分",
-      "lastUpdatedTimestamp": 1704437586000
-    },
-    {
-      "title": "企业网站其它页面(非首页)",
-      "frontmatter": {
-        "navbar": true,
-        "sidebar": "auto",
-        "title": "企业网站其它页面(非首页)"
-      },
-      "regularPath": "/secondless/w-c/%E4%BC%81%E4%B8%9A%E7%BD%91%E7%AB%99%E5%85%B6%E5%AE%83%E9%A1%B5%E9%9D%A2(%E9%9D%9E%E9%A6%96%E9%A1%B5).html",
-      "relativePath": "secondless/w-c/企业网站其它页面(非首页).md",
-      "key": "v-2d74d3cb",
-      "path": "/secondless/w-c/%E4%BC%81%E4%B8%9A%E7%BD%91%E7%AB%99%E5%85%B6%E5%AE%83%E9%A1%B5%E9%9D%A2(%E9%9D%9E%E9%A6%96%E9%A1%B5).html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "一、完成工程案例、资讯中心页面渲染",
-          "slug": "一、完成工程案例、资讯中心页面渲染"
-        },
-        {
-          "level": 3,
-          "title": "1. 控制器 app/controller/api/template01/api.js",
-          "slug": "_1-控制器-app-controller-api-template01-api-js"
-        },
-        {
-          "level": 3,
-          "title": "2. 模版 app/view/api/template01/main_app.html",
-          "slug": "_2-模版-app-view-api-template01-main-app-html"
-        },
-        {
-          "level": 3,
-          "title": "3. 模版 app/view/api/template01/_ortherpage.html",
-          "slug": "_3-模版-app-view-api-template01-ortherpage-html"
-        },
-        {
-          "level": 3,
-          "title": "4. 扩展 app/extend/context.js",
-          "slug": "_4-扩展-app-extend-context-js"
-        },
-        {
-          "level": 3,
-          "title": "5. 路由 app/router/api/template01/router.js",
-          "slug": "_5-路由-app-router-api-template01-router-js"
-        },
-        {
-          "level": 2,
-          "title": "二、文章详情页数据渲染",
-          "slug": "二、文章详情页数据渲染"
-        },
-        {
-          "level": 3,
-          "title": "1. 控制器 app/controller/api/template01/api.js",
-          "slug": "_1-控制器-app-controller-api-template01-api-js-2"
-        },
-        {
-          "level": 3,
-          "title": "2. 路由 app/router/api/template01/router.js",
-          "slug": "_2-路由-app-router-api-template01-router-js"
-        },
-        {
-          "level": 3,
-          "title": "3. 模版 app/view/api/template01/_ortherpage.html",
-          "slug": "_3-模版-app-view-api-template01-ortherpage-html-2"
-        },
-        {
-          "level": 2,
-          "title": "三、工程案例、资讯中心等文章链接完善，返回列表功能完善",
-          "slug": "三、工程案例、资讯中心等文章链接完善-返回列表功能完善"
-        },
-        {
-          "level": 3,
-          "title": "1. 控制器 app/controller/api/template01/api.js",
-          "slug": "_1-控制器-app-controller-api-template01-api-js-3"
-        },
-        {
-          "level": 3,
-          "title": "2. 模版 app/view/api/template01/_ortherpage.html",
-          "slug": "_2-模版-app-view-api-template01-ortherpage-html"
-        },
-        {
-          "level": 2,
-          "title": "四、处理网站导航栏及选中情况",
-          "slug": "四、处理网站导航栏及选中情况"
-        },
-        {
-          "level": 3,
-          "title": "① 获取导航栏数据，完成选中：工程案例、资讯中心",
-          "slug": "_1-获取导航栏数据-完成选中-工程案例、资讯中心"
-        },
-        {
-          "level": 3,
-          "title": "② 完成导航栏其他栏目的选中问题",
-          "slug": "_2-完成导航栏其他栏目的选中问题"
-        },
-        {
-          "level": 2,
-          "title": "五、网站首页导航栏选中、及网站配置展示",
-          "slug": "五、网站首页导航栏选中、及网站配置展示"
-        },
-        {
-          "level": 2,
-          "title": "六、关于我们、联系我们页面单独处理",
-          "slug": "六、关于我们、联系我们页面单独处理"
-        },
-        {
-          "level": 2,
-          "title": "七、网站留言板提交留言到后台",
-          "slug": "七、网站留言板提交留言到后台"
-        }
-      ],
-      "lastUpdated": "2024年6月3日星期一中午11点47分",
-      "lastUpdatedTimestamp": 1717386471000
-    },
-    {
-      "title": "企业网站首页",
-      "frontmatter": {
-        "navbar": true,
-        "sidebar": "auto",
-        "title": "企业网站首页"
-      },
-      "regularPath": "/secondless/w-c/%E4%BC%81%E4%B8%9A%E7%BD%91%E7%AB%99%E9%A6%96%E9%A1%B5.html",
-      "relativePath": "secondless/w-c/企业网站首页.md",
-      "key": "v-66046028",
-      "path": "/secondless/w-c/%E4%BC%81%E4%B8%9A%E7%BD%91%E7%AB%99%E9%A6%96%E9%A1%B5.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "一、数据库数据准备",
-          "slug": "一、数据库数据准备"
-        },
-        {
-          "level": 2,
-          "title": "二、读取数据库数据渲染到模版页面（以合作单位为例）",
-          "slug": "二、读取数据库数据渲染到模版页面-以合作单位为例"
-        },
-        {
-          "level": 2,
-          "title": "三、封装通过分类id获取数据的方法到服务中，简化读取数据操作（以资讯中心为例）",
-          "slug": "三、封装通过分类id获取数据的方法到服务中-简化读取数据操作-以资讯中心为例"
-        },
-        {
-          "level": 2,
-          "title": "四、完善首页其它板块的数据展示",
-          "slug": "四、完善首页其它板块的数据展示"
-        },
-        {
-          "level": 2,
-          "title": "五、网站其它页面：处理分页",
-          "slug": "五、网站其它页面-处理分页"
-        }
-      ],
-      "lastUpdated": "2024年5月23日星期四下午4点07分",
-      "lastUpdatedTimestamp": 1716451673000
-    },
-    {
-      "title": "企业网站后台内容管理",
-      "frontmatter": {
-        "navbar": true,
-        "sidebar": "auto",
-        "title": "企业网站后台内容管理"
-      },
-      "regularPath": "/secondless/w-c/%E4%BC%81%E4%B8%9A%E7%BD%91%E7%AB%99%E5%90%8E%E5%8F%B0%E5%86%85%E5%AE%B9%E7%AE%A1%E7%90%86.html",
-      "relativePath": "secondless/w-c/企业网站后台内容管理.md",
-      "key": "v-44293db4",
-      "path": "/secondless/w-c/%E4%BC%81%E4%B8%9A%E7%BD%91%E7%AB%99%E5%90%8E%E5%8F%B0%E5%86%85%E5%AE%B9%E7%AE%A1%E7%90%86.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "一、企业网站后台内容管理（网站的新闻、产品、内容等等信息）表 news",
-          "slug": "一、企业网站后台内容管理-网站的新闻、产品、内容等等信息-表-news"
-        },
-        {
-          "level": 3,
-          "title": "1、表设计",
-          "slug": "_1、表设计"
-        },
-        {
-          "level": 3,
-          "title": "2、创建迁移文件、执行迁移命令创建数据表 news",
-          "slug": "_2、创建迁移文件、执行迁移命令创建数据表-news"
-        },
-        {
-          "level": 3,
-          "title": "3、创建 news表 的模型",
-          "slug": "_3、创建-news表-的模型"
-        },
-        {
-          "level": 3,
-          "title": "4、完成基本的新闻内容列表展示、及创建发布新闻内容界面",
-          "slug": "_4、完成基本的新闻内容列表展示、及创建发布新闻内容界面"
-        },
-        {
-          "level": 3,
-          "title": "5、完成发布新闻内容的数据提交，以及删除单个新闻内容",
-          "slug": "_5、完成发布新闻内容的数据提交-以及删除单个新闻内容"
-        },
-        {
-          "level": 3,
-          "title": "6、发布新闻内容界面的内容摘要换成文本域标签，内容附件换成自定义的按钮组选择附件内容",
-          "slug": "_6、发布新闻内容界面的内容摘要换成文本域标签-内容附件换成自定义的按钮组选择附件内容"
-        },
-        {
-          "level": 2,
-          "title": "二、初步引入富文本编辑器",
-          "slug": "二、初步引入富文本编辑器"
-        },
-        {
-          "level": 3,
-          "title": "tinymce 编辑器说明",
-          "slug": "tinymce-编辑器说明"
-        },
-        {
-          "level": 3,
-          "title": "如何使用",
-          "slug": "如何使用"
-        },
-        {
-          "level": 2,
-          "title": "三、富文本编辑器常用配置说明及上传图片",
-          "slug": "三、富文本编辑器常用配置说明及上传图片"
-        },
-        {
-          "level": 3,
-          "title": "常用配置说明及上传图片：",
-          "slug": "常用配置说明及上传图片"
-        },
-        {
-          "level": 3,
-          "title": "完整配置参考",
-          "slug": "完整配置参考"
-        },
-        {
-          "level": 2,
-          "title": "四、修改新闻内容",
-          "slug": "四、修改新闻内容"
-        },
-        {
-          "level": 2,
-          "title": "五、新闻列表页面调整标题展示、新增是否显示按钮组，并对按钮组方法封装成公共方法",
-          "slug": "五、新闻列表页面调整标题展示、新增是否显示按钮组-并对按钮组方法封装成公共方法"
-        }
-      ],
-      "lastUpdated": "2024年4月17日星期三下午4点24分",
-      "lastUpdatedTimestamp": 1713342247000
-    },
-    {
-      "title": "响应式后台公共模版",
-      "frontmatter": {
-        "navbar": true,
-        "sidebar": "auto",
-        "title": "响应式后台公共模版"
-      },
-      "regularPath": "/secondless/w-c/%E5%93%8D%E5%BA%94%E5%BC%8F%E5%90%8E%E5%8F%B0%E5%85%AC%E5%85%B1%E6%A8%A1%E7%89%88.html",
-      "relativePath": "secondless/w-c/响应式后台公共模版.md",
-      "key": "v-3817dfce",
-      "path": "/secondless/w-c/%E5%93%8D%E5%BA%94%E5%BC%8F%E5%90%8E%E5%8F%B0%E5%85%AC%E5%85%B1%E6%A8%A1%E7%89%88.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "1、初步写一个渲染公共模版的方法",
-          "slug": "_1、初步写一个渲染公共模版的方法"
-        },
-        {
-          "level": 3,
-          "title": "① 简单过渡",
-          "slug": "_1-简单过渡"
-        },
-        {
-          "level": 3,
-          "title": "② 新建公共模版",
-          "slug": "_2-新建公共模版"
-        },
-        {
-          "level": 3,
-          "title": "1. 自定义表格上面的按钮和表格头部",
-          "slug": "_1-自定义表格上面的按钮和表格头部"
-        },
-        {
-          "level": 3,
-          "title": "2. 自定义表格头部的操作【修改、删除】部分",
-          "slug": "_2-自定义表格头部的操作【修改、删除】部分"
-        },
-        {
-          "level": 3,
-          "title": "3. 处理表格模版、表单模版（创建管理员表单公共模版为例）",
-          "slug": "_3-处理表格模版、表单模版-创建管理员表单公共模版为例"
-        },
-        {
-          "level": 3,
-          "title": "③ 扩展公共模版功能，如公共模版表格中的删除管理员功能，并封装一个提示消息组件",
-          "slug": "_3-扩展公共模版功能-如公共模版表格中的删除管理员功能-并封装一个提示消息组件"
-        },
-        {
-          "level": 3,
-          "title": "④ 扩展公共模版功能，如公共模版表格中的删除管理员功能，在删除的时候，提示确认删除弹出框组件",
-          "slug": "_4-扩展公共模版功能-如公共模版表格中的删除管理员功能-在删除的时候-提示确认删除弹出框组件"
-        },
-        {
-          "level": 3,
-          "title": "bootstrap4菜鸟教程",
-          "slug": "bootstrap4菜鸟教程-bootstrap4菜鸟教程模态框"
-        },
-        {
-          "level": 3,
-          "title": "bootstrap4中文文档",
-          "slug": "bootstrap4中文文档-bootstrap4中文文档-https-bs4-vx-link-模态框"
-        },
-        {
-          "level": 3,
-          "title": "⑤ 扩展公共模版功能，如修改管理员",
-          "slug": "_5-扩展公共模版功能-如修改管理员"
-        },
-        {
-          "level": 3,
-          "title": "1.先完成修改管理员界面",
-          "slug": "_1-先完成修改管理员界面"
-        },
-        {
-          "level": 3,
-          "title": "2.完成修改管理员数据功能，并封装成功或者失败的api接口提示方法",
-          "slug": "_2-完成修改管理员数据功能-并封装成功或者失败的api接口提示方法"
-        },
-        {
-          "level": 2,
-          "title": "2、优化公共表单模版",
-          "slug": "_2、优化公共表单模版"
-        },
-        {
-          "level": 2,
-          "title": "2.1 使用Vue中的v-model对文本框进行双向数据绑定，取消value属性",
-          "slug": "_2-1-使用vue中的v-model对文本框进行双向数据绑定-取消value属性"
-        },
-        {
-          "level": 3,
-          "title": "① 思维引入：理解vue中的数据绑定v-model",
-          "slug": "_1-思维引入-理解vue中的数据绑定v-model"
-        },
-        {
-          "level": 3,
-          "title": "② 模版引擎渲染出data中的字段和值",
-          "slug": "_2-模版引擎渲染出data中的字段和值"
-        },
-        {
-          "level": 3,
-          "title": "③ 如果我们在新增表单中还希望给表单字段一个默认值",
-          "slug": "_3-如果我们在新增表单中还希望给表单字段一个默认值"
-        },
-        {
-          "level": 2,
-          "title": "2.2 完成表单提示消息功能",
-          "slug": "_2-2-完成表单提示消息功能"
-        },
-        {
-          "level": 3,
-          "title": "① 使用jquery的ajax来提交表单",
-          "slug": "_1-使用jquery的ajax来提交表单"
-        },
-        {
-          "level": 3,
-          "title": "② 提交成功之后，重新跳转到指定页面",
-          "slug": "_2-提交成功之后-重新跳转到指定页面"
-        }
-      ],
-      "lastUpdated": "2024年3月6日星期三晚上7点01分",
-      "lastUpdatedTimestamp": 1709722863000
-    },
-    {
-      "title": "响应式后台用户留言板管理",
-      "frontmatter": {
-        "navbar": true,
-        "sidebar": "auto",
-        "title": "响应式后台用户留言板管理"
-      },
-      "regularPath": "/secondless/w-c/%E5%93%8D%E5%BA%94%E5%BC%8F%E5%90%8E%E5%8F%B0%E7%94%A8%E6%88%B7%E7%95%99%E8%A8%80%E6%9D%BF%E7%AE%A1%E7%90%86.html",
-      "relativePath": "secondless/w-c/响应式后台用户留言板管理.md",
-      "key": "v-44ee6150",
-      "path": "/secondless/w-c/%E5%93%8D%E5%BA%94%E5%BC%8F%E5%90%8E%E5%8F%B0%E7%94%A8%E6%88%B7%E7%95%99%E8%A8%80%E6%9D%BF%E7%AE%A1%E7%90%86.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "一、创建数据库用户留言表 message",
-          "slug": "一、创建数据库用户留言表-message"
-        },
-        {
-          "level": 2,
-          "title": "二、创建迁移文件、执行迁移命令创建数据表",
-          "slug": "二、创建迁移文件、执行迁移命令创建数据表"
-        },
-        {
-          "level": 2,
-          "title": "三、创建留言表 message的模型",
-          "slug": "三、创建留言表-message的模型"
-        },
-        {
-          "level": 2,
-          "title": "四、提交留言（示例）",
-          "slug": "四、提交留言-示例"
-        },
-        {
-          "level": 3,
-          "title": "创建控制器 app/controller/admin/message.js",
-          "slug": "创建控制器-app-controller-admin-message-js"
-        },
-        {
-          "level": 3,
-          "title": "定义路由",
-          "slug": "定义路由"
-        },
-        {
-          "level": 2,
-          "title": "五、留言列表、修改留言、删除留言",
-          "slug": "五、留言列表、修改留言、删除留言"
-        },
-        {
-          "level": 3,
-          "title": "控制器 app/controller/admin/message.js",
-          "slug": "控制器-app-controller-admin-message-js"
-        },
-        {
-          "level": 3,
-          "title": "定义路由",
-          "slug": "定义路由-2"
-        }
-      ],
-      "lastUpdated": "2024年3月8日星期五下午2点06分",
-      "lastUpdatedTimestamp": 1709877999000
-    },
-    {
-      "title": "企业网站后台栏目管理",
-      "frontmatter": {
-        "navbar": true,
-        "sidebar": "auto",
-        "title": "企业网站后台栏目管理"
-      },
-      "regularPath": "/secondless/w-c/%E4%BC%81%E4%B8%9A%E7%BD%91%E7%AB%99%E5%90%8E%E5%8F%B0%E6%A0%8F%E7%9B%AE%E7%AE%A1%E7%90%86.html",
-      "relativePath": "secondless/w-c/企业网站后台栏目管理.md",
-      "key": "v-9854a0b0",
-      "path": "/secondless/w-c/%E4%BC%81%E4%B8%9A%E7%BD%91%E7%AB%99%E5%90%8E%E5%8F%B0%E6%A0%8F%E7%9B%AE%E7%AE%A1%E7%90%86.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "一、企业网站后台栏目管理（网站导航栏，栏目分类）表 category",
-          "slug": "一、企业网站后台栏目管理-网站导航栏-栏目分类-表-category"
-        },
-        {
-          "level": 3,
-          "title": "1、网站栏目分析",
-          "slug": "_1、网站栏目分析"
-        },
-        {
-          "level": 3,
-          "title": "2、分析怎样的数据结构可以方便展示上面的数据？",
-          "slug": "_2、分析怎样的数据结构可以方便展示上面的数据"
-        },
-        {
-          "level": 3,
-          "title": "3、如何将以上结构转成树形结构来方便程序处理和展示？",
-          "slug": "_3、如何将以上结构转成树形结构来方便程序处理和展示"
-        },
-        {
-          "level": 3,
-          "title": "入门级方法",
-          "slug": "入门级方法"
-        },
-        {
-          "level": 3,
-          "title": "树形结构方法演变",
-          "slug": "树形结构方法演变"
-        },
-        {
-          "level": 3,
-          "title": "演变最终方法：兼容性和扩展性更好的方法",
-          "slug": "演变最终方法-兼容性和扩展性更好的方法"
-        },
-        {
-          "level": 3,
-          "title": "测试方法",
-          "slug": "测试方法"
-        },
-        {
-          "level": 3,
-          "title": "4、最终表设计",
-          "slug": "_4、最终表设计"
-        },
-        {
-          "level": 3,
-          "title": "5、创建迁移文件、执行迁移命令创建数据表 category",
-          "slug": "_5、创建迁移文件、执行迁移命令创建数据表-category"
-        },
-        {
-          "level": 3,
-          "title": "6、创建 category 的模型",
-          "slug": "_6、创建-category-的模型"
-        },
-        {
-          "level": 3,
-          "title": "7、创建表 category 的控制器、完成后台分类列表功能",
-          "slug": "_7、创建表-category-的控制器、完成后台分类列表功能"
-        },
-        {
-          "level": 3,
-          "title": "8、定义路由",
-          "slug": "_8、定义路由"
-        },
-        {
-          "level": 2,
-          "title": "二、后台栏目管理功能升级",
-          "slug": "二、后台栏目管理功能升级"
-        },
-        {
-          "level": 3,
-          "title": "1、根据下拉框选择新增分类到哪个栏目下",
-          "slug": "_1、根据下拉框选择新增分类到哪个栏目下"
-        },
-        {
-          "level": 3,
-          "title": "2、分类列表树形结构展示",
-          "slug": "_2、分类列表树形结构展示"
-        },
-        {
-          "level": 3,
-          "title": "3、分类列表中分类状态显示及修改",
-          "slug": "_3、分类列表中分类状态显示及修改"
-        },
-        {
-          "level": 3,
-          "title": "4、对分类表补充两个字段：排序字段order、分类描述字段description",
-          "slug": "_4、对分类表补充两个字段-排序字段order、分类描述字段description"
-        },
-        {
-          "level": 3,
-          "title": "5、修改分类",
-          "slug": "_5、修改分类"
-        },
-        {
-          "level": 3,
-          "title": "6、删除分类",
-          "slug": "_6、删除分类"
-        }
-      ],
-      "lastUpdated": "2024年4月10日星期三下午5点30分",
-      "lastUpdatedTimestamp": 1712741416000
     },
     {
       "title": "egg.js重要知识详细文档",
@@ -14511,6 +13970,664 @@ export const siteData = {
       "lastUpdatedTimestamp": 1707034921000
     },
     {
+      "title": "企业网站其它页面(非首页)",
+      "frontmatter": {
+        "navbar": true,
+        "sidebar": "auto",
+        "title": "企业网站其它页面(非首页)"
+      },
+      "regularPath": "/secondless/w-c/%E4%BC%81%E4%B8%9A%E7%BD%91%E7%AB%99%E5%85%B6%E5%AE%83%E9%A1%B5%E9%9D%A2(%E9%9D%9E%E9%A6%96%E9%A1%B5).html",
+      "relativePath": "secondless/w-c/企业网站其它页面(非首页).md",
+      "key": "v-2d74d3cb",
+      "path": "/secondless/w-c/%E4%BC%81%E4%B8%9A%E7%BD%91%E7%AB%99%E5%85%B6%E5%AE%83%E9%A1%B5%E9%9D%A2(%E9%9D%9E%E9%A6%96%E9%A1%B5).html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "一、完成工程案例、资讯中心页面渲染",
+          "slug": "一、完成工程案例、资讯中心页面渲染"
+        },
+        {
+          "level": 3,
+          "title": "1. 控制器 app/controller/api/template01/api.js",
+          "slug": "_1-控制器-app-controller-api-template01-api-js"
+        },
+        {
+          "level": 3,
+          "title": "2. 模版 app/view/api/template01/main_app.html",
+          "slug": "_2-模版-app-view-api-template01-main-app-html"
+        },
+        {
+          "level": 3,
+          "title": "3. 模版 app/view/api/template01/_ortherpage.html",
+          "slug": "_3-模版-app-view-api-template01-ortherpage-html"
+        },
+        {
+          "level": 3,
+          "title": "4. 扩展 app/extend/context.js",
+          "slug": "_4-扩展-app-extend-context-js"
+        },
+        {
+          "level": 3,
+          "title": "5. 路由 app/router/api/template01/router.js",
+          "slug": "_5-路由-app-router-api-template01-router-js"
+        },
+        {
+          "level": 2,
+          "title": "二、文章详情页数据渲染",
+          "slug": "二、文章详情页数据渲染"
+        },
+        {
+          "level": 3,
+          "title": "1. 控制器 app/controller/api/template01/api.js",
+          "slug": "_1-控制器-app-controller-api-template01-api-js-2"
+        },
+        {
+          "level": 3,
+          "title": "2. 路由 app/router/api/template01/router.js",
+          "slug": "_2-路由-app-router-api-template01-router-js"
+        },
+        {
+          "level": 3,
+          "title": "3. 模版 app/view/api/template01/_ortherpage.html",
+          "slug": "_3-模版-app-view-api-template01-ortherpage-html-2"
+        },
+        {
+          "level": 2,
+          "title": "三、工程案例、资讯中心等文章链接完善，返回列表功能完善",
+          "slug": "三、工程案例、资讯中心等文章链接完善-返回列表功能完善"
+        },
+        {
+          "level": 3,
+          "title": "1. 控制器 app/controller/api/template01/api.js",
+          "slug": "_1-控制器-app-controller-api-template01-api-js-3"
+        },
+        {
+          "level": 3,
+          "title": "2. 模版 app/view/api/template01/_ortherpage.html",
+          "slug": "_2-模版-app-view-api-template01-ortherpage-html"
+        },
+        {
+          "level": 2,
+          "title": "四、处理网站导航栏及选中情况",
+          "slug": "四、处理网站导航栏及选中情况"
+        },
+        {
+          "level": 3,
+          "title": "① 获取导航栏数据，完成选中：工程案例、资讯中心",
+          "slug": "_1-获取导航栏数据-完成选中-工程案例、资讯中心"
+        },
+        {
+          "level": 3,
+          "title": "② 完成导航栏其他栏目的选中问题",
+          "slug": "_2-完成导航栏其他栏目的选中问题"
+        },
+        {
+          "level": 2,
+          "title": "五、网站首页导航栏选中、及网站配置展示",
+          "slug": "五、网站首页导航栏选中、及网站配置展示"
+        },
+        {
+          "level": 2,
+          "title": "六、关于我们、联系我们页面单独处理",
+          "slug": "六、关于我们、联系我们页面单独处理"
+        },
+        {
+          "level": 2,
+          "title": "七、网站留言板提交留言到后台",
+          "slug": "七、网站留言板提交留言到后台"
+        }
+      ],
+      "lastUpdated": "2024年6月3日星期一中午11点47分",
+      "lastUpdatedTimestamp": 1717386471000
+    },
+    {
+      "title": "企业网站首页",
+      "frontmatter": {
+        "navbar": true,
+        "sidebar": "auto",
+        "title": "企业网站首页"
+      },
+      "regularPath": "/secondless/w-c/%E4%BC%81%E4%B8%9A%E7%BD%91%E7%AB%99%E9%A6%96%E9%A1%B5.html",
+      "relativePath": "secondless/w-c/企业网站首页.md",
+      "key": "v-66046028",
+      "path": "/secondless/w-c/%E4%BC%81%E4%B8%9A%E7%BD%91%E7%AB%99%E9%A6%96%E9%A1%B5.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "一、数据库数据准备",
+          "slug": "一、数据库数据准备"
+        },
+        {
+          "level": 2,
+          "title": "二、读取数据库数据渲染到模版页面（以合作单位为例）",
+          "slug": "二、读取数据库数据渲染到模版页面-以合作单位为例"
+        },
+        {
+          "level": 2,
+          "title": "三、封装通过分类id获取数据的方法到服务中，简化读取数据操作（以资讯中心为例）",
+          "slug": "三、封装通过分类id获取数据的方法到服务中-简化读取数据操作-以资讯中心为例"
+        },
+        {
+          "level": 2,
+          "title": "四、完善首页其它板块的数据展示",
+          "slug": "四、完善首页其它板块的数据展示"
+        },
+        {
+          "level": 2,
+          "title": "五、网站其它页面：处理分页",
+          "slug": "五、网站其它页面-处理分页"
+        }
+      ],
+      "lastUpdated": "2024年5月23日星期四下午4点07分",
+      "lastUpdatedTimestamp": 1716451673000
+    },
+    {
+      "title": "章节5.企业网站前端部分",
+      "frontmatter": {
+        "navbar": true,
+        "sidebar": "auto",
+        "title": "章节5.企业网站前端部分"
+      },
+      "regularPath": "/secondless/w-c/%E4%BC%81%E4%B8%9A%E7%BD%91%E7%AB%99%E5%89%8D%E7%AB%AF%E9%83%A8%E5%88%86.html",
+      "relativePath": "secondless/w-c/企业网站前端部分.md",
+      "key": "v-6368a82a",
+      "path": "/secondless/w-c/%E4%BC%81%E4%B8%9A%E7%BD%91%E7%AB%99%E5%89%8D%E7%AB%AF%E9%83%A8%E5%88%86.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "一、引入模版",
+          "slug": "一、引入模版"
+        },
+        {
+          "level": 3,
+          "title": "1.引入模版静态资源放在public文件夹里面",
+          "slug": "_1-引入模版静态资源放在public文件夹里面"
+        },
+        {
+          "level": 3,
+          "title": "2.项目视图view文件夹里面创建一个主模版看效果",
+          "slug": "_2-项目视图view文件夹里面创建一个主模版看效果"
+        },
+        {
+          "level": 3,
+          "title": "3.写一个方法，来测试看一下这个主模版",
+          "slug": "_3-写一个方法-来测试看一下这个主模版"
+        },
+        {
+          "level": 3,
+          "title": "4.定义一下路由",
+          "slug": "_4-定义一下路由"
+        },
+        {
+          "level": 3,
+          "title": "5.主模版引入代码",
+          "slug": "_5-主模版引入代码"
+        },
+        {
+          "level": 2,
+          "title": "二、企业网站首页",
+          "slug": "二、企业网站首页"
+        },
+        {
+          "level": 2,
+          "title": "三、企业网站其它页面(非首页)",
+          "slug": "三、企业网站其它页面-非首页"
+        },
+        {
+          "level": 2,
+          "title": "【第二学期第3季课程】其它章节",
+          "slug": "【第二学期第3季课程】其它章节"
+        },
+        {
+          "level": 3,
+          "title": "章节1.课程介绍",
+          "slug": "章节1-课程介绍"
+        },
+        {
+          "level": 3,
+          "title": "章节2.Egg.js基础",
+          "slug": "章节2-egg-js基础"
+        },
+        {
+          "level": 3,
+          "title": "章节3.响应式网页布局",
+          "slug": "章节3-响应式网页布局"
+        },
+        {
+          "level": 3,
+          "title": "章节4.Egg.js和Mysql数据库进阶进一步开发网站后台",
+          "slug": "章节4-egg-js和mysql数据库进阶进一步开发网站后台"
+        },
+        {
+          "level": 3,
+          "title": "章节5.企业网站前端部分",
+          "slug": "章节5-企业网站前端部分"
+        },
+        {
+          "level": 2,
+          "title": "其它学期课程",
+          "slug": "其它学期课程"
+        },
+        {
+          "level": 3,
+          "title": "第一学期（学习顺序：01）",
+          "slug": "第一学期-学习顺序-01"
+        },
+        {
+          "level": 3,
+          "title": "第二学期【第1季】（学习顺序：02）",
+          "slug": "第二学期【第1季】-学习顺序-02"
+        },
+        {
+          "level": 3,
+          "title": "第二学期【第2季】（学习顺序：03）",
+          "slug": "第二学期【第2季】-学习顺序-03"
+        },
+        {
+          "level": 3,
+          "title": "第二学期【第3季】（学习顺序：04）",
+          "slug": "第二学期【第3季】-学习顺序-04"
+        }
+      ],
+      "lastUpdated": "2024年5月24日星期五上午11点01分",
+      "lastUpdatedTimestamp": 1716519676000
+    },
+    {
+      "title": "响应式后台公共模版",
+      "frontmatter": {
+        "navbar": true,
+        "sidebar": "auto",
+        "title": "响应式后台公共模版"
+      },
+      "regularPath": "/secondless/w-c/%E5%93%8D%E5%BA%94%E5%BC%8F%E5%90%8E%E5%8F%B0%E5%85%AC%E5%85%B1%E6%A8%A1%E7%89%88.html",
+      "relativePath": "secondless/w-c/响应式后台公共模版.md",
+      "key": "v-3817dfce",
+      "path": "/secondless/w-c/%E5%93%8D%E5%BA%94%E5%BC%8F%E5%90%8E%E5%8F%B0%E5%85%AC%E5%85%B1%E6%A8%A1%E7%89%88.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "1、初步写一个渲染公共模版的方法",
+          "slug": "_1、初步写一个渲染公共模版的方法"
+        },
+        {
+          "level": 3,
+          "title": "① 简单过渡",
+          "slug": "_1-简单过渡"
+        },
+        {
+          "level": 3,
+          "title": "② 新建公共模版",
+          "slug": "_2-新建公共模版"
+        },
+        {
+          "level": 3,
+          "title": "1. 自定义表格上面的按钮和表格头部",
+          "slug": "_1-自定义表格上面的按钮和表格头部"
+        },
+        {
+          "level": 3,
+          "title": "2. 自定义表格头部的操作【修改、删除】部分",
+          "slug": "_2-自定义表格头部的操作【修改、删除】部分"
+        },
+        {
+          "level": 3,
+          "title": "3. 处理表格模版、表单模版（创建管理员表单公共模版为例）",
+          "slug": "_3-处理表格模版、表单模版-创建管理员表单公共模版为例"
+        },
+        {
+          "level": 3,
+          "title": "③ 扩展公共模版功能，如公共模版表格中的删除管理员功能，并封装一个提示消息组件",
+          "slug": "_3-扩展公共模版功能-如公共模版表格中的删除管理员功能-并封装一个提示消息组件"
+        },
+        {
+          "level": 3,
+          "title": "④ 扩展公共模版功能，如公共模版表格中的删除管理员功能，在删除的时候，提示确认删除弹出框组件",
+          "slug": "_4-扩展公共模版功能-如公共模版表格中的删除管理员功能-在删除的时候-提示确认删除弹出框组件"
+        },
+        {
+          "level": 3,
+          "title": "bootstrap4菜鸟教程",
+          "slug": "bootstrap4菜鸟教程-bootstrap4菜鸟教程模态框"
+        },
+        {
+          "level": 3,
+          "title": "bootstrap4中文文档",
+          "slug": "bootstrap4中文文档-bootstrap4中文文档-https-bs4-vx-link-模态框"
+        },
+        {
+          "level": 3,
+          "title": "⑤ 扩展公共模版功能，如修改管理员",
+          "slug": "_5-扩展公共模版功能-如修改管理员"
+        },
+        {
+          "level": 3,
+          "title": "1.先完成修改管理员界面",
+          "slug": "_1-先完成修改管理员界面"
+        },
+        {
+          "level": 3,
+          "title": "2.完成修改管理员数据功能，并封装成功或者失败的api接口提示方法",
+          "slug": "_2-完成修改管理员数据功能-并封装成功或者失败的api接口提示方法"
+        },
+        {
+          "level": 2,
+          "title": "2、优化公共表单模版",
+          "slug": "_2、优化公共表单模版"
+        },
+        {
+          "level": 2,
+          "title": "2.1 使用Vue中的v-model对文本框进行双向数据绑定，取消value属性",
+          "slug": "_2-1-使用vue中的v-model对文本框进行双向数据绑定-取消value属性"
+        },
+        {
+          "level": 3,
+          "title": "① 思维引入：理解vue中的数据绑定v-model",
+          "slug": "_1-思维引入-理解vue中的数据绑定v-model"
+        },
+        {
+          "level": 3,
+          "title": "② 模版引擎渲染出data中的字段和值",
+          "slug": "_2-模版引擎渲染出data中的字段和值"
+        },
+        {
+          "level": 3,
+          "title": "③ 如果我们在新增表单中还希望给表单字段一个默认值",
+          "slug": "_3-如果我们在新增表单中还希望给表单字段一个默认值"
+        },
+        {
+          "level": 2,
+          "title": "2.2 完成表单提示消息功能",
+          "slug": "_2-2-完成表单提示消息功能"
+        },
+        {
+          "level": 3,
+          "title": "① 使用jquery的ajax来提交表单",
+          "slug": "_1-使用jquery的ajax来提交表单"
+        },
+        {
+          "level": 3,
+          "title": "② 提交成功之后，重新跳转到指定页面",
+          "slug": "_2-提交成功之后-重新跳转到指定页面"
+        }
+      ],
+      "lastUpdated": "2024年3月6日星期三晚上7点01分",
+      "lastUpdatedTimestamp": 1709722863000
+    },
+    {
+      "title": "响应式后台用户留言板管理",
+      "frontmatter": {
+        "navbar": true,
+        "sidebar": "auto",
+        "title": "响应式后台用户留言板管理"
+      },
+      "regularPath": "/secondless/w-c/%E5%93%8D%E5%BA%94%E5%BC%8F%E5%90%8E%E5%8F%B0%E7%94%A8%E6%88%B7%E7%95%99%E8%A8%80%E6%9D%BF%E7%AE%A1%E7%90%86.html",
+      "relativePath": "secondless/w-c/响应式后台用户留言板管理.md",
+      "key": "v-44ee6150",
+      "path": "/secondless/w-c/%E5%93%8D%E5%BA%94%E5%BC%8F%E5%90%8E%E5%8F%B0%E7%94%A8%E6%88%B7%E7%95%99%E8%A8%80%E6%9D%BF%E7%AE%A1%E7%90%86.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "一、创建数据库用户留言表 message",
+          "slug": "一、创建数据库用户留言表-message"
+        },
+        {
+          "level": 2,
+          "title": "二、创建迁移文件、执行迁移命令创建数据表",
+          "slug": "二、创建迁移文件、执行迁移命令创建数据表"
+        },
+        {
+          "level": 2,
+          "title": "三、创建留言表 message的模型",
+          "slug": "三、创建留言表-message的模型"
+        },
+        {
+          "level": 2,
+          "title": "四、提交留言（示例）",
+          "slug": "四、提交留言-示例"
+        },
+        {
+          "level": 3,
+          "title": "创建控制器 app/controller/admin/message.js",
+          "slug": "创建控制器-app-controller-admin-message-js"
+        },
+        {
+          "level": 3,
+          "title": "定义路由",
+          "slug": "定义路由"
+        },
+        {
+          "level": 2,
+          "title": "五、留言列表、修改留言、删除留言",
+          "slug": "五、留言列表、修改留言、删除留言"
+        },
+        {
+          "level": 3,
+          "title": "控制器 app/controller/admin/message.js",
+          "slug": "控制器-app-controller-admin-message-js"
+        },
+        {
+          "level": 3,
+          "title": "定义路由",
+          "slug": "定义路由-2"
+        }
+      ],
+      "lastUpdated": "2024年3月8日星期五下午2点06分",
+      "lastUpdatedTimestamp": 1709877999000
+    },
+    {
+      "title": "响应式后台界面示例代码",
+      "frontmatter": {
+        "navbar": true,
+        "sidebar": "auto",
+        "title": "响应式后台界面示例代码"
+      },
+      "regularPath": "/secondless/w-c/%E5%93%8D%E5%BA%94%E5%BC%8F%E5%90%8E%E5%8F%B0%E7%95%8C%E9%9D%A2%E7%A4%BA%E4%BE%8B%E4%BB%A3%E7%A0%81.html",
+      "relativePath": "secondless/w-c/响应式后台界面示例代码.md",
+      "key": "v-ee843006",
+      "path": "/secondless/w-c/%E5%93%8D%E5%BA%94%E5%BC%8F%E5%90%8E%E5%8F%B0%E7%95%8C%E9%9D%A2%E7%A4%BA%E4%BE%8B%E4%BB%A3%E7%A0%81.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "main_app.html实例代码（一）：初步抽离公共部分",
+          "slug": "main-app-html实例代码-一-初步抽离公共部分"
+        }
+      ],
+      "lastUpdated": "2024年2月29日星期四下午2点41分",
+      "lastUpdatedTimestamp": 1709188912000
+    },
+    {
+      "title": "响应式后台管理员登录",
+      "frontmatter": {
+        "navbar": true,
+        "sidebar": "auto",
+        "title": "响应式后台管理员登录"
+      },
+      "regularPath": "/secondless/w-c/%E5%93%8D%E5%BA%94%E5%BC%8F%E5%90%8E%E5%8F%B0%E7%AE%A1%E7%90%86%E5%91%98%E7%99%BB%E5%BD%95.html",
+      "relativePath": "secondless/w-c/响应式后台管理员登录.md",
+      "key": "v-5bf8e252",
+      "path": "/secondless/w-c/%E5%93%8D%E5%BA%94%E5%BC%8F%E5%90%8E%E5%8F%B0%E7%AE%A1%E7%90%86%E5%91%98%E7%99%BB%E5%BD%95.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "一、配置session",
+          "slug": "一、配置session"
+        },
+        {
+          "level": 2,
+          "title": "二、定义控制器和路由",
+          "slug": "二、定义控制器和路由"
+        },
+        {
+          "level": 2,
+          "title": "三、实现管理员登录功能",
+          "slug": "三、实现管理员登录功能"
+        },
+        {
+          "level": 2,
+          "title": "四、权限验证，即后台所有栏目需要管理员登录才能查看",
+          "slug": "四、权限验证-即后台所有栏目需要管理员登录才能查看"
+        },
+        {
+          "level": 3,
+          "title": "① 需要新建一个中间件做权限验证，app/middleware/admin_auth.js",
+          "slug": "_1-需要新建一个中间件做权限验证-app-middleware-admin-auth-js"
+        },
+        {
+          "level": 3,
+          "title": "② 中间件配置 config/config.default.js",
+          "slug": "_2-中间件配置-config-config-default-js"
+        },
+        {
+          "level": 3,
+          "title": "③ 控制器管理员登录方法完善 app/controller/admin/home.js",
+          "slug": "_3-控制器管理员登录方法完善-app-controller-admin-home-js"
+        },
+        {
+          "level": 3,
+          "title": "④ 登录页面提示请先登录 app/view/admin/home/login.html",
+          "slug": "_4-登录页面提示请先登录-app-view-admin-home-login-html"
+        },
+        {
+          "level": 2,
+          "title": "五、管理员退出登录",
+          "slug": "五、管理员退出登录"
+        },
+        {
+          "level": 3,
+          "title": "① 退出登录方法 app/controller/admin/home.js",
+          "slug": "_1-退出登录方法-app-controller-admin-home-js"
+        },
+        {
+          "level": 3,
+          "title": "② 定义路由 app/router/admin.js",
+          "slug": "_2-定义路由-app-router-admin-js"
+        },
+        {
+          "level": 3,
+          "title": "③ 模版页面退出 app/view/admin/layout/_header.html",
+          "slug": "_3-模版页面退出-app-view-admin-layout-header-html"
+        }
+      ],
+      "lastUpdated": "2024年3月7日星期四下午5点46分",
+      "lastUpdatedTimestamp": 1709804786000
+    },
+    {
+      "title": "企业网站后台栏目管理",
+      "frontmatter": {
+        "navbar": true,
+        "sidebar": "auto",
+        "title": "企业网站后台栏目管理"
+      },
+      "regularPath": "/secondless/w-c/%E4%BC%81%E4%B8%9A%E7%BD%91%E7%AB%99%E5%90%8E%E5%8F%B0%E6%A0%8F%E7%9B%AE%E7%AE%A1%E7%90%86.html",
+      "relativePath": "secondless/w-c/企业网站后台栏目管理.md",
+      "key": "v-9854a0b0",
+      "path": "/secondless/w-c/%E4%BC%81%E4%B8%9A%E7%BD%91%E7%AB%99%E5%90%8E%E5%8F%B0%E6%A0%8F%E7%9B%AE%E7%AE%A1%E7%90%86.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "一、企业网站后台栏目管理（网站导航栏，栏目分类）表 category",
+          "slug": "一、企业网站后台栏目管理-网站导航栏-栏目分类-表-category"
+        },
+        {
+          "level": 3,
+          "title": "1、网站栏目分析",
+          "slug": "_1、网站栏目分析"
+        },
+        {
+          "level": 3,
+          "title": "2、分析怎样的数据结构可以方便展示上面的数据？",
+          "slug": "_2、分析怎样的数据结构可以方便展示上面的数据"
+        },
+        {
+          "level": 3,
+          "title": "3、如何将以上结构转成树形结构来方便程序处理和展示？",
+          "slug": "_3、如何将以上结构转成树形结构来方便程序处理和展示"
+        },
+        {
+          "level": 3,
+          "title": "入门级方法",
+          "slug": "入门级方法"
+        },
+        {
+          "level": 3,
+          "title": "树形结构方法演变",
+          "slug": "树形结构方法演变"
+        },
+        {
+          "level": 3,
+          "title": "演变最终方法：兼容性和扩展性更好的方法",
+          "slug": "演变最终方法-兼容性和扩展性更好的方法"
+        },
+        {
+          "level": 3,
+          "title": "测试方法",
+          "slug": "测试方法"
+        },
+        {
+          "level": 3,
+          "title": "4、最终表设计",
+          "slug": "_4、最终表设计"
+        },
+        {
+          "level": 3,
+          "title": "5、创建迁移文件、执行迁移命令创建数据表 category",
+          "slug": "_5、创建迁移文件、执行迁移命令创建数据表-category"
+        },
+        {
+          "level": 3,
+          "title": "6、创建 category 的模型",
+          "slug": "_6、创建-category-的模型"
+        },
+        {
+          "level": 3,
+          "title": "7、创建表 category 的控制器、完成后台分类列表功能",
+          "slug": "_7、创建表-category-的控制器、完成后台分类列表功能"
+        },
+        {
+          "level": 3,
+          "title": "8、定义路由",
+          "slug": "_8、定义路由"
+        },
+        {
+          "level": 2,
+          "title": "二、后台栏目管理功能升级",
+          "slug": "二、后台栏目管理功能升级"
+        },
+        {
+          "level": 3,
+          "title": "1、根据下拉框选择新增分类到哪个栏目下",
+          "slug": "_1、根据下拉框选择新增分类到哪个栏目下"
+        },
+        {
+          "level": 3,
+          "title": "2、分类列表树形结构展示",
+          "slug": "_2、分类列表树形结构展示"
+        },
+        {
+          "level": 3,
+          "title": "3、分类列表中分类状态显示及修改",
+          "slug": "_3、分类列表中分类状态显示及修改"
+        },
+        {
+          "level": 3,
+          "title": "4、对分类表补充两个字段：排序字段order、分类描述字段description",
+          "slug": "_4、对分类表补充两个字段-排序字段order、分类描述字段description"
+        },
+        {
+          "level": 3,
+          "title": "5、修改分类",
+          "slug": "_5、修改分类"
+        },
+        {
+          "level": 3,
+          "title": "6、删除分类",
+          "slug": "_6、删除分类"
+        }
+      ],
+      "lastUpdated": "2024年4月10日星期三下午5点30分",
+      "lastUpdatedTimestamp": 1712741416000
+    },
+    {
       "title": "响应式后台管理系统：egg.js + bootstrap",
       "frontmatter": {
         "navbar": true,
@@ -14762,133 +14879,6 @@ export const siteData = {
       "lastUpdatedTimestamp": 1710385355000
     },
     {
-      "title": "树形结构方法演变",
-      "frontmatter": {
-        "navbar": true,
-        "sidebar": "auto",
-        "title": "树形结构方法演变"
-      },
-      "regularPath": "/secondless/w-c/%E6%A0%91%E5%BD%A2%E7%BB%93%E6%9E%84%E6%96%B9%E6%B3%95%E6%BC%94%E5%8F%98.html",
-      "relativePath": "secondless/w-c/树形结构方法演变.md",
-      "key": "v-4fff1d32",
-      "path": "/secondless/w-c/%E6%A0%91%E5%BD%A2%E7%BB%93%E6%9E%84%E6%96%B9%E6%B3%95%E6%BC%94%E5%8F%98.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "1、入门级方法",
-          "slug": "_1、入门级方法"
-        },
-        {
-          "level": 2,
-          "title": "2、增加一个可选的参数 rootPid 来指定哪个 pid 应被视为根节点",
-          "slug": "_2、增加一个可选的参数-rootpid-来指定哪个-pid-应被视为根节点"
-        },
-        {
-          "level": 2,
-          "title": "3、ES6 的解构赋值特性对方法进行优化",
-          "slug": "_3、es6-的解构赋值特性对方法进行优化"
-        },
-        {
-          "level": 2,
-          "title": "4、适配提供的数据含有其他属性的情况",
-          "slug": "_4、适配提供的数据含有其他属性的情况"
-        },
-        {
-          "level": 2,
-          "title": "5、在4的返回的树形结构结果上，自动加上一个层级属性level",
-          "slug": "_5、在4的返回的树形结构结果上-自动加上一个层级属性level"
-        },
-        {
-          "level": 2,
-          "title": "6、演变最终方法：兼容性和扩展性更好的方法(对更为原始的数据进行处理，只包含节点id，和父节点pid)",
-          "slug": "_6、演变最终方法-兼容性和扩展性更好的方法-对更为原始的数据进行处理-只包含节点id-和父节点pid"
-        },
-        {
-          "level": 3,
-          "title": "7、结果展示",
-          "slug": "_7、结果展示"
-        }
-      ],
-      "lastUpdated": "2024年4月2日星期二上午9点47分",
-      "lastUpdatedTimestamp": 1712022463000
-    },
-    {
-      "title": "响应式后台管理员登录",
-      "frontmatter": {
-        "navbar": true,
-        "sidebar": "auto",
-        "title": "响应式后台管理员登录"
-      },
-      "regularPath": "/secondless/w-c/%E5%93%8D%E5%BA%94%E5%BC%8F%E5%90%8E%E5%8F%B0%E7%AE%A1%E7%90%86%E5%91%98%E7%99%BB%E5%BD%95.html",
-      "relativePath": "secondless/w-c/响应式后台管理员登录.md",
-      "key": "v-5bf8e252",
-      "path": "/secondless/w-c/%E5%93%8D%E5%BA%94%E5%BC%8F%E5%90%8E%E5%8F%B0%E7%AE%A1%E7%90%86%E5%91%98%E7%99%BB%E5%BD%95.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "一、配置session",
-          "slug": "一、配置session"
-        },
-        {
-          "level": 2,
-          "title": "二、定义控制器和路由",
-          "slug": "二、定义控制器和路由"
-        },
-        {
-          "level": 2,
-          "title": "三、实现管理员登录功能",
-          "slug": "三、实现管理员登录功能"
-        },
-        {
-          "level": 2,
-          "title": "四、权限验证，即后台所有栏目需要管理员登录才能查看",
-          "slug": "四、权限验证-即后台所有栏目需要管理员登录才能查看"
-        },
-        {
-          "level": 3,
-          "title": "① 需要新建一个中间件做权限验证，app/middleware/admin_auth.js",
-          "slug": "_1-需要新建一个中间件做权限验证-app-middleware-admin-auth-js"
-        },
-        {
-          "level": 3,
-          "title": "② 中间件配置 config/config.default.js",
-          "slug": "_2-中间件配置-config-config-default-js"
-        },
-        {
-          "level": 3,
-          "title": "③ 控制器管理员登录方法完善 app/controller/admin/home.js",
-          "slug": "_3-控制器管理员登录方法完善-app-controller-admin-home-js"
-        },
-        {
-          "level": 3,
-          "title": "④ 登录页面提示请先登录 app/view/admin/home/login.html",
-          "slug": "_4-登录页面提示请先登录-app-view-admin-home-login-html"
-        },
-        {
-          "level": 2,
-          "title": "五、管理员退出登录",
-          "slug": "五、管理员退出登录"
-        },
-        {
-          "level": 3,
-          "title": "① 退出登录方法 app/controller/admin/home.js",
-          "slug": "_1-退出登录方法-app-controller-admin-home-js"
-        },
-        {
-          "level": 3,
-          "title": "② 定义路由 app/router/admin.js",
-          "slug": "_2-定义路由-app-router-admin-js"
-        },
-        {
-          "level": 3,
-          "title": "③ 模版页面退出 app/view/admin/layout/_header.html",
-          "slug": "_3-模版页面退出-app-view-admin-layout-header-html"
-        }
-      ],
-      "lastUpdated": "2024年3月7日星期四下午5点46分",
-      "lastUpdatedTimestamp": 1709804786000
-    },
-    {
       "title": "章节3.响应式网页布局",
       "frontmatter": {
         "navbar": true,
@@ -15025,98 +15015,6 @@ export const siteData = {
       "lastUpdatedTimestamp": 1731988442000
     },
     {
-      "title": "直播功能中的用户表liveuser",
-      "frontmatter": {
-        "navbar": true,
-        "sidebar": "auto",
-        "title": "直播功能中的用户表liveuser"
-      },
-      "regularPath": "/secondless/w-c/%E7%9B%B4%E6%92%AD%E5%8A%9F%E8%83%BD%E4%B8%AD%E7%9A%84%E7%94%A8%E6%88%B7%E8%A1%A8liveuser.html",
-      "relativePath": "secondless/w-c/直播功能中的用户表liveuser.md",
-      "key": "v-1460d66a",
-      "path": "/secondless/w-c/%E7%9B%B4%E6%92%AD%E5%8A%9F%E8%83%BD%E4%B8%AD%E7%9A%84%E7%94%A8%E6%88%B7%E8%A1%A8liveuser.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "一、创建数据库直播功能中的用户表 liveuser",
-          "slug": "一、创建数据库直播功能中的用户表-liveuser"
-        },
-        {
-          "level": 2,
-          "title": "二、创建迁移文件、执行迁移命令创建数据表",
-          "slug": "二、创建迁移文件、执行迁移命令创建数据表"
-        },
-        {
-          "level": 2,
-          "title": "三、创建直播功能中的用户表 liveuser 的模型",
-          "slug": "三、创建直播功能中的用户表-liveuser-的模型"
-        },
-        {
-          "level": 2,
-          "title": "四、创建直播功能中的用户表 liveuser 的控制器、完成后台功能中用户的新增用户功能",
-          "slug": "四、创建直播功能中的用户表-liveuser-的控制器、完成后台功能中用户的新增用户功能"
-        },
-        {
-          "level": 2,
-          "title": "五、完成后台功能中用户的列表展示、修改用户、删除用户",
-          "slug": "五、完成后台功能中用户的列表展示、修改用户、删除用户"
-        },
-        {
-          "level": 2,
-          "title": "六、路由 app/router/admin/admin.js",
-          "slug": "六、路由-app-router-admin-admin-js"
-        }
-      ],
-      "lastUpdated": "2024年3月21日星期四上午10点52分",
-      "lastUpdatedTimestamp": 1710989536000
-    },
-    {
-      "title": "直播功能中的礼物表livegift",
-      "frontmatter": {
-        "navbar": true,
-        "sidebar": "auto",
-        "title": "直播功能中的礼物表livegift"
-      },
-      "regularPath": "/secondless/w-c/%E7%9B%B4%E6%92%AD%E5%8A%9F%E8%83%BD%E4%B8%AD%E7%9A%84%E7%A4%BC%E7%89%A9%E8%A1%A8livegift.html",
-      "relativePath": "secondless/w-c/直播功能中的礼物表livegift.md",
-      "key": "v-5450db4f",
-      "path": "/secondless/w-c/%E7%9B%B4%E6%92%AD%E5%8A%9F%E8%83%BD%E4%B8%AD%E7%9A%84%E7%A4%BC%E7%89%A9%E8%A1%A8livegift.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "一、创建数据库直播功能中的礼物表 livegift",
-          "slug": "一、创建数据库直播功能中的礼物表-livegift"
-        },
-        {
-          "level": 2,
-          "title": "二、创建迁移文件、执行迁移命令创建数据表",
-          "slug": "二、创建迁移文件、执行迁移命令创建数据表"
-        },
-        {
-          "level": 2,
-          "title": "三、创建直播功能中的礼物表 livegift 的模型",
-          "slug": "三、创建直播功能中的礼物表-livegift-的模型"
-        },
-        {
-          "level": 2,
-          "title": "四、创建直播功能中的礼物表 livegift 的控制器、完成后台功能中新增礼物功能",
-          "slug": "四、创建直播功能中的礼物表-livegift-的控制器、完成后台功能中新增礼物功能"
-        },
-        {
-          "level": 2,
-          "title": "五、完成后台功能中礼物的列表展示、修改礼物、删除礼物",
-          "slug": "五、完成后台功能中礼物的列表展示、修改礼物、删除礼物"
-        },
-        {
-          "level": 2,
-          "title": "六、路由 app/router/admin/admin.js",
-          "slug": "六、路由-app-router-admin-admin-js"
-        }
-      ],
-      "lastUpdated": "2024年3月21日星期四晚上6点55分",
-      "lastUpdatedTimestamp": 1711018550000
-    },
-    {
       "title": "响应式网页布局指导思路",
       "frontmatter": {
         "navbar": true,
@@ -15176,6 +15074,372 @@ export const siteData = {
       ],
       "lastUpdated": "2024年2月27日星期二晚上6点14分",
       "lastUpdatedTimestamp": 1709028889000
+    },
+    {
+      "title": "树形结构方法演变",
+      "frontmatter": {
+        "navbar": true,
+        "sidebar": "auto",
+        "title": "树形结构方法演变"
+      },
+      "regularPath": "/secondless/w-c/%E6%A0%91%E5%BD%A2%E7%BB%93%E6%9E%84%E6%96%B9%E6%B3%95%E6%BC%94%E5%8F%98.html",
+      "relativePath": "secondless/w-c/树形结构方法演变.md",
+      "key": "v-4fff1d32",
+      "path": "/secondless/w-c/%E6%A0%91%E5%BD%A2%E7%BB%93%E6%9E%84%E6%96%B9%E6%B3%95%E6%BC%94%E5%8F%98.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "1、入门级方法",
+          "slug": "_1、入门级方法"
+        },
+        {
+          "level": 2,
+          "title": "2、增加一个可选的参数 rootPid 来指定哪个 pid 应被视为根节点",
+          "slug": "_2、增加一个可选的参数-rootpid-来指定哪个-pid-应被视为根节点"
+        },
+        {
+          "level": 2,
+          "title": "3、ES6 的解构赋值特性对方法进行优化",
+          "slug": "_3、es6-的解构赋值特性对方法进行优化"
+        },
+        {
+          "level": 2,
+          "title": "4、适配提供的数据含有其他属性的情况",
+          "slug": "_4、适配提供的数据含有其他属性的情况"
+        },
+        {
+          "level": 2,
+          "title": "5、在4的返回的树形结构结果上，自动加上一个层级属性level",
+          "slug": "_5、在4的返回的树形结构结果上-自动加上一个层级属性level"
+        },
+        {
+          "level": 2,
+          "title": "6、演变最终方法：兼容性和扩展性更好的方法(对更为原始的数据进行处理，只包含节点id，和父节点pid)",
+          "slug": "_6、演变最终方法-兼容性和扩展性更好的方法-对更为原始的数据进行处理-只包含节点id-和父节点pid"
+        },
+        {
+          "level": 3,
+          "title": "7、结果展示",
+          "slug": "_7、结果展示"
+        }
+      ],
+      "lastUpdated": "2024年4月2日星期二上午9点47分",
+      "lastUpdatedTimestamp": 1712022463000
+    },
+    {
+      "title": "直播功能中的用户表liveuser",
+      "frontmatter": {
+        "navbar": true,
+        "sidebar": "auto",
+        "title": "直播功能中的用户表liveuser"
+      },
+      "regularPath": "/secondless/w-c/%E7%9B%B4%E6%92%AD%E5%8A%9F%E8%83%BD%E4%B8%AD%E7%9A%84%E7%94%A8%E6%88%B7%E8%A1%A8liveuser.html",
+      "relativePath": "secondless/w-c/直播功能中的用户表liveuser.md",
+      "key": "v-1460d66a",
+      "path": "/secondless/w-c/%E7%9B%B4%E6%92%AD%E5%8A%9F%E8%83%BD%E4%B8%AD%E7%9A%84%E7%94%A8%E6%88%B7%E8%A1%A8liveuser.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "一、创建数据库直播功能中的用户表 liveuser",
+          "slug": "一、创建数据库直播功能中的用户表-liveuser"
+        },
+        {
+          "level": 2,
+          "title": "二、创建迁移文件、执行迁移命令创建数据表",
+          "slug": "二、创建迁移文件、执行迁移命令创建数据表"
+        },
+        {
+          "level": 2,
+          "title": "三、创建直播功能中的用户表 liveuser 的模型",
+          "slug": "三、创建直播功能中的用户表-liveuser-的模型"
+        },
+        {
+          "level": 2,
+          "title": "四、创建直播功能中的用户表 liveuser 的控制器、完成后台功能中用户的新增用户功能",
+          "slug": "四、创建直播功能中的用户表-liveuser-的控制器、完成后台功能中用户的新增用户功能"
+        },
+        {
+          "level": 2,
+          "title": "五、完成后台功能中用户的列表展示、修改用户、删除用户",
+          "slug": "五、完成后台功能中用户的列表展示、修改用户、删除用户"
+        },
+        {
+          "level": 2,
+          "title": "六、路由 app/router/admin/admin.js",
+          "slug": "六、路由-app-router-admin-admin-js"
+        }
+      ],
+      "lastUpdated": "2024年3月21日星期四上午10点52分",
+      "lastUpdatedTimestamp": 1710989536000
+    },
+    {
+      "title": "企业网站后台内容管理",
+      "frontmatter": {
+        "navbar": true,
+        "sidebar": "auto",
+        "title": "企业网站后台内容管理"
+      },
+      "regularPath": "/secondless/w-c/%E4%BC%81%E4%B8%9A%E7%BD%91%E7%AB%99%E5%90%8E%E5%8F%B0%E5%86%85%E5%AE%B9%E7%AE%A1%E7%90%86.html",
+      "relativePath": "secondless/w-c/企业网站后台内容管理.md",
+      "key": "v-44293db4",
+      "path": "/secondless/w-c/%E4%BC%81%E4%B8%9A%E7%BD%91%E7%AB%99%E5%90%8E%E5%8F%B0%E5%86%85%E5%AE%B9%E7%AE%A1%E7%90%86.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "一、企业网站后台内容管理（网站的新闻、产品、内容等等信息）表 news",
+          "slug": "一、企业网站后台内容管理-网站的新闻、产品、内容等等信息-表-news"
+        },
+        {
+          "level": 3,
+          "title": "1、表设计",
+          "slug": "_1、表设计"
+        },
+        {
+          "level": 3,
+          "title": "2、创建迁移文件、执行迁移命令创建数据表 news",
+          "slug": "_2、创建迁移文件、执行迁移命令创建数据表-news"
+        },
+        {
+          "level": 3,
+          "title": "3、创建 news表 的模型",
+          "slug": "_3、创建-news表-的模型"
+        },
+        {
+          "level": 3,
+          "title": "4、完成基本的新闻内容列表展示、及创建发布新闻内容界面",
+          "slug": "_4、完成基本的新闻内容列表展示、及创建发布新闻内容界面"
+        },
+        {
+          "level": 3,
+          "title": "5、完成发布新闻内容的数据提交，以及删除单个新闻内容",
+          "slug": "_5、完成发布新闻内容的数据提交-以及删除单个新闻内容"
+        },
+        {
+          "level": 3,
+          "title": "6、发布新闻内容界面的内容摘要换成文本域标签，内容附件换成自定义的按钮组选择附件内容",
+          "slug": "_6、发布新闻内容界面的内容摘要换成文本域标签-内容附件换成自定义的按钮组选择附件内容"
+        },
+        {
+          "level": 2,
+          "title": "二、初步引入富文本编辑器",
+          "slug": "二、初步引入富文本编辑器"
+        },
+        {
+          "level": 3,
+          "title": "tinymce 编辑器说明",
+          "slug": "tinymce-编辑器说明"
+        },
+        {
+          "level": 3,
+          "title": "如何使用",
+          "slug": "如何使用"
+        },
+        {
+          "level": 2,
+          "title": "三、富文本编辑器常用配置说明及上传图片",
+          "slug": "三、富文本编辑器常用配置说明及上传图片"
+        },
+        {
+          "level": 3,
+          "title": "常用配置说明及上传图片：",
+          "slug": "常用配置说明及上传图片"
+        },
+        {
+          "level": 3,
+          "title": "完整配置参考",
+          "slug": "完整配置参考"
+        },
+        {
+          "level": 2,
+          "title": "四、修改新闻内容",
+          "slug": "四、修改新闻内容"
+        },
+        {
+          "level": 2,
+          "title": "五、新闻列表页面调整标题展示、新增是否显示按钮组，并对按钮组方法封装成公共方法",
+          "slug": "五、新闻列表页面调整标题展示、新增是否显示按钮组-并对按钮组方法封装成公共方法"
+        }
+      ],
+      "lastUpdated": "2024年4月17日星期三下午4点24分",
+      "lastUpdatedTimestamp": 1713342247000
+    },
+    {
+      "title": "直播功能中的礼物表livegift",
+      "frontmatter": {
+        "navbar": true,
+        "sidebar": "auto",
+        "title": "直播功能中的礼物表livegift"
+      },
+      "regularPath": "/secondless/w-c/%E7%9B%B4%E6%92%AD%E5%8A%9F%E8%83%BD%E4%B8%AD%E7%9A%84%E7%A4%BC%E7%89%A9%E8%A1%A8livegift.html",
+      "relativePath": "secondless/w-c/直播功能中的礼物表livegift.md",
+      "key": "v-5450db4f",
+      "path": "/secondless/w-c/%E7%9B%B4%E6%92%AD%E5%8A%9F%E8%83%BD%E4%B8%AD%E7%9A%84%E7%A4%BC%E7%89%A9%E8%A1%A8livegift.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "一、创建数据库直播功能中的礼物表 livegift",
+          "slug": "一、创建数据库直播功能中的礼物表-livegift"
+        },
+        {
+          "level": 2,
+          "title": "二、创建迁移文件、执行迁移命令创建数据表",
+          "slug": "二、创建迁移文件、执行迁移命令创建数据表"
+        },
+        {
+          "level": 2,
+          "title": "三、创建直播功能中的礼物表 livegift 的模型",
+          "slug": "三、创建直播功能中的礼物表-livegift-的模型"
+        },
+        {
+          "level": 2,
+          "title": "四、创建直播功能中的礼物表 livegift 的控制器、完成后台功能中新增礼物功能",
+          "slug": "四、创建直播功能中的礼物表-livegift-的控制器、完成后台功能中新增礼物功能"
+        },
+        {
+          "level": 2,
+          "title": "五、完成后台功能中礼物的列表展示、修改礼物、删除礼物",
+          "slug": "五、完成后台功能中礼物的列表展示、修改礼物、删除礼物"
+        },
+        {
+          "level": 2,
+          "title": "六、路由 app/router/admin/admin.js",
+          "slug": "六、路由-app-router-admin-admin-js"
+        }
+      ],
+      "lastUpdated": "2024年3月21日星期四晚上6点55分",
+      "lastUpdatedTimestamp": 1711018550000
+    },
+    {
+      "title": "直播功能中的订单表liveorder",
+      "frontmatter": {
+        "navbar": true,
+        "sidebar": "auto",
+        "title": "直播功能中的订单表liveorder"
+      },
+      "regularPath": "/secondless/w-c/%E7%9B%B4%E6%92%AD%E5%8A%9F%E8%83%BD%E4%B8%AD%E7%9A%84%E8%AE%A2%E5%8D%95%E8%A1%A8liveorder.html",
+      "relativePath": "secondless/w-c/直播功能中的订单表liveorder.md",
+      "key": "v-325c8c64",
+      "path": "/secondless/w-c/%E7%9B%B4%E6%92%AD%E5%8A%9F%E8%83%BD%E4%B8%AD%E7%9A%84%E8%AE%A2%E5%8D%95%E8%A1%A8liveorder.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "一、创建数据库直播功能中的订单表 liveorder",
+          "slug": "一、创建数据库直播功能中的订单表-liveorder"
+        },
+        {
+          "level": 2,
+          "title": "二、创建迁移文件、执行迁移命令创建数据表",
+          "slug": "二、创建迁移文件、执行迁移命令创建数据表"
+        },
+        {
+          "level": 3,
+          "title": "重点理解关联关系的设置 references",
+          "slug": "重点理解关联关系的设置-references"
+        },
+        {
+          "level": 2,
+          "title": "三、创建直播功能中的订单表 liveorder 的模型",
+          "slug": "三、创建直播功能中的订单表-liveorder-的模型"
+        },
+        {
+          "level": 3,
+          "title": "重点理解模型关联关系",
+          "slug": "重点理解模型关联关系"
+        },
+        {
+          "level": 2,
+          "title": "四、创建直播功能中的订单表 liveorder 的控制器、完成后台功能中订单列表功能",
+          "slug": "四、创建直播功能中的订单表-liveorder-的控制器、完成后台功能中订单列表功能"
+        }
+      ],
+      "lastUpdated": "2024年3月26日星期二中午12点01分",
+      "lastUpdatedTimestamp": 1711425694000
+    },
+    {
+      "title": "章节5.SSL证书",
+      "frontmatter": {
+        "navbar": true,
+        "sidebar": "auto",
+        "title": "章节5.SSL证书"
+      },
+      "regularPath": "/secondless/w-d/SSL%E8%AF%81%E4%B9%A6.html",
+      "relativePath": "secondless/w-d/SSL证书.md",
+      "key": "v-5483fa35",
+      "path": "/secondless/w-d/SSL%E8%AF%81%E4%B9%A6.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "一、申请SSL证书",
+          "slug": "一、申请ssl证书"
+        },
+        {
+          "level": 2,
+          "title": "二、搭建https协议网站",
+          "slug": "二、搭建https协议网站"
+        },
+        {
+          "level": 2,
+          "title": "【第二学期第4季课程】其它章节",
+          "slug": "【第二学期第4季课程】其它章节"
+        },
+        {
+          "level": 3,
+          "title": "章节1.课程介绍",
+          "slug": "章节1-课程介绍"
+        },
+        {
+          "level": 3,
+          "title": "章节2.购买域名及备案",
+          "slug": "章节2-购买域名及备案"
+        },
+        {
+          "level": 3,
+          "title": "章节3.购买服务器",
+          "slug": "章节3-购买服务器"
+        },
+        {
+          "level": 3,
+          "title": "章节4.网站代码上线调试",
+          "slug": "章节4-网站代码上线调试"
+        },
+        {
+          "level": 3,
+          "title": "章节5.SSL证书",
+          "slug": "章节5-ssl证书"
+        },
+        {
+          "level": 2,
+          "title": "其它学期课程",
+          "slug": "其它学期课程"
+        },
+        {
+          "level": 3,
+          "title": "第一学期（学习顺序：01）",
+          "slug": "第一学期-学习顺序-01"
+        },
+        {
+          "level": 3,
+          "title": "第二学期【第1季】（学习顺序：02）",
+          "slug": "第二学期【第1季】-学习顺序-02"
+        },
+        {
+          "level": 3,
+          "title": "第二学期【第2季】（学习顺序：03）",
+          "slug": "第二学期【第2季】-学习顺序-03"
+        },
+        {
+          "level": 3,
+          "title": "第二学期【第3季】（学习顺序：04）",
+          "slug": "第二学期【第3季】-学习顺序-04"
+        },
+        {
+          "level": 3,
+          "title": "第二学期【第4季】（学习顺序：05）",
+          "slug": "第二学期【第4季】-学习顺序-05"
+        }
+      ],
+      "lastUpdated": "2024年11月19日星期二中午11点54分",
+      "lastUpdatedTimestamp": 1731988442000
     },
     {
       "title": "直播功能中的直播间表live",
@@ -15339,50 +15603,63 @@ export const siteData = {
       "lastUpdatedTimestamp": 1711947350000
     },
     {
-      "title": "直播功能中的订单表liveorder",
+      "title": "第二学期第四季（课程学习顺序：05）",
       "frontmatter": {
-        "navbar": true,
-        "sidebar": "auto",
-        "title": "直播功能中的订单表liveorder"
+        "title": "第二学期第四季（课程学习顺序：05）"
       },
-      "regularPath": "/secondless/w-c/%E7%9B%B4%E6%92%AD%E5%8A%9F%E8%83%BD%E4%B8%AD%E7%9A%84%E8%AE%A2%E5%8D%95%E8%A1%A8liveorder.html",
-      "relativePath": "secondless/w-c/直播功能中的订单表liveorder.md",
-      "key": "v-325c8c64",
-      "path": "/secondless/w-c/%E7%9B%B4%E6%92%AD%E5%8A%9F%E8%83%BD%E4%B8%AD%E7%9A%84%E8%AE%A2%E5%8D%95%E8%A1%A8liveorder.html",
+      "regularPath": "/secondless/w-d.html",
+      "relativePath": "secondless/w-d.md",
+      "key": "v-0ea3cc26",
+      "path": "/secondless/w-d.html",
       "headers": [
         {
           "level": 2,
-          "title": "一、创建数据库直播功能中的订单表 liveorder",
-          "slug": "一、创建数据库直播功能中的订单表-liveorder"
+          "title": "1.第二学期第四季课程介绍",
+          "slug": "_1-第二学期第四季课程介绍"
         },
         {
           "level": 2,
-          "title": "二、创建迁移文件、执行迁移命令创建数据表",
-          "slug": "二、创建迁移文件、执行迁移命令创建数据表"
+          "title": "2.本季课程视频介绍",
+          "slug": "_2-本季课程视频介绍"
+        },
+        {
+          "level": 2,
+          "title": "3.课程视频学习",
+          "slug": "_3-课程视频学习"
+        },
+        {
+          "level": 2,
+          "title": "4.查看课程文档",
+          "slug": "_4-查看课程文档"
         },
         {
           "level": 3,
-          "title": "重点理解关联关系的设置 references",
-          "slug": "重点理解关联关系的设置-references"
-        },
-        {
-          "level": 2,
-          "title": "三、创建直播功能中的订单表 liveorder 的模型",
-          "slug": "三、创建直播功能中的订单表-liveorder-的模型"
+          "title": "章节1.第四季课程介绍",
+          "slug": "章节1-第四季课程介绍"
         },
         {
           "level": 3,
-          "title": "重点理解模型关联关系",
-          "slug": "重点理解模型关联关系"
+          "title": "",
+          "slug": "章节2-购买域名及备案"
         },
         {
-          "level": 2,
-          "title": "四、创建直播功能中的订单表 liveorder 的控制器、完成后台功能中订单列表功能",
-          "slug": "四、创建直播功能中的订单表-liveorder-的控制器、完成后台功能中订单列表功能"
+          "level": 3,
+          "title": "",
+          "slug": "章节3-购买服务器"
+        },
+        {
+          "level": 3,
+          "title": "",
+          "slug": "章节4-网站代码上线调试"
+        },
+        {
+          "level": 3,
+          "title": "",
+          "slug": "章节5-ssl证书"
         }
       ],
-      "lastUpdated": "2024年3月26日星期二中午12点01分",
-      "lastUpdatedTimestamp": 1711425694000
+      "lastUpdated": "2025年2月14日星期五晚上7点31分",
+      "lastUpdatedTimestamp": 1739532672000
     },
     {
       "title": "网站后台管理员简单权限分配功能实现",
@@ -15449,151 +15726,6 @@ export const siteData = {
       ],
       "lastUpdated": "2024年5月16日星期四中午12点14分",
       "lastUpdatedTimestamp": 1715832881000
-    },
-    {
-      "title": "第二学期第四季（课程学习顺序：05）",
-      "frontmatter": {
-        "title": "第二学期第四季（课程学习顺序：05）"
-      },
-      "regularPath": "/secondless/w-d.html",
-      "relativePath": "secondless/w-d.md",
-      "key": "v-0ea3cc26",
-      "path": "/secondless/w-d.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "1.第二学期第四季课程介绍",
-          "slug": "_1-第二学期第四季课程介绍"
-        },
-        {
-          "level": 2,
-          "title": "2.本季课程视频介绍",
-          "slug": "_2-本季课程视频介绍"
-        },
-        {
-          "level": 2,
-          "title": "3.课程视频学习",
-          "slug": "_3-课程视频学习"
-        },
-        {
-          "level": 2,
-          "title": "4.查看课程文档",
-          "slug": "_4-查看课程文档"
-        },
-        {
-          "level": 3,
-          "title": "章节1.第四季课程介绍",
-          "slug": "章节1-第四季课程介绍"
-        },
-        {
-          "level": 3,
-          "title": "",
-          "slug": "章节2-购买域名及备案"
-        },
-        {
-          "level": 3,
-          "title": "",
-          "slug": "章节3-购买服务器"
-        },
-        {
-          "level": 3,
-          "title": "",
-          "slug": "章节4-网站代码上线调试"
-        },
-        {
-          "level": 3,
-          "title": "",
-          "slug": "章节5-ssl证书"
-        }
-      ],
-      "lastUpdated": "2025年2月14日星期五晚上7点31分",
-      "lastUpdatedTimestamp": 1739532672000
-    },
-    {
-      "title": "章节5.SSL证书",
-      "frontmatter": {
-        "navbar": true,
-        "sidebar": "auto",
-        "title": "章节5.SSL证书"
-      },
-      "regularPath": "/secondless/w-d/SSL%E8%AF%81%E4%B9%A6.html",
-      "relativePath": "secondless/w-d/SSL证书.md",
-      "key": "v-5483fa35",
-      "path": "/secondless/w-d/SSL%E8%AF%81%E4%B9%A6.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "一、申请SSL证书",
-          "slug": "一、申请ssl证书"
-        },
-        {
-          "level": 2,
-          "title": "二、搭建https协议网站",
-          "slug": "二、搭建https协议网站"
-        },
-        {
-          "level": 2,
-          "title": "【第二学期第4季课程】其它章节",
-          "slug": "【第二学期第4季课程】其它章节"
-        },
-        {
-          "level": 3,
-          "title": "章节1.课程介绍",
-          "slug": "章节1-课程介绍"
-        },
-        {
-          "level": 3,
-          "title": "章节2.购买域名及备案",
-          "slug": "章节2-购买域名及备案"
-        },
-        {
-          "level": 3,
-          "title": "章节3.购买服务器",
-          "slug": "章节3-购买服务器"
-        },
-        {
-          "level": 3,
-          "title": "章节4.网站代码上线调试",
-          "slug": "章节4-网站代码上线调试"
-        },
-        {
-          "level": 3,
-          "title": "章节5.SSL证书",
-          "slug": "章节5-ssl证书"
-        },
-        {
-          "level": 2,
-          "title": "其它学期课程",
-          "slug": "其它学期课程"
-        },
-        {
-          "level": 3,
-          "title": "第一学期（学习顺序：01）",
-          "slug": "第一学期-学习顺序-01"
-        },
-        {
-          "level": 3,
-          "title": "第二学期【第1季】（学习顺序：02）",
-          "slug": "第二学期【第1季】-学习顺序-02"
-        },
-        {
-          "level": 3,
-          "title": "第二学期【第2季】（学习顺序：03）",
-          "slug": "第二学期【第2季】-学习顺序-03"
-        },
-        {
-          "level": 3,
-          "title": "第二学期【第3季】（学习顺序：04）",
-          "slug": "第二学期【第3季】-学习顺序-04"
-        },
-        {
-          "level": 3,
-          "title": "第二学期【第4季】（学习顺序：05）",
-          "slug": "第二学期【第4季】-学习顺序-05"
-        }
-      ],
-      "lastUpdated": "2024年11月19日星期二中午11点54分",
-      "lastUpdatedTimestamp": 1731988442000
     },
     {
       "title": "章节4.网站代码上线调试",
@@ -15853,6 +15985,137 @@ export const siteData = {
       "lastUpdatedTimestamp": 1731988442000
     },
     {
+      "title": "章节3.购买服务器",
+      "frontmatter": {
+        "navbar": true,
+        "sidebar": "auto",
+        "title": "章节3.购买服务器"
+      },
+      "regularPath": "/secondless/w-d/%E8%B4%AD%E4%B9%B0%E6%9C%8D%E5%8A%A1%E5%99%A8.html",
+      "relativePath": "secondless/w-d/购买服务器.md",
+      "key": "v-edfe0d3e",
+      "path": "/secondless/w-d/%E8%B4%AD%E4%B9%B0%E6%9C%8D%E5%8A%A1%E5%99%A8.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "一、服务器选购",
+          "slug": "一、服务器选购"
+        },
+        {
+          "level": 2,
+          "title": "二、服务器环境搭建",
+          "slug": "二、服务器环境搭建"
+        },
+        {
+          "level": 3,
+          "title": "① 服务器设置",
+          "slug": "_1-服务器设置"
+        },
+        {
+          "level": 3,
+          "title": "② 服务器环境搭建",
+          "slug": "_2-服务器环境搭建"
+        },
+        {
+          "level": 3,
+          "title": "③ 可视化面板设置",
+          "slug": "_3-可视化面板设置"
+        },
+        {
+          "level": 2,
+          "title": "【第二学期第4季课程】其它章节",
+          "slug": "【第二学期第4季课程】其它章节"
+        },
+        {
+          "level": 3,
+          "title": "章节1.课程介绍",
+          "slug": "章节1-课程介绍"
+        },
+        {
+          "level": 3,
+          "title": "章节2.购买域名及备案",
+          "slug": "章节2-购买域名及备案"
+        },
+        {
+          "level": 3,
+          "title": "章节3.购买服务器",
+          "slug": "章节3-购买服务器"
+        },
+        {
+          "level": 3,
+          "title": "章节4.网站代码上线调试",
+          "slug": "章节4-网站代码上线调试"
+        },
+        {
+          "level": 3,
+          "title": "章节5.SSL证书",
+          "slug": "章节5-ssl证书"
+        },
+        {
+          "level": 2,
+          "title": "其它学期课程",
+          "slug": "其它学期课程"
+        },
+        {
+          "level": 3,
+          "title": "第一学期（学习顺序：01）",
+          "slug": "第一学期-学习顺序-01"
+        },
+        {
+          "level": 3,
+          "title": "第二学期【第1季】（学习顺序：02）",
+          "slug": "第二学期【第1季】-学习顺序-02"
+        },
+        {
+          "level": 3,
+          "title": "第二学期【第2季】（学习顺序：03）",
+          "slug": "第二学期【第2季】-学习顺序-03"
+        },
+        {
+          "level": 3,
+          "title": "第二学期【第3季】（学习顺序：04）",
+          "slug": "第二学期【第3季】-学习顺序-04"
+        },
+        {
+          "level": 3,
+          "title": "第二学期【第4季】（学习顺序：05）",
+          "slug": "第二学期【第4季】-学习顺序-05"
+        }
+      ],
+      "lastUpdated": "2024年11月19日星期二中午11点54分",
+      "lastUpdatedTimestamp": 1731988442000
+    },
+    {
+      "title": "第三学期移动端课程总述",
+      "frontmatter": {
+        "navbar": true,
+        "title": "第三学期移动端课程总述"
+      },
+      "regularPath": "/thirdless/",
+      "relativePath": "thirdless/README.md",
+      "key": "v-0675efda",
+      "path": "/thirdless/",
+      "headers": [
+        {
+          "level": 2,
+          "title": "第三学期移动端课程",
+          "slug": "第三学期移动端课程"
+        },
+        {
+          "level": 3,
+          "title": "第一季",
+          "slug": "第一季"
+        },
+        {
+          "level": 3,
+          "title": "第二季",
+          "slug": "第二季"
+        }
+      ],
+      "lastUpdated": "2025年6月5日星期四晚上8点20分",
+      "lastUpdatedTimestamp": 1749126049000
+    },
+    {
       "title": "第三学期第一季（课程学习顺序：06）",
       "frontmatter": {
         "title": "第三学期第一季（课程学习顺序：06）"
@@ -16008,107 +16271,6 @@ export const siteData = {
       "lastUpdatedTimestamp": 1734340102000
     },
     {
-      "title": "章节3.购买服务器",
-      "frontmatter": {
-        "navbar": true,
-        "sidebar": "auto",
-        "title": "章节3.购买服务器"
-      },
-      "regularPath": "/secondless/w-d/%E8%B4%AD%E4%B9%B0%E6%9C%8D%E5%8A%A1%E5%99%A8.html",
-      "relativePath": "secondless/w-d/购买服务器.md",
-      "key": "v-edfe0d3e",
-      "path": "/secondless/w-d/%E8%B4%AD%E4%B9%B0%E6%9C%8D%E5%8A%A1%E5%99%A8.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "一、服务器选购",
-          "slug": "一、服务器选购"
-        },
-        {
-          "level": 2,
-          "title": "二、服务器环境搭建",
-          "slug": "二、服务器环境搭建"
-        },
-        {
-          "level": 3,
-          "title": "① 服务器设置",
-          "slug": "_1-服务器设置"
-        },
-        {
-          "level": 3,
-          "title": "② 服务器环境搭建",
-          "slug": "_2-服务器环境搭建"
-        },
-        {
-          "level": 3,
-          "title": "③ 可视化面板设置",
-          "slug": "_3-可视化面板设置"
-        },
-        {
-          "level": 2,
-          "title": "【第二学期第4季课程】其它章节",
-          "slug": "【第二学期第4季课程】其它章节"
-        },
-        {
-          "level": 3,
-          "title": "章节1.课程介绍",
-          "slug": "章节1-课程介绍"
-        },
-        {
-          "level": 3,
-          "title": "章节2.购买域名及备案",
-          "slug": "章节2-购买域名及备案"
-        },
-        {
-          "level": 3,
-          "title": "章节3.购买服务器",
-          "slug": "章节3-购买服务器"
-        },
-        {
-          "level": 3,
-          "title": "章节4.网站代码上线调试",
-          "slug": "章节4-网站代码上线调试"
-        },
-        {
-          "level": 3,
-          "title": "章节5.SSL证书",
-          "slug": "章节5-ssl证书"
-        },
-        {
-          "level": 2,
-          "title": "其它学期课程",
-          "slug": "其它学期课程"
-        },
-        {
-          "level": 3,
-          "title": "第一学期（学习顺序：01）",
-          "slug": "第一学期-学习顺序-01"
-        },
-        {
-          "level": 3,
-          "title": "第二学期【第1季】（学习顺序：02）",
-          "slug": "第二学期【第1季】-学习顺序-02"
-        },
-        {
-          "level": 3,
-          "title": "第二学期【第2季】（学习顺序：03）",
-          "slug": "第二学期【第2季】-学习顺序-03"
-        },
-        {
-          "level": 3,
-          "title": "第二学期【第3季】（学习顺序：04）",
-          "slug": "第二学期【第3季】-学习顺序-04"
-        },
-        {
-          "level": 3,
-          "title": "第二学期【第4季】（学习顺序：05）",
-          "slug": "第二学期【第4季】-学习顺序-05"
-        }
-      ],
-      "lastUpdated": "2024年11月19日星期二中午11点54分",
-      "lastUpdatedTimestamp": 1731988442000
-    },
-    {
       "title": "章节3.引入UI框架及进行全局配置",
       "frontmatter": {
         "navbar": true,
@@ -16149,122 +16311,6 @@ export const siteData = {
           "level": 3,
           "title": "2、顶部导航栏设置",
           "slug": "_2、顶部导航栏设置"
-        },
-        {
-          "level": 2,
-          "title": "【第三学期第1季课程】其它章节",
-          "slug": "【第三学期第1季课程】其它章节"
-        },
-        {
-          "level": 3,
-          "title": "章节1.课程介绍",
-          "slug": "章节1-课程介绍"
-        },
-        {
-          "level": 3,
-          "title": "章节2.开发前环境搭建",
-          "slug": "章节2-开发前环境搭建"
-        },
-        {
-          "level": 3,
-          "title": "章节3.引入UI框架及进行全局配置",
-          "slug": "章节3-引入ui框架及进行全局配置"
-        },
-        {
-          "level": 3,
-          "title": "章节4.首页开发",
-          "slug": "章节4-首页开发"
-        },
-        {
-          "level": 3,
-          "title": "章节5.其它界面开发",
-          "slug": "章节5-其它界面开发"
-        }
-      ],
-      "lastUpdated": "2024年12月16日星期一下午5点08分",
-      "lastUpdatedTimestamp": 1734340102000
-    },
-    {
-      "title": "章节4.首页开发",
-      "frontmatter": {
-        "navbar": true,
-        "sidebar": "auto",
-        "title": "章节4.首页开发"
-      },
-      "regularPath": "/thirdless/w-a/04%E9%A6%96%E9%A1%B5%E5%BC%80%E5%8F%91.html",
-      "relativePath": "thirdless/w-a/04首页开发.md",
-      "key": "v-11373192",
-      "path": "/thirdless/w-a/04%E9%A6%96%E9%A1%B5%E5%BC%80%E5%8F%91.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "一、swiper广告图",
-          "slug": "一、swiper广告图"
-        },
-        {
-          "level": 3,
-          "title": "① 多种指示器形式样式展示",
-          "slug": "_1-多种指示器形式样式展示"
-        },
-        {
-          "level": 3,
-          "title": "② 带标题的轮播图",
-          "slug": "_2-带标题的轮播图"
-        },
-        {
-          "level": 3,
-          "title": "③ 图片视频混合的轮播图",
-          "slug": "_3-图片视频混合的轮播图"
-        },
-        {
-          "level": 3,
-          "title": "④ 卡片式轮播图",
-          "slug": "_4-卡片式轮播图"
-        },
-        {
-          "level": 2,
-          "title": "二、消息滚动通知",
-          "slug": "二、消息滚动通知"
-        },
-        {
-          "level": 2,
-          "title": "三、引入公共样式（css样式库）",
-          "slug": "三、引入公共样式-css样式库"
-        },
-        {
-          "level": 3,
-          "title": "① 公共样式（css样式库）详细代码及说明",
-          "slug": "_1-公共样式-css样式库-详细代码及说明"
-        },
-        {
-          "level": 3,
-          "title": "② 引入公共样式替换之前写的行内样式",
-          "slug": "_2-引入公共样式替换之前写的行内样式"
-        },
-        {
-          "level": 2,
-          "title": "四、主要栏目展示",
-          "slug": "四、主要栏目展示"
-        },
-        {
-          "level": 2,
-          "title": "五、横向滚动【主营业务】展示",
-          "slug": "五、横向滚动【主营业务】展示"
-        },
-        {
-          "level": 3,
-          "title": "① 横向滚动示例",
-          "slug": "_1-横向滚动示例"
-        },
-        {
-          "level": 3,
-          "title": "② 横向滚动【主营业务】",
-          "slug": "_2-横向滚动【主营业务】"
-        },
-        {
-          "level": 2,
-          "title": "六、资讯中心【新闻中心】开发",
-          "slug": "六、资讯中心【新闻中心】开发"
         },
         {
           "level": 2,
@@ -16392,34 +16438,120 @@ export const siteData = {
       "lastUpdatedTimestamp": 1734686763000
     },
     {
-      "title": "第三学期移动端课程总述",
+      "title": "章节4.首页开发",
       "frontmatter": {
         "navbar": true,
-        "title": "第三学期移动端课程总述"
+        "sidebar": "auto",
+        "title": "章节4.首页开发"
       },
-      "regularPath": "/thirdless/",
-      "relativePath": "thirdless/README.md",
-      "key": "v-0675efda",
-      "path": "/thirdless/",
+      "regularPath": "/thirdless/w-a/04%E9%A6%96%E9%A1%B5%E5%BC%80%E5%8F%91.html",
+      "relativePath": "thirdless/w-a/04首页开发.md",
+      "key": "v-11373192",
+      "path": "/thirdless/w-a/04%E9%A6%96%E9%A1%B5%E5%BC%80%E5%8F%91.html",
       "headers": [
         {
           "level": 2,
-          "title": "第三学期移动端课程",
-          "slug": "第三学期移动端课程"
+          "title": "一、swiper广告图",
+          "slug": "一、swiper广告图"
         },
         {
           "level": 3,
-          "title": "第一季",
-          "slug": "第一季"
+          "title": "① 多种指示器形式样式展示",
+          "slug": "_1-多种指示器形式样式展示"
         },
         {
           "level": 3,
-          "title": "第二季",
-          "slug": "第二季"
+          "title": "② 带标题的轮播图",
+          "slug": "_2-带标题的轮播图"
+        },
+        {
+          "level": 3,
+          "title": "③ 图片视频混合的轮播图",
+          "slug": "_3-图片视频混合的轮播图"
+        },
+        {
+          "level": 3,
+          "title": "④ 卡片式轮播图",
+          "slug": "_4-卡片式轮播图"
+        },
+        {
+          "level": 2,
+          "title": "二、消息滚动通知",
+          "slug": "二、消息滚动通知"
+        },
+        {
+          "level": 2,
+          "title": "三、引入公共样式（css样式库）",
+          "slug": "三、引入公共样式-css样式库"
+        },
+        {
+          "level": 3,
+          "title": "① 公共样式（css样式库）详细代码及说明",
+          "slug": "_1-公共样式-css样式库-详细代码及说明"
+        },
+        {
+          "level": 3,
+          "title": "② 引入公共样式替换之前写的行内样式",
+          "slug": "_2-引入公共样式替换之前写的行内样式"
+        },
+        {
+          "level": 2,
+          "title": "四、主要栏目展示",
+          "slug": "四、主要栏目展示"
+        },
+        {
+          "level": 2,
+          "title": "五、横向滚动【主营业务】展示",
+          "slug": "五、横向滚动【主营业务】展示"
+        },
+        {
+          "level": 3,
+          "title": "① 横向滚动示例",
+          "slug": "_1-横向滚动示例"
+        },
+        {
+          "level": 3,
+          "title": "② 横向滚动【主营业务】",
+          "slug": "_2-横向滚动【主营业务】"
+        },
+        {
+          "level": 2,
+          "title": "六、资讯中心【新闻中心】开发",
+          "slug": "六、资讯中心【新闻中心】开发"
+        },
+        {
+          "level": 2,
+          "title": "【第三学期第1季课程】其它章节",
+          "slug": "【第三学期第1季课程】其它章节"
+        },
+        {
+          "level": 3,
+          "title": "章节1.课程介绍",
+          "slug": "章节1-课程介绍"
+        },
+        {
+          "level": 3,
+          "title": "章节2.开发前环境搭建",
+          "slug": "章节2-开发前环境搭建"
+        },
+        {
+          "level": 3,
+          "title": "章节3.引入UI框架及进行全局配置",
+          "slug": "章节3-引入ui框架及进行全局配置"
+        },
+        {
+          "level": 3,
+          "title": "章节4.首页开发",
+          "slug": "章节4-首页开发"
+        },
+        {
+          "level": 3,
+          "title": "章节5.其它界面开发",
+          "slug": "章节5-其它界面开发"
         }
       ],
-      "lastUpdated": "2025年6月5日星期四晚上8点20分",
-      "lastUpdatedTimestamp": 1749126049000
+      "lastUpdated": "2024年12月16日星期一下午5点08分",
+      "lastUpdatedTimestamp": 1734340102000
     },
     {
       "title": "章节6.数据处理",
@@ -16531,62 +16663,6 @@ export const siteData = {
       ],
       "lastUpdated": "2024年12月30日星期一晚上6点07分",
       "lastUpdatedTimestamp": 1735553229000
-    },
-    {
-      "title": "后端api接口开发代码",
-      "frontmatter": {
-        "navbar": true,
-        "sidebar": "auto",
-        "title": "后端api接口开发代码"
-      },
-      "regularPath": "/thirdless/w-a/07%E5%90%8E%E7%AB%AFapi%E5%BC%80%E5%8F%91%E4%BB%A3%E7%A0%81.html",
-      "relativePath": "thirdless/w-a/07后端api开发代码.md",
-      "key": "v-dbb2eabc",
-      "path": "/thirdless/w-a/07%E5%90%8E%E7%AB%AFapi%E5%BC%80%E5%8F%91%E4%BB%A3%E7%A0%81.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "一、移动端首页api接口",
-          "slug": "一、移动端首页api接口"
-        },
-        {
-          "level": 3,
-          "title": "① 控制器 app/controller/api/template01/wap.js",
-          "slug": "_1-控制器-app-controller-api-template01-wap-js"
-        },
-        {
-          "level": 3,
-          "title": "② 路由 app/router/api/template01/router.js",
-          "slug": "_2-路由-app-router-api-template01-router-js"
-        },
-        {
-          "level": 3,
-          "title": "③ postman测试",
-          "slug": "_3-postman测试"
-        },
-        {
-          "level": 2,
-          "title": "二、资讯中心、工程案例、联系我们api接口",
-          "slug": "二、资讯中心、工程案例、联系我们api接口"
-        },
-        {
-          "level": 3,
-          "title": "① 控制器 app/controller/api/template01/wap.js",
-          "slug": "_1-控制器-app-controller-api-template01-wap-js-2"
-        },
-        {
-          "level": 3,
-          "title": "② 路由 app/router/api/template01/router.js",
-          "slug": "_2-路由-app-router-api-template01-router-js-2"
-        },
-        {
-          "level": 3,
-          "title": "三、信息详情页浏览量更新",
-          "slug": "三、信息详情页浏览量更新"
-        }
-      ],
-      "lastUpdated": "2025年1月7日星期二晚上6点26分",
-      "lastUpdatedTimestamp": 1736245561000
     },
     {
       "title": "章节7.后端api开发（选修课）",
@@ -16730,164 +16806,60 @@ export const siteData = {
       "lastUpdatedTimestamp": 1736245561000
     },
     {
-      "title": "章节5.企业网站前端部分",
+      "title": "后端api接口开发代码",
       "frontmatter": {
         "navbar": true,
         "sidebar": "auto",
-        "title": "章节5.企业网站前端部分"
+        "title": "后端api接口开发代码"
       },
-      "regularPath": "/secondless/w-c/%E4%BC%81%E4%B8%9A%E7%BD%91%E7%AB%99%E5%89%8D%E7%AB%AF%E9%83%A8%E5%88%86.html",
-      "relativePath": "secondless/w-c/企业网站前端部分.md",
-      "key": "v-6368a82a",
-      "path": "/secondless/w-c/%E4%BC%81%E4%B8%9A%E7%BD%91%E7%AB%99%E5%89%8D%E7%AB%AF%E9%83%A8%E5%88%86.html",
+      "regularPath": "/thirdless/w-a/07%E5%90%8E%E7%AB%AFapi%E5%BC%80%E5%8F%91%E4%BB%A3%E7%A0%81.html",
+      "relativePath": "thirdless/w-a/07后端api开发代码.md",
+      "key": "v-dbb2eabc",
+      "path": "/thirdless/w-a/07%E5%90%8E%E7%AB%AFapi%E5%BC%80%E5%8F%91%E4%BB%A3%E7%A0%81.html",
       "headers": [
         {
           "level": 2,
-          "title": "一、引入模版",
-          "slug": "一、引入模版"
+          "title": "一、移动端首页api接口",
+          "slug": "一、移动端首页api接口"
         },
         {
           "level": 3,
-          "title": "1.引入模版静态资源放在public文件夹里面",
-          "slug": "_1-引入模版静态资源放在public文件夹里面"
+          "title": "① 控制器 app/controller/api/template01/wap.js",
+          "slug": "_1-控制器-app-controller-api-template01-wap-js"
         },
         {
           "level": 3,
-          "title": "2.项目视图view文件夹里面创建一个主模版看效果",
-          "slug": "_2-项目视图view文件夹里面创建一个主模版看效果"
+          "title": "② 路由 app/router/api/template01/router.js",
+          "slug": "_2-路由-app-router-api-template01-router-js"
         },
         {
           "level": 3,
-          "title": "3.写一个方法，来测试看一下这个主模版",
-          "slug": "_3-写一个方法-来测试看一下这个主模版"
-        },
-        {
-          "level": 3,
-          "title": "4.定义一下路由",
-          "slug": "_4-定义一下路由"
-        },
-        {
-          "level": 3,
-          "title": "5.主模版引入代码",
-          "slug": "_5-主模版引入代码"
+          "title": "③ postman测试",
+          "slug": "_3-postman测试"
         },
         {
           "level": 2,
-          "title": "二、企业网站首页",
-          "slug": "二、企业网站首页"
-        },
-        {
-          "level": 2,
-          "title": "三、企业网站其它页面(非首页)",
-          "slug": "三、企业网站其它页面-非首页"
-        },
-        {
-          "level": 2,
-          "title": "【第二学期第3季课程】其它章节",
-          "slug": "【第二学期第3季课程】其它章节"
+          "title": "二、资讯中心、工程案例、联系我们api接口",
+          "slug": "二、资讯中心、工程案例、联系我们api接口"
         },
         {
           "level": 3,
-          "title": "章节1.课程介绍",
-          "slug": "章节1-课程介绍"
+          "title": "① 控制器 app/controller/api/template01/wap.js",
+          "slug": "_1-控制器-app-controller-api-template01-wap-js-2"
         },
         {
           "level": 3,
-          "title": "章节2.Egg.js基础",
-          "slug": "章节2-egg-js基础"
+          "title": "② 路由 app/router/api/template01/router.js",
+          "slug": "_2-路由-app-router-api-template01-router-js-2"
         },
         {
           "level": 3,
-          "title": "章节3.响应式网页布局",
-          "slug": "章节3-响应式网页布局"
-        },
-        {
-          "level": 3,
-          "title": "章节4.Egg.js和Mysql数据库进阶进一步开发网站后台",
-          "slug": "章节4-egg-js和mysql数据库进阶进一步开发网站后台"
-        },
-        {
-          "level": 3,
-          "title": "章节5.企业网站前端部分",
-          "slug": "章节5-企业网站前端部分"
-        },
-        {
-          "level": 2,
-          "title": "其它学期课程",
-          "slug": "其它学期课程"
-        },
-        {
-          "level": 3,
-          "title": "第一学期（学习顺序：01）",
-          "slug": "第一学期-学习顺序-01"
-        },
-        {
-          "level": 3,
-          "title": "第二学期【第1季】（学习顺序：02）",
-          "slug": "第二学期【第1季】-学习顺序-02"
-        },
-        {
-          "level": 3,
-          "title": "第二学期【第2季】（学习顺序：03）",
-          "slug": "第二学期【第2季】-学习顺序-03"
-        },
-        {
-          "level": 3,
-          "title": "第二学期【第3季】（学习顺序：04）",
-          "slug": "第二学期【第3季】-学习顺序-04"
+          "title": "三、信息详情页浏览量更新",
+          "slug": "三、信息详情页浏览量更新"
         }
       ],
-      "lastUpdated": "2024年5月24日星期五上午11点01分",
-      "lastUpdatedTimestamp": 1716519676000
-    },
-    {
-      "title": "第三学期第二季（课程学习顺序：07）",
-      "frontmatter": {
-        "title": "第三学期第二季（课程学习顺序：07）"
-      },
-      "regularPath": "/thirdless/w-b.html",
-      "relativePath": "thirdless/w-b.md",
-      "key": "v-7b5710ff",
-      "path": "/thirdless/w-b.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "uniapp实战系列（一）即时通讯功能",
-          "slug": "uniapp实战系列-一-即时通讯功能"
-        },
-        {
-          "level": 2,
-          "title": "2.查看课程文档",
-          "slug": "_2-查看课程文档"
-        },
-        {
-          "level": 3,
-          "title": "章节1.课程介绍",
-          "slug": "章节1-课程介绍"
-        },
-        {
-          "level": 3,
-          "title": "章节2.开发前环境搭建及准备",
-          "slug": "章节2-开发前环境搭建及准备"
-        },
-        {
-          "level": 3,
-          "title": "",
-          "slug": "章节3-项目自定义配置"
-        },
-        {
-          "level": 3,
-          "title": "",
-          "slug": "章节4-消息页开发"
-        },
-        {
-          "level": 3,
-          "title": "",
-          "slug": "章节5-我的和好友列表页开发"
-        }
-      ],
-      "lastUpdated": "2025年6月11日星期三下午3点16分",
-      "lastUpdatedTimestamp": 1749626197000
+      "lastUpdated": "2025年1月7日星期二晚上6点26分",
+      "lastUpdatedTimestamp": 1736245561000
     },
     {
       "title": "章节8.数据交互和界面展示",
@@ -17167,6 +17139,55 @@ export const siteData = {
       "lastUpdatedTimestamp": 1749626197000
     },
     {
+      "title": "第三学期第二季（课程学习顺序：07）",
+      "frontmatter": {
+        "title": "第三学期第二季（课程学习顺序：07）"
+      },
+      "regularPath": "/thirdless/w-b.html",
+      "relativePath": "thirdless/w-b.md",
+      "key": "v-7b5710ff",
+      "path": "/thirdless/w-b.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "uniapp实战系列（一）即时通讯功能",
+          "slug": "uniapp实战系列-一-即时通讯功能"
+        },
+        {
+          "level": 2,
+          "title": "2.查看课程文档",
+          "slug": "_2-查看课程文档"
+        },
+        {
+          "level": 3,
+          "title": "章节1.课程介绍",
+          "slug": "章节1-课程介绍"
+        },
+        {
+          "level": 3,
+          "title": "章节2.开发前环境搭建及准备",
+          "slug": "章节2-开发前环境搭建及准备"
+        },
+        {
+          "level": 3,
+          "title": "",
+          "slug": "章节3-项目自定义配置"
+        },
+        {
+          "level": 3,
+          "title": "",
+          "slug": "章节4-消息页开发"
+        },
+        {
+          "level": 3,
+          "title": "",
+          "slug": "章节5-我的和好友列表页开发"
+        }
+      ],
+      "lastUpdated": "2025年6月15日星期日下午1点20分",
+      "lastUpdatedTimestamp": 1749964855000
+    },
+    {
       "title": "第三学期第三季（课程学习顺序：08）",
       "frontmatter": {
         "title": "第三学期第三季（课程学习顺序：08）"
@@ -17175,6 +17196,18 @@ export const siteData = {
       "relativePath": "thirdless/w-c.md",
       "key": "v-7184fa42",
       "path": "/thirdless/w-c.html",
+      "lastUpdated": "2024年11月21日星期四下午5点41分",
+      "lastUpdatedTimestamp": 1732182099000
+    },
+    {
+      "title": "第三学期第四季（课程学习顺序：09）",
+      "frontmatter": {
+        "title": "第三学期第四季（课程学习顺序：09）"
+      },
+      "regularPath": "/thirdless/w-d.html",
+      "relativePath": "thirdless/w-d.md",
+      "key": "v-1323f4bf",
+      "path": "/thirdless/w-d.html",
       "lastUpdated": "2024年11月21日星期四下午5点41分",
       "lastUpdatedTimestamp": 1732182099000
     },
@@ -17202,22 +17235,17 @@ export const siteData = {
         },
         {
           "level": 3,
-          "title": "2. 列表开发",
-          "slug": "_2-列表开发"
+          "title": "2. 好友列表开发",
+          "slug": "_2-好友列表开发"
+        },
+        {
+          "level": 2,
+          "title": "二、我的页面开发",
+          "slug": "二、我的页面开发"
         }
-      ]
-    },
-    {
-      "title": "第三学期第四季（课程学习顺序：09）",
-      "frontmatter": {
-        "title": "第三学期第四季（课程学习顺序：09）"
-      },
-      "regularPath": "/thirdless/w-d.html",
-      "relativePath": "thirdless/w-d.md",
-      "key": "v-1323f4bf",
-      "path": "/thirdless/w-d.html",
-      "lastUpdated": "2024年11月21日星期四下午5点41分",
-      "lastUpdatedTimestamp": 1732182099000
+      ],
+      "lastUpdated": "2025年6月15日星期日下午4点31分",
+      "lastUpdatedTimestamp": 1749976318000
     },
     {
       "title": "第三学期第五季（课程学习顺序：10）",
@@ -17256,50 +17284,6 @@ export const siteData = {
       ],
       "lastUpdated": "2023年12月10日星期日下午5点10分",
       "lastUpdatedTimestamp": 1702199454000
-    },
-    {
-      "title": "我是web总页",
-      "frontmatter": {
-        "navbar": true,
-        "title": "我是web总页"
-      },
-      "regularPath": "/web/",
-      "relativePath": "web/README.md",
-      "key": "v-6de531b2",
-      "path": "/web/",
-      "lastUpdated": "2023年3月1日星期三下午12点33分",
-      "lastUpdatedTimestamp": 1677645233000
-    },
-    {
-      "title": "Vue3+ElementPlus系统",
-      "frontmatter": {
-        "navbar": true,
-        "sidebar": "auto",
-        "title": "Vue3+ElementPlus系统"
-      },
-      "regularPath": "/web/Vue3+ElementPlus/",
-      "relativePath": "web/Vue3+ElementPlus/README.md",
-      "key": "v-5be7987f",
-      "path": "/web/Vue3+ElementPlus/",
-      "headers": [
-        {
-          "level": 2,
-          "title": "一. Vue3+ElementPlus开源系统",
-          "slug": "一-vue3-elementplus开源系统"
-        },
-        {
-          "level": 3,
-          "title": "1、 SCUI Admin 高性能中后台前端解决方案",
-          "slug": "_1、-scui-admin-高性能中后台前端解决方案"
-        },
-        {
-          "level": 3,
-          "title": "2、 极简的后台基础模板",
-          "slug": "_2、-极简的后台基础模板"
-        }
-      ],
-      "lastUpdated": "2024年4月28日星期日晚上7点30分",
-      "lastUpdatedTimestamp": 1714303836000
     },
     {
       "title": "章节4.消息页开发",
@@ -17493,6 +17477,19 @@ export const siteData = {
       "lastUpdatedTimestamp": 1749955572000
     },
     {
+      "title": "我是web总页",
+      "frontmatter": {
+        "navbar": true,
+        "title": "我是web总页"
+      },
+      "regularPath": "/web/",
+      "relativePath": "web/README.md",
+      "key": "v-6de531b2",
+      "path": "/web/",
+      "lastUpdated": "2023年3月1日星期三下午12点33分",
+      "lastUpdatedTimestamp": 1677645233000
+    },
+    {
       "title": "Vanta.js，让你的网页焕发3D魔力的JavaScript库",
       "frontmatter": {
         "navbar": true,
@@ -17524,30 +17521,35 @@ export const siteData = {
       "lastUpdatedTimestamp": 1735977787000
     },
     {
-      "title": "Bootstrap",
+      "title": "Vue3+ElementPlus系统",
       "frontmatter": {
         "navbar": true,
         "sidebar": "auto",
-        "title": "Bootstrap"
+        "title": "Vue3+ElementPlus系统"
       },
-      "regularPath": "/web/bootstrap/",
-      "relativePath": "web/bootstrap/README.md",
-      "key": "v-13c865a1",
-      "path": "/web/bootstrap/",
+      "regularPath": "/web/Vue3+ElementPlus/",
+      "relativePath": "web/Vue3+ElementPlus/README.md",
+      "key": "v-5be7987f",
+      "path": "/web/Vue3+ElementPlus/",
       "headers": [
         {
           "level": 2,
-          "title": "1. Bootstrap模板素材网站推荐",
-          "slug": "_1-bootstrap模板素材网站推荐"
+          "title": "一. Vue3+ElementPlus开源系统",
+          "slug": "一-vue3-elementplus开源系统"
         },
         {
           "level": 3,
-          "title": "① bootstrap模板素材",
-          "slug": "_1-bootstrap模板素材"
+          "title": "1、 SCUI Admin 高性能中后台前端解决方案",
+          "slug": "_1、-scui-admin-高性能中后台前端解决方案"
+        },
+        {
+          "level": 3,
+          "title": "2、 极简的后台基础模板",
+          "slug": "_2、-极简的后台基础模板"
         }
       ],
-      "lastUpdated": "2023年11月29日星期三晚上6点51分",
-      "lastUpdatedTimestamp": 1701255117000
+      "lastUpdated": "2024年4月28日星期日晚上7点30分",
+      "lastUpdatedTimestamp": 1714303836000
     },
     {
       "title": "css相关的网站及页面，直接可用",
@@ -17584,6 +17586,73 @@ export const siteData = {
       ],
       "lastUpdated": "2024年12月12日星期四下午12点40分",
       "lastUpdatedTimestamp": 1733978459000
+    },
+    {
+      "title": "Bootstrap",
+      "frontmatter": {
+        "navbar": true,
+        "sidebar": "auto",
+        "title": "Bootstrap"
+      },
+      "regularPath": "/web/bootstrap/",
+      "relativePath": "web/bootstrap/README.md",
+      "key": "v-13c865a1",
+      "path": "/web/bootstrap/",
+      "headers": [
+        {
+          "level": 2,
+          "title": "1. Bootstrap模板素材网站推荐",
+          "slug": "_1-bootstrap模板素材网站推荐"
+        },
+        {
+          "level": 3,
+          "title": "① bootstrap模板素材",
+          "slug": "_1-bootstrap模板素材"
+        }
+      ],
+      "lastUpdated": "2023年11月29日星期三晚上6点51分",
+      "lastUpdatedTimestamp": 1701255117000
+    },
+    {
+      "title": "免费部署SSL证书",
+      "frontmatter": {
+        "navbar": true,
+        "sidebar": "auto",
+        "title": "免费部署SSL证书"
+      },
+      "regularPath": "/web/answer/%E5%85%8D%E8%B4%B9%E9%83%A8%E7%BD%B2SSL%E8%AF%81%E4%B9%A6.html",
+      "relativePath": "web/answer/免费部署SSL证书.md",
+      "key": "v-a63597c0",
+      "path": "/web/answer/%E5%85%8D%E8%B4%B9%E9%83%A8%E7%BD%B2SSL%E8%AF%81%E4%B9%A6.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "一、自动化部署流程",
+          "slug": "一、自动化部署流程"
+        },
+        {
+          "level": 3,
+          "title": "1. 系统及准备工作",
+          "slug": "_1-系统及准备工作"
+        },
+        {
+          "level": 3,
+          "title": "2. 关于宝塔面板安装及配置网站或者系统",
+          "slug": "_2-关于宝塔面板安装及配置网站或者系统"
+        },
+        {
+          "level": 3,
+          "title": "3. 部署SSL证书",
+          "slug": "_3-部署ssl证书"
+        },
+        {
+          "level": 2,
+          "title": "二、自动化部署流程视频查看",
+          "slug": "二、自动化部署流程视频查看"
+        }
+      ],
+      "lastUpdated": "2025年5月14日星期三晚上9点21分",
+      "lastUpdatedTimestamp": 1747228863000
     },
     {
       "title": "课程常见问题",
@@ -17662,47 +17731,6 @@ export const siteData = {
       "lastUpdatedTimestamp": 1747307804000
     },
     {
-      "title": "免费部署SSL证书",
-      "frontmatter": {
-        "navbar": true,
-        "sidebar": "auto",
-        "title": "免费部署SSL证书"
-      },
-      "regularPath": "/web/answer/%E5%85%8D%E8%B4%B9%E9%83%A8%E7%BD%B2SSL%E8%AF%81%E4%B9%A6.html",
-      "relativePath": "web/answer/免费部署SSL证书.md",
-      "key": "v-a63597c0",
-      "path": "/web/answer/%E5%85%8D%E8%B4%B9%E9%83%A8%E7%BD%B2SSL%E8%AF%81%E4%B9%A6.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "一、自动化部署流程",
-          "slug": "一、自动化部署流程"
-        },
-        {
-          "level": 3,
-          "title": "1. 系统及准备工作",
-          "slug": "_1-系统及准备工作"
-        },
-        {
-          "level": 3,
-          "title": "2. 关于宝塔面板安装及配置网站或者系统",
-          "slug": "_2-关于宝塔面板安装及配置网站或者系统"
-        },
-        {
-          "level": 3,
-          "title": "3. 部署SSL证书",
-          "slug": "_3-部署ssl证书"
-        },
-        {
-          "level": 2,
-          "title": "二、自动化部署流程视频查看",
-          "slug": "二、自动化部署流程视频查看"
-        }
-      ],
-      "lastUpdated": "2025年5月14日星期三晚上9点21分",
-      "lastUpdatedTimestamp": 1747228863000
-    },
-    {
       "title": "echarts图表",
       "frontmatter": {
         "navbar": true,
@@ -17727,6 +17755,58 @@ export const siteData = {
       ],
       "lastUpdated": "2023年11月26日星期日上午9点39分",
       "lastUpdatedTimestamp": 1700962776000
+    },
+    {
+      "title": "uni-app的UI框架",
+      "frontmatter": {
+        "navbar": true,
+        "sidebar": "auto",
+        "title": "uni-app的UI框架"
+      },
+      "regularPath": "/web/methods/uni-app%E4%B8%93%E6%A0%8F.html",
+      "relativePath": "web/methods/uni-app专栏.md",
+      "key": "v-10eabc91",
+      "path": "/web/methods/uni-app%E4%B8%93%E6%A0%8F.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "一、Tuniao UI",
+          "slug": "一、tuniao-ui"
+        }
+      ],
+      "lastUpdated": "2025年4月11日星期五下午3点35分",
+      "lastUpdatedTimestamp": 1744356939000
+    },
+    {
+      "title": "封装的css样式库",
+      "frontmatter": {
+        "navbar": true,
+        "sidebar": "auto",
+        "title": "封装的css样式库"
+      },
+      "regularPath": "/web/css/%E5%B0%81%E8%A3%85%E7%9A%84css%E6%A0%B7%E5%BC%8F%E5%BA%93.html",
+      "relativePath": "web/css/封装的css样式库.md",
+      "key": "v-5ff7b2bb",
+      "path": "/web/css/%E5%B0%81%E8%A3%85%E7%9A%84css%E6%A0%B7%E5%BC%8F%E5%BA%93.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "一、第一学期封装的css样式库：common.1.0.css",
+          "slug": "一、第一学期封装的css样式库-common-1-0-css"
+        },
+        {
+          "level": 2,
+          "title": "二、第三学期第1季公共css样式库[css原子化]：common.v1.css",
+          "slug": "二、第三学期第1季公共css样式库-css原子化-common-v1-css"
+        },
+        {
+          "level": 2,
+          "title": "三、第三学期第2季公共css样式库：common.nvue.vue.css",
+          "slug": "三、第三学期第2季公共css样式库-common-nvue-vue-css"
+        }
+      ],
+      "lastUpdated": "2025年6月5日星期四晚上8点20分",
+      "lastUpdatedTimestamp": 1749126049000
     },
     {
       "title": "Github",
@@ -17795,27 +17875,6 @@ export const siteData = {
       "lastUpdatedTimestamp": 1746688609000
     },
     {
-      "title": "uni-app的UI框架",
-      "frontmatter": {
-        "navbar": true,
-        "sidebar": "auto",
-        "title": "uni-app的UI框架"
-      },
-      "regularPath": "/web/methods/uni-app%E4%B8%93%E6%A0%8F.html",
-      "relativePath": "web/methods/uni-app专栏.md",
-      "key": "v-10eabc91",
-      "path": "/web/methods/uni-app%E4%B8%93%E6%A0%8F.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "一、Tuniao UI",
-          "slug": "一、tuniao-ui"
-        }
-      ],
-      "lastUpdated": "2025年4月11日星期五下午3点35分",
-      "lastUpdatedTimestamp": 1744356939000
-    },
-    {
       "title": "地图相关实用方法",
       "frontmatter": {
         "navbar": true,
@@ -17849,6 +17908,32 @@ export const siteData = {
       ],
       "lastUpdated": "2023年9月28日星期四中午12点22分",
       "lastUpdatedTimestamp": 1695874932000
+    },
+    {
+      "title": "定位相关实用方法",
+      "frontmatter": {
+        "navbar": true,
+        "sidebar": "auto",
+        "title": "定位相关实用方法"
+      },
+      "regularPath": "/web/methods/%E5%AE%9A%E4%BD%8D%E7%9B%B8%E5%85%B3.html",
+      "relativePath": "web/methods/定位相关.md",
+      "key": "v-1609c1d6",
+      "path": "/web/methods/%E5%AE%9A%E4%BD%8D%E7%9B%B8%E5%85%B3.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "1. 两个字符串相同的最大子串",
+          "slug": "_1-两个字符串相同的最大子串"
+        },
+        {
+          "level": 2,
+          "title": "2. 最近距离排序",
+          "slug": "_2-最近距离排序"
+        }
+      ],
+      "lastUpdated": "2025年2月15日星期六晚上7点14分",
+      "lastUpdatedTimestamp": 1739618084000
     },
     {
       "title": "树形结构数据转换",
@@ -18038,63 +18123,6 @@ export const siteData = {
       "lastUpdatedTimestamp": 1745498047000
     },
     {
-      "title": "封装的css样式库",
-      "frontmatter": {
-        "navbar": true,
-        "sidebar": "auto",
-        "title": "封装的css样式库"
-      },
-      "regularPath": "/web/css/%E5%B0%81%E8%A3%85%E7%9A%84css%E6%A0%B7%E5%BC%8F%E5%BA%93.html",
-      "relativePath": "web/css/封装的css样式库.md",
-      "key": "v-5ff7b2bb",
-      "path": "/web/css/%E5%B0%81%E8%A3%85%E7%9A%84css%E6%A0%B7%E5%BC%8F%E5%BA%93.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "一、第一学期封装的css样式库：common.1.0.css",
-          "slug": "一、第一学期封装的css样式库-common-1-0-css"
-        },
-        {
-          "level": 2,
-          "title": "二、第三学期第1季公共css样式库[css原子化]：common.v1.css",
-          "slug": "二、第三学期第1季公共css样式库-css原子化-common-v1-css"
-        },
-        {
-          "level": 2,
-          "title": "三、第三学期第2季公共css样式库：common.nvue.vue.css",
-          "slug": "三、第三学期第2季公共css样式库-common-nvue-vue-css"
-        }
-      ],
-      "lastUpdated": "2025年6月5日星期四晚上8点20分",
-      "lastUpdatedTimestamp": 1749126049000
-    },
-    {
-      "title": "定位相关实用方法",
-      "frontmatter": {
-        "navbar": true,
-        "sidebar": "auto",
-        "title": "定位相关实用方法"
-      },
-      "regularPath": "/web/methods/%E5%AE%9A%E4%BD%8D%E7%9B%B8%E5%85%B3.html",
-      "relativePath": "web/methods/定位相关.md",
-      "key": "v-1609c1d6",
-      "path": "/web/methods/%E5%AE%9A%E4%BD%8D%E7%9B%B8%E5%85%B3.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "1. 两个字符串相同的最大子串",
-          "slug": "_1-两个字符串相同的最大子串"
-        },
-        {
-          "level": 2,
-          "title": "2. 最近距离排序",
-          "slug": "_2-最近距离排序"
-        }
-      ],
-      "lastUpdated": "2025年2月15日星期六晚上7点14分",
-      "lastUpdatedTimestamp": 1739618084000
-    },
-    {
       "title": "Sequelize数据类型",
       "frontmatter": {
         "navbar": true,
@@ -18144,173 +18172,6 @@ export const siteData = {
       ],
       "lastUpdated": "2025年4月25日星期五晚上9点06分",
       "lastUpdatedTimestamp": 1745586378000
-    },
-    {
-      "title": "图片管理板块表说明",
-      "frontmatter": {
-        "navbar": true,
-        "sidebar": "auto",
-        "title": "图片管理板块表说明"
-      },
-      "regularPath": "/web/mysql/image_class.html",
-      "relativePath": "web/mysql/image_class.md",
-      "key": "v-5fc3df52",
-      "path": "/web/mysql/image_class.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "一、image_class[图片分类表] 字段设计",
-          "slug": "一、image-class-图片分类表-字段设计"
-        },
-        {
-          "level": 2,
-          "title": "二、创建[图片分类表] image_class",
-          "slug": "二、创建-图片分类表-image-class"
-        },
-        {
-          "level": 3,
-          "title": "1、技术栈php(thinkphp)同学",
-          "slug": "_1、技术栈php-thinkphp-同学"
-        },
-        {
-          "level": 3,
-          "title": "[图片分类表] image_class 相关【文档】和【接口】",
-          "slug": "图片分类表-image-class-相关【文档】和【接口】"
-        },
-        {
-          "level": 3,
-          "title": "2、技术栈node(egg.js)同学",
-          "slug": "_2、技术栈node-egg-js-同学"
-        },
-        {
-          "level": 3,
-          "title": "[图片分类表] image_class 相关【文档】和【接口】",
-          "slug": "图片分类表-image-class-相关【文档】和【接口】-2"
-        },
-        {
-          "level": 2,
-          "title": "三、image[图片表] 字段设计",
-          "slug": "三、image-图片表-字段设计"
-        },
-        {
-          "level": 2,
-          "title": "四、创建[图片表] image",
-          "slug": "四、创建-图片表-image"
-        },
-        {
-          "level": 3,
-          "title": "1、技术栈php(thinkphp)同学",
-          "slug": "_1、技术栈php-thinkphp-同学-2"
-        },
-        {
-          "level": 3,
-          "title": "[图片表] image 相关【文档】和【接口】",
-          "slug": "图片表-image-相关【文档】和【接口】"
-        },
-        {
-          "level": 3,
-          "title": "2、技术栈node(egg.js)同学",
-          "slug": "_2、技术栈node-egg-js-同学-2"
-        },
-        {
-          "level": 3,
-          "title": "[图片表] image 相关【文档】和【接口】",
-          "slug": "图片表-image-相关【文档】和【接口】-2"
-        }
-      ],
-      "lastUpdated": "2025年4月18日星期五下午5点29分",
-      "lastUpdatedTimestamp": 1744968569000
-    },
-    {
-      "title": "goods_class表接口",
-      "frontmatter": {
-        "navbar": true,
-        "sidebar": "auto",
-        "title": "goods_class表接口"
-      },
-      "regularPath": "/web/mysql/goods_class%E8%A1%A8%E6%8E%A5%E5%8F%A3.html",
-      "relativePath": "web/mysql/goods_class表接口.md",
-      "key": "v-e23db8ea",
-      "path": "/web/mysql/goods_class%E8%A1%A8%E6%8E%A5%E5%8F%A3.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "一、商品分类列表",
-          "slug": "一、商品分类列表"
-        },
-        {
-          "level": 3,
-          "title": "① thinkphp框架接口",
-          "slug": "_1-thinkphp框架接口"
-        },
-        {
-          "level": 3,
-          "title": "② eggjs框架接口",
-          "slug": "_2-eggjs框架接口"
-        },
-        {
-          "level": 2,
-          "title": "二、创建商品分类",
-          "slug": "二、创建商品分类"
-        },
-        {
-          "level": 3,
-          "title": "① thinkphp框架接口",
-          "slug": "_1-thinkphp框架接口-2"
-        },
-        {
-          "level": 3,
-          "title": "② eggjs框架接口",
-          "slug": "_2-eggjs框架接口-2"
-        },
-        {
-          "level": 2,
-          "title": "三、修改商品分类",
-          "slug": "三、修改商品分类"
-        },
-        {
-          "level": 3,
-          "title": "① thinkphp框架接口",
-          "slug": "_1-thinkphp框架接口-3"
-        },
-        {
-          "level": 3,
-          "title": "② eggjs框架接口",
-          "slug": "_2-eggjs框架接口-3"
-        },
-        {
-          "level": 2,
-          "title": "四、修改商品分类可用状态",
-          "slug": "四、修改商品分类可用状态"
-        },
-        {
-          "level": 3,
-          "title": "① thinkphp框架接口",
-          "slug": "_1-thinkphp框架接口-4"
-        },
-        {
-          "level": 3,
-          "title": "② eggjs框架接口",
-          "slug": "_2-eggjs框架接口-4"
-        },
-        {
-          "level": 2,
-          "title": "五、删除商品分类",
-          "slug": "五、删除商品分类"
-        },
-        {
-          "level": 3,
-          "title": "① thinkphp框架接口",
-          "slug": "_1-thinkphp框架接口-5"
-        },
-        {
-          "level": 3,
-          "title": "② eggjs框架接口",
-          "slug": "_2-eggjs框架接口-5"
-        }
-      ],
-      "lastUpdated": "2025年4月22日星期二晚上7点58分",
-      "lastUpdatedTimestamp": 1745323128000
     },
     {
       "title": "商品管理板块表说明",
@@ -18452,6 +18313,173 @@ export const siteData = {
       ],
       "lastUpdated": "2025年5月8日星期四下午3点16分",
       "lastUpdatedTimestamp": 1746688609000
+    },
+    {
+      "title": "goods_class表接口",
+      "frontmatter": {
+        "navbar": true,
+        "sidebar": "auto",
+        "title": "goods_class表接口"
+      },
+      "regularPath": "/web/mysql/goods_class%E8%A1%A8%E6%8E%A5%E5%8F%A3.html",
+      "relativePath": "web/mysql/goods_class表接口.md",
+      "key": "v-e23db8ea",
+      "path": "/web/mysql/goods_class%E8%A1%A8%E6%8E%A5%E5%8F%A3.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "一、商品分类列表",
+          "slug": "一、商品分类列表"
+        },
+        {
+          "level": 3,
+          "title": "① thinkphp框架接口",
+          "slug": "_1-thinkphp框架接口"
+        },
+        {
+          "level": 3,
+          "title": "② eggjs框架接口",
+          "slug": "_2-eggjs框架接口"
+        },
+        {
+          "level": 2,
+          "title": "二、创建商品分类",
+          "slug": "二、创建商品分类"
+        },
+        {
+          "level": 3,
+          "title": "① thinkphp框架接口",
+          "slug": "_1-thinkphp框架接口-2"
+        },
+        {
+          "level": 3,
+          "title": "② eggjs框架接口",
+          "slug": "_2-eggjs框架接口-2"
+        },
+        {
+          "level": 2,
+          "title": "三、修改商品分类",
+          "slug": "三、修改商品分类"
+        },
+        {
+          "level": 3,
+          "title": "① thinkphp框架接口",
+          "slug": "_1-thinkphp框架接口-3"
+        },
+        {
+          "level": 3,
+          "title": "② eggjs框架接口",
+          "slug": "_2-eggjs框架接口-3"
+        },
+        {
+          "level": 2,
+          "title": "四、修改商品分类可用状态",
+          "slug": "四、修改商品分类可用状态"
+        },
+        {
+          "level": 3,
+          "title": "① thinkphp框架接口",
+          "slug": "_1-thinkphp框架接口-4"
+        },
+        {
+          "level": 3,
+          "title": "② eggjs框架接口",
+          "slug": "_2-eggjs框架接口-4"
+        },
+        {
+          "level": 2,
+          "title": "五、删除商品分类",
+          "slug": "五、删除商品分类"
+        },
+        {
+          "level": 3,
+          "title": "① thinkphp框架接口",
+          "slug": "_1-thinkphp框架接口-5"
+        },
+        {
+          "level": 3,
+          "title": "② eggjs框架接口",
+          "slug": "_2-eggjs框架接口-5"
+        }
+      ],
+      "lastUpdated": "2025年4月22日星期二晚上7点58分",
+      "lastUpdatedTimestamp": 1745323128000
+    },
+    {
+      "title": "图片管理板块表说明",
+      "frontmatter": {
+        "navbar": true,
+        "sidebar": "auto",
+        "title": "图片管理板块表说明"
+      },
+      "regularPath": "/web/mysql/image_class.html",
+      "relativePath": "web/mysql/image_class.md",
+      "key": "v-5fc3df52",
+      "path": "/web/mysql/image_class.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "一、image_class[图片分类表] 字段设计",
+          "slug": "一、image-class-图片分类表-字段设计"
+        },
+        {
+          "level": 2,
+          "title": "二、创建[图片分类表] image_class",
+          "slug": "二、创建-图片分类表-image-class"
+        },
+        {
+          "level": 3,
+          "title": "1、技术栈php(thinkphp)同学",
+          "slug": "_1、技术栈php-thinkphp-同学"
+        },
+        {
+          "level": 3,
+          "title": "[图片分类表] image_class 相关【文档】和【接口】",
+          "slug": "图片分类表-image-class-相关【文档】和【接口】"
+        },
+        {
+          "level": 3,
+          "title": "2、技术栈node(egg.js)同学",
+          "slug": "_2、技术栈node-egg-js-同学"
+        },
+        {
+          "level": 3,
+          "title": "[图片分类表] image_class 相关【文档】和【接口】",
+          "slug": "图片分类表-image-class-相关【文档】和【接口】-2"
+        },
+        {
+          "level": 2,
+          "title": "三、image[图片表] 字段设计",
+          "slug": "三、image-图片表-字段设计"
+        },
+        {
+          "level": 2,
+          "title": "四、创建[图片表] image",
+          "slug": "四、创建-图片表-image"
+        },
+        {
+          "level": 3,
+          "title": "1、技术栈php(thinkphp)同学",
+          "slug": "_1、技术栈php-thinkphp-同学-2"
+        },
+        {
+          "level": 3,
+          "title": "[图片表] image 相关【文档】和【接口】",
+          "slug": "图片表-image-相关【文档】和【接口】"
+        },
+        {
+          "level": 3,
+          "title": "2、技术栈node(egg.js)同学",
+          "slug": "_2、技术栈node-egg-js-同学-2"
+        },
+        {
+          "level": 3,
+          "title": "[图片表] image 相关【文档】和【接口】",
+          "slug": "图片表-image-相关【文档】和【接口】-2"
+        }
+      ],
+      "lastUpdated": "2025年4月18日星期五下午5点29分",
+      "lastUpdatedTimestamp": 1744968569000
     },
     {
       "title": "image_class表接口",
@@ -18667,97 +18695,6 @@ export const siteData = {
       "lastUpdatedTimestamp": 1747285045000
     },
     {
-      "title": "role表接口",
-      "frontmatter": {
-        "navbar": true,
-        "sidebar": "auto",
-        "title": "role表接口"
-      },
-      "regularPath": "/web/mysql/role%E8%A1%A8%E6%8E%A5%E5%8F%A3.html",
-      "relativePath": "web/mysql/role表接口.md",
-      "key": "v-24bfe1dd",
-      "path": "/web/mysql/role%E8%A1%A8%E6%8E%A5%E5%8F%A3.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "一、创建角色",
-          "slug": "一、创建角色"
-        },
-        {
-          "level": 3,
-          "title": "① thinkphp框架接口",
-          "slug": "_1-thinkphp框架接口"
-        },
-        {
-          "level": 3,
-          "title": "② eggjs框架接口",
-          "slug": "_2-eggjs框架接口"
-        },
-        {
-          "level": 2,
-          "title": "二、修改角色",
-          "slug": "二、修改角色"
-        },
-        {
-          "level": 3,
-          "title": "① thinkphp框架接口",
-          "slug": "_1-thinkphp框架接口-2"
-        },
-        {
-          "level": 3,
-          "title": "② eggjs框架接口",
-          "slug": "_2-eggjs框架接口-2"
-        },
-        {
-          "level": 2,
-          "title": "三、修改角色状态",
-          "slug": "三、修改角色状态"
-        },
-        {
-          "level": 3,
-          "title": "① thinkphp框架接口",
-          "slug": "_1-thinkphp框架接口-3"
-        },
-        {
-          "level": 3,
-          "title": "② eggjs框架接口",
-          "slug": "_2-eggjs框架接口-3"
-        },
-        {
-          "level": 2,
-          "title": "四、删除角色",
-          "slug": "四、删除角色"
-        },
-        {
-          "level": 3,
-          "title": "① thinkphp框架接口",
-          "slug": "_1-thinkphp框架接口-4"
-        },
-        {
-          "level": 3,
-          "title": "② eggjs框架接口",
-          "slug": "_2-eggjs框架接口-4"
-        },
-        {
-          "level": 2,
-          "title": "五、给角色role配置权限rule",
-          "slug": "五、给角色role配置权限rule"
-        },
-        {
-          "level": 3,
-          "title": "① thinkphp框架接口",
-          "slug": "_1-thinkphp框架接口-5"
-        },
-        {
-          "level": 3,
-          "title": "② eggjs框架接口",
-          "slug": "_2-eggjs框架接口-5"
-        }
-      ],
-      "lastUpdated": "2025年4月11日星期五下午3点35分",
-      "lastUpdatedTimestamp": 1744356939000
-    },
-    {
       "title": "role 表及其权限表 rule 表说明",
       "frontmatter": {
         "navbar": true,
@@ -18862,6 +18799,97 @@ export const siteData = {
       ],
       "lastUpdated": "2025年4月11日星期五下午5点43分",
       "lastUpdatedTimestamp": 1744364617000
+    },
+    {
+      "title": "role表接口",
+      "frontmatter": {
+        "navbar": true,
+        "sidebar": "auto",
+        "title": "role表接口"
+      },
+      "regularPath": "/web/mysql/role%E8%A1%A8%E6%8E%A5%E5%8F%A3.html",
+      "relativePath": "web/mysql/role表接口.md",
+      "key": "v-24bfe1dd",
+      "path": "/web/mysql/role%E8%A1%A8%E6%8E%A5%E5%8F%A3.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "一、创建角色",
+          "slug": "一、创建角色"
+        },
+        {
+          "level": 3,
+          "title": "① thinkphp框架接口",
+          "slug": "_1-thinkphp框架接口"
+        },
+        {
+          "level": 3,
+          "title": "② eggjs框架接口",
+          "slug": "_2-eggjs框架接口"
+        },
+        {
+          "level": 2,
+          "title": "二、修改角色",
+          "slug": "二、修改角色"
+        },
+        {
+          "level": 3,
+          "title": "① thinkphp框架接口",
+          "slug": "_1-thinkphp框架接口-2"
+        },
+        {
+          "level": 3,
+          "title": "② eggjs框架接口",
+          "slug": "_2-eggjs框架接口-2"
+        },
+        {
+          "level": 2,
+          "title": "三、修改角色状态",
+          "slug": "三、修改角色状态"
+        },
+        {
+          "level": 3,
+          "title": "① thinkphp框架接口",
+          "slug": "_1-thinkphp框架接口-3"
+        },
+        {
+          "level": 3,
+          "title": "② eggjs框架接口",
+          "slug": "_2-eggjs框架接口-3"
+        },
+        {
+          "level": 2,
+          "title": "四、删除角色",
+          "slug": "四、删除角色"
+        },
+        {
+          "level": 3,
+          "title": "① thinkphp框架接口",
+          "slug": "_1-thinkphp框架接口-4"
+        },
+        {
+          "level": 3,
+          "title": "② eggjs框架接口",
+          "slug": "_2-eggjs框架接口-4"
+        },
+        {
+          "level": 2,
+          "title": "五、给角色role配置权限rule",
+          "slug": "五、给角色role配置权限rule"
+        },
+        {
+          "level": 3,
+          "title": "① thinkphp框架接口",
+          "slug": "_1-thinkphp框架接口-5"
+        },
+        {
+          "level": 3,
+          "title": "② eggjs框架接口",
+          "slug": "_2-eggjs框架接口-5"
+        }
+      ],
+      "lastUpdated": "2025年4月11日星期五下午3点35分",
+      "lastUpdatedTimestamp": 1744356939000
     },
     {
       "title": "shop_manager表说明",
@@ -19011,138 +19039,6 @@ export const siteData = {
       "lastUpdatedTimestamp": 1744629924000
     },
     {
-      "title": "商城系统推荐",
-      "frontmatter": {
-        "navbar": true,
-        "sidebar": "auto",
-        "title": "商城系统推荐"
-      },
-      "regularPath": "/web/shop/",
-      "relativePath": "web/shop/README.md",
-      "key": "v-bb95c882",
-      "path": "/web/shop/",
-      "headers": [
-        {
-          "level": 2,
-          "title": "一. CRMEB开源商城系统",
-          "slug": "一-crmeb开源商城系统"
-        },
-        {
-          "level": 3,
-          "title": "1、 开源地址",
-          "slug": "_1、-开源地址-打开crmeb开源商城系统开源地址"
-        }
-      ],
-      "lastUpdated": "2025年1月4日星期六下午4点03分",
-      "lastUpdatedTimestamp": 1735977787000
-    },
-    {
-      "title": "skus表接口",
-      "frontmatter": {
-        "navbar": true,
-        "sidebar": "auto",
-        "title": "skus表接口"
-      },
-      "regularPath": "/web/mysql/skus%E8%A1%A8%E6%8E%A5%E5%8F%A3.html",
-      "relativePath": "web/mysql/skus表接口.md",
-      "key": "v-07b8f1dd",
-      "path": "/web/mysql/skus%E8%A1%A8%E6%8E%A5%E5%8F%A3.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "一、商品规格列表",
-          "slug": "一、商品规格列表"
-        },
-        {
-          "level": 3,
-          "title": "① thinkphp框架接口",
-          "slug": "_1-thinkphp框架接口"
-        },
-        {
-          "level": 3,
-          "title": "② eggjs框架接口",
-          "slug": "_2-eggjs框架接口"
-        },
-        {
-          "level": 2,
-          "title": "二、创建商品规格",
-          "slug": "二、创建商品规格"
-        },
-        {
-          "level": 3,
-          "title": "① thinkphp框架接口",
-          "slug": "_1-thinkphp框架接口-2"
-        },
-        {
-          "level": 3,
-          "title": "② eggjs框架接口",
-          "slug": "_2-eggjs框架接口-2"
-        },
-        {
-          "level": 2,
-          "title": "三、修改商品规格",
-          "slug": "三、修改商品规格"
-        },
-        {
-          "level": 3,
-          "title": "① thinkphp框架接口",
-          "slug": "_1-thinkphp框架接口-3"
-        },
-        {
-          "level": 3,
-          "title": "② eggjs框架接口",
-          "slug": "_2-eggjs框架接口-3"
-        },
-        {
-          "level": 2,
-          "title": "四、修改商品规格可用状态",
-          "slug": "四、修改商品规格可用状态"
-        },
-        {
-          "level": 3,
-          "title": "① thinkphp框架接口",
-          "slug": "_1-thinkphp框架接口-4"
-        },
-        {
-          "level": 3,
-          "title": "② eggjs框架接口",
-          "slug": "_2-eggjs框架接口-4"
-        },
-        {
-          "level": 2,
-          "title": "五、删除商品规格",
-          "slug": "五、删除商品规格"
-        },
-        {
-          "level": 3,
-          "title": "① thinkphp框架接口",
-          "slug": "_1-thinkphp框架接口-5"
-        },
-        {
-          "level": 3,
-          "title": "② eggjs框架接口",
-          "slug": "_2-eggjs框架接口-5"
-        },
-        {
-          "level": 2,
-          "title": "六、批量删除商品规格",
-          "slug": "六、批量删除商品规格"
-        },
-        {
-          "level": 3,
-          "title": "① thinkphp框架接口",
-          "slug": "_1-thinkphp框架接口-6"
-        },
-        {
-          "level": 3,
-          "title": "② eggjs框架接口",
-          "slug": "_2-eggjs框架接口-6"
-        }
-      ],
-      "lastUpdated": "2025年4月24日星期四晚上8点34分",
-      "lastUpdatedTimestamp": 1745498047000
-    },
-    {
       "title": "shop_manager表接口",
       "frontmatter": {
         "navbar": true,
@@ -19284,6 +19180,138 @@ export const siteData = {
       "lastUpdatedTimestamp": 1744344181000
     },
     {
+      "title": "skus表接口",
+      "frontmatter": {
+        "navbar": true,
+        "sidebar": "auto",
+        "title": "skus表接口"
+      },
+      "regularPath": "/web/mysql/skus%E8%A1%A8%E6%8E%A5%E5%8F%A3.html",
+      "relativePath": "web/mysql/skus表接口.md",
+      "key": "v-07b8f1dd",
+      "path": "/web/mysql/skus%E8%A1%A8%E6%8E%A5%E5%8F%A3.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "一、商品规格列表",
+          "slug": "一、商品规格列表"
+        },
+        {
+          "level": 3,
+          "title": "① thinkphp框架接口",
+          "slug": "_1-thinkphp框架接口"
+        },
+        {
+          "level": 3,
+          "title": "② eggjs框架接口",
+          "slug": "_2-eggjs框架接口"
+        },
+        {
+          "level": 2,
+          "title": "二、创建商品规格",
+          "slug": "二、创建商品规格"
+        },
+        {
+          "level": 3,
+          "title": "① thinkphp框架接口",
+          "slug": "_1-thinkphp框架接口-2"
+        },
+        {
+          "level": 3,
+          "title": "② eggjs框架接口",
+          "slug": "_2-eggjs框架接口-2"
+        },
+        {
+          "level": 2,
+          "title": "三、修改商品规格",
+          "slug": "三、修改商品规格"
+        },
+        {
+          "level": 3,
+          "title": "① thinkphp框架接口",
+          "slug": "_1-thinkphp框架接口-3"
+        },
+        {
+          "level": 3,
+          "title": "② eggjs框架接口",
+          "slug": "_2-eggjs框架接口-3"
+        },
+        {
+          "level": 2,
+          "title": "四、修改商品规格可用状态",
+          "slug": "四、修改商品规格可用状态"
+        },
+        {
+          "level": 3,
+          "title": "① thinkphp框架接口",
+          "slug": "_1-thinkphp框架接口-4"
+        },
+        {
+          "level": 3,
+          "title": "② eggjs框架接口",
+          "slug": "_2-eggjs框架接口-4"
+        },
+        {
+          "level": 2,
+          "title": "五、删除商品规格",
+          "slug": "五、删除商品规格"
+        },
+        {
+          "level": 3,
+          "title": "① thinkphp框架接口",
+          "slug": "_1-thinkphp框架接口-5"
+        },
+        {
+          "level": 3,
+          "title": "② eggjs框架接口",
+          "slug": "_2-eggjs框架接口-5"
+        },
+        {
+          "level": 2,
+          "title": "六、批量删除商品规格",
+          "slug": "六、批量删除商品规格"
+        },
+        {
+          "level": 3,
+          "title": "① thinkphp框架接口",
+          "slug": "_1-thinkphp框架接口-6"
+        },
+        {
+          "level": 3,
+          "title": "② eggjs框架接口",
+          "slug": "_2-eggjs框架接口-6"
+        }
+      ],
+      "lastUpdated": "2025年4月24日星期四晚上8点34分",
+      "lastUpdatedTimestamp": 1745498047000
+    },
+    {
+      "title": "商城系统推荐",
+      "frontmatter": {
+        "navbar": true,
+        "sidebar": "auto",
+        "title": "商城系统推荐"
+      },
+      "regularPath": "/web/shop/",
+      "relativePath": "web/shop/README.md",
+      "key": "v-bb95c882",
+      "path": "/web/shop/",
+      "headers": [
+        {
+          "level": 2,
+          "title": "一. CRMEB开源商城系统",
+          "slug": "一-crmeb开源商城系统"
+        },
+        {
+          "level": 3,
+          "title": "1、 开源地址",
+          "slug": "_1、-开源地址-打开crmeb开源商城系统开源地址"
+        }
+      ],
+      "lastUpdated": "2025年1月4日星期六下午4点03分",
+      "lastUpdatedTimestamp": 1735977787000
+    },
+    {
       "title": "用户管理user表相关表说明",
       "frontmatter": {
         "navbar": true,
@@ -19318,81 +19346,6 @@ export const siteData = {
       ],
       "lastUpdated": "2025年4月30日星期三下午3点41分",
       "lastUpdatedTimestamp": 1745998916000
-    },
-    {
-      "title": "w-a页面",
-      "frontmatter": {
-        "title": "w-a页面"
-      },
-      "regularPath": "/web/w-a.html",
-      "relativePath": "web/w-a.md",
-      "key": "v-544f4fdf",
-      "path": "/web/w-a.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "w-a页面二级标题1",
-          "slug": "w-a页面二级标题1"
-        },
-        {
-          "level": 3,
-          "title": "1.三级标题1",
-          "slug": "_1-三级标题1"
-        },
-        {
-          "level": 3,
-          "title": "2.三级标题2",
-          "slug": "_2-三级标题2"
-        },
-        {
-          "level": 3,
-          "title": "3.三级标题3",
-          "slug": "_3-三级标题3"
-        },
-        {
-          "level": 2,
-          "title": "w-a页面二级标题2",
-          "slug": "w-a页面二级标题2"
-        },
-        {
-          "level": 3,
-          "title": "1.三级标题1",
-          "slug": "_1-三级标题1-2"
-        },
-        {
-          "level": 3,
-          "title": "2.三级标题2",
-          "slug": "_2-三级标题2-2"
-        },
-        {
-          "level": 3,
-          "title": "3.三级标题3",
-          "slug": "_3-三级标题3-2"
-        }
-      ],
-      "lastUpdated": "2023年3月1日星期三下午12点33分",
-      "lastUpdatedTimestamp": 1677645233000
-    },
-    {
-      "title": "响应式后台界面示例代码",
-      "frontmatter": {
-        "navbar": true,
-        "sidebar": "auto",
-        "title": "响应式后台界面示例代码"
-      },
-      "regularPath": "/secondless/w-c/%E5%93%8D%E5%BA%94%E5%BC%8F%E5%90%8E%E5%8F%B0%E7%95%8C%E9%9D%A2%E7%A4%BA%E4%BE%8B%E4%BB%A3%E7%A0%81.html",
-      "relativePath": "secondless/w-c/响应式后台界面示例代码.md",
-      "key": "v-ee843006",
-      "path": "/secondless/w-c/%E5%93%8D%E5%BA%94%E5%BC%8F%E5%90%8E%E5%8F%B0%E7%95%8C%E9%9D%A2%E7%A4%BA%E4%BE%8B%E4%BB%A3%E7%A0%81.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "main_app.html实例代码（一）：初步抽离公共部分",
-          "slug": "main-app-html实例代码-一-初步抽离公共部分"
-        }
-      ],
-      "lastUpdated": "2024年2月29日星期四下午2点41分",
-      "lastUpdatedTimestamp": 1709188912000
     },
     {
       "title": "课程所需软件下载",
@@ -19606,60 +19559,6 @@ export const siteData = {
       "lastUpdatedTimestamp": 1732624492000
     },
     {
-      "title": "w-b页面",
-      "frontmatter": {
-        "title": "w-b页面"
-      },
-      "regularPath": "/web/w-b.html",
-      "relativePath": "web/w-b.md",
-      "key": "v-b2a3f302",
-      "path": "/web/w-b.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "w-b页面二级标题1",
-          "slug": "w-b页面二级标题1"
-        },
-        {
-          "level": 3,
-          "title": "1.三级标题1",
-          "slug": "_1-三级标题1"
-        },
-        {
-          "level": 3,
-          "title": "2.三级标题2",
-          "slug": "_2-三级标题2"
-        },
-        {
-          "level": 3,
-          "title": "3.三级标题3",
-          "slug": "_3-三级标题3"
-        },
-        {
-          "level": 2,
-          "title": "w-b页面二级标题2",
-          "slug": "w-b页面二级标题2"
-        },
-        {
-          "level": 3,
-          "title": "1.三级标题1",
-          "slug": "_1-三级标题1-2"
-        },
-        {
-          "level": 3,
-          "title": "2.三级标题2",
-          "slug": "_2-三级标题2-2"
-        },
-        {
-          "level": 3,
-          "title": "3.三级标题3",
-          "slug": "_3-三级标题3-2"
-        }
-      ],
-      "lastUpdated": "2023年3月1日星期三下午12点33分",
-      "lastUpdatedTimestamp": 1677645233000
-    },
-    {
       "title": "w-c页面",
       "frontmatter": {
         "title": "w-c页面"
@@ -19712,16 +19611,6 @@ export const siteData = {
       ],
       "lastUpdated": "2023年3月1日星期三下午12点33分",
       "lastUpdatedTimestamp": 1677645233000
-    },
-    {
-      "title": "Hello VuePress：学习来自哔哩哔哩：https://www.bilibili.com/video/BV1vb411m7NY/?spmidfrom=333.337.search-card.all.click&vd_source=9a6ee0d7e6c1657e4a7381c1f8f18f4b",
-      "frontmatter": {},
-      "regularPath": "/%E5%BC%80%E5%8F%91%E8%AE%B0%E5%BD%95.html",
-      "relativePath": "开发记录.md",
-      "key": "v-1ead3dbc",
-      "path": "/%E5%BC%80%E5%8F%91%E8%AE%B0%E5%BD%95.html",
-      "lastUpdated": "2025年4月14日星期一晚上9点05分",
-      "lastUpdatedTimestamp": 1744635931000
     },
     {
       "title": "Vue.js",
@@ -19808,6 +19697,124 @@ export const siteData = {
       ],
       "lastUpdated": "2024年3月14日星期四上午11点02分",
       "lastUpdatedTimestamp": 1710385355000
+    },
+    {
+      "title": "Hello VuePress：学习来自哔哩哔哩：https://www.bilibili.com/video/BV1vb411m7NY/?spmidfrom=333.337.search-card.all.click&vd_source=9a6ee0d7e6c1657e4a7381c1f8f18f4b",
+      "frontmatter": {},
+      "regularPath": "/%E5%BC%80%E5%8F%91%E8%AE%B0%E5%BD%95.html",
+      "relativePath": "开发记录.md",
+      "key": "v-1ead3dbc",
+      "path": "/%E5%BC%80%E5%8F%91%E8%AE%B0%E5%BD%95.html",
+      "lastUpdated": "2025年4月14日星期一晚上9点05分",
+      "lastUpdatedTimestamp": 1744635931000
+    },
+    {
+      "title": "w-b页面",
+      "frontmatter": {
+        "title": "w-b页面"
+      },
+      "regularPath": "/web/w-b.html",
+      "relativePath": "web/w-b.md",
+      "key": "v-b2a3f302",
+      "path": "/web/w-b.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "w-b页面二级标题1",
+          "slug": "w-b页面二级标题1"
+        },
+        {
+          "level": 3,
+          "title": "1.三级标题1",
+          "slug": "_1-三级标题1"
+        },
+        {
+          "level": 3,
+          "title": "2.三级标题2",
+          "slug": "_2-三级标题2"
+        },
+        {
+          "level": 3,
+          "title": "3.三级标题3",
+          "slug": "_3-三级标题3"
+        },
+        {
+          "level": 2,
+          "title": "w-b页面二级标题2",
+          "slug": "w-b页面二级标题2"
+        },
+        {
+          "level": 3,
+          "title": "1.三级标题1",
+          "slug": "_1-三级标题1-2"
+        },
+        {
+          "level": 3,
+          "title": "2.三级标题2",
+          "slug": "_2-三级标题2-2"
+        },
+        {
+          "level": 3,
+          "title": "3.三级标题3",
+          "slug": "_3-三级标题3-2"
+        }
+      ],
+      "lastUpdated": "2023年3月1日星期三下午12点33分",
+      "lastUpdatedTimestamp": 1677645233000
+    },
+    {
+      "title": "w-a页面",
+      "frontmatter": {
+        "title": "w-a页面"
+      },
+      "regularPath": "/web/w-a.html",
+      "relativePath": "web/w-a.md",
+      "key": "v-544f4fdf",
+      "path": "/web/w-a.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "w-a页面二级标题1",
+          "slug": "w-a页面二级标题1"
+        },
+        {
+          "level": 3,
+          "title": "1.三级标题1",
+          "slug": "_1-三级标题1"
+        },
+        {
+          "level": 3,
+          "title": "2.三级标题2",
+          "slug": "_2-三级标题2"
+        },
+        {
+          "level": 3,
+          "title": "3.三级标题3",
+          "slug": "_3-三级标题3"
+        },
+        {
+          "level": 2,
+          "title": "w-a页面二级标题2",
+          "slug": "w-a页面二级标题2"
+        },
+        {
+          "level": 3,
+          "title": "1.三级标题1",
+          "slug": "_1-三级标题1-2"
+        },
+        {
+          "level": 3,
+          "title": "2.三级标题2",
+          "slug": "_2-三级标题2-2"
+        },
+        {
+          "level": 3,
+          "title": "3.三级标题3",
+          "slug": "_3-三级标题3-2"
+        }
+      ],
+      "lastUpdated": "2023年3月1日星期三下午12点33分",
+      "lastUpdatedTimestamp": 1677645233000
     }
   ],
   "themeConfig": {
