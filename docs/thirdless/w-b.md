@@ -47,6 +47,11 @@ title: 第三学期第二季（课程学习顺序：07）
 ####  <a href="/thirdless/w-b/04消息页开发.html#九、兼容微信小程序" style="margin-left:40px;">九、兼容微信小程序</a>
 ####  <a href="/thirdless/w-b/04消息页开发.html#十、消息页静态功能完整代码" style="margin-left:40px;">十、消息页静态功能完整代码</a>
 ### <a href="/thirdless/w-b/05我的和好友列表页开发" target="_blank" title="点击查看课程文档">章节5.我的和好友列表页开发</a>
+####  <a href="/thirdless/w-b/05我的和好友列表页开发.html#一、-好友列表页开发" style="margin-left:40px;">一、 好友列表页开发</a>
+#####  <a href="/thirdless/w-b/05我的和好友列表页开发.html#_1-顶部导航栏开发" style="margin-left:70px;">1. 顶部导航栏开发</a>
+#####  <a href="/thirdless/w-b/05我的和好友列表页开发.html#_2-好友列表开发" style="margin-left:70px;">2. 好友列表开发</a>
+####  <a href="/thirdless/w-b/05我的和好友列表页开发.html#二、我的页面开发" style="margin-left:40px;">二、我的页面开发</a>
+### <a href="/thirdless/w-b/06即时通讯聊天页开发" target="_blank" title="点击查看课程文档">章节6.即时通讯聊天页开发</a>
 
 
 
