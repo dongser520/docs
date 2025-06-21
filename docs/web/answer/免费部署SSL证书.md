@@ -85,6 +85,27 @@ curl -sSO http://download.allinssl.com/install_allinssl.sh && bash install_allin
 ## 二、自动化部署流程视频查看
 具体查看视频，<a href="https://www.bilibili.com/video/BV1qz7ZzXEJv/?spm_id_from=333.1387.homepage.video_card.click&vd_source=9a6ee0d7e6c1657e4a7381c1f8f18f4b" target="_blank"> 自动化部署流程视频查看 </a>
 
+## 三、关于`AllInSSL`无法访问的解决方案
+> 如果一段时间之后，无法访问`AllInSSL`，可能是`AllinSSL` 服务当前没有运行，按照如下步骤解决： <br/>
+### 1. 确认服务是否运行
+> ```bash
+>    ps aux | grep allinssl
+> ```
+> 返回类似：
+> ```bash
+> root        5264  0.0  0.1   6332  2016 pts/0    S+   17:42   0:00 grep allinssl
+> ```
+> 说明：`AllinSSL` 服务当前没有运行，这里只有 grep allinssl 进程（即你刚执行的查询命令），没有真正的 AllinSSL 服务进程。这表明服务已停止运行。
 
+### 2. 重启 AllinSSL 服务
+
+> 1. 进入安装目录
+> `cd /www/allinssl`
+> 
+> 2. 启动服务
+> `./allinssl start`
+> 
+> 3. 检查是否启动成功
+> `./allinssl status`
 
 
