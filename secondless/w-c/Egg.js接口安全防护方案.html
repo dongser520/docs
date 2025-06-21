@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Egg.js接口安全防护方案 | 睿晨网</title>
+    <meta name="generator" content="VuePress 1.9.9">
+    <link rel="icon" href="/assets/img/favicon.png">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="apple-touch-icon" href="/icons/apple-touch-icon-152x152.png">
+    <link rel="#icon-pengyouquan" href="/icons/iconfont.svg" color="#3eaf7c">
+    <meta name="description" content="睿晨网|睿晨编程|零基础学做网站、app、小程序就从这里开始">
+    <meta name="keywords" content="睿晨网,睿晨编程,零基础学做网站,零基础学app,零基础学小程序">
+    <meta name="author" content="睿晨网,睿晨编程,阿东老师">
+    <meta name="theme-color" content="#3eaf7c">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="msapplication-TileImage" content="/icons/msapplication-icon-144x144.png">
+    <meta name="msapplication-TileColor" content="#000000">
+    
+    <link rel="preload" href="/assets/css/0.styles.40282cb3.css" as="style"><link rel="preload" href="/assets/js/app.01f43675.js" as="script"><link rel="preload" href="/assets/js/9.13d458ed.js" as="script"><link rel="preload" href="/assets/js/2.6281e0bb.js" as="script"><link rel="preload" href="/assets/js/100.498defc6.js" as="script"><link rel="preload" href="/assets/js/3.e6827fa8.js" as="script"><link rel="prefetch" href="/assets/js/10.63ed790c.js"><link rel="prefetch" href="/assets/js/101.b633124c.js"><link rel="prefetch" href="/assets/js/102.6c1782e8.js"><link rel="prefetch" href="/assets/js/103.c30182f9.js"><link rel="prefetch" href="/assets/js/104.ff34e185.js"><link rel="prefetch" href="/assets/js/105.1b062514.js"><link rel="prefetch" href="/assets/js/106.96c6114d.js"><link rel="prefetch" href="/assets/js/107.a40433b6.js"><link rel="prefetch" href="/assets/js/108.a25eaa90.js"><link rel="prefetch" href="/assets/js/109.b2f8c23b.js"><link rel="prefetch" href="/assets/js/11.934eb133.js"><link rel="prefetch" href="/assets/js/110.59ffe94d.js"><link rel="prefetch" href="/assets/js/111.b4896a64.js"><link rel="prefetch" href="/assets/js/112.64d34e2a.js"><link rel="prefetch" href="/assets/js/113.6ceb52bf.js"><link rel="prefetch" href="/assets/js/114.5a52f130.js"><link rel="prefetch" href="/assets/js/115.899bb8e5.js"><link rel="prefetch" href="/assets/js/116.9afeec9f.js"><link rel="prefetch" href="/assets/js/117.18d440f9.js"><link rel="prefetch" href="/assets/js/118.15ebfcf1.js"><link rel="prefetch" href="/assets/js/119.de10131a.js"><link rel="prefetch" href="/assets/js/12.cc2380d1.js"><link rel="prefetch" href="/assets/js/120.7006c4b0.js"><link rel="prefetch" href="/assets/js/121.2d564cc8.js"><link rel="prefetch" href="/assets/js/122.802a25e6.js"><link rel="prefetch" href="/assets/js/123.540336b8.js"><link rel="prefetch" href="/assets/js/124.dc12a5a8.js"><link rel="prefetch" href="/assets/js/125.3f01be0b.js"><link rel="prefetch" href="/assets/js/126.1bae5d00.js"><link rel="prefetch" href="/assets/js/127.ba763065.js"><link rel="prefetch" href="/assets/js/128.65d1cc8c.js"><link rel="prefetch" href="/assets/js/129.50bee0c2.js"><link rel="prefetch" href="/assets/js/13.50c9a147.js"><link rel="prefetch" href="/assets/js/130.9bc59639.js"><link rel="prefetch" href="/assets/js/131.f5e9344a.js"><link rel="prefetch" href="/assets/js/132.6b186e27.js"><link rel="prefetch" href="/assets/js/133.d334938a.js"><link rel="prefetch" href="/assets/js/134.4c3512df.js"><link rel="prefetch" href="/assets/js/135.7762ff8a.js"><link rel="prefetch" href="/assets/js/136.16f7069a.js"><link rel="prefetch" href="/assets/js/137.39fbf980.js"><link rel="prefetch" href="/assets/js/138.d9c82ec8.js"><link rel="prefetch" href="/assets/js/139.07e5b618.js"><link rel="prefetch" href="/assets/js/14.1748f5e7.js"><link rel="prefetch" href="/assets/js/140.acc456c5.js"><link rel="prefetch" href="/assets/js/141.4079a350.js"><link rel="prefetch" href="/assets/js/142.4beb54d3.js"><link rel="prefetch" href="/assets/js/143.46d94670.js"><link rel="prefetch" href="/assets/js/144.5653d317.js"><link rel="prefetch" href="/assets/js/145.335c996a.js"><link rel="prefetch" href="/assets/js/146.7a31d67b.js"><link rel="prefetch" href="/assets/js/147.6ca00e12.js"><link rel="prefetch" href="/assets/js/148.d3f75f77.js"><link rel="prefetch" href="/assets/js/149.df479d18.js"><link rel="prefetch" href="/assets/js/15.5333b525.js"><link rel="prefetch" href="/assets/js/150.a5de9b95.js"><link rel="prefetch" href="/assets/js/151.4901c4e7.js"><link rel="prefetch" href="/assets/js/152.6f6fd856.js"><link rel="prefetch" href="/assets/js/153.a8a6d068.js"><link rel="prefetch" href="/assets/js/154.7fa9cc55.js"><link rel="prefetch" href="/assets/js/155.06c59cbd.js"><link rel="prefetch" href="/assets/js/156.8e038d75.js"><link rel="prefetch" href="/assets/js/157.fec03d2e.js"><link rel="prefetch" href="/assets/js/158.d71bc29f.js"><link rel="prefetch" href="/assets/js/159.7912c2ea.js"><link rel="prefetch" href="/assets/js/16.019e1693.js"><link rel="prefetch" href="/assets/js/160.2a7d337a.js"><link rel="prefetch" href="/assets/js/161.4c9cdbdc.js"><link rel="prefetch" href="/assets/js/162.88e50e3c.js"><link rel="prefetch" href="/assets/js/163.8bfd3f56.js"><link rel="prefetch" href="/assets/js/164.25b5acb5.js"><link rel="prefetch" href="/assets/js/165.0d17fd11.js"><link rel="prefetch" href="/assets/js/166.88b0be8f.js"><link rel="prefetch" href="/assets/js/167.126a3ff6.js"><link rel="prefetch" href="/assets/js/168.3a01b448.js"><link rel="prefetch" href="/assets/js/169.a66695c8.js"><link rel="prefetch" href="/assets/js/17.0e4cf41a.js"><link rel="prefetch" href="/assets/js/170.977999d5.js"><link rel="prefetch" href="/assets/js/171.e2fccacb.js"><link rel="prefetch" href="/assets/js/172.310066ff.js"><link rel="prefetch" href="/assets/js/173.e7176ae9.js"><link rel="prefetch" href="/assets/js/174.170639b8.js"><link rel="prefetch" href="/assets/js/175.20591992.js"><link rel="prefetch" href="/assets/js/176.015066a9.js"><link rel="prefetch" href="/assets/js/177.f5430c32.js"><link rel="prefetch" href="/assets/js/178.d0e5a311.js"><link rel="prefetch" href="/assets/js/179.05a5ea93.js"><link rel="prefetch" href="/assets/js/18.b3fc4cb0.js"><link rel="prefetch" href="/assets/js/180.0d0053c0.js"><link rel="prefetch" href="/assets/js/181.35ff8670.js"><link rel="prefetch" href="/assets/js/182.c0e1871e.js"><link rel="prefetch" href="/assets/js/183.2e8516a1.js"><link rel="prefetch" href="/assets/js/184.80aa4111.js"><link rel="prefetch" href="/assets/js/185.ad488d5b.js"><link rel="prefetch" href="/assets/js/186.ad34848c.js"><link rel="prefetch" href="/assets/js/187.4179e69f.js"><link rel="prefetch" href="/assets/js/188.6aa9953e.js"><link rel="prefetch" href="/assets/js/19.e47dcc47.js"><link rel="prefetch" href="/assets/js/20.1f640f7c.js"><link rel="prefetch" href="/assets/js/21.8a106a5c.js"><link rel="prefetch" href="/assets/js/22.da6ac8b9.js"><link rel="prefetch" href="/assets/js/23.27b2ac3b.js"><link rel="prefetch" href="/assets/js/24.78c8a20f.js"><link rel="prefetch" href="/assets/js/25.d11b0a65.js"><link rel="prefetch" href="/assets/js/26.c2cb446c.js"><link rel="prefetch" href="/assets/js/27.e38fe372.js"><link rel="prefetch" href="/assets/js/28.3a9d2966.js"><link rel="prefetch" href="/assets/js/29.d6e83817.js"><link rel="prefetch" href="/assets/js/30.d70db604.js"><link rel="prefetch" href="/assets/js/31.6a94da55.js"><link rel="prefetch" href="/assets/js/32.1352c9e7.js"><link rel="prefetch" href="/assets/js/33.43f3caf7.js"><link rel="prefetch" href="/assets/js/34.1cfcda03.js"><link rel="prefetch" href="/assets/js/35.04acbaf7.js"><link rel="prefetch" href="/assets/js/36.68fe2ae8.js"><link rel="prefetch" href="/assets/js/37.fa10995a.js"><link rel="prefetch" href="/assets/js/38.37976693.js"><link rel="prefetch" href="/assets/js/39.5c213f11.js"><link rel="prefetch" href="/assets/js/4.c07773f0.js"><link rel="prefetch" href="/assets/js/40.5c177456.js"><link rel="prefetch" href="/assets/js/41.a908f60f.js"><link rel="prefetch" href="/assets/js/42.0c9468a4.js"><link rel="prefetch" href="/assets/js/43.3c5bee68.js"><link rel="prefetch" href="/assets/js/44.1861b7d3.js"><link rel="prefetch" href="/assets/js/45.8c1ffdbd.js"><link rel="prefetch" href="/assets/js/46.29439a93.js"><link rel="prefetch" href="/assets/js/47.0412e653.js"><link rel="prefetch" href="/assets/js/48.8befcda8.js"><link rel="prefetch" href="/assets/js/49.8e38d4a9.js"><link rel="prefetch" href="/assets/js/5.f6e71730.js"><link rel="prefetch" href="/assets/js/50.b272cdf8.js"><link rel="prefetch" href="/assets/js/51.94c3f74e.js"><link rel="prefetch" href="/assets/js/52.c34f8378.js"><link rel="prefetch" href="/assets/js/53.22b59f11.js"><link rel="prefetch" href="/assets/js/54.32727209.js"><link rel="prefetch" href="/assets/js/55.e0b7936a.js"><link rel="prefetch" href="/assets/js/56.d82c5300.js"><link rel="prefetch" href="/assets/js/57.8fc9d8f6.js"><link rel="prefetch" href="/assets/js/58.f41299ef.js"><link rel="prefetch" href="/assets/js/59.949cddb6.js"><link rel="prefetch" href="/assets/js/6.5324478b.js"><link rel="prefetch" href="/assets/js/60.b0b86ba0.js"><link rel="prefetch" href="/assets/js/61.c7c3e0cc.js"><link rel="prefetch" href="/assets/js/62.ffaf6a1c.js"><link rel="prefetch" href="/assets/js/63.57a775dd.js"><link rel="prefetch" href="/assets/js/64.0614c0ee.js"><link rel="prefetch" href="/assets/js/65.e10653de.js"><link rel="prefetch" href="/assets/js/66.98b6fce3.js"><link rel="prefetch" href="/assets/js/67.92759d20.js"><link rel="prefetch" href="/assets/js/68.5686c70e.js"><link rel="prefetch" href="/assets/js/69.78f0d285.js"><link rel="prefetch" href="/assets/js/7.19363b9a.js"><link rel="prefetch" href="/assets/js/70.bb8a1392.js"><link rel="prefetch" href="/assets/js/71.57a23c00.js"><link rel="prefetch" href="/assets/js/72.ea8268ff.js"><link rel="prefetch" href="/assets/js/73.b803a7e8.js"><link rel="prefetch" href="/assets/js/74.836b45c2.js"><link rel="prefetch" href="/assets/js/75.ac03a03f.js"><link rel="prefetch" href="/assets/js/76.08cf78d8.js"><link rel="prefetch" href="/assets/js/77.a3fbccad.js"><link rel="prefetch" href="/assets/js/78.de310fa1.js"><link rel="prefetch" href="/assets/js/79.e845a152.js"><link rel="prefetch" href="/assets/js/8.36de0ba4.js"><link rel="prefetch" href="/assets/js/80.06fbde31.js"><link rel="prefetch" href="/assets/js/81.6d74ba30.js"><link rel="prefetch" href="/assets/js/82.1acd4580.js"><link rel="prefetch" href="/assets/js/83.3af21ed1.js"><link rel="prefetch" href="/assets/js/84.60c8d43a.js"><link rel="prefetch" href="/assets/js/85.421b37eb.js"><link rel="prefetch" href="/assets/js/86.e3436dd9.js"><link rel="prefetch" href="/assets/js/87.510c0f33.js"><link rel="prefetch" href="/assets/js/88.f95db4aa.js"><link rel="prefetch" href="/assets/js/89.70ebef3d.js"><link rel="prefetch" href="/assets/js/90.30d64f00.js"><link rel="prefetch" href="/assets/js/91.5ec946cc.js"><link rel="prefetch" href="/assets/js/92.575ea001.js"><link rel="prefetch" href="/assets/js/93.d0c43db3.js"><link rel="prefetch" href="/assets/js/94.323982ee.js"><link rel="prefetch" href="/assets/js/95.e02ab326.js"><link rel="prefetch" href="/assets/js/96.b99e169d.js"><link rel="prefetch" href="/assets/js/97.b052a5db.js"><link rel="prefetch" href="/assets/js/98.d843c413.js"><link rel="prefetch" href="/assets/js/99.0f6e6ad2.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.40282cb3.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">睿晨网</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">
+  主页
+</a></div><div class="nav-item"><a href="/aboutless.html" class="nav-link">
+  第一期网页开发
+</a></div><div class="nav-item"><a href="/secondless/" class="nav-link router-link-active">
+  第二期企业网站开发
+</a></div><div class="nav-item"><a href="/thirdless/" class="nav-link">
+  第三期移动端课程
+</a></div><div class="nav-item"><a href="/fourthless/" class="nav-link">
+  第四期web全栈课程
+</a></div><div class="nav-item"><a href="/fiveless/" class="nav-link">
+  第五期python课程
+</a></div><div class="nav-item"><a href="/web/software/" class="nav-link">
+  课程软件小案例
+</a></div><div class="nav-item"><a href="/web/mysql/" class="nav-link">
+  课程案例数据表
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="课程答疑汇总" class="dropdown-title"><span class="title">课程答疑</span> <span class="arrow down"></span></button> <button type="button" aria-label="课程答疑汇总" class="mobile-dropdown-title"><span class="title">课程答疑</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/web/answer/课程常见问题.html" class="nav-link">
+  课程常见问题
+</a></li><li class="dropdown-item"><!----> <a href="/deploy/" class="nav-link">
+  项目部署
+</a></li><li class="dropdown-item"><!----> <a href="/web/answer/免费部署SSL证书.html" class="nav-link">
+  免费部署SSL证书
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="课程学习网站" class="dropdown-title"><span class="title">课程学习网站</span> <span class="arrow down"></span></button> <button type="button" aria-label="课程学习网站" class="mobile-dropdown-title"><span class="title">课程学习网站</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          视频学习网站
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://study.163.com/provider/480000002289674/index.htm?share=2&amp;shareId=480000002289674" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  腾讯云课堂
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://space.bilibili.com/3493114067028034/pugv" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  B站
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="实用菜单" class="dropdown-title"><span class="title">实用网站和方法</span> <span class="arrow down"></span></button> <button type="button" aria-label="实用菜单" class="mobile-dropdown-title"><span class="title">实用网站和方法</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          实用方法
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/web/methods/定位相关.html" class="nav-link">
+  定位相关
+</a></li><li class="dropdown-subitem"><a href="/web/methods/地图相关.html" class="nav-link">
+  地图相关
+</a></li><li class="dropdown-subitem"><a href="/web/methods/树形结构数据转换.html" class="nav-link">
+  树形结构数据转换
+</a></li></ul></li><li class="dropdown-item"><h4>
+          uni-app专栏
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/web/methods/uni-app专栏.html" class="nav-link">
+  uni-app的UI框架
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Egg.js专栏
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/secondless/w-c/Egg.js.html" class="nav-link">
+  Egg.js基础
+</a></li><li class="dropdown-subitem"><a href="/secondless/w-c/egg.js基础总结.html" class="nav-link">
+  Egg.js基础总结
+</a></li><li class="dropdown-subitem"><a href="/secondless/w-c/egg.js重要知识详细文档.html" class="nav-link">
+  Egg.js重要知识详细文档
+</a></li><li class="dropdown-subitem"><a href="/secondless/w-c/ValParams API 说明.html" class="nav-link">
+  Egg.js参数验证说明
+</a></li><li class="dropdown-subitem"><a href="/web/mysql/Sequelize数据类型.html" class="nav-link">
+  Egg.js迁移文件Sequelize数据类型
+</a></li><li class="dropdown-subitem"><a href="/secondless/w-c/Egg.js接口安全防护方案.html" class="nav-link">
+  Egg.js接口安全防护方案
+</a></li><li class="dropdown-subitem"><a href="/web/answer/课程常见问题.html#_3-eggjs如何重置数据表-保证id每次从1开始计算" class="nav-link">
+  Egg.js重置数据表每次ID为1
+</a></li></ul></li><li class="dropdown-item"><h4>
+          实用网站
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/web/methods/实用接口.html" class="nav-link">
+  实用接口
+</a></li><li class="dropdown-subitem"><a href="/web/css/" class="nav-link">
+  css
+</a></li><li class="dropdown-subitem"><a href="/web/vue.js/" class="nav-link">
+  Vue.js
+</a></li><li class="dropdown-subitem"><a href="/web/Vue3+ElementPlus/" class="nav-link">
+  Vue3+ElementPlus系统
+</a></li><li class="dropdown-subitem"><a href="/web/echarts/" class="nav-link">
+  echarts图表
+</a></li><li class="dropdown-subitem"><a href="/web/bootstrap/" class="nav-link">
+  Bootstrap
+</a></li><li class="dropdown-subitem"><a href="/web/IIS/" class="nav-link">
+  IIS
+</a></li><li class="dropdown-subitem"><a href="/web/github/" class="nav-link">
+  Github
+</a></li><li class="dropdown-subitem"><a href="/web/Vanta.js/" class="nav-link">
+  Vanta.js网页3D背景
+</a></li><li class="dropdown-subitem"><a href="/web/shop/" class="nav-link">
+  商城系统推荐
+</a></li></ul></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">
+  主页
+</a></div><div class="nav-item"><a href="/aboutless.html" class="nav-link">
+  第一期网页开发
+</a></div><div class="nav-item"><a href="/secondless/" class="nav-link router-link-active">
+  第二期企业网站开发
+</a></div><div class="nav-item"><a href="/thirdless/" class="nav-link">
+  第三期移动端课程
+</a></div><div class="nav-item"><a href="/fourthless/" class="nav-link">
+  第四期web全栈课程
+</a></div><div class="nav-item"><a href="/fiveless/" class="nav-link">
+  第五期python课程
+</a></div><div class="nav-item"><a href="/web/software/" class="nav-link">
+  课程软件小案例
+</a></div><div class="nav-item"><a href="/web/mysql/" class="nav-link">
+  课程案例数据表
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="课程答疑汇总" class="dropdown-title"><span class="title">课程答疑</span> <span class="arrow down"></span></button> <button type="button" aria-label="课程答疑汇总" class="mobile-dropdown-title"><span class="title">课程答疑</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/web/answer/课程常见问题.html" class="nav-link">
+  课程常见问题
+</a></li><li class="dropdown-item"><!----> <a href="/deploy/" class="nav-link">
+  项目部署
+</a></li><li class="dropdown-item"><!----> <a href="/web/answer/免费部署SSL证书.html" class="nav-link">
+  免费部署SSL证书
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="课程学习网站" class="dropdown-title"><span class="title">课程学习网站</span> <span class="arrow down"></span></button> <button type="button" aria-label="课程学习网站" class="mobile-dropdown-title"><span class="title">课程学习网站</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          视频学习网站
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://study.163.com/provider/480000002289674/index.htm?share=2&amp;shareId=480000002289674" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  腾讯云课堂
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://space.bilibili.com/3493114067028034/pugv" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  B站
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="实用菜单" class="dropdown-title"><span class="title">实用网站和方法</span> <span class="arrow down"></span></button> <button type="button" aria-label="实用菜单" class="mobile-dropdown-title"><span class="title">实用网站和方法</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          实用方法
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/web/methods/定位相关.html" class="nav-link">
+  定位相关
+</a></li><li class="dropdown-subitem"><a href="/web/methods/地图相关.html" class="nav-link">
+  地图相关
+</a></li><li class="dropdown-subitem"><a href="/web/methods/树形结构数据转换.html" class="nav-link">
+  树形结构数据转换
+</a></li></ul></li><li class="dropdown-item"><h4>
+          uni-app专栏
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/web/methods/uni-app专栏.html" class="nav-link">
+  uni-app的UI框架
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Egg.js专栏
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/secondless/w-c/Egg.js.html" class="nav-link">
+  Egg.js基础
+</a></li><li class="dropdown-subitem"><a href="/secondless/w-c/egg.js基础总结.html" class="nav-link">
+  Egg.js基础总结
+</a></li><li class="dropdown-subitem"><a href="/secondless/w-c/egg.js重要知识详细文档.html" class="nav-link">
+  Egg.js重要知识详细文档
+</a></li><li class="dropdown-subitem"><a href="/secondless/w-c/ValParams API 说明.html" class="nav-link">
+  Egg.js参数验证说明
+</a></li><li class="dropdown-subitem"><a href="/web/mysql/Sequelize数据类型.html" class="nav-link">
+  Egg.js迁移文件Sequelize数据类型
+</a></li><li class="dropdown-subitem"><a href="/secondless/w-c/Egg.js接口安全防护方案.html" class="nav-link">
+  Egg.js接口安全防护方案
+</a></li><li class="dropdown-subitem"><a href="/web/answer/课程常见问题.html#_3-eggjs如何重置数据表-保证id每次从1开始计算" class="nav-link">
+  Egg.js重置数据表每次ID为1
+</a></li></ul></li><li class="dropdown-item"><h4>
+          实用网站
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/web/methods/实用接口.html" class="nav-link">
+  实用接口
+</a></li><li class="dropdown-subitem"><a href="/web/css/" class="nav-link">
+  css
+</a></li><li class="dropdown-subitem"><a href="/web/vue.js/" class="nav-link">
+  Vue.js
+</a></li><li class="dropdown-subitem"><a href="/web/Vue3+ElementPlus/" class="nav-link">
+  Vue3+ElementPlus系统
+</a></li><li class="dropdown-subitem"><a href="/web/echarts/" class="nav-link">
+  echarts图表
+</a></li><li class="dropdown-subitem"><a href="/web/bootstrap/" class="nav-link">
+  Bootstrap
+</a></li><li class="dropdown-subitem"><a href="/web/IIS/" class="nav-link">
+  IIS
+</a></li><li class="dropdown-subitem"><a href="/web/github/" class="nav-link">
+  Github
+</a></li><li class="dropdown-subitem"><a href="/web/Vanta.js/" class="nav-link">
+  Vanta.js网页3D背景
+</a></li><li class="dropdown-subitem"><a href="/web/shop/" class="nav-link">
+  商城系统推荐
+</a></li></ul></li></ul></div></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>Egg.js接口安全防护方案</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/secondless/w-c/Egg.js%E6%8E%A5%E5%8F%A3%E5%AE%89%E5%85%A8%E9%98%B2%E6%8A%A4%E6%96%B9%E6%A1%88.html#_1-基础防护-http-referer-origin-校验" class="sidebar-link">1. 基础防护：HTTP Referer/Origin 校验</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/secondless/w-c/Egg.js%E6%8E%A5%E5%8F%A3%E5%AE%89%E5%85%A8%E9%98%B2%E6%8A%A4%E6%96%B9%E6%A1%88.html#_2-启用-csrf-防护" class="sidebar-link">2. 启用 CSRF 防护</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/secondless/w-c/Egg.js%E6%8E%A5%E5%8F%A3%E5%AE%89%E5%85%A8%E9%98%B2%E6%8A%A4%E6%96%B9%E6%A1%88.html#_3-cors-严格配置" class="sidebar-link">3. CORS 严格配置</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/secondless/w-c/Egg.js%E6%8E%A5%E5%8F%A3%E5%AE%89%E5%85%A8%E9%98%B2%E6%8A%A4%E6%96%B9%E6%A1%88.html#_4-用户认证与授权" class="sidebar-link">4. 用户认证与授权</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/secondless/w-c/Egg.js%E6%8E%A5%E5%8F%A3%E5%AE%89%E5%85%A8%E9%98%B2%E6%8A%A4%E6%96%B9%E6%A1%88.html#_5-请求签名与防重放" class="sidebar-link">5. 请求签名与防重放</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/secondless/w-c/Egg.js%E6%8E%A5%E5%8F%A3%E5%AE%89%E5%85%A8%E9%98%B2%E6%8A%A4%E6%96%B9%E6%A1%88.html#_6-客户端指纹校验" class="sidebar-link">6. 客户端指纹校验</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/secondless/w-c/Egg.js%E6%8E%A5%E5%8F%A3%E5%AE%89%E5%85%A8%E9%98%B2%E6%8A%A4%E6%96%B9%E6%A1%88.html#_7-动态-token-防御" class="sidebar-link">7. 动态 Token 防御</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/secondless/w-c/Egg.js%E6%8E%A5%E5%8F%A3%E5%AE%89%E5%85%A8%E9%98%B2%E6%8A%A4%E6%96%B9%E6%A1%88.html#_8-请求频率限制" class="sidebar-link">8. 请求频率限制</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/secondless/w-c/Egg.js%E6%8E%A5%E5%8F%A3%E5%AE%89%E5%85%A8%E9%98%B2%E6%8A%A4%E6%96%B9%E6%A1%88.html#_9-混淆接口路径" class="sidebar-link">9. 混淆接口路径</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/secondless/w-c/Egg.js%E6%8E%A5%E5%8F%A3%E5%AE%89%E5%85%A8%E9%98%B2%E6%8A%A4%E6%96%B9%E6%A1%88.html#_10-深度防御-行为分析与-waf" class="sidebar-link">10. 深度防御：行为分析与 WAF</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/secondless/w-c/Egg.js%E6%8E%A5%E5%8F%A3%E5%AE%89%E5%85%A8%E9%98%B2%E6%8A%A4%E6%96%B9%E6%A1%88.html#总结建议" class="sidebar-link">总结建议</a><ul class="sidebar-sub-headers"></ul></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><p>为了确保你的 Egg.js 接口只能通过你的网站访问并防止被 Postman 等工具直接调用，可以采取以下分层安全措施，从基础到高级逐步加固：</p> <h2 id="_1-基础防护-http-referer-origin-校验"><a href="#_1-基础防护-http-referer-origin-校验" class="header-anchor">#</a> 1. 基础防护：HTTP Referer/Origin 校验</h2> <p>检查请求头中的 Referer 或 Origin 字段，确保请求来源是你的网站域名。</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// middleware/check_referer.js</span>
+module<span class="token punctuation">.</span><span class="token function-variable function">exports</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">checkReferer</span><span class="token punctuation">(</span><span class="token parameter">ctx<span class="token punctuation">,</span> next</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> allowedDomains <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'https://your-website.com'</span><span class="token punctuation">,</span> <span class="token string">'https://www.your-website.com'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token keyword">const</span> referer <span class="token operator">=</span> ctx<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">'referer'</span><span class="token punctuation">)</span> <span class="token operator">||</span> <span class="token string">''</span><span class="token punctuation">;</span>
+    <span class="token keyword">const</span> origin <span class="token operator">=</span> ctx<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">'origin'</span><span class="token punctuation">)</span> <span class="token operator">||</span> <span class="token string">''</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// 验证 Referer 或 Origin 是否合法</span>
+    <span class="token keyword">const</span> isValid <span class="token operator">=</span> allowedDomains<span class="token punctuation">.</span><span class="token function">some</span><span class="token punctuation">(</span><span class="token parameter">domain</span> <span class="token operator">=&gt;</span> 
+      referer<span class="token punctuation">.</span><span class="token function">startsWith</span><span class="token punctuation">(</span>domain<span class="token punctuation">)</span> <span class="token operator">||</span> origin<span class="token punctuation">.</span><span class="token function">startsWith</span><span class="token punctuation">(</span>domain<span class="token punctuation">)</span>
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>isValid<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      ctx<span class="token punctuation">.</span>status <span class="token operator">=</span> <span class="token number">403</span><span class="token punctuation">;</span>
+      ctx<span class="token punctuation">.</span>body <span class="token operator">=</span> <span class="token punctuation">{</span> <span class="token literal-property property">error</span><span class="token operator">:</span> <span class="token string">'Forbidden'</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
+      <span class="token keyword">return</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">await</span> <span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre></div><p><b>注意：</b>需在 config/config.default.js 中启用该中间件，并配置到需要保护的路由。</p> <h2 id="_2-启用-csrf-防护"><a href="#_2-启用-csrf-防护" class="header-anchor">#</a> 2. 启用 CSRF 防护</h2> <p>Egg.js 默认提供 CSRF 防护，开启后所有非安全请求（如 POST/PUT/DELETE）必须携带 CSRF Token。</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// config/config.default.js</span>
+exports<span class="token punctuation">.</span>security <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <span class="token literal-property property">csrf</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token literal-property property">enable</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+    <span class="token comment">// 可根据需要配置忽略的 API 路径（如开放接口）</span>
+    <span class="token literal-property property">ignore</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span> 
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre></div><p><b>前端适配：</b>从 Cookie 中读取 csrfToken 并添加到请求头或表单字段：</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// 前端 AJAX 请求示例</span>
+<span class="token function">fetch</span><span class="token punctuation">(</span><span class="token string">'/api/data'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+  <span class="token literal-property property">method</span><span class="token operator">:</span> <span class="token string">'POST'</span><span class="token punctuation">,</span>
+  <span class="token literal-property property">headers</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token string-property property">'Content-Type'</span><span class="token operator">:</span> <span class="token string">'application/json'</span><span class="token punctuation">,</span>
+    <span class="token string-property property">'x-csrf-token'</span><span class="token operator">:</span> <span class="token function">getCookie</span><span class="token punctuation">(</span><span class="token string">'csrfToken'</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token comment">// 从 Cookie 读取</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token literal-property property">body</span><span class="token operator">:</span> <span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span><span class="token punctuation">{</span> <span class="token literal-property property">data</span><span class="token operator">:</span> <span class="token string">'test'</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><h2 id="_3-cors-严格配置"><a href="#_3-cors-严格配置" class="header-anchor">#</a> 3. CORS 严格配置</h2> <p>限制跨域请求，仅允许你的网站域名访问接口。</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// config/config.default.js</span>
+exports<span class="token punctuation">.</span>cors <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <span class="token function-variable function">origin</span><span class="token operator">:</span> <span class="token parameter">ctx</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> allowedOrigins <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'https://your-website.com'</span><span class="token punctuation">,</span> <span class="token string">'https://www.your-website.com'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token keyword">const</span> requestOrigin <span class="token operator">=</span> ctx<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">'origin'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> allowedOrigins<span class="token punctuation">.</span><span class="token function">includes</span><span class="token punctuation">(</span>requestOrigin<span class="token punctuation">)</span> <span class="token operator">?</span> requestOrigin <span class="token operator">:</span> <span class="token string">''</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token literal-property property">allowMethods</span><span class="token operator">:</span> <span class="token string">'GET,HEAD,PUT,POST,DELETE,PATCH'</span><span class="token punctuation">,</span>
+  <span class="token literal-property property">credentials</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> <span class="token comment">// 允许携带 Cookie</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre></div><h2 id="_4-用户认证与授权"><a href="#_4-用户认证与授权" class="header-anchor">#</a> 4. 用户认证与授权</h2> <p>使用 Token 或 Session 确保用户已登录且有权访问接口。<br><br> <b>JWT 示例：</b></p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// middleware/auth.js</span>
+<span class="token keyword">const</span> jwt <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'jsonwebtoken'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+module<span class="token punctuation">.</span><span class="token function-variable function">exports</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">auth</span><span class="token punctuation">(</span><span class="token parameter">ctx<span class="token punctuation">,</span> next</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> token <span class="token operator">=</span> ctx<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">'authorization'</span><span class="token punctuation">)</span><span class="token operator">?.</span><span class="token function">replace</span><span class="token punctuation">(</span><span class="token string">'Bearer '</span><span class="token punctuation">,</span> <span class="token string">''</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>token<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      ctx<span class="token punctuation">.</span><span class="token function">throw</span><span class="token punctuation">(</span><span class="token number">401</span><span class="token punctuation">,</span> <span class="token string">'Unauthorized'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">try</span> <span class="token punctuation">{</span>
+      <span class="token keyword">const</span> decoded <span class="token operator">=</span> jwt<span class="token punctuation">.</span><span class="token function">verify</span><span class="token punctuation">(</span>token<span class="token punctuation">,</span> <span class="token string">'your-secret-key'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      ctx<span class="token punctuation">.</span>user <span class="token operator">=</span> decoded<span class="token punctuation">;</span> <span class="token comment">// 将用户信息挂载到上下文</span>
+      <span class="token keyword">await</span> <span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span>err<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      ctx<span class="token punctuation">.</span><span class="token function">throw</span><span class="token punctuation">(</span><span class="token number">401</span><span class="token punctuation">,</span> <span class="token string">'Invalid token'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre></div><h2 id="_5-请求签名与防重放"><a href="#_5-请求签名与防重放" class="header-anchor">#</a> 5. 请求签名与防重放</h2> <p>为每个请求生成唯一签名，防止篡改和重放。<br><br>
+签名规则：<br></p> <ol><li>将请求参数按固定顺序拼接。</li> <li>添加时间戳和随机 Nonce。</li> <li>使用 HMAC 算法生成签名。</li></ol> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// 前端生成签名示例</span>
+<span class="token keyword">const</span> params <span class="token operator">=</span> <span class="token punctuation">{</span> <span class="token literal-property property">data</span><span class="token operator">:</span> <span class="token string">'test'</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> timestamp <span class="token operator">=</span> Date<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> nonce <span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token function">random</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token number">36</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">substr</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> signStr <span class="token operator">=</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>timestamp<span class="token interpolation-punctuation punctuation">}</span></span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>nonce<span class="token interpolation-punctuation punctuation">}</span></span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span><span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span>params<span class="token punctuation">)</span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> signature <span class="token operator">=</span> CryptoJS<span class="token punctuation">.</span><span class="token function">HmacSHA256</span><span class="token punctuation">(</span>signStr<span class="token punctuation">,</span> <span class="token string">'your-secret-key'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// 后端验证中间件</span>
+<span class="token function">checkSignature</span><span class="token punctuation">(</span><span class="token parameter">ctx</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> <span class="token punctuation">{</span> timestamp<span class="token punctuation">,</span> nonce<span class="token punctuation">,</span> signature <span class="token punctuation">}</span> <span class="token operator">=</span> ctx<span class="token punctuation">.</span>headers<span class="token punctuation">;</span>
+  <span class="token keyword">const</span> params <span class="token operator">=</span> ctx<span class="token punctuation">.</span>request<span class="token punctuation">.</span>body<span class="token punctuation">;</span>
+  <span class="token keyword">const</span> signStr <span class="token operator">=</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>timestamp<span class="token interpolation-punctuation punctuation">}</span></span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>nonce<span class="token interpolation-punctuation punctuation">}</span></span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span><span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span>params<span class="token punctuation">)</span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">;</span>
+  <span class="token keyword">const</span> expectedSign <span class="token operator">=</span> CryptoJS<span class="token punctuation">.</span><span class="token function">HmacSHA256</span><span class="token punctuation">(</span>signStr<span class="token punctuation">,</span> <span class="token string">'your-secret-key'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>signature <span class="token operator">!==</span> expectedSign <span class="token operator">||</span> Date<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-</span> timestamp <span class="token operator">&gt;</span> <span class="token number">5000</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    ctx<span class="token punctuation">.</span><span class="token function">throw</span><span class="token punctuation">(</span><span class="token number">403</span><span class="token punctuation">,</span> <span class="token string">'Invalid signature'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h2 id="_6-客户端指纹校验"><a href="#_6-客户端指纹校验" class="header-anchor">#</a> 6. 客户端指纹校验</h2> <p>通过浏览器环境特征识别请求来源（如 WebGL 指纹、Canvas 指纹）。</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// 前端生成指纹并发送到服务端</span>
+<span class="token keyword">import</span> FingerprintJS <span class="token keyword">from</span> <span class="token string">'@fingerprintjs/fingerprintjs'</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> fp <span class="token operator">=</span> <span class="token keyword">await</span> FingerprintJS<span class="token punctuation">.</span><span class="token function">load</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> result <span class="token operator">=</span> <span class="token keyword">await</span> fp<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+ctx<span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span><span class="token string">'x-client-fingerprint'</span><span class="token punctuation">,</span> result<span class="token punctuation">.</span>visitorId<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// 后端校验指纹中间件</span>
+<span class="token keyword">async</span> <span class="token function">checkFingerprint</span><span class="token punctuation">(</span><span class="token parameter">ctx<span class="token punctuation">,</span> next</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> clientFingerprint <span class="token operator">=</span> ctx<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">'x-client-fingerprint'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>validFingerprints<span class="token punctuation">.</span><span class="token function">includes</span><span class="token punctuation">(</span>clientFingerprint<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    ctx<span class="token punctuation">.</span><span class="token function">throw</span><span class="token punctuation">(</span><span class="token number">403</span><span class="token punctuation">,</span> <span class="token string">'Invalid client'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword">await</span> <span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h2 id="_7-动态-token-防御"><a href="#_7-动态-token-防御" class="header-anchor">#</a> 7. 动态 Token 防御</h2> <p>在关键操作（如支付、数据修改）中使用动态一次性 Token（OTP）。</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// 服务端生成 OTP 并缓存（如 Redis）</span>
+<span class="token keyword">const</span> otp <span class="token operator">=</span> <span class="token function">generateOTP</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 例如 6 位随机数字</span>
+<span class="token keyword">await</span> app<span class="token punctuation">.</span>redis<span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">otp:</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>userId<span class="token interpolation-punctuation punctuation">}</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">,</span> otp<span class="token punctuation">,</span> <span class="token string">'EX'</span><span class="token punctuation">,</span> <span class="token number">60</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 60 秒过期</span>
+
+<span class="token comment">// 前端提交时必须携带该 OTP</span>
+<span class="token comment">// 后端验证 OTP 是否匹配</span>
+</code></pre></div><h2 id="_8-请求频率限制"><a href="#_8-请求频率限制" class="header-anchor">#</a> 8. 请求频率限制</h2> <p>防止暴力调用，使用 egg-ratelimiter 插件限制 IP 或用户的请求频率。</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// config/plugin.js</span>
+exports<span class="token punctuation">.</span>ratelimiter <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <span class="token literal-property property">enable</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+  <span class="token keyword">package</span><span class="token operator">:</span> <span class="token string">'egg-ratelimiter'</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token comment">// config/config.default.js</span>
+config<span class="token punctuation">.</span>ratelimiter <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <span class="token literal-property property">duration</span><span class="token operator">:</span> <span class="token number">60000</span><span class="token punctuation">,</span> <span class="token comment">// 1 分钟</span>
+  <span class="token literal-property property">max</span><span class="token operator">:</span> <span class="token number">100</span><span class="token punctuation">,</span> <span class="token comment">// 允许 100 次请求</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre></div><h2 id="_9-混淆接口路径"><a href="#_9-混淆接口路径" class="header-anchor">#</a> 9. 混淆接口路径</h2> <p>避免暴露接口规律，例如： <br></p> <ol><li>使用随机字符串作为路由路径：/api/v1/3xYm9/query</li> <li>定期更换接口路径（需配合前端动态获取）。</li></ol> <h2 id="_10-深度防御-行为分析与-waf"><a href="#_10-深度防御-行为分析与-waf" class="header-anchor">#</a> 10. 深度防御：行为分析与 WAF</h2> <ol><li>部署 Web 应用防火墙（WAF）过滤恶意请求。</li> <li>记录异常请求日志（如频繁 404、非常规 User-Agent）。</li> <li>结合 AI 分析用户行为模式，拦截异常流量。</li></ol> <h2 id="总结建议"><a href="#总结建议" class="header-anchor">#</a> 总结建议</h2> <ol><li>必选基础方案：CSRF + CORS + JWT + Referer 校验。</li> <li>增强方案：请求签名 + 频率限制 + 动态 OTP。</li> <li>高级方案：客户端指纹 + 接口混淆 + WAF。</li></ol> <p>通过多层级防护，即使攻击者获取了接口地址，也需要突破多个验证环节才能调用成功。</p></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">更新时间:</span> <span class="time">2025年5月12日星期一下午1点31分</span></div></footer> <!----> </main></div><div class="global-ui"><!----><!----></div></div>
+    <script src="/assets/js/app.01f43675.js" defer></script><script src="/assets/js/9.13d458ed.js" defer></script><script src="/assets/js/2.6281e0bb.js" defer></script><script src="/assets/js/100.498defc6.js" defer></script><script src="/assets/js/3.e6827fa8.js" defer></script>
+  </body>
+</html>
