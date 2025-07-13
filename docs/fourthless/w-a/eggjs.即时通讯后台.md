@@ -523,7 +523,7 @@ class ChatuserController extends Controller {
         }
         //否则不存在则写入数据库
         let status = 1;
-        const res = await this.app.model.User.create({
+        let res = await this.app.model.User.create({
             username,
             password,
             status
@@ -532,7 +532,16 @@ class ChatuserController extends Controller {
         await this.ctx.model.UserInfo.create({
             user_id: res.id
         });
-        this.ctx.apiSuccess('ok');
+        // 成功返回数据
+        // res =  JSON.parse(JSON.stringify(res));
+        // delete res.password;
+        // this.ctx.apiSuccess(res);
+        // 逻辑： 注册成功后，自动登录，返回token
+        // 比对信息
+        await this.compareData({
+            username,
+            password
+        });
     }
 
     // 比对信息
