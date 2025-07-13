@@ -41,3 +41,11 @@ title: 第四学期第一季（课程学习顺序：11）
 ### 2. 后台 `rolecategory`、`category`、`news`等补充功能说明
 ####  <a href="/fourthless/w-a/eggjs.后台补充功能说明" target="_blank" style="margin-left:40px;">1.后台 `rolecategory`、`category`、`news`表等补充功能说明</a>
 ####  <a href="/fourthless/w-a/eggjs.超级管理员自定义表单" target="_blank" style="margin-left:40px;">2.后台超级管理员自定义表单新增修改（以网站配置为例）</a>
+### 3. 申请免费ssl证书并自动化部署
+####  <a href="/web/answer/免费部署SSL证书.html" target="_blank" style="margin-left:40px;">申请免费ssl证书并自动化部署</a>
+
+### <a >第三学期第二季【即时通讯】后端内容讲解</a>
+### 1. 用户登录注册接口开发
+####  <a href="/fourthless/w-a/eggjs.即时通讯后台" target="_blank" style="margin-left:40px;">1.用户后台管理</a>
+####  <a href="/fourthless/w-a/eggjs.即时通讯接口" target="_blank" style="margin-left:40px;">2.用户登录注册接口</a>
+
