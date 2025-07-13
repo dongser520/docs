@@ -1,6 +1,6 @@
 ---
 navbar: true
-title:  第一学期课程
+title:  第一期企业网页开发
 --- 
 
 # 【第一学期】html+css通用企业网页

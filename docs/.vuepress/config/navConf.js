@@ -1,8 +1,8 @@
 module.exports = [
     { text: '主页', link: '/' },
-    { text: '第一期网页开发', link: '/aboutless' },
+    { text: '第一期企业网页开发', link: '/aboutless' },
     { text: '第二期企业网站开发', link: '/secondless/' },
-    { text: '第三期移动端课程', link: '/thirdless/' },
+    { text: '第三期移动端(H5/小程序/App)课程', link: '/thirdless/' },
     { text: '第四期web全栈课程', link: '/fourthless/' },
     { text: '第五期python课程', link: '/fiveless/' },
     // { text: '项目部署专题课', link: '/deploy/' },

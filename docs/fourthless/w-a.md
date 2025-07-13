@@ -45,7 +45,7 @@ title: 第四学期第一季（课程学习顺序：11）
 ####  <a href="/web/answer/免费部署SSL证书.html" target="_blank" style="margin-left:40px;">申请免费ssl证书并自动化部署</a>
 
 ### <a >第三学期第二季【即时通讯】后端内容讲解</a>
-### 1. 用户登录注册接口开发
+### 1. 用户登录注册退出接口开发
 ####  <a href="/fourthless/w-a/eggjs.即时通讯后台" target="_blank" style="margin-left:40px;">1.用户后台管理</a>
-####  <a href="/fourthless/w-a/eggjs.即时通讯接口" target="_blank" style="margin-left:40px;">2.用户登录注册接口</a>
+####  <a href="/fourthless/w-a/eggjs.即时通讯接口" target="_blank" style="margin-left:40px;">2.用户登录注册退出接口</a>
 
