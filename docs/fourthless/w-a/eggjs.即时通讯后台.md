@@ -6,7 +6,7 @@ title: eggjs即时通讯后台
 
 ## 一、 后台新增即时通讯栏目
 字体图标查看 <https://fontawesome.dashgame.com/>
-### 1. 后台即时通讯用户管理
+### 一. 后台即时通讯用户管理
 ### ① 新建控制器 `app/controller/admin/chatuser.js`
 ```js
 'use strict';
@@ -436,7 +436,7 @@ module.exports = app => {
 ```
 
 
-### 2. 即时通讯用户登录注册接口开发
+### 二. 即时通讯用户登录注册接口开发
 ### ① 新建控制器 `app/controller/api/chat/chatuser.js`
 ```js
 'use strict';
@@ -749,3 +749,4 @@ module.exports = appInfo => {
 };
 
 ```
+

@@ -253,3 +253,10 @@ this.ctx.validate({
 ## 十八、商品管理板块表：`goods_class`[商品分类表]、`skus`[商品规格表] 说明
 具体查看：<a href="/web/mysql/goods_class.html" target="_blank">点击查看 商品管理板块表 `goods_class` `skus`</a><br/>
 
+## 十九、用户表：`user`[用户表]、`user_info`[用户信息表] 说明
+1. 具体查看：<a href="/web/mysql/user.html" target="_blank">点击查看 `user`[用户表]、`user_info`[用户信息表]相关表说明</a><br/>
+2. 相关接口开发文档查看：<a href="/fourthless/w-a/eggjs.user表用户管理.html" target="_blank">点击查看 `user`[用户表]、`user_info`[用户信息表]相关表接口开发文档</a><br/>
+
+## 二十、好友表：`goodfriend`[好友表] 说明
+1. 具体查看：<a href="/web/mysql/goodfriend.html" target="_blank">点击查看 `goodfriend`[好友表] 相关表说明</a><br/>
+

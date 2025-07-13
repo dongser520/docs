@@ -5,6 +5,7 @@ title: eggjs即时通讯接口
 ---
 
 ## 一、用户注册
+接口文档查看：<a href="/fourthless/w-a/eggjs.即时通讯后台.html#二-即时通讯用户登录注册接口开发" target="_blank">用户注册</a>
 > 1. 请求方式：`post` `[用postman测试]`或者`[用Apipost测试]`
 > 2. 接口示例：`http://127.0.0.1:7001/api/regChat`<br/>
 > 本地路由地址：<http://127.0.0.1:7001/api/regChat> <br/>
@@ -46,7 +47,9 @@ title: eggjs即时通讯接口
 >  }
 >  ```
 
+
 ## 二、用户登录
+接口文档查看：<a href="/fourthless/w-a/eggjs.即时通讯后台.html#二-即时通讯用户登录注册接口开发" target="_blank">用户登录</a>
 > 1. 请求方式：`post` `[用postman测试]`或者`[用Apipost测试]`
 > 2. 接口示例：`http://127.0.0.1:7001/api/loginChat`<br/>
 > 本地路由地址：<http://127.0.0.1:7001/api/loginChat> <br/>
@@ -90,6 +93,7 @@ title: eggjs即时通讯接口
 
 
 ## 三、用户退出
+接口文档查看：<a href="/fourthless/w-a/eggjs.即时通讯后台.html#二-即时通讯用户登录注册接口开发" target="_blank">用户退出</a>
 > 1. 请求方式：`post` `[用postman测试]`或者`[用Apipost测试]`
 > 2. 接口示例：`http://127.0.0.1:7001/api/chat/logout`<br/>
 > 本地路由地址：<http://127.0.0.1:7001/api/chat/logout> <br/>
@@ -108,5 +112,40 @@ title: eggjs即时通讯接口
 >  {
 >      "msg": "ok",
 >      "data": true
+>  }
+>  ```
+
+## 四、搜索用户
+接口文档查看：<a href="/fourthless/w-a/eggjs.即时通讯好友相关接口.html#一、-搜索用户-好友" target="_blank">搜索用户</a>
+> 1. 请求方式：`post` `[用postman测试]`或者`[用Apipost测试]`
+> 2. 接口示例：`http://127.0.0.1:7001/api/chat/searchUser`<br/>
+> 本地路由地址：<http://127.0.0.1:7001/api/chat/searchUser> <br/>
+> 3. header头传token
+> 
+> 请求参数 [Headers] -> [Key: `token`, Value: `token值`]
+> 
+> | 参数       |  是否必填    |  类型    |  长度                   | 说明     |
+> | :---:      | :---:       |  :---:   | :---:                  |:---:     |
+> | token      |  是         |  string  |  由服务器生成           | `token令牌`，如：`eyJhbGciO.....`  |
+> 
+> 4. 请求参数 [body] -> [x-www-form-urlencoded]
+>
+> | 参数       |  是否必填    |  类型    |  长度         | 说明     |
+> | :---:      | :---:       |  :---:   | :---:        |:---:     |
+> | keyword   |  是         |  string  |  1-50位       |   搜索关键词，如：`my01`  |
+> 5. 返回示例
+>  ```js
+>  {
+>      "msg": "ok",
+>      "data": [
+>          {
+>              "id": 1,
+>              "username": "my01",
+>              "avatar": "https://thinkphp-all.oss-cn-hangzhou.aliyuncs.com/public/67b3001b2aedd.png",
+>              "role": "user",
+>              "uuid": "edda71aa-4a31-4ba8-9025-8fdc0dc3c0fa",
+>              "nickname": "魂牵一梦"
+>          }
+>      ]
 >  }
 >  ```
