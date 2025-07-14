@@ -12,7 +12,7 @@ title: 好友表、好友申请表相关说明
 | <b>nickname</b>   | <span>`STRING(50)`</span>   |    否      | `''`  |  <span style="font-size:12px">好友备注名称 </span> |
 | <b>friendlookme </b>  | <span>`TINYINT(1)`</span>   |    否 | `1`  | <span style="font-size:12px"> 朋友是否可以看我发布的信息、朋友圈(0-不可以 1-可以)</span>  |
 | <b>melookfriend </b>  | <span>`TINYINT(1)`</span>   |    否 | `1`  | <span style="font-size:12px"> 朋友发布的信息是否出现在我的朋友圈列表中(0-不出现 1-出现)</span>  |
-| <b>ismyStarfriend </b>  | <span>`TINYINT(1)`</span>   |    否 | `0`  | <span style="font-size:12px"> 朋友是不是我的星标好友(0-不是 1-是)</span>  |
+| <b>ismystarfriend </b>  | <span>`TINYINT(1)`</span>   |    否 | `0`  | <span style="font-size:12px"> 朋友是不是我的星标好友(0-不是 1-是)</span>  |
 | <b>isblack </b>  | <span>`TINYINT(1)`</span>   |    否 | `0`  | <span style="font-size:12px"> 是否将好友加入黑名单(0-否 1-是)</span>  |
 | <b>...</b>  | <span>...</span>   |    ...      | ...  |  根据业务需求再增加字段 |
 | <b>status </b>  | <span>`TINYINT(1)`</span>   |    否 | `1`  | <span style="font-size:12px"> 数据状态(0-禁用 1-正常 2-锁定)（给后台管理员用的）</span>  |
@@ -84,7 +84,7 @@ module.exports = {
         defaultValue: 1,
         comment: '朋友发布的信息是否出现在我的朋友圈列表中(0-不出现 1-出现)'
       },
-      ismyStarfriend: {
+      ismystarfriend: {
         type: TINYINT(1),
         allowNull: false,
         defaultValue: 0,
@@ -193,7 +193,7 @@ module.exports = app => {
             defaultValue: 1,
             comment: '朋友发布的信息是否出现在我的朋友圈列表中(0-不出现 1-出现)'
         },
-        ismyStarfriend: {
+        ismystarfriend: {
             type: TINYINT(1),
             allowNull: false,
             defaultValue: 0,
@@ -238,12 +238,12 @@ module.exports = app => {
 | 字段名  |  数据类型及描述    |   空    | <p >默认值 </p>  | <p>字段含义 </p>     |
 | :---:   | :---:      |  :---:    | :---:       |        :---:                             |
 | <b>id</b>|<span>`INTEGER(20).UNSIGNED` </span><br/> <span style="font-size:12px">主键、自增长、UNSIGNED无符号 </span>    |    否      |   无  |         主键id  |
-| <b>user_id</b>|<span>`INTEGER(20).UNSIGNED` </span>   |    否      |   0  |    申请用户id，user表的id   |
-| <b>friend_id</b>|<span>`INTEGER(20).UNSIGNED` </span>   |    否      |   0  |  用户要申请的好友id，user表的id  |
-| <b>nickname</b>   | <span>`STRING(50)`</span>   |    否      | `''`  |  <span style="font-size:12px">好友备注名称 </span> |
+| <b>user_id</b>|<span>`INTEGER(20).UNSIGNED` </span>   |    否      |   0  |    申请用户id(我的id)，user表的id   |
+| <b>friend_id</b>|<span>`INTEGER(20).UNSIGNED` </span>   |    否      |   0  |  我申请添加的好友id，user表的id  |
+| <b>nickname</b>   | <span>`STRING(50)`</span>   |    否      | `''`  |  <span style="font-size:12px">我的昵称或者说明 </span> |
 | <b>friendlookme </b>  | <span>`TINYINT(1)`</span>   |    否 | `1`  | <span style="font-size:12px"> 朋友是否可以看我发布的信息、朋友圈(0-不可以 1-可以)</span>  |
 | <b>melookfriend </b>  | <span>`TINYINT(1)`</span>   |    否 | `1`  | <span style="font-size:12px"> 朋友发布的信息是否出现在我的朋友圈列表中(0-不出现 1-出现)</span>  |
-| <b>ismyStarfriend </b>  | <span>`TINYINT(1)`</span>   |    否 | `0`  | <span style="font-size:12px"> 朋友是不是我的星标好友(0-不是 1-是)</span>  |
+| <b>ismystarfriend </b>  | <span>`TINYINT(1)`</span>   |    否 | `0`  | <span style="font-size:12px"> 朋友是不是我的星标好友(0-不是 1-是)</span>  |
 | <b>isblack </b>  | <span>`TINYINT(1)`</span>   |    否 | `0`  | <span style="font-size:12px"> 是否将好友加入黑名单(0-否 1-是)</span>  |
 | <b>...</b>  | <span>...</span>   |    ...      | ...  |  根据业务需求再增加字段 |
 | <b>status </b>  | <span style="font-size:18px">`ENUM`</span><br/><span style="font-size:12px">('pending','refuse','agree','ignore')</span>   |    否 | `pending`  | <span style="font-size:12px"> 申请加好友状态(`pending`-申请中 `refuse`-拒绝 `agree`-同意 `ignore`-忽略) </span>  |
@@ -277,7 +277,7 @@ module.exports = {
           type: INTEGER(20).UNSIGNED,
           allowNull: true,
           defaultValue: 0,
-          comment: '用户id',
+          comment: '用户id(我的id)',
           references: { //关联关系
               model: 'user', //关联的表
               key: 'id' //关联表的主键
@@ -289,7 +289,7 @@ module.exports = {
           type: INTEGER(20).UNSIGNED,
           allowNull: true,
           defaultValue: 0,
-          comment: '用户的好友id',
+          comment: '我申请添加的好友id',
           references: { //关联关系
               model: 'user', //关联的表
               key: 'id' //关联表的主键
@@ -301,7 +301,7 @@ module.exports = {
           type: STRING(50),
           allowNull: false,
           defaultValue: '',
-          comment: '好友备注名称'
+          comment: '我的昵称或者说明'
       },
       friendlookme: {
         type: TINYINT(1),
@@ -315,7 +315,7 @@ module.exports = {
         defaultValue: 1,
         comment: '朋友发布的信息是否出现在我的朋友圈列表中(0-不出现 1-出现)'
       },
-      ismyStarfriend: {
+      ismystarfriend: {
         type: TINYINT(1),
         allowNull: false,
         defaultValue: 0,
@@ -385,7 +385,7 @@ module.exports = app => {
             type: INTEGER(20).UNSIGNED,
             allowNull: true,
             defaultValue: 0,
-            comment: '用户id',
+            comment: '用户id(我的id)',
             references: { //关联关系
                 model: 'user', //关联的表
                 key: 'id' //关联表的主键
@@ -397,7 +397,7 @@ module.exports = app => {
             type: INTEGER(20).UNSIGNED,
             allowNull: true,
             defaultValue: 0,
-            comment: '用户的好友id',
+            comment: '我申请添加的好友id',
             references: { //关联关系
                 model: 'user', //关联的表
                 key: 'id' //关联表的主键
@@ -409,7 +409,7 @@ module.exports = app => {
             type: STRING(50),
             allowNull: false,
             defaultValue: '',
-            comment: '好友备注名称'
+            comment: '我的昵称或者说明'
         },
         friendlookme: {
             type: TINYINT(1),
@@ -423,7 +423,7 @@ module.exports = app => {
             defaultValue: 1,
             comment: '朋友发布的信息是否出现在我的朋友圈列表中(0-不出现 1-出现)'
         },
-        ismyStarfriend: {
+        ismystarfriend: {
             type: TINYINT(1),
             allowNull: false,
             defaultValue: 0,
@@ -460,6 +460,14 @@ module.exports = app => {
         update_time: { type: DATE, allowNull: false, defaultValue: app.Sequelize.fn('NOW') },
     });
 
+    // 模型关联
+    Goodfriendapply.associate =  function (models) {
+        // 一个用户可以申请多个好友，用户对申请表是一对多， 反过来申请表对于用户表就是反向一对多
+        Goodfriendapply.belongsTo(app.model.User,{
+            // foreignKey: 'user_id',
+        });
+    };
+    
     return Goodfriendapply;
 }
 ```

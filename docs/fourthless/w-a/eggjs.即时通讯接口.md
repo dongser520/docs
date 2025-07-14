@@ -116,6 +116,7 @@ title: eggjs即时通讯接口
 >  ```
 
 ## 四、搜索用户
+说明：`搜索用户（登录用户才能搜索用户，未登录用户（游客）不能搜索用户）` <br/>
 接口文档查看：<a href="/fourthless/w-a/eggjs.即时通讯好友相关接口.html#一、-搜索用户-好友" target="_blank">搜索用户</a>
 > 1. 请求方式：`post` `[用postman测试]`或者`[用Apipost测试]`
 > 2. 接口示例：`http://127.0.0.1:7001/api/chat/searchUser`<br/>
@@ -147,5 +148,87 @@ title: eggjs即时通讯接口
 >              "nickname": "魂牵一梦"
 >          }
 >      ]
+>  }
+>  ```
+
+## 五、申请添加好友
+说明：`申请添加好友 （登录用户才能申请添加好友，（游客）不能申请添加好友）` <br/>
+接口文档查看：<a href="/fourthless/w-a/eggjs.即时通讯好友相关接口.html#三、添加好友-申请添加好友" target="_blank">申请添加好友</a>
+> 1. 请求方式：`post` `[用postman测试]`或者`[用Apipost测试]`
+> 2. 接口示例：`http://127.0.0.1:7001/api/chat/applyfriend`<br/>
+> 本地路由地址：<http://127.0.0.1:7001/api/chat/applyfriend> <br/>
+> 3. header头传token
+> 
+> 请求参数 [Headers] -> [Key: `token`, Value: `token值`]
+> 
+> | 参数       |  是否必填    |  类型    |  长度                   | 说明     |
+> | :---:      | :---:       |  :---:   | :---:                  |:---:     |
+> | token      |  是         |  string  |  由服务器生成           | `token令牌`，如：`eyJhbGciO.....`  |
+> 
+> 4. 请求参数 [body] -> [x-www-form-urlencoded]
+>
+> | 参数       |  是否必填    |  类型    |  长度         | 说明     |
+> | :---:      | :---:       |  :---:   | :---:        |:---:     |
+> | friend_id   |  是         |  int  |  int(11)       |   我申请添加的好友id，如：`1`  |
+> | nickname   |  否         |  string  |  1-50位       |   我的昵称或者说明，默认空字符串  |
+> 5. 返回示例
+>  ```js
+>  {
+>      "msg": "ok",
+>      "data": "ok"
+>  }
+>  ```
+
+
+## 六、查看好友申请列表（获取别人申请我为好友的列表数据）
+说明：`（登录用户才能查看好友申请列表，（游客）不能查看好友申请列表）` <br/>
+接口文档查看：<a href="/fourthless/w-a/eggjs.即时通讯好友相关接口.html#四、查看好友申请列表-获取别人申请我为好友的列表数据" target="_blank">查看好友申请列表（获取别人申请我为好友的列表数据）</a>
+> 1. 请求方式：`get` `[用postman测试]`或者`[用Apipost测试]`
+> 2. 接口示例：`http://127.0.0.1:7001/api/chat/listapplyfriend/:page?limit=[:limit]`<br/>
+> 本地路由地址：<http://127.0.0.1:7001/api/chat/listapplyfriend/1?limit=1> <br/>
+> 3. header头传token
+> 
+> 请求参数 [Headers] -> [Key: `token`, Value: `token值`]
+> 
+> | 参数       |  是否必填    |  类型    |  长度                   | 说明     |
+> | :---:      | :---:       |  :---:   | :---:                  |:---:     |
+> | token      |  是         |  string  |  由服务器生成           | `token令牌`，如：`eyJhbGciO.....`  |
+> 
+> 4. 请求参数 [body] -> [x-www-form-urlencoded]
+>
+> | 参数       |  是否必填    |  类型    |  长度         | 说明     |
+> | :---:      | :---:       |  :---:   | :---:        |:---:     |
+> | page   |  是         |  int  |  int(11)       |   页码，默认：`1`, 不填默认第一页  |
+> | limit   |  否         |  int |       |   每页多少条，可不填，不填默认每页10条  |
+> 5. 返回示例
+>  ```js
+>  {
+>      "msg": "ok",
+>      "data": {
+>          "alldata": [
+>              {
+>                  "create_time": "2025-07-14 11:41:19",
+>                  "id": 1,
+>                  "user_id": 1,
+>                  "friend_id": 3,
+>                  "nickname": "",
+>                  "friendlookme": 1,
+>                  "melookfriend": 1,
+>                  "ismystarfriend": 0,
+>                  "isblack": 0,
+>                  "status": "pending",
+>                  "order": 50,
+>                  "update_time": "2025-07-14T04:32:58.000Z",
+>                  "userId": 1,
+>                  "user": {
+>                      "id": 1,
+>                      "username": "my01",
+>                      "avatar": "https://thinkphp-all.oss-cn-hangzhou.aliyuncs.com/public/67b3001b2aedd.png",
+>                      "nickname": "魂牵一梦"
+>                  }
+>              }
+>          ],
+>          "pendingCount": 2
+>      }
 >  }
 >  ```
