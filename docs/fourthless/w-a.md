@@ -53,3 +53,6 @@ title: 第四学期第一季（课程学习顺序：11）
 ####  <a href="/fourthless/w-a/eggjs.即时通讯接口.html" target="_blank" style="margin-left:40px;">所有接口说明</a>
 ####  <a href="/fourthless/w-a/eggjs.即时通讯好友相关接口.html#一、-搜索用户-好友" target="_blank" style="margin-left:40px;">所有接口开发及说明</a>
 
+### 3. websocket处理
+####  <a href="/fourthless/w-a/eggjs.即时通讯websocket处理" target="_blank" style="margin-left:40px;">websocket配置处理</a>
+
