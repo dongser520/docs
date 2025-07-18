@@ -447,3 +447,192 @@ title: eggjs即时通讯接口
 >      "data": "ok"
 >  }
 >  ```
+
+
+## 十三、给游客用户注册身份
+接口文档查看：<a href="/fourthless/w-a/eggjs.即时通讯后台.html#三、给未登录用户创建一个游客身份" target="_blank">三、给未登录用户(游客)创建一个游客身份</a> <br/>
+说明：服务端做了以下限制<br/>
+1. 1个小时内，同一个设备只能请求5次
+2. 客户端签名，5分钟内有效
+3. 设备id必须符合指定标识 <br/>
+以上设置主要为了服务请求安全和减轻服务器压力。<br/>
+> 1. 请求方式：`post` `[用postman测试]`或者`[用Apipost测试]`
+> 2. 接口示例：`http://127.0.0.1:7001/api/visitorRegister`<br/> 
+> 本地路由地址：<http://127.0.0.1:7001/api/visitorRegister> <br/> 
+> 3. header头传客户端签名
+> 
+> 请求参数 [Headers] -> [Key: `X-Security-Sign`, Value: `客户端签名值`]
+> 
+> | 参数       |  是否必填    |  类型    |  长度                   | 说明     |
+> | :---:      | :---:       |  :---:   | :---:                  |:---:     |
+> | `X-Security-Sign` |  是 |  string | 由客户端生成，服务端检验签名是否正确 | `客户端签名`，如：`12b4792d.....`  |
+> 
+> 4. 请求参数 [body] -> [x-www-form-urlencoded]
+>
+> | 参数   |  是否必填    |  类型  |  长度  | 默认值| 说明     |
+> | :---:  | :---:       |  :---: | :---: |:---:   |:---:     |
+> | deviceId   |  是  |  string  | |     |  客户端生成特定的标识符，到服务端进行校验，如 `"8d1a344c-bf16-5425-adbc-d12f49cfa332"`  |
+> | timestamp   |  是  |  Date  | |     |  时间戳，校验签名时效性，5分钟内有效，如：`1752835449008`  |
+> 5. 返回示例
+> ```js
+> {
+>     "msg": "ok",
+>     "data": {
+>         "create_time": "2025-07-18 18:44:09",
+>         "id": 47,
+>         "uuid": "0d4e20a9-28b6-45d0-9dc6-18cf09d2aa1b",
+>         "username": "VIS8d1a344c",
+>         "nickname": "",
+>         "avatar": "https://thinkphp-all.oss-cn-hangzhou.aliyuncs.com/public/67b3001b2aedd.png",
+>         "devicefingeruuid": "8d1a344c-bf16-5425-adbc-d12f49cfa332",
+>         "uniplatform": "",
+>         "devicemodel": "",
+>         "deviceos": "",
+>         "devicebrand": "",
+>         "mobile": null,
+>         "email": null,
+>         "status": 1,
+>         "last_login": "2025-07-18T10:44:09.000Z",
+>         "last_login_ip": null,
+>         "register_time": "2025-07-18T10:44:09.000Z",
+>         "register_ip": null,
+>         "is_deleted": 0,
+>         "wechat_openid": null,
+>         "qq_openid": null,
+>         "weibo_uid": null,
+>         "role": "visitor",
+>         "is_email_verified": 0,
+>         "is_mobile_verified": 0,
+>         "order": 50,
+>         "update_time": "2025-07-18T10:44:09.000Z",
+>         "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjcmVhdGVfdGltZSI6IjIwMjUtMDctMTggMTg6NDQ6MDk..."
+>     }
+> }
+> ```
+
+
+## 十四、游客用户自己正式注册身份
+接口文档查看：<a href="/fourthless/w-a/eggjs.即时通讯后台.html#三、给未登录用户创建一个游客身份" target="_blank">三、给未登录用户(游客)创建一个游客身份</a> <br/>
+说明：服务端做了以下限制<br/>
+1. 1个小时内，同一个设备只能请求5次
+2. 客户端签名，5分钟内有效
+3. 设备id必须符合指定标识 <br/>
+以上设置主要为了服务请求安全和减轻服务器压力。<br/>
+> 1. 请求方式：`post` `[用postman测试]`或者`[用Apipost测试]`
+> 2. 接口示例：`http://127.0.0.1:7001/api/visitorregChat`<br/> 
+> 本地路由地址：<http://127.0.0.1:7001/api/visitorregChat> <br/> 
+> 3. header头传客户端签名
+> 
+> 请求参数 [Headers] -> [Key: `X-Security-Sign`, Value: `客户端签名值`]
+> 
+> | 参数       |  是否必填    |  类型    |  长度                   | 说明     |
+> | :---:      | :---:       |  :---:   | :---:                  |:---:     |
+> | `X-Security-Sign` |  是 |  string | 由客户端生成，服务端检验签名是否正确 | `客户端签名`，如：`12b4792d.....`  |
+> 
+> 4. 请求参数 [body] -> [x-www-form-urlencoded]
+>
+> | 参数   |  是否必填    |  类型  |  长度  | 默认值| 说明     |
+> | :---:  | :---:       |  :---: | :---: |:---:   |:---:     |
+> | deviceId   |  是  |  string  | |     |  客户端生成特定的标识符，到服务端进行校验，如 `"8d1a344c-bf16-5425-adbc-d12f49cfa332"`  |
+> | timestamp   |  是  |  Date  |         |     |  时间戳，校验签名时效性，5分钟内有效，如：`1752835449008`  |
+> | username   |  是 |  string  |  4-20位，字母数字下划线  |    |用户名（账号），如：`my01`  |
+> | password   |  是 |  string  |  6-20位                 |    |密码，如：`123456`  |
+> 5. 返回示例
+> ```js
+> {
+>     "msg": "ok",
+>     "data": {
+>         "create_time": "2025-07-18 18:44:09",
+>         "id": 47,
+>         "uuid": "0d4e20a9-28b6-45d0-9dc6-18cf09d2aa1b",
+>         "username": "my01",
+>         "nickname": "",
+>         "avatar": "https://thinkphp-all.oss-cn-hangzhou.aliyuncs.com/public/67b3001b2aedd.png",
+>         "devicefingeruuid": "8d1a344c-bf16-5425-adbc-d12f49cfa332",
+>         "uniplatform": "",
+>         "devicemodel": "",
+>         "deviceos": "",
+>         "devicebrand": "",
+>         "mobile": null,
+>         "email": null,
+>         "status": 1,
+>         "last_login": "2025-07-18T10:44:09.000Z",
+>         "last_login_ip": null,
+>         "register_time": "2025-07-18T10:44:09.000Z",
+>         "register_ip": null,
+>         "is_deleted": 0,
+>         "wechat_openid": null,
+>         "qq_openid": null,
+>         "weibo_uid": null,
+>         "role": "user",
+>         "is_email_verified": 0,
+>         "is_mobile_verified": 0,
+>         "order": 50,
+>         "update_time": "2025-07-18T10:44:09.000Z",
+>         "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjcmVhdGVfdGltZSI6IjIwMjUtMDctMTggMTg6NDQ6MDk..."
+>     }
+> }
+> ```
+
+## 十五、游客用户自己正式登录身份
+接口文档查看：<a href="/fourthless/w-a/eggjs.即时通讯后台.html#三、给未登录用户创建一个游客身份" target="_blank">三、给未登录用户(游客)创建一个游客身份</a> <br/>
+说明：服务端做了以下限制<br/>
+1. 1个小时内，同一个设备只能请求5次
+2. 客户端签名，5分钟内有效
+3. 设备id必须符合指定标识 <br/>
+以上设置主要为了服务请求安全和减轻服务器压力。<br/>
+> 1. 请求方式：`post` `[用postman测试]`或者`[用Apipost测试]`
+> 2. 接口示例：`http://127.0.0.1:7001/api/visitorloginChat`<br/> 
+> 本地路由地址：<http://127.0.0.1:7001/api/visitorloginChat> <br/> 
+> 3. header头传客户端签名
+> 
+> 请求参数 [Headers] -> [Key: `X-Security-Sign`, Value: `客户端签名值`]
+> 
+> | 参数       |  是否必填    |  类型    |  长度                   | 说明     |
+> | :---:      | :---:       |  :---:   | :---:                  |:---:     |
+> | `X-Security-Sign` |  是 |  string | 由客户端生成，服务端检验签名是否正确 | `客户端签名`，如：`12b4792d.....`  |
+> 
+> 4. 请求参数 [body] -> [x-www-form-urlencoded]
+>
+> | 参数   |  是否必填    |  类型  |  长度  | 默认值| 说明     |
+> | :---:  | :---:       |  :---: | :---: |:---:   |:---:     |
+> | deviceId   |  是  |  string  | |     |  客户端生成特定的标识符，到服务端进行校验，如 `"8d1a344c-bf16-5425-adbc-d12f49cfa332"`  |
+> | timestamp   |  是  |  Date  |         |     |  时间戳，校验签名时效性，5分钟内有效，如：`1752835449008`  |
+> | username   |  是 |  string  |  4-20位，字母数字下划线  |    |用户名（账号），如：`my01`  |
+> | password   |  是 |  string  |  6-20位                 |    |密码，如：`123456`  |
+> 5. 返回示例
+> ```js
+> {
+>     "msg": "ok",
+>     "data": {
+>         "create_time": "2025-07-18 18:44:09",
+>         "id": 47,
+>         "uuid": "0d4e20a9-28b6-45d0-9dc6-18cf09d2aa1b",
+>         "username": "my01",
+>         "nickname": "",
+>         "avatar": "https://thinkphp-all.oss-cn-hangzhou.aliyuncs.com/public/67b3001b2aedd.png",
+>         "devicefingeruuid": "8d1a344c-bf16-5425-adbc-d12f49cfa332",
+>         "uniplatform": "",
+>         "devicemodel": "",
+>         "deviceos": "",
+>         "devicebrand": "",
+>         "mobile": null,
+>         "email": null,
+>         "status": 1,
+>         "last_login": "2025-07-18T10:44:09.000Z",
+>         "last_login_ip": null,
+>         "register_time": "2025-07-18T10:44:09.000Z",
+>         "register_ip": null,
+>         "is_deleted": 0,
+>         "wechat_openid": null,
+>         "qq_openid": null,
+>         "weibo_uid": null,
+>         "role": "user",
+>         "is_email_verified": 0,
+>         "is_mobile_verified": 0,
+>         "order": 50,
+>         "update_time": "2025-07-18T10:44:09.000Z",
+>         "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjcmVhdGVfdGltZSI6IjIwMjUtMDctMTggMTg6NDQ6MDk..."
+>     }
+> }
+> ```

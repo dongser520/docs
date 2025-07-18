@@ -64,6 +64,7 @@ module.exports = [
                 ariaLabel: 'uni-app专栏',
                 items: [
                     { text: 'uni-app的UI框架', link: '/web/methods/uni-app专栏' },
+                    { text: 'uni-app如何引入js库', link: '/web/methods/uni-app如何引入库' },
                 ]
             },
             {
