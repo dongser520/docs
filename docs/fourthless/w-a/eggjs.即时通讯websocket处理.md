@@ -45,41 +45,38 @@ module.exports = app => {
         let token = ctx.query.token;
         try {
             user = ctx.checkToken(token);
-            // 验证用户是否存在
+            // 验证用户状态
             let userCheck = await app.model.User.findByPk(user.id);
             if (!userCheck) {
                 ctx.websocket.send(JSON.stringify({
                     msg: "fail",
                     data: '用户不存在'
                 }));
-                // 关闭连接
                 return ctx.websocket.close();
             }
-            // 验证用户状态
             if (!userCheck.status) {
                 ctx.websocket.send(JSON.stringify({
                     msg: "fail",
-                    data: '你已被禁用'
+                    data: '你已被管理员禁用了'
                 }));
-                // 关闭连接
                 return ctx.websocket.close();
             }
             // 用户上线
-            app.ws.chat_user = app.ws.chat_user ? app.ws.chat_user : {};
+            app.ws.chatuser = app.ws.chatuser ? app.ws.chatuser : {};
             // 下线其他设备
-            // if (app.ws.chat_user[user.id]) {
-            //     app.ws.chat_user[user.id].send(JSON.stringify({
+            // if (app.ws.chatuser[user.id]) {
+            //     app.ws.chatuser[user.id].send(JSON.stringify({
             //         msg: "fail",
             //         data: '你的账号在其他设备登录'
             //     }));
-            //     app.ws.chat_user[user.id].close();
+            //     app.ws.chatuser[user.id].close();
             // }
             // 记录当前用户id
-            ctx.websocket.chat_user_id = user.id;
-            app.ws.chat_user[user.id] = ctx.websocket;
-
+            ctx.websocket.chatuser_id = user.id;
+            app.ws.chatuser[user.id] = ctx.websocket;
+    
             ctx.online(user.id);
-
+            
             await next();
         } catch (err) {
             console.log(err);
@@ -91,7 +88,7 @@ module.exports = app => {
             // 关闭连接
             ctx.websocket.close();
         }
-    });
+      });
     // 链接websocket
     app.ws.route('/ws', controller.api.chat.chatwebsocket.connect);
     //发送消息
@@ -158,16 +155,15 @@ class ChatwebsocketController extends Controller {
         .on('close', (code, reason) => {
             // 用户下线
             console.log('用户下线', code, reason);
-            let user_id = ctx.websocket.chat_user_id;
+            let user_id = ctx.websocket.chatuser_id;
             //移除redis中的用户上线记录
             service.cache.remove('online_' + user_id);
-            if (app.ws.chat_user && app.ws.chat_user[user_id]) {
-              delete app.ws.chat_user[user_id];
+            if (app.ws.chatuser && app.ws.chatuser[user_id]) {
+              delete app.ws.chatuser[user_id];
             }
         });
     }
 }
 
 module.exports = ChatwebsocketController;
-
 ```

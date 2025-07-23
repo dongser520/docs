@@ -795,8 +795,49 @@ module.exports = appInfo => {
                 // defValue: '', 
                 desc: '时间戳', //字段含义
             },
+            uniplatform: {
+                type: 'string',  
+                required: false, 
+                defValue: '', 
+                desc: '平台类型', 
+                range: {
+                    min: 2,
+                    max: 50
+                }
+            },
+            devicemodel: {
+                type: 'string',  
+                required: false, 
+                defValue: '', 
+                desc: '设备型号', 
+                range: {
+                    min: 1,
+                    max: 50
+                }
+            },
+            deviceos: {
+                type: 'string',  
+                required: false, 
+                defValue: '', 
+                desc: '操作系统', 
+                range: {
+                    min: 1,
+                    max: 50
+                }
+            },
+            devicebrand: {
+                type: 'string',  
+                required: false, 
+                defValue: '', 
+                desc: '设备品牌', 
+                range: {
+                    min: 1,
+                    max: 50
+                }
+            },
         });
-        const { deviceId, timestamp } = ctx.request.body;
+        const { deviceId, timestamp,
+            uniplatform, devicemodel, deviceos, devicebrand} = ctx.request.body;
         // 校验签名
         const serverSign = this.generateSign({
             deviceId,
@@ -846,8 +887,9 @@ module.exports = appInfo => {
         // 看一下这个deviceId标识下是否有账户
         let deviceIdUser = await this.app.model.User.findOne({ where: { devicefingeruuid: deviceId } });
         if (deviceIdUser) {
-            // 如果有账户
-            deviceIdUser = JSON.parse(JSON.stringify(deviceIdUser));
+            // 如果有账户 - 一般返回客户端可以转一下
+            // deviceIdUser = JSON.parse(JSON.stringify(deviceIdUser));
+            // console.log('游客账户',deviceIdUser.toJSON());
             if(deviceIdUser.role == 'visitor'){
                 // 如果是游客账户
                 // 更新一下最近一次操作时间
@@ -866,6 +908,10 @@ module.exports = appInfo => {
                     role: 'visitor', // 注意这里改成了游客模式
                 });
             }
+            // 以下内容选择性更新（可采用异步更新，不用await）
+            deviceIdUser.update({
+                uniplatform, devicemodel, deviceos, devicebrand,
+            });
         } else {
             // 没有账户则创建游客账户
             // 游客用户名：自定义
@@ -883,6 +929,8 @@ module.exports = appInfo => {
                 last_login: new Date(),
                 // 设备指纹
                 devicefingeruuid: deviceId,
+                // 以下内容选择性写入
+                uniplatform, devicemodel, deviceos, devicebrand,
             });
             user = JSON.parse(JSON.stringify(user));
             // 创建游客资料
@@ -900,20 +948,8 @@ module.exports = appInfo => {
             });
         }
     }
-
-    // 生成服务端签名
-    generateSign(params) {
-        const sortedStr = Object.keys(params).sort().map(k => `${k}=${params[k]}`).join('&');
-        // 2. （必须与前端的拼接方式一致）
-        const fullString = sortedStr + 'APP_SECRET';
-
-        return crypto
-            //.createHmac('sha256', 'APP_SECRET') // 使用配置密钥
-            .createHash('sha256') // 注意这里是 createHash 不是 createHmac
-            .update(fullString)
-            .digest('hex');
-    }
 ```
+
 ### ② 调整比对信息，自动登录
 ```js
     // 比对信息，自动登录
@@ -1261,7 +1297,7 @@ class ChatuserController extends Controller {
             username,
             password
         });
-
+        
     }
     // 验证密码
     async checkPassword(password, hash_password) {
@@ -1299,7 +1335,7 @@ class ChatuserController extends Controller {
             },
         });
         let { username, password } = this.ctx.request.body;
-        let user = await this.app.model.User.findOne({ where: { username } });
+        let user = await this.app.model.User.findOne({where: {username}});
         if (user) {
             return this.ctx.apiFail('该账号已存在，请换一个账号注册');
         }
@@ -1371,14 +1407,14 @@ class ChatuserController extends Controller {
     }
 
     // 用户退出登录
-    async userlogout() {
-        const { ctx, app } = this;
+    async userlogout(){
+        const { ctx,app } = this;
         // 获取当前用户信息 通过中间件chatUserAuth挂载到ctx.chat_user了
         let user = ctx.chat_user;
-        if (user) {
-            let user_token = await this.service.cache.get('chat_user_' + user.id);
+        if(user){
+            let user_token =  await this.service.cache.get('chat_user_' + user.id);
             // console.log('即时通讯用户缓存信息', user_token);
-            if (user_token) {
+            if(user_token){
                 //清除redis
                 await this.service.cache.remove('chat_user_' + user.id);
             }
@@ -1387,8 +1423,8 @@ class ChatuserController extends Controller {
     }
 
     // 搜索用户功能（登录用户才能搜索用户，未登录用户（游客）不能搜索用户）
-    async searchUser() {
-        const { ctx, app } = this;
+    async searchUser(){
+        const { ctx,app } = this;
         //1.参数验证
         ctx.validate({
             keyword: {
@@ -1414,7 +1450,7 @@ class ChatuserController extends Controller {
                 status: 1,
             },
             // 读取某些字段
-            attributes: ['id', 'username', 'avatar', 'role', 'uuid', 'nickname'],
+            attributes: ['id', 'username','avatar','role','uuid','nickname'],
             // 除了某些字段，其它都获取
             // attributes: { 
             //     exclude: ['password','uuid','mobile','email'], 
@@ -1422,6 +1458,7 @@ class ChatuserController extends Controller {
         });
         return ctx.apiSuccess(users);
     }
+
 
     // 游客用户注册身份
     async visitorRegister() {
@@ -1452,8 +1489,49 @@ class ChatuserController extends Controller {
                 // defValue: '', 
                 desc: '时间戳', //字段含义
             },
+            uniplatform: {
+                type: 'string',  
+                required: false, 
+                defValue: '', 
+                desc: '平台类型', 
+                range: {
+                    min: 2,
+                    max: 50
+                }
+            },
+            devicemodel: {
+                type: 'string',  
+                required: false, 
+                defValue: '', 
+                desc: '设备型号', 
+                range: {
+                    min: 1,
+                    max: 50
+                }
+            },
+            deviceos: {
+                type: 'string',  
+                required: false, 
+                defValue: '', 
+                desc: '操作系统', 
+                range: {
+                    min: 1,
+                    max: 50
+                }
+            },
+            devicebrand: {
+                type: 'string',  
+                required: false, 
+                defValue: '', 
+                desc: '设备品牌', 
+                range: {
+                    min: 1,
+                    max: 50
+                }
+            },
         });
-        const { deviceId, timestamp } = ctx.request.body;
+        const { deviceId, timestamp,
+            uniplatform, devicemodel, deviceos, devicebrand} = ctx.request.body;
         // 校验签名
         const serverSign = this.generateSign({
             deviceId,
@@ -1503,8 +1581,9 @@ class ChatuserController extends Controller {
         // 看一下这个deviceId标识下是否有账户
         let deviceIdUser = await this.app.model.User.findOne({ where: { devicefingeruuid: deviceId } });
         if (deviceIdUser) {
-            // 如果有账户
-            deviceIdUser = JSON.parse(JSON.stringify(deviceIdUser));
+            // 如果有账户 - 一般返回客户端可以转一下
+            // deviceIdUser = JSON.parse(JSON.stringify(deviceIdUser));
+            // console.log('游客账户',deviceIdUser.toJSON());
             if(deviceIdUser.role == 'visitor'){
                 // 如果是游客账户
                 // 更新一下最近一次操作时间
@@ -1523,6 +1602,10 @@ class ChatuserController extends Controller {
                     role: 'visitor', // 注意这里改成了游客模式
                 });
             }
+            // 以下内容选择性更新（可采用异步更新，不用await）
+            deviceIdUser.update({
+                uniplatform, devicemodel, deviceos, devicebrand,
+            });
         } else {
             // 没有账户则创建游客账户
             // 游客用户名：自定义
@@ -1540,6 +1623,8 @@ class ChatuserController extends Controller {
                 last_login: new Date(),
                 // 设备指纹
                 devicefingeruuid: deviceId,
+                // 以下内容选择性写入
+                uniplatform, devicemodel, deviceos, devicebrand,
             });
             user = JSON.parse(JSON.stringify(user));
             // 创建游客资料
@@ -1786,7 +1871,7 @@ class ChatuserController extends Controller {
             password
         });
     }
-
+    
 }
 
 module.exports = ChatuserController;

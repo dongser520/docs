@@ -473,6 +473,10 @@ title: eggjs即时通讯接口
 > | :---:  | :---:       |  :---: | :---: |:---:   |:---:     |
 > | deviceId   |  是  |  string  | |     |  客户端生成特定的标识符，到服务端进行校验，如 `"8d1a344c-bf16-5425-adbc-d12f49cfa332"`  |
 > | timestamp   |  是  |  Date  | |     |  时间戳，校验签名时效性，5分钟内有效，如：`1752835449008`  |
+> | uniplatform   |  否  |  string  | 2-50位 |     |  平台类型：（web/mp-weixin/app）统计用  |
+> | devicemodel   |  否  |  string  | 1-50位 |     |  设备型号  统计用  |
+> | deviceos      |  否  |  string  | 1-50位 |     |  操作系统  统计用  |
+> | devicebrand   |  否  |  string  | 1-50位 |     |  设备品牌  统计用  |
 > 5. 返回示例
 > ```js
 > {
