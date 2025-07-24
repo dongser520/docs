@@ -87,7 +87,22 @@ title: 第三学期第二季（课程学习顺序：07）
 #####  <a href="/thirdless/w-b/06播放视频及发视频.html#三、相册选择视频发送" style="margin-left:70px;">三、相册选择视频发送</a>
 #####  <a href="/thirdless/w-b/06播放视频及发视频.html#四、通过相机进行发图片、发视频" style="margin-left:70px;">四、通过相机进行发图片、发视频</a>
 ### <a href="/thirdless/w-b/07注册登录页面" target="_blank" title="点击查看课程文档">章节7.用户中心</a>
-
+####  <a href="/fourthless/w-a/eggjs.即时通讯接口.html" target="_blank" style="margin-left:40px;">关于用户中心用到的接口</a>
+####  <a href="/thirdless/w-b/07注册登录页面.html#一、注册登录页面"  style="margin-left:40px;">一、注册登录页面</a>
+####  <a href="/thirdless/w-b/07注册登录页面.html#_1-创建页面并打开页面"  style="margin-left:70px;">1. 创建页面并打开页面</a>
+####  <a href="/thirdless/w-b/07注册登录页面.html#_2-登录注册页面代码"  style="margin-left:70px;">2. 登录注册页面代码</a>
+####  <a href="/thirdless/w-b/07注册登录页面.html#二、关于注册登录功能实现的重要说明"  style="margin-left:40px;">二、关于注册登录功能实现的重要说明</a>
+####  <a href="/thirdless/w-b/07注册登录页面.html#三、注册登录功能实现"  style="margin-left:40px;">三、注册登录功能实现</a>
+####  <a href="/thirdless/w-b/07注册登录页面.html#_1-注册功能接口文档"  style="margin-left:70px;">1. 注册功能接口文档</a>
+####  <a href="/thirdless/w-b/07注册登录页面.html#_2-登录功能接口文档"  style="margin-left:70px;">2. 登录功能接口文档</a>
+####  <a href="/thirdless/w-b/07注册登录页面.html#_3-注册登录前后端交互"  style="margin-left:70px;">3. 注册登录前后端交互</a>
+####  <a href="/thirdless/w-b/07注册登录页面.html#四、注册登录成功后续处理"  style="margin-left:40px;">四、注册登录成功后续处理</a>
+####  <a href="/thirdless/w-b/07注册登录页面.html#五、-即时通讯用户退出登录"  style="margin-left:40px;">五、 即时通讯用户退出登录</a>
+####  <a href="/thirdless/w-b/07注册登录页面.html#六、-重要亮点-关于游客-未登录用户-使用即时通讯的说明和处理"  style="margin-left:40px;">六、[重要亮点]关于游客（未登录用户）使用即时通讯的说明和处理</a>
+####  <a href="/thirdless/w-b/07注册登录页面.html#i-需求场景说明"  style="margin-left:70px;">I. 需求场景说明</a>
+####  <a href="/thirdless/w-b/07注册登录页面.html#ii-给游客-未登录用户-一个身份标识"  style="margin-left:70px;">II. 给游客（未登录用户）一个身份标识</a>
+####  <a href="/thirdless/w-b/07注册登录页面.html#iii-系统给游客用户注册身份便于游客和客服进行即时通讯"  style="margin-left:70px;">III. 系统给游客用户注册身份便于游客和客服进行即时通讯</a>
+####  <a href="/thirdless/w-b/07注册登录页面.html#iv、游客用户正式注册和登录身份"  style="margin-left:70px;">Ⅳ、游客用户正式注册和登录身份</a>
 
 
 
