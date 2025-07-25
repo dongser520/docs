@@ -640,3 +640,45 @@ title: eggjs即时通讯接口
 >     }
 > }
 > ```
+
+
+## 十六、查看用户资料
+说明：（`查看用户资料属于公共接口，游客和登录用户都可以访问`） <br/>
+接口文档查看：<a href="/fourthless/w-a/eggjs.即时通讯websocket处理.html#_2-查看用户资料" target="_blank">② 查看用户资料</a>
+> 1. 请求方式：`get` `[用postman测试]`或者`[用Apipost测试]`
+> 2. 接口示例：`http://127.0.0.1:7001/api/userinfo/:uuid`  传用户`uuid`值 <br/>
+> 本地路由地址：<http://127.0.0.1:7001/api/userinfo/edda71aa-4a31-4ba8-9025-8fdc0dc3c0fa> <br/>
+> 3. 请求参数 [body] -> [x-www-form-urlencoded]
+> 无需传参
+>
+> 5. 返回示例
+>  ```js
+>  {
+>      "msg": "ok",
+>      "data": {
+>          "uuid": "edda71aa-4a31-4ba8-9025-8fdc0dc3c0fa",
+>          "username": "my01",
+>          "nickname": "魂牵一梦",
+>          "avatar": "https://thinkphp-all.oss-cn-hangzhou.aliyuncs.com/public/67b3001b2aedd.png",
+>          "role": "user",
+>          "userinfo": {
+>              "id": 1,
+>              "gender": "unknown",
+>              "birthday": null,
+>              "bio": null,
+>              "location": "武汉",
+>              "website": null
+>          },
+>          "chatset": {
+>              "visitor": {
+>                   "sendCount": 0,
+>                   "needFollow": true
+>               },
+>               "user": {
+>                   "sendCount": 0,
+>                   "needFollow": true
+>               }
+>          }
+>      }
+>  }
+>  ```

@@ -35,6 +35,12 @@ title: eggjs即时通讯好友相关接口开发
                     [Op.like]: `%${keyword}%`,
                 },
                 status: 1,
+                role:{
+                    [this.app.Sequelize.Op.ne]: 'visitor', // role != 'visitor'
+                },
+                id:{
+                    [this.app.Sequelize.Op.ne]: ctx.chat_user.id, // id != 自己的id
+                },
             },
             // 读取某些字段
             attributes: ['id', 'username','avatar','role','uuid','nickname'],

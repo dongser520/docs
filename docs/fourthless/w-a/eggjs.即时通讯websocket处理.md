@@ -171,6 +171,8 @@ module.exports = ChatwebsocketController;
 ### 5. 讲新内容前的说明
 1. 我们在上节课补充了关于未登录注册的用户，我们给他注册一个游客身份（具体查看：<a href="/fourthless/w-a/eggjs.即时通讯后台.html#三、给未登录用户创建一个游客身份" target="_blank">三、给未登录用户创建一个游客身份</a>），来满足他和我们的客服进行即时通讯的需求。在数据库我们新增了几个字段，我们重点讲了 `devicefingeruuid 设备标识（游客标识）`，关于其他几个字段都是做统计用的，为可选字段，大家如果有需要可以通过前端传过来，然后在数据库更新这几个字段，具体看控制器代码 <a href="/fourthless/w-a/eggjs.即时通讯后台.html#_1-游客用户注册身份" target="_blank">① 游客用户注册身份</a>。
 2. 游客用户实际上就走了一遍注册用户和登录用户的流程，实际上会在本地存储相关信息，其中就包括`token`，但是我们的很多接口游客是没有权限的，但是游客有`token`，那么他可以操作这些接口显然是不对的，因此我们需要在中间件中新增一个判断：<br/>
+
+### ① 中间件调整
 在中间件 `app/middleware/chat_user_auth.js` 代码
 ```js
 module.exports = (option, app) => {
@@ -186,9 +188,9 @@ module.exports = (option, app) => {
         }
 
         //2. 根据token解密，换取用户信息，失败则要么Token已过期或者不合法，抛出错误，终止程序
-        let user = {};
+        let tokenUser = {};
         try {
-            user = ctx.checkToken(token);
+            tokenUser = ctx.checkToken(token);
         } catch (error) {
             let fail = (error.name == 'TokenExpiredError') ? 'Token已过期！请重新获取令牌' : 'Token 令牌不合法！';
             ctx.throw(400, fail);
@@ -196,8 +198,8 @@ module.exports = (option, app) => {
 
         //3. 说明token解密正确，此时判断用户是否登录过
         // 根据当前解密的用户信息的id,去缓存拿一下该id的信息
-        let t = await ctx.service.cache.get('chat_user_' + user.id);
-        //console.log('打印t',user.id);
+        let t = await ctx.service.cache.get('chat_user_' + tokenUser.id);
+        //console.log('打印t',tokenUser.id);
         if (!t || t != token) {
             ctx.throw(400, 'Token 令牌不合法！');
         }
@@ -205,13 +207,15 @@ module.exports = (option, app) => {
         // 4. 说明当前用户之前登录过了，缓存里有他的数据，比如说已经登录过3天了
         // 但有一种情况，这三天内，他发了违规信息，已经被超级管理员禁用了或者被超级管理员把他从数据库删除了
         // 那么即使现在他传的token有效，也没有用，依旧不能让他操作
-        user = await app.model.User.findByPk(user.id);
+        let user = await app.model.User.findByPk(tokenUser.id);
         if (!user || user.status == 0) {
             ctx.throw(400, '当前用户不存在或者已被禁用');
         }
 
         // 新增：针对游客的操作
-        if(user.role == 'visitor'){
+        //console.log('数据库的用户信息',JSON.parse(JSON.stringify(user)));
+        //console.log('token的用户信息',JSON.parse(JSON.stringify(tokenUser)));
+        if(tokenUser.role == 'visitor'){
             ctx.throw(400, '您没有权限访问，请先注册或登录');  
         }
 
@@ -221,4 +225,101 @@ module.exports = (option, app) => {
         await next();
     }
 }
+```
+### ② 查看用户资料
+> 说明：<br/>
+> 1. 在进行即时通讯之前，有用户申请加你为好友，你可以查看用户资料（`查看用户资料属于公共接口，游客和登录用户都可以访问`）。
+> 2. 关于`搜索用户`，我们搜索的结果应该去掉`游客`和`自己`，注意调整搜索用户的条件 <a href="/fourthless/w-a/eggjs.即时通讯好友相关接口.html#一、-搜索用户-好友" target="_blank">一、 搜索用户（好友）</a>
+#### 1. 接口说明
+具体查看接口说明： <a href="/fourthless/w-a/eggjs.即时通讯接口.html#十六、查看用户资料" target="_blank">十六、查看用户资料</a>
+#### 2. 代码和路由
+> 1. 在控制器 `app/controller/api/chat/chatuser.js`
+> ```js
+>    // 查看用户信息(公共接口，游客和登录用户都可以访问)
+>    async userinfo(){
+>        const { ctx, app } = this;
+>        //1.参数验证
+>        this.ctx.validate({
+>            uuid: {
+>                type: 'string',  //参数类型
+>                required: true, //是否必须
+>                // defValue: '', 
+>                desc: 'uuid值', //字段含义
+>                range: {
+>                    min: 36,
+>                    max: 36
+>                }
+>            },
+>        });
+>        const { uuid } = ctx.params;
+>        let user = await app.model.User.findOne({
+>            where: {
+>                uuid,
+>                status: 1,
+>            },
+>            attributes:["id","uuid","username","nickname","avatar","role"],
+>            include:[
+>                {
+>                    model:app.model.UserInfo,
+>                    as:'userinfo',
+>                    attributes:{
+>                        exclude: ['user_id','order','create_time','update_time'],
+>                    },
+>                }
+>            ],
+>        });
+>        user = JSON.parse(JSON.stringify(user));
+>        /*
+>        // 看一下是不是我的好友：--- 需要这个字段那么这个方法要走中间件
+>        // 因为走了中间件 ctx.chat_user 才有值
+>        let me_id = ctx.chat_user ? ctx.chat_user.id : 0;
+>        // console.log('我的id', ctx.chat_user.id);
+>        // console.log('user的id', user.id);
+>        let goodfriend = await app.model.Goodfriend.findOne({
+>            where:{
+>                user_id:me_id,
+>                friend_id:user.id,
+>                isblack:0, //不是黑名单
+>            }
+>        });
+>        // 新增字段：是否是好友
+>        user.myfriend = goodfriend ? true : false;
+>        */
+>        delete user.id;
+>
+>        // 模拟用户对聊天的一些设置（之后会取自数据库）
+>        user.chatset = {
+>            // 对游客（未登录用户）聊天的设置
+>            visitor: {
+>                // 是否允许游客聊天
+>                // 0 禁止(需先登录) 1 可以发一条消息 2 可以聊天
+>                sendCount: 0,
+>                // 是否需要关注
+>                needFollow: true,
+>            },
+>            // 对user登录用户
+>            // 0 禁止(需先加为好友) 1 可以发一条消息 2 可以聊天
+>            user:{
+>                sendCount: 0,
+>                needFollow: true,
+>            },
+>        };
+>
+>        return ctx.apiSuccess(user);
+>    }
+> ```
+> 2. 路由 `app/router/api/chat/router.js`
+```js
+module.exports = app => {
+    const { router, controller } = app;
+    ...
+    //搜索用户（登录用户才能搜索用户，未登录用户（游客）不能搜索用户）
+    ...
+    // 查看用户信息(公共接口，游客和登录用户都可以访问)
+    router.get('/api/userinfo/:uuid', controller.api.chat.chatuser.userinfo);
+
+    //申请添加好友 （登录用户才能申请添加好友，（游客）不能申请添加好友）
+    ...
+};   
+
 ```

@@ -974,12 +974,19 @@ module.exports = appInfo => {
         
         //存储在session中，定义session中的一个属性authuser存储用户登录信息
         // ctx.session.authuser = user; //存储到session
-        // 生成唯一token
+
+        // 根据业务需要，这里可以更新一些信息，比如：登录时间、登录ip等
+        await user.update({
+            last_login: Date.now(),//登录时间
+        });
+        // 把user转换成json对象，进行后续一些处理和返回给客户端
         user = JSON.parse(JSON.stringify(user));
         // 注意注册用户退出登录后，应该以游客模式返回前端访问
         if(option.role && option.role == 'visitor'){
             user.role = 'visitor'; // 给前端返回游客模式
         }
+        //console.log('用户比对信息', user);
+        // 生成唯一token
         let token = ctx.getToken(user);
         user.token = token;
         // console.log('即时通讯登录用户信息', user);
@@ -996,6 +1003,7 @@ module.exports = appInfo => {
         return ctx.apiSuccess(user);
     }
 ```
+
 ### ③ 游客用户正式注册身份
 ```js
     // 游客用户正式注册身份
@@ -1384,12 +1392,19 @@ class ChatuserController extends Controller {
         
         //存储在session中，定义session中的一个属性authuser存储用户登录信息
         // ctx.session.authuser = user; //存储到session
-        // 生成唯一token
+
+        // 根据业务需要，这里可以更新一些信息，比如：登录时间、登录ip等
+        await user.update({
+            last_login: Date.now(),//登录时间
+        });
+        // 把user转换成json对象，进行后续一些处理和返回给客户端
         user = JSON.parse(JSON.stringify(user));
         // 注意注册用户退出登录后，应该以游客模式返回前端访问
         if(option.role && option.role == 'visitor'){
             user.role = 'visitor'; // 给前端返回游客模式
         }
+        //console.log('用户比对信息', user);
+        // 生成唯一token
         let token = ctx.getToken(user);
         user.token = token;
         // console.log('即时通讯登录用户信息', user);
@@ -1448,6 +1463,12 @@ class ChatuserController extends Controller {
                     [Op.like]: `%${keyword}%`,
                 },
                 status: 1,
+                role:{
+                    [this.app.Sequelize.Op.ne]: 'visitor', // role != 'visitor'
+                },
+                id:{
+                    [this.app.Sequelize.Op.ne]: ctx.chat_user.id, // id != 自己的id
+                },
             },
             // 读取某些字段
             attributes: ['id', 'username','avatar','role','uuid','nickname'],
@@ -1871,7 +1892,7 @@ class ChatuserController extends Controller {
             password
         });
     }
-    
+
 }
 
 module.exports = ChatuserController;
