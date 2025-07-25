@@ -474,7 +474,7 @@ module.exports = app => {
                         user_id:me_id, // 我
                         friend_id: goodfriendapply.user_id, // 申请人
                         nickname:nickname, // 申请人昵称
-                    });
+                    },{transaction:tansaction});
                 }
 
                 // 先判断一下对方好友表`goodfriend`中有没有我
@@ -491,7 +491,7 @@ module.exports = app => {
                         user_id:goodfriendapply.user_id, // 申请人，对方好友
                         friend_id: me_id, // 我
                         nickname:me.nickname, // 我的昵称
-                    });
+                    },{transaction:tansaction});
                 }
             }
 
@@ -507,6 +507,7 @@ module.exports = app => {
         }
         
     }
+    
 ```
 
 
