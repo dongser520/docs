@@ -274,7 +274,10 @@ module.exports = app => {
                     model:app.model.User,// 关联用户表
                     attributes:['id','username','avatar','nickname'],
                 }
-            ]
+            ],
+            order:[
+                ['id','desc'], // 按id降序排列
+            ],
         });
         // 获取状态是'pending' 等待处理的数据条数
         let pendingCount = await app.model.Goodfriendapply.count({
