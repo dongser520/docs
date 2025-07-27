@@ -661,10 +661,14 @@ class GoodfriendController extends Controller {
             }
         });
 
+        // ctx.apiSuccess(rows);return;
+
         //昵称备注将首个中文字转成英文字母，然后进行分组排序
-        let newArr = new SortWord(rows, 'name');
-
-
+        let newArr = [];
+        if(rows.length){
+            newArr = new SortWord(rows, 'name');
+        }
+        
         ctx.apiSuccess({
             count:rows.length,
             rows:newArr,

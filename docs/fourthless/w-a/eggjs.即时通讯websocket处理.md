@@ -397,10 +397,86 @@ module.exports = (option, app) => {
 > ```
 
 
+### ④ 获取好友列表转字母的判断
+在前端开发中，发现如果用户没有好友会报错，原因是没有好友，无法转换好友昵称首字母，需要加个判断，并新增uuid的字段。<br/>
+在 `app/controller/api/chat/goodfriend.js`控制器
+```js
+    //好友列表（登录用户才行，（游客）不能）
+    async goodfriendlist() {
+        const { ctx,app } = this;
+        //1.参数验证
+        ctx.validate({
+            page: {
+                type: 'int',  //参数类型
+                required: true, //是否必须
+                // defValue: '', 
+                desc: '页码', //字段含义
+                range:{
+                    min:1,
+                }
+            },
+            limit: {
+                type: 'int',  //参数类型
+                required: false, //是否必须
+                defValue: 2000, 
+                desc: '每页多少条', //字段含义
+            },
+        });
+        // 当前用户: 我
+        const me = ctx.chat_user;
+        const me_id = me.id;
+        // 拿页码
+        let page = ctx.params.page ? parseInt(ctx.params.page) : 1;
+        // 每页多少条
+        let limit = ctx.query.limit ? parseInt(ctx.query.limit) : 2000;
+        // 偏移量
+        let offset = (page - 1) * limit; 
+        // 拿数据
+        let data = await app.model.Goodfriend.findAll({
+            where:{
+                user_id:me_id,// 当事人
+            },
+            offset,
+            limit,
+            include:[
+                {
+                    model:app.model.User,// 关联用户表
+                    as:'friendinfo', //别名
+                    attributes:['id','username','avatar','nickname','uuid'],
+                }
+            ]
+        });
 
+        // ctx.apiSuccess(data);return;
+        
+        // 返回一些指定数据
+        let rows = data.map(v=>{
+            return {
+               id:v.id,
+               beizhu:v.nickname,
+               username:v.friendinfo.username,
+               avatar:v.friendinfo.avatar,
+               friend_nickname:v.friendinfo.nickname,
+               friend_id:v.friendinfo.id,
+               name:v.nickname || v.friendinfo.nickname || v.friendinfo.username,
+               uuid:v.friendinfo.uuid, //新增uuid字段
+            }
+        });
 
+        // ctx.apiSuccess(rows);return;
 
-
+        //昵称备注将首个中文字转成英文字母，然后进行分组排序
+        let newArr = [];
+        if(rows.length){
+            newArr = new SortWord(rows, 'name');
+        }
+        
+        ctx.apiSuccess({
+            count:rows.length,
+            rows:newArr,
+        });
+    }
+```
 
 
 
