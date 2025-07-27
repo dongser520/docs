@@ -272,7 +272,7 @@ module.exports = app => {
             include:[
                 {
                     model:app.model.User,// 关联用户表
-                    attributes:['id','username','avatar','nickname'],
+                    attributes:['id','username','avatar','nickname','uuid'],
                 }
             ],
             order:[
@@ -374,7 +374,8 @@ module.exports = app => {
 >                      "id": 1,
 >                      "username": "my01",
 >                      "avatar": "https://thinkphp-all.oss-cn-hangzhou.aliyuncs.com/public/67b3001b2aedd.png",
->                      "nickname": "魂牵一梦"
+>                      "nickname": "魂牵一梦",
+>                      "uuid": "d8ffff3b-200d-4282-9e32-28e19a4fee71"
 >                  }
 >              }
 >          ],
@@ -441,6 +442,7 @@ module.exports = app => {
         if(!goodfriendapply){
             return ctx.apiFail('申请不存在或已处理');
         }
+        // console.log('处理的申请信息',goodfriendapply);
         // 拿参数
         let { nickname, status} = ctx.request.body;
         // 接下来处理这么几步：
@@ -473,7 +475,7 @@ module.exports = app => {
                 // 如果我的好友中没有对方
                 if(!meHasHim){
                     // 则将对方的信息异步写入我的好友表
-                    app.model.Goodfriend.create({
+                    await app.model.Goodfriend.create({
                         user_id:me_id, // 我
                         friend_id: goodfriendapply.user_id, // 申请人
                         nickname:nickname, // 申请人昵称
@@ -487,10 +489,11 @@ module.exports = app => {
                         friend_id: me_id, // 我
                     }
                 });
+                // console.log('对方好友有没有我', himHasMe);
                 // 如果对方好友没有我
                 if(!himHasMe){
                     // 则将我的信息异步写入对方的好友表
-                    app.model.Goodfriend.create({
+                    await app.model.Goodfriend.create({
                         user_id:goodfriendapply.user_id, // 申请人，对方好友
                         friend_id: me_id, // 我
                         nickname:me.nickname, // 我的昵称
@@ -510,9 +513,7 @@ module.exports = app => {
         }
         
     }
-    
 ```
-
 
 ### 2. 定义路由
 在 `app/router/api/chat/router.js`

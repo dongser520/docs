@@ -684,3 +684,65 @@ title: eggjs即时通讯接口
 >      }
 >  }
 >  ```
+
+
+## 十七、查看用户是否申请加我为好友(即我有没有权限处理这个申请)
+说明：（`登录用户有这个权限，游客无权限`） <br/>
+接口文档查看：<a href="/fourthless/w-a/eggjs.即时通讯websocket处理.html#_3-新增接口-查看用户是否申请加我为好友" target="_blank">③ 新增接口：查看用户是否申请加我为好友</a>
+> 1. 请求方式：`post` `[用postman测试]`或者`[用Apipost测试]`
+> 2. 接口示例：`http://127.0.0.1:7001/api/chat/isApplyfriend/:uuid`  传用户`uuid`值 <br/>
+> 本地路由地址示例：<http://127.0.0.1:7001/api/chat/isApplyfriend/d8ffff3b-200d-4282-9e32-28e19a4fee71> <br/>
+> 3. header头传token
+> 
+> 请求参数 [Headers] -> [Key: `token`, Value: `token值`]
+> 
+> | 参数       |  是否必填    |  类型    |  长度                   | 说明     |
+> | :---:      | :---:       |  :---:   | :---:                  |:---:     |
+> | token      |  是         |  string  |  由服务器生成           | `token令牌`，如：`eyJhbGciO.....`  |
+> 
+> 4. 请求参数 [body] -> [x-www-form-urlencoded]
+>
+> 无需传参
+>
+> 5. 返回示例
+> ```js
+> {
+>     "msg": "ok",
+>     "data": {
+>         "id": 16,
+>         "user_id": 7,
+>         "friend_id": 6,
+>         "nickname": "我是my07,加你为好友，请通过一下，我有业务要咨询您",
+>         "friendlookme": 1,
+>         "melookfriend": 1,
+>         "ismystarfriend": 0,
+>         "isblack": 0,
+>         "status": "pending",
+>         "userId": 7
+>     }
+> }
+> ```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

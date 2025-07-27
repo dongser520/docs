@@ -226,6 +226,8 @@ module.exports = (option, app) => {
     }
 }
 ```
+
+
 ### ② 查看用户资料
 > 说明：<br/>
 > 1. 在进行即时通讯之前，有用户申请加你为好友，你可以查看用户资料（`查看用户资料属于公共接口，游客和登录用户都可以访问`）。
@@ -309,17 +311,142 @@ module.exports = (option, app) => {
 >    }
 > ```
 > 2. 路由 `app/router/api/chat/router.js`
+> ```js
+> module.exports = app => {
+>     const { router, controller } = app;
+>     ...
+>     //搜索用户（登录用户才能搜索用户，未登录用户（游客）不能搜索用户）
+>     ...
+>     // 查看用户信息(公共接口，游客和登录用户都可以访问)
+>     router.get('/api/userinfo/:uuid', controller.api.chat.chatuser.userinfo);
+> 
+>     //申请添加好友 （登录用户才能申请添加好友，（游客）不能申请添加好友）
+>     ...
+> };   
+> 
+> ```
+
+### ③ 新增接口：查看用户是否申请加我为好友
+在处理添加好友的过程中，我们需要新增加一个接口：`查看用户是否申请加我为好友(即我有没有权限处理这个申请)（登录用户有这个权限，游客无权限）`
+#### 1. 接口说明
+具体查看接口说明： <a href="/fourthless/w-a/eggjs.即时通讯接口.html#十七、查看用户是否申请加我为好友-即我有没有权限处理这个申请" target="_blank">十七、查看用户是否申请加我为好友(即我有没有权限处理这个申请)</a>
+#### 2. 代码和路由
+> 1. 在控制器 `app/controller/api/chat/chatuser.js`
 ```js
-module.exports = app => {
-    const { router, controller } = app;
-    ...
-    //搜索用户（登录用户才能搜索用户，未登录用户（游客）不能搜索用户）
-    ...
-    // 查看用户信息(公共接口，游客和登录用户都可以访问)
-    router.get('/api/userinfo/:uuid', controller.api.chat.chatuser.userinfo);
-
-    //申请添加好友 （登录用户才能申请添加好友，（游客）不能申请添加好友）
-    ...
-};   
-
+    // 查看用户是否申请加我为好友（登录用户有这个权限，游客无权限）
+    async isApplyfriend(){
+        const { ctx, app } = this;
+        //1.参数验证
+        this.ctx.validate({
+            uuid: {
+                type: 'string',  //参数类型
+                required: true, //是否必须
+                // defValue: '', 
+                desc: 'uuid值', //字段含义
+                range: {
+                    min: 36,
+                    max: 36
+                }
+            },
+        });
+        const { uuid } = ctx.params;
+        // 查用户
+        let user = await app.model.User.findOne({
+            where: {
+                uuid,
+                status: 1,
+            },
+            attributes:["id"],
+        });
+        if (!user) {
+            return this.ctx.apiFail('用户不存在');
+        }
+        // 查申请表, 为了判断我是否有权限处理这个申请
+        let goodfriendapply = await app.model.Goodfriendapply.findOne({
+            where: {
+                friend_id: ctx.chat_user.id, // 加的我，朋友id是我
+                user_id: user.id, // 谁：用户
+                status: 'pending',
+            },
+            attributes:{
+                exclude:['order','create_time','update_time'],
+            },
+        });
+        if (!goodfriendapply) {
+            return this.ctx.apiFail('用户申请信息不存在');
+        }
+        return this.ctx.apiSuccess(goodfriendapply);
+    }
 ```
+> 2. 路由 `app/router/api/chat/router.js`
+> ```js
+> module.exports = app => {
+>     const { router, controller } = app;
+>     ...
+>     //搜索用户（登录用户才能搜索用户，未登录用户（游客）不能搜索用户）
+>     ...
+>     // 查看用户信息(公共接口，游客和登录用户都可以访问)
+>     router.get('/api/userinfo/:uuid', controller.api.chat.chatuser.userinfo);
+>     // 查看用户是否申请加我为好友（登录用户有这个权限，游客无权限）
+>     router.post('/api/chat/isApplyfriend/:uuid', controller.api.chat.chatuser.isApplyfriend);
+> 
+>     //申请添加好友 （登录用户才能申请添加好友，（游客）不能申请添加好友）
+>     ...
+> };   
+> 
+> ```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
