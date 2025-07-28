@@ -19,6 +19,7 @@ title: 用户管理user表相关表说明
 | <b>devicemodel</b>   | <span>`STRING(100)`</span>   |    是      | `''`  | <span style="font-size:12px"> 设备型号（统计用） </span> |
 | <b>deviceos</b>   | <span>`STRING(100)`</span>   |    是      | `''`  | <span style="font-size:12px"> 操作系统（统计用） </span> |
 | <b>devicebrand</b>   | <span>`STRING(100)`</span>   |    是      | `''`  | <span style="font-size:12px"> 设备品牌（统计用） </span> |
+| <b>userset</b>   | <span>`text`</span>   |    是      | `''`  | <span style="font-size:12px"> 用户设置 </span> |
 | <b>...</b>   |   |         |   | <span style="font-size:12px">随着业务需求增加字段</span> |
 | <b>mobile</b>   | <span>`STRING(20)`</span>   |    是      | `NULL`  | <span style="font-size:12px">手机号 </span> |
 | <b>email</b>   | <span>`STRING(100)`</span>   |    是      | `NULL`  | <span style="font-size:12px">邮箱 </span> |
@@ -50,7 +51,7 @@ title: 用户管理user表相关表说明
 
 module.exports = {
   async up(queryInterface, Sequelize) {
-    const { INTEGER, STRING, DATE, TINYINT, ENUM } = Sequelize;
+    const { INTEGER, STRING, DATE, TINYINT, ENUM, TEXT } = Sequelize;
     await queryInterface.createTable('user', {
       id: {
         type: INTEGER(20).UNSIGNED,
@@ -117,6 +118,12 @@ module.exports = {
         allowNull: false,
         defaultValue: '',
         comment: '设备品牌'
+      },
+      userset: {
+        type: TEXT,
+        allowNull: false,
+        defaultValue: '',
+        comment: '用户设置'
       },
       mobile: {
         type: STRING(20),
@@ -233,7 +240,7 @@ const crypto = require('node:crypto');
 const { v4: uuidv4 } = require('uuid'); 
 
 module.exports = app => {
-    const { INTEGER, STRING, DATE, TINYINT, ENUM } = app.Sequelize;
+    const { INTEGER, STRING, DATE, TINYINT, ENUM, TEXT } = app.Sequelize;
 
     const User = app.model.define('user', {
         id: {
@@ -310,6 +317,12 @@ module.exports = app => {
           allowNull: false,
           defaultValue: '',
           comment: '设备品牌'
+        },
+        userset: {
+          type: TEXT,
+          allowNull: false,
+          defaultValue: '',
+          comment: '用户设置'
         },
         mobile: {
             type: STRING(20),

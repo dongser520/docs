@@ -671,6 +671,8 @@ title: eggjs即时通讯接口
 >              "location": "武汉",
 >              "website": null
 >          },
+>          // 模拟数据（用户表没有userset字段以前的模式数据）
+>          /*
 >          "chatset": {
 >              "visitor": {
 >                   "sendCount": 0,
@@ -680,7 +682,10 @@ title: eggjs即时通讯接口
 >                   "sendCount": 0,
 >                   "needFollow": true
 >               }
->          }
+>          },
+>          */
+>          // 数据库用户设置的数据
+>          "userset": "{\"chatset\":{\"visitor\":0,\"user\":0}}",
 >      }
 >  }
 >  ```
@@ -722,6 +727,45 @@ title: eggjs即时通讯接口
 >     }
 > }
 > ```
+
+
+## 十八、用户设置更新
+说明：`（登录用户有这个权限，游客无权限）` <br/>
+接口文档查看：<a href="/fourthless/w-a/eggjs.即时通讯websocket处理.html#_5-新增接口-用户设置更新" target="_blank">⑤ 新增接口：用户设置更新</a>
+> 1. 请求方式：`post` `[用postman测试]`或者`[用Apipost测试]`
+> 2. 接口示例：`http://127.0.0.1:7001/api/chat/userset`<br/>
+> 本地路由地址：<http://127.0.0.1:7001/api/chat/userset> <br/> 
+> 3. header头传token
+> 
+> 请求参数 [Headers] -> [Key: `token`, Value: `token值`]
+> 
+> | 参数       |  是否必填    |  类型    |  长度                   | 说明     |
+> | :---:      | :---:       |  :---:   | :---:                  |:---:     |
+> | token      |  是         |  string  |  由服务器生成           | `token令牌`，如：`eyJhbGciO.....`  |
+> 
+> 4. 请求参数 [body] -> [x-www-form-urlencoded]
+>
+> | 参数   |  是否必填    |  类型  |  长度  |  默认值  | 说明     |
+> | :---:  | :---:       |  :---: | :---: |:---:     |:---:     |
+> | userset   |  是         |  text  | |          |  设置的信息，转成json字符串后发送给服务器  |
+> 5. 返回示例
+>  ```js
+>  {
+>      "msg": "ok",
+>      "data": "ok"
+>  }
+>  ```
+
+
+
+
+
+
+
+
+
+
+
 
 
 

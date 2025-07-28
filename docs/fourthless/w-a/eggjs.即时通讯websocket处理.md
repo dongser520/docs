@@ -237,79 +237,81 @@ module.exports = (option, app) => {
 #### 2. 代码和路由
 > 1. 在控制器 `app/controller/api/chat/chatuser.js`
 > ```js
->    // 查看用户信息(公共接口，游客和登录用户都可以访问)
->    async userinfo(){
->        const { ctx, app } = this;
->        //1.参数验证
->        this.ctx.validate({
->            uuid: {
->                type: 'string',  //参数类型
->                required: true, //是否必须
->                // defValue: '', 
->                desc: 'uuid值', //字段含义
->                range: {
->                    min: 36,
->                    max: 36
->                }
->            },
->        });
->        const { uuid } = ctx.params;
->        let user = await app.model.User.findOne({
->            where: {
->                uuid,
->                status: 1,
->            },
->            attributes:["id","uuid","username","nickname","avatar","role"],
->            include:[
->                {
->                    model:app.model.UserInfo,
->                    as:'userinfo',
->                    attributes:{
->                        exclude: ['user_id','order','create_time','update_time'],
->                    },
->                }
->            ],
->        });
->        user = JSON.parse(JSON.stringify(user));
->        /*
->        // 看一下是不是我的好友：--- 需要这个字段那么这个方法要走中间件
->        // 因为走了中间件 ctx.chat_user 才有值
->        let me_id = ctx.chat_user ? ctx.chat_user.id : 0;
->        // console.log('我的id', ctx.chat_user.id);
->        // console.log('user的id', user.id);
->        let goodfriend = await app.model.Goodfriend.findOne({
->            where:{
->                user_id:me_id,
->                friend_id:user.id,
->                isblack:0, //不是黑名单
->            }
->        });
->        // 新增字段：是否是好友
->        user.myfriend = goodfriend ? true : false;
->        */
->        delete user.id;
->
->        // 模拟用户对聊天的一些设置（之后会取自数据库）
->        user.chatset = {
->            // 对游客（未登录用户）聊天的设置
->            visitor: {
->                // 是否允许游客聊天
->                // 0 禁止(需先登录) 1 可以发一条消息 2 可以聊天
->                sendCount: 0,
->                // 是否需要关注
->                needFollow: true,
->            },
->            // 对user登录用户
->            // 0 禁止(需先加为好友) 1 可以发一条消息 2 可以聊天
->            user:{
->                sendCount: 0,
->                needFollow: true,
->            },
->        };
->
->        return ctx.apiSuccess(user);
->    }
+>     // 查看用户信息(公共接口，游客和登录用户都可以访问)
+>     async userinfo(){
+>         const { ctx, app } = this;
+>         //1.参数验证
+>         this.ctx.validate({
+>             uuid: {
+>                 type: 'string',  //参数类型
+>                 required: true, //是否必须
+>                 // defValue: '', 
+>                 desc: 'uuid值', //字段含义
+>                 range: {
+>                     min: 36,
+>                     max: 36
+>                 }
+>             },
+>         });
+>         const { uuid } = ctx.params;
+>         let user = await app.model.User.findOne({
+>             where: {
+>                 uuid,
+>                 status: 1,
+>             },
+>             attributes:["id","uuid","username","nickname","avatar","role","userset"],
+>             include:[
+>                 {
+>                     model:app.model.UserInfo,
+>                     as:'userinfo',
+>                     attributes:{
+>                         exclude: ['user_id','order','create_time','update_time'],
+>                     },
+>                 }
+>             ],
+>         });
+>         user = JSON.parse(JSON.stringify(user));
+>         /*
+>         // 看一下是不是我的好友：--- 需要这个字段那么这个方法要走中间件
+>         // 因为走了中间件 ctx.chat_user 才有值
+>         let me_id = ctx.chat_user ? ctx.chat_user.id : 0;
+>         // console.log('我的id', ctx.chat_user.id);
+>         // console.log('user的id', user.id);
+>         let goodfriend = await app.model.Goodfriend.findOne({
+>             where:{
+>                 user_id:me_id,
+>                 friend_id:user.id,
+>                 isblack:0, //不是黑名单
+>             }
+>         });
+>         // 新增字段：是否是好友
+>         user.myfriend = goodfriend ? true : false;
+>         */
+>         //delete user.id;
+>         /*
+>         // 模拟用户对聊天的一些设置（会取自数据库userset字段）
+>         user.chatset = {
+>             // 对游客（未登录用户）聊天的设置
+>             visitor: {
+>                 // 是否允许游客聊天
+>                 // 0 禁止(需先登录) 1 可以发一条消息 2 可以聊天
+>                 sendCount: 0,
+>                 // 是否需要关注
+>                 needFollow: true,
+>             },
+>             // 对user登录用户
+>             // 0 禁止(需先加为好友) 1 可以发一条消息 2 可以聊天
+>             user:{
+>                 sendCount: 2,
+>                 needFollow: true,
+>             },
+>         };
+>         */
+> 
+>         return ctx.apiSuccess(user);
+>     }
 > ```
+
 > 2. 路由 `app/router/api/chat/router.js`
 > ```js
 > module.exports = app => {
@@ -479,9 +481,66 @@ module.exports = (option, app) => {
 ```
 
 
+### ⑤ 新增接口：用户设置更新
+给数据库user表新增了一个字段：`userset`, 存储用户的设置信息，说明：`登录用户有这个权限，游客无权限`
+#### 1. 接口说明
+具体查看接口说明： <a href="/fourthless/w-a/eggjs.即时通讯接口.html#十八、用户设置更新" target="_blank">十八、用户设置更新</a>
+#### 2. 代码和路由
+> 1. 在控制器 `app/controller/api/chat/chatuser.js`
+```js
+    // 用户设置更新（登录用户有这个权限，游客无权限）
+    async userset(){
+        const { ctx, app } = this;
+        //1.参数验证
+        this.ctx.validate({
+            userset: {
+                type: 'string',  //参数类型
+                required: true, //是否必须
+                // defValue: '', 
+                desc: '用户设置', //字段含义
+                range: {
+                    min: 2,
+                }
+            },
+        });
+        const { userset } = ctx.request.body;
+        // 我
+        let me = ctx.chat_user;
+        let me_id = me.id;
+        // 更新
+        let user = await app.model.User.findOne({
+            where: {
+                id: me_id,
+                status: 1,
+            },
+        });
+        await user.update({
+            userset
+        });
+        //返回
+        return this.ctx.apiSuccess('ok');
+    }
+```
 
-
-
+> 2. 路由 `app/router/api/chat/router.js`
+> ```js
+> module.exports = app => {
+>     const { router, controller } = app;
+>     ...
+>     //搜索用户（登录用户才能搜索用户，未登录用户（游客）不能搜索用户）
+>     ...
+>     // 查看用户信息(公共接口，游客和登录用户都可以访问)
+>     router.get('/api/userinfo/:uuid', controller.api.chat.chatuser.userinfo);
+>     // 查看用户是否申请加我为好友（登录用户有这个权限，游客无权限）
+>     router.post('/api/chat/isApplyfriend/:uuid', controller.api.chat.chatuser.isApplyfriend);
+>     // 用户设置更新（登录用户有这个权限，游客无权限）
+>     router.post('/api/chat/userset', controller.api.chat.chatuser.userset);
+> 
+>     //申请添加好友 （登录用户才能申请添加好友，（游客）不能申请添加好友）
+>     ...
+> };   
+> 
+> ```
 
 
 
