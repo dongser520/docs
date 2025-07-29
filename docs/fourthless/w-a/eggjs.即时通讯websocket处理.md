@@ -543,9 +543,60 @@ module.exports = (option, app) => {
 > ```
 
 
+### ⑥ 新增接口：查询一下对方是否是我的好友
+#### 1. 接口说明
+具体查看接口说明： <a href="/fourthless/w-a/eggjs.即时通讯接口.html#十九、查询一下对方是否是我的好友" target="_blank">十九、查询一下对方是否是我的好友</a>
 
+#### 2. 代码和路由
+> 1. 在控制器 `app/controller/api/chat/goodfriend.js`
+```js
+    // 查看对方是否是我的好友（登录用户才可以查看好友资料信息，（游客）没有这个功能）
+    async ismygoodfriend(){
+        const { ctx,app } = this;
+        //1.参数验证
+        ctx.validate({
+            id: {
+                type: 'int',  //参数类型
+                required: true, //是否必须
+                // defValue: '', 
+                desc: '朋友id', //字段含义
+                range:{
+                    min:1,
+                }
+            },
+        });
+        // 拿参数
+        const id = parseInt(ctx.params.id);
+        // 当前用户: 我
+        const me = ctx.chat_user;
+        const me_id = me.id;
+        // 获取好友信息
+        let data = await app.model.Goodfriend.findOne({
+            where:{
+                friend_id:id, // 好友id
+                user_id:me_id,// 我
+                isblack:0, // 没有拉黑
+            }
+        });
+        if(!data){
+            return ctx.apiFail('不是好友');
+        }
+        return ctx.apiSuccess('goodfriend');
+    }
+```
 
-
+> 2. 路由 `app/router/api/chat/router.js`
+> ```js
+> module.exports = app => {
+>     const { router, controller } = app;
+>     ...
+>     // 设置我和朋友是否可以互相查看对方发布的信息或者朋友圈（登录用户有这个功能，（游客）没有这个功能），传好友id
+>     router.post('/api/chat/setmeOrfriendCanSee/:id', controller.api.chat.goodfriend.setmeOrfriendCanSee);
+>     // 查看对方是否是我的好友（登录用户才可以查看好友资料信息，（游客）没有这个功能），传好友id
+>     router.post('/api/chat/ismygoodfriend/:id', controller.api.chat.goodfriend.ismygoodfriend);
+> };   
+> 
+> ```
 
 
 
