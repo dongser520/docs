@@ -29,7 +29,7 @@ websocket : {
 },
 ```
 
-### 3. 配置websocket路由
+### 3. 配置websocket路由和中间件
 说明：由于`websocket` 需要配合前端一起使用，大家暂时先讲下面大代码复制到项目，后面测试时候会讲这些代码。
 1. 新建路由文件： `app/router/api/chat/websocket.js` 
 ```js
@@ -38,15 +38,24 @@ module.exports = app => {
     //配置websocket路由
     //配置websocket全局中间件
     app.ws.use(async (ctx, next) => {
+        if (ctx.path !== '/ws') return next();
+
+        console.log('WebSocket连接请求:', ctx.path, ctx.query);
         // 获取参数 ws://localhost:7001/ws?token=123456
         // ctx.query.token
         // 验证用户token
-        let user = {};
-        let token = ctx.query.token;
+        const token = ctx.query.token;
+        if (!token) {
+            ctx.websocket.send(JSON.stringify({
+                msg: "fail",
+                data: '缺少 token 参数'
+            }));
+            return ctx.websocket.close();
+        }
         try {
-            user = ctx.checkToken(token);
-            // 验证用户状态
-            let userCheck = await app.model.User.findByPk(user.id);
+            const user = ctx.checkToken(token);
+            const userCheck = await ctx.app.model.User.findByPk(user.id);
+
             if (!userCheck) {
                 ctx.websocket.send(JSON.stringify({
                     msg: "fail",
@@ -54,40 +63,48 @@ module.exports = app => {
                 }));
                 return ctx.websocket.close();
             }
+
             if (!userCheck.status) {
                 ctx.websocket.send(JSON.stringify({
                     msg: "fail",
-                    data: '你已被管理员禁用了'
+                    data: '你已被管理员禁用'
                 }));
                 return ctx.websocket.close();
             }
-            // 用户上线
-            app.ws.chatuser = app.ws.chatuser ? app.ws.chatuser : {};
-            // 下线其他设备
-            // if (app.ws.chatuser[user.id]) {
-            //     app.ws.chatuser[user.id].send(JSON.stringify({
-            //         msg: "fail",
-            //         data: '你的账号在其他设备登录'
-            //     }));
-            //     app.ws.chatuser[user.id].close();
-            // }
-            // 记录当前用户id
+
+            // 单设备登录逻辑
+            if (ctx.app.ws.chatuser && ctx.app.ws.chatuser[user.id]) {
+                ctx.app.ws.chatuser[user.id].send(JSON.stringify({
+                    msg: "force_logout",
+                    data: '你的账号在其他设备登录'
+                }));
+                ctx.app.ws.chatuser[user.id].close();
+            }
+
+            // 存储连接
+            ctx.app.ws.chatuser = ctx.app.ws.chatuser || {};
             ctx.websocket.chatuser_id = user.id;
-            app.ws.chatuser[user.id] = ctx.websocket;
-    
-            ctx.online(user.id);
-            
+            ctx.app.ws.chatuser[user.id] = ctx.websocket;
+
+            // ctx.online(user.id);
+            console.log(`用户 ${user.id} 连接成功`);
+
+            // 进入控制器
             await next();
+
         } catch (err) {
-            console.log(err);
-            let fail = err.name === 'TokenExpiredError' ? 'token 已过期! 请重新获取令牌' : 'Token 令牌不合法!';
+            console.error('WebSocket中间件错误:', err);
+            const message = err.name === 'TokenExpiredError'
+                ? 'token 已过期'
+                : 'Token 不合法';
+
             ctx.websocket.send(JSON.stringify({
                 msg: "fail",
-                data: fail
-            }))
-            // 关闭连接
+                data: message
+            }));
             ctx.websocket.close();
         }
+        
       });
     // 链接websocket
     app.ws.route('/ws', controller.api.chat.chatwebsocket.connect);
@@ -140,33 +157,98 @@ const Controller = require('egg').Controller;
 class ChatwebsocketController extends Controller {
     // 链接websocket
     async connect() {
-        const { ctx, app, service} = this;
-        // websocket链接不存在
-        if(!ctx.websocket){
-           return ctx.apiFail('非法访问');
+        const { ctx, app, service } = this;
+        console.log('链接websocket方法', ctx.websocket.chatuser_id);
+        // 确保连接存在
+        if (!ctx.websocket) {
+            return ctx.apiFail('非法访问');
         }
         // console.log(`clients链接数: ${app.ws.clients.size}`);
 
-        // 监听接收消息和关闭socket
-        ctx.websocket
-        .on('message', msg => {
-            // console.log('接收消息', msg);
-        })
-        .on('close', (code, reason) => {
-            // 用户下线
-            console.log('用户下线', code, reason);
-            let user_id = ctx.websocket.chatuser_id;
-            //移除redis中的用户上线记录
-            service.cache.remove('online_' + user_id);
-            if (app.ws.chatuser && app.ws.chatuser[user_id]) {
-              delete app.ws.chatuser[user_id];
+        // 添加心跳机制
+        let heartbeatInterval = setInterval(() => {
+            try {
+                if (ctx.websocket.readyState === 1) { // OPEN
+                    ctx.websocket.send(JSON.stringify({ type: 'ping' }));
+                }
+            } catch (e) {
+                clearInterval(heartbeatInterval);
+            }
+        }, 30000); // 每30秒发送一次心跳
+
+
+        // 监听消息
+        ctx.websocket.on('message', msg => {
+            // 1. 添加消息类型检查
+            if (typeof msg !== 'string') {
+                if (Buffer.isBuffer(msg)) {
+                    msg = msg.toString('utf-8'); // 转换二进制数据
+                } else {
+                    console.log('收到非文本消息，已忽略', msg);
+                    return; // 忽略非文本消息
+                }
+            }
+        
+            console.log('监听消息', msg);
+            
+            try {
+                const data = JSON.parse(msg);
+        
+                // 2. 添加对客户端心跳响应的处理
+                if (data.type === 'pong') {
+                    console.log('收到客户端心跳响应');
+                    return;
+                }
+        
+                // 3. 添加对客户端心跳请求的响应
+                if (data.type === 'ping') {
+                    ctx.websocket.send(JSON.stringify({ type: 'pong' }));
+                    console.log('响应客户端心跳请求');
+                    return;
+                }
+        
+                // 处理其他消息类型...
+            } catch (e) {
+                // 4. 增强错误处理
+                if (msg.includes('undefined')) {
+                    console.warn('收到无效消息，可能来自连接断开事件');
+                } else {
+                    console.error('消息解析错误', e, '原始消息:', msg);
+                }
             }
         });
+
+        // 监听关闭
+        ctx.websocket.on('close', (code, reason) => {
+            console.log('用户下线', code, reason);
+            clearInterval(heartbeatInterval); // 清除心跳
+
+            const user_id = ctx.websocket.chatuser_id;
+            //移除redis中的用户上线记录
+            if (!user_id) return;
+
+            // 安全移除用户记录
+            if (app.ws.chatuser && app.ws.chatuser[user_id]) {
+                delete app.ws.chatuser[user_id];
+            }
+
+            // 异步移除redis记录
+            service.cache.remove('online_' + user_id).catch(console.error);
+        });
+
+        // 发送欢迎消息
+        ctx.websocket.send(JSON.stringify({
+            type: 'system',
+            data: '欢迎您，登录可获取更多功能！',
+            timestamp: Date.now()
+        }));
     }
 }
 
 module.exports = ChatwebsocketController;
+
 ```
+
 
 ### 5. 讲新内容前的说明
 1. 我们在上节课补充了关于未登录注册的用户，我们给他注册一个游客身份（具体查看：<a href="/fourthless/w-a/eggjs.即时通讯后台.html#三、给未登录用户创建一个游客身份" target="_blank">三、给未登录用户创建一个游客身份</a>），来满足他和我们的客服进行即时通讯的需求。在数据库我们新增了几个字段，我们重点讲了 `devicefingeruuid 设备标识（游客标识）`，关于其他几个字段都是做统计用的，为可选字段，大家如果有需要可以通过前端传过来，然后在数据库更新这几个字段，具体看控制器代码 <a href="/fourthless/w-a/eggjs.即时通讯后台.html#_1-游客用户注册身份" target="_blank">① 游客用户注册身份</a>。
@@ -599,9 +681,228 @@ module.exports = (option, app) => {
 > ```
 
 
+## 二、连接websocket并测试websocket
+考虑到后期我们的项目扩展，接下来大家跟着老师一次操作。
+### 1. 将路由和中间件分开写
+#### 1. 新建中间件 `app/middleware/chatwebsocket.js`
+```js
+module.exports = () => {
+    return async (ctx, next) => {
+        if (ctx.path !== '/ws') return next();
+
+        console.log('WebSocket连接请求:', ctx.path, ctx.query);
+
+        const token = ctx.query.token;
+        if (!token) {
+            ctx.websocket.send(JSON.stringify({
+                msg: "fail",
+                data: '缺少 token 参数'
+            }));
+            return ctx.websocket.close();
+        }
+
+        try {
+            const user = ctx.checkToken(token);
+            const userCheck = await ctx.app.model.User.findByPk(user.id);
+
+            if (!userCheck) {
+                ctx.websocket.send(JSON.stringify({
+                    msg: "fail",
+                    data: '用户不存在'
+                }));
+                return ctx.websocket.close();
+            }
+
+            if (!userCheck.status) {
+                ctx.websocket.send(JSON.stringify({
+                    msg: "fail",
+                    data: '你已被管理员禁用'
+                }));
+                return ctx.websocket.close();
+            }
+
+            // 单设备登录逻辑
+            if (ctx.app.ws.chatuser && ctx.app.ws.chatuser[user.id]) {
+                ctx.app.ws.chatuser[user.id].send(JSON.stringify({
+                    msg: "force_logout",
+                    data: '你的账号在其他设备登录'
+                }));
+                ctx.app.ws.chatuser[user.id].close();
+            }
+
+            // 存储连接
+            ctx.app.ws.chatuser = ctx.app.ws.chatuser || {};
+            ctx.websocket.chatuser_id = user.id;
+            ctx.app.ws.chatuser[user.id] = ctx.websocket;
+
+            // ctx.online(user.id);
+            console.log(`用户 ${user.id} 连接成功`);
+
+            // 进入控制器
+            await next();
+
+        } catch (err) {
+            console.error('WebSocket中间件错误:', err);
+            const message = err.name === 'TokenExpiredError'
+                ? 'token 已过期'
+                : 'Token 不合法';
+
+            ctx.websocket.send(JSON.stringify({
+                msg: "fail",
+                data: message
+            }));
+            ctx.websocket.close();
+        }
+    };
+};
+```
+
+#### 2. 路由 `app/router/api/chat/router.js`
+```js
+module.exports = app => {
+    const { router, controller } = app;
+    //配置websocket路由
+    //配置websocket全局中间件
+    const WebSocketMiddleware = require('./middleware/chatwebsocket'); 
+    // app.ws.use(WebSocketMiddleware());
+    // 链接websocket
+    // app.ws.route('/ws', controller.api.chat.chatwebsocket.connect);
+    // 只应用中间件到特定路由
+    app.ws.route('/ws', WebSocketMiddleware(), controller.api.chat.chatwebsocket.connect);
 
 
+    //发送消息
+    // router.post('/chat/send', controller.api.chat.chatwebsocket.send);
+    //获取离线消息
+    // router.post('/chat/getmessage', controller.api.chat.chatwebsocket.getmessage);
+    //上传文件
+    // router.post('/upload', controller.api.chat.chatwebsocket.upload);
+    //撤回消息
+    // router.post('/chat/recall', controller.api.chat.chatwebsocket.recall);
+    
+};
+```
 
+### 2. [重要]在配置文件中对websocket通讯路径进行设置
+在 `config/config.default.js` 中添加如下配置
+```js
+// 对中间件adminAuth进一步配置
+  config.adminAuth = {
+    ignore: [
+      ...,
+      "/ws",
+    ],
+  };
+  // 对中间件adminMenu进一步配置
+  config.adminMenu = {
+    ignore: [
+       ...,
+      "/ws",
+    ],
+  };
+```
+
+
+### 3. 控制器代码
+在文件 `app/controller/api/chat/chatwebsocket.js`
+```js
+'use strict';
+
+const Controller = require('egg').Controller;
+
+class ChatwebsocketController extends Controller {
+    // 链接websocket
+    async connect() {
+        const { ctx, app, service } = this;
+        console.log('链接websocket方法', ctx.websocket.chatuser_id);
+        // 确保连接存在
+        if (!ctx.websocket) {
+            return ctx.apiFail('非法访问');
+        }
+        // console.log(`clients链接数: ${app.ws.clients.size}`);
+
+        // 添加心跳机制
+        let heartbeatInterval = setInterval(() => {
+            try {
+                if (ctx.websocket.readyState === 1) { // OPEN
+                    ctx.websocket.send(JSON.stringify({ type: 'ping' }));
+                }
+            } catch (e) {
+                clearInterval(heartbeatInterval);
+            }
+        }, 30000); // 每30秒发送一次心跳
+
+
+        // 监听消息
+        ctx.websocket.on('message', msg => {
+            // 1. 添加消息类型检查
+            if (typeof msg !== 'string') {
+                if (Buffer.isBuffer(msg)) {
+                    msg = msg.toString('utf-8'); // 转换二进制数据
+                } else {
+                    console.log('收到非文本消息，已忽略', msg);
+                    return; // 忽略非文本消息
+                }
+            }
+        
+            console.log('监听消息', msg);
+            
+            try {
+                const data = JSON.parse(msg);
+        
+                // 2. 添加对客户端心跳响应的处理
+                if (data.type === 'pong') {
+                    console.log('收到客户端心跳响应');
+                    return;
+                }
+        
+                // 3. 添加对客户端心跳请求的响应
+                if (data.type === 'ping') {
+                    ctx.websocket.send(JSON.stringify({ type: 'pong' }));
+                    console.log('响应客户端心跳请求');
+                    return;
+                }
+        
+                // 处理其他消息类型...
+            } catch (e) {
+                // 4. 增强错误处理
+                if (msg.includes('undefined')) {
+                    console.warn('收到无效消息，可能来自连接断开事件');
+                } else {
+                    console.error('消息解析错误', e, '原始消息:', msg);
+                }
+            }
+        });
+
+        // 监听关闭
+        ctx.websocket.on('close', (code, reason) => {
+            console.log('用户下线', code, reason);
+            clearInterval(heartbeatInterval); // 清除心跳
+
+            const user_id = ctx.websocket.chatuser_id;
+            //移除redis中的用户上线记录
+            if (!user_id) return;
+
+            // 安全移除用户记录
+            if (app.ws.chatuser && app.ws.chatuser[user_id]) {
+                delete app.ws.chatuser[user_id];
+            }
+
+            // 异步移除redis记录
+            service.cache.remove('online_' + user_id).catch(console.error);
+        });
+
+        // 发送欢迎消息
+        ctx.websocket.send(JSON.stringify({
+            type: 'system',
+            data: '欢迎您，登录可获取更多功能！',
+            timestamp: Date.now()
+        }));
+    }
+}
+
+module.exports = ChatwebsocketController;
+```
 
 
 

@@ -103,6 +103,40 @@ title: 第三学期第二季（课程学习顺序：07）
 ####  <a href="/thirdless/w-b/07注册登录页面.html#ii-给游客-未登录用户-一个身份标识"  style="margin-left:70px;">II. 给游客（未登录用户）一个身份标识</a>
 ####  <a href="/thirdless/w-b/07注册登录页面.html#iii-系统给游客用户注册身份便于游客和客服进行即时通讯"  style="margin-left:70px;">III. 系统给游客用户注册身份便于游客和客服进行即时通讯</a>
 ####  <a href="/thirdless/w-b/07注册登录页面.html#iv、游客用户正式注册和登录身份"  style="margin-left:70px;">Ⅳ、游客用户正式注册和登录身份</a>
+####  <a href="/thirdless/w-b/07用户好友相关功能处理.html#七、搜索用户"  style="margin-left:40px;">七、搜索用户</a>
+####  <a href="/thirdless/w-b/07用户好友相关功能处理.html#_1-搜索用户接口文档"  style="margin-left:70px;">1. 搜索用户接口文档</a>
+####  <a href="/thirdless/w-b/07用户好友相关功能处理.html#_2-搜索用户界面开发"  style="margin-left:70px;">2. 搜索用户界面开发</a>
+####  <a href="/thirdless/w-b/07用户好友相关功能处理.html#八、查看用户信息"  style="margin-left:40px;">八、查看用户信息</a>
+####  <a href="/thirdless/w-b/07用户好友相关功能处理.html#_1-查看用户资料接口文档"  style="margin-left:70px;">1. 查看用户资料接口文档</a>
+####  <a href="/thirdless/w-b/07用户好友相关功能处理.html#_2-查看用户资料界面开发"  style="margin-left:70px;">2. 查看用户资料界面开发</a>
+####  <a href="/thirdless/w-b/07用户好友相关功能处理.html#九、申请添加好友"  style="margin-left:40px;">九、申请添加好友</a>
+####  <a href="/thirdless/w-b/07用户好友相关功能处理.html#_1-申请添加好友接口文档"  style="margin-left:70px;">1. 申请添加好友接口文档</a>
+####  <a href="/thirdless/w-b/07用户好友相关功能处理.html#_2-申请添加好友代码"  style="margin-left:70px;">2. 申请添加好友代码</a>
+####  <a href="/thirdless/w-b/07用户好友相关功能处理.html#十、查看好友申请列表-获取别人申请我为好友的列表数据"  style="margin-left:40px;">十、查看好友申请列表（获取别人申请我为好友的列表数据）</a>
+####  <a href="/thirdless/w-b/07用户好友相关功能处理.html#_1-查看好友申请列表接口文档"  style="margin-left:70px;">1. 申请添加好友接口文档</a>
+####  <a href="/thirdless/w-b/07用户好友相关功能处理.html#_2-好友申请信息可以在初始化的时候获取"  style="margin-left:70px;">2. 好友申请信息可以在初始化的时候获取</a>
+####  <a href="/thirdless/w-b/07用户好友相关功能处理.html#_3-显示在页面上做提示"  style="margin-left:70px;">3. 显示在页面上做提示</a>
+####  <a href="/thirdless/w-b/07用户好友相关功能处理.html#_4-新建查看好友申请列表页面"  style="margin-left:70px;">4. 新建查看好友申请列表页面</a>
+####  <a href="/thirdless/w-b/07用户好友相关功能处理.html#_5-从-pages-friendslist-friendslist-朋友列表页面进入"  style="margin-left:70px;">5. 从 /pages/friendsList/friendsList 朋友列表页面进入</a>
+####  <a href="/thirdless/w-b/07用户好友相关功能处理.html#_6-查看好友申请列表页面代码"  style="margin-left:70px;">6. 查看好友申请列表页面代码</a>
+####  <a href="/thirdless/w-b/07用户好友相关功能处理.html#_7-上拉刷新数据及下拉加载更多数据"  style="margin-left:70px;">7. 上拉刷新数据及下拉加载更多数据</a>
+####  <a href="/thirdless/w-b/07用户好友相关功能处理.html#十一、处理好友申请"  style="margin-left:40px;">十一、处理好友申请</a>
+####  <a href="/thirdless/w-b/07用户好友相关功能处理.html#_1-查看处理好友申请接口文档"  style="margin-left:70px;">1. 查看处理好友申请接口文档</a>
+####  <a href="/thirdless/w-b/07用户好友相关功能处理.html#_2-从好友申请列表页面进入处理"  style="margin-left:70px;">2. 从好友申请列表页面进入处理</a>
+####  <a href="/thirdless/w-b/07用户好友相关功能处理.html#_3-处理好友申请"  style="margin-left:70px;">3. 处理好友申请</a>
+####  <a href="/thirdless/w-b/07用户好友相关功能处理.html#十二、好友列表-通讯录-展示"  style="margin-left:40px;">十二、好友列表（通讯录）展示</a>
+####  <a href="/thirdless/w-b/07用户好友相关功能处理.html#_1-获取好友列表数据"  style="margin-left:70px;">1. 获取好友列表数据</a>
+####  <a href="/thirdless/w-b/07用户好友相关功能处理.html#_2-页面展示"  style="margin-left:70px;">2. 页面展示</a>
+####  <a href="/thirdless/w-b/07用户好友相关功能处理.html#十三、用户详情设置-当前主要开发的是聊天设置"  style="margin-left:40px;">十三、用户详情设置（当前主要开发的是聊天设置）</a>
+####  <a href="/thirdless/w-b/07用户好友相关功能处理.html#_1-新建设置详情页面-pages-setpageinfo-setpageinfo-vue"  style="margin-left:70px;">1. 新建设置详情页面 /pages/setpageInfo/setpageInfo.vue</a>
+####  <a href="/thirdless/w-b/07用户好友相关功能处理.html#_2-从设置页进入"  style="margin-left:70px;">2. 从设置页进入</a>
+####  <a href="/thirdless/w-b/07用户好友相关功能处理.html#_3-设置详情页面代码"  style="margin-left:70px;">3. 设置详情页面代码</a>
+####  <a href="/thirdless/w-b/07用户好友相关功能处理.html#十四-发消息前解决几个小问题"  style="margin-left:40px;">十四. 发消息前解决几个小问题</a>
+####  <a href="/thirdless/w-b/07用户好友相关功能处理.html#_1-聊天设置信息提交数据完善"  style="margin-left:70px;">1. 聊天设置信息提交数据完善</a>
+####  <a href="/thirdless/w-b/07用户好友相关功能处理.html#_2-发消息按钮的两种情况判断"  style="margin-left:70px;">2. 发消息按钮的两种情况判断</a>
+####  <a href="/thirdless/w-b/07用户好友相关功能处理.html#_1-查询一下对方是否是我的好友"  style="margin-left:110px;">① 查询一下对方是否是我的好友</a>
+####  <a href="/thirdless/w-b/07用户好友相关功能处理.html#_3-处理完用户申请返回好友列表-通讯录-更新好友列表"  style="margin-left:70px;">3. 处理完用户申请返回好友列表（通讯录）更新好友列表</a>
+### <a href="/thirdless/w-b/08聊天通讯" target="_blank" title="点击查看课程文档">章节8.聊天通讯</a>
 
 
 
