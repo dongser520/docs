@@ -228,8 +228,8 @@ class ChatwebsocketController extends Controller {
             if (!user_id) return;
 
             // 安全移除用户记录
-            if (app.ws.chatuser && app.ws.chatuser[user_id]) {
-                delete app.ws.chatuser[user_id];
+            if (ctx.app.ws.chatuser && ctx.app.ws.chatuser[user_id]) {
+                delete ctx.app.ws.chatuser[user_id];
             }
 
             // 异步移除redis记录
@@ -248,7 +248,6 @@ class ChatwebsocketController extends Controller {
 module.exports = ChatwebsocketController;
 
 ```
-
 
 ### 5. 讲新内容前的说明
 1. 我们在上节课补充了关于未登录注册的用户，我们给他注册一个游客身份（具体查看：<a href="/fourthless/w-a/eggjs.即时通讯后台.html#三、给未登录用户创建一个游客身份" target="_blank">三、给未登录用户创建一个游客身份</a>），来满足他和我们的客服进行即时通讯的需求。在数据库我们新增了几个字段，我们重点讲了 `devicefingeruuid 设备标识（游客标识）`，关于其他几个字段都是做统计用的，为可选字段，大家如果有需要可以通过前端传过来，然后在数据库更新这几个字段，具体看控制器代码 <a href="/fourthless/w-a/eggjs.即时通讯后台.html#_1-游客用户注册身份" target="_blank">① 游客用户注册身份</a>。
@@ -732,8 +731,8 @@ module.exports = () => {
 
             // 存储连接
             ctx.app.ws.chatuser = ctx.app.ws.chatuser || {};
-            ctx.websocket.chatuser_id = user.id;
             ctx.app.ws.chatuser[user.id] = ctx.websocket;
+            ctx.websocket.chatuser_id = user.id;
 
             // ctx.online(user.id);
             console.log(`用户 ${user.id} 连接成功`);
@@ -763,7 +762,7 @@ module.exports = app => {
     const { router, controller } = app;
     //配置websocket路由
     //配置websocket全局中间件
-    const WebSocketMiddleware = require('./middleware/chatwebsocket'); 
+    const WebSocketMiddleware = require('../../../middleware/chatwebsocket');
     // app.ws.use(WebSocketMiddleware());
     // 链接websocket
     // app.ws.route('/ws', controller.api.chat.chatwebsocket.connect);
@@ -884,8 +883,8 @@ class ChatwebsocketController extends Controller {
             if (!user_id) return;
 
             // 安全移除用户记录
-            if (app.ws.chatuser && app.ws.chatuser[user_id]) {
-                delete app.ws.chatuser[user_id];
+            if (ctx.app.ws.chatuser && ctx.app.ws.chatuser[user_id]) {
+                delete ctx.app.ws.chatuser[user_id];
             }
 
             // 异步移除redis记录
@@ -902,9 +901,8 @@ class ChatwebsocketController extends Controller {
 }
 
 module.exports = ChatwebsocketController;
+
 ```
-
-
 
 
 
