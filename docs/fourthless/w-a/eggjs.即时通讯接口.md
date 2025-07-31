@@ -819,6 +819,7 @@ title: eggjs即时通讯接口
 > | chatType   |  是         |  string  |  |          |  接收类型: `['single', 'group']` 单聊 single 群聊 group  |
 > | type   |  是         |  string  |  |          | 消息类型: `text、iconMenus、image、audio、video` 等等  |
 > | data   |  是         |  string  |  |          |  消息内容  |
+> | options   |  否      |  string  |  |          |  额外参数json字符串  |
 > 5. 返回示例
 >  ```js
 >  // websocket 接收的消息

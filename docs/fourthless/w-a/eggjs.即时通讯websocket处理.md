@@ -925,6 +925,7 @@ class ChatwebsocketController extends Controller {
     async connect(){
         ...
     }
+
     //发送消息
     async sendmessage() {
         const { ctx, app, service } = this;
@@ -961,9 +962,15 @@ class ChatwebsocketController extends Controller {
                 // defValue: '', 
                 desc: '消息内容',
             },
+            options: {
+                type: 'string',
+                required: false, //选填
+                defValue: '', 
+                desc: '额外参数json字符串',
+            },
         });
         // 获取参数
-        const { sendto_id, chatType, type, data } = ctx.request.body;
+        const { sendto_id, chatType, type, data, options } = ctx.request.body;
         // 我的信息
         const me = ctx.chat_user;
         const me_id = me.id;
@@ -1093,6 +1100,13 @@ class ChatwebsocketController extends Controller {
             }
 
             // 3. 过了聊天设置这一关, 则发送消息，构建消息格式
+            let optionsObj = null;
+            // 额外参数json字符串options
+            try{
+                optionsObj = JSON.parse(decodeURIComponent(options));
+            } catch {
+                optionsObj = null;
+            }
             let message = { 
                 id: uuidv4(), // 自动生成 UUID,唯一id, 聊天记录id，方便撤回消息
                 from_avatar: me.avatar, // 发送者头像
@@ -1104,7 +1118,7 @@ class ChatwebsocketController extends Controller {
                 chatType: chatType, // 聊天类型 单聊
                 type: type, // 消息类型
                 data: data, // 消息内容
-                options:{}, // 其它参数
+                options: optionsObj, // 其它参数
                 create_time: (new Date()).getTime(), // 创建时间
                 isremove: 0, // 0未撤回 1已撤回
             };
@@ -1139,6 +1153,7 @@ class ChatwebsocketController extends Controller {
 
     }
 }
+
 module.exports = ChatwebsocketController;
 ```
 
@@ -1167,6 +1182,9 @@ module.exports = app => {
     
 };
 ```
+
+### 3. 接口说明
+具体查看给服务器发消息（单聊）（发送消息给对方）的接口说明：<a href="/fourthless/w-a/eggjs.即时通讯接口.html#二十、给服务器发消息-单聊-发送消息给对方" target="_blank">二十、给服务器发消息（单聊）（发送消息给对方）</a> <br/>
 
 
 
