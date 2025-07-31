@@ -782,12 +782,71 @@ title: eggjs即时通讯接口
 >  ```js
 >  {
 >      "msg": "ok",
->      "data": "goodfriend"
+>      "data": {
+>          "id": 29,
+>          "user_id": 6,
+>          "friend_id": 1,
+>          "nickname": "魂牵一梦",
+>          "friendlookme": 1,
+>          "melookfriend": 1,
+>          "ismystarfriend": 0,
+>          "isblack": 0,
+>          "status": 1
+>      }
 >  }
 >  ```
 
 
-
+## 二十、给服务器发消息（单聊）（发送消息给对方）
+说明：`(游客，登录用户均可，只要token是正确的就行)` <br/>
+接口文档查看：<a href="/fourthless/w-a/eggjs.即时通讯websocket处理.html#三、发送消息-单聊" target="_blank">三、发送消息(单聊)</a>
+> 1. 请求方式：`post` `[用postman测试]`或者`[用Apipost测试]`
+> 2. 接口示例：`http://127.0.0.1:7001/api/chat/socket/sendmessage`<br/>
+> 本地路由地址：<http://127.0.0.1:7001/api/chat/socket/sendmessage> <br/> 
+> 3. header头传token
+> 
+> 请求参数 [Headers] -> [Key: `token`, Value: `token值`]
+> 
+> | 参数       |  是否必填    |  类型    |  长度                   | 说明     |
+> | :---:      | :---:       |  :---:   | :---:                  |:---:     |
+> | token      |  是         |  string  |  由服务器生成           | `token令牌`，如：`eyJhbGciO.....`  |
+> 
+> 4. 请求参数 [body] -> [x-www-form-urlencoded]
+>
+> | 参数   |  是否必填    |  类型  |  长度  |  默认值  | 说明     |
+> | :---:  | :---:       |  :---: | :---: |:---:     |:---:     |
+> | sendto_id   |  是         |  int  | int(11) |          |  接收人/群的id值  |
+> | chatType   |  是         |  string  |  |          |  接收类型: `['single', 'group']` 单聊 single 群聊 group  |
+> | type   |  是         |  string  |  |          | 消息类型: `text、iconMenus、image、audio、video` 等等  |
+> | data   |  是         |  string  |  |          |  消息内容  |
+> 5. 返回示例
+>  ```js
+>  // websocket 接收的消息
+>  {
+>    type: "singleChat", 
+>    data: {…}, // 和页面接收服务器返回的结果data数据一样
+>    timestamp: 1753934390663
+>  }
+>  // 页面接收服务器返回的结果
+>  {
+>    "msg": "ok",
+>    "data": {
+>        "id": "10d0c78a-0133-4be8-9b18-879f9682b246",
+>        "from_avatar": "https://thinkphp-all.oss-cn-hangzhou.aliyuncs.com/public/67b3001b2aedd.png",
+>        "from_name": "my06",
+>        "from_id": 6,
+>        "to_id": 10,
+>        "to_name": "my10",
+>        "to_avatar": "https://thinkphp-all.oss-cn-hangzhou.aliyuncs.com/public/67b3001b2aedd.png",
+>        "chatType": "single",
+>        "type": "text",
+>        "data": "nihao,my10",
+>        "options": {},
+>        "create_time": 1753934390663,
+>        "isremove": 0
+>    }
+>  }
+>  ```
 
 
 

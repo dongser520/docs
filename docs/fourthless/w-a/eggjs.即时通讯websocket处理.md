@@ -108,14 +108,14 @@ module.exports = app => {
       });
     // 链接websocket
     app.ws.route('/ws', controller.api.chat.chatwebsocket.connect);
-    //发送消息
-    // router.post('/chat/send', controller.api.chat.chatwebsocket.send);
-    //获取离线消息
-    // router.post('/chat/getmessage', controller.api.chat.chatwebsocket.getmessage);
-    //上传文件
-    // router.post('/upload', controller.api.chat.chatwebsocket.upload);
-    //撤回消息
-    // router.post('/chat/recall', controller.api.chat.chatwebsocket.recall);
+    //发送消息 (游客，登录用户均可，只要token是正确的就行)
+    //router.post('/api/chat/socket/sendmessage', controller.api.chat.chatwebsocket.sendmessage);
+    //获取离线消息 (游客，登录用户均可，只要token是正确的就行)
+    // router.post('/api/chat/socket/getmessage', controller.api.chat.chatwebsocket.getmessage);
+    //上传文件 (游客，登录用户均可，只要token是正确的就行)
+    // router.post('/api/chat/socket/upload', controller.api.chat.chatwebsocket.upload);
+    //撤回消息 (游客，登录用户均可，只要token是正确的就行)
+    // router.post('/api/chat/socket/recall', controller.api.chat.chatwebsocket.recall);
     
 };
 ```
@@ -630,41 +630,45 @@ module.exports = (option, app) => {
 
 #### 2. 代码和路由
 > 1. 在控制器 `app/controller/api/chat/goodfriend.js`
-```js
-    // 查看对方是否是我的好友（登录用户才可以查看好友资料信息，（游客）没有这个功能）
-    async ismygoodfriend(){
-        const { ctx,app } = this;
-        //1.参数验证
-        ctx.validate({
-            id: {
-                type: 'int',  //参数类型
-                required: true, //是否必须
-                // defValue: '', 
-                desc: '朋友id', //字段含义
-                range:{
-                    min:1,
-                }
-            },
-        });
-        // 拿参数
-        const id = parseInt(ctx.params.id);
-        // 当前用户: 我
-        const me = ctx.chat_user;
-        const me_id = me.id;
-        // 获取好友信息
-        let data = await app.model.Goodfriend.findOne({
-            where:{
-                friend_id:id, // 好友id
-                user_id:me_id,// 我
-                isblack:0, // 没有拉黑
-            }
-        });
-        if(!data){
-            return ctx.apiFail('不是好友');
-        }
-        return ctx.apiSuccess('goodfriend');
-    }
-```
+> ```js
+>     // 查看对方是否是我的好友（登录用户才可以查看好友资料信息，（游客）没有这个功能）
+>     async ismygoodfriend(){
+>         const { ctx,app } = this;
+>         //1.参数验证
+>         ctx.validate({
+>             id: {
+>                 type: 'int',  //参数类型
+>                 required: true, //是否必须
+>                 // defValue: '', 
+>                 desc: '朋友id', //字段含义
+>                 range:{
+>                     min:1,
+>                 }
+>             },
+>         });
+>         // 拿参数
+>         const id = parseInt(ctx.params.id);
+>         // 当前用户: 我
+>         const me = ctx.chat_user;
+>         const me_id = me.id;
+>         // 获取好友信息
+>         let data = await app.model.Goodfriend.findOne({
+>             where:{
+>                 friend_id:id, // 好友id
+>                 user_id:me_id,// 我
+>                 isblack:0, // 没有拉黑
+>             },
+>             attributes:{
+>                 exclude:['order','create_time','update_time'],
+>             },
+>         });
+>         if(!data){
+>             return ctx.apiFail('不是好友');
+>         }
+>         // return ctx.apiSuccess('goodfriend');
+>         return ctx.apiSuccess(data);
+>     }
+> ```
 
 > 2. 路由 `app/router/api/chat/router.js`
 > ```js
@@ -756,7 +760,7 @@ module.exports = () => {
 };
 ```
 
-#### 2. 路由 `app/router/api/chat/router.js`
+#### 2. 路由 `app/router/api/chat/websocket.js`
 ```js
 module.exports = app => {
     const { router, controller } = app;
@@ -770,14 +774,14 @@ module.exports = app => {
     app.ws.route('/ws', WebSocketMiddleware(), controller.api.chat.chatwebsocket.connect);
 
 
-    //发送消息
-    // router.post('/chat/send', controller.api.chat.chatwebsocket.send);
-    //获取离线消息
-    // router.post('/chat/getmessage', controller.api.chat.chatwebsocket.getmessage);
-    //上传文件
-    // router.post('/upload', controller.api.chat.chatwebsocket.upload);
-    //撤回消息
-    // router.post('/chat/recall', controller.api.chat.chatwebsocket.recall);
+    //发送消息 (游客，登录用户均可，只要token是正确的就行)
+    // router.post('/api/chat/socket/sendmessage', controller.api.chat.chatwebsocket.sendmessage);
+    //获取离线消息 (游客，登录用户均可，只要token是正确的就行)
+    // router.post('/api/chat/socket/getmessage', controller.api.chat.chatwebsocket.getmessage);
+    //上传文件 (游客，登录用户均可，只要token是正确的就行)
+    // router.post('/api/chat/socket/upload', controller.api.chat.chatwebsocket.upload);
+    //撤回消息 (游客，登录用户均可，只要token是正确的就行)
+    // router.post('/api/chat/socket/recall', controller.api.chat.chatwebsocket.recall);
     
 };
 ```
@@ -905,9 +909,264 @@ module.exports = ChatwebsocketController;
 ```
 
 
+## 三、发送消息(单聊)
+### 1. 服务端发送消息方法
+在控制器 `app/controller/api/chat/chatwebsocket.js`
+```js
+'use strict';
 
+const Controller = require('egg').Controller;
 
+// 引入 uuid 库 `npm install uuid`
+const { v4: uuidv4 } = require('uuid');
 
+class ChatwebsocketController extends Controller {
+    // 链接websocket
+    async connect(){
+        ...
+    }
+    //发送消息
+    async sendmessage() {
+        const { ctx, app, service } = this;
+        //参数验证
+        ctx.validate({
+            sendto_id: {
+                type: 'int',  //参数类型
+                required: true, //是否必须
+                // defValue: '', 
+                desc: '接收人/群的id值', //字段含义
+                range: {
+                    min: 1,
+                }
+            },
+            chatType: {
+                type: 'string',
+                required: true,
+                // defValue: '', 
+                desc: '接收类型', // 单聊 single 群聊 group
+                range: {
+                    in: ['single', 'group'],
+                }
+            },
+            type: {
+                type: 'string',
+                required: true,
+                // defValue: '', 
+                // 'text'|'iconMenus'|'image'|'audio'|'video' 等等
+                desc: '消息类型',
+            },
+            data: {
+                type: 'string',
+                required: true,
+                // defValue: '', 
+                desc: '消息内容',
+            },
+        });
+        // 获取参数
+        const { sendto_id, chatType, type, data } = ctx.request.body;
+        // 我的信息
+        const me = ctx.chat_user;
+        const me_id = me.id;
+        // 单聊还是群聊chatType
+        if (chatType == 'single') {
+            // 单聊
+            // 1. 看聊天的人是否存在(可以是游客可以是登录用户可以是好友)
+            let chater = await app.model.User.findOne({
+                where: {
+                    id: sendto_id,
+                    status: 1
+                }
+            });
+            if (!chater) {
+                return ctx.apiFail('对方不存在或者被禁用，不能发消息');
+            }
+            // 2. 看一下对方的设置是否容许聊天
+            chater = JSON.parse(JSON.stringify(chater));
+            console.log('聊天对象数据库信息', chater);
+            // 信息设置大的对象
+            let allset = {};
+            // 用户设置信息
+            let userset = chater.userset;
+            // 对方没有任何设置
+            if (!userset) {
+                // 包括没有聊天设置，则对于聊天，给它默认聊天设置
+                allset.chatset = {
+                    visitor: {
+                        sendCount: 1, //可以发一条
+                        needFollow: false  // 无需关注
+                    },
+                    user: {
+                        sendCount: 1, //可以发一条
+                        needFollow: false // 无需关注
+                    }
+                };
+                // 其它设置信息的初始默认值
+                // ...
+            } else {
+                // 有设置信息 存储的是json字符串转对象
+                allset = JSON.parse(userset);
+                // 看一下有没有聊天设置信息
+                if (!allset.chatset) {
+                    // 没有聊天设置信息 则给它默认的聊天设置
+                    allset.chatset = {
+                        visitor: {
+                            sendCount: 1, //可以发一条
+                            needFollow: false  // 无需关注
+                        },
+                        user: {
+                            sendCount: 1, //可以发一条
+                            needFollow: false // 无需关注
+                        }
+                    };
+                } else {
+                    // 有聊天设置信息 用用户自己的设置
+                    allset.chatset = allset.chatset;
+                }
+            }
+            console.log('用户设置的信息包括默认值', allset);
+            // 针对对方聊天设置做相应的判断
+            // 是要求先登录、先成为好友，才能发送
+            // 这个时候要看我的身份
+            const me_role = me.role;
+            // 定义一下昵称（主要针对我和对方是好友关系的时候各自拿备注昵称）
+            let me_friend_nickname = ''; // 我在对方的好友备注
+            let you_friend_nickname = ''; // 对方在我的好友备注
+            // 如果我是游客，则看对方怎么设置的
+            if (me_role == 'visitor') {
+                // 关于关注方面
+                if (allset.chatset.visitor.needFollow) {
+                    //需要游客关注
+                    //然后看一下我有没有关注他，没有关注则提示先关注
+                }
+                // 关于发送条数方面
+                let sendCount = allset.chatset.visitor.sendCount;
+                if (sendCount == 0) {
+                    return ctx.apiFail('对方设置成：需要您先登录才能发消息');
+                }else if(sendCount == 1){
+                    // 查一下已经发了几条，如果已经发了一条则不能再发送了
+                }else if(sendCount == 2){
+                    // 随便发，没有限制
+                }
+            }else if(me_role == 'user'){
+                // 如果我是登录用户
+                // 如果对方是我的好友，可以拿一下对方在我的好友备注
+                let mefriend = await app.model.Goodfriend.findOne({
+                    where: {
+                        user_id: me_id,  // 我
+                        friend_id: sendto_id, //对方
+                    }
+                });
+                if(mefriend){
+                    you_friend_nickname = mefriend.nickname; // 对方在我的好友备注
+                }
+                // 看一下我是不是对方的好友
+                let friend = await app.model.Goodfriend.findOne({
+                    where: {
+                        user_id: sendto_id,  // 对方
+                        friend_id: me_id, //我
+                    }
+                });
+                // 如果是好友，但是如果对方把我拉黑了，则不能发消息
+                if(friend && friend.isblack == 1){
+                    return ctx.apiFail('对方把你拉黑了，不能发送消息');
+                }
+                // 如果我是对方的好友，可以拿一下我在对方的好友昵称备注
+                if(friend){
+                    me_friend_nickname = friend.nickname; // 我在对方的好友备注
+                }else{
+                    // 不是对方好友，则按照对方聊天设置处理
+                    // 关于关注方面
+                    if (allset.chatset.user.needFollow) {
+                        //需要用户关注
+                        //然后看一下我有没有关注他，没有关注则提示先关注
+                    }
+                    // 关于发送条数方面
+                    let sendCount = allset.chatset.user.sendCount;
+                    if (sendCount == 0) {
+                        return ctx.apiFail('对方设置成：需要您先成为他的好友才能发消息');
+                    }else if(sendCount == 1){
+                        // 查一下已经发了几条，如果已经发了一条则不能再发送了
+                    }else if(sendCount == 2){
+                        // 随便发，没有限制
+                    }
+                }
+            }
+
+            // 3. 过了聊天设置这一关, 则发送消息，构建消息格式
+            let message = { 
+                id: uuidv4(), // 自动生成 UUID,唯一id, 聊天记录id，方便撤回消息
+                from_avatar: me.avatar, // 发送者头像
+                from_name: me_friend_nickname || me.nickname || me.username, // 发送者名称
+                from_id: me.id, // 发送者id
+                to_id: sendto_id, // 接收者id
+                to_name: you_friend_nickname || chater.nickname || chater.username, // 接收者名称
+                to_avatar: chater.avatar, // 接收者头像
+                chatType: chatType, // 聊天类型 单聊
+                type: type, // 消息类型
+                data: data, // 消息内容
+                options:{}, // 其它参数
+                create_time: (new Date()).getTime(), // 创建时间
+                isremove: 0, // 0未撤回 1已撤回
+            };
+
+            // 4. 拿到对方的socket
+            let you_socket = ctx.app.ws.chatuser[sendto_id];
+            // 如果拿不到对方的socket， 则把消息放在redis队列中， 等待对方上线时，再发送
+            if(!you_socket){
+                // 放到reids，设置消息列表中：key值是：'chat_getmessage_' + sendto_id（用户id）
+                ctx.service.cache.setList('chat_getmessage_' + sendto_id, message);
+            }else{
+                // 如果对方在线，则直接推送给对方
+                you_socket.send(JSON.stringify({
+                    type: 'singleChat',
+                    data: message,
+                    timestamp: Date.now(),
+                }));
+                // 存储到对方redis历史记录中
+                // key: `chatlog_对方id_user_我的id`
+                ctx.service.cache.setList(`chatlog_${sendto_id}_user_${me.id}`, message);
+            }
+            // 存储到我的redis历史记录中
+            // key: `chatlog_我的id_user_对方id`
+            ctx.service.cache.setList(`chatlog_${me.id}_user_${sendto_id}`, message);
+
+            // 返回
+            return ctx.apiSuccess(message);
+
+        } else if (chatType == 'group') {
+            // 群聊
+        }
+
+    }
+}
+module.exports = ChatwebsocketController;
+```
+
+### 2. 路由
+在路由 `app/router/api/chat/websocket.js`
+```js
+module.exports = app => {
+    const { router, controller } = app;
+    //配置websocket路由
+    //配置websocket全局中间件
+    const WebSocketMiddleware = require('../../../middleware/chatwebsocket');
+    // app.ws.use(WebSocketMiddleware());
+    // 链接websocket
+    // app.ws.route('/ws', controller.api.chat.chatwebsocket.connect);
+    // 只应用中间件到特定路由
+    app.ws.route('/ws', WebSocketMiddleware(), controller.api.chat.chatwebsocket.connect);
+    
+    //发送消息 (游客，登录用户均可，只要token是正确的就行)
+    router.post('/api/chat/socket/sendmessage', controller.api.chat.chatwebsocket.sendmessage);
+    //获取离线消息 (游客，登录用户均可，只要token是正确的就行)
+    // router.post('/api/chat/socket/getmessage', controller.api.chat.chatwebsocket.getmessage);
+    //上传文件 (游客，登录用户均可，只要token是正确的就行)
+    // router.post('/api/chat/socket/upload', controller.api.chat.chatwebsocket.upload);
+    //撤回消息 (游客，登录用户均可，只要token是正确的就行)
+    // router.post('/api/chat/socket/recall', controller.api.chat.chatwebsocket.recall);
+    
+};
+```
 
 
 
