@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>eggjs框架开发文档 | 睿晨网</title>
+    <meta name="generator" content="VuePress 1.9.9">
+    <link rel="icon" href="/assets/img/favicon.png">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="apple-touch-icon" href="/icons/apple-touch-icon-152x152.png">
+    <link rel="#icon-pengyouquan" href="/icons/iconfont.svg" color="#3eaf7c">
+    <meta name="description" content="睿晨网|睿晨编程|零基础学做网站、app、小程序就从这里开始">
+    <meta name="keywords" content="睿晨网,睿晨编程,零基础学做网站,零基础学app,零基础学小程序">
+    <meta name="author" content="睿晨网,睿晨编程,阿东老师">
+    <meta name="theme-color" content="#3eaf7c">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="msapplication-TileImage" content="/icons/msapplication-icon-144x144.png">
+    <meta name="msapplication-TileColor" content="#000000">
+    
+    <link rel="preload" href="/assets/css/0.styles.69e032a3.css" as="style"><link rel="preload" href="/assets/js/app.324841cd.js" as="script"><link rel="preload" href="/assets/js/9.13d458ed.js" as="script"><link rel="preload" href="/assets/js/2.6281e0bb.js" as="script"><link rel="preload" href="/assets/js/45.6d801704.js" as="script"><link rel="preload" href="/assets/js/3.e6827fa8.js" as="script"><link rel="prefetch" href="/assets/js/10.63ed790c.js"><link rel="prefetch" href="/assets/js/100.d1f3c180.js"><link rel="prefetch" href="/assets/js/101.c9c76ad2.js"><link rel="prefetch" href="/assets/js/102.3d60090a.js"><link rel="prefetch" href="/assets/js/103.3b74e9d8.js"><link rel="prefetch" href="/assets/js/104.b370cf3a.js"><link rel="prefetch" href="/assets/js/105.894d749e.js"><link rel="prefetch" href="/assets/js/106.6caac065.js"><link rel="prefetch" href="/assets/js/107.1e137ee6.js"><link rel="prefetch" href="/assets/js/108.fb826cc1.js"><link rel="prefetch" href="/assets/js/109.497c2f4e.js"><link rel="prefetch" href="/assets/js/11.4d557dec.js"><link rel="prefetch" href="/assets/js/110.94c41e03.js"><link rel="prefetch" href="/assets/js/111.38f2fdf4.js"><link rel="prefetch" href="/assets/js/112.6cf89fa5.js"><link rel="prefetch" href="/assets/js/113.992f2505.js"><link rel="prefetch" href="/assets/js/114.48b0a406.js"><link rel="prefetch" href="/assets/js/115.e727c789.js"><link rel="prefetch" href="/assets/js/116.b2beb1f1.js"><link rel="prefetch" href="/assets/js/117.4a12df4c.js"><link rel="prefetch" href="/assets/js/118.d8638449.js"><link rel="prefetch" href="/assets/js/119.1f27548e.js"><link rel="prefetch" href="/assets/js/12.cf4d17ad.js"><link rel="prefetch" href="/assets/js/120.89561d5c.js"><link rel="prefetch" href="/assets/js/121.943cf507.js"><link rel="prefetch" href="/assets/js/122.d9af0449.js"><link rel="prefetch" href="/assets/js/123.cc21abea.js"><link rel="prefetch" href="/assets/js/124.6e523a4b.js"><link rel="prefetch" href="/assets/js/125.75d8d764.js"><link rel="prefetch" href="/assets/js/126.3ad049c2.js"><link rel="prefetch" href="/assets/js/127.acbb036c.js"><link rel="prefetch" href="/assets/js/128.d3a5935c.js"><link rel="prefetch" href="/assets/js/129.6bbf7e72.js"><link rel="prefetch" href="/assets/js/13.1b0cf804.js"><link rel="prefetch" href="/assets/js/130.0b2cccca.js"><link rel="prefetch" href="/assets/js/131.ddbe795b.js"><link rel="prefetch" href="/assets/js/132.139e575b.js"><link rel="prefetch" href="/assets/js/133.ea6ee35f.js"><link rel="prefetch" href="/assets/js/134.2044f53e.js"><link rel="prefetch" href="/assets/js/135.79be2292.js"><link rel="prefetch" href="/assets/js/136.19a5e12e.js"><link rel="prefetch" href="/assets/js/137.ed865e50.js"><link rel="prefetch" href="/assets/js/138.2ed8b1fd.js"><link rel="prefetch" href="/assets/js/139.eb7a5a72.js"><link rel="prefetch" href="/assets/js/14.0ca13a9a.js"><link rel="prefetch" href="/assets/js/140.7f9e1bdc.js"><link rel="prefetch" href="/assets/js/141.d4fc90de.js"><link rel="prefetch" href="/assets/js/142.8666f32b.js"><link rel="prefetch" href="/assets/js/143.c0944a59.js"><link rel="prefetch" href="/assets/js/144.ff477b40.js"><link rel="prefetch" href="/assets/js/145.3a1b1574.js"><link rel="prefetch" href="/assets/js/146.4a062695.js"><link rel="prefetch" href="/assets/js/147.6a97362a.js"><link rel="prefetch" href="/assets/js/148.25a72a0d.js"><link rel="prefetch" href="/assets/js/149.d387cd50.js"><link rel="prefetch" href="/assets/js/15.047842ca.js"><link rel="prefetch" href="/assets/js/150.3974413a.js"><link rel="prefetch" href="/assets/js/151.b3c39303.js"><link rel="prefetch" href="/assets/js/152.8577ffd3.js"><link rel="prefetch" href="/assets/js/153.fc12e8e6.js"><link rel="prefetch" href="/assets/js/154.f15fb55c.js"><link rel="prefetch" href="/assets/js/155.b2efe178.js"><link rel="prefetch" href="/assets/js/156.820ed435.js"><link rel="prefetch" href="/assets/js/157.d7341739.js"><link rel="prefetch" href="/assets/js/158.73b6125a.js"><link rel="prefetch" href="/assets/js/159.983ca6c4.js"><link rel="prefetch" href="/assets/js/16.bc7369ed.js"><link rel="prefetch" href="/assets/js/160.38c270b0.js"><link rel="prefetch" href="/assets/js/161.cc2ce5ba.js"><link rel="prefetch" href="/assets/js/162.908403f8.js"><link rel="prefetch" href="/assets/js/163.0bac8f1e.js"><link rel="prefetch" href="/assets/js/164.cda0b79a.js"><link rel="prefetch" href="/assets/js/165.197e759e.js"><link rel="prefetch" href="/assets/js/166.65d298ef.js"><link rel="prefetch" href="/assets/js/167.44f1c780.js"><link rel="prefetch" href="/assets/js/168.e1945d6f.js"><link rel="prefetch" href="/assets/js/169.a064ea08.js"><link rel="prefetch" href="/assets/js/17.505b8801.js"><link rel="prefetch" href="/assets/js/170.ed615edf.js"><link rel="prefetch" href="/assets/js/171.4b492679.js"><link rel="prefetch" href="/assets/js/172.3a1b9479.js"><link rel="prefetch" href="/assets/js/173.3e200e2b.js"><link rel="prefetch" href="/assets/js/174.9297bd1d.js"><link rel="prefetch" href="/assets/js/175.704ee0df.js"><link rel="prefetch" href="/assets/js/176.c5187030.js"><link rel="prefetch" href="/assets/js/177.c4c03fa4.js"><link rel="prefetch" href="/assets/js/178.8b38e3fc.js"><link rel="prefetch" href="/assets/js/179.6bf3c538.js"><link rel="prefetch" href="/assets/js/18.93957baf.js"><link rel="prefetch" href="/assets/js/180.a6474e5c.js"><link rel="prefetch" href="/assets/js/181.43fd88df.js"><link rel="prefetch" href="/assets/js/182.0ce93d64.js"><link rel="prefetch" href="/assets/js/183.a61e96bc.js"><link rel="prefetch" href="/assets/js/184.ce9293cc.js"><link rel="prefetch" href="/assets/js/185.1768031a.js"><link rel="prefetch" href="/assets/js/186.f36d6ae7.js"><link rel="prefetch" href="/assets/js/187.c6155cc7.js"><link rel="prefetch" href="/assets/js/188.63028694.js"><link rel="prefetch" href="/assets/js/189.bdb4f65a.js"><link rel="prefetch" href="/assets/js/19.1d31bdde.js"><link rel="prefetch" href="/assets/js/190.a4e9eb87.js"><link rel="prefetch" href="/assets/js/191.8d181994.js"><link rel="prefetch" href="/assets/js/192.c4dafa20.js"><link rel="prefetch" href="/assets/js/193.7be73f99.js"><link rel="prefetch" href="/assets/js/194.32295667.js"><link rel="prefetch" href="/assets/js/195.78299418.js"><link rel="prefetch" href="/assets/js/196.2a5979aa.js"><link rel="prefetch" href="/assets/js/197.1a0b0a02.js"><link rel="prefetch" href="/assets/js/198.d6453167.js"><link rel="prefetch" href="/assets/js/199.f348c09e.js"><link rel="prefetch" href="/assets/js/20.235ddbe7.js"><link rel="prefetch" href="/assets/js/200.1b235ad9.js"><link rel="prefetch" href="/assets/js/201.bc7d8349.js"><link rel="prefetch" href="/assets/js/202.a036e26c.js"><link rel="prefetch" href="/assets/js/21.8a106a5c.js"><link rel="prefetch" href="/assets/js/22.da6ac8b9.js"><link rel="prefetch" href="/assets/js/23.e1a05b37.js"><link rel="prefetch" href="/assets/js/24.b1fc35fd.js"><link rel="prefetch" href="/assets/js/25.c448e19f.js"><link rel="prefetch" href="/assets/js/26.0d35a668.js"><link rel="prefetch" href="/assets/js/27.72d67464.js"><link rel="prefetch" href="/assets/js/28.b2a3d552.js"><link rel="prefetch" href="/assets/js/29.adbc99e4.js"><link rel="prefetch" href="/assets/js/30.e18078bf.js"><link rel="prefetch" href="/assets/js/31.594142c5.js"><link rel="prefetch" href="/assets/js/32.1dae6fa3.js"><link rel="prefetch" href="/assets/js/33.1f7fd9d4.js"><link rel="prefetch" href="/assets/js/34.fd012830.js"><link rel="prefetch" href="/assets/js/35.f63c9d31.js"><link rel="prefetch" href="/assets/js/36.4a3a0371.js"><link rel="prefetch" href="/assets/js/37.8dfd875d.js"><link rel="prefetch" href="/assets/js/38.7c58657e.js"><link rel="prefetch" href="/assets/js/39.75439cec.js"><link rel="prefetch" href="/assets/js/4.5a735a89.js"><link rel="prefetch" href="/assets/js/40.866ea765.js"><link rel="prefetch" href="/assets/js/41.e526ddcd.js"><link rel="prefetch" href="/assets/js/42.34b411cf.js"><link rel="prefetch" href="/assets/js/43.003c4e79.js"><link rel="prefetch" href="/assets/js/44.361818a4.js"><link rel="prefetch" href="/assets/js/46.52bb383f.js"><link rel="prefetch" href="/assets/js/47.422877fb.js"><link rel="prefetch" href="/assets/js/48.5356ac18.js"><link rel="prefetch" href="/assets/js/49.afa75558.js"><link rel="prefetch" href="/assets/js/5.874fd3ce.js"><link rel="prefetch" href="/assets/js/50.73a30345.js"><link rel="prefetch" href="/assets/js/51.8e0e253a.js"><link rel="prefetch" href="/assets/js/52.5662fc52.js"><link rel="prefetch" href="/assets/js/53.d472d554.js"><link rel="prefetch" href="/assets/js/54.9c462d21.js"><link rel="prefetch" href="/assets/js/55.1307b347.js"><link rel="prefetch" href="/assets/js/56.5f2603a3.js"><link rel="prefetch" href="/assets/js/57.4fdf5fb9.js"><link rel="prefetch" href="/assets/js/58.4624e669.js"><link rel="prefetch" href="/assets/js/59.970a50cc.js"><link rel="prefetch" href="/assets/js/6.07076dbc.js"><link rel="prefetch" href="/assets/js/60.50e8823f.js"><link rel="prefetch" href="/assets/js/61.5f311328.js"><link rel="prefetch" href="/assets/js/62.1df2fb94.js"><link rel="prefetch" href="/assets/js/63.ee707f40.js"><link rel="prefetch" href="/assets/js/64.5a394ce6.js"><link rel="prefetch" href="/assets/js/65.d4cde875.js"><link rel="prefetch" href="/assets/js/66.3ff2fa8a.js"><link rel="prefetch" href="/assets/js/67.aaf7af2a.js"><link rel="prefetch" href="/assets/js/68.0603275f.js"><link rel="prefetch" href="/assets/js/69.fd588215.js"><link rel="prefetch" href="/assets/js/7.13cce467.js"><link rel="prefetch" href="/assets/js/70.3eaf647e.js"><link rel="prefetch" href="/assets/js/71.57c57b4f.js"><link rel="prefetch" href="/assets/js/72.ec318d24.js"><link rel="prefetch" href="/assets/js/73.e63d58ee.js"><link rel="prefetch" href="/assets/js/74.b2f59626.js"><link rel="prefetch" href="/assets/js/75.2b163373.js"><link rel="prefetch" href="/assets/js/76.ffaa79a7.js"><link rel="prefetch" href="/assets/js/77.fa832bb2.js"><link rel="prefetch" href="/assets/js/78.22154e39.js"><link rel="prefetch" href="/assets/js/79.6928dea3.js"><link rel="prefetch" href="/assets/js/8.c9de3dcb.js"><link rel="prefetch" href="/assets/js/80.6bfd181e.js"><link rel="prefetch" href="/assets/js/81.80a746cb.js"><link rel="prefetch" href="/assets/js/82.9c02fa06.js"><link rel="prefetch" href="/assets/js/83.a098cac1.js"><link rel="prefetch" href="/assets/js/84.99fb23ee.js"><link rel="prefetch" href="/assets/js/85.2d80ce46.js"><link rel="prefetch" href="/assets/js/86.84d50d52.js"><link rel="prefetch" href="/assets/js/87.39a8c34e.js"><link rel="prefetch" href="/assets/js/88.51689e79.js"><link rel="prefetch" href="/assets/js/89.5824abb7.js"><link rel="prefetch" href="/assets/js/90.def80afb.js"><link rel="prefetch" href="/assets/js/91.7c400c02.js"><link rel="prefetch" href="/assets/js/92.c3d7b8fd.js"><link rel="prefetch" href="/assets/js/93.9f31d1e0.js"><link rel="prefetch" href="/assets/js/94.461993a1.js"><link rel="prefetch" href="/assets/js/95.7dc04f58.js"><link rel="prefetch" href="/assets/js/96.e4387f8c.js"><link rel="prefetch" href="/assets/js/97.e8b6ecce.js"><link rel="prefetch" href="/assets/js/98.0a2b282d.js"><link rel="prefetch" href="/assets/js/99.d5e1338e.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.69e032a3.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">睿晨网</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">
+  主页
+</a></div><div class="nav-item"><a href="/aboutless.html" class="nav-link">
+  第一期企业网页开发
+</a></div><div class="nav-item"><a href="/secondless/" class="nav-link">
+  第二期企业网站开发
+</a></div><div class="nav-item"><a href="/thirdless/" class="nav-link">
+  第三期移动端(H5/小程序/App)课程
+</a></div><div class="nav-item"><a href="/fourthless/" class="nav-link router-link-active">
+  第四期web全栈课程
+</a></div><div class="nav-item"><a href="/fiveless/" class="nav-link">
+  第五期python课程
+</a></div><div class="nav-item"><a href="/web/software/" class="nav-link">
+  课程软件小案例
+</a></div><div class="nav-item"><a href="/web/mysql/" class="nav-link">
+  课程案例数据表
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="课程答疑汇总" class="dropdown-title"><span class="title">课程答疑</span> <span class="arrow down"></span></button> <button type="button" aria-label="课程答疑汇总" class="mobile-dropdown-title"><span class="title">课程答疑</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/web/answer/课程常见问题.html" class="nav-link">
+  课程常见问题
+</a></li><li class="dropdown-item"><!----> <a href="/deploy/" class="nav-link">
+  项目部署
+</a></li><li class="dropdown-item"><!----> <a href="/web/answer/免费部署SSL证书.html" class="nav-link">
+  免费部署SSL证书
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="课程学习网站" class="dropdown-title"><span class="title">课程学习网站</span> <span class="arrow down"></span></button> <button type="button" aria-label="课程学习网站" class="mobile-dropdown-title"><span class="title">课程学习网站</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          视频学习网站
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://study.163.com/provider/480000002289674/index.htm?share=2&amp;shareId=480000002289674" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  腾讯云课堂
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://space.bilibili.com/3493114067028034/pugv" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  B站
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="实用菜单" class="dropdown-title"><span class="title">实用网站和方法</span> <span class="arrow down"></span></button> <button type="button" aria-label="实用菜单" class="mobile-dropdown-title"><span class="title">实用网站和方法</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          实用方法
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/web/methods/定位相关.html" class="nav-link">
+  定位相关
+</a></li><li class="dropdown-subitem"><a href="/web/methods/地图相关.html" class="nav-link">
+  地图相关
+</a></li><li class="dropdown-subitem"><a href="/web/methods/树形结构数据转换.html" class="nav-link">
+  树形结构数据转换
+</a></li></ul></li><li class="dropdown-item"><h4>
+          uni-app专栏
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/web/methods/uni-app专栏.html" class="nav-link">
+  uni-app的UI框架
+</a></li><li class="dropdown-subitem"><a href="/web/methods/uni-app如何引入库.html" class="nav-link">
+  uni-app如何引入js库
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Egg.js专栏
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/secondless/w-c/Egg.js.html" class="nav-link">
+  Egg.js基础
+</a></li><li class="dropdown-subitem"><a href="/secondless/w-c/egg.js基础总结.html" class="nav-link">
+  Egg.js基础总结
+</a></li><li class="dropdown-subitem"><a href="/secondless/w-c/egg.js重要知识详细文档.html" class="nav-link">
+  Egg.js重要知识详细文档
+</a></li><li class="dropdown-subitem"><a href="/secondless/w-c/ValParams API 说明.html" class="nav-link">
+  Egg.js参数验证说明
+</a></li><li class="dropdown-subitem"><a href="/web/mysql/Sequelize数据类型.html" class="nav-link">
+  Egg.js迁移文件Sequelize数据类型
+</a></li><li class="dropdown-subitem"><a href="/secondless/w-c/Egg.js接口安全防护方案.html" class="nav-link">
+  Egg.js接口安全防护方案
+</a></li><li class="dropdown-subitem"><a href="/web/answer/课程常见问题.html#_3-eggjs如何重置数据表-保证id每次从1开始计算" class="nav-link">
+  Egg.js重置数据表每次ID为1
+</a></li></ul></li><li class="dropdown-item"><h4>
+          实用网站
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/web/methods/实用接口.html" class="nav-link">
+  实用接口
+</a></li><li class="dropdown-subitem"><a href="/web/css/" class="nav-link">
+  css
+</a></li><li class="dropdown-subitem"><a href="/web/vue.js/" class="nav-link">
+  Vue.js
+</a></li><li class="dropdown-subitem"><a href="/web/Vue3+ElementPlus/" class="nav-link">
+  Vue3+ElementPlus系统
+</a></li><li class="dropdown-subitem"><a href="/web/echarts/" class="nav-link">
+  echarts图表
+</a></li><li class="dropdown-subitem"><a href="/web/bootstrap/" class="nav-link">
+  Bootstrap
+</a></li><li class="dropdown-subitem"><a href="/web/IIS/" class="nav-link">
+  IIS
+</a></li><li class="dropdown-subitem"><a href="/web/github/" class="nav-link">
+  Github
+</a></li><li class="dropdown-subitem"><a href="/web/Vanta.js/" class="nav-link">
+  Vanta.js网页3D背景
+</a></li><li class="dropdown-subitem"><a href="/web/shop/" class="nav-link">
+  商城系统推荐
+</a></li></ul></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">
+  主页
+</a></div><div class="nav-item"><a href="/aboutless.html" class="nav-link">
+  第一期企业网页开发
+</a></div><div class="nav-item"><a href="/secondless/" class="nav-link">
+  第二期企业网站开发
+</a></div><div class="nav-item"><a href="/thirdless/" class="nav-link">
+  第三期移动端(H5/小程序/App)课程
+</a></div><div class="nav-item"><a href="/fourthless/" class="nav-link router-link-active">
+  第四期web全栈课程
+</a></div><div class="nav-item"><a href="/fiveless/" class="nav-link">
+  第五期python课程
+</a></div><div class="nav-item"><a href="/web/software/" class="nav-link">
+  课程软件小案例
+</a></div><div class="nav-item"><a href="/web/mysql/" class="nav-link">
+  课程案例数据表
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="课程答疑汇总" class="dropdown-title"><span class="title">课程答疑</span> <span class="arrow down"></span></button> <button type="button" aria-label="课程答疑汇总" class="mobile-dropdown-title"><span class="title">课程答疑</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/web/answer/课程常见问题.html" class="nav-link">
+  课程常见问题
+</a></li><li class="dropdown-item"><!----> <a href="/deploy/" class="nav-link">
+  项目部署
+</a></li><li class="dropdown-item"><!----> <a href="/web/answer/免费部署SSL证书.html" class="nav-link">
+  免费部署SSL证书
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="课程学习网站" class="dropdown-title"><span class="title">课程学习网站</span> <span class="arrow down"></span></button> <button type="button" aria-label="课程学习网站" class="mobile-dropdown-title"><span class="title">课程学习网站</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          视频学习网站
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://study.163.com/provider/480000002289674/index.htm?share=2&amp;shareId=480000002289674" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  腾讯云课堂
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://space.bilibili.com/3493114067028034/pugv" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  B站
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="实用菜单" class="dropdown-title"><span class="title">实用网站和方法</span> <span class="arrow down"></span></button> <button type="button" aria-label="实用菜单" class="mobile-dropdown-title"><span class="title">实用网站和方法</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          实用方法
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/web/methods/定位相关.html" class="nav-link">
+  定位相关
+</a></li><li class="dropdown-subitem"><a href="/web/methods/地图相关.html" class="nav-link">
+  地图相关
+</a></li><li class="dropdown-subitem"><a href="/web/methods/树形结构数据转换.html" class="nav-link">
+  树形结构数据转换
+</a></li></ul></li><li class="dropdown-item"><h4>
+          uni-app专栏
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/web/methods/uni-app专栏.html" class="nav-link">
+  uni-app的UI框架
+</a></li><li class="dropdown-subitem"><a href="/web/methods/uni-app如何引入库.html" class="nav-link">
+  uni-app如何引入js库
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Egg.js专栏
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/secondless/w-c/Egg.js.html" class="nav-link">
+  Egg.js基础
+</a></li><li class="dropdown-subitem"><a href="/secondless/w-c/egg.js基础总结.html" class="nav-link">
+  Egg.js基础总结
+</a></li><li class="dropdown-subitem"><a href="/secondless/w-c/egg.js重要知识详细文档.html" class="nav-link">
+  Egg.js重要知识详细文档
+</a></li><li class="dropdown-subitem"><a href="/secondless/w-c/ValParams API 说明.html" class="nav-link">
+  Egg.js参数验证说明
+</a></li><li class="dropdown-subitem"><a href="/web/mysql/Sequelize数据类型.html" class="nav-link">
+  Egg.js迁移文件Sequelize数据类型
+</a></li><li class="dropdown-subitem"><a href="/secondless/w-c/Egg.js接口安全防护方案.html" class="nav-link">
+  Egg.js接口安全防护方案
+</a></li><li class="dropdown-subitem"><a href="/web/answer/课程常见问题.html#_3-eggjs如何重置数据表-保证id每次从1开始计算" class="nav-link">
+  Egg.js重置数据表每次ID为1
+</a></li></ul></li><li class="dropdown-item"><h4>
+          实用网站
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/web/methods/实用接口.html" class="nav-link">
+  实用接口
+</a></li><li class="dropdown-subitem"><a href="/web/css/" class="nav-link">
+  css
+</a></li><li class="dropdown-subitem"><a href="/web/vue.js/" class="nav-link">
+  Vue.js
+</a></li><li class="dropdown-subitem"><a href="/web/Vue3+ElementPlus/" class="nav-link">
+  Vue3+ElementPlus系统
+</a></li><li class="dropdown-subitem"><a href="/web/echarts/" class="nav-link">
+  echarts图表
+</a></li><li class="dropdown-subitem"><a href="/web/bootstrap/" class="nav-link">
+  Bootstrap
+</a></li><li class="dropdown-subitem"><a href="/web/IIS/" class="nav-link">
+  IIS
+</a></li><li class="dropdown-subitem"><a href="/web/github/" class="nav-link">
+  Github
+</a></li><li class="dropdown-subitem"><a href="/web/Vanta.js/" class="nav-link">
+  Vanta.js网页3D背景
+</a></li><li class="dropdown-subitem"><a href="/web/shop/" class="nav-link">
+  商城系统推荐
+</a></li></ul></li></ul></div></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>eggjs框架开发文档</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/fourthless/w-a/eggjs%E6%A1%86%E6%9E%B6%E5%BC%80%E5%8F%91%E6%96%87%E6%A1%A3.html#一、管理员板块" class="sidebar-link">一、管理员板块</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/fourthless/w-a/eggjs%E6%A1%86%E6%9E%B6%E5%BC%80%E5%8F%91%E6%96%87%E6%A1%A3.html#_1-管理员表-shop-manager" class="sidebar-link">1. 管理员表 shop_manager</a></li><li class="sidebar-sub-header"><a href="/fourthless/w-a/eggjs%E6%A1%86%E6%9E%B6%E5%BC%80%E5%8F%91%E6%96%87%E6%A1%A3.html#_2-管理员角色表-role" class="sidebar-link">2. 管理员角色表 role</a></li><li class="sidebar-sub-header"><a href="/fourthless/w-a/eggjs%E6%A1%86%E6%9E%B6%E5%BC%80%E5%8F%91%E6%96%87%E6%A1%A3.html#_3-新增-分类表category的角色表-rolecategory" class="sidebar-link">3. [新增]分类表category的角色表 rolecategory</a></li><li class="sidebar-sub-header"><a href="/fourthless/w-a/eggjs%E6%A1%86%E6%9E%B6%E5%BC%80%E5%8F%91%E6%96%87%E6%A1%A3.html#_4-角色权限表-rule" class="sidebar-link">4. 角色权限表 rule</a></li><li class="sidebar-sub-header"><a href="/fourthless/w-a/eggjs%E6%A1%86%E6%9E%B6%E5%BC%80%E5%8F%91%E6%96%87%E6%A1%A3.html#_5-角色权限中间表-role-rule" class="sidebar-link">5. 角色权限中间表 role_rule</a></li><li class="sidebar-sub-header"><a href="/fourthless/w-a/eggjs%E6%A1%86%E6%9E%B6%E5%BC%80%E5%8F%91%E6%96%87%E6%A1%A3.html#_6-创建超级管理员" class="sidebar-link">6. 创建超级管理员</a></li><li class="sidebar-sub-header"><a href="/fourthless/w-a/eggjs%E6%A1%86%E6%9E%B6%E5%BC%80%E5%8F%91%E6%96%87%E6%A1%A3.html#_1-生成token" class="sidebar-link">① 生成token</a></li><li class="sidebar-sub-header"><a href="/fourthless/w-a/eggjs%E6%A1%86%E6%9E%B6%E5%BC%80%E5%8F%91%E6%96%87%E6%A1%A3.html#_2-加入缓存redis中" class="sidebar-link">② 加入缓存redis中</a></li><li class="sidebar-sub-header"><a href="/fourthless/w-a/eggjs%E6%A1%86%E6%9E%B6%E5%BC%80%E5%8F%91%E6%96%87%E6%A1%A3.html#_3-管理员信息token验证" class="sidebar-link">③ 管理员信息token验证</a></li><li class="sidebar-sub-header"><a href="/fourthless/w-a/eggjs%E6%A1%86%E6%9E%B6%E5%BC%80%E5%8F%91%E6%96%87%E6%A1%A3.html#_7-角色管理" class="sidebar-link">7. 角色管理</a></li><li class="sidebar-sub-header"><a href="/fourthless/w-a/eggjs%E6%A1%86%E6%9E%B6%E5%BC%80%E5%8F%91%E6%96%87%E6%A1%A3.html#_8-商城管理员" class="sidebar-link">8. 商城管理员</a></li><li class="sidebar-sub-header"><a href="/fourthless/w-a/eggjs%E6%A1%86%E6%9E%B6%E5%BC%80%E5%8F%91%E6%96%87%E6%A1%A3.html#_9-权限管理" class="sidebar-link">9. 权限管理</a></li><li class="sidebar-sub-header"><a href="/fourthless/w-a/eggjs%E6%A1%86%E6%9E%B6%E5%BC%80%E5%8F%91%E6%96%87%E6%A1%A3.html#_10-给角色配置权限及删除权限" class="sidebar-link">10. 给角色配置权限及删除权限</a></li><li class="sidebar-sub-header"><a href="/fourthless/w-a/eggjs%E6%A1%86%E6%9E%B6%E5%BC%80%E5%8F%91%E6%96%87%E6%A1%A3.html#_11-管理员板块所有接口" class="sidebar-link">11. 管理员板块所有接口</a></li></ul></li><li><a href="/fourthless/w-a/eggjs%E6%A1%86%E6%9E%B6%E5%BC%80%E5%8F%91%E6%96%87%E6%A1%A3.html#二、图片管理板块" class="sidebar-link">二、图片管理板块</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/fourthless/w-a/eggjs%E6%A1%86%E6%9E%B6%E5%BC%80%E5%8F%91%E6%96%87%E6%A1%A3.html#三、商品管理板块" class="sidebar-link">三、商品管理板块</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/fourthless/w-a/eggjs%E6%A1%86%E6%9E%B6%E5%BC%80%E5%8F%91%E6%96%87%E6%A1%A3.html#四、后台-选修课-内容" class="sidebar-link">四、后台（选修课）内容</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/fourthless/w-a/eggjs%E6%A1%86%E6%9E%B6%E5%BC%80%E5%8F%91%E6%96%87%E6%A1%A3.html#_1-用户表-user-相关" class="sidebar-link">1. 用户表 user 相关</a></li></ul></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h2 id="一、管理员板块"><a href="#一、管理员板块" class="header-anchor">#</a> 一、管理员板块</h2> <h3 id="_1-管理员表-shop-manager"><a href="#_1-管理员表-shop-manager" class="header-anchor">#</a> 1. 管理员表 <code>shop_manager</code></h3> <blockquote><p>其实数据库中有一个管理员表，这里为了方便两个技术栈同学学习，我们统一再创建一个管理员表 <code>shop_manager</code><br>
+具体表设计，<a href="/web/mysql/shop_manager" target="_blank">点击查看</a><br></p></blockquote> <h3 id="_2-管理员角色表-role"><a href="#_2-管理员角色表-role" class="header-anchor">#</a> 2. 管理员角色表 <code>role</code></h3> <blockquote><p>正常来说，应该叫<code>角色表：role</code>，这里为了方便大家更容易理解这个表，因此称它为 <code>管理员角色表</code>。事实上，这张表不仅可以包含管理员的各种角色，还可以设定用户的角色。<br><br>
+说明：<br>正常来说，我们的<code>管理员表</code>：<code>shop_manager</code>有一个字段叫：<code>role_id</code>,它这个字段实际上是<code>角色表：role</code>的id值，而到目前为止，我们数据库还不存在<code>角色表：role</code>，因此我们还需要创建一张<code>角色表：role</code>。<br><br> <span style="color:#ff6600;">重点说明：</span><br>
+正常来说，我们管理员表里面存在<code>role_id</code>这个字段，对应的是角色表<code>role</code>的id值，那么，首先应该创建角色表<code>角色表：role</code>，然后再创建管理员表<code>shop_manager</code>，但是由于本套课程涉及到两套框架<code>thinkphp</code>/<code>egg.js</code>，为了方便讲解及融合两天框架，因此我们先以管理员表为例，讲解了管理员表的<code>新增</code>、<code>修改</code>、<code>删除</code>，方便大家先了解<code>thinkphp</code>框架，接下来，由于需要讲到管理员列表，这里涉及到多表（角色表、管理员表）的模型关联、不管是<code>thinkphp</code>/<code>egg.js</code> 都存在模型关联，因此再讲管理员列表功能之前，我们需要创建一下<code>角色表：role</code>。<br> <br>
+具体<code>角色表：role</code>设计，<a href="/web/mysql/role" target="_blank">点击查看</a><br></p></blockquote> <h3 id="_3-新增-分类表category的角色表-rolecategory"><a href="#_3-新增-分类表category的角色表-rolecategory" class="header-anchor">#</a> 3. [新增]分类表<code>category</code>的角色表 <code>rolecategory</code></h3> <p>重要说明：<br></p> <blockquote><p>本节课讲的分类表<code>category</code>的角色表 <code>rolecategory</code>，本不属于<code>管理员板块</code>的内容，主要是受我们上一节的影响，因此临时插入了这节课，因为我们分类表<code>category</code>的角色表 <code>rolecategory</code>，它的字段跟我们上节课讲的管理员角色表 <code>role</code>，字段是一样的，这样大家理解起来非常容易，只不过这张表<code>rolecategory</code>是充当的分类的角色。<br><br>
+本节课是一节综合课，两种技术栈<code>thinkphp</code>和我们<code>egg.js</code>同学都学习操作一下。<br><br>
+这张分类表<code>category</code>的角色表 <code>rolecategory</code>，主要是将来用于区别后台系统里面，不同的分类系统用的，比如，我们可以有一个大的综合性后台，这个后台可以管理：<code>普通企业网站的后台</code>、<code>商城后台</code>、<code>直播后台</code>等等，而这些后台分类，就可以用我们这张表<code>rolecategory</code>，目前大家先把这张表创建起来，后面我们学到了在详细讲这张表。<br><br>
+具体<code>分类表角色表：rolecategory</code>设计，<a href="/web/mysql/rolecategory" target="_blank">点击查看</a><br></p></blockquote> <h3 id="_4-角色权限表-rule"><a href="#_4-角色权限表-rule" class="header-anchor">#</a> 4. 角色权限表 <code>rule</code></h3> <blockquote><p>我们在前面已经创建了<code>角色表：role</code>，为了方便角色的管理，我们可以为角色创建权限，让定义的角色访问对应的权限。<br>
+具体角色权限表<code>rule</code>设计，具体查看：<a href="/web/mysql/role.html#三、role表的权限表rule-字段设计" target="_blank">点击查看 角色的权限表 <code>rule</code></a><br></p></blockquote> <h3 id="_5-角色权限中间表-role-rule"><a href="#_5-角色权限中间表-role-rule" class="header-anchor">#</a> 5. 角色权限中间表 <code>role_rule</code></h3> <p>说明：</p> <blockquote><p>我们前面讲<code>shop_manager</code>表的时候，是通过在表中设置外键字段 <code>role_id</code>来关联<code>role</code>表，那么这里我们换另外一种方式来做表的关联，就是这种中间表，比如 <code>role_rule</code>, 来关联角色表<code>role</code>和权限表<code>rule</code>, 让大家能够学习到更多关联关系的处理。 <br><br>
+具体角色权限中间表 <code>role_rule</code>设计，具体查看：<a href="/web/mysql/role.html#五、角色表role和权限表rule的中间表-role-rule-表字段设计" target="_blank">点击查看 角色权限中间表 <code>role_rule</code></a><br></p></blockquote> <h3 id="_6-创建超级管理员"><a href="#_6-创建超级管理员" class="header-anchor">#</a> 6. 创建超级管理员</h3> <p>说明：</p> <blockquote><p>接来下我们在我们之前开发的后台的基础上进行商城板块后台的开发，为了和thinkphp框架同学学习进度保持一致性，需要做以下准备：<br></p> <ol><li>老师这边需要先清空前面创建的几张表的内容，这些内容是老师讲thinkphp框架的时候，数据测试的内容<br></li> <li>同学们记得把我们创建的几张表，如果你用的迁移命令创建的，记得加一下表关联关系的内容<br></li> <li>清空manager表的管理员数据，我们从登录开始，在我们创建超级管理员的时候，我们会对<code>manager</code>表（后台管理员表）和<code>shop_manager</code>表（商城管理员表）同时创建，大家知道，超级管理员属于特殊角色，任何系统和后台应该只有一个，我们这里两张管理员表，一个用于管理我们的后台，一个用于管理商城系统的后台，另外一个原因也是为了和学习thinkphp框架的同学，学习的内容接口保持一致，因为他们用的token判断权限，我们目前的后台用的是session，因此在商城这块，我们也会用token，接下来同学们跟着老师一起操作就可以了。<br><br>
+具体查看：<a href="/fourthless/w-a/eggjs.管理员板块" target="_blank">点击查看具体内容</a><br></li></ol> <h3 id="_1-生成token"><a href="#_1-生成token" class="header-anchor">#</a> ① 生成token</h3> <p>具体查看：<a href="/fourthless/w-a/eggjs.管理员板块.html#二、后台管理员登录生成商城超级管理员token" target="_blank">生成商城超级管理员token</a><br></p> <h3 id="_2-加入缓存redis中"><a href="#_2-加入缓存redis中" class="header-anchor">#</a> ② 加入缓存redis中</h3> <p>具体查看：<a href="/fourthless/w-a/eggjs.管理员板块.html#三、商城系统管理员登录信息加入缓存redis中" target="_blank">加入缓存redis中</a><br></p> <h3 id="_3-管理员信息token验证"><a href="#_3-管理员信息token验证" class="header-anchor">#</a> ③ 管理员信息token验证</h3> <p>具体查看：<a href="/fourthless/w-a/eggjs.管理员板块.html#五、token权限验证中间件开发" target="_blank">管理员信息token验证</a><br></p></blockquote> <h3 id="_7-角色管理"><a href="#_7-角色管理" class="header-anchor">#</a> 7. 角色管理</h3> <p>具体查看：<a href="/fourthless/w-a/eggjs.管理员板块.html#六、角色管理" target="_blank">角色管理</a><br></p> <h3 id="_8-商城管理员"><a href="#_8-商城管理员" class="header-anchor">#</a> 8. 商城管理员</h3> <p>具体查看：<a href="/fourthless/w-a/eggjs.商城管理员" target="_blank">商城管理员</a><br></p> <h3 id="_9-权限管理"><a href="#_9-权限管理" class="header-anchor">#</a> 9. 权限管理</h3> <p>具体查看：<a href="/fourthless/w-a/eggjs.权限管理" target="_blank">权限管理</a><br></p> <h3 id="_10-给角色配置权限及删除权限"><a href="#_10-给角色配置权限及删除权限" class="header-anchor">#</a> 10. 给角色配置权限及删除权限</h3> <p>具体查看：<a href="/fourthless/w-a/eggjs.给角色配置权限" target="_blank">给角色配置权限及删除权限</a><br><br> <code>特别说明</code>： 角色列表关联查询权限信息（通过中间表）<br></p> <blockquote><p>角色列表关联查询权限信息（通过中间表）<code>模型关联</code>的用法：<a href="/fourthless/w-a/eggjs.管理员板块.html#九、角色列表-包含角色对应的权限api接口" target="_blank">【九、角色列表（包含角色对应的权限API接口）】</a><br></p></blockquote> <h3 id="_11-管理员板块所有接口"><a href="#_11-管理员板块所有接口" class="header-anchor">#</a> 11. 管理员板块所有接口</h3> <blockquote><h4 id="_1-shop-manager表接口"><a href="#_1-shop-manager表接口" class="header-anchor">#</a> 1. shop_manager表接口 <br></h4> <p>具体查看：<a href="/web/mysql/shop_manager表接口.html" target="_blank">shop_manager表接口</a><br></p> <h4 id="_2-role表接口"><a href="#_2-role表接口" class="header-anchor">#</a> 2. role表接口 <br></h4> <p>具体查看：<a href="/web/mysql/role表接口.html" target="_blank">role表接口</a><br></p> <h4 id="_3-rule表接口"><a href="#_3-rule表接口" class="header-anchor">#</a> 3. rule表接口 <br></h4> <p>具体查看：<a href="/web/mysql/rule表接口.html" target="_blank">rule表接口</a><br></p></blockquote> <h2 id="二、图片管理板块"><a href="#二、图片管理板块" class="header-anchor">#</a> 二、图片管理板块</h2> <blockquote><p>具体查看，<a href="/fourthless/w-a/eggjs.图片管理板块" target="_blank">图片管理板块</a><br>
+特别说明：</p> <blockquote><ol><li><a href="/secondless/w-c/上传文件.html#三、上传文件-图片-到阿里云存储oss" target="_blank">上传图片</a><br></li> <li><a href="/web/mysql/image_class表接口" target="_blank">图片分类image_class表接口</a><br></li> <li><a href="/web/mysql/image表接口" target="_blank">图片image表接口</a><br></li> <li><a href="/fourthless/w-a/eggjs.图片管理板块网站后台.html" target="_blank">eggjs图片管理板块网站后台说明</a><br></li></ol></blockquote></blockquote> <h2 id="三、商品管理板块"><a href="#三、商品管理板块" class="header-anchor">#</a> 三、商品管理板块</h2> <blockquote><p>具体查看，<a href="/fourthless/w-a/eggjs.商品管理板块" target="_blank">商品管理板块</a><br>
+特别说明：<br></p> <blockquote><ol><li>商品分类 <code>goods_class</code></li></ol> <blockquote><ol><li><a href="/web/mysql/goods_class.html#一、goods-class-商品分类表-字段设计" target="_blank">商品分类表 goods_class</a><br></li> <li><a href="/web/mysql/goods_class表接口.html" target="_blank">商品分类表 goods_class 所有接口</a><br></li></ol></blockquote> <ol start="2"><li>商品规格 <code>skus</code></li> <li><a href="/web/mysql/goods_class.html#三、skus-商品规格表-字段设计" target="_blank">商品规格表 skus：【三、skus[商品规格表] 字段设计】</a><br></li> <li><a href="/web/mysql/skus表接口.html" target="_blank">商品规格表 skus 所有接口</a><br></li> <li>商品表 <code>goods</code> 相关联信息</li></ol> <blockquote><ol><li><a href="/web/mysql/goods_class.html#_1-商品表goods字段设计" target="_blank">商品表goods字段设计</a><br></li> <li><a href="/fourthless/w-a/eggjs.商品模块后台开发.html" target="_blank">商品模块后台开发</a><br></li> <li><a href="/fourthless/w-a/eggjs.修改商品其他信息.html" target="_blank">修改商品其他信息</a><br></li> <li><a href="/fourthless/w-a/eggjs.修改商品参数信息.html" target="_blank">修改商品参数信息</a><br></li> <li><a href="/fourthless/w-a/eggjs.创建商品sku选购信息.html" target="_blank">商品sku选购信息管理</a><br></li></ol></blockquote></blockquote></blockquote> <h2 id="四、后台-选修课-内容"><a href="#四、后台-选修课-内容" class="header-anchor">#</a> 四、后台（选修课）内容</h2> <blockquote><p>特别说明：<br></p> <blockquote><h3 id="_1-用户表-user-相关"><a href="#_1-用户表-user-相关" class="header-anchor">#</a> 1. 用户表 <code>user</code> 相关</h3> <blockquote><ol><li><a href="/web/mysql/user.html" target="_blank">用户管理user表相关表说明</a><br></li></ol></blockquote></blockquote></blockquote></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">更新时间:</span> <span class="time">2025年4月30日星期三下午3点41分</span></div></footer> <!----> </main></div><div class="global-ui"><!----><!----></div></div>
+    <script src="/assets/js/app.324841cd.js" defer></script><script src="/assets/js/9.13d458ed.js" defer></script><script src="/assets/js/2.6281e0bb.js" defer></script><script src="/assets/js/45.6d801704.js" defer></script><script src="/assets/js/3.e6827fa8.js" defer></script>
+  </body>
+</html>
