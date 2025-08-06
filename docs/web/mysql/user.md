@@ -12,7 +12,7 @@ title: 用户管理user表相关表说明
 | <b>username</b>| <span>`STRING(50)`唯一登录账号 </span>|否 | 无|<span style="font-size:12px">  登录账号 </span> |
 | <b>password</b>   | <span>`STRING(255)`</span>   |    否      | 无   | <span style="font-size:12px">加密密码 </span> |
 | <b>nickname</b>   | <span>`STRING(50)`</span>   |    否      | `''`  |  <span style="font-size:12px">用户昵称 </span> |
-| <b>avatar</b>| <span>`STRING(1000)`</span>   |    是      | <span style="font-size:10px">如：https://thinkphp-all.oss-cn-hangzhou.aliyuncs.com/</span><br/><span style="font-size:10px">public/67b3001b2aedd.png</span>   |  <span style="font-size:12px">头像地址（本地、网络图片地址）</span>  |
+| <b>avatar</b>| <span>`STRING(1000)`</span>   |    是      | <span style="font-size:10px">如：https://docs-51yrc-com.oss-cn-hangzhou.aliyuncs.com/</span><br/><span style="font-size:10px">chat/user.jpg</span>   |  <span style="font-size:12px">头像地址（本地、网络图片地址）</span>  |
 | <b>...</b>   |   |         |   | <span style="font-size:12px">随着业务需求增加字段</span> |
 | <b>devicefingeruuid</b>   | <span>`STRING(200)`</span>   |    是      | `''`  | <span style="font-size:12px">设备标识（游客标识） </span> |
 | <b>uniplatform</b>   | <span style="font-size:12px">`STRING(100)`</span>   | <span style="font-size:12px">是 </span> | `''`  | <span style="font-size:12px"> 平台类型（web/mp-weixin/app）） </span> |
@@ -85,8 +85,8 @@ module.exports = {
       avatar : { 
         type: STRING(1000), 
         allowNull: true, 
-        defaultValue: 'https://thinkphp-all.oss-cn-hangzhou.aliyuncs.com/public/67b3001b2aedd.png', 
-        comment: '管理员头像（本地、网络图片地址）' 
+        defaultValue: 'https://docs-51yrc-com.oss-cn-hangzhou.aliyuncs.com/chat/user.jpg', 
+        comment: '用户头像（本地、网络图片地址）' 
       },
       devicefingeruuid: {
         type: STRING(200),
@@ -213,6 +213,13 @@ module.exports = {
         comment: '更新时间'
       },
     });
+
+    // 添加索引优化查询
+    await queryInterface.addIndex('user', ['uuid']);
+    await queryInterface.addIndex('user', ['username']);
+    await queryInterface.addIndex('user', ['devicefingeruuid']);
+    await queryInterface.addIndex('user', ['mobile']);
+    await queryInterface.addIndex('user', ['email']);
   },
 
   async down(queryInterface) {
@@ -284,8 +291,8 @@ module.exports = app => {
         avatar: {
             type: STRING(1000),
             allowNull: true,
-            defaultValue: 'https://thinkphp-all.oss-cn-hangzhou.aliyuncs.com/public/67b3001b2aedd.png',
-            comment: '管理员头像（本地、网络图片地址）'
+            defaultValue: 'https://docs-51yrc-com.oss-cn-hangzhou.aliyuncs.com/chat/user.jpg',
+            comment: '用户头像（本地、网络图片地址）'
         },
         devicefingeruuid: {
           type: STRING(200),

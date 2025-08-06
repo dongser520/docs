@@ -1188,7 +1188,14 @@ module.exports = app => {
 
 
 
+## 四、发送消息(群聊)
+### 1. 群聊相关表信息
+具体查看文档： <a href="/web/mysql/group" target="_blank">群聊相关表信息</a> <br/>
 
+### 2. 群聊相关方法
+在控制器 `app/controller/api/chat/chatgroup.js`
+```js
+```
 
 
 

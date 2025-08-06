@@ -841,7 +841,7 @@ title: eggjs即时通讯接口
 >        "to_avatar": "https://thinkphp-all.oss-cn-hangzhou.aliyuncs.com/public/67b3001b2aedd.png",
 >        "chatType": "single",
 >        "type": "text",
->        "data": "nihao,my10",
+>        "data":  "{\"data\":\"你好，阿祖\",\"dataType\":false,\"otherData\":null}",
 >        "options": {},
 >        "create_time": 1753934390663,
 >        "isremove": 0
