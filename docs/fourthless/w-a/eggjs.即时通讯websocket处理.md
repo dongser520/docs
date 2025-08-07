@@ -1137,12 +1137,14 @@ class ChatwebsocketController extends Controller {
                     timestamp: Date.now(),
                 }));
                 // 存储到对方redis历史记录中
-                // key: `chatlog_对方id_user_我的id`
-                ctx.service.cache.setList(`chatlog_${sendto_id}_user_${me.id}`, message);
+                // key: `chatlog_对方id_[single|group]_我的id`
+                ctx.service.cache.setList(`chatlog_${sendto_id}_${message.chatType}_${me.id}`, 
+                message);
             }
             // 存储到我的redis历史记录中
-            // key: `chatlog_我的id_user_对方id`
-            ctx.service.cache.setList(`chatlog_${me.id}_user_${sendto_id}`, message);
+            // key: `chatlog_我的id_[single|group]_对方id`
+            ctx.service.cache.setList(`chatlog_${me.id}_${message.chatType}_${sendto_id}`, 
+            message);
 
             // 返回
             return ctx.apiSuccess(message);
@@ -1188,16 +1190,569 @@ module.exports = app => {
 
 
 
-## 四、发送消息(群聊)
+## 四、创建群聊（成功后通过webSocket通知群聊用户）
 ### 1. 群聊相关表信息
 具体查看文档： <a href="/web/mysql/group" target="_blank">群聊相关表信息</a> <br/>
 
-### 2. 群聊相关方法
-在控制器 `app/controller/api/chat/chatgroup.js`
+### 2. 关于websocket发送消息并保存到redis中很多地方用到，将它封装到扩展中
+实际是对控制器 `app/controller/api/chat/chatwebsocket.js`中方法 `发送消息 async sendmessage()` 部分代码做了封装 <br/>
+在扩展 `app/extend/context.js`
 ```js
+    ...
+    // 针对即时通讯发送消息，用户不在线则将消息存储在消息队列，等用户上线再发
+    chatWebsocketSendOrSaveMessage(sendto_id, message){
+      // 注意此处的this指的是ctx
+      const { app, service } = this;
+      // 我的信息
+      const me = this.chat_user;
+      const me_id = me.id;
+      // 拿到对方的socket
+      let you_socket = this.app.ws.chatuser[sendto_id];
+      // 如果拿不到对方的socket， 则把消息放在redis队列中， 等待对方上线时，再发送
+      if(!you_socket){
+          // 放到reids，设置消息列表中：key值是：'chat_getmessage_' + sendto_id（用户id）
+          this.service.cache.setList('chat_getmessage_' + sendto_id, message);
+      }else{
+          // 如果对方在线，则直接推送给对方
+          you_socket.send(JSON.stringify({
+              type: 'singleChat',
+              data: message,
+              timestamp: Date.now(),
+          }));
+          // 存储到对方redis历史记录中
+          // key: `chatlog_对方id_[single|group]_我的id`
+          this.service.cache.setList(`chatlog_${sendto_id}_${message.chatType}_${me.id}`, message);
+      }
+    },
+```
+
+### 3. 简化控制器`发送消息`代码
+在控制器`app/controller/api/chat/chatwebsocket.js`中
+```js
+'use strict';
+
+const Controller = require('egg').Controller;
+
+// 引入 uuid 库 `npm install uuid`
+const { v4: uuidv4 } = require('uuid');
+
+class ChatwebsocketController extends Controller {
+    // 链接websocket
+    async connect() {
+        const { ctx, app, service } = this;
+        console.log('链接websocket方法', ctx.websocket.chatuser_id);
+        // 确保连接存在
+        if (!ctx.websocket) {
+            return ctx.apiFail('非法访问');
+        }
+        // console.log(`clients链接数: ${app.ws.clients.size}`);
+
+        // 添加心跳机制
+        let heartbeatInterval = setInterval(() => {
+            try {
+                if (ctx.websocket.readyState === 1) { // OPEN
+                    ctx.websocket.send(JSON.stringify({ type: 'ping' }));
+                }
+            } catch (e) {
+                clearInterval(heartbeatInterval);
+            }
+        }, 30000); // 每30秒发送一次心跳
+
+
+        // 监听消息
+        ctx.websocket.on('message', msg => {
+            // 1. 添加消息类型检查
+            if (typeof msg !== 'string') {
+                if (Buffer.isBuffer(msg)) {
+                    msg = msg.toString('utf-8'); // 转换二进制数据
+                } else {
+                    console.log('收到非文本消息，已忽略', msg);
+                    return; // 忽略非文本消息
+                }
+            }
+
+            console.log('监听消息', msg);
+
+            try {
+                const data = JSON.parse(msg);
+
+                // 2. 添加对客户端心跳响应的处理
+                if (data.type === 'pong') {
+                    console.log('收到客户端心跳响应');
+                    return;
+                }
+
+                // 3. 添加对客户端心跳请求的响应
+                if (data.type === 'ping') {
+                    ctx.websocket.send(JSON.stringify({ type: 'pong' }));
+                    console.log('响应客户端心跳请求');
+                    return;
+                }
+
+                // 处理其他消息类型...
+            } catch (e) {
+                // 4. 增强错误处理
+                if (msg.includes('undefined')) {
+                    console.warn('收到无效消息，可能来自连接断开事件');
+                } else {
+                    console.error('消息解析错误', e, '原始消息:', msg);
+                }
+            }
+        });
+
+        // 监听关闭
+        ctx.websocket.on('close', (code, reason) => {
+            console.log('用户下线', code, reason);
+            clearInterval(heartbeatInterval); // 清除心跳
+
+            const user_id = ctx.websocket.chatuser_id;
+            //移除redis中的用户上线记录
+            if (!user_id) return;
+
+            // 安全移除用户记录
+            if (ctx.app.ws.chatuser && ctx.app.ws.chatuser[user_id]) {
+                delete ctx.app.ws.chatuser[user_id];
+            }
+
+            // 异步移除redis记录
+            service.cache.remove('online_' + user_id).catch(console.error);
+        });
+
+        // 发送欢迎消息
+        ctx.websocket.send(JSON.stringify({
+            type: 'system',
+            data: '欢迎您，登录可获取更多功能！',
+            timestamp: Date.now()
+        }));
+    }
+
+    //发送消息
+    async sendmessage() {
+        const { ctx, app, service } = this;
+        //参数验证
+        ctx.validate({
+            sendto_id: {
+                type: 'int',  //参数类型
+                required: true, //是否必须
+                // defValue: '', 
+                desc: '接收人/群的id值', //字段含义
+                range: {
+                    min: 1,
+                }
+            },
+            chatType: {
+                type: 'string',
+                required: true,
+                // defValue: '', 
+                desc: '接收类型', // 单聊 single 群聊 group
+                range: {
+                    in: ['single', 'group'],
+                }
+            },
+            type: {
+                type: 'string',
+                required: true,
+                // defValue: '', 
+                // 'text'|'iconMenus'|'image'|'audio'|'video' 等等
+                desc: '消息类型',
+            },
+            data: {
+                type: 'string',
+                required: true,
+                // defValue: '', 
+                desc: '消息内容',
+            },
+            options: {
+                type: 'string',
+                required: false, //选填
+                defValue: '', 
+                desc: '额外参数json字符串',
+            },
+        });
+        // 获取参数
+        const { sendto_id, chatType, type, data, options } = ctx.request.body;
+        // 我的信息
+        const me = ctx.chat_user;
+        const me_id = me.id;
+        // 单聊还是群聊chatType
+        if (chatType == 'single') {
+            // 单聊
+            // 1. 看聊天的人是否存在(可以是游客可以是登录用户可以是好友)
+            let chater = await app.model.User.findOne({
+                where: {
+                    id: sendto_id,
+                    status: 1
+                }
+            });
+            if (!chater) {
+                return ctx.apiFail('对方不存在或者被禁用，不能发消息');
+            }
+            // 2. 看一下对方的设置是否容许聊天
+            chater = JSON.parse(JSON.stringify(chater));
+            console.log('聊天对象数据库信息', chater);
+            // 信息设置大的对象
+            let allset = {};
+            // 用户设置信息
+            let userset = chater.userset;
+            // 对方没有任何设置
+            if (!userset) {
+                // 包括没有聊天设置，则对于聊天，给它默认聊天设置
+                allset.chatset = {
+                    visitor: {
+                        sendCount: 1, //可以发一条
+                        needFollow: false  // 无需关注
+                    },
+                    user: {
+                        sendCount: 1, //可以发一条
+                        needFollow: false // 无需关注
+                    }
+                };
+                // 其它设置信息的初始默认值
+                // ...
+            } else {
+                // 有设置信息 存储的是json字符串转对象
+                allset = JSON.parse(userset);
+                // 看一下有没有聊天设置信息
+                if (!allset.chatset) {
+                    // 没有聊天设置信息 则给它默认的聊天设置
+                    allset.chatset = {
+                        visitor: {
+                            sendCount: 1, //可以发一条
+                            needFollow: false  // 无需关注
+                        },
+                        user: {
+                            sendCount: 1, //可以发一条
+                            needFollow: false // 无需关注
+                        }
+                    };
+                } else {
+                    // 有聊天设置信息 用用户自己的设置
+                    allset.chatset = allset.chatset;
+                }
+            }
+            console.log('用户设置的信息包括默认值', allset);
+            // 针对对方聊天设置做相应的判断
+            // 是要求先登录、先成为好友，才能发送
+            // 这个时候要看我的身份
+            const me_role = me.role;
+            // 定义一下昵称（主要针对我和对方是好友关系的时候各自拿备注昵称）
+            let me_friend_nickname = ''; // 我在对方的好友备注
+            let you_friend_nickname = ''; // 对方在我的好友备注
+            // 如果我是游客，则看对方怎么设置的
+            if (me_role == 'visitor') {
+                // 关于关注方面
+                if (allset.chatset.visitor.needFollow) {
+                    //需要游客关注
+                    //然后看一下我有没有关注他，没有关注则提示先关注
+                }
+                // 关于发送条数方面
+                let sendCount = allset.chatset.visitor.sendCount;
+                if (sendCount == 0) {
+                    return ctx.apiFail('对方设置成：需要您先登录才能发消息');
+                }else if(sendCount == 1){
+                    // 查一下已经发了几条，如果已经发了一条则不能再发送了
+                }else if(sendCount == 2){
+                    // 随便发，没有限制
+                }
+            }else if(me_role == 'user'){
+                // 如果我是登录用户
+                // 如果对方是我的好友，可以拿一下对方在我的好友备注
+                let mefriend = await app.model.Goodfriend.findOne({
+                    where: {
+                        user_id: me_id,  // 我
+                        friend_id: sendto_id, //对方
+                    }
+                });
+                if(mefriend){
+                    you_friend_nickname = mefriend.nickname; // 对方在我的好友备注
+                }
+                // 看一下我是不是对方的好友
+                let friend = await app.model.Goodfriend.findOne({
+                    where: {
+                        user_id: sendto_id,  // 对方
+                        friend_id: me_id, //我
+                    }
+                });
+                // 如果是好友，但是如果对方把我拉黑了，则不能发消息
+                if(friend && friend.isblack == 1){
+                    return ctx.apiFail('对方把你拉黑了，不能发送消息');
+                }
+                // 如果我是对方的好友，可以拿一下我在对方的好友昵称备注
+                if(friend){
+                    me_friend_nickname = friend.nickname; // 我在对方的好友备注
+                }else{
+                    // 不是对方好友，则按照对方聊天设置处理
+                    // 关于关注方面
+                    if (allset.chatset.user.needFollow) {
+                        //需要用户关注
+                        //然后看一下我有没有关注他，没有关注则提示先关注
+                    }
+                    // 关于发送条数方面
+                    let sendCount = allset.chatset.user.sendCount;
+                    if (sendCount == 0) {
+                        return ctx.apiFail('对方设置成：需要您先成为他的好友才能发消息');
+                    }else if(sendCount == 1){
+                        // 查一下已经发了几条，如果已经发了一条则不能再发送了
+                    }else if(sendCount == 2){
+                        // 随便发，没有限制
+                    }
+                }
+            }
+
+            // 3. 过了聊天设置这一关, 则发送消息，构建消息格式
+            let optionsObj = null;
+            // 额外参数json字符串options
+            try{
+                optionsObj = JSON.parse(decodeURIComponent(options));
+            } catch {
+                optionsObj = null;
+            }
+            let message = { 
+                id: uuidv4(), // 自动生成 UUID,唯一id, 聊天记录id，方便撤回消息
+                from_avatar: me.avatar, // 发送者头像
+                from_name: me_friend_nickname || me.nickname || me.username, // 发送者名称
+                from_id: me.id, // 发送者id
+                to_id: sendto_id, // 接收者id
+                to_name: you_friend_nickname || chater.nickname || chater.username, // 接收者名称
+                to_avatar: chater.avatar, // 接收者头像
+                chatType: chatType, // 聊天类型 单聊
+                type: type, // 消息类型
+                data: data, // 消息内容
+                options: optionsObj, // 其它参数
+                create_time: (new Date()).getTime(), // 创建时间
+                isremove: 0, // 0未撤回 1已撤回
+            };
+
+            // 注释内容已经封装到了 `/app/extend/context.js`
+            /*
+            // 4. 拿到对方的socket
+            let you_socket = ctx.app.ws.chatuser[sendto_id];
+            // 如果拿不到对方的socket， 则把消息放在redis队列中， 等待对方上线时，再发送
+            if(!you_socket){
+                // 放到reids，设置消息列表中：key值是：'chat_getmessage_' + sendto_id（用户id）
+                ctx.service.cache.setList('chat_getmessage_' + sendto_id, message);
+            }else{
+                // 如果对方在线，则直接推送给对方
+                you_socket.send(JSON.stringify({
+                    type: 'singleChat',
+                    data: message,
+                    timestamp: Date.now(),
+                }));
+                // 存储到对方redis历史记录中
+                // key: `chatlog_对方id_[single|group]_我的id`
+                ctx.service.cache.setList(`chatlog_${sendto_id}_${message.chatType}_${me.id}`, message);
+            }
+            */
+            // 直接调用 `/app/extend/context.js` 封装的方法 chatWebsocketSendOrSaveMessage(sendto_id, message)
+            ctx.chatWebsocketSendOrSaveMessage(sendto_id, message);
+
+            // 存储到我的redis历史记录中
+            // key: `chatlog_我的id_[single|group]_对方id`
+            ctx.service.cache.setList(`chatlog_${me.id}_${message.chatType}_${sendto_id}`, message);
+            
+            // 返回
+            return ctx.apiSuccess(message);
+
+        } else if (chatType == 'group') {
+            // 群聊
+        }
+
+    }
+}
+
+module.exports = ChatwebsocketController;
+
 ```
 
 
+### 4. 群聊相关方法
+新建控制器 `app/controller/api/chat/chatgroup.js`
+```js
+'use strict';
+
+const Controller = require('egg').Controller;
+
+// 引入 uuid 库 `npm install uuid`
+const { v4: uuidv4 } = require('uuid');
+
+class ChatgroupController extends Controller {
+    // 创建群聊（登录用户有这个功能，（游客）没有这个功能）
+    async creategroup() {
+        const { ctx, app } = this;
+        // 参数验证
+        ctx.validate({
+            userIds: {
+                type: 'array',
+                required: true,
+            }
+        });
+        // 拿参数
+        let { userIds } = ctx.request.body;
+        // 起初这些id是从朋友表拿的，即朋友表的id主键
+        let goodfriend = await app.model.Goodfriend.findAll({
+            where: {
+                id: {
+                    [this.app.Sequelize.Op.in]: userIds,
+                },
+                status: 1, // 数据状态正常
+                isblack: 0, //没有加入黑名单
+            },
+            attributes: ['friend_id','user_id'],
+        });
+        if(!goodfriend || !goodfriend.length){
+            return ctx.apiFail('请选择加入群聊的用户');
+        }
+        goodfriend = JSON.parse(JSON.stringify(goodfriend));
+        // console.log('看一下goodfriend', goodfriend); return;
+        // 重新组装用户id
+        userIds = goodfriend.map(v=>v.friend_id);
+        // console.log('看一下用户id数组userIds', userIds); return;
+        
+        // 我的信息
+        const me = ctx.chat_user;
+        const me_id = me.id;
+        const me_name = me.nickname || me.username;
+        // 查询一下这些id是否存在
+        let users = await app.model.User.findAll({
+            where: {
+                id: {
+                    [this.app.Sequelize.Op.in]: userIds,
+                },
+                status: 1,
+            },
+            attributes: ['id', 'username','nickname', 'avatar'],
+        });
+        if(!users.length){
+           return ctx.apiFail('用户不存在，无法加入群聊');
+        }
+        // 转成普通对象
+        users = JSON.parse(JSON.stringify(users));
+        // console.log('看一下users', users); return;
+
+        // 把我加在数组头部
+        users.unshift(JSON.parse(JSON.stringify(me)));
+        // console.log('加为群的用户信息', users); return;
+
+        // 创建群聊
+        // 群名称（最多50字符- 默认由用户昵称或者账号组成）
+        let name = '';
+        for(let i=0; i < users.length; i++){
+            if(users[i].nickname){
+                name += users[i].nickname + '、';
+            }else{
+                name += users[i].username + '、';
+            }
+        }
+        // 去掉最后一个 '、'
+        name = name.substring(0, name.length - 1);
+        // 截取前50个字符
+        if(name.length > 50){
+            name = name.substring(0, 50); 
+        }
+
+        // 群头像（默认由用户头像组成，最多9个头像）
+        let avatar = '';
+        let arr = [];
+        if(users.length > 9){
+            arr = users.slice(0, 9);
+        }else{
+            arr = users;
+        }
+        for(let i = 0; i < arr.length; i++){
+            avatar += arr[i].avatar + ',';
+        }
+        // 去掉最后一个 ','
+        avatar = avatar.substring(0, avatar.length - 1);
+
+        // 创建群组
+        let group = await app.model.Group.create({
+            user_id: me_id, // 创建者id
+            name:name,
+            avatar:avatar,
+        });
+
+        // 创建群组用户
+        // 循环插入
+        /*
+        for(let i = 0; i < users.length; i++){
+            await app.model.GroupUser.create({
+                group_id:group.id,
+                user_id:users[i].id,
+            });
+        }
+        */
+        // 批量插入
+        let groupUsers = users.map(v => {
+            return {
+                group_id:group.id,
+                user_id:v.id,
+            }
+        });
+        await app.model.GroupUser.bulkCreate(groupUsers);
+
+        // 消息推送通知加入群聊的其他人
+        // 消息格式
+        let message = { 
+            id: uuidv4(), // 自动生成 UUID,唯一id, 聊天记录id，方便撤回消息
+            from_avatar: me.avatar, // 发送者头像
+            from_name: me.nickname || me.username, // 发送者名称
+            from_id: me.id, // 发送者id
+            to_id: group.id, // 群id
+            to_name: group.name, // 群名称
+            to_avatar: group.avatar, // 群头像
+            chatType: 'group', // 聊天类型 群聊
+            type: 'systemNotice', // 消息类型 系统通知消息
+            data: {
+                data: "我创建了一个群，大家可以开始聊天了",
+                dataType: false, 
+                otherData: null,
+            }, // 消息内容
+            options: {}, // 其它参数
+            create_time: (new Date()).getTime(), // 创建时间
+            isremove: 0, // 0未撤回 1已撤回
+            // 群相关信息
+            group: group, 
+        };
+        // 循环推送给群成员
+        users.forEach(v => {
+            // 直接调用 `/app/extend/context.js` 封装的方法 chatWebsocketSendOrSaveMessage(sendto_id, message)
+            ctx.chatWebsocketSendOrSaveMessage(v.id, message);
+        });
+
+        // 返回
+        ctx.apiSuccess('ok');
+    }
+}
+
+module.exports = ChatgroupController;
+
+```
+
+### 5. 群聊相关路由
+在路由文件 `app/router/api/chat/router.js` 中添加
+```js
+module.exports = app => {
+    const { router, controller } = app;
+    //用户登录
+    ...
+
+    //申请添加好友 （登录用户才能申请添加好友，（游客）不能申请添加好友）
+    ...
+
+    // 好友列表（登录用户才行，（游客）不能）
+    ...
+    // 查看对方是否是我的好友（登录用户才可以查看好友资料信息，（游客）没有这个功能），传好友id
+    ...
+
+    // 创建群聊（登录用户有这个功能，（游客）没有这个功能）
+    router.post('/api/chat/group/create', controller.api.chat.chatgroup.creategroup);
+
+};   
+
+```
+
+### 6. 群聊相关接口说明
+1. 创建群聊接口，具体查看： <a href="/fourthless/w-a/eggjs.即时通讯接口.html#二十一、创建群聊-成功后通过websocket通知群聊用户" target="_blank">二十一、创建群聊（成功后通过webSocket通知群聊用户）</a>
 
 
 

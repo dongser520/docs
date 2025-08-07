@@ -850,8 +850,32 @@ title: eggjs即时通讯接口
 >  ```
 
 
-
-
+## 二十一、创建群聊（成功后通过webSocket通知群聊用户）
+说明：`(登录用户有这个功能，（游客）没有这个功能)` <br/>
+接口文档查看：<a href="/fourthless/w-a/eggjs.即时通讯websocket处理.html#四、创建群聊-成功后通过websocket通知群聊用户" target="_blank">四、创建群聊（成功后通过webSocket通知群聊用户）</a>
+> 1. 请求方式：`post` `[用postman测试]`或者`[用Apipost测试]`
+> 2. 接口示例：`http://127.0.0.1:7001/api/chat/group/create`<br/>
+> 本地路由地址：<http://127.0.0.1:7001/api/chat/group/create> <br/> 
+> 3. header头传token
+> 
+> 请求参数 [Headers] -> [Key: `token`, Value: `token值`]
+> 
+> | 参数       |  是否必填    |  类型    |  长度                   | 说明     |
+> | :---:      | :---:       |  :---:   | :---:                  |:---:     |
+> | token      |  是         |  string  |  由服务器生成           | `token令牌`，如：`eyJhbGciO.....`  |
+> 
+> 4. 请求参数 [body] -> [x-www-form-urlencoded]
+>
+> | 参数   |  是否必填    |  类型  |  长度  |  默认值  | 说明     |
+> | :---:  | :---:       |  :---: | :---: |:---:     |:---:     |
+> | userIds   |  是         |  array  |  |          |  通过好友列表选择的id（好友列表id）组成的数组  |
+> 5. 返回示例
+>  ```js
+>  {
+>    "msg": "ok",
+>    "data": "ok",
+>  }
+>  ```
 
 
 

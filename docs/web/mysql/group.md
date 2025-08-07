@@ -13,7 +13,7 @@ title: 群聊管理group表相关表说明
 | <b>uuid</b>   | <span>`string(36)`唯一群标识 </span>|否|无|<span style="font-size:12px">唯一群标识ID(UUID) </span> |
 | <b>user_id</b>|<span>`INTEGER(20).UNSIGNED` </span>|否|无|<span style="font-size:12px">群主id（关联用户表user的id）</span>  |
 | <b>name</b>| <span>`STRING(50)` </span>|否 | 无|<span style="font-size:12px">  群名称 </span> |
-| <b>avatar</b>| <span>`STRING(1000)`</span>   |    是      | <span style="font-size:10px">如：https://docs-51yrc-com.oss-cn-hangzhou.aliyuncs.com/</span><br/><span style="font-size:10px">chat/group.png</span>   |  <span style="font-size:12px">群头像地址（本地、网络图片地址）</span>  |
+| <b>avatar</b>| <span>`STRING(4000)`</span>   |    是      | <span style="font-size:10px">如：https://docs-51yrc-com.oss-cn-hangzhou.aliyuncs.com/</span><br/><span style="font-size:10px">chat/group.png</span>   |  <span style="font-size:12px">群头像地址（本地、网络图片地址）</span>  |
 | <b>remark</b>   | <span>`text`</span>   |    是      | `''`  | <span style="font-size:12px"> 群公告 </span> |
 | <b>...</b>   |   |         |   | <span style="font-size:12px">随着业务需求增加字段</span> |
 | <b>invite_confirm </b>  | <span>`TINYINT(1)`</span>   |    否 | `0`  | <span style="font-size:12px"> 是否需要管理员确认才能进群(0-不需要 1- 需要管理员确认 2-其他情况)</span>  |
@@ -69,7 +69,7 @@ title: 群聊管理group表相关表说明
 >>         comment: '群名称'
 >>       },
 >>       avatar: {
->>         type: STRING(1000),
+>>         type: STRING(4000),
 >>         allowNull: true,
 >>         defaultValue: 'https://docs-51yrc-com.oss-cn-hangzhou.aliyuncs.com/chat/group.png',
 >>         comment: '群头像（本地、网络图片地址）'
@@ -174,7 +174,7 @@ module.exports = app => {
             comment: '群名称'
         },
         avatar: {
-            type: STRING(1000),
+            type: STRING(4000),
             allowNull: true,
             defaultValue: 'https://docs-51yrc-com.oss-cn-hangzhou.aliyuncs.com/chat/group.png',
             comment: '群头像（本地、网络图片地址）'
