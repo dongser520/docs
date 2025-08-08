@@ -1226,7 +1226,7 @@ module.exports = app => {
     },
 ```
 
-### 3. 简化控制器`发送消息`代码
+### 3. 简化控制器`发送消息`代码(新增群聊发消息)
 在控制器`app/controller/api/chat/chatwebsocket.js`中
 ```js
 'use strict';
@@ -1240,12 +1240,12 @@ class ChatwebsocketController extends Controller {
     // 链接websocket
     async connect() {
         const { ctx, app, service } = this;
-        console.log('链接websocket方法', ctx.websocket.chatuser_id);
+        console.log('链接websocket用户的id', ctx.websocket.chatuser_id);
         // 确保连接存在
         if (!ctx.websocket) {
             return ctx.apiFail('非法访问');
         }
-        // console.log(`clients链接数: ${app.ws.clients.size}`);
+        console.log(`clients链接数: ${app.ws.clients.size}`);
 
         // 添加心跳机制
         let heartbeatInterval = setInterval(() => {
@@ -1318,12 +1318,13 @@ class ChatwebsocketController extends Controller {
             service.cache.remove('online_' + user_id).catch(console.error);
         });
 
-        // 发送欢迎消息
+        // 发送欢迎消息-所有人都发
         ctx.websocket.send(JSON.stringify({
             type: 'system',
-            data: '欢迎您，登录可获取更多功能！',
+            data: '欢迎您访问我们的系统！',
             timestamp: Date.now()
         }));
+        
     }
 
     //发送消息
@@ -1555,14 +1556,93 @@ class ChatwebsocketController extends Controller {
 
         } else if (chatType == 'group') {
             // 群聊
+            // 1. 先判断这个群是否存在，并且我是否在群里
+            let group = await app.model.Group.findOne({
+                where:{
+                    id: sendto_id, //群id
+                    status: 1, // 群状态 1正常 2锁定 0解散
+                },
+                // 关联查询群成员
+                include:[
+                    {
+                        // 关联模型
+                        model: app.model.GroupUser,
+                        // 关联条件
+                        where: {
+                            // 选取状态正常的群成员
+                            status: 1, // 状态 1正常 2锁定 0禁言
+                        },
+                        // 读取字段
+                        attributes: ['id', 'group_id', 'user_id', 'nickname', 'avatar', 'status', 'order'],
+                    }
+                ],
+            });
+            if(!group){
+                return ctx.apiFail('群不存在或者已解散或者被封禁，无法发消息');
+            }
+            // 2. 存在看一下群信息，我在不在群里
+            // group = JSON.parse(JSON.stringify(group));
+            // console.log('存在看一下群信息', group);
+            // 查一下我在不在群里
+            let me_index = group.group_users.findIndex(item => item.user_id == me.id);
+            if(me_index == -1){
+                return ctx.apiFail('您不在群里，无法发消息');
+            }
+            // 3. 我在群里
+            // 我在群里的昵称: 优先拿我在群里设置的昵称，没有则拿我自己的昵称，在没有则拿账号名
+            let me_group_nickname = group.group_users[me_index].nickname || me.nickname || me.username;
+            // 我在群聊的头像：优先拿我在群里的头像，没有则拿我自己的头像
+            let me_group_avatar = group.group_users[me_index].avatar || me.avatar;
+
+            // 4. 定义消息格式
+            let optionsObj = null;
+            // 额外参数json字符串options
+            try{
+                optionsObj = JSON.parse(decodeURIComponent(options));
+            } catch {
+                optionsObj = null;
+            }
+            let message = { 
+                id: uuidv4(), // 自动生成 UUID,唯一id, 聊天记录id，方便撤回消息
+                from_avatar: me_group_avatar || me.avatar, // 发送者头像
+                from_name: me_group_nickname || me.nickname || me.username, // 发送者名称
+                from_id: me.id, // 发送者id
+                to_id: group.id, // 群id
+                to_name: group.name, // 群名称
+                to_avatar: group.avatar, // 群头像
+                chatType: chatType, // 聊天类型 群聊
+                type: type, // 消息类型 
+                data: data, // 消息内容
+                options: optionsObj, // 其它参数
+                create_time: (new Date()).getTime(), // 创建时间
+                isremove: 0, // 0未撤回 1已撤回
+                // 群相关信息
+                group: group, 
+            };
+
+            // 循环推送给群成员 不用推送给自己
+            group.group_users.forEach(v => {
+                if(v.user_id != me.id){
+                   // 直接调用 `/app/extend/context.js` 封装的方法 chatWebsocketSendOrSaveMessage(sendto_id, message)
+                   ctx.chatWebsocketSendOrSaveMessage(v.user_id, message);
+                }
+            });
+
+            // 返回
+            return ctx.apiSuccess(message);
+
         }
 
     }
+
+    
 }
 
 module.exports = ChatwebsocketController;
 
 ```
+
+
 
 
 ### 4. 群聊相关方法
@@ -1755,7 +1835,147 @@ module.exports = app => {
 1. 创建群聊接口，具体查看： <a href="/fourthless/w-a/eggjs.即时通讯接口.html#二十一、创建群聊-成功后通过websocket通知群聊用户" target="_blank">二十一、创建群聊（成功后通过webSocket通知群聊用户）</a>
 
 
+### 7. 补充：对游客用户，系统发送一个登录提醒消息
+### ① 在控制器 `app/controller/api/chat/chatuser.js` 中
+```js
+'use strict';
+//哈希函数 
+const crypto = require('node:crypto');
+// 引入 uuid 库 `npm install uuid`
+const { v4: uuidv4 } = require('uuid');
 
+const Controller = require('egg').Controller;
+
+class ChatuserController extends Controller {
+    ...
+
+    // 比对信息，自动登录
+    async compareData(option) {
+        const { ctx, app } = this;
+        // 判断是否存在
+        let user = await app.model.User.findOne({
+            where: {
+                username: option.username,
+                status: 1,
+            },
+        });
+        if (!user) {
+            // ctx.throw(400, '账号不存在或者被禁用');
+            return ctx.apiFail('账号不存在或者被禁用');
+        }
+        // 如果比对传递了role, 且role = 'visitor' 则表示是游客登录，不需要验证密码
+        if(!(option.role && option.role == 'visitor')){
+            // 验证密码
+            await this.checkPassword(option.password, user.password);
+        }
+        
+        //存储在session中，定义session中的一个属性authuser存储用户登录信息
+        // ctx.session.authuser = user; //存储到session
+
+        // 根据业务需要，这里可以更新一些信息，比如：登录时间、登录ip等
+        await user.update({
+            last_login: Date.now(),//登录时间
+        });
+        // 把user转换成json对象，进行后续一些处理和返回给客户端
+        user = JSON.parse(JSON.stringify(user));
+        // 注意注册用户退出登录后，应该以游客模式返回前端访问
+        if(option.role && option.role == 'visitor'){
+            user.role = 'visitor'; // 给前端返回游客模式
+        }
+        //console.log('用户比对信息', user);
+        // 生成唯一token
+        let token = ctx.getToken(user);
+        user.token = token;
+        // console.log('即时通讯登录用户信息', user);
+        // 加入到缓存中（保证用户提交验证的token来自我们服务器生成的）
+        // 即加入redis中, 注意缓存时间的设置 60 * 60 * 24 * 365 * 100 为100年
+        // 第三个参数为0，则是用不过期
+        let user_token = await this.service.cache.set('chat_user_' + user.id,
+            token, 60 * 60 * 24 * 365 * 100);
+        if (!user_token) {
+            ctx.throw(400, '登录失败');
+        }
+
+
+        // 如果比对传递了role, 且role = 'visitor' 则表示是游客
+        if (option.role && option.role == 'visitor') {
+            // 新增给当前游客用户，由系统发一个登录提醒
+            const startTime = Date.now();
+            const maxWait = 20000; // 20秒超时
+            const checkInterval = 500; // 每500ms检查一次
+            
+            const checkWebSocket = () => {
+              // 1. 检查WebSocket是否存在
+              if (this.ctx.app.ws.chatuser && this.ctx.app.ws.chatuser[user.id]) {
+                // WebSocket已就绪，立即执行
+                this.systemSendLoginRemind(user);
+              } 
+              // 2. 检查是否超时
+              else if (Date.now() - startTime < maxWait) {
+                // 未超时则继续轮询
+                setTimeout(checkWebSocket, checkInterval);
+              }
+              // 超时后自动结束（不执行任何操作）
+            };
+          
+            // 首次检查（立即开始）
+            setTimeout(checkWebSocket, 0);
+        }
+
+
+        // 返回
+        delete user.password;
+        return ctx.apiSuccess(user);
+    }
+
+    ...
+
+    // 系统给游客发送登录提醒消息
+    async systemSendLoginRemind(user) {
+        const { ctx, app, service } = this;
+        // 消息格式
+        // console.log('要发登录提示消息的用户user', user); return;
+        let message = { 
+            id: uuidv4(), // 自动生成 UUID,唯一id, 聊天记录id，方便撤回消息
+            from_avatar: 'https://docs-51yrc-com.oss-cn-hangzhou.aliyuncs.com/chat/kefu.png', // 发送者头像
+            from_name: '系统消息', // 发送者名称
+            from_id: 0, // 发送者id 系统id
+            to_id: user.id, // 接收者id  
+            to_name: user.nickname || user.username, // 接收者名称
+            to_avatar: user.avatar, // 接收者头像
+            chatType: 'single', // 聊天类型 单聊
+            type: 'text', // 消息类型 系统通知消息
+            data: {
+                data: "欢迎您，登录可以获取更多功能！",
+                dataType: false, 
+                otherData: null,
+            }, // 消息内容
+            options: {}, // 其它参数
+            create_time: (new Date()).getTime(), // 创建时间
+            isremove: 0, // 0未撤回 1已撤回
+            // 群相关信息
+            // group: {
+            //     user_id: 'fromSystemId',
+            //     remark: '',
+            //     invite_confirm: 0,
+            // }, 
+        };
+        // 推送给游客
+        // 拿到游客的socket
+        let you_socket = ctx.app.ws.chatuser[user.id];
+        // 如果对方在线，则直接推送给对方
+        you_socket.send(JSON.stringify({
+            type: 'singleChat',
+            data: message,
+            timestamp: Date.now(),
+        }));
+        
+    }
+    
+}
+
+module.exports = ChatuserController;
+```
 
 
 
