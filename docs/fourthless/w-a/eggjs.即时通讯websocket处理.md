@@ -1635,7 +1635,30 @@ class ChatwebsocketController extends Controller {
 
     }
 
-    
+    //用户(我)上线后获取离线消息（登录用户和游客都有这个功能）
+    async chat_getmessage_OffLine() { 
+        const { ctx, app, service } = this;
+        // 我的信息
+        const me = ctx.chat_user;
+        const me_id = me.id;
+        // 获取离线消息
+        let key = `chat_getmessage_${me_id}`;
+        let msgList = await service.cache.getList(key); // 获取离线消息
+        // 推送离线消息给用户(我)
+        msgList.forEach(async (msg) => {
+            // 离线消息存的是字符串，需要转成对象
+            msg = JSON.parse(msg);
+            // 直接调用 `/app/extend/context.js` 封装的方法 chatWebsocketSendOrSaveMessage(sendto_id, message)
+            ctx.chatWebsocketSendOrSaveMessage(me_id, msg);
+        });
+        // 拿到之后则可以清除离线消息
+        await service.cache.remove(key);
+
+        // 返回
+        return ctx.apiSuccess('ok');
+    }
+
+
 }
 
 module.exports = ChatwebsocketController;
@@ -1802,13 +1825,73 @@ class ChatgroupController extends Controller {
         // 返回
         ctx.apiSuccess('ok');
     }
+
+    // 群聊列表（登录用户和游客都有这个功能）
+    async grouplist(){
+        const { ctx,app } = this;
+        //1.参数验证
+        ctx.validate({
+            page: {
+                type: 'int',  //参数类型
+                required: true, //是否必须
+                // defValue: '', 
+                desc: '页码', //字段含义
+                range:{
+                    min:1,
+                }
+            },
+            limit: {
+                type: 'int',  //参数类型
+                required: false, //是否必须
+                defValue: 30, 
+                desc: '每页多少条', //字段含义
+            },
+        });
+        // 当前用户: 我
+        const me = ctx.chat_user;
+        const me_id = me.id;
+        // 拿页码
+        let page = ctx.params.page ? parseInt(ctx.params.page) : 1;
+        // 每页多少条
+        let limit = ctx.query.limit ? parseInt(ctx.query.limit) : 30;
+        // 偏移量
+        let offset = (page - 1) * limit; 
+        // 拿数据
+        let data = await app.model.Group.findAll({
+            where:{
+                status:1,// 状态为1的群
+            },
+            attributes:{
+                exclude:['update_time'],
+            },
+            offset,
+            limit,
+            include:[{
+                //关联群用户表
+                model:app.model.GroupUser,
+                attributes:['group_id','user_id','nickname','avatar'],
+                // 关联查询条件
+                where:{
+                    user_id: me_id, // 用户id
+                    status:1, // 状态
+                },
+            }],
+            order:[
+                ['id','desc'], // 按id降序排列
+            ],
+        });
+
+        // 返回
+        ctx.apiSuccess(data);
+    }
+
 }
 
 module.exports = ChatgroupController;
 
 ```
 
-### 5. 群聊相关路由
+### 5. 群聊相关路由及获取离线消息路由
 在路由文件 `app/router/api/chat/router.js` 中添加
 ```js
 module.exports = app => {
@@ -1826,6 +1909,12 @@ module.exports = app => {
 
     // 创建群聊（登录用户有这个功能，（游客）没有这个功能）
     router.post('/api/chat/group/create', controller.api.chat.chatgroup.creategroup);
+
+    // 用户(我)上线后获取离线消息（登录用户和游客都有这个功能）
+    router.post('/api/chat/chatGetmessageOffLine', controller.api.chat.chatwebsocket.chat_getmessage_OffLine);
+
+    // 群聊列表（登录用户和游客都有这个功能）
+    router.get('/api/chat/grouplist/:page', controller.api.chat.chatgroup.grouplist);
 
 };   
 

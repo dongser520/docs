@@ -879,10 +879,84 @@ title: eggjs即时通讯接口
 
 
 
+## 二十二、获取离线消息（不在线的时候别人给你发的或者群里面发的消息）
+说明：`（登录用户和游客都有这个功能）（亮点：游客因为也有token, 所以他再次上线也可以接收客服给他发的消息）` <br/>
+1. 接口文档查看：<a href="/thirdless/w-b/08聊天通讯群组.html#十三、获取离线消息-不在线的时候别人给你发的或者群里面发的消息" target="_blank">十三、获取离线消息（不在线的时候别人给你发的或者群里面发的消息）</a> <br/>
+2. 此消息是通过服务器websocket推送的消息，页面无需额外处理 <br/>
+
+> 1. 请求方式：`post` `[用postman测试]`或者`[用Apipost测试]`
+> 2. 接口示例：`http://127.0.0.1:7001/api/chat/chatGetmessageOffLine`<br/>
+> 本地路由地址：<http://127.0.0.1:7001/api/chat/chatGetmessageOffLine> <br/> 
+> 3. header头传token
+> 
+> 请求参数 [Headers] -> [Key: `token`, Value: `token值`]
+> 
+> | 参数       |  是否必填    |  类型    |  长度                   | 说明     |
+> | :---:      | :---:       |  :---:   | :---:                  |:---:     |
+> | token      |  是         |  string  |  由服务器生成           | `token令牌`，如：`eyJhbGciO.....`  |
+> 
+> 4. 请求参数 [body] -> [x-www-form-urlencoded]
+> <br/> 
+> 无
+> 5. 返回示例
+>  ```js
+>  {
+>    "msg": "ok",
+>    "data": "ok",
+>  }
+>  ```
 
 
+## 二十三、我的群聊列表
+说明：`（登录用户和游客都有这个功能）` <br/>
+接口文档查看：<a href="/fourthless/w-a/eggjs.即时通讯websocket处理.html#_4-群聊相关方法" target="_blank">4. 群聊相关方法</a><br/>
 
-
+> 1. 请求方式：`get` `[用postman测试]`或者`[用Apipost测试]`
+> 2. 接口示例：`http://127.0.0.1:7001/api/chat/grouplist/:page&limit=[:limit]`<br/> 需要传页码，默认第1页, 每页多少条选填项，默认30条<br/>
+> 本地路由地址：<http://127.0.0.1:7001/api/chat/grouplist/1&limit=3> <br/> 
+> 3. header头传token
+> 
+> 请求参数 [Headers] -> [Key: `token`, Value: `token值`]
+> 
+> | 参数       |  是否必填    |  类型    |  长度                   | 说明     |
+> | :---:      | :---:       |  :---:   | :---:                  |:---:     |
+> | token      |  是         |  string  |  由服务器生成           | `token令牌`，如：`eyJhbGciO.....`  |
+> 
+> 4. 请求参数 [body] -> [x-www-form-urlencoded]
+> 
+> | 参数       |  是否必填    |  类型    |  长度         | 说明     |
+> | :---:      | :---:       |  :---:   | :---:        |:---:     |
+> | page   |  是         |  int  |  int(11)       |   页码，默认：`1`, 不填默认第一页  |
+> | limit   |  否         |  int |       |   每页多少条，可不填，不填默认每页30条  |
+> 
+> 5. 返回示例
+>  ```js
+>  {
+>      "msg": "ok",
+>      "data": [
+>          {
+>              "create_time": "2025-08-19 11:33:54",
+>              "id": 33,
+>              "uuid": "436937ea-ea54-4866-ae14-c87085219744",
+>              "user_id": 6,
+>              "name": "my06、魂牵一梦、老二、彦祖、my04、my05、my07、my08、my09、my10、my14",
+>              "avatar": "https://thinkphp-all.oss-cn-hangzhou.aliyuncs.com/public/67b3001b2aedd.png,https://thinkphp-all.oss-cn-hangzhou.aliyuncs.com/public/67b3001b2aedd.png,/public/uploads/Diy/adminImg/20250711/1752224185557_16178303.png,https://thinkphp-all.oss-cn-hangzhou.aliyuncs.com/public/67b3001b2aedd.png,https://thinkphp-all.oss-cn-hangzhou.aliyuncs.com/public/67b3001b2aedd.png,https://thinkphp-all.oss-cn-hangzhou.aliyuncs.com/public/67b3001b2aedd.png,/public/uploads/Diy/adminImg/20250713/1752382886800_81488512.jpg,https://thinkphp-all.oss-cn-hangzhou.aliyuncs.com/public/67b3001b2aedd.png,https://thinkphp-all.oss-cn-hangzhou.aliyuncs.com/public/67b3001b2aedd.png",
+>              "remark": "",
+>              "invite_confirm": 0,
+>              "status": 1,
+>              "order": 50,
+>              "group_users": [
+>                  {
+>                      "group_id": 33,
+>                      "user_id": 6,
+>                      "nickname": "",
+>                      "avatar": ""
+>                  }
+>              ]
+>          },
+>      ]
+>  }
+>  ```
 
 
 
