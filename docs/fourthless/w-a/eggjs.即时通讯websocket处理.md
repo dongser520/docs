@@ -2044,11 +2044,114 @@ class ChatgroupController extends Controller {
         ctx.apiSuccess('ok');
     }
 
+    // 修改群公告（群主才有这个功能）
+    async groupremark(){
+        const { ctx,app } = this;
+        //1.参数验证
+        ctx.validate({
+            id: {
+                type: 'int',  //参数类型
+                required: true, //是否必须
+                // defValue: '', 
+                desc: '群id', //字段含义
+                range:{
+                    min:1,
+                }
+            },
+            remark: {
+                type: 'string', 
+                required: true, 
+                // defValue: '', 
+                desc: '群公告', 
+                range:{
+                    min:1,
+                    max:500,
+                }
+            },
+        });
+        // 当前用户: 我
+        const me = ctx.chat_user;
+        const me_id = me.id;
+        // 拿参数
+        let { id,remark } = ctx.request.body;
+        // 只有群主才能修改群公告
+        let group = await app.model.Group.findOne({
+            where:{
+                id: id, // 群id
+                status:1, // 状态
+                user_id: me_id, // 群主id
+            },
+            // 需要给群成员推送
+            include:[{
+                //关联群用户表
+                model:app.model.GroupUser,
+                attributes:['group_id','user_id','nickname','avatar'],
+            }],
+        });
+
+        if(!group){
+            return ctx.apiFail('只有群主才能修改群公告');
+        }
+
+        // 2. 修改群公告
+        /*
+        await group.update({
+            remark: remark,
+        });
+        */
+        group.remark = remark;
+        await group.save();
+
+        // 推送给群成员
+        // 3. 我作为群主，查一下我在群里的昵称和头像
+        let me_index = group.group_users.findIndex(item => item.user_id == me.id);
+        if(me_index == -1){
+            return ctx.apiFail('无法通知群成员');
+        }
+        // 我在群里的昵称: 优先拿我在群里设置的昵称，没有则拿我自己的昵称，在没有则拿账号名
+        let me_group_nickname = group.group_users[me_index].nickname || me.nickname || me.username;
+        // 我在群聊的头像：优先拿我在群里的头像，没有则拿我自己的头像
+        let me_group_avatar = group.group_users[me_index].avatar || me.avatar;
+
+        // 4. 定义消息格式
+        let message = { 
+            id: uuidv4(), // 自动生成 UUID,唯一id, 聊天记录id，方便撤回消息
+            from_avatar: me_group_avatar || me.avatar, // 发送者头像
+            from_name: me_group_nickname || me.nickname || me.username, // 发送者名称
+            from_id: me.id, // 发送者id
+            to_id: group.id, // 群id
+            to_name: group.name, // 群名称
+            to_avatar: group.avatar, // 群头像
+            chatType: 'group', // 聊天类型 群聊
+            type: 'systemNotice', // 消息类型 系统通知消息
+            data: {
+                data: `[公告] \n\n ${remark}`,
+                dataType: false, 
+                otherData: null,
+            }, // 消息内容
+            options: {}, // 其它参数
+            create_time: (new Date()).getTime(), // 创建时间
+            isremove: 0, // 0未撤回 1已撤回
+            // 群相关信息
+            group: group, 
+        };
+
+        // 循环推送给群成员
+        group.group_users.forEach(v => {
+            // 直接调用 `/app/extend/context.js` 封装的方法 chatWebsocketSendOrSaveMessage(sendto_id, message)
+            ctx.chatWebsocketSendOrSaveMessage(v.user_id, message);
+        });
+
+        // 返回
+        ctx.apiSuccess('ok');
+    }
+
 }
 
 module.exports = ChatgroupController;
 
 ```
+
 
 
 ### 5. 群聊相关路由及获取离线消息路由
@@ -2081,6 +2184,9 @@ module.exports = app => {
 
     // 修改群名称（群主才有这个功能）
     router.post('/api/chat/groupUpdateName', controller.api.chat.chatgroup.groupUpdateName);
+
+    // 修改群公告（群主才有这个功能）
+    router.post('/api/chat/groupremark', controller.api.chat.chatgroup.groupremark);
 
 };   
 
