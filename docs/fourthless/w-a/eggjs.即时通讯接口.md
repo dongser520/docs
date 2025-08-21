@@ -909,7 +909,7 @@ title: eggjs即时通讯接口
 
 ## 二十三、我的群聊列表
 说明：`（登录用户和游客都有这个功能）` <br/>
-接口文档查看：<a href="/fourthless/w-a/eggjs.即时通讯websocket处理.html#_4-群聊相关方法" target="_blank">4. 群聊相关方法</a><br/>
+接口文档查看：<a href="/fourthless/w-a/eggjs.即时通讯websocket处理.html#_4-群聊相关方法" target="_blank">4. 群聊相关方法(`群聊列表`)</a><br/>
 
 > 1. 请求方式：`get` `[用postman测试]`或者`[用Apipost测试]`
 > 2. 接口示例：`http://127.0.0.1:7001/api/chat/grouplist/:page&limit=[:limit]`<br/> 需要传页码，默认第1页, 每页多少条选填项，默认30条<br/>
@@ -957,6 +957,143 @@ title: eggjs即时通讯接口
 >      ]
 >  }
 >  ```
+
+
+
+
+## 二十四、获取群资料信息
+说明：`（登录用户和游客都有这个功能）` <br/>
+接口文档查看：<a href="/fourthless/w-a/eggjs.即时通讯websocket处理.html#_4-群聊相关方法" target="_blank">4. 群聊相关方法(`获取群资料信息`)</a><br/>
+
+> 1. 请求方式：`get` `[用postman测试]`或者`[用Apipost测试]`
+> 2. 接口示例：`http://127.0.0.1:7001/api/chat/groupinfo/:id`<br/> `id` 为群的id值<br/>
+> 本地路由地址：<http://127.0.0.1:7001/api/chat/groupinfo/33> <br/> `33`为群的id值<br/>
+> 3. header头传token
+> 
+> 请求参数 [Headers] -> [Key: `token`, Value: `token值`]
+> 
+> | 参数       |  是否必填    |  类型    |  长度                   | 说明     |
+> | :---:      | :---:       |  :---:   | :---:                  |:---:     |
+> | token      |  是         |  string  |  由服务器生成           | `token令牌`，如：`eyJhbGciO.....`  |
+> 
+> 4. 请求参数 [body] -> [x-www-form-urlencoded]
+> 
+> | 参数       |  是否必填    |  类型    |  长度         | 说明     |
+> | :---:      | :---:       |  :---:   | :---:        |:---:     |
+> | id   |  是         |  int  |  int(20)       |    群的id值  |
+> 
+> 
+> 5. 返回示例
+> ```js
+> {
+>     "msg": "ok",
+>     "data": {
+>         "create_time": "2025-08-19 11:33:54",
+>         "id": 33,
+>         "uuid": "436937ea-ea54-4866-ae14-c87085219744",
+>         "user_id": 6,
+>         "name": "技术交流群22222",
+>         "avatar": `https://thinkphp-all.oss-cn-hangzhou.aliyuncs.com/public/67b3001b2aedd.png
+>                    ,https://thinkphp-all.oss-cn-hangzhou.aliyuncs.com/public/67b3001b2aedd.png`,
+>         "remark": "",
+>         "invite_confirm": 0,
+>         "status": 1,
+>         "order": 50,
+>         "group_users": [
+>             {
+>                 "create_time": "2025-08-19 11:33:54",
+>                 "id": 137,
+>                 "group_id": 33,
+>                 "user_id": 6,
+>                 "nickname": "",
+>                 "avatar": "",
+>                 "status": 1,
+>                 "order": 50,
+>                 "groupId": 33,
+>                 "user": {
+>                     "id": 6,
+>                     "username": "my06",
+>                     "avatar": "https://thinkphp-all.oss-cn-hangzhou.aliyuncs.com/public/67b3001b2aedd.png",
+>                     "nickname": ""
+>                 }
+>             },
+>             {
+>                 "create_time": "2025-08-19 11:33:54",
+>                 "id": 138,
+>                 "group_id": 33,
+>                 "user_id": 1,
+>                 "nickname": "",
+>                 "avatar": "",
+>                 "status": 1,
+>                 "order": 50,
+>                 "groupId": 33,
+>                 "user": {
+>                     "id": 1,
+>                     "username": "my01",
+>                     "avatar": "https://thinkphp-all.oss-cn-hangzhou.aliyuncs.com/public/67b3001b2aedd.png",
+>                     "nickname": "魂牵一梦"
+>                 }
+>             },
+>         ]
+>     }
+> }
+> ```
+
+
+## 二十五、修改群名称（成功后通过webSocket通知群聊用户）
+说明：`（群主才有这个功能）` <br/>
+接口文档查看：<a href="/fourthless/w-a/eggjs.即时通讯websocket处理.html#_4-群聊相关方法" target="_blank">4. 群聊相关方法(`修改群名称`)</a><br/>
+
+> 1. 请求方式：`post` `[用postman测试]`或者`[用Apipost测试]`
+> 2. 接口示例：`http://127.0.0.1:7001/api/chat/groupUpdateName`<br/>
+> 本地路由地址：<http://127.0.0.1:7001/api/chat/groupUpdateName> <br/> 
+> 3. header头传token
+> 
+> 请求参数 [Headers] -> [Key: `token`, Value: `token值`]
+> 
+> | 参数       |  是否必填    |  类型    |  长度                   | 说明     |
+> | :---:      | :---:       |  :---:   | :---:                  |:---:     |
+> | token      |  是         |  string  |  由服务器生成           | `token令牌`，如：`eyJhbGciO.....`  |
+> 
+> 4. 请求参数 [body] -> [x-www-form-urlencoded]
+> 
+> | 参数       |  是否必填    |  类型    |  长度         | 说明     |
+> | :---:      | :---:       |  :---:   | :---:        |:---:     |
+> | id   |  是         |  int  |  int(20)       |    群的id值  |
+> | name   |  是         |  string  |  1-20之间的字符串       |    群名称  |
+> 
+> 
+> 5. 返回示例
+> ```js
+> {
+>     "msg": "ok",
+>     "data": "ok"
+> }
+> ```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
