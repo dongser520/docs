@@ -2146,12 +2146,201 @@ class ChatgroupController extends Controller {
         ctx.apiSuccess('ok');
     }
 
+
+    // 修改我在群里面的昵称（登录用户和游客都有这个功能）
+    async groupnickname(){
+        const { ctx,app } = this;
+        //1.参数验证
+        ctx.validate({
+            id: {
+                type: 'int',  //参数类型
+                required: true, //是否必须
+                // defValue: '', 
+                desc: '群id', //字段含义
+                range:{
+                    min:1,
+                }
+            },
+            nickname: {
+                type: 'string', 
+                required: true, 
+                // defValue: '', 
+                desc: '群昵称', 
+                range:{
+                    min:1,
+                    max:20,
+                }
+            },
+        });
+        // 当前用户: 我
+        const me = ctx.chat_user;
+        const me_id = me.id;
+        // 拿参数
+        let { id,nickname } = ctx.request.body;
+        // 查我是否在这个群里面，并拿到我的信息
+        let group_user = await app.model.GroupUser.findOne({
+            where:{
+                group_id: id, // 群id
+                user_id: me_id, // 用户id
+                status:1, // 状态
+            },
+        });
+
+        if(!group_user){
+            return ctx.apiFail('你不在该群聊中，无法修改昵称');
+        }
+
+        // 修改我的昵称
+        group_user.nickname = nickname;
+        await group_user.save();
+
+        // 返回
+        ctx.apiSuccess('ok');
+    }
+
+    // 删除群（群主可操作）或退出群（群成员可操作）
+    async groupDeleteOrQuit(){ 
+        const { ctx,app } = this;
+        //1.参数验证
+        ctx.validate({
+            id: {
+                type: 'int',  //参数类型
+                required: true, //是否必须
+                // defValue: '', 
+                desc: '群id', //字段含义
+                range:{
+                    min:1,
+                }
+            },
+        });
+        // 当前用户: 我
+        const me = ctx.chat_user;
+        const me_id = me.id;
+        // 拿参数
+        let { id } = ctx.request.body;
+        // 1. 看一下群是否存在
+        let group = await app.model.Group.findOne({
+            where:{
+                id: id, // 群id
+                // status:1, // 状态
+            },
+            attributes:{
+                exclude:['update_time'],
+            },
+            include:[{
+                //关联群用户表
+                model:app.model.GroupUser,
+                attributes:{
+                    exclude:['update_time'],
+                },
+                // 根据user_id 关联用户表，因为可能GroupUser中没有设置昵称和头像
+                include:[{
+                    model:app.model.User,
+                    attributes:['id','username','avatar','nickname'],
+                }],
+            }],
+        });
+        if(!group){
+            return ctx.apiFail('群不存在');
+        }
+
+        // 2. 我是否在群里
+        let me_index = group.group_users.findIndex(v => v.user_id == me_id);
+        if(me_index == -1){
+            return ctx.apiFail('你不在该群聊中，操作失败');
+        }
+
+        // 3. 我是不是群主
+        let is_group_owner = false;
+        if(group.user_id == me_id){
+            is_group_owner = true;
+        }
+
+        // 4. 处理及设置处理类型
+        let dotype = '';
+        if(is_group_owner){
+            // 我是群主，删除群
+            dotype = 'deleteGroup';
+            await group.destroy();
+        }else{
+            // 我不是群主, 退出群
+            dotype = 'quitGroup';
+            let group_user = await app.model.GroupUser.findOne({
+                where:{
+                    group_id: id, // 群id
+                    user_id: me_id, // 用户id
+                    // status:1, // 状态
+                },
+            });
+            // if(!group_user){
+            //     return ctx.apiFail('你不在该群聊中，操作失败');
+            // }
+            await group_user.destroy();
+        }
+
+        // 5. 推送给群成员（删除群(解散群)推送给所有人，某个成员退群可通知群主）
+        // 拿一下我的昵称和头像
+        // 我在群里的昵称: 优先拿我在群里设置的昵称，没有则拿我自己的昵称，在没有则拿账号名
+        let me_group_nickname = group.group_users[me_index].nickname || me.nickname || me.username;
+        // 我在群聊的头像：优先拿我在群里的头像，没有则拿我自己的头像
+        let me_group_avatar = group.group_users[me_index].avatar || me.avatar;
+
+        // 6. 定义推送信息格式
+        let message = { 
+            id: uuidv4(), // 自动生成 UUID,唯一id, 聊天记录id，方便撤回消息
+            from_avatar: me_group_avatar || me.avatar, // 发送者头像
+            from_name: me_group_nickname || me.nickname || me.username, // 发送者名称
+            from_id: me.id, // 发送者id
+            to_id: group.id, // 群id
+            to_name: group.name, // 群名称
+            to_avatar: group.avatar, // 群头像
+            chatType: 'group', // 聊天类型 群聊
+            type: 'systemNotice', // 消息类型 系统通知消息
+            data: {
+                data: ``, // 消息内容--根据情况自定义
+                dataType: false, 
+                otherData: null,
+            }, // 消息内容
+            options: {}, // 其它参数
+            create_time: (new Date()).getTime(), // 创建时间
+            isremove: 0, // 0未撤回 1已撤回
+            // 群相关信息
+            group: group, 
+        };
+
+        // 7. 根据处理情况自定义消息内容
+        switch (dotype) {
+            case 'deleteGroup':
+                message.data.data = `群主于 ${(new Date()).toLocaleString()} 解散了该群`;
+                break;
+            case 'quitGroup':
+                message.data.data = `${me_group_nickname}于 ${(new Date()).toLocaleString()} 已退出群聊`;
+                break;
+        }
+
+        // 8. 根据处理情况自定义推送对象
+        if(dotype == 'deleteGroup'){
+            // 解散群，推送给群里面所有成员
+            group.group_users.forEach(v => {
+                // 直接调用 `/app/extend/context.js` 封装的方法 chatWebsocketSendOrSaveMessage(sendto_id, message)
+                ctx.chatWebsocketSendOrSaveMessage(v.user_id, message);
+            });
+        }else if(dotype == 'quitGroup'){
+            // 退群， 只推送给群主
+            // 拿到群主id
+            let group_owner_id = group.user_id;
+            // 直接调用 `/app/extend/context.js` 封装的方法 chatWebsocketSendOrSaveMessage(sendto_id, message)
+            ctx.chatWebsocketSendOrSaveMessage(group_owner_id, message);
+        }
+
+        // 9. 返回
+        return ctx.apiSuccess('ok');
+    }
 }
 
 module.exports = ChatgroupController;
 
 ```
-
 
 
 ### 5. 群聊相关路由及获取离线消息路由
@@ -2187,6 +2376,12 @@ module.exports = app => {
 
     // 修改群公告（群主才有这个功能）
     router.post('/api/chat/groupremark', controller.api.chat.chatgroup.groupremark);
+
+    // 修改我在群里面的昵称（登录用户和游客都有这个功能）
+    router.post('/api/chat/groupnickname', controller.api.chat.chatgroup.groupnickname);
+
+    // 删除群（群主可操作）或退出群（群成员可操作）
+    router.post('/api/chat/groupDeleteOrQuit', controller.api.chat.chatgroup.groupDeleteOrQuit);
 
 };   
 
