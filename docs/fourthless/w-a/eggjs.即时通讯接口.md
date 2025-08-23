@@ -1168,8 +1168,28 @@ title: eggjs即时通讯接口
 > ```
 
 
+## 二十九、生成获取群二维码
+说明：`（登录用户和游客都有这个功能）` <br/>
+接口文档查看：<a href="/fourthless/w-a/eggjs.即时通讯websocket处理.html#五、二维码-后端生成二维码-群二维码和个人二维码生成" target="_blank">五、二维码（后端生成二维码）(群二维码和个人二维码生成)</a><br/>
 
-
+> 1. 请求方式：`get`
+> 2. H5端说明
+>> 1. 由于生成的二维码，uni-app在H5端不支持扫一扫（扫码）功能【查看官网：扫码功能<https://uniapp.dcloud.net.cn/api/system/barcode.html>】，所以H5端生成的二维码应该是一个完整的网址链接，通过微信或者手机浏览器扫码后，直接打开对应的H5端网页；<br/>
+>> 2. H5端二维码接口：`http://127.0.0.1:7001或者192.168.2.6:7001/api/chat/groupQrcode/:id(群的id)?token=token值&type=H5&http=(http://域名或者ip地址:前端端口号（没有端口则为空）)&chatType=(类型：single|group)`<br/> 
+>> 3. H5端生成的二维码示例：
+>>> 二维码是一个网址，网址如：<http://192.168.2.6:8081/#/pages/setpageInfo/setpageInfo?action=autoAddGroup&title=%E7%BE%A4%E4%BB%8B%E7%BB%8D&id=33&chatType=group><br/>
+> 3. 小程序和APP端说明
+>> 1. 小程序和APP二维码接口：`http://127.0.0.1:7001或者192.168.2.6:7001/api/chat/groupQrcode/:id(群的id)?token=token值`<br/> 
+>> 2. 小程序和APP端生成的二维码是一个文本对象信息，通过对应的小程序和APP扫码处理，扫二维码信息返回类似如下信息：<br/>
+>>> ```js
+>>> // 是一个json字符串
+>>> {
+>>>     id: 33, // 群的id
+>>>     name: '睿晨网技术群', // 群名称
+>>> }
+>>> ```
+> 4. 前端获取二维码（前端H5、小程序和APP如何生成获取群二维码）
+>> 具体操作看文档：<a href="/thirdless/w-b/08聊天通讯群组更多内容.html#二十二、生成群二维码" target="_blank">二十二、生成群二维码</a><br/>
 
 
 

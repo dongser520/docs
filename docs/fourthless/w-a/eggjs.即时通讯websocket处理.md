@@ -261,9 +261,9 @@ module.exports = (option, app) => {
         // 针对游客的操作
         //...
         
-        // 即时通讯注册用户的登录验证
+        // 即时通讯注册用户和游客的登录验证
         // 1. 获取header头的token
-        const { token } = ctx.header;
+        const token = ctx.header.token || ctx.query.token || ctx.request.body.token;
         if (!token) {
             ctx.throw(400, '您没有权限访问即时通讯接口');
         }
@@ -297,7 +297,31 @@ module.exports = (option, app) => {
         //console.log('数据库的用户信息',JSON.parse(JSON.stringify(user)));
         //console.log('token的用户信息',JSON.parse(JSON.stringify(tokenUser)));
         if(tokenUser.role == 'visitor'){
-            ctx.throw(400, '您没有权限访问，请先注册或登录');  
+            // 给游客开放一些接口
+            // 根据接口设置：<https://docs.51yrc.com/fourthless/w-a/eggjs.即时通讯接口.html>
+            // 获取接口地址做判断
+            // ctx.throw(400, '您没有权限访问，请先注册或登录');  
+            // 获取接口地址做判断
+            const { path, method } = ctx;
+            
+            // 定义游客允许访问的接口白名单
+            const visitorWhitelist = [
+                { path: '/api/chat/socket/sendmessage', method: 'POST' },    // 给服务器发消息（单聊）
+                { path: '/api/chat/chatGetmessageOffLine', method: 'POST' },    // 获取离线消息
+                { path: '/api/chat/grouplist', method: 'GET' },    // 我的群聊列表
+                { path: '/api/chat/groupinfo', method: 'GET' },    // 获取群资料信息
+                { path: '/api/chat/groupnickname', method: 'POST' },    // 修改我在群里面的昵称
+                { path: '/api/chat/groupDeleteOrQuit', method: 'POST' },    // 退出群
+            ];
+            
+            // 检查当前请求是否在白名单中
+            const isAllowed = visitorWhitelist.some(item => 
+                path.startsWith(item.path) && method === item.method
+            );
+            
+            if (!isAllowed) {
+                ctx.throw(400, '您没有权限访问，请先注册或登录');  
+            }
         }
 
         // 5. 没什么问题了，把用户信息挂载到ctx上，方便调用
@@ -1933,10 +1957,11 @@ class ChatgroupController extends Controller {
         }
 
         // 查看群信息的用户是否在群里，不在群里则无权查看
-        let me_index = group.group_users.findIndex(v => v.user_id == me_id);
-        if(me_index == -1){
-            return ctx.apiFail('您不在群里，无法查看群信息');
-        }
+        // 由于对游客开放，游客不在群里，所以下面的代码注释掉
+        // let me_index = group.group_users.findIndex(v => v.user_id == me_id);
+        // if(me_index == -1){
+        //     return ctx.apiFail('您不在群里，无法查看群信息');
+        // }
 
         // 返回
         ctx.apiSuccess(group);
@@ -2336,11 +2361,109 @@ class ChatgroupController extends Controller {
         // 9. 返回
         return ctx.apiSuccess('ok');
     }
+
+    // 生成群二维码（登录用户和游客都有这个功能）
+    async groupQrcode(){
+        const { ctx,app } = this;
+        //1.参数验证
+        ctx.validate({
+            id: {
+                type: 'int',  //参数类型
+                required: true, //是否必须
+                // defValue: '', 
+                desc: '群id', //字段含义
+                range:{
+                    min:1,
+                }
+            },
+            type:{
+                type: 'string',
+                required: false,
+                defValue: '',
+                desc: '平台类型', // 针对h5端使用
+            },
+            http:{
+                type: 'string',
+                required: false,
+                defValue: '',
+                desc: '网址域名', // 针对h5端使用
+            },
+            chatType:{
+                type: 'string',
+                required: false,
+                defValue: '',
+                desc: '聊天类型', // 针对h5端使用
+            }
+        });
+        // 当前用户: 我
+        const me = ctx.chat_user;
+        const me_id = me.id;
+        // 拿id
+        let { id } = ctx.params;
+        let type = ctx.query.type ? ctx.query.type : '';
+        let http = ctx.query.http ? ctx.query.http : '';
+        let chatType = ctx.query.chatType ? ctx.query.chatType : '';
+        // 查看群是否存在并且我是否在群里
+        let group = await app.model.Group.findOne({
+            where:{
+                id: id, // 群id
+                status:1, // 状态
+            },
+            attributes:{
+                exclude:['update_time'],
+            },
+            include:[{
+                //关联群用户表
+                model:app.model.GroupUser,
+                attributes:{
+                    exclude:['update_time'],
+                },
+                where:{
+                    user_id: me_id, // 用户id
+                    group_id: id, // 群id
+                    status:1, // 状态
+                },
+                // 根据user_id 关联用户表，因为可能GroupUser中没有设置昵称和头像
+                include:[{
+                    model:app.model.User,
+                    attributes:['id','username','avatar','nickname'],
+                }],
+            }],
+        });
+
+        if(!group){
+            return ctx.apiFail('群不存在或被封禁或者您不在该群聊中');
+        }
+
+
+        // 返回二维码
+        if(type && type == 'H5' && http && chatType){
+            // 生成H5端的二维码，即完整的网页地址
+            if(chatType == 'group'){
+               // 生成添加群的二维码地址
+               let url = `${http}#/pages/setpageInfo/setpageInfo?action=autoAddGroup&title=${encodeURIComponent('群介绍')}&id=${group.id}&chatType=${chatType}`;
+               console.log('生成添加群的二维码地址',url);
+               ctx.createQrcode(url);
+            }else if(chatType == 'single'){
+               // 添加添加个人的二维码地址
+            }
+        }else{
+            // 生成app和小程序端的二维码
+            ctx.createQrcode(JSON.stringify({
+                id: group.id,
+                name: group.name,
+            }));
+        }
+    }
+
+
 }
 
 module.exports = ChatgroupController;
 
 ```
+
+
 
 
 ### 5. 群聊相关路由及获取离线消息路由
@@ -2383,9 +2506,13 @@ module.exports = app => {
     // 删除群（群主可操作）或退出群（群成员可操作）
     router.post('/api/chat/groupDeleteOrQuit', controller.api.chat.chatgroup.groupDeleteOrQuit);
 
+    // 生成群二维码（登录用户和游客都有这个功能）
+    router.get('/api/chat/groupQrcode/:id', controller.api.chat.chatgroup.groupQrcode);
+
 };   
 
 ```
+
 
 ### 6. 群聊相关接口说明
 1. 创建群聊接口，具体查看： <a href="/fourthless/w-a/eggjs.即时通讯接口.html#二十一、创建群聊-成功后通过websocket通知群聊用户" target="_blank">二十一、创建群聊（成功后通过webSocket通知群聊用户）</a>
@@ -2532,6 +2659,223 @@ class ChatuserController extends Controller {
 
 module.exports = ChatuserController;
 ```
+
+
+## 五、二维码（后端生成二维码）(群二维码和个人二维码生成)
+### 1. 安装二维码生成插件
+生成二维码的库和插件有很多<br/>
+1. 前端生成二维码的插件很多，如：`qrcode.js`，使用说明：<https://www.runoob.com/w3cnote/javascript-qrcodejs-library.html> <br/>
+2. 后端生成二维码的插件也很多，如：<https://www.npmjs.com/package/qr-image> <br/>
+大家可以自行安装别的自己喜欢的插件和库。 <br/>
+> 安装命令 <br/>
+> ```js
+> npm i qr-image  --save
+> ```
+
+### 2. 在扩展写一个生成二维码的方法
+在 `app/extend/context.js` 中添加如下方法，用法：<https://www.npmjs.com/package/qr-image>
+```js
+...
+// 引入二维码插件
+var qr = require('qr-image');
+
+module.exports = {
+    ...,
+    // 生成二维码
+    createQrcode(url){
+      var img = qr.image(url, { size: 10 });
+      // 类型：image/png | svg
+      this.response.type = 'image/png';
+      // img.pipe(this.response); 
+      this.body = img;
+    },
+};
+```
+
+### 3. 生成群二维码
+在控制器 `app/controller/api/chat/chatgroup.js`
+```js
+    // 生成群二维码（登录用户和游客都有这个功能）
+    async groupQrcode(){
+        const { ctx,app } = this;
+        //1.参数验证
+        ctx.validate({
+            id: {
+                type: 'int',  //参数类型
+                required: true, //是否必须
+                // defValue: '', 
+                desc: '群id', //字段含义
+                range:{
+                    min:1,
+                }
+            },
+            type:{
+                type: 'string',
+                required: false,
+                defValue: '',
+                desc: '平台类型', // 针对h5端使用
+            },
+            http:{
+                type: 'string',
+                required: false,
+                defValue: '',
+                desc: '网址域名', // 针对h5端使用
+            },
+            chatType:{
+                type: 'string',
+                required: false,
+                defValue: '',
+                desc: '聊天类型', // 针对h5端使用
+            }
+        });
+        // 当前用户: 我
+        const me = ctx.chat_user;
+        const me_id = me.id;
+        // 拿id
+        let { id } = ctx.params;
+        let type = ctx.query.type ? ctx.query.type : '';
+        let http = ctx.query.http ? ctx.query.http : '';
+        let chatType = ctx.query.chatType ? ctx.query.chatType : '';
+        // 查看群是否存在并且我是否在群里
+        let group = await app.model.Group.findOne({
+            where:{
+                id: id, // 群id
+                status:1, // 状态
+            },
+            attributes:{
+                exclude:['update_time'],
+            },
+            include:[{
+                //关联群用户表
+                model:app.model.GroupUser,
+                attributes:{
+                    exclude:['update_time'],
+                },
+                where:{
+                    user_id: me_id, // 用户id
+                    group_id: id, // 群id
+                    status:1, // 状态
+                },
+                // 根据user_id 关联用户表，因为可能GroupUser中没有设置昵称和头像
+                include:[{
+                    model:app.model.User,
+                    attributes:['id','username','avatar','nickname'],
+                }],
+            }],
+        });
+
+        if(!group){
+            return ctx.apiFail('群不存在或被封禁或者您不在该群聊中');
+        }
+
+
+        // 返回二维码
+        if(type && type == 'H5' && http && chatType){
+            // 生成H5端的二维码，即完整的网页地址
+            if(chatType == 'group'){
+               // 生成添加群的二维码地址
+               let url = `${http}#/pages/setpageInfo/setpageInfo?action=autoAddGroup&title=${encodeURIComponent('群介绍')}&id=${group.id}&chatType=${chatType}`;
+               console.log('生成添加群的二维码地址',url);
+               ctx.createQrcode(url);
+            }else if(chatType == 'single'){
+               // 添加添加个人的二维码地址
+            }
+        }else{
+            // 生成app和小程序端的二维码
+            ctx.createQrcode(JSON.stringify({
+                id: group.id,
+                name: group.name,
+            }));
+        }
+    }
+
+```
+
+
+### 4. 生成群二维码路由
+在文件 `app/router/api/chat/router.js`
+```js
+module.exports = app => {
+    const { router, controller } = app;
+    //用户登录
+    ...
+
+    //申请添加好友 （登录用户才能申请添加好友，（游客）不能申请添加好友）
+    ...
+
+    // 好友列表（登录用户才行，（游客）不能）
+    ...
+    // 查看对方是否是我的好友（登录用户才可以查看好友资料信息，（游客）没有这个功能），传好友id
+    ...
+
+    // 创建群聊（登录用户有这个功能，（游客）没有这个功能）
+    ...
+
+    // 用户(我)上线后获取离线消息（登录用户和游客都有这个功能）
+    ...
+
+    // 群聊列表（登录用户和游客都有这个功能）
+    ...
+
+    // 获取群资料信息（登录用户和游客都有这个功能）
+    ...
+
+    // 修改群名称（群主才有这个功能）
+    ...
+
+    // 修改群公告（群主才有这个功能）
+    ...
+
+    // 修改我在群里面的昵称（登录用户和游客都有这个功能）
+    ...
+
+    // 删除群（群主可操作）或退出群（群成员可操作）
+    ...
+
+    // 生成群二维码（登录用户和游客都有这个功能）
+    router.get('/api/chat/groupQrcode/:id', controller.api.chat.chatgroup.groupQrcode);
+
+};   
+
+```
+
+### 5. 群二维码在前端的接口使用
+群二维码在前端的接口使用，具体查看： <a href="/fourthless/w-a/eggjs.即时通讯接口.html#二十九、生成获取群二维码" target="_blank">二十九、生成获取群二维码</a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
