@@ -226,7 +226,7 @@ title: 第三学期第二季（课程学习顺序：07）
 ####  <a href="/thirdless/w-b/08聊天通讯群组更多内容.html#二十四、清空聊天记录"  style="margin-left:40px;">二十四、清空聊天记录</a>
 ####  <a href="/thirdless/w-b/08聊天通讯群组更多内容.html#_1-清空聊天记录功能实现"  style="margin-left:70px;">1. 清空聊天记录功能实现</a>
 ####  <a href="/thirdless/w-b/08聊天通讯群组更多内容.html#_2-聊天页清空聊天记录"  style="margin-left:70px;">2. 聊天页清空聊天记录</a>
-### <a href="/thirdless/w-b/09聊天页服务器通讯功能实现" target="_blank" title="点击查看课程文档">章节9.聊天页服务器通讯功能实现</a>
+### <a href="/thirdless/w-b/09聊天页服务器通讯功能实现" target="_blank" title="点击查看课程文档">章节9.聊天页发[图片视频]等功能实现</a>
 
 
 
