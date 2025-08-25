@@ -2843,7 +2843,8 @@ module.exports = app => {
 群二维码在前端的接口使用，具体查看： <a href="/fourthless/w-a/eggjs.即时通讯接口.html#二十九、生成获取群二维码" target="_blank">二十九、生成获取群二维码</a>
 
 
-
+## 六、聊天页发[图片、视频、音频等]服务器交互处理
+由于内容较多，在新页面查看：<a href="/fourthless/w-a/eggjs.即时通讯发图片视频等交互处理" target="_blank">即时通讯发图片视频等交互处理</a>
 
 
 

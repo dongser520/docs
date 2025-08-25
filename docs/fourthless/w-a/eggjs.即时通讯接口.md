@@ -1192,15 +1192,85 @@ title: eggjs即时通讯接口
 >> 具体操作看文档：<a href="/thirdless/w-b/08聊天通讯群组更多内容.html#二十二、生成群二维码" target="_blank">二十二、生成群二维码</a><br/>
 
 
+## 三十、上传图片等文件到服务器或者阿里云
+说明：`（登录用户和游客都有这个功能）` <br/>
 
+<b>关于上传文件的功能说明</b><br/>
 
+1. `上传图片（文件）到服务器` ，这个内容在我们课程：<a href="/secondless/w-c.html#_1-第二学期第三季课程介绍" target="_blank">[第二学期第三季]</a>讲网站前后台开发的时候已经讲过了。<br/>
+2. 对应的文档内容：<a href="/secondless/w-c/上传文件.html#一、stream-流模式上传文件-单个文件-文件存储在你自己的服务器上" target="_blank">[一、Stream 流模式上传文件（单个文件），文件存储在你自己的服务器上]</a>
+3. `上传图片（文件）到阿里云` ，这个内容在我们课程：<a href="/fourthless/w-a.html" target="_blank">[第四学期第一季]</a>有讲，对应的文档内容：<a href="/secondless/w-c/上传文件.html#三、上传文件-图片-到阿里云存储oss" target="_blank">[三、上传文件（图片）到阿里云存储OSS]</a>
 
+### 1. uni-app项目上传文件[单文件]（图片视频等）到本地服务器（自定义文件路径）
+说明： `（登录用户和游客都有这个功能）`<br/>
 
+> 1. 请求方式：`post` `[用postman测试]`或者`[用Apipost测试]`
+> 2. 接口示例：`http://127.0.0.1:7001/api/chat/uploadStreamSingleToServerDiy/:diydir`<br/> 传一个文件夹名称，具体使用查看：<a href="/secondless/w-c/上传文件.html#_7、扩展-自定义上传文件路径" target="_blank">7、扩展： 自定义上传文件路径</a>
+> <br/>
+> 本地路由地址示例：<http://127.0.0.1:7001/api/chat/uploadStreamSingleToServerDiy/chatImgs> <br/> `chatImgs`代表图片放在服务器`chatImgs`这个文件夹里面
+> 3. header头传token
+> 
+> 请求参数 [Headers] -> [Key: `token`, Value: `token值`]
+> 
+> | 参数       |  是否必填    |  类型    |  长度                   | 说明     |
+> | :---:      | :---:       |  :---:   | :---:                  |:---:     |
+> | token      |  是         |  string  |  由服务器生成           | `token令牌`，如：`eyJhbGciO.....`  |
+> 
+> 4. 请求参数 [body] -> [formData]
+> 
+> | 参数       |  是否必填    |  类型    |  长度         | 说明     |
+> | :---:      | :---:       |  :---:   | :---:        |:---:     |
+> | file   |  是         |  File  |         |    文件对象  |
+> 
+> 
+> 5. 返回示例
+> ```js
+> {
+>     "msg": "ok",
+>     "data": {
+>         "url": "/public/uploads/Diy/chatImgs/20250310/1710038202074_99501763.png"
+>     }
+> }
+> ```
 
+### 2. uni-app项目上传文件[单文件]（图片视频等）到阿里云存储OSS
+说明： `（登录用户和游客都有这个功能）`<br/>
 
-
-
-
+> 1. 请求方式：`post` `[用postman测试]`或者`[用Apipost测试]`
+> 2. 接口示例：`http://127.0.0.1:7001/api/chat/uploadAliyun`<br/> 具体使用查看：<a href="/secondless/w-c/上传文件.html#五、上传文件-图片-到阿里云存储oss-stream-流模式-完整流程和代码" target="_blank">五、上传文件（图片）到阿里云存储OSS--Stream 流模式（完整流程和代码）</a>
+> <br/>
+> 本地路由地址示例：<http://127.0.0.1:7001/api/chat/uploadAliyun> <br/>
+> 3. header头传token
+> 
+> 请求参数 [Headers] -> [Key: `token`, Value: `token值`]
+> 
+> | 参数       |  是否必填    |  类型    |  长度                   | 说明     |
+> | :---:      | :---:       |  :---:   | :---:                  |:---:     |
+> | token      |  是         |  string  |  由服务器生成           | `token令牌`，如：`eyJhbGciO.....`  |
+> 
+> 4. 请求参数 [body] -> [formData]
+> 
+> | 参数       |  是否必填    |  类型    |  长度  |  固定值          | 说明     |
+> | :---:      | :---:       |  :---:   | :---:   | :---:     |:---:     |
+> | name   |  是         |  string  |      |   img  |   文件标识，固定值：`img`  |
+> | imageClassId   |  是         |  int  |      |     |   图片或者文件分类id, 没有则填：0  |
+> 
+> 
+> 5. 返回示例
+> ```js
+> {
+>     "code": 200,
+>     "msg": "上传成功",
+>     "data": [
+>         {
+>             "url": "http://thinkphp-eggjs.oss-cn-hangzhou.aliyuncs.com/images/20250417/1744866732481_20f90b51544f.png",
+>             "path": "images/20250417/1744866732481_20f90b51544f.png",
+>             "image_class_id": 0,
+>             "create_time": 1744866732
+>         }
+>     ]
+> }
+> ```
 
 
 
