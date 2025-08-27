@@ -1273,6 +1273,45 @@ title: eggjs即时通讯接口
 > ```
 
 
+## 三十一、视频上传到服务器获取视频封面
+说明：`（登录用户和游客都有这个功能）` <br/>
+接口文档查看：<a href="/fourthless/w-a/eggjs.即时通讯发图片视频等交互处理.html#_6-视频上传到服务器获取视频封面" target="_blank">6. 视频上传到服务器获取视频封面</a><br/>
+
+> 1. 请求方式：`post` `[用postman测试]`或者`[用Apipost测试]`
+> 2. 接口示例：`http://127.0.0.1:7001/api/chat/getVideoScreenshot`<br/>
+> 本地路由地址：<http://127.0.0.1:7001/api/chat/getVideoScreenshot> <br/> 
+> 3. header头传token
+> 
+> 请求参数 [Headers] -> [Key: `token`, Value: `token值`]
+> 
+> | 参数       |  是否必填    |  类型    |  长度                   | 说明     |
+> | :---:      | :---:       |  :---:   | :---:                  |:---:     |
+> | token      |  是         |  string  |  由服务器生成           | `token令牌`，如：`eyJhbGciO.....`  |
+> 
+> 4. 请求参数 [body] -> [x-www-form-urlencoded]
+> 
+> | 参数       |  是否必填    |  类型    |  长度   |  默认值             | 说明     |
+> | :---:      | :---:       |  :---:   | :---:  |:---:               |:---:    |
+> | videoUrl   |  是         |  string  |         |                   |    视频网络地址  |
+> | time       |  是         |  int     |         |    20，单位：毫秒  |视频20毫秒处视频截图   |
+> | width       |  是       |  int     |         |    260 ，单位：px |视频截图图片宽 px  |
+> | format       |  是    |  string     |         |    png          |视频截图输出格式默认 png, 可选 jpg   |
+> 
+> 
+> 5. 返回示例
+> ```js
+> {
+>     "msg": "ok",
+>     "data": {
+>           "base64": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQ....ggg==",
+>           "url": "/public/uploads/Diy/VideoScreenshot/screenshot_1756285153281_k7dz26.png",
+>           "format": "png",
+>           "time": 20,
+>           "width": 260
+>     }
+> }
+> ```
+
 
 
 
