@@ -1313,10 +1313,88 @@ title: eggjs即时通讯接口
 > ```
 
 
+## 三十二、撤回消息接口说明
+说明：`（登录用户和游客都有这个功能）` <br/>
+接口文档查看：<a href="/fourthless/w-a/eggjs.即时通讯发图片视频等交互处理.html#二、撤回消息后端文档" target="_blank">二、撤回消息后端文档</a><br/>
 
+<b>重点说明</b><br/>
 
+服务器规定： `发出的消息超过5分钟，则不能撤回。`<br/>
 
-
+> 1. 请求方式：`post` `[用postman测试]`或者`[用Apipost测试]`
+> 2. 接口示例：`http://127.0.0.1:7001/api/chat/revokeMessage`<br/>
+> 本地路由地址：<http://127.0.0.1:7001/api/chat/revokeMessage> <br/> 
+> 3. header头传token
+> 
+> 请求参数 [Headers] -> [Key: `token`, Value: `token值`]
+> 
+> | 参数       |  是否必填    |  类型    |  长度                   | 说明     |
+> | :---:      | :---:       |  :---:   | :---:                  |:---:     |
+> | token      |  是         |  string  |  由服务器生成           | `token令牌`，如：`eyJhbGciO.....`  |
+> 
+> 4. 请求参数 [body] -> [x-www-form-urlencoded]
+> 
+> | 参数       |  是否必填    |  类型    |  长度   |  默认值             | 说明     |
+> | :---:      | :---:       |  :---:   | :---:  |:---:               |:---:    |
+> | to_id   |  是         |  int  |         |                   |    接收者id或者群id  |
+> | to_name |  是         |  string | 1-50个字符        |      |接收者或者群名称   |
+> | to_avatar|  是       |  string  | 10-1000个字符     |     |接收者或者群头像  |
+> | id       |  是    |  string     |         |         | 具体到群或者个人聊天中某一条消息uuid   |
+> | chatType |  是    |  string     |         |         | 聊天类型 single:单聊，group:群聊   |
+> | create_time |  是    |  timestamp     |         |         | 但是这条消息的发送（创建）时间戳  |
+> 
+> 
+> 5. 返回示例
+> ```js
+> {
+>   "msg": "ok",
+>   "data": {
+>     "id": 7,
+>     "from_avatar": "https://thinkphp-all.oss-cn-hangzhou.aliyuncs.com/public/67b3001b2aedd.png",
+>     "from_name": "my06",
+>     "from_id": 6,
+>     "to_id": 7,
+>     "to_name": "欧泰",
+>     "to_avatar": "http://192.168.2.6:7001/public/uploads/Diy/adminImg/20250713/1752382886800_81488512.jpg",
+>     "chatType": "single",
+>     "type": "systemNotice",
+>     "actionType": "revoke",
+>     "data": {
+>         "data": "my06撤回了一条消息",
+>         "dataType": false,
+>         "otherData": null
+>     },
+>     "options": {},
+>     "create_time": 1756799978402,
+>     "isremove": 0,
+>     "group": null
+>   }
+> }
+> ```
+> 另外这个方法会使用websocket推送给其他人，websocket推送的消息示例：
+> ```js
+> {
+>     actionType: "revoke"
+>     chatType: "single"
+>     create_time: 1756799978402
+>     data: {
+>         data: "my06撤回了一条消息",
+>         dataType: false,
+>         otherData: null
+>     },
+>     from_avatar: "https://thinkphp-all.oss-cn-hangzhou.aliyuncs.com/public/67b3001b2aedd.png"
+>     from_id: 6
+>     from_name: "my06"
+>     group: null
+>     id: "594fe1bd-4943-466b-a787-8bb2e5e864ce"
+>     isremove: 0
+>     options: {}
+>     to_avatar: "http://192.168.2.6:7001/public/uploads/Diy/adminImg/20250713/1752382886800_81488512.jpg"
+>     to_id: 7
+>     to_name: "欧泰"
+>     type: "systemNotice"
+> }
+> ```
 
 
 

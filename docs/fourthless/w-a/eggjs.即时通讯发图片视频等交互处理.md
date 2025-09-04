@@ -1,7 +1,7 @@
 ---
 navbar: true
 sidebar: auto
-title: eggjs即时通讯聊天页发[图片、视频、音频等]服务器交互处理
+title: eggjs即时通讯聊天页[图片、视频、音频、撤回消息、转发等]服务器交互处理
 ---
 
 ## 一、uni-app项目发送文件[图片视频等]到服务器或者阿里云OSS
@@ -417,14 +417,338 @@ module.exports = app => {
 ```
 
 
+## 二、撤回消息后端文档
+### 1. 撤回消息接口说明
+接口说明：<a href="/fourthless/w-a/eggjs.即时通讯接口.html#三十二、撤回消息接口说明" target="_blank">三十二、撤回消息接口说明</a>
+
+### 2. 控制器代码
+在控制器 `app/controller/api/chat/chatuser.js`
+```js
+    ...
+    // 撤回消息（游客和登录用户都有这个权限）
+    async revokeMessage() {
+        const { ctx, app } = this;
+        //1.参数验证
+        this.ctx.validate({
+            to_id: {
+                type: 'int',  //参数类型
+                required: true, //是否必须
+                // defValue: '', 
+                desc: '接收者id或者群id', //字段含义
+                range: {
+                    min: 1,
+                }
+            },
+            to_name: {
+                type: 'string',
+                required: true,
+                // defValue: '', 
+                desc: '接收者或者群名称',
+                range: {
+                    min: 1,
+                    max: 50,
+                },
+            },
+            to_avatar: {
+                type: 'string',
+                required: true,
+                // defValue: '', 
+                desc: '接收者或者群头像',
+                range: {
+                    min: 10,
+                    max: 1000,
+                },
+            },
+            id: {
+                type: 'string',
+                required: true,
+                // defValue: '', 
+                desc: '消息uuid',
+            },
+            chatType: {
+                type: 'string',
+                required: true,
+                // defValue: '', 
+                desc: '聊天类型',
+                range: {
+                    in: ['single', 'group'],
+                },
+            },
+            create_time: {
+                type: 'int',  //参数类型
+                required: true, //是否必须
+                // defValue: '', 
+                desc: '消息发送时间', //字段含义
+                range: {
+                    min: 1000000000000,
+                    max: (new Date()).getTime(),
+                }
+            },
+        });
+        const { to_id, to_name, to_avatar, id, chatType, create_time } = ctx.request.body;
+        // 首先验证消息是否过期，超过5分钟消息不能撤回
+        if ((new Date()).getTime() - create_time >  5 * 60 * 1000 ) {
+            return this.ctx.apiFail('消息超过5分钟，不能撤回');
+        }
+        // 我
+        let me = ctx.chat_user;
+        let me_id = me.id;
+        // 消息格式
+        let message = {
+            id: id, // 撤回的消息id
+            from_avatar: me.avatar, // 发送者头像
+            from_name: me.nickname || me.username, // 发送者名称
+            from_id: me.id, // 发送者id
+            to_id: to_id, // 群id|接收者id
+            to_name: to_name, // 群名称|接收者 名称
+            to_avatar: to_avatar, // 群头像| 接收者头像
+            chatType: chatType, // 聊天类型 群聊 | 单聊
+            type: 'systemNotice', // 消息类型 系统通知消息
+            actionType: 'revoke', // 操作类型 撤回
+            data: {
+                data: `${me.nickname || me.username}撤回了一条消息`,
+                dataType: false,
+                otherData: null,
+            }, // 消息内容
+            options: {}, // 其它参数
+            create_time: (new Date()).getTime(), // 创建时间
+            isremove: 0, // 0未撤回 1已撤回
+            // 群相关信息
+            group: null,
+        };
 
 
+        if (chatType == 'single') {
+            // 单聊处理
+            // 直接调用 `/app/extend/context.js` 封装的方法 chatWebsocketSendOrSaveMessage(sendto_id, message)
+            ctx.chatWebsocketSendOrSaveMessage(to_id, message);
+            return ctx.apiSuccess(message);
+        } else if (chatType == 'group') {
+            // 群聊处理
+            // 1. 看一下群是否存在
+            let group = await app.model.Group.findOne({
+                where: {
+                    id: to_id, // 群id
+                    status: 1, // 状态
+                },
+                attributes: {
+                    exclude: ['update_time'],
+                },
+                include: [{
+                    //关联群用户表
+                    model: app.model.GroupUser,
+                    attributes: {
+                        exclude: ['update_time'],
+                    },
+                    // 根据user_id 关联用户表，因为可能GroupUser中没有设置昵称和头像
+                    include: [{
+                        model: app.model.User,
+                        attributes: ['id', 'username', 'avatar', 'nickname'],
+                    }],
+                }],
+            });
+            if (!group) {
+                return ctx.apiFail('群不存在');
+            }
+
+            // 2. 我是否在群里
+            let me_index = group.group_users.findIndex(v => v.user_id == me_id);
+            if (me_index == -1) {
+                return ctx.apiFail('你不在该群聊中，操作失败');
+            }
+
+            // 拿一下我的昵称和头像
+            // 我在群里的昵称: 优先拿我在群里设置的昵称，没有则拿我自己的昵称，在没有则拿账号名
+            let me_group_nickname = group.group_users[me_index].nickname || me.nickname || me.username;
+            // 我在群聊的头像：优先拿我在群里的头像，没有则拿我自己的头像
+            let me_group_avatar = group.group_users[me_index].avatar || me.avatar;
+
+            // 优化通知消息
+            message.from_avatar = me_group_avatar;
+            message.from_name = me_group_nickname;
+            message.data.data = `${me_group_nickname} 撤回了一条消息`;
+
+            // 发给群成员
+            group.group_users.forEach(v => {
+                // 直接调用 `/app/extend/context.js` 封装的方法 chatWebsocketSendOrSaveMessage(sendto_id, message)
+                ctx.chatWebsocketSendOrSaveMessage(v.user_id, message);
+            });
+
+            return ctx.apiSuccess(message);
+        }
+
+    }
+```
+
+### 3. 路由
+在文件 `app/router/api/chat/router.js`
+```js
+module.exports = app => {
+    ...
+
+    // 生成群二维码（登录用户和游客都有这个功能）
+    ...
+
+    // 上传文件（图片视频等）到本地服务器（自定义文件路径）（登录用户和游客都有这个功能）
+    ...
+    // 上传文件（图片视频等）到阿里云存储（登录用户和游客都有这个功能）
+    ...
+
+    // 根据视频地址获取视频截图
+    ...
+
+    // 撤回消息（游客和登录用户都有这个权限）
+    router.post('/api/chat/revokeMessage',controller.api.chat.chatuser.revokeMessage);
+
+};   
+
+```
 
 
+## 三、申请添加好友进行实时通知(后端文档)
+我们在前面写了添加好友的方法 [<a href="/fourthless/w-a/eggjs.即时通讯好友相关接口.html#三、添加好友-申请添加好友" target="_blank">三、添加好友（申请添加好友）</a>]，但是当时讲的时候没有讲websocket，现在既然已经学习了websocket， 那么我们可以在用户申请添加好友后，通知给对方，让对方能及时处理。<br/>
+
+### 1. 申请添加好友进行实时通知方法完善
+在控制器 `app/controller/api/chat/goodfriendapply.js`
+```js
+'use strict';
+
+const Controller = require('egg').Controller;
+
+// 引入 uuid 库 `npm install uuid`
+const { v4: uuidv4 } = require('uuid');
+
+class GoodfriendapplyController extends Controller {
+    //申请添加好友 （登录用户才能申请添加好友，（游客）申请添加好友）
+    async applyfriend() {
+        const { ctx,app } = this;
+        //1.参数验证
+        ctx.validate({
+            friend_id: {
+                type: 'int',  //参数类型
+                required: true, //是否必须
+                // defValue: '', 
+                desc: '我申请添加的好友id', //字段含义
+                range:{
+                    min:1,
+                }
+            },
+            nickname: {
+                type: 'string',  //参数类型
+                required: false, //是否必须
+                defValue: '', 
+                desc: '我的昵称或者说明', //字段含义
+                range:{
+                    min:1,
+                    max:50,
+                }
+            },
+        });
+        // 拿数据
+        let {friend_id,nickname} = ctx.request.body;
+        // 当前用户: 我
+        const me = ctx.chat_user;
+        const me_id = me.id;
+        // 不能添加自己为好友
+        if(me_id == friend_id){
+            return ctx.apiFail('不能添加自己为好友');
+        }
+        // 添加的好友是否存在
+        const friend = await app.model.User.findOne({
+            where:{
+                id:friend_id,
+                status:1, // 用户状态 1正常 0禁用
+            }
+        });
+        if(!friend){
+            return ctx.apiFail('添加的好友不存在');
+        }
+        // 添加的申请记录是否存在
+        const apply = await app.model.Goodfriendapply.findOne({
+            where:{
+                user_id:me_id,
+                friend_id,
+                // 正在申请的，和通过申请的没必要再次申请
+                status:['pending','agree'], 
+            }
+        });
+        if(apply){
+            return ctx.apiFail('您已经申请过了，请勿重复申请');
+        }
+        // 创建申请记录
+        await app.model.Goodfriendapply.create({
+            user_id:me_id,
+            friend_id,
+            nickname,
+            status:'pending',
+        });
+        // return ctx.apiSuccess('ok');
+        ctx.apiSuccess('ok');
+
+        // websocket 通知
+        // 消息格式
+        let message = {
+            id: uuidv4(), // 自动生成 UUID,唯一id, 聊天记录id，方便撤回消息
+            from_avatar: 'https://docs-51yrc-com.oss-cn-hangzhou.aliyuncs.com/chat/group.png', // 发送者头像
+            from_name: '好友申请提醒', // 发送者名称
+            from_id: `redirect-applyFriend-${me_id}`, // 发送者id 系统id或者类型
+            to_id: friend_id, // 接收者id  
+            to_name: friend.nickname || friend.username, // 接收者名称
+            to_avatar: friend.avatar, // 接收者头像
+            chatType: 'single', // 聊天类型 单聊
+            type: 'text', // 消息类型 系统通知消息
+            data: {
+                data: `用户[${me.nickname || me.username}]申请添加您为好友，请尽快处理`,
+                dataType: false,
+                otherData: null,
+            }, // 消息内容
+            // 新增处理链接
+            redirect: {
+                url:'/pages/applyMyfriend/applyMyfriend', // 处理链接地址
+                type: 'navigateTo', // 处理链接类型
+            }, // 处理链接
+            options: {}, // 其它参数
+            create_time: (new Date()).getTime(), // 创建时间
+            isremove: 0, // 0未撤回 1已撤回
+            // 群相关信息
+            // group: {
+            //     user_id: 'fromSystemId',
+            //     remark: '',
+            //     invite_confirm: 0,
+            // }, 
+        };
+        // 拿到对方的socket
+        let you_socket = ctx.app.ws.chatuser[friend_id];
+        // 申请添加的好友正好在线  推送给对方
+        // 如果拿不到对方的socket， 则把消息放在redis队列中， 等待对方上线时，再发送
+        if (!you_socket) {
+            // 放到reids，设置消息列表中：key值是：'chat_getmessage_' + friend_id（用户id）
+            this.service.cache.setList('chat_getmessage_' + friend_id, message);
+        } else {
+            // 如果对方在线，则直接推送给对方
+            you_socket.send(JSON.stringify({
+                type: 'singleChat',
+                data: message,
+                timestamp: Date.now(),
+            }));
+            // 存储到对方redis历史记录中
+            // key: `chatlog_对方id_[single|group]_我的id`
+            // this.service.cache.setList(`chatlog_${friend_id}_${message.chatType}_${me.id}`, message);
+        }
+
+    }
+
+    // 获取别人申请我为好友的列表数据（登录用户才行，（游客）不能）
+    ...
 
 
+    // 对申请加我为好友的信息进行处理（登录用户才行，（游客）不能）
+    ...
 
+}
 
+module.exports = GoodfriendapplyController;
+```
 
 
 
