@@ -1398,6 +1398,104 @@ title: eggjs即时通讯接口
 
 
 
+## 三十三、删除好友
+说明：`（登录用户有这个功能，（游客）没有这个功能）` <br/>
+接口文档查看：<a href="/fourthless/w-a/eggjs.即时通讯发图片视频等交互处理.html#五、删除好友后端文档" target="_blank">五、删除好友后端文档</a><br/>
+
+
+> 1. 请求方式：`post` `[用postman测试]`或者`[用Apipost测试]`
+> 2. 接口示例：`http://127.0.0.1:7001/api/chat/deletegoodfriend/:id`<br/> `id`指的好友id值<br/>
+> 本地路由地址：<http://127.0.0.1:7001/api/chat/deletegoodfriend/2> <br/> `2`为好友id<br/>
+> 3. header头传token
+> 
+> 请求参数 [Headers] -> [Key: `token`, Value: `token值`]
+> 
+> | 参数       |  是否必填    |  类型    |  长度                   | 说明     |
+> | :---:      | :---:       |  :---:   | :---:                  |:---:     |
+> | token      |  是         |  string  |  由服务器生成           | `token令牌`，如：`eyJhbGciO.....`  |
+> 
+> 4. 请求参数 [body] -> [x-www-form-urlencoded]
+> <br/>
+> 无
+> 
+> 
+> 5. 返回示例
+> ```js
+> {
+>   "msg": "ok",
+>   "data": `删除好友成功`
+> }
+> ```
+
+
+## 三十四、修改我的信息（修改我的头像昵称等信息）
+说明：`（登录用户都有这个权限，游客根据情况有部分权限）` <br/>
+接口文档查看：<a href="/fourthless/w-a/eggjs.即时通讯发图片视频等交互处理.html#六、修改我的头像昵称等信息后端文档" target="_blank">六、修改我的头像昵称等信息后端文档</a><br/>
+
+
+> 1. 请求方式：`post` `[用postman测试]`或者`[用Apipost测试]`
+> 2. 接口示例：`http://127.0.0.1:7001/api/chat/updateUserinfo`<br/>
+> 本地路由地址：<http://127.0.0.1:7001/api/chat/updateUserinfo> <br/> 
+> 3. header头传token
+> 
+> 请求参数 [Headers] -> [Key: `token`, Value: `token值`]
+> 
+> | 参数       |  是否必填    |  类型    |  长度                   | 说明     |
+> | :---:      | :---:       |  :---:   | :---:                  |:---:     |
+> | token      |  是         |  string  |  由服务器生成           | `token令牌`，如：`eyJhbGciO.....`  |
+> 
+> 4. 请求参数 [body] -> [x-www-form-urlencoded]
+> 
+> | 参数       |  是否必填    |  类型    |  长度   |  默认值             | 说明     |
+> | :---:      | :---:       |  :---:   | :---:  |:---:               |:---:    |
+> | fieldname   |  是         |  string  |   1-30个字符     |                   |   更新的字段  |
+> | fieldValue   |  是         |  string  |         |                   |   更新的字段值  |
+> 
+> 
+> 5. 返回示例
+> ```js
+> {
+>   "msg": "ok",
+>   "data": `更新成功`
+> }
+> ```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

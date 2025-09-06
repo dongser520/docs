@@ -751,26 +751,378 @@ module.exports = GoodfriendapplyController;
 ```
 
 
+## 四、同意添加为好友实时通知(后端文档)
+
+在控制器 `app/controller/api/chat/goodfriendapply.js`
+```js
+    ...
+    // 对申请加我为好友的信息进行处理（登录用户才行，（游客）不能）
+    // 实际是同意的情况下，向 goodfriend表插入数据
+    async handleapply(){ 
+        const { ctx,app } = this;
+        //1.参数验证
+        ctx.validate({
+            id: {
+                type: 'int',  //参数类型
+                required: true, //是否必须
+                // defValue: '', 
+                desc: '申请表的id', //字段含义
+                range:{
+                    min:1,
+                }
+            },
+            nickname: {
+                type: 'string',  //参数类型
+                required: false, //是否必须
+                defValue: '', 
+                desc: '好友备注', //字段含义
+                range:{
+                    min:1,
+                    max:50,
+                }
+            },
+            status: {
+                type: 'string',  //参数类型
+                required: true, //是否必须
+                // defValue: '', 
+                desc: '处理状态', //字段含义
+                range:{
+                    in:['pending', 'refuse', 'agree', 'ignore'],
+                }
+            },
+        });
+        // 当前用户: 我
+        const me = ctx.chat_user;
+        const me_id = me.id;
+        // 当前申请id的数据是否存在
+        let id = parseInt(ctx.params.id);
+        let goodfriendapply = await app.model.Goodfriendapply.findOne({
+            where:{
+                id,
+                friend_id:me_id,  // 谁可以处理：我
+                status:'pending', // 状态需是 'pending'
+            },
+            include:[
+                {
+                    model:app.model.User,// 关联用户表，查的是申请加我为好友的用户信息user_id
+                    attributes:['id','username','avatar','nickname','uuid'],
+                }
+            ],
+        });
+        if(!goodfriendapply){
+            return ctx.apiFail('申请不存在或已处理');
+        }
+        // console.log('处理的申请信息',goodfriendapply);
+        // 拿参数
+        let { nickname, status} = ctx.request.body;
+        // 接下来处理这么几步：
+        // 1. 设置申请表`goodfriendapply`的状态
+        // 2. 将同意状态下的信息写入我的好友表 `goodfriend`
+        // 3. 同时将我的信息写入对方的好友表 `goodfriend`
+        // 4. 上面三步要全部能够完成，如果其中一步出现错误，则应该回滚操作、
+        // 因此上述操作，我们应该用事务进行处理
+        // 定义事务
+        let tansaction;
+        try {
+            // 开启事务
+            tansaction = await app.model.transaction();
+            // 事务处理逻辑
+            // 1. 设置申请表`goodfriendapply`的状态
+            //goodfriendapply.status = status; await goodfriendapply.save();
+            await goodfriendapply.update({
+                status:status,
+            },{transaction:tansaction});
+            // 2. 将同意状态下的对方信息写入我的好友表 `goodfriend`
+            // 3. 同时将我的信息写入对方的好友表 `goodfriend`
+            if(status == 'agree'){
+                // 先判断一下我的好友表`goodfriend`中有没有对方
+                let meHasHim = await app.model.Goodfriend.findOne({
+                    where:{
+                        user_id:me_id, // 我
+                        friend_id: goodfriendapply.user_id, // 申请人
+                    }
+                });
+                // 如果我的好友中没有对方
+                if(!meHasHim){
+                    // 则将对方的信息异步写入我的好友表
+                    await app.model.Goodfriend.create({
+                        user_id:me_id, // 我
+                        friend_id: goodfriendapply.user_id, // 申请人
+                        nickname:nickname, // 申请人昵称
+                    },{transaction:tansaction});
+                }
+
+                // 先判断一下对方好友表`goodfriend`中有没有我
+                let himHasMe = await app.model.Goodfriend.findOne({
+                    where:{
+                        user_id:goodfriendapply.user_id, // 申请人，对方好友
+                        friend_id: me_id, // 我
+                    }
+                });
+                // console.log('对方好友有没有我', himHasMe);
+                // 如果对方好友没有我
+                if(!himHasMe){
+                    // 则将我的信息异步写入对方的好友表
+                    await app.model.Goodfriend.create({
+                        user_id:goodfriendapply.user_id, // 申请人，对方好友
+                        friend_id: me_id, // 我
+                        nickname:me.nickname, // 我的昵称
+                    },{transaction:tansaction});
+                }
+            }
+
+            //提交事务
+            await tansaction.commit();
+            // 反馈
+            // return ctx.apiSuccess('ok');
+            ctx.apiSuccess('ok');
+
+            // websocket 通知
+            if(status == 'agree'){
+                // 消息格式 --- 先推给对方（申请加我的好友）
+                let message = {
+                    id: uuidv4(), // 自动生成 UUID,唯一id, 聊天记录id，方便撤回消息
+                    from_avatar: me.avatar, // 发送者头像
+                    from_name: me.nickname || me.username, // 发送者名称
+                    from_id:  me_id, // 发送者id 系统id或者类型
+                    to_id: goodfriendapply.user_id, // 接收者id  
+                    to_name: nickname ||  goodfriendapply.user.nickname || goodfriendapply.user.username, // 接收者名称
+                    to_avatar: goodfriendapply.user.avatar, // 接收者头像
+                    chatType: 'single', // 聊天类型 单聊
+                    type: 'systemNotice', // 消息类型 系统通知消息
+                    data: {
+                        data: `我们已经是好友了，可以开始聊天了`,
+                        dataType: false,
+                        otherData: null,
+                    }, // 消息内容
+                    options: {}, // 其它参数
+                    create_time: (new Date()).getTime(), // 创建时间
+                    isremove: 0, // 0未撤回 1已撤回
+                    // 群相关信息
+                    // group: {
+                    //     user_id: 'fromSystemId',
+                    //     remark: '',
+                    //     invite_confirm: 0,
+                    // }, 
+                };
+                // 直接调用 `/app/extend/context.js` 封装的方法 chatWebsocketSendOrSaveMessage(sendto_id, message)
+                ctx.chatWebsocketSendOrSaveMessage(goodfriendapply.user_id, message);
+
+                // 消息格式 --- 再推给我自己（跟上面刚好相反, 发送人成了对方，我成了接收方）
+                message.from_avatar = goodfriendapply.user.avatar; // 发送者头像
+                message.from_name = nickname ||  goodfriendapply.user.nickname || goodfriendapply.user.username; // 发送者名称
+                message.from_id = goodfriendapply.user_id; // 发送者id 系统id或者类型
+                message.to_id = me_id ; // 接收者id  
+                message.to_name = me.nickname || me.username; // 接收者名称
+                message.to_avatar = me.avatar; // 接收者头像
+                // 直接调用 `/app/extend/context.js` 封装的方法 chatWebsocketSendOrSaveMessage(sendto_id, message)
+                ctx.chatWebsocketSendOrSaveMessage(me_id, message);
+            }
+            
+        } catch (error) {
+            // 失败则回滚
+            await tansaction.rollback();
+            // 反馈
+            return ctx.apiFail('系统异常，请稍后再试');
+        }
+        
+    }
+```
+
+
+## 五、删除好友后端文档
+### 1. 删除好友接口说明
+接口说明可查看：[<a href="/fourthless/w-a/eggjs.即时通讯接口.html#三十三、删除好友" target="_blank">三十三、删除好友</a>]
 
 
 
+### 2. 控制器代码
+在控制器 `app/controller/api/chat/goodfriend.js` 中添加如下代码
+```js
+    ...
+    // 查看对方是否是我的好友（登录用户才可以查看好友资料信息，（游客）没有这个功能）
+    ...
+
+    // 删除好友（登录用户有这个功能，（游客）没有这个功能）
+    async deletegoodfriend(){
+        const { ctx,app } = this;
+        //1.参数验证
+        ctx.validate({
+            id: {
+                type: 'int',  //参数类型
+                required: true, //是否必须
+                // defValue: '', 
+                desc: '朋友id', //字段含义
+                range:{
+                    min:1,
+                }
+            },
+        });
+        // 拿参数
+        const id = parseInt(ctx.params.id);
+        // 当前用户: 我
+        const me = ctx.chat_user;
+        const me_id = me.id;
+        // 获取好友信息
+        let data = await app.model.Goodfriend.findOne({
+            where:{
+                friend_id:id, // 好友id
+                user_id:me_id,// 我
+                // isblack:0, // 没有拉黑
+            },
+            attributes:{
+                exclude:['order','create_time','update_time'],
+            },
+        });
+        if(!data){
+            return ctx.apiFail('不是好友关系，无权操作');
+        }
+
+        // 删除他在我的朋友记录
+        await app.model.Goodfriend.destroy({
+            where:{
+                friend_id:id, // 朋友id
+                user_id:me_id,// 我
+                // isblack:0, // 没有拉黑
+            },
+        });
+
+        // 删除我在他的朋友记录
+        await app.model.Goodfriend.destroy({
+            where:{
+                friend_id:me_id, // 朋友id
+                user_id:id,// 我
+                // isblack:0, // 没有拉黑
+            },
+        });
+
+        // 删除申请记录（防止以后又要加回来）
+        // 我加他的记录
+        await app.model.Goodfriendapply.destroy({
+            where:{
+                friend_id:id, // 朋友id
+                user_id:me_id,// 我
+            },
+        });
+        // 他加我的记录
+        await app.model.Goodfriendapply.destroy({
+            where:{
+                friend_id:me_id, // 朋友id
+                user_id:id,// 我
+            },
+        });
 
 
+        return ctx.apiSuccess('删除好友成功');
+    }
+```
 
 
+### 3. 路由
+在文件 `app/router/api/chat/router.js` 中添加如下代码
+```js
+module.exports = app => {
+    ...
+
+    // 撤回消息（游客和登录用户都有这个权限）
+    ...
+
+    // 删除好友（登录用户有这个功能，（游客）没有这个功能），传好友id
+    router.post('/api/chat/deletegoodfriend/:id', controller.api.chat.goodfriend.deletegoodfriend);
+
+};   
+
+```
 
 
+## 六、修改我的头像昵称等信息后端文档
+### 1. 修改我的头像昵称接口说明
+接口说明可查看：[<a href="/fourthless/w-a/eggjs.即时通讯接口.html#三十四、修改我的信息-修改我的头像昵称等信息" target="_blank">三十四、修改我的信息（修改我的头像昵称等信息）</a>]
 
+### 2. 控制器代码
+在控制器 `app/controller/api/chat/chatuser.js` 中添加如下代码
+```js
+    ...
+    // 修改账号信息（登录用户都有这个权限，游客根据情况有部分权限）
+    async updateUserinfo() {
+        const { ctx, app } = this;
+        //1.参数验证
+        this.ctx.validate({
+            fieldname: {
+                type: 'string',
+                required: true,
+                // defValue: '', 
+                desc: '修改类型',
+                range: {
+                    max: 30,
+                    min: 1,
+                },
+            },
+            fieldValue: {
+                type: 'string',
+                required: true,
+                // defValue: '', 
+                desc: '修改结果',
+                range: {
+                    min: 1,
+                },
+            },
+        });
+        const { fieldname, fieldValue } = ctx.request.body;
+        // 我
+        let me = ctx.chat_user;
+        let me_id = me.id;
 
+        // 获取我的信息
+        let myinfo = await app.model.User.findByPk(me_id);
+        if (!myinfo) {
+            return ctx.apiFail('用户不存在，无法修改信息');
+        }
 
+        // 返回说明
+        let returnMsg = ``;
+        // 修改内容判断
+        if(fieldname == 'username'){
+            return ctx.apiFail('账号不可修改');
+        }
+        if(fieldname == 'nickname'){
+            // 昵称（游客和登录用户都可以修改）
+            if(fieldValue.length > 30) return ctx.apiFail('昵称长度不能超过30个字符');
+            myinfo.nickname = fieldValue;
+            returnMsg = '修改昵称成功';
+        }
+        if(fieldname == 'avatar'){
+            // 头像（游客和登录用户都可以修改）
+            if(fieldValue.length > 1000) return ctx.apiFail('头像地址过长不能超过1000个字符');
+            myinfo.avatar = fieldValue;
+            returnMsg = '头像更新成功';
+        }
 
+        // 修改
+        await myinfo.save();
+        // 返回
+        return ctx.apiSuccess(returnMsg);
+    }
+```
 
+### 3. 路由
+在文件 `app/router/api/chat/router.js` 中添加如下代码
+```js
+module.exports = app => {
+    ...
 
+    // 撤回消息（游客和登录用户都有这个权限）
+    ...
 
+    // 删除好友（登录用户有这个功能，（游客）没有这个功能），传好友id
+    ...
 
+    // 修改账号信息（登录用户都有这个权限，游客根据情况有部分权限）
+    router.post('/api/chat/updateUserinfo', controller.api.chat.chatuser.updateUserinfo);
 
+};   
 
-
+```
 
 
 
