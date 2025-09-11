@@ -227,10 +227,61 @@ title: 第三学期第二季（课程学习顺序：07）
 ####  <a href="/thirdless/w-b/08聊天通讯群组更多内容.html#_1-清空聊天记录功能实现"  style="margin-left:70px;">1. 清空聊天记录功能实现</a>
 ####  <a href="/thirdless/w-b/08聊天通讯群组更多内容.html#_2-聊天页清空聊天记录"  style="margin-left:70px;">2. 聊天页清空聊天记录</a>
 ### <a href="/thirdless/w-b/09聊天页服务器通讯功能实现" target="_blank" title="点击查看课程文档">章节9.聊天页发[图片视频]等功能实现</a>
-
-
-
-
+####  <a href="/thirdless/w-b/09聊天页服务器通讯功能实现.html#一、-服务器通讯发表情包图片及发图片功能"  style="margin-left:40px;">一、 服务器通讯发表情包图片及发图片功能</a>
+####  <a href="/thirdless/w-b/09聊天页服务器通讯功能实现.html#_1-先更新聊天类完整代码"  style="margin-left:70px;">1. 先更新聊天类完整代码</a>
+####  <a href="/thirdless/w-b/09聊天页服务器通讯功能实现.html#_2-设置上传图片等文件是服务器还是阿里云oss"  style="margin-left:70px;">2. 设置上传图片等文件是服务器还是阿里云OSS</a>
+####  <a href="/thirdless/w-b/09聊天页服务器通讯功能实现.html#_3-上传图片等文件到服务器或者阿里云接口说明"  style="margin-left:70px;">3. 上传图片等文件到服务器或者阿里云接口说明</a>
+####  <a href="/thirdless/w-b/09聊天页服务器通讯功能实现.html#_4-上传功能实现"  style="margin-left:70px;">4. 上传功能实现</a>
+####  <a href="/thirdless/w-b/09聊天页服务器通讯功能实现.html#_5-页面渲染问题-聊天页处理"  style="margin-left:70px;">5. 页面渲染问题：聊天页处理</a>
+####  <a href="/thirdless/w-b/09聊天页服务器通讯功能实现.html#_6-页面渲染问题-组件-components-chat-item-chat-item-vue"  style="margin-left:70px;">6. 页面渲染问题：组件（/components/chat-item/chat-item.vue）</a>
+####  <a href="/thirdless/w-b/09聊天页服务器通讯功能实现.html#_7-页面渲染问题-组件-components-chat-item-image-chat-item-image-vue"  style="margin-left:70px;">7. 页面渲染问题：组件（/components/chat-item-image/chat-item-image.vue）</a>
+####  <a href="/thirdless/w-b/09聊天页服务器通讯功能实现.html#_8-消息页显示问题"  style="margin-left:70px;">8. 消息页显示问题</a>
+####  <a href="/thirdless/w-b/09聊天页服务器通讯功能实现.html#二、-服务器通讯发视频功能-及发图片功能的改进"  style="margin-left:40px;">二、 服务器通讯发视频功能（及发图片功能的改进）</a>
+####  <a href="/thirdless/w-b/09聊天页服务器通讯功能实现.html#_1-定义各种类型文件上传到哪里-是自己的服务器还是阿里云oss"  style="margin-left:70px;">1. 定义各种类型文件上传到哪里：是自己的服务器还是阿里云OSS</a>
+####  <a href="/thirdless/w-b/09聊天页服务器通讯功能实现.html#_2-聊天页"  style="margin-left:70px;">2. 聊天页</a>
+####  <a href="/thirdless/w-b/09聊天页服务器通讯功能实现.html#_3-聊天页组件"  style="margin-left:70px;">3. 聊天页组件</a>
+####  <a href="/thirdless/w-b/09聊天页服务器通讯功能实现.html#_4-聊天页组件-视频组件"  style="margin-left:70px;">4. 聊天页组件: 视频组件</a>
+####  <a href="/thirdless/w-b/09聊天页服务器通讯功能实现.html#_5-聊天页组件-图片组件"  style="margin-left:70px;">5. 聊天页组件：图片组件</a>
+####  <a href="/thirdless/w-b/09聊天页服务器通讯功能实现.html#_6-发视频发多张图片处理"  style="margin-left:70px;">6. 发视频发多张图片处理</a>
+####  <a href="/thirdless/w-b/09聊天页服务器通讯功能实现.html#_7-视频上传到自己的服务器获取视频封面的接口说明"  style="margin-left:70px;">7. 视频上传到自己的服务器获取视频封面的接口说明</a>
+####  <a href="/thirdless/w-b/09聊天页服务器通讯功能实现.html#三、服务器通讯发语音消息"  style="margin-left:40px;">三、服务器通讯发语音消息</a>
+####  <a href="/thirdless/w-b/09聊天页服务器通讯功能实现.html#_1-在聊天页-pages-chat-chat-nvue"  style="margin-left:70px;">1. 在聊天页 /pages/chat/chat.nvue</a>
+####  <a href="/thirdless/w-b/09聊天页服务器通讯功能实现.html#_2-发语音功能实现"  style="margin-left:70px;">2. 发语音功能实现</a>
+####  <a href="/thirdless/w-b/09聊天页撤回转发消息等功能实现.html"  style="margin-left:40px;">四、撤回、删除消息、删除好友及修改我的头像昵称等功能</a>
+####  <a href="/thirdless/w-b/09聊天页撤回转发消息等功能实现.html#一、撤回消息功能实现"  style="margin-left:70px;">一、撤回消息功能实现</a>
+#####  <a href="/thirdless/w-b/09聊天页撤回转发消息等功能实现.html#_1-页面渲染数据赋值改动"  style="margin-left:100px;">1. 页面渲染数据赋值改动</a>
+#####  <a href="/thirdless/w-b/09聊天页撤回转发消息等功能实现.html#_2-撤回消息服务器交互"  style="margin-left:100px;">2. 撤回消息服务器交互</a>
+#####  <a href="/thirdless/w-b/09聊天页撤回转发消息等功能实现.html#_3-撤回消息服务器方法"  style="margin-left:100px;">3. 撤回消息服务器方法</a>
+#####  <a href="/thirdless/w-b/09聊天页撤回转发消息等功能实现.html#_4-撤回消息服务器方法接口说明"  style="margin-left:100px;">4. 撤回消息服务器方法接口说明</a>
+#####  <a href="/thirdless/w-b/09聊天页撤回转发消息等功能实现.html#_5-通过websocket撤回消息的用户处理"  style="margin-left:100px;">5. 通过websocket撤回消息的用户处理</a>
+#####  <a href="/thirdless/w-b/09聊天页撤回转发消息等功能实现.html#_6-消息页处理"  style="margin-left:100px;">6. 消息页处理</a>
+####  <a href="/thirdless/w-b/09聊天页撤回转发消息等功能实现.html#二、删除聊天页某条消息功能实现"  style="margin-left:70px;">二、删除聊天页某条消息功能实现</a>
+#####  <a href="/thirdless/w-b/09聊天页撤回转发消息等功能实现.html#_1-删除聊天页某条本地消息-并返回消息页对应聊天对象索引-方法"  style="margin-left:100px;">1. 删除聊天页某条本地消息(并返回消息页对应聊天对象索引)方法</a>
+#####  <a href="/thirdless/w-b/09聊天页撤回转发消息等功能实现.html#_2-删除聊天页本地某条聊天消息"  style="margin-left:100px;">2. 删除聊天页本地某条聊天消息</a>
+#####  <a href="/thirdless/w-b/09聊天页撤回转发消息等功能实现.html#_3-删除聊天页页面某条聊天消息"  style="margin-left:100px;">3. 删除聊天页页面某条聊天消息</a>
+#####  <a href="/thirdless/w-b/09聊天页撤回转发消息等功能实现.html#_4-调整消息页data的数据显示"  style="margin-left:100px;">4. 调整消息页data的数据显示</a>
+#####  <a href="/thirdless/w-b/09聊天页撤回转发消息等功能实现.html#_5-消息页页面显示"  style="margin-left:100px;">5. 消息页页面显示</a>
+####  <a href="/thirdless/w-b/09聊天页撤回转发消息等功能实现.html#三、好友申请及同意添加为好友实时通知"  style="margin-left:70px;">三、好友申请及同意添加为好友实时通知</a>
+#####  <a href="/thirdless/w-b/09聊天页撤回转发消息等功能实现.html#_1-好友申请列表修复头像显示错误"  style="margin-left:100px;">1. 好友申请列表修复头像显示错误</a>
+#####  <a href="/thirdless/w-b/09聊天页撤回转发消息等功能实现.html#_2-好友申请实时显示"  style="margin-left:100px;">2. 好友申请实时显示</a>
+#####  <a href="/thirdless/w-b/09聊天页撤回转发消息等功能实现.html#_3-通知添加好友在消息页点击之后跳转到添加好友页面"  style="margin-left:100px;">3. 通知添加好友在消息页点击之后跳转到添加好友页面</a>
+#####  <a href="/thirdless/w-b/09聊天页撤回转发消息等功能实现.html#_4-同意添加为好友实时通知"  style="margin-left:100px;">4. 同意添加为好友实时通知</a>
+####  <a href="/thirdless/w-b/09聊天页撤回转发消息等功能实现.html#四、删除好友"  style="margin-left:70px;">四、删除好友</a>
+#####  <a href="/thirdless/w-b/09聊天页撤回转发消息等功能实现.html#_1-删除好友接口说明"  style="margin-left:100px;">1. 删除好友接口说明</a>
+#####  <a href="/thirdless/w-b/09聊天页撤回转发消息等功能实现.html#_2-删除好友功能实现"  style="margin-left:100px;">2. 删除好友功能实现</a>
+####  <a href="/thirdless/w-b/09聊天页撤回转发消息等功能实现.html#五、修改我的头像昵称等信息"  style="margin-left:70px;">五、修改我的头像昵称等信息</a>
+#####  <a href="/thirdless/w-b/09聊天页撤回转发消息等功能实现.html#_1-修改我的头像昵称接口说明"  style="margin-left:100px;">1. 修改我的头像昵称接口说明</a>
+#####  <a href="/thirdless/w-b/09聊天页撤回转发消息等功能实现.html#_2-新增修改账号信息设置入口"  style="margin-left:100px;">2. 新增修改账号信息设置入口</a>
+#####  <a href="/thirdless/w-b/09聊天页撤回转发消息等功能实现.html#_3-修改我的头像昵称功能实现页面部分"  style="margin-left:100px;">3. 修改我的头像昵称功能实现页面部分</a>
+#####  <a href="/thirdless/w-b/09聊天页撤回转发消息等功能实现.html#_4-修改我的头像昵称功能实现js部分"  style="margin-left:100px;">4. 修改我的头像昵称功能实现js部分</a>
+#####  <a href="/thirdless/w-b/09聊天页撤回转发消息等功能实现.html#_5-新增更新头像-头像剪裁-处理"  style="margin-left:100px;">5. 新增更新头像（头像剪裁）处理</a>
+#####  <a href="/thirdless/w-b/09聊天页撤回转发消息等功能实现.html#_1-页面部分"  style="margin-left:130px;">① 页面部分</a>
+#####  <a href="/thirdless/w-b/09聊天页撤回转发消息等功能实现.html#_2-js部分"  style="margin-left:130px;">② js部分</a>
+#####  <a href="/thirdless/w-b/09聊天页撤回转发消息等功能实现.html#_6-关于修改我的头像昵称等信息几个文件完整代码"  style="margin-left:100px;">6. 关于修改我的头像昵称等信息几个文件完整代码</a>
+#####  <a href="/thirdless/w-b/09聊天页撤回转发消息等功能实现.html#_1-页面-pages-setpageinfo-setpageinfo-vue"  style="margin-left:130px;">① 页面 /pages/setpageInfo/setpageInfo.vue</a>
+#####  <a href="/thirdless/w-b/09聊天页撤回转发消息等功能实现.html#_2-混入文件-pages-setpageinfo-updateuserinfo-js"  style="margin-left:130px;">② 混入文件 /pages/setpageInfo/updateUserInfo.js</a>
+#####  <a href="/thirdless/w-b/09聊天页撤回转发消息等功能实现.html#_3-混入文件-pages-setpageinfo-avatarcut-js"  style="margin-left:130px;">③ 混入文件 /pages/setpageInfo/avatarCut.js</a>
+### <a href="/thirdless/w-b/10辅助功能及问题修复" target="_blank" title="点击查看课程文档">章节10.辅助功能及问题修复</a>
 
 
 

@@ -1947,7 +1947,7 @@ class ChatgroupController extends Controller {
                 // 根据user_id 关联用户表，因为可能GroupUser中没有设置昵称和头像
                 include:[{
                     model:app.model.User,
-                    attributes:['id','username','avatar','nickname'],
+                    attributes:['id','username','avatar','nickname','uuid','role'],
                 }],
             }],
         });
@@ -2169,6 +2169,258 @@ class ChatgroupController extends Controller {
 
         // 返回
         ctx.apiSuccess('ok');
+    }
+
+
+    // 删除群成员（群主才有这个功能）
+    async groupDeleteUser(){
+        const { ctx,app } = this;
+        //1.参数验证
+        ctx.validate({
+            group_id: {
+                type: 'int',  //参数类型
+                required: true, //是否必须
+                // defValue: '', 
+                desc: '群id', //字段含义
+                range:{
+                    min:1,
+                }
+            },
+            user_id: {
+                type: 'int', 
+                required: true, 
+                // defValue: '', 
+                desc: '群成员id', 
+                range:{
+                    min:1,
+                }
+            },
+        });
+        // 当前用户: 我
+        const me = ctx.chat_user;
+        const me_id = me.id;
+        // 拿参数
+        let { group_id,user_id } = ctx.request.body;
+        // 只有群主才能删除群成员
+        let group = await app.model.Group.findOne({
+            where:{
+                id: group_id, // 群id
+                // status:1, // 状态
+                user_id: me_id, // 群主id
+            },
+            attributes:['user_id'],
+        });
+
+        if(!group){
+            return ctx.apiFail('只有群主才能操作');
+        }
+
+        if(user_id == me_id){
+            return ctx.apiFail('群主不能删除自己');
+        }
+
+        // 2. 删除群成员
+        await app.model.GroupUser.destroy({
+            where:{
+                user_id: user_id, // 用户id
+                group_id: group_id, // 群id
+                // status:1, // 状态
+            },
+        });
+
+        ctx.apiSuccess('删除群成员成功');
+    }
+
+    // 邀请人进群(群主直接邀请，群成员邀请、游客自己进群根据群设置来处理)
+    async groupInviteUser(){
+        const { ctx,app } = this;
+        //1.参数验证
+        ctx.validate({
+            group_id: {
+                type: 'int',  //参数类型
+                required: true, //是否必须
+                // defValue: '', 
+                desc: '群id', //字段含义
+                range:{
+                    min:1,
+                }
+            },
+            user_id: {
+                type: 'int', 
+                required: true, 
+                // defValue: '', 
+                desc: '用户id', 
+                range:{
+                    min:1,
+                }
+            },
+            inviteuser_id:{
+                type: 'int', 
+                required: false, 
+                defValue: 0, 
+                desc: '邀请人的用户id', 
+            },
+        });
+        // 当前用户: 我
+        const me = ctx.chat_user;
+        const me_id = me.id; 
+        // 拿参数
+        let { group_id,user_id,inviteuser_id } = ctx.request.body;
+        // 群是否存在
+        let group = await app.model.Group.findOne({
+            where:{
+                id: group_id, // 群id
+                status:1, // 状态
+            },
+            attributes:{
+                exclude:['order','update_time'],
+            },
+        });
+        if(!group){
+            return ctx.apiFail('群不存在或者被封禁');
+        }
+
+        // 加群的人是否在群里
+        let group_user = await app.model.GroupUser.findOne({
+            where:{
+                group_id: group_id, // 群id
+                user_id: user_id, // 用户id
+                // status:1, // 状态
+            },
+        });
+
+        if(group_user){
+            return ctx.apiFail('用户已经在群里');
+        }
+
+        // 加群成员是否合法(是否存在这个用户)
+        let user = await app.model.User.findOne({
+            where:{
+                id: user_id, // 用户id
+                status:1, // 状态
+            },
+        });
+        if(!user){
+            return ctx.apiFail('加群的用户不存在或已被封禁，无法加入群聊');
+        }
+
+        // 获取群主id
+        let group_user_id = group.user_id;
+
+        // 根据群设置invite_confirm字段进行处理
+        // invite_confirm: 0  默认值，任何人都可以进群
+        // invite_confirm: 1  群主同意了才能进群
+        // invite_confirm: 2  需先登录在申请进群
+        // invite_confirm: 3  其他情况，根据业务需求操作
+        if(group.invite_confirm == 2){
+            if(group_user_id !== inviteuser_id){
+                // 邀请人不是群主，需要先登录才能进群
+                return ctx.apiFail('请先登录再申请进群');
+            }
+        }
+
+        // 添加群成员
+        let addGroupUser = await app.model.GroupUser.create({
+            group_id: group_id, // 群id
+            user_id: user_id, // 用户id
+            status:1, // 状态
+            nickname: '', // 群昵称
+        });
+        
+        if(group.invite_confirm == 1){
+            if(group_user_id !== inviteuser_id){
+                // 如果不是群主邀请的，则需要群主同意了才能进群, 将刚加群的用户状态改成2
+                addGroupUser.status = 2; // 锁定状态
+                await addGroupUser.save();
+                // 返回
+                ctx.apiSuccess('已发送申请，请等待群主同意');
+            }else{
+                // 返回
+                ctx.apiSuccess('加群成功');
+            }
+        }else{
+            // 返回
+            ctx.apiSuccess('加群成功');
+        }
+
+        // 如果有邀请者查一下邀请者信息
+        console.log('邀请者id',inviteuser_id);
+        let inviteusername = '';
+        if(inviteuser_id && inviteuser_id > 0){
+            let inviteuser = await app.model.User.findOne({
+                where:{
+                    id: inviteuser_id, // 邀请者用户id
+                    status:1, // 状态
+                },
+                attributes:['nickname','username','role'],
+            });
+            console.log('邀请者用户信息',inviteuser);
+            inviteuser = JSON.parse(JSON.stringify(inviteuser));
+            if(inviteuser && inviteuser.role == 'user'){
+                inviteusername = inviteuser.nickname || inviteuser.username;
+                inviteusername = `[${inviteusername}]邀请 `;
+            }
+        }
+
+        // 发送websocket消息
+        // 4. 定义消息格式
+        let message = { 
+            id: uuidv4(), // 自动生成 UUID,唯一id, 聊天记录id，方便撤回消息
+            from_avatar: 'https://docs-51yrc-com.oss-cn-hangzhou.aliyuncs.com/chat/group.png', // 发送者头像
+            from_name: '加群申请提醒', // 发送者名称
+            from_id: `redirect-applyAddGroup${group.id}-${user_id}`, // 发送者id 系统id或者类型
+            to_id: group.id, // 群id
+            to_name: group.name, // 群名称
+            to_avatar: group.avatar, // 群头像
+            chatType: 'group', // 聊天类型 群聊
+            type: 'systemNotice', // 消息类型 系统通知消息
+            data: {
+                data: `${inviteusername}[${user.nickname || user.username}] 加入了群聊` ,
+                dataType: false, 
+                otherData: null,
+            }, // 消息内容
+            // 新增处理链接
+            // redirect: {
+            //     url:'/pages/applyMyfriend/applyMyfriend', // 处理链接地址
+            //     type: 'navigateTo', // 处理链接类型
+            // }, // 处理链接
+            options: {}, // 其它参数
+            create_time: (new Date()).getTime(), // 创建时间
+            isremove: 0, // 0未撤回 1已撤回
+            // 群相关信息
+            group: group, 
+        };
+
+        // 根据清空发送消息
+        if(group.invite_confirm == 0){
+            // 任何人都可以进群，则消息由系统发送，发送给所有群成员
+            let allGroupUser = await app.model.GroupUser.findAll({
+                where:{
+                    group_id: group_id, // 群id
+                    status:1, // 状态
+                },
+                attributes:['user_id'],
+            });
+            allGroupUser = JSON.parse(JSON.stringify(allGroupUser));
+            // 发送给所有群成员
+            allGroupUser.forEach(v => {
+                // 直接调用 `/app/extend/context.js` 封装的方法 chatWebsocketSendOrSaveMessage(sendto_id, message)
+                ctx.chatWebsocketSendOrSaveMessage(v.user_id, message);
+            });
+
+        }else if(group.invite_confirm == 1){
+            // 需要群主确认才能进群，则消息由系统发送，发送给群主一个人
+            // 处理链接 
+            message.redirect = {
+                url:'/pages/applyMyfriend/applyMyfriend', // 处理链接地址
+                type: 'navigateTo', // 处理链接类型
+            };
+            // 直接调用 `/app/extend/context.js` 封装的方法 chatWebsocketSendOrSaveMessage(sendto_id, message)
+            ctx.chatWebsocketSendOrSaveMessage(group.user_id, message);
+        }else{
+           // 其他情况，根据业务需求操作
+        }
+
     }
 
 
@@ -2465,7 +2717,6 @@ module.exports = ChatgroupController;
 
 
 
-
 ### 5. 群聊相关路由及获取离线消息路由
 在路由文件 `app/router/api/chat/router.js` 中添加
 ```js
@@ -2499,6 +2750,12 @@ module.exports = app => {
 
     // 修改群公告（群主才有这个功能）
     router.post('/api/chat/groupremark', controller.api.chat.chatgroup.groupremark);
+
+    // 删除群成员（群主才有这个功能）
+    router.post('/api/chat/groupDeleteUser', controller.api.chat.chatgroup.groupDeleteUser);
+
+    // 邀请人进群(群主直接邀请，群成员邀请、游客自己进群根据群设置来处理)
+    router.post('/api/chat/groupInviteUser', controller.api.chat.chatgroup.groupInviteUser);
 
     // 修改我在群里面的昵称（登录用户和游客都有这个功能）
     router.post('/api/chat/groupnickname', controller.api.chat.chatgroup.groupnickname);

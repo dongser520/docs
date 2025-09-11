@@ -279,7 +279,7 @@ title: eggjs即时通讯接口
 > | :---:      | :---:       |  :---:   | :---:                  |:---:     |
 > | token      |  是         |  string  |  由服务器生成           | `token令牌`，如：`eyJhbGciO.....`  |
 > 
-> 4. 请求参数 [body] -> [x-www-form-urlencoded]
+> 4. 请求参数 
 >
 > | 参数   |  是否必填    |  类型  |  长度  |  默认值  | 说明     |
 > | :---:  | :---:       |  :---: | :---: |:---:     |:---:     |
@@ -1012,9 +1012,11 @@ title: eggjs即时通讯接口
 >                 "groupId": 33,
 >                 "user": {
 >                     "id": 6,
->                     "username": "my06",
+>                     "username": "VS21250001",
 >                     "avatar": "https://thinkphp-all.oss-cn-hangzhou.aliyuncs.com/public/67b3001b2aedd.png",
->                     "nickname": ""
+>                     "nickname": "",
+>                     "role": "visitor",
+>                     "uuid": "fe047323-c8e3-4305-b014-3d8c7d24f001",
 >                 }
 >             },
 >             {
@@ -1031,7 +1033,9 @@ title: eggjs即时通讯接口
 >                     "id": 1,
 >                     "username": "my01",
 >                     "avatar": "https://thinkphp-all.oss-cn-hangzhou.aliyuncs.com/public/67b3001b2aedd.png",
->                     "nickname": "魂牵一梦"
+>                     "nickname": "魂牵一梦",
+>                     "role": "user",
+>                     "uuid": "be047323-c8e3-4305-b014-3d8c7d24f300",
 >                 }
 >             },
 >         ]
@@ -1461,7 +1465,69 @@ title: eggjs即时通讯接口
 > ```
 
 
+## 三十五、删除群成员
+说明：`（群主才有这个功能）` <br/>
+接口文档查看：<a href="/fourthless/w-a/eggjs.即时通讯websocket处理.html#_4-群聊相关方法" target="_blank">4. 群聊相关方法(`删除群成员（群主才有这个功能）`)</a><br/>
 
+> 1. 请求方式：`post` `[用postman测试]`或者`[用Apipost测试]`
+> 2. 接口示例：`http://127.0.0.1:7001/api/chat/groupDeleteUser`<br/>
+> 本地路由地址：<http://127.0.0.1:7001/api/chat/groupDeleteUser> <br/> 
+> 3. header头传token
+> 
+> 请求参数 [Headers] -> [Key: `token`, Value: `token值`]
+> 
+> | 参数       |  是否必填    |  类型    |  长度                   | 说明     |
+> | :---:      | :---:       |  :---:   | :---:                  |:---:     |
+> | token      |  是         |  string  |  由服务器生成           | `token令牌`，如：`eyJhbGciO.....`  |
+> 
+> 4. 请求参数 [body] -> [x-www-form-urlencoded]
+> 
+> | 参数       |  是否必填    |  类型    |  长度         | 说明     |
+> | :---:      | :---:       |  :---:   | :---:        |:---:     |
+> | group_id   |  是         |  int  |  int(20)       |    群的id值  |
+> | user_id   |  是         |  int  |  int(20)        |    群成员的id值  |
+> 
+> 
+> 5. 返回示例
+> ```js
+> {
+>     "msg": "ok",
+>     "data": "删除群成员成功"
+> }
+> ```
+
+
+## 三十六、邀请人进群（会进行websocket通知）
+说明：`(群主直接邀请，群成员邀请、游客自己进群根据群设置来处理)（游客和登录用户都有这个功能，但是需要根据群设置进行操作）` <br/>
+接口文档查看：<a href="/fourthless/w-a/eggjs.即时通讯websocket处理.html#_4-群聊相关方法" target="_blank">4. 群聊相关方法(`邀请人进群(群主直接邀请，群成员邀请、游客自己进群根据群设置来处理)`)</a><br/>
+
+> 1. 请求方式：`post` `[用postman测试]`或者`[用Apipost测试]`
+> 2. 接口示例：`http://127.0.0.1:7001/api/chat/groupInviteUser`<br/>
+> 本地路由地址：<http://127.0.0.1:7001/api/chat/groupInviteUser> <br/> 
+> 3. header头传token
+> 
+> 请求参数 [Headers] -> [Key: `token`, Value: `token值`]
+> 
+> | 参数       |  是否必填    |  类型    |  长度                   | 说明     |
+> | :---:      | :---:       |  :---:   | :---:                  |:---:     |
+> | token      |  是         |  string  |  由服务器生成           | `token令牌`，如：`eyJhbGciO.....`  |
+> 
+> 4. 请求参数 [body] -> [x-www-form-urlencoded]
+> 
+> | 参数       |  是否必填    |  类型    |  长度         | 说明     |
+> | :---:      | :---:       |  :---:   | :---:        |:---:     |
+> | group_id   |  是         |  int  |  int(20)       |    群的id值  |
+> | user_id   |  是         |  int  |  int(20)        |    进群的用户id值  |
+> | inviteuser_id   |  否         |  int  |  int(20)        |    邀请人的id值，可不填  |
+> 
+> 
+> 5. 返回示例
+> ```js
+> {
+>     "msg": "ok",
+>     "data": "加群成功"
+> }
+> ```
 
 
 
