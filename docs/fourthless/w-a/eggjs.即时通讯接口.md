@@ -1519,6 +1519,7 @@ title: eggjs即时通讯接口
 > | group_id   |  是         |  int  |  int(20)       |    群的id值  |
 > | user_id   |  是         |  int  |  int(20)        |    进群的用户id值  |
 > | inviteuser_id   |  否         |  int  |  int(20)        |    邀请人的id值，可不填  |
+> | addGroupDesc   |  否         |  string  |  0-500字符        |   加群说明或者邀请加群说明  |
 > 
 > 
 > 5. 返回示例
@@ -1530,7 +1531,36 @@ title: eggjs即时通讯接口
 > ```
 
 
+## 三十七、进群设置
+说明：`（群主才有这个功能）` <br/>
+接口文档查看：<a href="/fourthless/w-a/eggjs.即时通讯websocket处理.html#_4-群聊相关方法" target="_blank">4. 群聊相关方法(`进群设置（群主才有这个功能）`)</a><br/>
 
+> 1. 请求方式：`post` `[用postman测试]`或者`[用Apipost测试]`
+> 2. 接口示例：`http://127.0.0.1:7001/api/chat/groupAddUserSet`<br/>
+> 本地路由地址：<http://127.0.0.1:7001/api/chat/groupAddUserSet> <br/> 
+> 3. header头传token
+> 
+> 请求参数 [Headers] -> [Key: `token`, Value: `token值`]
+> 
+> | 参数       |  是否必填    |  类型    |  长度                   | 说明     |
+> | :---:      | :---:       |  :---:   | :---:                  |:---:     |
+> | token      |  是         |  string  |  由服务器生成           | `token令牌`，如：`eyJhbGciO.....`  |
+> 
+> 4. 请求参数 [body] -> [x-www-form-urlencoded]
+> 
+> | 参数       |  是否必填    |  类型    |  长度         | 说明     |
+> | :---:      | :---:       |  :---:   | :---:        |:---:     |
+> | group_id   |  是         |  int  |  int(20)       |    群的id值  |
+> | addGroupSet   |  是         |  int  |  1-10之间的数字       |   进群属性设置值  |
+> 
+> 
+> 5. 返回示例
+> ```js
+> {
+>     "msg": "ok",
+>     "data": "设置成功"
+> }
+> ```
 
 
 
