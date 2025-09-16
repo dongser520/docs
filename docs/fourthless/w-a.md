@@ -56,3 +56,4 @@ title: 第四学期第一季（课程学习顺序：11）
 ### 3. websocket处理
 ####  <a href="/fourthless/w-a/eggjs.即时通讯websocket处理" target="_blank" style="margin-left:40px;">websocket配置处理</a>
 
+### <a href="/fourthless/w-a/eggjs.多进程处理" target="_blank" title="点击查看课程文档">4.多进程处理</a>

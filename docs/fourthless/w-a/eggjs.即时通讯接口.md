@@ -1563,6 +1563,40 @@ title: eggjs即时通讯接口
 > ```
 
 
+## 三十八、同意或者拒绝用户进群（同意进群会进行websocket通知）
+说明：`(群主才有这个功能)` <br/>
+接口文档查看：<a href="/fourthless/w-a/eggjs.即时通讯websocket处理.html#_4-群聊相关方法" target="_blank">4. 群聊相关方法(`同意或者拒绝用户进群（群主才有这个功能）`)</a><br/>
+
+> 1. 请求方式：`post` `[用postman测试]`或者`[用Apipost测试]`
+> 2. 接口示例：`http://127.0.0.1:7001/api/chat/groupAgreeOrNo`<br/>
+> 本地路由地址：<http://127.0.0.1:7001/api/chat/groupAgreeOrNo> <br/> 
+> 3. header头传token
+> 
+> 请求参数 [Headers] -> [Key: `token`, Value: `token值`]
+> 
+> | 参数       |  是否必填    |  类型    |  长度                   | 说明     |
+> | :---:      | :---:       |  :---:   | :---:                  |:---:     |
+> | token      |  是         |  string  |  由服务器生成           | `token令牌`，如：`eyJhbGciO.....`  |
+> 
+> 4. 请求参数 [body] -> [x-www-form-urlencoded]
+> 
+> | 参数       |  是否必填    |  类型    |  长度         | 说明     |
+> | :---:      | :---:       |  :---:   | :---:        |:---:     |
+> | group_id   |  是         |  int  |  int(20)       |    群的id值  |
+> | user_id   |  是         |  int  |  int(20)        |    进群的用户id值  |
+> | type   |  是         |  枚举ENUM  |  in:['agree','no']        |  处理情况：['agree','no']  |
+> 
+> 
+> 
+> 5. 返回示例
+> ```js
+> {
+>     "msg": "ok",
+>     "data": "处理成功"
+> }
+> ```
+
+
 
 
 

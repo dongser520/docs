@@ -601,7 +601,7 @@ class ChatgroupController extends Controller {
                 // defValue: '', 
                 desc: '进群设置属性值', 
                 range:{
-                    min:1,
+                    min:0,
                     max:10,
                 }
             },
