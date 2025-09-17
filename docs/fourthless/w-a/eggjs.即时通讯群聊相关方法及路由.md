@@ -5,7 +5,8 @@ title: eggjs即时通讯群聊相关方法
 ---
 
 ## 一、群聊相关方法汇总
-新建控制器 `app/controller/api/chat/chatgroup.js`
+控制器 `app/controller/api/chat/chatgroup.js`
+
 ```js
 'use strict';
 
@@ -1006,11 +1007,13 @@ class ChatgroupController extends Controller {
         // invite_confirm: 2  需先登录在申请进群
         // invite_confirm: 3  其他情况，根据业务需求操作
 
-        // 7. invite_confirm: 2  需先登录在申请进群的情况
+        // 7. invite_confirm: 2  游客需先登录在申请进群的情况
         if(group.invite_confirm == 2){
             if(group_user_id !== inviteuser_id){
-                // 邀请人不是群主，需要先登录才能进群
-                return ctx.apiFail('请先登录再申请进群');
+                // 邀请人不是群主，且如果加群人是游客需要先登录
+                if(user.role == 'visitor'){
+                    return ctx.apiFail('请先登录再申请进群');
+                }
             }
         }
 
@@ -1116,7 +1119,7 @@ class ChatgroupController extends Controller {
                 ctx.chatWebsocketSendOrSaveMessage(v.user_id, message);
             });
 
-        }else if(group.invite_confirm == 1){
+        }else if(group.invite_confirm == 1 || group.invite_confirm == 2){
             // 需要群主确认才能进群：但如果是群主邀请的，则不需要群主确认，直接进群，通知给所有人
             if(group_user_id == inviteuser_id){
                 // 是群主邀请的，直接进群，发送给所有群成员
@@ -1146,6 +1149,8 @@ class ChatgroupController extends Controller {
                     addGroupTime: (new Date()).getTime(),
                     // 加群说明
                     addGroupDesc: addGroupDesc, 
+                    // 加群用户角色
+                    addGroupUserRole: user.role,
                     // 新增一个消息id的key
                     msgidKey: _from_id, // 消息id(便于前端在消息页查找记录)
                 };
@@ -1169,6 +1174,8 @@ class ChatgroupController extends Controller {
                 message.msgidKey = _from_id; // 消息id(便于前端在消息页查找记录)
 
                 // 推送
+                /*
+                // 单进程
                 // 拿到群主的socket
                 let you_socket = ctx.app.ws.chatuser[group_user_id];
                 if (!you_socket) {
@@ -1185,6 +1192,10 @@ class ChatgroupController extends Controller {
                     // key: `chatlog_对方id_[single|group]_我的id`
                     // this.service.cache.setList(`chatlog_${group_user_id}_${message.chatType}_${me.id}`, message);
                 }
+                */
+                // 多进程
+                // 直接调用 `/app/extend/context.js` 封装的方法 chatWebsocketSendOrSaveMessage(sendto_id, message)
+                ctx.chatWebsocketSendOrSaveMessage(group_user_id, message, true, false);
             }
         
         }else{
@@ -1484,4 +1495,19 @@ class ChatgroupController extends Controller {
 module.exports = ChatgroupController;
 
 ```
+
+
+
+
+## 二、群聊相关方法接口说明
+群相关方法接口说明：<a href="/fourthless/w-a/eggjs.即时通讯接口.html#二十一、创建群聊-成功后通过websocket通知群聊用户" target="_blank">群相关方法接口说明</a><br/>
+
+
+
+
+
+
+
+
+
 
