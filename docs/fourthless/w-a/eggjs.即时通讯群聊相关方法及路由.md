@@ -1395,7 +1395,7 @@ class ChatgroupController extends Controller {
         return ctx.apiSuccess('ok');
     }
 
-    // 生成群二维码（登录用户和游客都有这个功能）
+    // 生成群二维码（登录用户和游客都有这个功能）(个人二维码也是用这个方法)
     async groupQrcode(){
         const { ctx,app } = this;
         //1.参数验证
@@ -1404,7 +1404,7 @@ class ChatgroupController extends Controller {
                 type: 'int',  //参数类型
                 required: true, //是否必须
                 // defValue: '', 
-                desc: '群id', //字段含义
+                desc: '群id或者个人id', //字段含义
                 range:{
                     min:1,
                 }
@@ -1435,38 +1435,60 @@ class ChatgroupController extends Controller {
         let { id } = ctx.params;
         let type = ctx.query.type ? ctx.query.type : '';
         let http = ctx.query.http ? ctx.query.http : '';
-        let chatType = ctx.query.chatType ? ctx.query.chatType : '';
-        // 查看群是否存在并且我是否在群里
-        let group = await app.model.Group.findOne({
-            where:{
-                id: id, // 群id
-                status:1, // 状态
-            },
-            attributes:{
-                exclude:['update_time'],
-            },
-            include:[{
-                //关联群用户表
-                model:app.model.GroupUser,
+        let chatType = ctx.query.chatType ? ctx.query.chatType : 'group';
+
+        // 判断群和个人是否存在
+        let group = null;
+        let user = null;
+        if(chatType == 'group'){
+            // 查看群是否存在并且我是否在群里
+            group = await app.model.Group.findOne({
+                where:{
+                    id: id, // 群id
+                    status:1, // 状态
+                },
                 attributes:{
                     exclude:['update_time'],
                 },
+                include:[{
+                    //关联群用户表
+                    model:app.model.GroupUser,
+                    attributes:{
+                        exclude:['update_time'],
+                    },
+                    where:{
+                        user_id: me_id, // 用户id
+                        group_id: id, // 群id
+                        status:1, // 状态
+                    },
+                    // 根据user_id 关联用户表，因为可能GroupUser中没有设置昵称和头像
+                    include:[{
+                        model:app.model.User,
+                        attributes:['id','username','avatar','nickname'],
+                    }],
+                }],
+            });
+
+            if(!group){
+                return ctx.apiFail('群不存在或被封禁或者您不在该群聊中');
+            }
+        }else{
+            // 个人二维码
+            user = await app.model.User.findOne({
                 where:{
-                    user_id: me_id, // 用户id
-                    group_id: id, // 群id
+                    id: id, // 用户id
                     status:1, // 状态
                 },
-                // 根据user_id 关联用户表，因为可能GroupUser中没有设置昵称和头像
-                include:[{
-                    model:app.model.User,
-                    attributes:['id','username','avatar','nickname'],
-                }],
-            }],
-        });
+                attributes:{
+                    exclude:['update_time'],
+                },
+            });
 
-        if(!group){
-            return ctx.apiFail('群不存在或被封禁或者您不在该群聊中');
+            if(!user){
+                return ctx.apiFail('用户不存在或被封禁');
+            }
         }
+        
 
 
         // 返回二维码
@@ -1474,11 +1496,15 @@ class ChatgroupController extends Controller {
             // 生成H5端的二维码，即完整的网页地址
             if(chatType == 'group'){
                // 生成添加群的二维码地址
-               let url = `${http}#/pages/setpageInfo/setpageInfo?action=autoAddGroup&title=${encodeURIComponent('群介绍')}&id=${group.id}&chatType=${chatType}`;
+               let url = `${http}#/pages/setpageInfo/setpageInfo?action=autoAddGroup&title=${encodeURIComponent('群介绍')}&id=${group.id}&chatType=${chatType}&name=${group.name}`;
                console.log('生成添加群的二维码地址',url);
                ctx.createQrcode(url);
             }else if(chatType == 'single'){
                // 添加添加个人的二维码地址
+               let name = user.nickname || user.username;
+               let url = `${http}#/pages/setpageInfo/setpageInfo?action=autoAddGroup&title=${encodeURIComponent(`加用户[${name}]为好友`)}&id=${user.id}&chatType=${chatType}&name=${name}&avatar=${user.avatar}`;
+               console.log('生成个人二维码地址',url);
+               ctx.createQrcode(url);
             }
         }else{
             // 生成app和小程序端的二维码
@@ -1495,8 +1521,6 @@ class ChatgroupController extends Controller {
 module.exports = ChatgroupController;
 
 ```
-
-
 
 
 ## 二、群聊相关方法接口说明

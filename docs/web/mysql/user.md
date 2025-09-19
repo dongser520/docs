@@ -20,6 +20,7 @@ title: 用户管理user表相关表说明
 | <b>deviceos</b>   | <span>`STRING(100)`</span>   |    是      | `''`  | <span style="font-size:12px"> 操作系统（统计用） </span> |
 | <b>devicebrand</b>   | <span>`STRING(100)`</span>   |    是      | `''`  | <span style="font-size:12px"> 设备品牌（统计用） </span> |
 | <b>userset</b>   | <span>`text`</span>   |    是      | `''`  | <span style="font-size:12px"> 用户设置 </span> |
+| <b>invite_confirm</b>   | <span>`TINYINT(1)`</span>   |    否      | `0`  | <span style="font-size:12px"> 是否需要用户确认才能加为好友(0-不需要 1- 需要用户确认 2-其他情况) </span> |
 | <b>...</b>   |   |         |   | <span style="font-size:12px">随着业务需求增加字段</span> |
 | <b>mobile</b>   | <span>`STRING(20)`</span>   |    是      | `NULL`  | <span style="font-size:12px">手机号 </span> |
 | <b>email</b>   | <span>`STRING(100)`</span>   |    是      | `NULL`  | <span style="font-size:12px">邮箱 </span> |
@@ -124,6 +125,12 @@ module.exports = {
         allowNull: false,
         defaultValue: '',
         comment: '用户设置'
+      },
+      invite_confirm: {
+        type: TINYINT(1),
+        allowNull: false,
+        defaultValue: 0,
+        comment: '是否需要用户确认才能加为好友(0-不需要 1- 需要用户确认 2-其他情况)'
       },
       mobile: {
         type: STRING(20),
@@ -330,6 +337,12 @@ module.exports = app => {
           allowNull: false,
           defaultValue: '',
           comment: '用户设置'
+        },
+        invite_confirm: {
+          type: TINYINT(1),
+          allowNull: false,
+          defaultValue: 0,
+          comment: '是否需要用户确认才能加为好友(0-不需要 1- 需要用户确认 2-其他情况)'
         },
         mobile: {
             type: STRING(20),

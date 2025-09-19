@@ -844,6 +844,20 @@ class chatClass {
 					});
 				}
 			}else{
+				// 关于跳转消息接收一次即可
+				// 获取消息页列表本地历史信息
+				let _xiaoxiList = this.getXiaoXiList();
+				// 拿到刚接收的消息id - 通过判断拿到
+				let _xiaoxiId = msgData.chatType == 'single' ? msgData.from_id : msgData.to_id;
+				// 通过_xiaoxiId判断一下之前有没有这个消息在消息页，且是跳转消息
+				let _index = _xiaoxiList.findIndex(v=> v.id == _xiaoxiId && 
+				            v.chatType == msgData.chatType && msgData.redirect && msgData.redirect.url);
+				// 如果找到了就没有必要执行后面的程序了
+				if(_index != -1){
+					return false;
+				}
+
+				
 				// 把聊天信息存在本地
 				let { data } = this.addChatInfo(msgData, false);
 				// 消息页的聊天列表更新一下
@@ -851,7 +865,7 @@ class chatClass {
 				// 全局通知数据
 				uni.$emit('onMessage', data);
 				// 消息提示音根据设置情况来
-				// 这里我们仅根据消息页的设置来判断（全面的话可以根据服务器设置判断）
+				// 这里我们仅根据消息页的设置来判断（如果服务器有这个配置项，可根据服务器判断）
 				let xiaoxiId = msgData.chatType == 'single' ? msgData.from_id : msgData.to_id;
 				// 获取消息页列表本地历史信息
 				let xiaoxiList = this.getXiaoXiList();
@@ -986,3 +1000,24 @@ class chatClass {
 
 export default chatClass;
 ```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
