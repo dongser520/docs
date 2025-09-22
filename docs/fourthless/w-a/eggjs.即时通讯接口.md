@@ -1598,7 +1598,43 @@ title: eggjs即时通讯接口
 
 
 
+## 三十九、获取用户一些设置信息
+`如：加好友设置、聊天设置等` <br/>
+说明：`（登录用户有这个权限，游客无权限(在某些情况中间件会放行，如：聊天页设置中)）` <br/>
+接口文档查看：<a href="/fourthless/w-a/eggjs.多进程处理.html#_6-控制器-app-controller-api-chat-chatuser-js-代码调整" target="_blank">一、单聊相关方法汇总（/app/controller/api/chat/chatuser.js）</a><br/>
 
+> 1. 请求方式：`post` `[用postman测试]`或者`[用Apipost测试]`
+> 2. 接口示例：`http://127.0.0.1:7001/api/chat/getUserSetInfo`<br/>
+> 本地路由地址：<http://127.0.0.1:7001/api/chat/getUserSetInfo> <br/> 
+> 3. header头传token
+> 
+> 请求参数 [Headers] -> [Key: `token`, Value: `token值`]
+> 
+> | 参数       |  是否必填    |  类型    |  长度                   | 说明     |
+> | :---:      | :---:       |  :---:   | :---:                  |:---:     |
+> | token      |  是         |  string  |  由服务器生成           | `token令牌`，如：`eyJhbGciO.....`  |
+> 
+> 4. 请求参数 [body] -> [x-www-form-urlencoded]
+> 
+> | 参数       |  是否必填    |  类型    |  长度         | 说明     |
+> | :---:      | :---:       |  :---:   | :---:        |:---:     |
+> | userid   |  是         |  int  |  int(20)       |    被申请添加为好友的用户id  |
+> 
+> 
+> 
+> 5. 返回示例
+> ```js
+> {
+>     "msg": "ok",
+>     "data": {
+>         "id": 6,
+>         "userset": "{\"chatset\":{\"visitor\":{\"sendCount\":0,\"needFollow\":false},\"user\":{\"sendCount\":0,\"needFollow\":false}}}",
+>         "invite_confirm": 1, // 1: 同意才能添加为好友 0: 直接加为好友
+>         "isgoodfriend": false,
+>         "isgoodfriend_status": true
+>     }
+> }
+> ```
 
 
 

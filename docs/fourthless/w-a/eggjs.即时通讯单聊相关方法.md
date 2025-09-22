@@ -1091,8 +1091,19 @@ class ChatuserController extends Controller {
             returnMsg = '头像更新成功';
         }
 
+        if(fieldname == 'invite_confirm'){
+            // 添加我为好友设置（游客和登录用户都可以修改）
+            if(fieldValue != 0 && fieldValue != 1) return ctx.apiFail('添加我为好友设置值错误');
+            myinfo.invite_confirm = fieldValue;
+            returnMsg = '设置成功';
+        }
+
         // 修改
         await myinfo.save();
+
+        // 设置redis标记(这些修改不需要webscoket推送)，有效期60秒
+        await this.app.redis.setex(`user:modify:${me_id}`, 60, '1');
+
         // 返回
         return ctx.apiSuccess(returnMsg);
     }
@@ -1120,7 +1131,7 @@ class ChatuserController extends Controller {
                 role: 'user',
                 status: 1, // 正常
             },
-            attributes: ['id', 'userset', 'invite_confirm'],
+            attributes: ['id', 'userset', 'invite_confirm','uuid'],
         });
         if(!user){
             return ctx.apiFail('用户不存在或者为游客，无法加为好友');

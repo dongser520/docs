@@ -1092,14 +1092,25 @@ module.exports = app => {
             returnMsg = '修改昵称成功';
         }
         if(fieldname == 'avatar'){
-            // 头像（游客和登录用户都可以修改）
+            // 昵称（游客和登录用户都可以修改）
             if(fieldValue.length > 1000) return ctx.apiFail('头像地址过长不能超过1000个字符');
             myinfo.avatar = fieldValue;
             returnMsg = '头像更新成功';
         }
 
+        if(fieldname == 'invite_confirm'){
+            // 添加我为好友设置（游客和登录用户都可以修改）
+            if(fieldValue != 0 && fieldValue != 1) return ctx.apiFail('添加我为好友设置值错误');
+            myinfo.invite_confirm = fieldValue;
+            returnMsg = '设置成功';
+        }
+
         // 修改
         await myinfo.save();
+
+        // 设置redis标记(这些修改不需要webscoket推送)，有效期60秒
+        await this.app.redis.setex(`user:modify:${me_id}`, 60, '1');
+
         // 返回
         return ctx.apiSuccess(returnMsg);
     }

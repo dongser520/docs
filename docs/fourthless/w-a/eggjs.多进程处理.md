@@ -69,6 +69,7 @@ module.exports = (option, app) => {
             ctx.throw(400, fail);
         }
 
+
         //3. 说明token解密正确，此时判断用户是否登录过
         // 根据当前解密的用户信息的id,去缓存拿一下该id的信息
         let t = await ctx.service.cache.get('chat_user_' + tokenUser.id);
@@ -141,8 +142,6 @@ module.exports = (option, app) => {
 ```
 
 
-
-
 ### 2. websocket权限验证中间件 `app/middleware/chatwebsocket.js`
 改动较大，核心放在:
 > `4.检查是否已有同一用户的连接 - 防止异地登录同时在线` <br/>
@@ -193,49 +192,58 @@ module.exports = () => {
             if (ctx.app.ws.chatuser[user.id]) {
                 // 给用户一个异地登录消息
                 if(user.role == 'user'){
-                    // 当前时间
-                    const currentTime = ()=> {
-                        const now = new Date();
-                        const year = now.getFullYear();       
-                        const month = now.getMonth() + 1;     
-                        const day = now.getDate();            
-                        const hh = now.getHours();            
-                        const mm = now.getMinutes();          
-                        const ss = now.getSeconds();
-                        let clock = year + "年";
-                        if(month < 10) clock += "0";
-                        clock += month + "月";
-                        if(day < 10) clock += "0";
-                        clock += day + "日 ";
-                        if(hh < 10) clock += "0";
-                        clock += hh + ":";
-                        if (mm < 10) clock += '0'; 
-                        clock += mm + ":"; 
-                        if (ss < 10) clock += '0';
-                        clock += ss;
-                        return(clock); 
-                    };
-                    // 消息内容自定义
-                    let data = `您的账号于 ${currentTime()} 尝试在其它设备上登录，如果不是您的操作，那么您的账号密码可能已泄露，请及时修改密码`;
-                    // 定义一下通知消息 
-                    const force_message = ctx.offlineMsg(user,user.id, {
-                        from_avatar: `https://docs-51yrc-com.oss-cn-hangzhou.aliyuncs.com/chat/kefu.png`,
-                        from_name: `账号异常提示`,
-                        // from_id: 0,
-                        data: data,
-                        showModel: {
-                            showModelType: 'forceLogin',
-                            content: data,
-                        },
-                    });
-                    // 前端页面这个消息不要显示底部输入框
-                    force_message.from_id = 0;
-                    // 符合前端页面格式的消息推送 - 异地登录提示
-                    ctx.app.ws.chatuser[user.id].send(JSON.stringify({
-                        type: 'singleChat',
-                        data: force_message,
-                        timestamp: Date.now(),
-                    }));
+                    // 检查redis中是否有标记 - 类似修改：昵称、头像、设置等不要推送消息、否则就是异地登录 
+                    const redisKey = `user:modify:${user.id}`;
+                    const isSelfModify = await ctx.app.redis.get(redisKey);
+                    if (!isSelfModify) {
+                        // 当前时间
+                        const currentTime = ()=> {
+                            const now = new Date();
+                            const year = now.getFullYear();       
+                            const month = now.getMonth() + 1;     
+                            const day = now.getDate();            
+                            const hh = now.getHours();            
+                            const mm = now.getMinutes();          
+                            const ss = now.getSeconds();
+                            let clock = year + "年";
+                            if(month < 10) clock += "0";
+                            clock += month + "月";
+                            if(day < 10) clock += "0";
+                            clock += day + "日 ";
+                            if(hh < 10) clock += "0";
+                            clock += hh + ":";
+                            if (mm < 10) clock += '0'; 
+                            clock += mm + ":"; 
+                            if (ss < 10) clock += '0';
+                            clock += ss;
+                            return(clock); 
+                        };
+                        // 消息内容自定义
+                        let data = `您的账号于 ${currentTime()} 尝试在其它设备上登录，如果不是您的操作，那么您的账号密码可能已泄露，请及时修改密码`;
+                        // 定义一下通知消息 
+                        const force_message = ctx.offlineMsg(user,user.id, {
+                            from_avatar: `https://docs-51yrc-com.oss-cn-hangzhou.aliyuncs.com/chat/kefu.png`,
+                            from_name: `账号异常提示`,
+                            // from_id: 0,
+                            data: data,
+                            showModel: {
+                                showModelType: 'forceLogin',
+                                content: data,
+                            },
+                        });
+                        // 前端页面这个消息不要显示底部输入框
+                        force_message.from_id = 0;
+                        // 符合前端页面格式的消息推送 - 异地登录提示
+                        ctx.app.ws.chatuser[user.id].send(JSON.stringify({
+                            type: 'singleChat',
+                            data: force_message,
+                            timestamp: Date.now(),
+                        }));
+                    }else {
+                        console.log('用户修改账号昵称头像设置等一般信息，不发送异地登录提示');
+                        // 删除redis标记，避免影响后续判断
+                        await ctx.app.redis.del(redisKey);
+                    }
                 }
             }
             // 5.存储新连接
@@ -265,8 +273,6 @@ module.exports = () => {
     };
 };
 ```
-
-
 
 
 
@@ -1876,7 +1882,7 @@ class ChatwebsocketController extends Controller {
                         }
                         // 随便发消息
                     }else{
-                        return ctx.apiFail('对方设置成：需要您先登录才能发消息');
+                        return ctx.apiFail('你们不是好友关系，对方设置成：先登录才能发消息');
                     }
                 }else if(sendCount == 1){
                     // 查一下已经发了几条，如果已经发了一条则不能再发送了
@@ -2264,8 +2270,6 @@ class ChatwebsocketController extends Controller {
 module.exports = ChatwebsocketController;
 
 ```
-
-
 
 
 
