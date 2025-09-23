@@ -925,15 +925,24 @@ class chatClass {
 		}).catch(err => {
 			console.log('服务器返回离线消息失败', err);
 			if(err.data && err.data.data == 'Token 令牌不合法！'){
+				/*
 				if(this.user.role == 'visitor'){
 					console.log('游客如果token令牌错误，重新获取token并连接websocket');
 					// this.registerGuestAndConnect(); // 游客不需要提示，会自动重连的
+					// 在测试中发现，如果服务器宕机，但是游客本地数据还在，还可以连上websocket
+					// 但是redis中没有chat_user_id值了，导致api接口的token不合法
+					// 这种情况很极端，但需要考虑到 - 方案：清空本地登录信息，再次登录
+					// 那么就和下面的登录用户一样处理
 				}else if(this.user.role == 'user'){
 					console.log('登录用户token不正确，说明在的别的设备登录了，则清空本地登录信息，在换成游客模式');
 					store.dispatch('logoutAction', ()=>{
 						this.doRegisterGuest();
 					});
 				}
+				*/
+			    store.dispatch('logoutAction', ()=>{
+			    	this.doRegisterGuest();
+			    });
 			}
 		});
 	}
@@ -1000,8 +1009,6 @@ class chatClass {
 
 export default chatClass;
 ```
-
-
 
 
 

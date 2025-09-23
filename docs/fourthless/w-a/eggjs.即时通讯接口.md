@@ -1638,7 +1638,38 @@ title: eggjs即时通讯接口
 
 
 
+## 四十、自动添加好友并通知websocket消息
+`申请加好友和审核的合并逻辑` <br/>
+说明：`（前提是invite_confirm字段值必须是0（无需审核加好友），登录用户和游客均可）` <br/>
+接口文档查看：<a href="/fourthless/w-a/eggjs.即时通讯接口.html#四十、自动添加好友并通知websocket消息" target="_blank">四十、自动添加好友并通知websocket消息</a><br/>
 
+> 1. 请求方式：`post` `[用postman测试]`或者`[用Apipost测试]`
+> 2. 接口示例：`http://127.0.0.1:7001/api/chat/autoAddFriendAndAgree`<br/>
+> 本地路由地址：<http://127.0.0.1:7001/api/chat/autoAddFriendAndAgree> <br/> 
+> 3. header头传token
+> 
+> 请求参数 [Headers] -> [Key: `token`, Value: `token值`]
+> 
+> | 参数       |  是否必填    |  类型    |  长度                   | 说明     |
+> | :---:      | :---:       |  :---:   | :---:                  |:---:     |
+> | token      |  是         |  string  |  由服务器生成           | `token令牌`，如：`eyJhbGciO.....`  |
+> 
+> 4. 请求参数 [body] -> [x-www-form-urlencoded]
+> 
+> | 参数       |  是否必填    |  类型    |  长度         | 说明     |
+> | :---:      | :---:       |  :---:   | :---:        |:---:     |
+> | friend_id   |  是         |  int  |  int(20)       |    被申请添加为好友的用户id  |
+> | nickname   |  否         |  string  |  1-50个字符       |    申请说明，可不填  |
+> 
+> 
+> 
+> 5. 返回示例
+> ```js
+> {
+>     "msg": "ok",
+>     "data": "ok",
+> }
+> ```
 
 
 
