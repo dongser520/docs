@@ -165,6 +165,8 @@ class ChatwebsocketController extends Controller {
         const { ctx, app, service } = this;
         // 1. 如果有群聊列表，给它提示一下
         this.websocktMsg_groupList(chatuser);
+        // 4： 谁可以和我聊天 - 聊天消息条数限制
+        this.websocktMsg_whoCanChatMe(chatuser);
         // 提示游客登录的消息
         this.websocktMsg_visitorLogin(chatuser);
 
@@ -180,7 +182,7 @@ class ChatwebsocketController extends Controller {
         this.websocktMsg_friendList(chatuser);
         // 3： 账号信息设置 - 不满意头像可以换
         this.websocktMsg_userInfoSet(chatuser);
-        // 4： 谁可以和我聊天
+        // 4： 谁可以和我聊天 - 聊天消息条数限制
         this.websocktMsg_whoCanChatMe(chatuser);
         // 5： 我的二维码
         this.websocktMsg_myQrcode(chatuser);
@@ -487,6 +489,8 @@ class ChatwebsocketController extends Controller {
                 options: optionsObj, // 其它参数
                 create_time: (new Date()).getTime(), // 创建时间
                 isremove: 0, // 0未撤回 1已撤回
+                // 发送人uuid
+                sendUUid: me.uuid,
             };
 
             
@@ -591,6 +595,8 @@ class ChatwebsocketController extends Controller {
                 isremove: 0, // 0未撤回 1已撤回
                 // 群相关信息
                 group: group, 
+                // 发送人uuid
+                sendUUid: me.uuid,
             };
 
             // 循环推送给群成员 不用推送给自己
@@ -714,18 +720,18 @@ class ChatwebsocketController extends Controller {
         ctx.chatWebsocketSendOrSaveMessage(chatuser.id, msg, false, false);  
     }
 
-    // 消息4： 谁可以和我聊天
+    // 消息4： 谁可以和我聊天 - 聊天消息条数限制
     async websocktMsg_whoCanChatMe(chatuser){
         const { ctx, app, service } = this;
         // 谁可以和我聊天，给提示一下
         let msg = ctx.offlineMsg(chatuser,chatuser.id, {
             from_id: `redirect-whoCanChatMe-${chatuser.id}`,
             from_avatar: `https://docs-51yrc-com.oss-cn-hangzhou.aliyuncs.com/chat/img/whoCanChatMe.png`,
-            from_name: `谁可以和我聊天`,
-            data: `设置聊天对象`,
+            from_name: `聊天消息条数限制`,
+            data: `谁可以和我聊天，可向我发几条消息`,
             // 处理链接
             redirect: {
-                url:`/pages/setpageInfo/setpageInfo?action=chatset&title=${encodeURIComponent('谁可以和我聊天')}`, // 处理链接地址
+                url:`/pages/setpageInfo/setpageInfo?action=chatset&title=${encodeURIComponent('和我聊天设置')}`, // 处理链接地址
                 type: 'navigateTo', // 处理链接类型
             }, 
         });
@@ -799,4 +805,32 @@ class ChatwebsocketController extends Controller {
 }
 
 module.exports = ChatwebsocketController;
+
 ```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

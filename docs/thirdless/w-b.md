@@ -283,6 +283,7 @@ title: 第三学期第二季（课程学习顺序：07）
 #####  <a href="/thirdless/w-b/09聊天页撤回转发消息等功能实现.html#_3-混入文件-pages-setpageinfo-avatarcut-js"  style="margin-left:130px;">③ 混入文件 /pages/setpageInfo/avatarCut.js</a>
 ### <a href="/thirdless/w-b/10辅助功能及问题修复" target="_blank" title="点击查看课程文档">章节10.辅助功能及问题修复</a>
 ### <a href="/thirdless/w-b/11游客聊天处理" target="_blank" title="点击查看课程文档">章节11.游客聊天处理</a>
+### <a href="/thirdless/w-b/12问题修复及使用场景举例" target="_blank" title="点击查看课程文档">章节12.问题修复及使用场景举例</a>
 
 
 

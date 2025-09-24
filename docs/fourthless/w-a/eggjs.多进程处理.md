@@ -121,6 +121,9 @@ module.exports = (option, app) => {
                 { path: '/api/chat/getUserSetInfo', method: 'POST' },    // 获取用户一些设置信息如：加好友设置、聊天设置等
                 { path: '/api/chat/applyfriend', method: 'POST' },    // 放开一步，游客可以添加好友
                 { path: '/api/chat/autoAddFriendAndAgree', method: 'POST' },    //自动添加好友并通过（前提是invite_confirm：0）
+                { path: '/api/chat/ismygoodfriend', method: 'POST' },    // 查对方是否是我的好友
+                { path: '/api/chat/userset', method: 'POST' },    // 和我聊天设置-条数限制
+                { path: '/api/chat/deletegoodfriend', method: 'POST' },    // 删除好友
 
             ];
             
@@ -141,6 +144,9 @@ module.exports = (option, app) => {
     }
 }
 ```
+
+
+
 
 
 ### 2. websocket权限验证中间件 `app/middleware/chatwebsocket.js`
