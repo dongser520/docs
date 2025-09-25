@@ -188,6 +188,8 @@ class ChatwebsocketController extends Controller {
         this.websocktMsg_myQrcode(chatuser);
         // 6： 搜索加好友 - 搜索
         this.websocktMsg_search(chatuser);
+        // 7： 加我为好友时是否需要我验证
+        this.websocktMsg_applyAddMeFriendSet(chatuser);
     }
 
     
@@ -653,7 +655,7 @@ class ChatwebsocketController extends Controller {
             // 有群聊列表，给提示一下
             let msg = ctx.offlineMsg(chatuser,chatuser.id, {
                 from_id: `redirect-groupList-${chatuser.id}`,
-                from_avatar: `https://docs-51yrc-com.oss-cn-hangzhou.aliyuncs.com/chat/img/grouplist.png`,
+                from_avatar: `https://docs-51yrc-com.oss-cn-hangzhou.aliyuncs.com/chat/img/qunliaoNoticeIcon.png`,
                 from_name: `我的群聊`,
                 data: `可查看我加入的群聊列表`,
                 // 处理链接
@@ -698,17 +700,19 @@ class ChatwebsocketController extends Controller {
     // 消息3： 账号信息设置 - 不满意头像可以换
     async websocktMsg_userInfoSet(chatuser){
         const { ctx, app, service } = this;
-        // 为了方便看效果，设置完成之后，跳转到我的页面
-        let redirectUrl = `/pages/wode/wode`;
+        // 设置完成之后返回上一页，跳转的页面
+        let redirectUrl = `/pages/xiaoxi/xiaoxi`;
         let redirectType = `switchTab`;
         // 处理链接地址
         let url = `/pages/setpageInfo/setpageInfo?action=userinfoSet&title=${encodeURIComponent('账号信息设置')}`;
         // 完整地址
         url = `${url}&redirectUrl=${encodeURIComponent(redirectUrl)}&redirectType=${redirectType}`;
+        // 获取用户最新头像
+        let checkUser = await app.model.User.findByPk(chatuser.id);
         // 账号信息设置，给提示一下
         let msg = ctx.offlineMsg(chatuser,chatuser.id, {
             from_id: `redirect-userInfoSet-${chatuser.id}`,
-            from_avatar: chatuser.avatar,
+            from_avatar: checkUser.avatar,
             from_name: `头像设置`,
             data: `不满意你的头像可以更换`,
             // 处理链接
@@ -783,6 +787,24 @@ class ChatwebsocketController extends Controller {
         });
         ctx.chatWebsocketSendOrSaveMessage(chatuser.id, msg, false, false); 
     }
+
+    // 消息7： 加我为好友时是否需要我验证
+    async websocktMsg_applyAddMeFriendSet(chatuser){
+        const { ctx, app, service } = this;
+        // 加我为好友时是否需要我验证，给提示一下
+        let msg = ctx.offlineMsg(chatuser,chatuser.id, {
+            from_id: `redirect-applyAddMeFriendSet-${chatuser.id}`,
+            from_avatar: `https://docs-51yrc-com.oss-cn-hangzhou.aliyuncs.com/chat/img/applyAddMeFriendSet.png`,
+            from_name: `加我为好友时是否需要我验证`,
+            data: `默认不需要，您可以去设置`,
+            // 处理链接
+            redirect: {
+                url:`/pages/setpageInfo/setpageInfo?action=applyAddMeFriendSet&title=${encodeURIComponent('申请加我为好友设置')}`, // 处理链接地址
+                type: 'navigateTo', // 处理链接类型
+            }, 
+        });
+        ctx.chatWebsocketSendOrSaveMessage(chatuser.id, msg, false, false); 
+    }
     
     // 消息：提示游客登录的消息
     async websocktMsg_visitorLogin(chatuser){
@@ -790,7 +812,7 @@ class ChatwebsocketController extends Controller {
         let msg = ctx.offlineMsg(chatuser,chatuser.id, {
             from_id: `redirect-visitorLogin-${chatuser.id}`,
             from_avatar: `https://docs-51yrc-com.oss-cn-hangzhou.aliyuncs.com/chat/kefu.png`,
-            from_name: `系统消息`,
+            from_name: `登录提示`,
             data: `欢迎您，登录可以获取更多功能！`,
             // 处理链接
             redirect: {
@@ -801,24 +823,11 @@ class ChatwebsocketController extends Controller {
         // 多进程推送
         // 直接调用 `/app/extend/context.js` 封装的方法 chatWebsocketSendOrSaveMessage(sendto_id, message)
         ctx.chatWebsocketSendOrSaveMessage(chatuser.id, msg, false, false);
-    }
+    }  
 }
 
-module.exports = ChatwebsocketController;
-
+module.exports = ChatwebsocketController; 
 ```
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

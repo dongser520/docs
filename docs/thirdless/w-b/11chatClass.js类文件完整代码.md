@@ -8,6 +8,7 @@ title: eggjs即时通讯：类文件chatClass.js完整代码
 
 类文件 `/common/js/chatClass.js` 完整代码
 
+
 ```js
 import {requestUrl , chatAudioInfo} from '@/common/mixins/configData.js';
 import {registerGuest} from '@/pages/loginCenter/visitor.js'; //导入具体的方法
@@ -484,8 +485,8 @@ class chatClass {
 			findItem.data = data;
 			findItem.datadesc = datadesc;
 			findItem.type = msg.type;
-			// findItem.avatar = avatar; // 消息页的头像不用更新，因为是跟当前聊天对象的记录
-			// findItem.name = name; // 消息页的name不用更新，因为是跟当前聊天对象的记录
+			findItem.avatar = msg.from_avatar; 
+			findItem.name = msg.from_name; 
 			findItem.isremove = msg.isremove;
 			
 			
@@ -852,9 +853,19 @@ class chatClass {
 				// 通过_xiaoxiId判断一下之前有没有这个消息在消息页，且是跳转消息
 				let _index = _xiaoxiList.findIndex(v=> v.id == _xiaoxiId && 
 				            v.chatType == msgData.chatType && msgData.redirect && msgData.redirect.url);
-				// 如果找到了就没有必要执行后面的程序了
+				// 如果找到了，如果跳转消息中含有doaction字段 根据情况处理
 				if(_index != -1){
-					return false;
+					// 如果消息是跳转消息，但是消息是关于'avatar'的
+					if(msgData.redirect.doaction && msgData.redirect.doaction == 'avatar'){
+						// 将这个消息更新一下在消息页
+						// 消息页将某条消息更新成你指定的消息
+						this.XiaoXiListUpdataZhiDingMsg(_xiaoxiList[_index].id,msgData.chatType,msgData);
+						// 程序终止
+						return false;
+					}else{
+						// 程序终止，不再次接收这个消息
+						return false;
+					}
 				}
 
 				
@@ -1009,10 +1020,6 @@ class chatClass {
 
 export default chatClass;
 ```
-
-
-
-
 
 
 

@@ -7,6 +7,7 @@ title: eggjs即时通讯单聊相关方法
 ## 一、单聊相关方法汇总
 控制器 `/app/controller/api/chat/chatuser.js`
 
+
 ```js
 'use strict';
 //哈希函数 
@@ -1102,7 +1103,7 @@ class ChatuserController extends Controller {
         await myinfo.save();
 
         // 设置redis标记(这些修改不需要webscoket推送)，有效期60秒
-        await this.app.redis.setex(`user:modify:${me_id}`, 60, '1');
+        await this.app.redis.setex(`user:modify:${me_id}`, 60, `${fieldname}`);
 
         // 返回
         return ctx.apiSuccess(returnMsg);

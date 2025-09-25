@@ -226,15 +226,15 @@ module.exports = () => {
                             return(clock); 
                         };
                         // 消息内容自定义
-                        let data = `您的账号于 ${currentTime()} 尝试在其它设备上登录，如果不是您的操作，那么您的账号密码可能已泄露，请及时修改密码`;
+                        let data = `您的聊天会话线路于 ${currentTime()} 因网络波动或者长时间未操作已经掉线，系统尝试给您重新连接线路，现已连接成功，请刷新页面或者重新打开页面。`;
                         // 定义一下通知消息 
                         const force_message = ctx.offlineMsg(user,user.id, {
                             from_avatar: `https://docs-51yrc-com.oss-cn-hangzhou.aliyuncs.com/chat/kefu.png`,
-                            from_name: `账号异常提示`,
+                            from_name: `聊天会话线路异常提示`,
                             // from_id: 0,
                             data: data,
                             showModel: {
-                                showModelType: 'forceLogin',
+                                showModelType: 'forceLogin', 
                                 content: data,
                             },
                         });
@@ -247,9 +247,37 @@ module.exports = () => {
                             timestamp: Date.now(),
                         }));
                     }else {
-                        console.log('用户修改账号昵称头像设置等一般信息，不发送异地登录提示');
-                        // 删除redis标记，避免影响后续判断
-                        await ctx.app.redis.del(redisKey);
+                        console.log('用户修改账号昵称头像设置等一般信息，不发送异地登录提示', isSelfModify);
+                        if(isSelfModify == 'avatar'){
+                            // 如果是头像更新了，为了配合消息页界面头像更新，这里推送一下消息
+                            // 获取最新头像
+                            const avatar = userCheck.avatar;
+                            // 为了方便看效果，设置完成之后，跳转到消息页
+                            let redirectUrl = `/pages/xiaoxi/xiaoxi`;
+                            let redirectType = `switchTab`;
+                            // 处理链接地址
+                            let url = `/pages/setpageInfo/setpageInfo?action=userinfoSet&title=${encodeURIComponent('账号信息设置')}`;
+                            // 完整地址
+                            url = `${url}&redirectUrl=${encodeURIComponent(redirectUrl)}&redirectType=${redirectType}`;
+                            // 账号信息设置，给提示一下
+                            let msg = ctx.offlineMsg(user,user.id, {
+                                from_id: `redirect-userInfoSet-${user.id}`,
+                                from_avatar: avatar,
+                                from_name: `头像更换成功`,
+                                data: `不满意你的头像可以继续更换`,
+                                // 处理链接
+                                redirect: {
+                                    url: url, // 处理链接地址
+                                    type: 'navigateTo', // 处理链接类型
+                                    // 处理链接动作 - 对消息是更新还是删除等在前端类文件chatClass.js依据具体业务场景
+                                    doaction: 'avatar', 
+                                }, 
+                            });
+                            ctx.chatWebsocketSendOrSaveMessage(user.id, msg, false, false);
+                        }else{
+                            // 删除redis标记，避免影响后续判断
+                            await ctx.app.redis.del(redisKey);
+                        }
                     }
                 }
             }
@@ -280,7 +308,6 @@ module.exports = () => {
     };
 };
 ```
-
 
 
 
