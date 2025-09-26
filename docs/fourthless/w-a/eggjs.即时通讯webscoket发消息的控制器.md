@@ -6,6 +6,16 @@ title: eggjs即时通讯websocket发消息的控制器完整代码
 
 ## 一、websocket发消息的控制器方法汇总(控制器 `/app/controller/api/chat/chatwebsocket.js` 完整代码)
 
+
+
+
+
+
+
+
+
+
+
 ```js
 'use strict';
 
@@ -164,11 +174,11 @@ class ChatwebsocketController extends Controller {
         // 消息越靠后，在前端越显示在最上面
         const { ctx, app, service } = this;
         // 1. 如果有群聊列表，给它提示一下
-        this.websocktMsg_groupList(chatuser);
+        await this.websocktMsg_groupList(chatuser);
         // 4： 谁可以和我聊天 - 聊天消息条数限制
-        this.websocktMsg_whoCanChatMe(chatuser);
+        await this.websocktMsg_whoCanChatMe(chatuser);
         // 提示游客登录的消息
-        this.websocktMsg_visitorLogin(chatuser);
+        await this.websocktMsg_visitorLogin(chatuser);
 
         
     }
@@ -827,11 +837,12 @@ class ChatwebsocketController extends Controller {
 }
 
 module.exports = ChatwebsocketController; 
+
+
+
+
+
 ```
-
-
-
-
 
 
 

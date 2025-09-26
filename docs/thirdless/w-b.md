@@ -22,7 +22,11 @@ title: 第三学期第二季（课程学习顺序：07）
 >> 本季课程 `章节2` : `开发前环境搭建及准备` 与 <a href="https://study.163.com/course/courseMain.htm?courseId=1213808807&share=2&shareId=480000002289674" target="_blank" title="点击查看第三学期第一季课程">第三学期第一季课程</a> `课时4-课时10`内容相同，可查阅对应文档。
 
 
-## 2.查看课程文档
+## 2.本季课程视频介绍
+[![](https://docs-51yrc-com.oss-cn-hangzhou.aliyuncs.com/docs-imgs/lesson_study_07.png '第三学期第一季课程介绍，点击查看')](https://study.163.com/course/courseMain.htm?share=2&shareId=480000002289674&courseId=1213808807)
+
+
+## 3.查看课程文档
 ### 章节1.课程介绍 
 ### 章节2.开发前环境搭建及准备
 > 与 <a href="https://study.163.com/course/courseMain.htm?courseId=1213808807&share=2&shareId=480000002289674" target="_blank" title="点击查看第三学期第一季课程">第三学期第一季课程</a> `课时4-课时10`内容相同，可查阅对应文档。

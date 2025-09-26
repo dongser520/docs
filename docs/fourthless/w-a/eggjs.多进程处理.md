@@ -153,6 +153,7 @@ module.exports = (option, app) => {
 改动较大，核心放在:
 > `4.检查是否已有同一用户的连接 - 防止异地登录同时在线` <br/>
 
+
 ```js
 // 引入 uuid 库 `npm install uuid`
 const { v4: uuidv4 } = require('uuid');
@@ -241,11 +242,11 @@ module.exports = () => {
                         // 前端页面这个消息不要显示底部输入框
                         force_message.from_id = 0;
                         // 符合前端页面格式的消息推送 - 异地登录提示
-                        ctx.app.ws.chatuser[user.id].send(JSON.stringify({
-                            type: 'singleChat',
-                            data: force_message,
-                            timestamp: Date.now(),
-                        }));
+                        // ctx.app.ws.chatuser[user.id].send(JSON.stringify({
+                        //     type: 'singleChat',
+                        //     data: force_message,
+                        //     timestamp: Date.now(),
+                        // }));
                     }else {
                         console.log('用户修改账号昵称头像设置等一般信息，不发送异地登录提示', isSelfModify);
                         if(isSelfModify == 'avatar'){
@@ -308,6 +309,7 @@ module.exports = () => {
     };
 };
 ```
+
 
 
 
