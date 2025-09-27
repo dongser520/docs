@@ -7,7 +7,6 @@ title: eggjs即时通讯单聊相关方法
 ## 一、单聊相关方法汇总
 控制器 `/app/controller/api/chat/chatuser.js`
 
-
 ```js
 'use strict';
 //哈希函数 
@@ -1162,6 +1161,75 @@ class ChatuserController extends Controller {
         user.isgoodfriend_status = isgoodfriend_status;
         // 返回
         return ctx.apiSuccess(user);
+    }
+
+    // 修改密码（登录用户有这个权限，游客无权限）
+    async setPassword(){
+        const { ctx, app } = this;
+        //1.参数验证
+        this.ctx.validate({
+            oldpassword: {
+                type: 'string',
+                required: true,
+                // defValue: '', 
+                desc: '原始密码',
+            },
+            newpassword: {
+                type: 'string',
+                required: true,
+                // defValue: '', 
+                desc: '新密码',
+            },
+            checknewpassword: {
+                type: 'string',
+                required: true,
+                // defValue: '', 
+                desc: '确认新密码',
+            },
+        });
+        const { oldpassword, newpassword, checknewpassword } = ctx.request.body;
+        // 1. 新密码与确认新密码是否一致
+        if(newpassword != checknewpassword){
+            return ctx.apiFail('新密码与确认新密码不一致');
+        }
+        // 我
+        let me = ctx.chat_user;
+        if(ctx.tokenUser && ctx.tokenUser.role != me.role && ctx.tokenUser.role == 'visitor'){
+            // 用户未登录的情况，不能修改密码
+            return ctx.apiFail('您未登录，无法修改密码');
+        }
+        // 修改密码
+        // 先查原始密码是否正确，拿一下原密码
+        let myinfo = await app.model.User.findOne({
+            where: {
+                id: me.id,
+                status: 1, // 正常
+            }
+        });
+        if (!myinfo) {
+            return ctx.apiFail('用户不存在，无法修改密码');
+        }
+        // 原始密码已加密的密码
+        let password = myinfo.password;
+        // 验证oldpassword
+        let hash = crypto.createHash('sha256', this.app.config.crypto.secret); //或者md5
+        hash.update(oldpassword);
+        let hashedOldPassword = hash.digest('hex'); // 使用新的变量名
+        if (password !== hashedOldPassword) {
+            return ctx.apiFail('原始密码错误，无法修改密码');
+        }
+        // 修改密码
+        await myinfo.update({
+            password: newpassword,
+        },{
+            where: {
+                id: me.id,
+            }
+        });
+
+        // 返回
+        return ctx.apiSuccess('修改密码成功');
+        
     }
 
 }

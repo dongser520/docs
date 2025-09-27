@@ -139,13 +139,13 @@ module.exports = (option, app) => {
 
         // 5. 没什么问题了，把用户信息挂载到ctx上，方便调用
         ctx.chat_user = user;
+        // 存储一下tokenUser, 因为后面有些判断要用到
+        ctx.tokenUser = tokenUser;
 
         await next();
     }
 }
 ```
-
-
 
 
 
@@ -1632,7 +1632,254 @@ module.exports = AppBootHook;
 
 
 
-### 9. 关于各种api路由 `/app/router/api/chat/router.js` 汇总
+
+### 9. 关于控制器 `/app/controller/api/chat/chatwebsocket.js`新建的服务文件 `/app/service/chatwebsocket.js`
+
+```js
+'use strict';
+
+const Service = require('egg').Service;
+const fs = require('fs');
+const path = require('path');
+
+class ChatwebsocketService extends Service {
+    // 获取文件路径
+    getFilePath(type, createUserId, existsName1 = 'data', existsName2 = 'askAnswer') {
+        const baseDir = this.config.baseDir;
+        const dirPath = path.join(baseDir, existsName1, existsName2);
+
+        // 确保目录存在
+        if (!fs.existsSync(dirPath)) {
+            fs.mkdirSync(dirPath, { recursive: true });
+        }
+
+        return path.join(dirPath, `chatuser_${type}_${createUserId}.json`);
+    }
+
+    // 读取文件数据
+    readFileData(filePath) {
+        if (!fs.existsSync(filePath)) {
+            return [];
+        }
+
+        try {
+            const data = fs.readFileSync(filePath, 'utf8');
+            return JSON.parse(data) || [];
+        } catch (error) {
+            this.ctx.logger.error('读取文件失败:', error);
+            return [];
+        }
+    }
+
+    // 写入文件数据
+    writeFileData(filePath, data) {
+        try {
+            fs.writeFileSync(filePath, JSON.stringify(data, null, 2), 'utf8');
+            return true;
+        } catch (error) {
+            this.ctx.logger.error('写入文件失败:', error);
+            return false;
+        }
+    }
+
+    // 搜索问答 - 修复版本
+    async search(type, create_userId, ask) {
+        const { ctx } = this;
+
+        console.log('-----搜索问答参数', type, create_userId, ask);
+
+        if (!type || !create_userId || !ask) {
+            // 返回错误对象，而不是设置ctx.body
+            return {
+                code: 400,
+                msg: '参数不完整'
+            };
+        }
+
+        try {
+            const filePath = this.getFilePath(type, create_userId);
+            const questions = this.readFileData(filePath);
+
+            console.log('-----搜索问答数据', questions);
+
+            if (questions.length === 0) {
+                return {
+                    code: 404,
+                    msg: '暂无问答数据'
+                };
+            }
+
+            // 模糊匹配算法
+            const searchKeywords = ask.toLowerCase().split(/\s+/).filter(k => k.length > 0);
+            let bestMatch = null;
+            let highestScore = 0;
+
+            // 计算匹配度评分
+            questions.forEach(question => {
+                let score = 0;
+                const questionText = (question.ask + ' ' + question.answer).toLowerCase();
+
+                // 1. 完全匹配 - 最高优先级
+                if (question.ask.toLowerCase().includes(ask.toLowerCase()) ||
+                    question.answer.toLowerCase().includes(ask.toLowerCase())) {
+                    score += 100;
+                }
+
+                // 2. 关键词匹配
+                searchKeywords.forEach(keyword => {
+                    // 问题中包含关键词
+                    if (question.ask.toLowerCase().includes(keyword)) {
+                        score += 10;
+                    }
+
+                    // 回答中包含关键词
+                    if (question.answer.toLowerCase().includes(keyword)) {
+                        score += 5;
+                    }
+
+                    // 计算关键词出现次数
+                    const askCount = (question.ask.toLowerCase().match(new RegExp(keyword, 'g')) || []).length;
+                    const answerCount = (question.answer.toLowerCase().match(new RegExp(keyword, 'g')) || []).length;
+                    score += (askCount * 2) + answerCount;
+                });
+
+                // 3. 长度相似度 - 问题长度越接近搜索词，得分越高
+                const lengthDiff = Math.abs(question.ask.length - ask.length);
+                score += Math.max(0, 10 - lengthDiff / 5);
+
+                // 4. 时效性 - 较新的内容得分更高
+                const updateTime = question.update_time || question.create_time;
+                const daysSinceUpdate = (Date.now() - updateTime) / (1000 * 60 * 60 * 24);
+                score += Math.max(0, 5 - daysSinceUpdate / 10);
+
+                // 5. 热门度 - 点赞多的内容得分更高
+                score += Math.min(question.likeCount || 0, 10);
+
+                // 更新最佳匹配
+                if (score > highestScore) {
+                    highestScore = score;
+                    bestMatch = question;
+                }
+            });
+
+            // 设置匹配阈值，避免低质量匹配
+            const threshold = searchKeywords.length * 5;
+
+            console.log('-----搜索问答匹配结果', bestMatch, highestScore, threshold);
+
+            if (bestMatch && highestScore >= threshold) {
+                return {
+                    code: 200,
+                    data: bestMatch,
+                    score: highestScore,
+                    msg: '搜索成功'
+                };
+            } else {
+                // 如果没有找到合适匹配，尝试使用更宽松的匹配方式
+                const fallbackMatch = this.fallbackSearch(questions, ask);
+                if (fallbackMatch) {
+                    return {
+                        code: 200,
+                        data: fallbackMatch,
+                        score: 5,
+                        msg: '找到相关回答'
+                    };
+                } else {
+                    return {
+                        code: 404,
+                        msg: '未找到相关问答'
+                    };
+                }
+            }
+        } catch (error) {
+            ctx.logger.error('搜索问答失败:', error);
+            return {
+                code: 500,
+                msg: '搜索失败'
+            };
+        }
+    }
+
+    // 备用搜索方法 - 使用更宽松的匹配规则
+    fallbackSearch(questions, ask) {
+        const searchText = ask.toLowerCase();
+
+        // 尝试部分匹配
+        for (const question of questions) {
+            const questionText = (question.ask + ' ' + question.answer).toLowerCase();
+
+            // 检查是否包含搜索词的主要部分
+            const words = searchText.split(/\s+/).filter(w => w.length > 2);
+            let matchCount = 0;
+
+            for (const word of words) {
+                if (questionText.includes(word)) {
+                    matchCount++;
+                }
+            }
+
+            // 如果超过一半的关键词匹配，认为是相关结果
+            if (matchCount >= Math.ceil(words.length / 2)) {
+                return question;
+            }
+        }
+
+        // 尝试同义词匹配（简单实现）
+        const synonymMap = {
+            '怎么': '如何',
+            '哪里': '何处',
+            '什么': '啥',
+            '为什么': '为何',
+            '怎么办': '如何处理',
+            '？': '',
+            '?': '',
+            '，': '',
+            ',': ''
+        };
+
+        let synonymText = searchText;
+        Object.keys(synonymMap).forEach(key => {
+            synonymText = synonymText.replace(new RegExp(key, 'g'), synonymMap[key]);
+        });
+
+        if (synonymText !== searchText) {
+            for (const question of questions) {
+                const questionText = (question.ask + ' ' + question.answer).toLowerCase();
+                const cleanQuestionText = questionText.replace(/[？?，,]/g, '');
+                if (cleanQuestionText.includes(synonymText)) {
+                    return question;
+                }
+            }
+        }
+
+        // 最后尝试：直接包含匹配（去除标点符号）
+        const cleanSearchText = searchText.replace(/[？?，,]/g, '');
+        for (const question of questions) {
+            const cleanQuestionAsk = question.ask.toLowerCase().replace(/[？?，,]/g, '');
+            if (cleanQuestionAsk.includes(cleanSearchText)) {
+                return question;
+            }
+        }
+
+        return null;
+    }
+}
+
+module.exports = ChatwebsocketService;
+```
+
+
+
+
+### 10. 关于设置常见问题问答相关的控制器 `/app/controller/api/chat/askanswer.js` 代码
+`登录用户可设置常见问题的问答内容，当你不在线的时候，系统自动回复给客户`<br/>
+
+> 内容较多，去新页面查看：<br/>
+<a href="/fourthless/w-a/eggjs.问答.html#一、eggjs问答系统-控制器-app-controller-api-chat-askanswer-js-完整代码" target="_blank">一、eggjs问答系统(控制器 /app/controller/api/chat/askanswer.js 完整代码)</a><br/>
+
+
+
+### 11. 关于各种api路由 `/app/router/api/chat/router.js` 汇总
 
 ```js
 module.exports = app => {
@@ -1742,22 +1989,21 @@ module.exports = app => {
     // 自动添加好友并通过（申请加好友和审核的合并逻辑，前提是invite_confirm：0，登录用户和游客均可）
     router.post('/api/chat/autoAddFriendAndAgree', controller.api.chat.goodfriendapply.autoAddFriendAndAgree);
 
+    // 修改密码（登录用户有这个权限，游客无权限）
+    router.post('/api/chat/setPassword', controller.api.chat.chatuser.setPassword);
+
+    // 问答相关路由
+    router.post('/api/chat/askanswer/create', controller.api.chat.askanswer.create);
+    router.post('/api/chat/askanswer/update', controller.api.chat.askanswer.update);
+    router.post('/api/chat/askanswer/delete', controller.api.chat.askanswer.delete);
+    router.post('/api/chat/askanswer/list', controller.api.chat.askanswer.list);
+    router.post('/api/chat/askanswer/detail', controller.api.chat.askanswer.detail);
+    router.post('/api/chat/askanswer/search', controller.api.chat.askanswer.search); // 新增搜索路由
+
     
 };   
 
 ```
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

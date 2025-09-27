@@ -12,10 +12,6 @@ title: eggjs即时通讯websocket发消息的控制器完整代码
 
 
 
-
-
-
-
 ```js
 'use strict';
 
@@ -186,6 +182,8 @@ class ChatwebsocketController extends Controller {
     async websockt_userMsg(chatuser){
         // 消息越靠后，在前端越显示在最上面
         const { ctx, app, service } = this;
+        // 8. 修改密码
+        this.websocktMsg_setPassword(chatuser);
         // 1. 如果有群聊列表
         this.websocktMsg_groupList(chatuser);
         // 2： 通讯录
@@ -200,6 +198,8 @@ class ChatwebsocketController extends Controller {
         this.websocktMsg_search(chatuser);
         // 7： 加我为好友时是否需要我验证
         this.websocktMsg_applyAddMeFriendSet(chatuser);
+        // 9.  问答设置
+        this.websocktMsg_AskAndAnswerSet(chatuser);
     }
 
     
@@ -538,10 +538,19 @@ class ChatwebsocketController extends Controller {
                 saveLog_me: true, // 是否把消息存储到自己的redis记录中 
             });
 
-            
-            
             // 返回
-            return ctx.apiSuccess(message);
+            ctx.apiSuccess(message);
+
+            // 消息发送完毕，看一下这条消息是不是问答消息，如果是则查找问答数据进行回复
+            console.log('------消息发送完毕，看一下这条消息是不是问答消息，如果是则查找问答数据进行回复', optionsObj);
+            if (optionsObj && optionsObj.askanswer) {
+                setTimeout(() => {
+                    // 如果是问答消息，则查找答案进行自动回复
+                    this.replyWithAnswer(data,chatType, sendto_id, message, chater);
+                }, 1200);
+            }     
+            
+            
 
         } else if (chatType == 'group') {
             // 群聊
@@ -624,6 +633,79 @@ class ChatwebsocketController extends Controller {
 
         }
 
+    }
+
+
+    // 如果是问答消息，则查找答案进行回复
+    async replyWithAnswer(data,chatType, sendto_id, message, chater) {
+        const { ctx, app, service } = this;
+        let _ask = typeof data == 'string' ? JSON.parse(data) : data;
+        let ask = _ask.data;
+        console.log('-----查找问答数据, 问题是：', ask);
+        
+        // 查找问答数据 
+        let askAnswerResult = await ctx.service.chatwebsocket.search(chatType, sendto_id, ask);
+        console.log('-----查找问答数据, 结果是：', askAnswerResult);
+        
+        // 根据搜索结果处理
+        if (askAnswerResult.code === 200 && askAnswerResult.data) {
+            // 找到匹配的问答，可以进行回复
+            const matchedAnswer = askAnswerResult.data;
+            console.log('-----找到匹配问答：', matchedAnswer.answer);
+            
+            // 这里可以添加回复逻辑，比如通过WebSocket发送回复消息
+            _ask.data = matchedAnswer.answer;
+            let answerMessage = { 
+                id: uuidv4(), // 自动生成 UUID,唯一id, 聊天记录id，方便撤回消息
+                from_avatar: message.to_avatar, // 发送者头像
+                from_name: message.to_name, // 发送者名称
+                from_id: message.to_id, // 发送者id
+                to_id: message.from_id, // 接收者id
+                to_name: message.from_name, // 接收者名称
+                to_avatar: message.from_avatar, // 接收者头像
+                chatType: message.chatType, // 聊天类型 单聊
+                type: message.type, // 消息类型
+                data: JSON.stringify(_ask) , // 消息内容
+                options: {}, // 其它参数
+                create_time: (new Date()).getTime(), // 创建时间
+                isremove: 0, // 0未撤回 1已撤回
+                // 发送人uuid
+                sendUUid: chater.uuid,
+            };
+
+            console.log('-----回复对对方的消息：', answerMessage);
+
+            // 多进程
+            // 我回复给对方
+            ctx.chatWebsocketSendOrSaveMessage(message.from_id, answerMessage, true, true, {
+                offlineSaveKey: 'chat_getmessage_', // 消息队列KEY值前缀
+                chatlog: `chatlog`, // 模拟文件夹名称
+                saveLog_you: false, // 是否把消息存储到对方的redis记录中 
+                saveLog_me: false, // 是否把消息存储到自己的redis记录中 
+            });
+            // 给我自己也来一份消息- 系统提示消息(对方发给我的，模拟系统提示，主要是为了前端显示在聊天对话中)
+            _ask.data = `系统根据您设置的问答数据，挑选了最接近的答案，回复给对方，回复内容是：\n\n ${matchedAnswer.answer}`;
+            let meMessage = {
+                ...message,
+                id: answerMessage.id, 
+                data: JSON.stringify(_ask) , // 消息内容
+                options: answerMessage.options,
+                create_time: answerMessage.create_time,
+                type: 'systemNotice',
+            };
+            ctx.chatWebsocketSendOrSaveMessage(message.to_id, meMessage, true, true, {
+                offlineSaveKey: 'chat_getmessage_', // 消息队列KEY值前缀
+                chatlog: `chatlog`, // 模拟文件夹名称
+                saveLog_you: false, // 是否把消息存储到对方的redis记录中 
+                saveLog_me: false, // 是否把消息存储到自己的redis记录中 
+            });
+
+
+
+            
+        } else {
+            console.log('-----未找到匹配问答：', askAnswerResult.msg);
+        }
     }
 
 
@@ -815,6 +897,42 @@ class ChatwebsocketController extends Controller {
         });
         ctx.chatWebsocketSendOrSaveMessage(chatuser.id, msg, false, false); 
     }
+
+    // 消息8： 修改密码
+    async websocktMsg_setPassword(chatuser){
+        const { ctx, app, service } = this;
+        // 修改密码，给提示一下
+        let msg = ctx.offlineMsg(chatuser,chatuser.id, {
+            from_id: `redirect-setPassword-${chatuser.id}`,
+            from_avatar: `https://docs-51yrc-com.oss-cn-hangzhou.aliyuncs.com/chat/img/setPassword.png`,
+            from_name: `修改密码`,
+            data: `您可以点击这里，修改密码`,
+            // 处理链接
+            redirect: {
+                url:`/pages/setpageInfo/setpageInfo?action=setPassword&title=${encodeURIComponent('修改密码')}`, // 处理链接地址
+                type: 'navigateTo', // 处理链接类型
+            }, 
+        });
+        ctx.chatWebsocketSendOrSaveMessage(chatuser.id, msg, false, false); 
+    }
+
+    // 消息9： 问答设置
+    async websocktMsg_AskAndAnswerSet(chatuser){
+        const { ctx, app, service } = this;
+        // 问答设置，给提示一下
+        let msg = ctx.offlineMsg(chatuser,chatuser.id, {
+            from_id: `redirect-AskAndAnswerSet-${chatuser.id}`,
+            from_avatar: `https://docs-51yrc-com.oss-cn-hangzhou.aliyuncs.com/chat/img/AskAndAnswerSet.png`,
+            from_name: `问答设置`,
+            data: `当您不在线时，自动回答客户的常见问题`,
+            // 处理链接
+            redirect: {
+                url:`/pages/setpageInfo/setpageInfo?action=AskAndAnswerSet&title=${encodeURIComponent('问答设置')}`, // 处理链接地址
+                type: 'navigateTo', // 处理链接类型
+            }, 
+        });
+        ctx.chatWebsocketSendOrSaveMessage(chatuser.id, msg, false, false); 
+    }
     
     // 消息：提示游客登录的消息
     async websocktMsg_visitorLogin(chatuser){
@@ -843,9 +961,6 @@ module.exports = ChatwebsocketController;
 
 
 ```
-
-
-
 
 
 
