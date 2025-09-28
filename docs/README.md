@@ -5,7 +5,7 @@ title:  首页
 heroText: 睿晨编程
 tagline: 零基础转行学做网站、app、小程序
 actionText: 在线咨询老师 →  
-actionLink: http://192.168.2.6:8081/#/pages/case/case
+actionLink: https://lesson07.h5.51yrc.com/#/pages/case/case
 features:
 - title: 需求人群
   details: 很多想转行，想接单做网站等需求的小白，不知道如何转行学编程的学员。
