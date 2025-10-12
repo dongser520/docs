@@ -263,3 +263,7 @@ this.ctx.validate({
 ## 二十一、群管理表：`group`[群表] `group_user`[群成员表] 说明
 1. 具体查看：<a href="/web/mysql/group.html" target="_blank">点击查看 群聊管理group表相关表说明</a><br/>
 
+
+## 二十二、投诉表：`chat_complaint`[投诉群或者用户]  说明
+1. 具体查看：<a href="/web/mysql/chat_complaint.html" target="_blank">点击查看 投诉表：`chat_complaint`[投诉群或者用户] 说明</a><br/>
+

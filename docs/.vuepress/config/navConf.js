@@ -32,7 +32,7 @@ module.exports = [
             {
                 text: '视频学习网站',
                 items: [
-                    { text: '腾讯云课堂', link: 'https://study.163.com/provider/480000002289674/index.htm?share=2&shareId=480000002289674', target: '_blank' },
+                    { text: '网易云课堂', link: 'https://study.163.com/provider/480000002289674/index.htm?share=2&shareId=480000002289674', target: '_blank' },
                     { text: 'B站', link: 'https://space.bilibili.com/3493114067028034/pugv', target: '_blank', rel: '' },
                 ]
             }

@@ -286,10 +286,85 @@ title: 第三学期第二季（课程学习顺序：07）
 #####  <a href="/thirdless/w-b/09聊天页撤回转发消息等功能实现.html#_2-混入文件-pages-setpageinfo-updateuserinfo-js"  style="margin-left:130px;">② 混入文件 /pages/setpageInfo/updateUserInfo.js</a>
 #####  <a href="/thirdless/w-b/09聊天页撤回转发消息等功能实现.html#_3-混入文件-pages-setpageinfo-avatarcut-js"  style="margin-left:130px;">③ 混入文件 /pages/setpageInfo/avatarCut.js</a>
 ### <a href="/thirdless/w-b/10辅助功能及问题修复" target="_blank" title="点击查看课程文档">章节10.辅助功能及问题修复</a>
-### <a href="/thirdless/w-b/11游客聊天处理" target="_blank" title="点击查看课程文档">章节11.游客聊天处理</a>
-### <a href="/thirdless/w-b/12问题修复及使用场景举例" target="_blank" title="点击查看课程文档">章节12.问题修复及使用场景举例</a>
-### <a href="/thirdless/w-b/13选修课" target="_blank" title="点击查看课程文档">章节13.即时通讯选修课</a>
+####  <a href="/thirdless/w-b/10辅助功能及问题修复.html#一、辅助功能-包括单聊和群的一些其它功能"  style="margin-left:40px;">一、辅助功能(包括单聊和群的一些其它功能)</a>
+####  <a href="/thirdless/w-b/10辅助功能及问题修复.html#_1-修改头像昵称头像显示问题"  style="margin-left:70px;">1. 修改头像昵称头像显示问题</a>
+####  <a href="/thirdless/w-b/10辅助功能及问题修复.html#_2-查找聊天内容-单聊或者群的聊天记录"  style="margin-left:70px;">2. 查找聊天内容（单聊或者群的聊天记录）</a>
+#### <a href="/thirdless/w-b/10辅助功能及问题修复.html#_1-进入搜索聊天页面"  style="margin-left:100px;">① 进入搜索聊天页面</a>
+#### <a href="/thirdless/w-b/10辅助功能及问题修复.html#_2-聊天页搜索聊天内容及展示"  style="margin-left:100px;">② 聊天页搜索聊天内容及展示</a>
+####  <a href="/thirdless/w-b/10辅助功能及问题修复.html#二、群聊删除群成员功能"  style="margin-left:40px;">二、群聊删除群成员功能</a>
+####  <a href="/thirdless/w-b/10辅助功能及问题修复.html#_1-群聊删除群成员接口说明"  style="margin-left:70px;">1. 群聊删除群成员接口说明</a>
+####  <a href="/thirdless/w-b/10辅助功能及问题修复.html#_2-群聊删除群成员界面实现"  style="margin-left:70px;">2. 群聊删除群成员界面实现</a>
+####  <a href="/thirdless/w-b/10辅助功能及问题修复.html#_3-群聊删除群成员功能实现"  style="margin-left:70px;">3. 群聊删除群成员功能实现</a>
+####  <a href="/thirdless/w-b/10辅助功能及问题修复.html#三、邀请加入群聊或者自己申请加群"  style="margin-left:40px;">三、邀请加入群聊或者自己申请加群</a>
+####  <a href="/thirdless/w-b/10辅助功能及问题修复.html#_1-邀请加入群聊或者自己申请加群接口说明"  style="margin-left:70px;">1. 邀请加入群聊或者自己申请加群接口说明</a>
+####  <a href="/thirdless/w-b/10辅助功能及问题修复.html#_2-加入群聊界面实现"  style="margin-left:70px;">2. 加入群聊界面实现</a>
+####  <a href="/thirdless/w-b/10辅助功能及问题修复.html#_3-加入群聊功能实现"  style="margin-left:70px;">3. 加入群聊功能实现</a>
+####  <a href="/thirdless/w-b/10辅助功能及问题修复.html#_4-优化加好友入群-不在群里面的好友才有加群按钮"  style="margin-left:70px;">4. 优化加好友入群（不在群里面的好友才有加群按钮）</a>
+####  <a href="/thirdless/w-b/10辅助功能及问题修复.html#四、根据群设置来进行加群处理"  style="margin-left:40px;">四、根据群设置来进行加群处理</a>
+####  <a href="/thirdless/w-b/10辅助功能及问题修复.html#_1-进群设置接口说明"  style="margin-left:70px;">1. 进群设置接口说明</a>
+####  <a href="/thirdless/w-b/10辅助功能及问题修复.html#_2-界面部分"  style="margin-left:70px;">2. 界面部分</a>
+####  <a href="/thirdless/w-b/10辅助功能及问题修复.html#_3-当进群设置为-需群主同意-群主收到处理加群的通知"  style="margin-left:70px;">3. 当进群设置为:需群主同意，群主收到处理加群的通知</a>
+####  <a href="/thirdless/w-b/10辅助功能及问题修复.html#_4-群主处理加群申请"  style="margin-left:70px;">4. 群主处理加群申请</a>
+####  <a href="/thirdless/w-b/10辅助功能及问题修复.html#五-接收消息给点提示音"  style="margin-left:40px;">五. 接收消息给点提示音</a>
+####  <a href="/thirdless/w-b/10辅助功能及问题修复.html#_1-定义一个来消息的提示音"  style="margin-left:70px;">① 定义一个来消息的提示音</a>
+####  <a href="/thirdless/w-b/10辅助功能及问题修复.html#_2-放在接收消息的时候根据设置情况提示"  style="margin-left:70px;">② 放在接收消息的时候根据设置情况提示</a>
+####  <a href="/thirdless/w-b/10辅助功能及问题修复.html#_3-界面样式"  style="margin-left:70px;">③ 界面样式</a>
+####  <a href="/thirdless/w-b/10辅助功能及问题修复.html#六、问题修复"  style="margin-left:40px;">六、问题修复</a>
 
+
+### <a href="/thirdless/w-b/11游客聊天处理" target="_blank" title="点击查看课程文档">章节11.游客聊天处理</a>
+####  <a href="/thirdless/w-b/11游客聊天处理.html#一、多进程处理前端调整"  style="margin-left:40px;">一、多进程处理前端调整</a>
+####  <a href="/thirdless/w-b/11游客聊天处理.html#_1-针对登录用户-角色为user的用户"  style="margin-left:70px;">1. 针对登录用户（角色为user的用户）</a>
+####  <a href="/thirdless/w-b/11游客聊天处理.html#_2-类文件-common-js-chatclass-js-完整代码"  style="margin-left:70px;">2. 类文件 /common/js/chatClass.js 完整代码</a>
+####  <a href="/thirdless/w-b/11游客聊天处理.html#_3-聊天页"  style="margin-left:70px;">3. 聊天页</a>
+####  <a href="/thirdless/w-b/11游客聊天处理.html#二、游客扫码加入群聊"  style="margin-left:40px;">二、游客扫码加入群聊</a>
+####  <a href="/thirdless/w-b/11游客聊天处理.html#_1-h5端扫码-比如用微信扫一扫、手机浏览器等"  style="margin-left:70px;">1. H5端扫码（比如用微信扫一扫、手机浏览器等）</a>
+####  <a href="/thirdless/w-b/11游客聊天处理.html#三、游客界面调整"  style="margin-left:40px;">三、游客界面调整</a>
+####  <a href="/thirdless/w-b/11游客聊天处理.html#_1-消息页页面调整"  style="margin-left:70px;">① 消息页页面调整</a>
+####  <a href="/thirdless/w-b/11游客聊天处理.html#_2-混入方法计算属性等到tool-js"  style="margin-left:70px;">② 混入方法计算属性等到tool.js</a>
+####  <a href="/thirdless/w-b/11游客聊天处理.html#_3-顶部导航栏处理"  style="margin-left:70px;">③ 顶部导航栏处理</a>
+####  <a href="/thirdless/w-b/11游客聊天处理.html#_4-我的页面调整"  style="margin-left:70px;">④ 我的页面调整</a>
+####  <a href="/thirdless/w-b/11游客聊天处理.html#四、游客扫码加好友"  style="margin-left:40px;">四、游客扫码加好友</a>
+####  <a href="/thirdless/w-b/11游客聊天处理.html#_1、完成界面部分"  style="margin-left:70px;">1、完成界面部分</a>
+####  <a href="/thirdless/w-b/11游客聊天处理.html#_2-关于-游客-visitor-和-用户-user-在消息页初始化接收消息的处理"  style="margin-left:70px;">2. 关于 游客:visitor 和 用户:user 在消息页初始化接收消息的处理</a>
+####  <a href="/thirdless/w-b/11游客聊天处理.html#_3-提交加好友申请"  style="margin-left:70px;">3. 提交加好友申请</a>
+####  <a href="/thirdless/w-b/11游客聊天处理.html#_1-页面处理-2"  style="margin-left:100px;">① 页面处理</a>
+####  <a href="/thirdless/w-b/11游客聊天处理.html#_2-逻辑处理"  style="margin-left:100px;">② 逻辑处理</a>
+####  <a href="/thirdless/w-b/11游客聊天处理.html#_3-聊天页显示一下发送消息失败原因"  style="margin-left:100px;">③ 聊天页显示一下发送消息失败原因</a>
+####  <a href="/thirdless/w-b/11游客聊天处理.html#_4-完善申请加我为好友设置"  style="margin-left:70px;">4. 完善申请加我为好友设置</a>
+####  <a href="/thirdless/w-b/11游客聊天处理.html#_1-界面完善"  style="margin-left:100px;">1 界面完善</a>
+####  <a href="/thirdless/w-b/11游客聊天处理.html#_1-1-在页面-pages-setpage-setpage-vue"  style="margin-left:130px;">1-1. 在页面 /pages/setpage/setpage.vue</a>
+####  <a href="/thirdless/w-b/11游客聊天处理.html#_1-2-在页面-pages-setpageinfo-setpageinfo-vue"  style="margin-left:130px;">1-2. 在页面 /pages/setpageInfo/setpageInfo.vue</a>
+####  <a href="/thirdless/w-b/11游客聊天处理.html#_1-3-在文件-pages-setpageinfo-group-js"  style="margin-left:130px;">1-3. 在文件 /pages/setpageInfo/group.js</a>
+####  <a href="/thirdless/w-b/11游客聊天处理.html#_1-4-在文件-pages-setpageinfo-updateuserinfo-js"  style="margin-left:130px;">1-4. 在文件 /pages/setpageInfo/updateUserInfo.js</a>
+####  <a href="/thirdless/w-b/11游客聊天处理.html#_5-根据地址是否有redirect参数来简化按钮操作"  style="margin-left:70px;">5. 根据地址是否有redirect参数来简化按钮操作</a>
+####  <a href="/thirdless/w-b/11游客聊天处理.html#_5-1-在页面-pages-setpageinfo-setpageinfo-vue"  style="margin-left:130px;">5-1. 在页面 /pages/setpageInfo/setpageInfo.vue</a>
+####  <a href="/thirdless/w-b/11游客聊天处理.html#_5-2-在文件-pages-setpageinfo-group-js"  style="margin-left:130px;">5-2. 在文件 /pages/setpageInfo/group.js</a>
+
+### <a href="/thirdless/w-b/12问题修复及使用场景举例" target="_blank" title="点击查看课程文档">章节12.问题修复及使用场景举例</a>
+####  <a href="/thirdless/w-b/12问题修复及使用场景举例.html#一、和我聊天设置-聊天条数限制"  style="margin-left:40px;">一、和我聊天设置（聊天条数限制）</a>
+####  <a href="/thirdless/w-b/12问题修复及使用场景举例.html#_1-入口设置"  style="margin-left:70px;">1. 入口设置</a>
+####  <a href="/thirdless/w-b/12问题修复及使用场景举例.html#_2-功能实现"  style="margin-left:70px;">2. 功能实现</a>
+####  <a href="/thirdless/w-b/12问题修复及使用场景举例.html#_1-在聊天页点击用户头像进入"  style="margin-left:100px;">① 在聊天页点击用户头像进入</a>
+####  <a href="/thirdless/w-b/12问题修复及使用场景举例.html#_2-新建混入文件-pages-userinfo-sendmessage-js"  style="margin-left:100px;">② 新建混入文件 /pages/userinfo/sendMessage.js</a>
+####  <a href="/thirdless/w-b/12问题修复及使用场景举例.html#_3-聊天设置页判断是否显示删除好友按钮"  style="margin-left:100px;">③ 聊天设置页判断是否显示删除好友按钮</a>
+####  <a href="/thirdless/w-b/12问题修复及使用场景举例.html#二、使用场景体验"  style="margin-left:40px;">二、使用场景体验</a>
+####  <a href="/thirdless/w-b/12问题修复及使用场景举例.html#_1-将我们的即时通讯嵌入到某个项目中"  style="margin-left:70px;">① 将我们的即时通讯嵌入到某个项目中</a>
+####  <a href="/thirdless/w-b/12问题修复及使用场景举例.html#_2-配置文件"  style="margin-left:70px;">② 配置文件</a>
+
+
+
+### <a href="/thirdless/w-b/13选修课" target="_blank" title="点击查看课程文档">章节13.即时通讯选修课</a>
+####  <a href="/thirdless/w-b/13选修课.html#一、数据统一在配置文件管理"  style="margin-left:40px;">一、数据统一在配置文件管理</a>
+####  <a href="/thirdless/w-b/13选修课.html#_1-消息页初始化数据清空"  style="margin-left:70px;">1 消息页初始化数据清空</a>
+####  <a href="/thirdless/w-b/13选修课.html#_2-聊天页数据处理"  style="margin-left:70px;">2 聊天页数据处理</a>
+####  <a href="/thirdless/w-b/13选修课.html#二、搜索加好友功能优化"  style="margin-left:40px;">二、搜索加好友功能优化</a>
+####  <a href="/thirdless/w-b/13选修课.html#_1-在页面-pages-chat-chat-nvue"  style="margin-left:70px;">1. 在页面 /pages/chat/chat.nvue</a>
+####  <a href="/thirdless/w-b/13选修课.html#_2-新建混入文件-pages-chat-pageaction-js"  style="margin-left:70px;">2. 新建混入文件 /pages/chat/pageAction.js</a>
+####  <a href="/thirdless/w-b/13选修课.html#_3-数据配置文件定义用户设置信息"  style="margin-left:70px;">3. 数据配置文件定义用户设置信息</a>
+####  <a href="/thirdless/w-b/13选修课.html#_4-在文件-pages-userinfo-sendmessage-js"  style="margin-left:70px;">4. 在文件 /pages/userinfo/sendMessage.js</a>
+####  <a href="/thirdless/w-b/13选修课.html#_5-在组件-components-chat-item-chat-item-vue"  style="margin-left:70px;">5. 在组件 /components/chat-item/chat-item.vue</a>
+####  <a href="/thirdless/w-b/13选修课.html#三、-其它功能"  style="margin-left:40px;">三、 其它功能</a>
 
 
 
