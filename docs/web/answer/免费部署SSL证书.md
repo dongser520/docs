@@ -4,7 +4,24 @@ sidebar: auto
 title: 免费部署SSL证书
 ---
 
-## 一、自动化部署流程
+
+## 一、https协议【SSL证书】说明
+搭建https协议的网站，需要申请SSL证书证书，申请证书有两种方式：<br/>
+### 1. 付费证书（花钱买）
+- 付费证书很容易理解，就是花钱买证书，以阿里云为例，阿里云的付费证书有：DV、OV、EV三种，其中EV证书是最高级别的，价格也最高，一般企业才会申请EV证书，个人网站申请DV证书即可，OV证书介于两者之间，价格也介于两者之间（可去阿里云看价格），如果你不缺钱可以用这个；（`【重要】根据CA/B最新的投票结果，自2026年03月15日起，证书签发有效期将计划缩短至200天；`） <br/>
+- -  到期后（`一年，2026年03月15日起，缩短至200天`）再去申请，等签发（半个小时），再到服务器去更换；
+
+### 2. 免费证书（不想花钱）
+#### 2.1 阿里云提供的免费证书
+- 一年20个，每3个月到期一个【也就是一个域名（一个网站一年要用4个证书，最多可以给5个网站使用）】，到期之后，需要重新申请签发，等签发（半个小时），再到服务器去更换；
+
+#### 2.2 通过技术手段，自动申请免费证书（永远过期）
+- 自动部署证书，默认90天，到期后，会自动续签，不需要人工干预；
+
+
+
+
+## 二、自动化部署流程
 我们采用 `ALLinSSL`开源免费的SSL证书自动化管理平台部署SSL证书， 官方网站：<https://allinssl.com/> <br/>
 
 具体查看视频，<a href="https://www.bilibili.com/video/BV1qz7ZzXEJv/?spm_id_from=333.1387.homepage.video_card.click&vd_source=9a6ee0d7e6c1657e4a7381c1f8f18f4b" target="_blank"> 自动化部署流程视频查看[B站] </a>
@@ -82,10 +99,10 @@ curl -sSO http://download.allinssl.com/install_allinssl.sh && bash install_allin
 > 6. `执行`
 > 7. `查看执行历史`
 
-## 二、自动化部署流程视频查看
+## 三、自动化部署流程视频查看
 具体查看视频，<a href="https://www.bilibili.com/video/BV1qz7ZzXEJv/?spm_id_from=333.1387.homepage.video_card.click&vd_source=9a6ee0d7e6c1657e4a7381c1f8f18f4b" target="_blank"> 自动化部署流程视频查看 </a>
 
-## 三、关于`AllInSSL`无法访问的解决方案
+## 四、关于`AllInSSL`无法访问的解决方案
 > 如果一段时间之后，无法访问`AllInSSL`，可能是`AllinSSL` 服务当前没有运行，按照如下步骤解决： <br/>
 ### 1. 确认服务是否运行
 > ```bash
