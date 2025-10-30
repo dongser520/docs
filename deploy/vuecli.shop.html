@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>thinkphp商城后台管理系统上线部署 | 睿晨网</title>
+    <meta name="generator" content="VuePress 1.9.9">
+    <link rel="icon" href="/assets/img/favicon.png">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="apple-touch-icon" href="/icons/apple-touch-icon-152x152.png">
+    <link rel="#icon-pengyouquan" href="/icons/iconfont.svg" color="#3eaf7c">
+    <meta name="description" content="睿晨网|睿晨编程|零基础学做网站、app、小程序就从这里开始">
+    <meta name="keywords" content="睿晨网,睿晨编程,零基础学做网站,零基础学app,零基础学小程序">
+    <meta name="author" content="睿晨网,睿晨编程,阿东老师">
+    <meta name="theme-color" content="#3eaf7c">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="msapplication-TileImage" content="/icons/msapplication-icon-144x144.png">
+    <meta name="msapplication-TileColor" content="#000000">
+    
+    <link rel="preload" href="/assets/css/0.styles.0c241f14.css" as="style"><link rel="preload" href="/assets/js/app.4c1fa2f2.js" as="script"><link rel="preload" href="/assets/js/10.a1858127.js" as="script"><link rel="preload" href="/assets/js/2.641709ae.js" as="script"><link rel="preload" href="/assets/js/19.f216d96e.js" as="script"><link rel="preload" href="/assets/js/4.68f7b7e9.js" as="script"><link rel="prefetch" href="/assets/js/100.18619803.js"><link rel="prefetch" href="/assets/js/101.795bb579.js"><link rel="prefetch" href="/assets/js/102.b2af91e0.js"><link rel="prefetch" href="/assets/js/103.addaf7eb.js"><link rel="prefetch" href="/assets/js/104.9cadff90.js"><link rel="prefetch" href="/assets/js/105.78b9c2c5.js"><link rel="prefetch" href="/assets/js/106.2e311b0f.js"><link rel="prefetch" href="/assets/js/107.719537c8.js"><link rel="prefetch" href="/assets/js/108.ee801dcb.js"><link rel="prefetch" href="/assets/js/109.7be9e3da.js"><link rel="prefetch" href="/assets/js/11.e11c94df.js"><link rel="prefetch" href="/assets/js/110.bef17d75.js"><link rel="prefetch" href="/assets/js/111.ae05aad1.js"><link rel="prefetch" href="/assets/js/112.348a918b.js"><link rel="prefetch" href="/assets/js/113.0377bb8f.js"><link rel="prefetch" href="/assets/js/114.7ce59f50.js"><link rel="prefetch" href="/assets/js/115.73763f96.js"><link rel="prefetch" href="/assets/js/116.8c4955c8.js"><link rel="prefetch" href="/assets/js/117.f57f0ca7.js"><link rel="prefetch" href="/assets/js/118.ac987a87.js"><link rel="prefetch" href="/assets/js/119.191506f9.js"><link rel="prefetch" href="/assets/js/12.77b4f171.js"><link rel="prefetch" href="/assets/js/120.a9d0f345.js"><link rel="prefetch" href="/assets/js/121.74ec567e.js"><link rel="prefetch" href="/assets/js/122.9e1dbf90.js"><link rel="prefetch" href="/assets/js/123.2ae10c73.js"><link rel="prefetch" href="/assets/js/124.1e2930d5.js"><link rel="prefetch" href="/assets/js/125.bd54db16.js"><link rel="prefetch" href="/assets/js/126.501951f4.js"><link rel="prefetch" href="/assets/js/127.78e8444c.js"><link rel="prefetch" href="/assets/js/128.4e853ac8.js"><link rel="prefetch" href="/assets/js/129.b8b424a4.js"><link rel="prefetch" href="/assets/js/13.06be6eff.js"><link rel="prefetch" href="/assets/js/130.97044db5.js"><link rel="prefetch" href="/assets/js/131.a16e7627.js"><link rel="prefetch" href="/assets/js/132.1de37703.js"><link rel="prefetch" href="/assets/js/133.d99212b9.js"><link rel="prefetch" href="/assets/js/134.92f94379.js"><link rel="prefetch" href="/assets/js/135.e4a78e00.js"><link rel="prefetch" href="/assets/js/136.4977877f.js"><link rel="prefetch" href="/assets/js/137.4c4703c5.js"><link rel="prefetch" href="/assets/js/138.c199cd62.js"><link rel="prefetch" href="/assets/js/139.3ae48ccb.js"><link rel="prefetch" href="/assets/js/14.f75e8140.js"><link rel="prefetch" href="/assets/js/140.41d910b1.js"><link rel="prefetch" href="/assets/js/141.c93ed5fd.js"><link rel="prefetch" href="/assets/js/142.a30bcabf.js"><link rel="prefetch" href="/assets/js/143.8b1aaf58.js"><link rel="prefetch" href="/assets/js/144.f9b2970c.js"><link rel="prefetch" href="/assets/js/145.7363c390.js"><link rel="prefetch" href="/assets/js/146.1d5c8a1d.js"><link rel="prefetch" href="/assets/js/147.e121f839.js"><link rel="prefetch" href="/assets/js/148.add78a99.js"><link rel="prefetch" href="/assets/js/149.f27cc0ff.js"><link rel="prefetch" href="/assets/js/15.f10318c8.js"><link rel="prefetch" href="/assets/js/150.ced8ecaa.js"><link rel="prefetch" href="/assets/js/151.0bf12333.js"><link rel="prefetch" href="/assets/js/152.40f21e31.js"><link rel="prefetch" href="/assets/js/153.b262de48.js"><link rel="prefetch" href="/assets/js/154.50c64325.js"><link rel="prefetch" href="/assets/js/155.426015ec.js"><link rel="prefetch" href="/assets/js/156.4b9bf962.js"><link rel="prefetch" href="/assets/js/157.95c0b8d1.js"><link rel="prefetch" href="/assets/js/158.74450c14.js"><link rel="prefetch" href="/assets/js/159.cc9c20a2.js"><link rel="prefetch" href="/assets/js/16.49a0cfe4.js"><link rel="prefetch" href="/assets/js/160.01c4a8c7.js"><link rel="prefetch" href="/assets/js/161.d4c19dfb.js"><link rel="prefetch" href="/assets/js/162.42a1c4fb.js"><link rel="prefetch" href="/assets/js/163.d3b4d63d.js"><link rel="prefetch" href="/assets/js/164.f9f007d4.js"><link rel="prefetch" href="/assets/js/165.9f7441e0.js"><link rel="prefetch" href="/assets/js/166.1d96f480.js"><link rel="prefetch" href="/assets/js/167.5856d771.js"><link rel="prefetch" href="/assets/js/168.dd367256.js"><link rel="prefetch" href="/assets/js/169.cf1362a6.js"><link rel="prefetch" href="/assets/js/17.9cf0aeef.js"><link rel="prefetch" href="/assets/js/170.aca266de.js"><link rel="prefetch" href="/assets/js/171.599ff2d4.js"><link rel="prefetch" href="/assets/js/172.9e0826cc.js"><link rel="prefetch" href="/assets/js/173.d30914b5.js"><link rel="prefetch" href="/assets/js/174.d7494b91.js"><link rel="prefetch" href="/assets/js/175.b32a1bb2.js"><link rel="prefetch" href="/assets/js/176.decc27de.js"><link rel="prefetch" href="/assets/js/177.c0b71cf9.js"><link rel="prefetch" href="/assets/js/178.4e28a1ff.js"><link rel="prefetch" href="/assets/js/179.f6a019b1.js"><link rel="prefetch" href="/assets/js/18.f506f436.js"><link rel="prefetch" href="/assets/js/180.f853a887.js"><link rel="prefetch" href="/assets/js/181.b2de00b7.js"><link rel="prefetch" href="/assets/js/182.22b42a53.js"><link rel="prefetch" href="/assets/js/183.4d3486a4.js"><link rel="prefetch" href="/assets/js/184.25831409.js"><link rel="prefetch" href="/assets/js/185.d01fcfd3.js"><link rel="prefetch" href="/assets/js/186.49c41f4f.js"><link rel="prefetch" href="/assets/js/187.34eb1a96.js"><link rel="prefetch" href="/assets/js/188.651bcdfa.js"><link rel="prefetch" href="/assets/js/189.e75e375d.js"><link rel="prefetch" href="/assets/js/190.1ec83dea.js"><link rel="prefetch" href="/assets/js/191.bbb68c4d.js"><link rel="prefetch" href="/assets/js/192.1e4bd575.js"><link rel="prefetch" href="/assets/js/193.c560196e.js"><link rel="prefetch" href="/assets/js/194.ea7c96fd.js"><link rel="prefetch" href="/assets/js/195.279e9c3a.js"><link rel="prefetch" href="/assets/js/196.79b5d677.js"><link rel="prefetch" href="/assets/js/197.78f10001.js"><link rel="prefetch" href="/assets/js/198.d665ee5a.js"><link rel="prefetch" href="/assets/js/199.37013295.js"><link rel="prefetch" href="/assets/js/20.c9849598.js"><link rel="prefetch" href="/assets/js/200.2347a83a.js"><link rel="prefetch" href="/assets/js/201.19063bbd.js"><link rel="prefetch" href="/assets/js/202.32e5ace2.js"><link rel="prefetch" href="/assets/js/203.1f87638d.js"><link rel="prefetch" href="/assets/js/204.03cf582a.js"><link rel="prefetch" href="/assets/js/205.80fe2051.js"><link rel="prefetch" href="/assets/js/206.a0d9b926.js"><link rel="prefetch" href="/assets/js/207.3502356e.js"><link rel="prefetch" href="/assets/js/208.a4c9af93.js"><link rel="prefetch" href="/assets/js/209.9511055d.js"><link rel="prefetch" href="/assets/js/21.7d11fd8e.js"><link rel="prefetch" href="/assets/js/210.dc1b8bd8.js"><link rel="prefetch" href="/assets/js/211.eec86519.js"><link rel="prefetch" href="/assets/js/212.e26acd4d.js"><link rel="prefetch" href="/assets/js/213.9a9ec01e.js"><link rel="prefetch" href="/assets/js/214.19bf4a95.js"><link rel="prefetch" href="/assets/js/215.ede08fd2.js"><link rel="prefetch" href="/assets/js/216.a9443bde.js"><link rel="prefetch" href="/assets/js/217.845fad4f.js"><link rel="prefetch" href="/assets/js/218.10a24507.js"><link rel="prefetch" href="/assets/js/219.582bf77f.js"><link rel="prefetch" href="/assets/js/22.a81c6dd1.js"><link rel="prefetch" href="/assets/js/220.75958238.js"><link rel="prefetch" href="/assets/js/221.25aa9b7d.js"><link rel="prefetch" href="/assets/js/23.e3f76b3b.js"><link rel="prefetch" href="/assets/js/24.53929924.js"><link rel="prefetch" href="/assets/js/25.6da15d03.js"><link rel="prefetch" href="/assets/js/26.208cb02b.js"><link rel="prefetch" href="/assets/js/27.0055f1bf.js"><link rel="prefetch" href="/assets/js/28.c22d8dbb.js"><link rel="prefetch" href="/assets/js/29.5274de73.js"><link rel="prefetch" href="/assets/js/3.a5ce401d.js"><link rel="prefetch" href="/assets/js/30.0c8e8d20.js"><link rel="prefetch" href="/assets/js/31.dabb2430.js"><link rel="prefetch" href="/assets/js/32.4b69344f.js"><link rel="prefetch" href="/assets/js/33.2a6fe3fa.js"><link rel="prefetch" href="/assets/js/34.b7d7a9a6.js"><link rel="prefetch" href="/assets/js/35.fc527240.js"><link rel="prefetch" href="/assets/js/36.96422d34.js"><link rel="prefetch" href="/assets/js/37.7cd0e507.js"><link rel="prefetch" href="/assets/js/38.adb87b54.js"><link rel="prefetch" href="/assets/js/39.142ea250.js"><link rel="prefetch" href="/assets/js/40.2d6a4bf1.js"><link rel="prefetch" href="/assets/js/41.6dc1c411.js"><link rel="prefetch" href="/assets/js/42.c8355471.js"><link rel="prefetch" href="/assets/js/43.eba2417f.js"><link rel="prefetch" href="/assets/js/44.cdafd4da.js"><link rel="prefetch" href="/assets/js/45.5dfd5868.js"><link rel="prefetch" href="/assets/js/46.4cde5b6f.js"><link rel="prefetch" href="/assets/js/47.1fa112a3.js"><link rel="prefetch" href="/assets/js/48.cc7fe259.js"><link rel="prefetch" href="/assets/js/49.3df09ad7.js"><link rel="prefetch" href="/assets/js/5.6ac3d9b4.js"><link rel="prefetch" href="/assets/js/50.419588dd.js"><link rel="prefetch" href="/assets/js/51.c48be90d.js"><link rel="prefetch" href="/assets/js/52.c461b61e.js"><link rel="prefetch" href="/assets/js/53.4f6ab812.js"><link rel="prefetch" href="/assets/js/54.3293f69e.js"><link rel="prefetch" href="/assets/js/55.4d866de2.js"><link rel="prefetch" href="/assets/js/56.31a53067.js"><link rel="prefetch" href="/assets/js/57.19c7e76e.js"><link rel="prefetch" href="/assets/js/58.d8dc7186.js"><link rel="prefetch" href="/assets/js/59.bdfff1b6.js"><link rel="prefetch" href="/assets/js/6.f6f62d21.js"><link rel="prefetch" href="/assets/js/60.17072b43.js"><link rel="prefetch" href="/assets/js/61.035209e3.js"><link rel="prefetch" href="/assets/js/62.0d160a8a.js"><link rel="prefetch" href="/assets/js/63.cf07039a.js"><link rel="prefetch" href="/assets/js/64.4ac28cb2.js"><link rel="prefetch" href="/assets/js/65.c4b56fcb.js"><link rel="prefetch" href="/assets/js/66.fe14252b.js"><link rel="prefetch" href="/assets/js/67.f5182f00.js"><link rel="prefetch" href="/assets/js/68.29ba900b.js"><link rel="prefetch" href="/assets/js/69.8e3c6d8f.js"><link rel="prefetch" href="/assets/js/7.5ecdfcdb.js"><link rel="prefetch" href="/assets/js/70.272781c2.js"><link rel="prefetch" href="/assets/js/71.ba3c0143.js"><link rel="prefetch" href="/assets/js/72.0036a802.js"><link rel="prefetch" href="/assets/js/73.6bd6be40.js"><link rel="prefetch" href="/assets/js/74.d81dedf2.js"><link rel="prefetch" href="/assets/js/75.757237b7.js"><link rel="prefetch" href="/assets/js/76.f5792d24.js"><link rel="prefetch" href="/assets/js/77.d8aadd25.js"><link rel="prefetch" href="/assets/js/78.e4843ab3.js"><link rel="prefetch" href="/assets/js/79.a1f0575e.js"><link rel="prefetch" href="/assets/js/8.f3b4934d.js"><link rel="prefetch" href="/assets/js/80.ea9aa602.js"><link rel="prefetch" href="/assets/js/81.2cd439e3.js"><link rel="prefetch" href="/assets/js/82.9af7b0cb.js"><link rel="prefetch" href="/assets/js/83.77ac7dfb.js"><link rel="prefetch" href="/assets/js/84.17214734.js"><link rel="prefetch" href="/assets/js/85.0775f854.js"><link rel="prefetch" href="/assets/js/86.569d43a8.js"><link rel="prefetch" href="/assets/js/87.74196356.js"><link rel="prefetch" href="/assets/js/88.fa5aad52.js"><link rel="prefetch" href="/assets/js/89.11b2daa6.js"><link rel="prefetch" href="/assets/js/9.4d480772.js"><link rel="prefetch" href="/assets/js/90.3140661f.js"><link rel="prefetch" href="/assets/js/91.3d978faa.js"><link rel="prefetch" href="/assets/js/92.41c51097.js"><link rel="prefetch" href="/assets/js/93.70f92b88.js"><link rel="prefetch" href="/assets/js/94.7d09f78c.js"><link rel="prefetch" href="/assets/js/95.d7859f94.js"><link rel="prefetch" href="/assets/js/96.104638ee.js"><link rel="prefetch" href="/assets/js/97.fa2e330a.js"><link rel="prefetch" href="/assets/js/98.e49c1821.js"><link rel="prefetch" href="/assets/js/99.c5e10809.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.0c241f14.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">睿晨网</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">
+  主页
+</a></div><div class="nav-item"><a href="/aboutless.html" class="nav-link">
+  第一期企业网页开发
+</a></div><div class="nav-item"><a href="/secondless/" class="nav-link">
+  第二期企业网站开发
+</a></div><div class="nav-item"><a href="/thirdless/" class="nav-link">
+  第三期移动端(H5/小程序/App)课程
+</a></div><div class="nav-item"><a href="/fourthless/" class="nav-link">
+  第四期web全栈课程
+</a></div><div class="nav-item"><a href="/fiveless/" class="nav-link">
+  第五期python课程
+</a></div><div class="nav-item"><a href="/web/software/" class="nav-link">
+  课程软件小案例
+</a></div><div class="nav-item"><a href="/web/mysql/" class="nav-link">
+  课程案例数据表
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="课程答疑汇总" class="dropdown-title"><span class="title">课程答疑</span> <span class="arrow down"></span></button> <button type="button" aria-label="课程答疑汇总" class="mobile-dropdown-title"><span class="title">课程答疑</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/web/answer/课程常见问题.html" class="nav-link">
+  课程常见问题
+</a></li><li class="dropdown-item"><!----> <a href="/deploy/" class="nav-link router-link-active">
+  项目部署
+</a></li><li class="dropdown-item"><!----> <a href="/web/answer/免费部署SSL证书.html" class="nav-link">
+  免费部署SSL证书
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="课程学习网站" class="dropdown-title"><span class="title">课程学习网站</span> <span class="arrow down"></span></button> <button type="button" aria-label="课程学习网站" class="mobile-dropdown-title"><span class="title">课程学习网站</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          视频学习网站
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://study.163.com/provider/480000002289674/index.htm?share=2&amp;shareId=480000002289674" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  网易云课堂
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://space.bilibili.com/3493114067028034/pugv" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  B站
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="实用菜单" class="dropdown-title"><span class="title">实用网站和方法</span> <span class="arrow down"></span></button> <button type="button" aria-label="实用菜单" class="mobile-dropdown-title"><span class="title">实用网站和方法</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          实用方法
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/web/methods/定位相关.html" class="nav-link">
+  定位相关
+</a></li><li class="dropdown-subitem"><a href="/web/methods/地图相关.html" class="nav-link">
+  地图相关
+</a></li><li class="dropdown-subitem"><a href="/web/methods/树形结构数据转换.html" class="nav-link">
+  树形结构数据转换
+</a></li></ul></li><li class="dropdown-item"><h4>
+          uni-app专栏
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/web/methods/uni-app专栏.html" class="nav-link">
+  uni-app的UI框架
+</a></li><li class="dropdown-subitem"><a href="/web/methods/uni-app如何引入库.html" class="nav-link">
+  uni-app如何引入js库
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Egg.js专栏
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/secondless/w-c/Egg.js.html" class="nav-link">
+  Egg.js基础
+</a></li><li class="dropdown-subitem"><a href="/secondless/w-c/egg.js基础总结.html" class="nav-link">
+  Egg.js基础总结
+</a></li><li class="dropdown-subitem"><a href="/secondless/w-c/egg.js重要知识详细文档.html" class="nav-link">
+  Egg.js重要知识详细文档
+</a></li><li class="dropdown-subitem"><a href="/secondless/w-c/ValParams API 说明.html" class="nav-link">
+  Egg.js参数验证说明
+</a></li><li class="dropdown-subitem"><a href="/web/mysql/Sequelize数据类型.html" class="nav-link">
+  Egg.js迁移文件Sequelize数据类型
+</a></li><li class="dropdown-subitem"><a href="/secondless/w-c/Egg.js接口安全防护方案.html" class="nav-link">
+  Egg.js接口安全防护方案
+</a></li><li class="dropdown-subitem"><a href="/web/answer/课程常见问题.html#_3-eggjs如何重置数据表-保证id每次从1开始计算" class="nav-link">
+  Egg.js重置数据表每次ID为1
+</a></li></ul></li><li class="dropdown-item"><h4>
+          实用网站
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/web/methods/实用接口.html" class="nav-link">
+  实用接口
+</a></li><li class="dropdown-subitem"><a href="/web/css/" class="nav-link">
+  css
+</a></li><li class="dropdown-subitem"><a href="/web/vue.js/" class="nav-link">
+  Vue.js
+</a></li><li class="dropdown-subitem"><a href="/web/Vue3+ElementPlus/" class="nav-link">
+  Vue3+ElementPlus系统
+</a></li><li class="dropdown-subitem"><a href="/web/echarts/" class="nav-link">
+  echarts图表
+</a></li><li class="dropdown-subitem"><a href="/web/bootstrap/" class="nav-link">
+  Bootstrap
+</a></li><li class="dropdown-subitem"><a href="/web/IIS/" class="nav-link">
+  IIS
+</a></li><li class="dropdown-subitem"><a href="/web/github/" class="nav-link">
+  Github
+</a></li><li class="dropdown-subitem"><a href="/web/Vanta.js/" class="nav-link">
+  Vanta.js网页3D背景
+</a></li><li class="dropdown-subitem"><a href="/web/shop/" class="nav-link">
+  商城系统推荐
+</a></li></ul></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">
+  主页
+</a></div><div class="nav-item"><a href="/aboutless.html" class="nav-link">
+  第一期企业网页开发
+</a></div><div class="nav-item"><a href="/secondless/" class="nav-link">
+  第二期企业网站开发
+</a></div><div class="nav-item"><a href="/thirdless/" class="nav-link">
+  第三期移动端(H5/小程序/App)课程
+</a></div><div class="nav-item"><a href="/fourthless/" class="nav-link">
+  第四期web全栈课程
+</a></div><div class="nav-item"><a href="/fiveless/" class="nav-link">
+  第五期python课程
+</a></div><div class="nav-item"><a href="/web/software/" class="nav-link">
+  课程软件小案例
+</a></div><div class="nav-item"><a href="/web/mysql/" class="nav-link">
+  课程案例数据表
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="课程答疑汇总" class="dropdown-title"><span class="title">课程答疑</span> <span class="arrow down"></span></button> <button type="button" aria-label="课程答疑汇总" class="mobile-dropdown-title"><span class="title">课程答疑</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/web/answer/课程常见问题.html" class="nav-link">
+  课程常见问题
+</a></li><li class="dropdown-item"><!----> <a href="/deploy/" class="nav-link router-link-active">
+  项目部署
+</a></li><li class="dropdown-item"><!----> <a href="/web/answer/免费部署SSL证书.html" class="nav-link">
+  免费部署SSL证书
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="课程学习网站" class="dropdown-title"><span class="title">课程学习网站</span> <span class="arrow down"></span></button> <button type="button" aria-label="课程学习网站" class="mobile-dropdown-title"><span class="title">课程学习网站</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          视频学习网站
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://study.163.com/provider/480000002289674/index.htm?share=2&amp;shareId=480000002289674" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  网易云课堂
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://space.bilibili.com/3493114067028034/pugv" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  B站
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="实用菜单" class="dropdown-title"><span class="title">实用网站和方法</span> <span class="arrow down"></span></button> <button type="button" aria-label="实用菜单" class="mobile-dropdown-title"><span class="title">实用网站和方法</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          实用方法
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/web/methods/定位相关.html" class="nav-link">
+  定位相关
+</a></li><li class="dropdown-subitem"><a href="/web/methods/地图相关.html" class="nav-link">
+  地图相关
+</a></li><li class="dropdown-subitem"><a href="/web/methods/树形结构数据转换.html" class="nav-link">
+  树形结构数据转换
+</a></li></ul></li><li class="dropdown-item"><h4>
+          uni-app专栏
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/web/methods/uni-app专栏.html" class="nav-link">
+  uni-app的UI框架
+</a></li><li class="dropdown-subitem"><a href="/web/methods/uni-app如何引入库.html" class="nav-link">
+  uni-app如何引入js库
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Egg.js专栏
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/secondless/w-c/Egg.js.html" class="nav-link">
+  Egg.js基础
+</a></li><li class="dropdown-subitem"><a href="/secondless/w-c/egg.js基础总结.html" class="nav-link">
+  Egg.js基础总结
+</a></li><li class="dropdown-subitem"><a href="/secondless/w-c/egg.js重要知识详细文档.html" class="nav-link">
+  Egg.js重要知识详细文档
+</a></li><li class="dropdown-subitem"><a href="/secondless/w-c/ValParams API 说明.html" class="nav-link">
+  Egg.js参数验证说明
+</a></li><li class="dropdown-subitem"><a href="/web/mysql/Sequelize数据类型.html" class="nav-link">
+  Egg.js迁移文件Sequelize数据类型
+</a></li><li class="dropdown-subitem"><a href="/secondless/w-c/Egg.js接口安全防护方案.html" class="nav-link">
+  Egg.js接口安全防护方案
+</a></li><li class="dropdown-subitem"><a href="/web/answer/课程常见问题.html#_3-eggjs如何重置数据表-保证id每次从1开始计算" class="nav-link">
+  Egg.js重置数据表每次ID为1
+</a></li></ul></li><li class="dropdown-item"><h4>
+          实用网站
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/web/methods/实用接口.html" class="nav-link">
+  实用接口
+</a></li><li class="dropdown-subitem"><a href="/web/css/" class="nav-link">
+  css
+</a></li><li class="dropdown-subitem"><a href="/web/vue.js/" class="nav-link">
+  Vue.js
+</a></li><li class="dropdown-subitem"><a href="/web/Vue3+ElementPlus/" class="nav-link">
+  Vue3+ElementPlus系统
+</a></li><li class="dropdown-subitem"><a href="/web/echarts/" class="nav-link">
+  echarts图表
+</a></li><li class="dropdown-subitem"><a href="/web/bootstrap/" class="nav-link">
+  Bootstrap
+</a></li><li class="dropdown-subitem"><a href="/web/IIS/" class="nav-link">
+  IIS
+</a></li><li class="dropdown-subitem"><a href="/web/github/" class="nav-link">
+  Github
+</a></li><li class="dropdown-subitem"><a href="/web/Vanta.js/" class="nav-link">
+  Vanta.js网页3D背景
+</a></li><li class="dropdown-subitem"><a href="/web/shop/" class="nav-link">
+  商城系统推荐
+</a></li></ul></li></ul></div></div> <!----></nav>  <ul class="sidebar-links"><li><a href="/aboutless.html" class="sidebar-link">第一期企业网页开发</a></li><li><section class="sidebar-group depth-0"><a href="/secondless/" class="sidebar-heading clickable"><span>第二期企业网站开发</span> <!----></a> <ul class="sidebar-links sidebar-group-items"><li><a href="/secondless/w-a.html" class="sidebar-link">第二学期第一季（课程学习顺序：02）</a></li><li><a href="/secondless/w-b.html" class="sidebar-link">第二学期第二季（课程学习顺序：03）</a></li><li><a href="/secondless/w-c.html" class="sidebar-link">第二学期第三季（课程学习顺序：04）</a></li><li><a href="/secondless/w-d.html" class="sidebar-link">第二学期第四季（课程学习顺序：05）</a></li></ul></section></li><li><section class="sidebar-group depth-0"><a href="/thirdless/" class="sidebar-heading clickable"><span>第三期移动端(H5/小程序/App)</span> <!----></a> <ul class="sidebar-links sidebar-group-items"><li><a href="/thirdless/w-a.html" class="sidebar-link">第三学期第一季（课程学习顺序：06）</a></li><li><a href="/thirdless/w-b.html" class="sidebar-link">第三学期第二季（课程学习顺序：07）</a></li><li><a href="/thirdless/w-c.html" class="sidebar-link">第三学期第三季（课程学习顺序：08）</a></li><li><a href="/thirdless/w-d.html" class="sidebar-link">第三学期第四季（课程学习顺序：09）</a></li><li><a href="/thirdless/w-e.html" class="sidebar-link">第三学期第五季（课程学习顺序：10）</a></li></ul></section></li><li><section class="sidebar-group depth-0"><a href="/fourthless/" class="sidebar-heading clickable"><span>第四期web全栈课程</span> <!----></a> <ul class="sidebar-links sidebar-group-items"><li><a href="/fourthless/w-a.html" class="sidebar-link">第四学期第一季（课程学习顺序：11）</a></li><li><a href="/fourthless/w-b.html" class="sidebar-link">第四学期第二季（课程学习顺序：12）</a></li><li><a href="/fourthless/w-c.html" class="sidebar-link">第四学期第三季（课程学习顺序：13）</a></li><li><a href="/fourthless/w-d.html" class="sidebar-link">第四学期第四季（课程学习顺序：14）</a></li><li><a href="/fourthless/w-e.html" class="sidebar-link">第四学期第五季（课程学习顺序：15）</a></li></ul></section></li><li><section class="sidebar-group depth-0"><a href="/fiveless/" class="sidebar-heading clickable"><span>第五期python课程</span> <!----></a> <ul class="sidebar-links sidebar-group-items"><li><a href="/fiveless/w-a.html" class="sidebar-link">第五学期第一季（课程学习顺序：16）</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="thinkphp商城后台管理系统上线部署"><a href="#thinkphp商城后台管理系统上线部署" class="header-anchor">#</a> thinkphp商城后台管理系统上线部署</h1> <h2 id="解析一个域名"><a href="#解析一个域名" class="header-anchor">#</a> 解析一个域名</h2> <blockquote><p>在阿里云或腾讯云，域名管理中，解析一个域名到线上服务器，本次演示域名： <code>vuecli.shop.51yrc.com</code>，轻量应用服务器在域名栏目绑定域名。</p></blockquote> <h2 id="服务器面板操作-以宝塔面板为例"><a href="#服务器面板操作-以宝塔面板为例" class="header-anchor">#</a> 服务器面板操作（以宝塔面板为例）</h2> <h3 id="_1-创建网站"><a href="#_1-创建网站" class="header-anchor">#</a> 1. 创建网站</h3> <blockquote><ol><li><code>网站</code>-<code>PHP项目</code>-<code>添加站点</code>-<code>传统项目</code> <br></li></ol> <blockquote><p><code>域名</code>：vuecli.shop.51yrc.com <br> <code>备注</code>：vuecli.shop.51yrc.com (自动生成)<br> <code>根目录</code>：/www/wwwroot/vuecli.shop.51yrc.com  (自动生成)<br> <code>FTP</code>：不创建<br> <code>数据库</code>：MySQL---字符集：utf8mb4（存表情包），数据库账号、密码自动生成<br> <code>PHP版本</code>：PHP-72<br> <code>网站分类</code>：默认分类<br>
+确定--&gt; 点击域名看默认站点是否可以打开</p></blockquote></blockquote> <h3 id="_2-部署项目后端"><a href="#_2-部署项目后端" class="header-anchor">#</a> 2.部署项目后端</h3> <blockquote><ol><li>群文件下载源码 （或私信老师获取源码）<br></li> <li>上传源码到服务器网站对应根目录/www/wwwroot/vuecli.shop.51yrc.com ， 解压源码<br></li> <li>网站--&gt;对应网站--&gt;<code>设置</code>，<code>网站目录</code>-&gt;<code>运行目录</code>-&gt;选择 <code>/public</code>-&gt;<code>保存</code><br></li> <li>配置伪静态：<code>伪静态</code>-&gt;<code>thinkphp</code>,-&gt;<code>保存</code><br></li> <li>修改数据库相关配置(可新开一个数据库窗口):<br></li></ol> <blockquote><p>根目录找到.env文件-&gt;<code>编辑</code><br></p> <blockquote><p>DATABASE = 数据库账号 <br>
+USERNAME = 数据库账号 <br>
+PASSWORD = 数据库密码 <br></p></blockquote></blockquote> <ol start="6"><li>导入数据库（若跟源码放一起，可下载来再导入）-&gt; <code>上传</code> -&gt; <code>导入</code> -&gt;<code>确定覆盖输入验证结果</code>-&gt; <code>导入成功</code><br></li> <li>修改配置文件：<code>config/cms.php</code>(具体看视频说明，改一些核心的申请的appkey)<br></li> <li>安装redis及扩展<br></li></ol> <blockquote><p>来到软件商店--&gt; 搜索 <code>Redis</code> --&gt; <code>安装</code>--&gt;<code>最新版安装（大约需要2分钟）</code><br> <code>已安装</code>-&gt;找到面板目前已安装的PHP版本如<code>PHP 7.2.33</code>, -&gt; <code>设置</code> -&gt; <code>安装扩展</code>-&gt; <code>redis</code> -&gt; <code>安装确定</code>（1分钟装好）<br>
+测试前端api接口：<a href="http://vuecli.shop.51yrc.com/api/index_category/data" target="_blank" rel="noopener noreferrer">http://vuecli.shop.51yrc.com/api/index_category/data<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a><br>
+测试后端api接口：<a href="http://vuecli.shop.51yrc.com/admin/imageclass/1" target="_blank" rel="noopener noreferrer">http://vuecli.shop.51yrc.com/admin/imageclass/1<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a><br></p></blockquote> <ol start="9"><li>开启任务队列（若配置了支付部分，且要调试支付部分，如订单支付板块等，需要开启任务队列）<br></li></ol> <blockquote><p>来到项目根目录 -&gt; 打开终端 -&gt; 输入 <code>php think queue:work</code> ，若提示函数禁用了，在来到宝塔面板<br> <code>软件商店</code>-&gt; <code>已安装</code>-&gt; <code>PHP 7.2.33</code>-&gt; <code>设置</code>-&gt; <code>禁用函数</code>-&gt; <code>pcntl_signal、pcntl_alarm</code>-&gt; <code>删除</code>-&gt; 然后再到终端试一下 <code>php think queue:work</code>看报错不，如果还报错，看一下是哪个函数就删除哪个函数</p></blockquote></blockquote> <h3 id="_3-部署项目前端vuecli页面部分"><a href="#_3-部署项目前端vuecli页面部分" class="header-anchor">#</a> 3.部署项目前端vuecli页面部分</h3> <blockquote><ol><li>群文件下载源码 （或私信老师获取源码）--【完整】vuecli商城后台【兼容node18】<br></li> <li>修改代理配置，后端地址：<code>vue.config.js</code>-&gt;<code>target</code>：<code>http://vuecli.shop.51yrc.com/admin</code><br></li> <li>打包项目，项目里面没有node_modules文件，需要初始化node_modules文件，</li></ol> <blockquote><p>键盘shift+鼠标右键，<code>此处打开Powershell</code>然后输入命令：<code>npm install</code>安装依赖<br>
+然后输入打包命令：<code>npm run build</code>打包，成功之后，项目根目录多出 <code>dist</code>文件夹    <br>
+打开<code>dist</code>文件夹，全部选中，右键，<code>添加到压缩文件</code>--<code>zip</code>--<code>确定</code> --打包好了代码 <code>dist.zip</code> <br></p></blockquote> <ol start="4"><li>在解析一个域名，用于展示后台界面用的，如：<code>vuecli.html.shop</code></li> <li>在宝塔面板中，网站--&gt;添加网站--&gt;<code>PHP项目</code></li></ol> <blockquote><p><code>添加站点</code>--》<code>传统项目</code>--》<code>域名</code>：<code>vuecli.html.shop.51yrc.com</code> <code>备注</code>：<code>vuecli.html.shop.51yrc.com</code> <code>根目录</code>：<code>/www/wwwroot/vuecli.html.shop.51yrc.com</code> <code>FTP</code>：不创建
+<code>数据库</code>：不创建
+<code>PHP版本</code>：<code>纯静态</code> <code>网站分类</code>：默认分类
+确定--&gt;点击域名看默认站点是否可以打开</p></blockquote> <ol start="6"><li>网站根目录，上传之前的打包代码<code>dist.zip</code> --&gt; <code>解压</code>,之后可以访问：<a href="http://vuecli.html.shop.51yrc.com" target="_blank" rel="noopener noreferrer">http://vuecli.html.shop.51yrc.com<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a><br></li> <li>输入<code>admin-admin</code>，<code>发现报错</code>：原因是：<code>views/login/index.vue里面写代码的时候直接访问 /admin/login 即前端地址</code><br></li> <li>因此，需要在宝塔面板nginx配置一下代理地址：<br></li></ol> <blockquote><p>来到对应网站<code>vuecli.html.shop.51yrc.com</code>-&gt; <code>设置</code> -&gt; <code>配置文件</code> 加一段在 <code>#禁止访问的文件或目录#</code>上面<br></p> <div class="language-js extra-class"><pre class="language-js"><code>location <span class="token operator">/</span>admin <span class="token punctuation">{</span> <span class="token comment">//如果用户访问的是admin </span>
+  proxy_pass http<span class="token operator">:</span><span class="token operator">/</span><span class="token operator">/</span>vuecli<span class="token punctuation">.</span>shop<span class="token punctuation">.</span>51yrc<span class="token punctuation">.</span>com<span class="token operator">/</span>admin<span class="token punctuation">;</span> <span class="token comment">//代理到后端地址 </span>
+<span class="token punctuation">}</span>
+</code></pre></div></blockquote> <ol start="9"><li>重新访问<a href="http://vuecli.html.shop.51yrc.com" target="_blank" rel="noopener noreferrer">http://vuecli.html.shop.51yrc.com<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a> 测试登录 <code>admin-admin</code><br></li></ol></blockquote></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">更新时间:</span> <span class="time">2025年2月19日星期三下午4点08分</span></div></footer> <!----> </main></div><div class="global-ui"><!----><!----></div></div>
+    <script src="/assets/js/app.4c1fa2f2.js" defer></script><script src="/assets/js/10.a1858127.js" defer></script><script src="/assets/js/2.641709ae.js" defer></script><script src="/assets/js/19.f216d96e.js" defer></script><script src="/assets/js/4.68f7b7e9.js" defer></script>
+  </body>
+</html>
