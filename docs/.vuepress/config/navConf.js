@@ -15,6 +15,8 @@ module.exports = [
             { text: '课程常见问题', link: '/web/answer/课程常见问题' },
             { text: '项目部署', link: '/deploy/' },
             { text: '免费部署SSL证书', link: '/web/answer/免费部署SSL证书' },
+            { text: '清除Nginx缓存', link: '/web/answer/如何清除服务器Nginx缓存' },
+            { text: '浏览器指纹', link: '/web/answer/浏览器指纹' },
         ]
     },
     {
