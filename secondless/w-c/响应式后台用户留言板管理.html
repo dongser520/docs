@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>响应式后台用户留言板管理 | 睿晨网</title>
+    <meta name="generator" content="VuePress 1.9.9">
+    <link rel="icon" href="/assets/img/favicon.png">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="apple-touch-icon" href="/icons/apple-touch-icon-152x152.png">
+    <link rel="#icon-pengyouquan" href="/icons/iconfont.svg" color="#3eaf7c">
+    <meta name="description" content="睿晨网|睿晨编程|零基础学做网站、app、小程序就从这里开始">
+    <meta name="keywords" content="睿晨网,睿晨编程,零基础学做网站,零基础学app,零基础学小程序">
+    <meta name="author" content="睿晨网,睿晨编程,阿东老师">
+    <meta name="theme-color" content="#3eaf7c">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="msapplication-TileImage" content="/icons/msapplication-icon-144x144.png">
+    <meta name="msapplication-TileColor" content="#000000">
+    
+    <link rel="preload" href="/assets/css/0.styles.67e67ccb.css" as="style"><link rel="preload" href="/assets/js/app.f5e48cb8.js" as="script"><link rel="preload" href="/assets/js/10.a1858127.js" as="script"><link rel="preload" href="/assets/js/2.641709ae.js" as="script"><link rel="preload" href="/assets/js/125.63c7a737.js" as="script"><link rel="preload" href="/assets/js/4.68f7b7e9.js" as="script"><link rel="prefetch" href="/assets/js/100.18619803.js"><link rel="prefetch" href="/assets/js/101.101e19d1.js"><link rel="prefetch" href="/assets/js/102.dc2ddf2e.js"><link rel="prefetch" href="/assets/js/103.addaf7eb.js"><link rel="prefetch" href="/assets/js/104.5fee968d.js"><link rel="prefetch" href="/assets/js/105.be6bd78b.js"><link rel="prefetch" href="/assets/js/106.1c5c7533.js"><link rel="prefetch" href="/assets/js/107.b14671b5.js"><link rel="prefetch" href="/assets/js/108.25727332.js"><link rel="prefetch" href="/assets/js/109.84d5b109.js"><link rel="prefetch" href="/assets/js/11.e11c94df.js"><link rel="prefetch" href="/assets/js/110.5cb98a6c.js"><link rel="prefetch" href="/assets/js/111.0875ee4a.js"><link rel="prefetch" href="/assets/js/112.348a918b.js"><link rel="prefetch" href="/assets/js/113.148d945e.js"><link rel="prefetch" href="/assets/js/114.7ce59f50.js"><link rel="prefetch" href="/assets/js/115.e0edb795.js"><link rel="prefetch" href="/assets/js/116.8c4955c8.js"><link rel="prefetch" href="/assets/js/117.44675675.js"><link rel="prefetch" href="/assets/js/118.9463dd8a.js"><link rel="prefetch" href="/assets/js/119.d65984b2.js"><link rel="prefetch" href="/assets/js/12.dbd859b8.js"><link rel="prefetch" href="/assets/js/120.a1c1d6ac.js"><link rel="prefetch" href="/assets/js/121.2081966d.js"><link rel="prefetch" href="/assets/js/122.a5bed0d4.js"><link rel="prefetch" href="/assets/js/123.92fee9ae.js"><link rel="prefetch" href="/assets/js/124.ae52ca1a.js"><link rel="prefetch" href="/assets/js/126.5b1af86b.js"><link rel="prefetch" href="/assets/js/127.67a82f6f.js"><link rel="prefetch" href="/assets/js/128.ee6d0d06.js"><link rel="prefetch" href="/assets/js/129.b8b424a4.js"><link rel="prefetch" href="/assets/js/13.99d8066c.js"><link rel="prefetch" href="/assets/js/130.97044db5.js"><link rel="prefetch" href="/assets/js/131.1179f040.js"><link rel="prefetch" href="/assets/js/132.46340237.js"><link rel="prefetch" href="/assets/js/133.dbac043e.js"><link rel="prefetch" href="/assets/js/134.2fedcdf0.js"><link rel="prefetch" href="/assets/js/135.9f9438dc.js"><link rel="prefetch" href="/assets/js/136.47038dc6.js"><link rel="prefetch" href="/assets/js/137.890953a7.js"><link rel="prefetch" href="/assets/js/138.6b66955c.js"><link rel="prefetch" href="/assets/js/139.3ae48ccb.js"><link rel="prefetch" href="/assets/js/14.f75e8140.js"><link rel="prefetch" href="/assets/js/140.d31bc96e.js"><link rel="prefetch" href="/assets/js/141.d19c2854.js"><link rel="prefetch" href="/assets/js/142.ba47e3db.js"><link rel="prefetch" href="/assets/js/143.b48aac2b.js"><link rel="prefetch" href="/assets/js/144.f9b2970c.js"><link rel="prefetch" href="/assets/js/145.7363c390.js"><link rel="prefetch" href="/assets/js/146.e92a39dd.js"><link rel="prefetch" href="/assets/js/147.6857567f.js"><link rel="prefetch" href="/assets/js/148.f3a47e37.js"><link rel="prefetch" href="/assets/js/149.0bab4812.js"><link rel="prefetch" href="/assets/js/15.e4d40506.js"><link rel="prefetch" href="/assets/js/150.ced8ecaa.js"><link rel="prefetch" href="/assets/js/151.feba7625.js"><link rel="prefetch" href="/assets/js/152.5d30ef4a.js"><link rel="prefetch" href="/assets/js/153.fae9c363.js"><link rel="prefetch" href="/assets/js/154.af9492c8.js"><link rel="prefetch" href="/assets/js/155.426015ec.js"><link rel="prefetch" href="/assets/js/156.5b72ce80.js"><link rel="prefetch" href="/assets/js/157.95c0b8d1.js"><link rel="prefetch" href="/assets/js/158.1e7605cd.js"><link rel="prefetch" href="/assets/js/159.cc9c20a2.js"><link rel="prefetch" href="/assets/js/16.0fdd8ea4.js"><link rel="prefetch" href="/assets/js/160.01c4a8c7.js"><link rel="prefetch" href="/assets/js/161.4b89fe69.js"><link rel="prefetch" href="/assets/js/162.ff140e09.js"><link rel="prefetch" href="/assets/js/163.5eed0997.js"><link rel="prefetch" href="/assets/js/164.f9f007d4.js"><link rel="prefetch" href="/assets/js/165.79e70aef.js"><link rel="prefetch" href="/assets/js/166.1625f944.js"><link rel="prefetch" href="/assets/js/167.5856d771.js"><link rel="prefetch" href="/assets/js/168.cd67c843.js"><link rel="prefetch" href="/assets/js/169.5e6e7db3.js"><link rel="prefetch" href="/assets/js/17.9cf0aeef.js"><link rel="prefetch" href="/assets/js/170.2c2e1592.js"><link rel="prefetch" href="/assets/js/171.599ff2d4.js"><link rel="prefetch" href="/assets/js/172.3bd0fb7b.js"><link rel="prefetch" href="/assets/js/173.d30914b5.js"><link rel="prefetch" href="/assets/js/174.501afcee.js"><link rel="prefetch" href="/assets/js/175.c09c6905.js"><link rel="prefetch" href="/assets/js/176.6575bc13.js"><link rel="prefetch" href="/assets/js/177.bf98fb08.js"><link rel="prefetch" href="/assets/js/178.eb0a64ea.js"><link rel="prefetch" href="/assets/js/179.f6a019b1.js"><link rel="prefetch" href="/assets/js/18.8fcad480.js"><link rel="prefetch" href="/assets/js/180.32dfb407.js"><link rel="prefetch" href="/assets/js/181.04fc71b1.js"><link rel="prefetch" href="/assets/js/182.01c0b64d.js"><link rel="prefetch" href="/assets/js/183.8cca474c.js"><link rel="prefetch" href="/assets/js/184.8faf5651.js"><link rel="prefetch" href="/assets/js/185.1a98b9a4.js"><link rel="prefetch" href="/assets/js/186.0b947d4d.js"><link rel="prefetch" href="/assets/js/187.823e20e3.js"><link rel="prefetch" href="/assets/js/188.5581228d.js"><link rel="prefetch" href="/assets/js/189.ab422c5d.js"><link rel="prefetch" href="/assets/js/19.f216d96e.js"><link rel="prefetch" href="/assets/js/190.cbd63b87.js"><link rel="prefetch" href="/assets/js/191.b2b49d8e.js"><link rel="prefetch" href="/assets/js/192.7c069b2f.js"><link rel="prefetch" href="/assets/js/193.c36f84b5.js"><link rel="prefetch" href="/assets/js/194.8503cf59.js"><link rel="prefetch" href="/assets/js/195.b4145949.js"><link rel="prefetch" href="/assets/js/196.c02c2c41.js"><link rel="prefetch" href="/assets/js/197.64e38968.js"><link rel="prefetch" href="/assets/js/198.4d45a7e0.js"><link rel="prefetch" href="/assets/js/199.4daba8db.js"><link rel="prefetch" href="/assets/js/20.ab9e65d2.js"><link rel="prefetch" href="/assets/js/200.8463647c.js"><link rel="prefetch" href="/assets/js/201.75801b38.js"><link rel="prefetch" href="/assets/js/202.912362b1.js"><link rel="prefetch" href="/assets/js/203.d44d4312.js"><link rel="prefetch" href="/assets/js/204.fc4688fb.js"><link rel="prefetch" href="/assets/js/205.d5a2e3f5.js"><link rel="prefetch" href="/assets/js/206.efe93c50.js"><link rel="prefetch" href="/assets/js/207.bba42e4e.js"><link rel="prefetch" href="/assets/js/208.1eba08fa.js"><link rel="prefetch" href="/assets/js/209.863b8c98.js"><link rel="prefetch" href="/assets/js/21.49356583.js"><link rel="prefetch" href="/assets/js/210.67602816.js"><link rel="prefetch" href="/assets/js/211.5f446db7.js"><link rel="prefetch" href="/assets/js/212.43d43e71.js"><link rel="prefetch" href="/assets/js/213.b48263a0.js"><link rel="prefetch" href="/assets/js/214.85eee949.js"><link rel="prefetch" href="/assets/js/215.3fc9880f.js"><link rel="prefetch" href="/assets/js/216.5ff01ffa.js"><link rel="prefetch" href="/assets/js/217.96bc4a3b.js"><link rel="prefetch" href="/assets/js/218.5da7ff59.js"><link rel="prefetch" href="/assets/js/219.db3d37f6.js"><link rel="prefetch" href="/assets/js/22.2b9c65eb.js"><link rel="prefetch" href="/assets/js/220.bc77442f.js"><link rel="prefetch" href="/assets/js/221.faf0b2f2.js"><link rel="prefetch" href="/assets/js/222.0c659330.js"><link rel="prefetch" href="/assets/js/223.9a8ca07c.js"><link rel="prefetch" href="/assets/js/23.32100bf1.js"><link rel="prefetch" href="/assets/js/24.14e8df9c.js"><link rel="prefetch" href="/assets/js/25.a517fe6c.js"><link rel="prefetch" href="/assets/js/26.208cb02b.js"><link rel="prefetch" href="/assets/js/27.bbcde0ce.js"><link rel="prefetch" href="/assets/js/28.9c339370.js"><link rel="prefetch" href="/assets/js/29.977947fa.js"><link rel="prefetch" href="/assets/js/3.94d4a6f6.js"><link rel="prefetch" href="/assets/js/30.f8bd4c2e.js"><link rel="prefetch" href="/assets/js/31.c18c47ea.js"><link rel="prefetch" href="/assets/js/32.e5a64d4a.js"><link rel="prefetch" href="/assets/js/33.c9025287.js"><link rel="prefetch" href="/assets/js/34.53f4ffad.js"><link rel="prefetch" href="/assets/js/35.ab3f057c.js"><link rel="prefetch" href="/assets/js/36.965bffcc.js"><link rel="prefetch" href="/assets/js/37.907ff862.js"><link rel="prefetch" href="/assets/js/38.0c081d81.js"><link rel="prefetch" href="/assets/js/39.2113db96.js"><link rel="prefetch" href="/assets/js/40.2ebbd990.js"><link rel="prefetch" href="/assets/js/41.f8c8e54b.js"><link rel="prefetch" href="/assets/js/42.8d764030.js"><link rel="prefetch" href="/assets/js/43.f365c882.js"><link rel="prefetch" href="/assets/js/44.7cb609c1.js"><link rel="prefetch" href="/assets/js/45.16a52382.js"><link rel="prefetch" href="/assets/js/46.70321f1b.js"><link rel="prefetch" href="/assets/js/47.b3b69e4c.js"><link rel="prefetch" href="/assets/js/48.ecf4c1e4.js"><link rel="prefetch" href="/assets/js/49.e39ecc8a.js"><link rel="prefetch" href="/assets/js/5.5bead7b6.js"><link rel="prefetch" href="/assets/js/50.30146f98.js"><link rel="prefetch" href="/assets/js/51.82e1df2f.js"><link rel="prefetch" href="/assets/js/52.f14ab548.js"><link rel="prefetch" href="/assets/js/53.7c4ffcad.js"><link rel="prefetch" href="/assets/js/54.3d19fbdd.js"><link rel="prefetch" href="/assets/js/55.e3dd3e32.js"><link rel="prefetch" href="/assets/js/56.034c5c65.js"><link rel="prefetch" href="/assets/js/57.19c7e76e.js"><link rel="prefetch" href="/assets/js/58.d8dc7186.js"><link rel="prefetch" href="/assets/js/59.abf106ca.js"><link rel="prefetch" href="/assets/js/6.6df2ae27.js"><link rel="prefetch" href="/assets/js/60.a7627211.js"><link rel="prefetch" href="/assets/js/61.2baf139e.js"><link rel="prefetch" href="/assets/js/62.bdab0519.js"><link rel="prefetch" href="/assets/js/63.506ea205.js"><link rel="prefetch" href="/assets/js/64.9bcf21cd.js"><link rel="prefetch" href="/assets/js/65.5b57b3ab.js"><link rel="prefetch" href="/assets/js/66.c17c639e.js"><link rel="prefetch" href="/assets/js/67.d9fcd12f.js"><link rel="prefetch" href="/assets/js/68.e329c960.js"><link rel="prefetch" href="/assets/js/69.b0d0fd1d.js"><link rel="prefetch" href="/assets/js/7.554204ef.js"><link rel="prefetch" href="/assets/js/70.186ba40a.js"><link rel="prefetch" href="/assets/js/71.ba3c0143.js"><link rel="prefetch" href="/assets/js/72.e3ce0ef1.js"><link rel="prefetch" href="/assets/js/73.36bced59.js"><link rel="prefetch" href="/assets/js/74.093b180d.js"><link rel="prefetch" href="/assets/js/75.511a7a31.js"><link rel="prefetch" href="/assets/js/76.7628fa41.js"><link rel="prefetch" href="/assets/js/77.36be3998.js"><link rel="prefetch" href="/assets/js/78.67bdbc8a.js"><link rel="prefetch" href="/assets/js/79.a1f0575e.js"><link rel="prefetch" href="/assets/js/8.333489b0.js"><link rel="prefetch" href="/assets/js/80.ba8f2881.js"><link rel="prefetch" href="/assets/js/81.6258b175.js"><link rel="prefetch" href="/assets/js/82.40bd6b1e.js"><link rel="prefetch" href="/assets/js/83.dce44fe8.js"><link rel="prefetch" href="/assets/js/84.17214734.js"><link rel="prefetch" href="/assets/js/85.0775f854.js"><link rel="prefetch" href="/assets/js/86.c7ead708.js"><link rel="prefetch" href="/assets/js/87.cf2edeeb.js"><link rel="prefetch" href="/assets/js/88.9010ce7a.js"><link rel="prefetch" href="/assets/js/89.8a559618.js"><link rel="prefetch" href="/assets/js/9.8603cb55.js"><link rel="prefetch" href="/assets/js/90.dc1195b5.js"><link rel="prefetch" href="/assets/js/91.ddaa39aa.js"><link rel="prefetch" href="/assets/js/92.808c8bb7.js"><link rel="prefetch" href="/assets/js/93.70f92b88.js"><link rel="prefetch" href="/assets/js/94.1e7d7067.js"><link rel="prefetch" href="/assets/js/95.466d0220.js"><link rel="prefetch" href="/assets/js/96.67caa618.js"><link rel="prefetch" href="/assets/js/97.fa2e330a.js"><link rel="prefetch" href="/assets/js/98.e49c1821.js"><link rel="prefetch" href="/assets/js/99.c5e10809.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.67e67ccb.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">睿晨网</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">
+  主页
+</a></div><div class="nav-item"><a href="/aboutless.html" class="nav-link">
+  第一期企业网页开发
+</a></div><div class="nav-item"><a href="/secondless/" class="nav-link router-link-active">
+  第二期企业网站开发
+</a></div><div class="nav-item"><a href="/thirdless/" class="nav-link">
+  第三期移动端(H5/小程序/App)课程
+</a></div><div class="nav-item"><a href="/fourthless/" class="nav-link">
+  第四期web全栈课程
+</a></div><div class="nav-item"><a href="/fiveless/" class="nav-link">
+  第五期python课程
+</a></div><div class="nav-item"><a href="/web/software/" class="nav-link">
+  课程软件小案例
+</a></div><div class="nav-item"><a href="/web/mysql/" class="nav-link">
+  课程案例数据表
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="课程答疑汇总" class="dropdown-title"><span class="title">课程答疑</span> <span class="arrow down"></span></button> <button type="button" aria-label="课程答疑汇总" class="mobile-dropdown-title"><span class="title">课程答疑</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/web/answer/课程常见问题.html" class="nav-link">
+  课程常见问题
+</a></li><li class="dropdown-item"><!----> <a href="/deploy/" class="nav-link">
+  项目部署
+</a></li><li class="dropdown-item"><!----> <a href="/web/answer/免费部署SSL证书.html" class="nav-link">
+  免费部署SSL证书
+</a></li><li class="dropdown-item"><!----> <a href="/web/answer/如何清除服务器Nginx缓存.html" class="nav-link">
+  清除Nginx缓存
+</a></li><li class="dropdown-item"><!----> <a href="/web/answer/浏览器指纹.html" class="nav-link">
+  浏览器指纹
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="课程学习网站" class="dropdown-title"><span class="title">课程学习网站</span> <span class="arrow down"></span></button> <button type="button" aria-label="课程学习网站" class="mobile-dropdown-title"><span class="title">课程学习网站</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          视频学习网站
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://study.163.com/provider/480000002289674/index.htm?share=2&amp;shareId=480000002289674" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  网易云课堂
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://space.bilibili.com/3493114067028034/pugv" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  B站
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="实用菜单" class="dropdown-title"><span class="title">实用网站和方法</span> <span class="arrow down"></span></button> <button type="button" aria-label="实用菜单" class="mobile-dropdown-title"><span class="title">实用网站和方法</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          实用方法
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/web/methods/定位相关.html" class="nav-link">
+  定位相关
+</a></li><li class="dropdown-subitem"><a href="/web/methods/地图相关.html" class="nav-link">
+  地图相关
+</a></li><li class="dropdown-subitem"><a href="/web/methods/树形结构数据转换.html" class="nav-link">
+  树形结构数据转换
+</a></li></ul></li><li class="dropdown-item"><h4>
+          uni-app专栏
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/web/methods/uni-app专栏.html" class="nav-link">
+  uni-app的UI框架
+</a></li><li class="dropdown-subitem"><a href="/web/methods/uni-app如何引入库.html" class="nav-link">
+  uni-app如何引入js库
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Egg.js专栏
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/secondless/w-c/Egg.js.html" class="nav-link">
+  Egg.js基础
+</a></li><li class="dropdown-subitem"><a href="/secondless/w-c/egg.js基础总结.html" class="nav-link">
+  Egg.js基础总结
+</a></li><li class="dropdown-subitem"><a href="/secondless/w-c/egg.js重要知识详细文档.html" class="nav-link">
+  Egg.js重要知识详细文档
+</a></li><li class="dropdown-subitem"><a href="/secondless/w-c/ValParams API 说明.html" class="nav-link">
+  Egg.js参数验证说明
+</a></li><li class="dropdown-subitem"><a href="/web/mysql/Sequelize数据类型.html" class="nav-link">
+  Egg.js迁移文件Sequelize数据类型
+</a></li><li class="dropdown-subitem"><a href="/secondless/w-c/Egg.js接口安全防护方案.html" class="nav-link">
+  Egg.js接口安全防护方案
+</a></li><li class="dropdown-subitem"><a href="/web/answer/课程常见问题.html#_3-eggjs如何重置数据表-保证id每次从1开始计算" class="nav-link">
+  Egg.js重置数据表每次ID为1
+</a></li></ul></li><li class="dropdown-item"><h4>
+          实用网站
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/web/methods/实用接口.html" class="nav-link">
+  实用接口
+</a></li><li class="dropdown-subitem"><a href="/web/css/" class="nav-link">
+  css
+</a></li><li class="dropdown-subitem"><a href="/web/vue.js/" class="nav-link">
+  Vue.js
+</a></li><li class="dropdown-subitem"><a href="/web/Vue3+ElementPlus/" class="nav-link">
+  Vue3+ElementPlus系统
+</a></li><li class="dropdown-subitem"><a href="/web/echarts/" class="nav-link">
+  echarts图表
+</a></li><li class="dropdown-subitem"><a href="/web/bootstrap/" class="nav-link">
+  Bootstrap
+</a></li><li class="dropdown-subitem"><a href="/web/IIS/" class="nav-link">
+  IIS
+</a></li><li class="dropdown-subitem"><a href="/web/github/" class="nav-link">
+  Github
+</a></li><li class="dropdown-subitem"><a href="/web/Vanta.js/" class="nav-link">
+  Vanta.js网页3D背景
+</a></li><li class="dropdown-subitem"><a href="/web/shop/" class="nav-link">
+  商城系统推荐
+</a></li></ul></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">
+  主页
+</a></div><div class="nav-item"><a href="/aboutless.html" class="nav-link">
+  第一期企业网页开发
+</a></div><div class="nav-item"><a href="/secondless/" class="nav-link router-link-active">
+  第二期企业网站开发
+</a></div><div class="nav-item"><a href="/thirdless/" class="nav-link">
+  第三期移动端(H5/小程序/App)课程
+</a></div><div class="nav-item"><a href="/fourthless/" class="nav-link">
+  第四期web全栈课程
+</a></div><div class="nav-item"><a href="/fiveless/" class="nav-link">
+  第五期python课程
+</a></div><div class="nav-item"><a href="/web/software/" class="nav-link">
+  课程软件小案例
+</a></div><div class="nav-item"><a href="/web/mysql/" class="nav-link">
+  课程案例数据表
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="课程答疑汇总" class="dropdown-title"><span class="title">课程答疑</span> <span class="arrow down"></span></button> <button type="button" aria-label="课程答疑汇总" class="mobile-dropdown-title"><span class="title">课程答疑</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/web/answer/课程常见问题.html" class="nav-link">
+  课程常见问题
+</a></li><li class="dropdown-item"><!----> <a href="/deploy/" class="nav-link">
+  项目部署
+</a></li><li class="dropdown-item"><!----> <a href="/web/answer/免费部署SSL证书.html" class="nav-link">
+  免费部署SSL证书
+</a></li><li class="dropdown-item"><!----> <a href="/web/answer/如何清除服务器Nginx缓存.html" class="nav-link">
+  清除Nginx缓存
+</a></li><li class="dropdown-item"><!----> <a href="/web/answer/浏览器指纹.html" class="nav-link">
+  浏览器指纹
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="课程学习网站" class="dropdown-title"><span class="title">课程学习网站</span> <span class="arrow down"></span></button> <button type="button" aria-label="课程学习网站" class="mobile-dropdown-title"><span class="title">课程学习网站</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          视频学习网站
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://study.163.com/provider/480000002289674/index.htm?share=2&amp;shareId=480000002289674" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  网易云课堂
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://space.bilibili.com/3493114067028034/pugv" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  B站
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="实用菜单" class="dropdown-title"><span class="title">实用网站和方法</span> <span class="arrow down"></span></button> <button type="button" aria-label="实用菜单" class="mobile-dropdown-title"><span class="title">实用网站和方法</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          实用方法
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/web/methods/定位相关.html" class="nav-link">
+  定位相关
+</a></li><li class="dropdown-subitem"><a href="/web/methods/地图相关.html" class="nav-link">
+  地图相关
+</a></li><li class="dropdown-subitem"><a href="/web/methods/树形结构数据转换.html" class="nav-link">
+  树形结构数据转换
+</a></li></ul></li><li class="dropdown-item"><h4>
+          uni-app专栏
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/web/methods/uni-app专栏.html" class="nav-link">
+  uni-app的UI框架
+</a></li><li class="dropdown-subitem"><a href="/web/methods/uni-app如何引入库.html" class="nav-link">
+  uni-app如何引入js库
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Egg.js专栏
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/secondless/w-c/Egg.js.html" class="nav-link">
+  Egg.js基础
+</a></li><li class="dropdown-subitem"><a href="/secondless/w-c/egg.js基础总结.html" class="nav-link">
+  Egg.js基础总结
+</a></li><li class="dropdown-subitem"><a href="/secondless/w-c/egg.js重要知识详细文档.html" class="nav-link">
+  Egg.js重要知识详细文档
+</a></li><li class="dropdown-subitem"><a href="/secondless/w-c/ValParams API 说明.html" class="nav-link">
+  Egg.js参数验证说明
+</a></li><li class="dropdown-subitem"><a href="/web/mysql/Sequelize数据类型.html" class="nav-link">
+  Egg.js迁移文件Sequelize数据类型
+</a></li><li class="dropdown-subitem"><a href="/secondless/w-c/Egg.js接口安全防护方案.html" class="nav-link">
+  Egg.js接口安全防护方案
+</a></li><li class="dropdown-subitem"><a href="/web/answer/课程常见问题.html#_3-eggjs如何重置数据表-保证id每次从1开始计算" class="nav-link">
+  Egg.js重置数据表每次ID为1
+</a></li></ul></li><li class="dropdown-item"><h4>
+          实用网站
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/web/methods/实用接口.html" class="nav-link">
+  实用接口
+</a></li><li class="dropdown-subitem"><a href="/web/css/" class="nav-link">
+  css
+</a></li><li class="dropdown-subitem"><a href="/web/vue.js/" class="nav-link">
+  Vue.js
+</a></li><li class="dropdown-subitem"><a href="/web/Vue3+ElementPlus/" class="nav-link">
+  Vue3+ElementPlus系统
+</a></li><li class="dropdown-subitem"><a href="/web/echarts/" class="nav-link">
+  echarts图表
+</a></li><li class="dropdown-subitem"><a href="/web/bootstrap/" class="nav-link">
+  Bootstrap
+</a></li><li class="dropdown-subitem"><a href="/web/IIS/" class="nav-link">
+  IIS
+</a></li><li class="dropdown-subitem"><a href="/web/github/" class="nav-link">
+  Github
+</a></li><li class="dropdown-subitem"><a href="/web/Vanta.js/" class="nav-link">
+  Vanta.js网页3D背景
+</a></li><li class="dropdown-subitem"><a href="/web/shop/" class="nav-link">
+  商城系统推荐
+</a></li></ul></li></ul></div></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>响应式后台用户留言板管理</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/secondless/w-c/%E5%93%8D%E5%BA%94%E5%BC%8F%E5%90%8E%E5%8F%B0%E7%94%A8%E6%88%B7%E7%95%99%E8%A8%80%E6%9D%BF%E7%AE%A1%E7%90%86.html#一、创建数据库用户留言表-message" class="sidebar-link">一、创建数据库用户留言表 message</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/secondless/w-c/%E5%93%8D%E5%BA%94%E5%BC%8F%E5%90%8E%E5%8F%B0%E7%94%A8%E6%88%B7%E7%95%99%E8%A8%80%E6%9D%BF%E7%AE%A1%E7%90%86.html#二、创建迁移文件、执行迁移命令创建数据表" class="sidebar-link">二、创建迁移文件、执行迁移命令创建数据表</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/secondless/w-c/%E5%93%8D%E5%BA%94%E5%BC%8F%E5%90%8E%E5%8F%B0%E7%94%A8%E6%88%B7%E7%95%99%E8%A8%80%E6%9D%BF%E7%AE%A1%E7%90%86.html#三、创建留言表-message的模型" class="sidebar-link">三、创建留言表 message的模型</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/secondless/w-c/%E5%93%8D%E5%BA%94%E5%BC%8F%E5%90%8E%E5%8F%B0%E7%94%A8%E6%88%B7%E7%95%99%E8%A8%80%E6%9D%BF%E7%AE%A1%E7%90%86.html#四、提交留言-示例" class="sidebar-link">四、提交留言（示例）</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/secondless/w-c/%E5%93%8D%E5%BA%94%E5%BC%8F%E5%90%8E%E5%8F%B0%E7%94%A8%E6%88%B7%E7%95%99%E8%A8%80%E6%9D%BF%E7%AE%A1%E7%90%86.html#创建控制器-app-controller-admin-message-js" class="sidebar-link">创建控制器 app/controller/admin/message.js</a></li><li class="sidebar-sub-header"><a href="/secondless/w-c/%E5%93%8D%E5%BA%94%E5%BC%8F%E5%90%8E%E5%8F%B0%E7%94%A8%E6%88%B7%E7%95%99%E8%A8%80%E6%9D%BF%E7%AE%A1%E7%90%86.html#定义路由" class="sidebar-link">定义路由</a></li></ul></li><li><a href="/secondless/w-c/%E5%93%8D%E5%BA%94%E5%BC%8F%E5%90%8E%E5%8F%B0%E7%94%A8%E6%88%B7%E7%95%99%E8%A8%80%E6%9D%BF%E7%AE%A1%E7%90%86.html#五、留言列表、修改留言、删除留言" class="sidebar-link">五、留言列表、修改留言、删除留言</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/secondless/w-c/%E5%93%8D%E5%BA%94%E5%BC%8F%E5%90%8E%E5%8F%B0%E7%94%A8%E6%88%B7%E7%95%99%E8%A8%80%E6%9D%BF%E7%AE%A1%E7%90%86.html#控制器-app-controller-admin-message-js" class="sidebar-link">控制器 app/controller/admin/message.js</a></li><li class="sidebar-sub-header"><a href="/secondless/w-c/%E5%93%8D%E5%BA%94%E5%BC%8F%E5%90%8E%E5%8F%B0%E7%94%A8%E6%88%B7%E7%95%99%E8%A8%80%E6%9D%BF%E7%AE%A1%E7%90%86.html#定义路由-2" class="sidebar-link">定义路由</a></li></ul></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><blockquote><p>搜索 <code>创建管理员</code> , 对比这个流程走一遍！</p></blockquote> <h2 id="一、创建数据库用户留言表-message"><a href="#一、创建数据库用户留言表-message" class="header-anchor">#</a> 一、创建数据库用户留言表 message</h2> <blockquote><p><code>用户留言表 message</code> 我们在前面讲课的时候已经带领大家设计和创建了 <br> <code>我们一般创建一个新的栏目板块，第一步就是创建数据库表</code> ，但在创建之前，先根据业务分析一下表所需字段：<br></p> <ol><li>根据你的客户、老板勾勒出他的需求，然后根据需求设计，比如：<br></li> <li>用户留言表 message 最起码需要有： 留言人（留言用户称呼）、留言用户电话（好联系他）、 留言内容、留言时间字段<br></li> <li>当然还可以增加留言信息是否处理状态字段（已处理，未处理），如果你还想不到这一点，可以先不管这个字段，后期再加上去</li> <li>message 表字段设计</li></ol> <table><thead><tr><th style="text-align:center;">字段名</th> <th style="text-align:center;">数据类型</th> <th style="text-align:center;">描述</th> <th style="text-align:center;">空</th> <th style="text-align:center;"><p style="width:50px;">默认值</p></th> <th style="text-align:center;"><p style="width:100px;">字段含义 </p></th></tr></thead> <tbody><tr><td style="text-align:center;"><b>id </b></td> <td style="text-align:center;">int(20)</td> <td style="text-align:center;">主键、自增长、UNSIGNED无符号</td> <td style="text-align:center;">否</td> <td style="text-align:center;">无</td> <td style="text-align:center;"></td></tr> <tr><td style="text-align:center;"><b>username </b></td> <td style="text-align:center;">varchar(30)</td> <td style="text-align:center;"></td> <td style="text-align:center;">否</td> <td style="text-align:center;"></td> <td style="text-align:center;">留言用户称呼</td></tr> <tr><td style="text-align:center;"><b>tel </b></td> <td style="text-align:center;">varchar(64)</td> <td style="text-align:center;"></td> <td style="text-align:center;">否</td> <td style="text-align:center;"></td> <td style="text-align:center;">留言用户电话加密值</td></tr> <tr><td style="text-align:center;"><b>telnumber </b></td> <td style="text-align:center;">bigint(11)</td> <td style="text-align:center;"></td> <td style="text-align:center;">否</td> <td style="text-align:center;">0</td> <td style="text-align:center;">留言用户电话</td></tr> <tr><td style="text-align:center;"><b>  message </b></td> <td style="text-align:center;">text</td> <td style="text-align:center;"></td> <td style="text-align:center;">是</td> <td style="text-align:center;">NULL</td> <td style="text-align:center;">用户留言内容</td></tr> <tr><td style="text-align:center;"><b> timestamp </b></td> <td style="text-align:center;">datetime</td> <td style="text-align:center;"></td> <td style="text-align:center;">否</td> <td style="text-align:center;">CURRENT_TIMESTAMP</td> <td style="text-align:center;">用户留言时间戳</td></tr> <tr><td style="text-align:center;"><b> create_time </b></td> <td style="text-align:center;">datetime</td> <td style="text-align:center;"></td> <td style="text-align:center;">否</td> <td style="text-align:center;">CURRENT_TIMESTAMP</td> <td style="text-align:center;">数据创建时间</td></tr> <tr><td style="text-align:center;"><b> update_time </b></td> <td style="text-align:center;">datetime</td> <td style="text-align:center;"></td> <td style="text-align:center;">否</td> <td style="text-align:center;">CURRENT_TIMESTAMP</td> <td style="text-align:center;">数据更新时间</td></tr></tbody></table></blockquote> <h2 id="二、创建迁移文件、执行迁移命令创建数据表"><a href="#二、创建迁移文件、执行迁移命令创建数据表" class="header-anchor">#</a> 二、创建迁移文件、执行迁移命令创建数据表</h2> <blockquote><p>在数据库创建数据表的方式很多，在上面定义了表字段之后，可以使用<code>phpmyAdmin</code>、<code>数据库插件执行sql语句创建</code>等等方式，但是建议大家通过：创建迁移文件、执行迁移命令创建数据表。</p> <blockquote><p>涉及的知识点：</p> <ol><li>章节2：egg.js基础-五、<a href="/secondless/w-c/Egg.js.html#五、eggjs项目中sequelize模型创建mysql数据库" target="_blank">eggjs项目中sequelize模型创建mysql数据库</a></li></ol> <p>创建迁移文件 命令：</p> <div class="language-js extra-class"><pre class="language-js"><code>npx sequelize migration<span class="token operator">:</span>generate <span class="token operator">--</span>name<span class="token operator">=</span>init<span class="token operator">-</span>message
+</code></pre></div><p>创建迁移文件：</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token string">'use strict'</span><span class="token punctuation">;</span>
+
+<span class="token comment">/** @type {import('sequelize-cli').Migration} */</span>
+module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <span class="token keyword">async</span> <span class="token function">up</span> <span class="token punctuation">(</span><span class="token parameter">queryInterface<span class="token punctuation">,</span> Sequelize</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> <span class="token punctuation">{</span> <span class="token constant">INTEGER</span><span class="token punctuation">,</span> <span class="token constant">STRING</span><span class="token punctuation">,</span> <span class="token constant">DATE</span><span class="token punctuation">,</span> <span class="token constant">ENUM</span><span class="token punctuation">,</span> <span class="token constant">TEXT</span><span class="token punctuation">,</span> <span class="token constant">BIGINT</span><span class="token punctuation">}</span> <span class="token operator">=</span> Sequelize<span class="token punctuation">;</span>
+    <span class="token comment">// 创建表 --- 类似我们sql语句定义表结构</span>
+    <span class="token keyword">await</span> queryInterface<span class="token punctuation">.</span><span class="token function">createTable</span><span class="token punctuation">(</span><span class="token string">'message'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+      <span class="token literal-property property">id</span><span class="token operator">:</span> <span class="token punctuation">{</span> 
+        <span class="token literal-property property">type</span><span class="token operator">:</span> <span class="token constant">INTEGER</span><span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token constant">UNSIGNED</span><span class="token punctuation">,</span> 
+        <span class="token literal-property property">primaryKey</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> 
+        <span class="token literal-property property">autoIncrement</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">comment</span><span class="token operator">:</span> <span class="token string">'留言板主键id'</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token literal-property property">username</span><span class="token operator">:</span> <span class="token punctuation">{</span> 
+        <span class="token literal-property property">type</span><span class="token operator">:</span> <span class="token constant">STRING</span><span class="token punctuation">(</span><span class="token number">30</span><span class="token punctuation">)</span><span class="token punctuation">,</span> 
+        <span class="token literal-property property">allowNull</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span> 
+        <span class="token literal-property property">defaultValue</span><span class="token operator">:</span> <span class="token string">''</span><span class="token punctuation">,</span> 
+        <span class="token literal-property property">comment</span><span class="token operator">:</span> <span class="token string">'留言板用户称呼'</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token literal-property property">tel</span><span class="token operator">:</span> <span class="token punctuation">{</span> 
+        <span class="token literal-property property">type</span><span class="token operator">:</span> <span class="token constant">STRING</span><span class="token punctuation">(</span><span class="token number">64</span><span class="token punctuation">)</span><span class="token punctuation">,</span> 
+        <span class="token literal-property property">allowNull</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span> 
+        <span class="token literal-property property">defaultValue</span><span class="token operator">:</span> <span class="token string">''</span> <span class="token punctuation">,</span> 
+        <span class="token literal-property property">comment</span><span class="token operator">:</span> <span class="token string">'留言用户的电话号码加密'</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token literal-property property">telnumber</span> <span class="token operator">:</span> <span class="token punctuation">{</span> 
+        <span class="token literal-property property">type</span><span class="token operator">:</span> <span class="token constant">BIGINT</span><span class="token punctuation">(</span><span class="token number">11</span><span class="token punctuation">)</span><span class="token punctuation">,</span> 
+        <span class="token literal-property property">allowNull</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span> 
+        <span class="token literal-property property">defaultValue</span><span class="token operator">:</span> <span class="token number">0</span> <span class="token punctuation">,</span> 
+        <span class="token literal-property property">comment</span><span class="token operator">:</span> <span class="token string">'留言用户的电话号码'</span><span class="token punctuation">,</span> 
+        <span class="token literal-property property">unique</span><span class="token operator">:</span> <span class="token boolean">true</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token literal-property property">message</span> <span class="token operator">:</span> <span class="token punctuation">{</span> 
+        <span class="token literal-property property">type</span><span class="token operator">:</span> <span class="token constant">TEXT</span><span class="token punctuation">,</span> 
+        <span class="token literal-property property">allowNull</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> 
+        <span class="token literal-property property">defaultValue</span><span class="token operator">:</span> <span class="token string">''</span><span class="token punctuation">,</span> 
+        <span class="token literal-property property">comment</span><span class="token operator">:</span> <span class="token string">'留言用户的留言信息'</span> 
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token comment">// sex: { type: ENUM, values: ['男','女','保密'], allowNull: true, defaultValue: '保密', comment: '留言用户性别'},</span>
+      <span class="token literal-property property">timestamp</span> <span class="token operator">:</span> <span class="token punctuation">{</span><span class="token literal-property property">type</span><span class="token operator">:</span> <span class="token constant">DATE</span><span class="token punctuation">,</span> <span class="token literal-property property">allowNull</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span> <span class="token literal-property property">defaultValue</span><span class="token operator">:</span>Sequelize<span class="token punctuation">.</span><span class="token function">fn</span><span class="token punctuation">(</span><span class="token string">'NOW'</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token literal-property property">create_time</span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token literal-property property">type</span><span class="token operator">:</span> <span class="token constant">DATE</span><span class="token punctuation">,</span> <span class="token literal-property property">allowNull</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span> <span class="token literal-property property">defaultValue</span><span class="token operator">:</span>Sequelize<span class="token punctuation">.</span><span class="token function">fn</span><span class="token punctuation">(</span><span class="token string">'NOW'</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token literal-property property">update_time</span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token literal-property property">type</span><span class="token operator">:</span> <span class="token constant">DATE</span><span class="token punctuation">,</span> <span class="token literal-property property">allowNull</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span> <span class="token literal-property property">defaultValue</span><span class="token operator">:</span>Sequelize<span class="token punctuation">.</span><span class="token function">fn</span><span class="token punctuation">(</span><span class="token string">'NOW'</span><span class="token punctuation">)</span><span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+
+  <span class="token keyword">async</span> <span class="token function">down</span> <span class="token punctuation">(</span><span class="token parameter">queryInterface<span class="token punctuation">,</span> Sequelize</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">await</span> queryInterface<span class="token punctuation">.</span><span class="token function">dropTable</span><span class="token punctuation">(</span><span class="token string">'message'</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+</code></pre></div><p>执行迁移文件命令生成数据库表：</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// 升级数据库</span>
+npx sequelize db<span class="token operator">:</span>migrate
+</code></pre></div></blockquote></blockquote> <h2 id="三、创建留言表-message的模型"><a href="#三、创建留言表-message的模型" class="header-anchor">#</a> 三、创建留言表 message的模型</h2> <blockquote><p>模型文件主要是用于处理数据库表的增删改查等操作</p></blockquote> <div class="language-js extra-class"><pre class="language-js"><code><span class="token string">'use strict'</span><span class="token punctuation">;</span>
+
+module<span class="token punctuation">.</span><span class="token function-variable function">exports</span> <span class="token operator">=</span> <span class="token parameter">app</span> <span class="token operator">=&gt;</span><span class="token punctuation">{</span>
+    <span class="token keyword">const</span> <span class="token punctuation">{</span> <span class="token constant">INTEGER</span><span class="token punctuation">,</span> <span class="token constant">STRING</span><span class="token punctuation">,</span> <span class="token constant">DATE</span><span class="token punctuation">,</span> <span class="token constant">ENUM</span><span class="token punctuation">,</span> <span class="token constant">TEXT</span><span class="token punctuation">,</span> <span class="token constant">BIGINT</span><span class="token punctuation">}</span> <span class="token operator">=</span> app<span class="token punctuation">.</span>Sequelize<span class="token punctuation">;</span>
+
+    <span class="token keyword">const</span> Message <span class="token operator">=</span> app<span class="token punctuation">.</span>model<span class="token punctuation">.</span><span class="token function">define</span><span class="token punctuation">(</span><span class="token string">'message'</span><span class="token punctuation">,</span><span class="token punctuation">{</span>
+        <span class="token literal-property property">id</span><span class="token operator">:</span> <span class="token punctuation">{</span> 
+            <span class="token literal-property property">type</span><span class="token operator">:</span> <span class="token constant">INTEGER</span><span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token constant">UNSIGNED</span><span class="token punctuation">,</span> 
+            <span class="token literal-property property">primaryKey</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> 
+            <span class="token literal-property property">autoIncrement</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+            <span class="token literal-property property">comment</span><span class="token operator">:</span> <span class="token string">'留言板主键id'</span>
+          <span class="token punctuation">}</span><span class="token punctuation">,</span>
+          <span class="token literal-property property">username</span><span class="token operator">:</span> <span class="token punctuation">{</span> 
+            <span class="token literal-property property">type</span><span class="token operator">:</span> <span class="token constant">STRING</span><span class="token punctuation">(</span><span class="token number">30</span><span class="token punctuation">)</span><span class="token punctuation">,</span> 
+            <span class="token literal-property property">allowNull</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span> 
+            <span class="token literal-property property">defaultValue</span><span class="token operator">:</span> <span class="token string">''</span><span class="token punctuation">,</span> 
+            <span class="token literal-property property">comment</span><span class="token operator">:</span> <span class="token string">'留言板用户称呼'</span><span class="token punctuation">,</span>
+            <span class="token comment">// set(val){</span>
+            <span class="token comment">//   let data = val + '(先生/女士)';</span>
+            <span class="token comment">//   this.setDataValue('username', data);</span>
+            <span class="token comment">// }</span>
+          <span class="token punctuation">}</span><span class="token punctuation">,</span>
+          <span class="token literal-property property">tel</span><span class="token operator">:</span> <span class="token punctuation">{</span> 
+            <span class="token literal-property property">type</span><span class="token operator">:</span> <span class="token constant">STRING</span><span class="token punctuation">(</span><span class="token number">64</span><span class="token punctuation">)</span><span class="token punctuation">,</span> 
+            <span class="token literal-property property">allowNull</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span> 
+            <span class="token literal-property property">defaultValue</span><span class="token operator">:</span> <span class="token string">''</span> <span class="token punctuation">,</span> 
+            <span class="token literal-property property">comment</span><span class="token operator">:</span> <span class="token string">'留言用户的电话号码加密'</span>
+          <span class="token punctuation">}</span><span class="token punctuation">,</span>
+          <span class="token literal-property property">telnumber</span> <span class="token operator">:</span> <span class="token punctuation">{</span> 
+            <span class="token literal-property property">type</span><span class="token operator">:</span> <span class="token constant">BIGINT</span><span class="token punctuation">(</span><span class="token number">11</span><span class="token punctuation">)</span><span class="token punctuation">,</span> 
+            <span class="token literal-property property">allowNull</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span> 
+            <span class="token literal-property property">defaultValue</span><span class="token operator">:</span> <span class="token number">0</span> <span class="token punctuation">,</span> 
+            <span class="token literal-property property">comment</span><span class="token operator">:</span> <span class="token string">'留言用户的电话号码'</span><span class="token punctuation">,</span> 
+            <span class="token literal-property property">unique</span><span class="token operator">:</span> <span class="token boolean">true</span>
+          <span class="token punctuation">}</span><span class="token punctuation">,</span>
+          <span class="token literal-property property">message</span> <span class="token operator">:</span> <span class="token punctuation">{</span> 
+            <span class="token literal-property property">type</span><span class="token operator">:</span> <span class="token constant">TEXT</span><span class="token punctuation">,</span> 
+            <span class="token literal-property property">allowNull</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> 
+            <span class="token literal-property property">defaultValue</span><span class="token operator">:</span> <span class="token string">''</span><span class="token punctuation">,</span> 
+            <span class="token literal-property property">comment</span><span class="token operator">:</span> <span class="token string">'留言用户的留言信息'</span> 
+          <span class="token punctuation">}</span><span class="token punctuation">,</span>
+          <span class="token comment">// sex: { type: ENUM, values: ['男','女','保密'], allowNull: true, defaultValue: '保密', comment: '留言用户性别'},</span>
+          <span class="token literal-property property">timestamp</span> <span class="token operator">:</span> <span class="token punctuation">{</span>
+            <span class="token literal-property property">type</span><span class="token operator">:</span> <span class="token constant">DATE</span><span class="token punctuation">,</span> 
+            <span class="token literal-property property">allowNull</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span> 
+            <span class="token literal-property property">defaultValue</span><span class="token operator">:</span>app<span class="token punctuation">.</span>Sequelize<span class="token punctuation">.</span><span class="token function">fn</span><span class="token punctuation">(</span><span class="token string">'NOW'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+            <span class="token function">get</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+              <span class="token keyword">let</span> data <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">getDataValue</span><span class="token punctuation">(</span><span class="token string">'timestamp'</span><span class="token punctuation">)</span> <span class="token punctuation">;</span>
+              <span class="token comment">/*
+              //如果想转换成年月日时分秒，可以使用moment.js库等其他时间库
+              //我们这里带领大家回忆一下js基础，就手动拼接一下
+              let year = data.getFullYear();
+              let month = (&quot;0&quot; + (data.getMonth() + 1)).slice(-2);
+              let day = (&quot;0&quot; + data.getDate()).slice(-2);
+              let hours = (&quot;0&quot; + data.getHours()).slice(-2);
+              let minutes = (&quot;0&quot; + data.getMinutes()).slice(-2);
+              let seconds = (&quot;0&quot; + data.getSeconds()).slice(-2);
+              return `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
+              */</span>
+              <span class="token comment">//如果想转成时间戳</span>
+              <span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getTime</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+          <span class="token punctuation">}</span><span class="token punctuation">,</span>
+          <span class="token literal-property property">create_time</span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token literal-property property">type</span><span class="token operator">:</span> <span class="token constant">DATE</span><span class="token punctuation">,</span> <span class="token literal-property property">allowNull</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span> <span class="token literal-property property">defaultValue</span><span class="token operator">:</span>app<span class="token punctuation">.</span>Sequelize<span class="token punctuation">.</span><span class="token function">fn</span><span class="token punctuation">(</span><span class="token string">'NOW'</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+          <span class="token literal-property property">update_time</span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token literal-property property">type</span><span class="token operator">:</span> <span class="token constant">DATE</span><span class="token punctuation">,</span> <span class="token literal-property property">allowNull</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span> <span class="token literal-property property">defaultValue</span><span class="token operator">:</span>app<span class="token punctuation">.</span>Sequelize<span class="token punctuation">.</span><span class="token function">fn</span><span class="token punctuation">(</span><span class="token string">'NOW'</span><span class="token punctuation">)</span><span class="token punctuation">}</span>
+        <span class="token comment">//   timestamp : DATE,</span>
+        <span class="token comment">//   create_time: DATE,</span>
+        <span class="token comment">//   update_time: DATE</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span><span class="token punctuation">{</span>
+        <span class="token comment">// timestamps: true,//是否自动写入时间戳</span>
+        <span class="token comment">// tableName: 'message',//自定义数据表名称</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">return</span> Message<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h2 id="四、提交留言-示例"><a href="#四、提交留言-示例" class="header-anchor">#</a> 四、提交留言（示例）</h2> <h3 id="创建控制器-app-controller-admin-message-js"><a href="#创建控制器-app-controller-admin-message-js" class="header-anchor">#</a> 创建控制器 <code>app/controller/admin/message.js</code></h3> <div class="language-js extra-class"><pre class="language-js"><code><span class="token string">'use strict'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">let</span> crypto <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'crypto'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">//自定义IV(16位)、key(密钥（32位的'aes-256-cbc'）（24位的'aes-192-cbc'）)</span>
+<span class="token keyword">const</span> secret <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <span class="token literal-property property">iv</span><span class="token operator">:</span> <span class="token string">'IloveYOU@520520!'</span><span class="token punctuation">,</span><span class="token comment">// 初始化向量（iv）16位</span>
+  <span class="token literal-property property">key</span><span class="token operator">:</span> <span class="token string">'a123456789@!*&amp;%bcdef@123456789&amp;&amp;'</span><span class="token punctuation">,</span> <span class="token comment">// 32 位秘钥密钥</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">const</span> Controller <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'egg'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>Controller<span class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">MessageController</span> <span class="token keyword">extends</span> <span class="token class-name">Controller</span> <span class="token punctuation">{</span>
+  <span class="token comment">//创建留言板---创建页面表单</span>
+  <span class="token keyword">async</span> <span class="token function">create</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> <span class="token punctuation">{</span> ctx <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">;</span>
+    <span class="token comment">//渲染公共模版</span>
+    <span class="token keyword">await</span> ctx<span class="token punctuation">.</span><span class="token function">renderTemplate</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+      <span class="token literal-property property">title</span><span class="token operator">:</span> <span class="token string">'创建留言板'</span><span class="token punctuation">,</span><span class="token comment">//现在网页title,面包屑导航title,页面标题</span>
+      <span class="token literal-property property">tempType</span><span class="token operator">:</span> <span class="token string">'form'</span><span class="token punctuation">,</span> <span class="token comment">//模板类型：table表格模板 ，form表单模板</span>
+      <span class="token literal-property property">form</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token comment">//提交地址</span>
+        <span class="token literal-property property">action</span><span class="token operator">:</span> <span class="token string">&quot;/admin/message/save&quot;</span><span class="token punctuation">,</span>
+        <span class="token comment">//  字段</span>
+        <span class="token literal-property property">fields</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+          <span class="token punctuation">{</span>
+            <span class="token literal-property property">label</span><span class="token operator">:</span> <span class="token string">'您的称呼'</span><span class="token punctuation">,</span>
+            <span class="token literal-property property">type</span><span class="token operator">:</span> <span class="token string">'text'</span><span class="token punctuation">,</span>
+            <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">'username'</span><span class="token punctuation">,</span>
+            <span class="token literal-property property">placeholder</span><span class="token operator">:</span> <span class="token string">'请输入您的称呼'</span><span class="token punctuation">,</span>
+            <span class="token comment">// default:'默认值测试', //新增时候默认值，可选</span>
+          <span class="token punctuation">}</span><span class="token punctuation">,</span>
+          <span class="token punctuation">{</span>
+            <span class="token literal-property property">label</span><span class="token operator">:</span> <span class="token string">'您的电话'</span><span class="token punctuation">,</span>
+            <span class="token literal-property property">type</span><span class="token operator">:</span> <span class="token string">'text'</span><span class="token punctuation">,</span>
+            <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">'telnumber'</span><span class="token punctuation">,</span>
+            <span class="token literal-property property">placeholder</span><span class="token operator">:</span> <span class="token string">'请输入您的电话'</span><span class="token punctuation">,</span>
+          <span class="token punctuation">}</span><span class="token punctuation">,</span>
+          <span class="token punctuation">{</span>
+            <span class="token literal-property property">label</span><span class="token operator">:</span> <span class="token string">'您的留言'</span><span class="token punctuation">,</span>
+            <span class="token literal-property property">type</span><span class="token operator">:</span> <span class="token string">'text'</span><span class="token punctuation">,</span>
+            <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">'message'</span><span class="token punctuation">,</span>
+          <span class="token punctuation">}</span>
+        <span class="token punctuation">]</span><span class="token punctuation">,</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token comment">//新增成功之后跳转到哪个页面</span>
+      <span class="token literal-property property">successUrl</span><span class="token operator">:</span> <span class="token string">'/admin/message/index'</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token comment">//创建留言板提交数据</span>
+  <span class="token keyword">async</span> <span class="token function">save</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">//一般处理流程</span>
+    <span class="token comment">//1.参数验证</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>ctx<span class="token punctuation">.</span><span class="token function">validate</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+      <span class="token literal-property property">username</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token literal-property property">type</span><span class="token operator">:</span> <span class="token string">'string'</span><span class="token punctuation">,</span>  <span class="token comment">//参数类型</span>
+        <span class="token literal-property property">required</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> <span class="token comment">//是否必须</span>
+        <span class="token comment">// defValue: '', </span>
+        <span class="token literal-property property">desc</span><span class="token operator">:</span> <span class="token string">'您的称呼'</span> <span class="token comment">//字段含义</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token literal-property property">telnumber</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token literal-property property">type</span><span class="token operator">:</span> <span class="token string">'phone'</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">required</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+        <span class="token comment">// defValue: '', </span>
+        <span class="token literal-property property">desc</span><span class="token operator">:</span> <span class="token string">'您的电话'</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">let</span> <span class="token punctuation">{</span> username<span class="token punctuation">,</span> telnumber<span class="token punctuation">,</span> message <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>ctx<span class="token punctuation">.</span>request<span class="token punctuation">.</span>body<span class="token punctuation">;</span>
+    <span class="token comment">// 如果一个用户只能提交一次留言，那么可以通过电话判断，多次则拒绝</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">await</span> <span class="token keyword">this</span><span class="token punctuation">.</span>app<span class="token punctuation">.</span>model<span class="token punctuation">.</span>Message<span class="token punctuation">.</span><span class="token function">findOne</span><span class="token punctuation">(</span><span class="token punctuation">{</span> <span class="token literal-property property">where</span><span class="token operator">:</span> <span class="token punctuation">{</span> telnumber <span class="token punctuation">}</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>ctx<span class="token punctuation">.</span><span class="token function">apiFail</span><span class="token punctuation">(</span><span class="token string">'您已经提交过留言了，我们会尽快联系您'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token comment">//为了满足数据库设计需要，对电话做一个加密</span>
+    <span class="token keyword">let</span> tel <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">aesEncrypt</span><span class="token punctuation">(</span>telnumber<span class="token punctuation">,</span> secret<span class="token punctuation">.</span>key<span class="token punctuation">,</span> secret<span class="token punctuation">.</span>iv<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment">//否则不存在则写入数据库</span>
+    <span class="token keyword">await</span> <span class="token keyword">this</span><span class="token punctuation">.</span>app<span class="token punctuation">.</span>model<span class="token punctuation">.</span>Message<span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+      username<span class="token punctuation">,</span>
+      telnumber<span class="token punctuation">,</span>
+      tel<span class="token punctuation">,</span>
+      message
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>ctx<span class="token punctuation">.</span><span class="token function">apiSuccess</span><span class="token punctuation">(</span><span class="token string">'留言成功'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token comment">//对称加密</span>
+  <span class="token keyword">async</span> <span class="token function">aesEncrypt</span><span class="token punctuation">(</span><span class="token parameter">data<span class="token punctuation">,</span> key<span class="token punctuation">,</span> iv</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// 给定的算法，密钥和初始化向量（iv）创建并返回Cipher对象</span>
+    <span class="token keyword">const</span> cipher <span class="token operator">=</span> crypto<span class="token punctuation">.</span><span class="token function">createCipheriv</span><span class="token punctuation">(</span><span class="token string">'aes-256-cbc'</span><span class="token punctuation">,</span> key<span class="token punctuation">,</span> iv<span class="token punctuation">)</span>
+    <span class="token comment">// 指定要摘要的原始内容,可以在摘要被输出之前使用多次update方法来添加摘要内容</span>
+    <span class="token comment">// 数据的编码 utf8 返回值的编码 hex</span>
+    <span class="token keyword">var</span> crypted <span class="token operator">=</span> cipher<span class="token punctuation">.</span><span class="token function">update</span><span class="token punctuation">(</span>data<span class="token punctuation">,</span> <span class="token string">'utf8'</span><span class="token punctuation">,</span> <span class="token string">'hex'</span><span class="token punctuation">)</span>
+    crypted <span class="token operator">+=</span> cipher<span class="token punctuation">.</span><span class="token function">final</span><span class="token punctuation">(</span><span class="token string">'hex'</span><span class="token punctuation">)</span>
+    <span class="token keyword">return</span> crypted
+  <span class="token punctuation">}</span>
+  <span class="token comment">//对称解密</span>
+  <span class="token keyword">async</span> <span class="token function">aesDecrypt</span><span class="token punctuation">(</span><span class="token parameter">data<span class="token punctuation">,</span> key<span class="token punctuation">,</span> iv</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// 给定的算法，密钥和初始化向量（iv）创建并返回Cipher对象</span>
+    <span class="token keyword">const</span> decipher <span class="token operator">=</span> crypto<span class="token punctuation">.</span><span class="token function">createDecipheriv</span><span class="token punctuation">(</span><span class="token string">'aes-256-cbc'</span><span class="token punctuation">,</span> key<span class="token punctuation">,</span> iv<span class="token punctuation">)</span>
+    <span class="token comment">// 数据的编码 hex 返回值的编码 utf8</span>
+    <span class="token keyword">var</span> decrypted <span class="token operator">=</span> decipher<span class="token punctuation">.</span><span class="token function">update</span><span class="token punctuation">(</span>data<span class="token punctuation">,</span> <span class="token string">'hex'</span><span class="token punctuation">,</span> <span class="token string">'utf8'</span><span class="token punctuation">)</span>
+    decrypted <span class="token operator">+=</span> decipher<span class="token punctuation">.</span><span class="token function">final</span><span class="token punctuation">(</span><span class="token string">'utf8'</span><span class="token punctuation">)</span>
+    <span class="token keyword">return</span> decrypted
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+module<span class="token punctuation">.</span>exports <span class="token operator">=</span> MessageController<span class="token punctuation">;</span>
+</code></pre></div><h3 id="定义路由"><a href="#定义路由" class="header-anchor">#</a> 定义路由</h3> <p><code>app/router/admin/admin.js</code></p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// 创建留言板界面</span>
+router<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">'/admin/message/create'</span><span class="token punctuation">,</span> controller<span class="token punctuation">.</span>admin<span class="token punctuation">.</span>message<span class="token punctuation">.</span>create<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">//创建留言板提交数据</span>
+router<span class="token punctuation">.</span><span class="token function">post</span><span class="token punctuation">(</span><span class="token string">'/admin/message/save'</span><span class="token punctuation">,</span> controller<span class="token punctuation">.</span>admin<span class="token punctuation">.</span>message<span class="token punctuation">.</span>save<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><h2 id="五、留言列表、修改留言、删除留言"><a href="#五、留言列表、修改留言、删除留言" class="header-anchor">#</a> 五、留言列表、修改留言、删除留言</h2> <h3 id="控制器-app-controller-admin-message-js"><a href="#控制器-app-controller-admin-message-js" class="header-anchor">#</a> 控制器 <code>app/controller/admin/message.js</code></h3> <div class="language-js extra-class"><pre class="language-js"><code><span class="token string">'use strict'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">let</span> crypto <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'crypto'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">//自定义IV(16位)、key(密钥（32位的'aes-256-cbc'）（24位的'aes-192-cbc'）)</span>
+<span class="token keyword">const</span> secret <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <span class="token literal-property property">iv</span><span class="token operator">:</span> <span class="token string">'IloveYOU@520520!'</span><span class="token punctuation">,</span><span class="token comment">// 初始化向量（iv）16位</span>
+  <span class="token literal-property property">key</span><span class="token operator">:</span> <span class="token string">'a123456789@!*&amp;%bcdef@123456789&amp;&amp;'</span><span class="token punctuation">,</span> <span class="token comment">// 32 位秘钥密钥</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">const</span> Controller <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'egg'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>Controller<span class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">MessageController</span> <span class="token keyword">extends</span> <span class="token class-name">Controller</span> <span class="token punctuation">{</span>
+
+  <span class="token comment">//创建留言板列表页面</span>
+  <span class="token keyword">async</span> <span class="token function">index</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> <span class="token punctuation">{</span> ctx<span class="token punctuation">,</span> app <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">;</span>
+    <span class="token keyword">let</span> data <span class="token operator">=</span> <span class="token keyword">await</span> ctx<span class="token punctuation">.</span><span class="token function">page</span><span class="token punctuation">(</span><span class="token string">'Message'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment">//渲染公共模版</span>
+    <span class="token keyword">await</span> ctx<span class="token punctuation">.</span><span class="token function">renderTemplate</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+      <span class="token literal-property property">title</span><span class="token operator">:</span> <span class="token string">'留言板列表'</span><span class="token punctuation">,</span><span class="token comment">//现在网页title,面包屑导航title,页面标题</span>
+      data<span class="token punctuation">,</span>
+      <span class="token literal-property property">tempType</span><span class="token operator">:</span> <span class="token string">'table'</span><span class="token punctuation">,</span> <span class="token comment">//模板类型：table表格模板 ，form表单模板</span>
+      <span class="token literal-property property">table</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token comment">//表格上方按钮,没有不要填buttons</span>
+        <span class="token literal-property property">buttons</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+          <span class="token punctuation">{</span>
+            <span class="token literal-property property">url</span><span class="token operator">:</span> <span class="token string">'/admin/message/create'</span><span class="token punctuation">,</span><span class="token comment">//新增路径</span>
+            <span class="token literal-property property">desc</span><span class="token operator">:</span> <span class="token string">'提交留言'</span><span class="token punctuation">,</span><span class="token comment">//新增 //按钮名称</span>
+            <span class="token comment">// icon: 'fa fa-plus fa-lg',//按钮图标</span>
+          <span class="token punctuation">}</span>
+        <span class="token punctuation">]</span><span class="token punctuation">,</span>
+        <span class="token comment">//表头</span>
+        <span class="token literal-property property">columns</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+          <span class="token punctuation">{</span>
+            <span class="token literal-property property">title</span><span class="token operator">:</span> <span class="token string">'留言用户称呼'</span><span class="token punctuation">,</span>
+            <span class="token literal-property property">key</span><span class="token operator">:</span> <span class="token string">'username'</span><span class="token punctuation">,</span>
+          <span class="token punctuation">}</span><span class="token punctuation">,</span>
+          <span class="token punctuation">{</span>
+            <span class="token literal-property property">title</span><span class="token operator">:</span> <span class="token string">'留言用户电话'</span><span class="token punctuation">,</span>
+            <span class="token literal-property property">key</span><span class="token operator">:</span> <span class="token string">'telnumber'</span><span class="token punctuation">,</span>
+          <span class="token punctuation">}</span><span class="token punctuation">,</span>
+          <span class="token punctuation">{</span>
+            <span class="token literal-property property">title</span><span class="token operator">:</span> <span class="token string">'留言内容'</span><span class="token punctuation">,</span>
+            <span class="token literal-property property">key</span><span class="token operator">:</span> <span class="token string">'message'</span><span class="token punctuation">,</span>
+          <span class="token punctuation">}</span><span class="token punctuation">,</span>
+          <span class="token punctuation">{</span>
+            <span class="token literal-property property">title</span><span class="token operator">:</span> <span class="token string">'留言时间'</span><span class="token punctuation">,</span>
+            <span class="token literal-property property">key</span><span class="token operator">:</span> <span class="token string">'create_time'</span><span class="token punctuation">,</span>
+            <span class="token literal-property property">width</span><span class="token operator">:</span> <span class="token number">200</span><span class="token punctuation">,</span><span class="token comment">//可选</span>
+            <span class="token keyword">class</span><span class="token operator">:</span> <span class="token string">'text-center'</span><span class="token punctuation">,</span><span class="token comment">//可选</span>
+          <span class="token punctuation">}</span><span class="token punctuation">,</span>
+          <span class="token punctuation">{</span>
+            <span class="token literal-property property">title</span><span class="token operator">:</span> <span class="token string">'操作'</span><span class="token punctuation">,</span>
+            <span class="token keyword">class</span><span class="token operator">:</span> <span class="token string">'text-right'</span><span class="token punctuation">,</span><span class="token comment">//可选</span>
+            <span class="token literal-property property">action</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+              <span class="token comment">//修改</span>
+              <span class="token function-variable function">edit</span><span class="token operator">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">id</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token keyword">return</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">/admin/message/edit/</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>id<span class="token interpolation-punctuation punctuation">}</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">;</span>
+              <span class="token punctuation">}</span><span class="token punctuation">,</span>
+              <span class="token comment">//删除</span>
+              <span class="token function-variable function">delete</span><span class="token operator">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">id</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token keyword">return</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">/admin/message/delete/</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>id<span class="token interpolation-punctuation punctuation">}</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">;</span>
+              <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span>
+          <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">]</span><span class="token punctuation">,</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token comment">//删除留言功能</span>
+  <span class="token keyword">async</span> <span class="token keyword">delete</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> <span class="token punctuation">{</span> ctx<span class="token punctuation">,</span> app <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">;</span>
+    <span class="token keyword">const</span> id <span class="token operator">=</span> ctx<span class="token punctuation">.</span>params<span class="token punctuation">.</span>id<span class="token punctuation">;</span>
+    <span class="token keyword">await</span> app<span class="token punctuation">.</span>model<span class="token punctuation">.</span>Message<span class="token punctuation">.</span><span class="token function">destroy</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+      <span class="token literal-property property">where</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        id
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment">//提示</span>
+    ctx<span class="token punctuation">.</span><span class="token function">toast</span><span class="token punctuation">(</span><span class="token string">'留言删除成功'</span><span class="token punctuation">,</span> <span class="token string">'success'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment">//跳转</span>
+    ctx<span class="token punctuation">.</span><span class="token function">redirect</span><span class="token punctuation">(</span><span class="token string">'/admin/message/index'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token comment">//修改留言界面</span>
+  <span class="token keyword">async</span> <span class="token function">edit</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> <span class="token punctuation">{</span> ctx<span class="token punctuation">,</span> app <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">;</span>
+    <span class="token keyword">const</span> id <span class="token operator">=</span> ctx<span class="token punctuation">.</span>params<span class="token punctuation">.</span>id<span class="token punctuation">;</span>
+    <span class="token keyword">let</span> data <span class="token operator">=</span> <span class="token keyword">await</span> app<span class="token punctuation">.</span>model<span class="token punctuation">.</span>Message<span class="token punctuation">.</span><span class="token function">findOne</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+      <span class="token literal-property property">where</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        id
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>data<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">return</span> ctx<span class="token punctuation">.</span><span class="token function">pageFail</span><span class="token punctuation">(</span><span class="token string">'该留言不存在'</span><span class="token punctuation">,</span> <span class="token number">404</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    data <span class="token operator">=</span> <span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span><span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment">//渲染公共模版</span>
+    <span class="token keyword">await</span> ctx<span class="token punctuation">.</span><span class="token function">renderTemplate</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+      id<span class="token punctuation">,</span>
+      <span class="token literal-property property">title</span><span class="token operator">:</span> <span class="token string">'修改留言'</span><span class="token punctuation">,</span><span class="token comment">//现在网页title,面包屑导航title,页面标题</span>
+      <span class="token literal-property property">tempType</span><span class="token operator">:</span> <span class="token string">'form'</span><span class="token punctuation">,</span> <span class="token comment">//模板类型：table表格模板 ，form表单模板</span>
+      <span class="token literal-property property">form</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token comment">//修改留言提交地址</span>
+        <span class="token literal-property property">action</span><span class="token operator">:</span> <span class="token string">'/admin/message/update/'</span> <span class="token operator">+</span> id<span class="token punctuation">,</span>
+        <span class="token comment">//  字段</span>
+        <span class="token literal-property property">fields</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+          <span class="token punctuation">{</span>
+            <span class="token literal-property property">label</span><span class="token operator">:</span> <span class="token string">'您的称呼'</span><span class="token punctuation">,</span>
+            <span class="token literal-property property">type</span><span class="token operator">:</span> <span class="token string">'text'</span><span class="token punctuation">,</span>
+            <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">'username'</span><span class="token punctuation">,</span>
+            <span class="token literal-property property">placeholder</span><span class="token operator">:</span> <span class="token string">'请输入您的称呼'</span><span class="token punctuation">,</span>
+          <span class="token punctuation">}</span><span class="token punctuation">,</span>
+          <span class="token punctuation">{</span>
+            <span class="token literal-property property">label</span><span class="token operator">:</span> <span class="token string">'您的电话'</span><span class="token punctuation">,</span>
+            <span class="token literal-property property">type</span><span class="token operator">:</span> <span class="token string">'text'</span><span class="token punctuation">,</span>
+            <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">'telnumber'</span><span class="token punctuation">,</span>
+            <span class="token literal-property property">placeholder</span><span class="token operator">:</span> <span class="token string">'请输入您的电话'</span><span class="token punctuation">,</span>
+          <span class="token punctuation">}</span><span class="token punctuation">,</span>
+          <span class="token punctuation">{</span>
+            <span class="token literal-property property">label</span><span class="token operator">:</span> <span class="token string">'您的留言'</span><span class="token punctuation">,</span>
+            <span class="token literal-property property">type</span><span class="token operator">:</span> <span class="token string">'text'</span><span class="token punctuation">,</span>
+            <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">'message'</span><span class="token punctuation">,</span>
+            <span class="token literal-property property">placeholder</span><span class="token operator">:</span> <span class="token string">'请输入您的留言'</span><span class="token punctuation">,</span>
+          <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">]</span><span class="token punctuation">,</span>
+        <span class="token comment">//修改内容默认值</span>
+        data<span class="token punctuation">,</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token comment">//修改成功之后跳转到哪个页面</span>
+      <span class="token literal-property property">successUrl</span><span class="token operator">:</span> <span class="token string">'/admin/message/index'</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token punctuation">}</span>
+
+  <span class="token comment">//修改留言数据功能</span>
+  <span class="token keyword">async</span> <span class="token function">update</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> <span class="token punctuation">{</span> ctx<span class="token punctuation">,</span> app <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">;</span>
+    <span class="token comment">//1.参数验证</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>ctx<span class="token punctuation">.</span><span class="token function">validate</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+      <span class="token literal-property property">id</span><span class="token operator">:</span><span class="token punctuation">{</span>
+        <span class="token literal-property property">type</span><span class="token operator">:</span> <span class="token string">'int'</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">required</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">desc</span><span class="token operator">:</span> <span class="token string">'留言id'</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token literal-property property">username</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token literal-property property">type</span><span class="token operator">:</span> <span class="token string">'string'</span><span class="token punctuation">,</span>  <span class="token comment">//参数类型</span>
+        <span class="token literal-property property">required</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> <span class="token comment">//是否必须</span>
+        <span class="token comment">// defValue: '', </span>
+        <span class="token literal-property property">desc</span><span class="token operator">:</span> <span class="token string">'您的称呼'</span> <span class="token comment">//字段含义</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token literal-property property">telnumber</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token literal-property property">type</span><span class="token operator">:</span> <span class="token string">'phone'</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">required</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+        <span class="token comment">// defValue: '', </span>
+        <span class="token literal-property property">desc</span><span class="token operator">:</span> <span class="token string">'您的电话'</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token literal-property property">message</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token literal-property property">type</span><span class="token operator">:</span> <span class="token string">'string'</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">required</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+        <span class="token comment">// defValue: '', </span>
+        <span class="token literal-property property">desc</span><span class="token operator">:</span> <span class="token string">'您的留言'</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// 参数</span>
+    <span class="token keyword">const</span> id <span class="token operator">=</span> ctx<span class="token punctuation">.</span>params<span class="token punctuation">.</span>id<span class="token punctuation">;</span>
+    <span class="token keyword">const</span> <span class="token punctuation">{</span> username<span class="token punctuation">,</span> telnumber<span class="token punctuation">,</span> message <span class="token punctuation">}</span> <span class="token operator">=</span> ctx<span class="token punctuation">.</span>request<span class="token punctuation">.</span>body<span class="token punctuation">;</span>
+    <span class="token comment">// 查一下是否存在这个留言记录</span>
+    <span class="token keyword">const</span> data <span class="token operator">=</span> <span class="token keyword">await</span> app<span class="token punctuation">.</span>model<span class="token punctuation">.</span>Message<span class="token punctuation">.</span><span class="token function">findOne</span><span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token literal-property property">where</span><span class="token operator">:</span> <span class="token punctuation">{</span> id <span class="token punctuation">}</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>data<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">return</span> ctx<span class="token punctuation">.</span><span class="token function">pageFail</span><span class="token punctuation">(</span><span class="token string">'该留言记录不存在'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token comment">//存在，由于电话号码具有唯一性，你不能修改留言的时候，修改成存在的电话</span>
+    <span class="token keyword">const</span> Op <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>app<span class="token punctuation">.</span>Sequelize<span class="token punctuation">.</span>Op<span class="token punctuation">;</span><span class="token comment">//拿Op,固定写法</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token keyword">await</span> app<span class="token punctuation">.</span>model<span class="token punctuation">.</span>Message<span class="token punctuation">.</span><span class="token function">findOne</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+      <span class="token literal-property property">where</span><span class="token operator">:</span> <span class="token punctuation">{</span> 
+        telnumber<span class="token punctuation">,</span>
+        <span class="token literal-property property">id</span><span class="token operator">:</span><span class="token punctuation">{</span>
+          <span class="token punctuation">[</span>Op<span class="token punctuation">.</span>ne<span class="token punctuation">]</span><span class="token operator">:</span>id
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">}</span> 
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+      <span class="token keyword">return</span> ctx<span class="token punctuation">.</span><span class="token function">apiFail</span><span class="token punctuation">(</span><span class="token string">'您已经提交过留言了，我们会尽快联系您'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token comment">// 修改数据</span>
+    data<span class="token punctuation">.</span>username <span class="token operator">=</span> username<span class="token punctuation">;</span>
+    data<span class="token punctuation">.</span>telnumber <span class="token operator">=</span> telnumber<span class="token punctuation">;</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>message<span class="token punctuation">)</span><span class="token punctuation">{</span>
+      data<span class="token punctuation">.</span>message <span class="token operator">=</span> message<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">await</span> data<span class="token punctuation">.</span><span class="token function">save</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment">// 给一个反馈</span>
+    ctx<span class="token punctuation">.</span><span class="token function">apiSuccess</span><span class="token punctuation">(</span><span class="token string">'修改成功'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span>
+
+module<span class="token punctuation">.</span>exports <span class="token operator">=</span> MessageController<span class="token punctuation">;</span>
+
+</code></pre></div><h3 id="定义路由-2"><a href="#定义路由-2" class="header-anchor">#</a> 定义路由</h3> <p><code>app/router/admin/admin.js</code></p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">//创建留言板列表页面</span>
+router<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">'/admin/message/index'</span><span class="token punctuation">,</span> controller<span class="token punctuation">.</span>admin<span class="token punctuation">.</span>message<span class="token punctuation">.</span>index<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">//删除留言功能</span>
+router<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">'/admin/message/delete/:id'</span><span class="token punctuation">,</span> controller<span class="token punctuation">.</span>admin<span class="token punctuation">.</span>message<span class="token punctuation">.</span>delete<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">//修改留言界面</span>
+router<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">'/admin/message/edit/:id'</span><span class="token punctuation">,</span> controller<span class="token punctuation">.</span>admin<span class="token punctuation">.</span>message<span class="token punctuation">.</span>edit<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">//修改留言数据功能</span>
+router<span class="token punctuation">.</span><span class="token function">post</span><span class="token punctuation">(</span><span class="token string">'/admin/message/update/:id'</span><span class="token punctuation">,</span> controller<span class="token punctuation">.</span>admin<span class="token punctuation">.</span>message<span class="token punctuation">.</span>update<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">更新时间:</span> <span class="time">2024年3月8日星期五下午2点06分</span></div></footer> <!----> </main></div><div class="global-ui"><!----><!----></div></div>
+    <script src="/assets/js/app.f5e48cb8.js" defer></script><script src="/assets/js/10.a1858127.js" defer></script><script src="/assets/js/2.641709ae.js" defer></script><script src="/assets/js/125.63c7a737.js" defer></script><script src="/assets/js/4.68f7b7e9.js" defer></script>
+  </body>
+</html>
