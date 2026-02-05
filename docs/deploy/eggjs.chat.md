@@ -6,6 +6,8 @@ title:  eggjs + 即时通讯后端部署上线
 
 # eggjs + 即时通讯功能后端部署上线
 
+## 一、正常配置
+
 ### 1、解析一个域名
 > 在阿里云或腾讯云，域名管理中，解析一个域名到线上服务器，本次演示域名： `eggjs.chat.51yrc.com`，轻量应用服务器在域名栏目绑定域名。<br/>
 
@@ -104,3 +106,81 @@ title:  eggjs + 即时通讯后端部署上线
 >> 修改前端项目的 /common/lib/config.js和manifest.json里面的域名即可
 
 试一下：<http://eggjs.chat.51yrc.com/>
+
+
+## 二、多域名配置同一个网站的不同路由 [配置主站分站]
+### 1. 配置域名
+1. 可对这个网站设置多个域名，可以是该域名的二级域名，或者不同域名都可以，但保证所有域名都解析到这台服务器了， `网站`-`域名管理`；
+2. 在宝塔面板中， `网站`-`SSL`-`Let's Encrypt` 选中这多个域名申请SSL证书，完成之后记得部署，强制https；
+3. 创建 `反向代理`，正常创建，如果是多网站，则反向代码如下：
+```js
+#PROXY-START/
+
+location ^~ /
+{
+    proxy_pass http://localhost:7001;
+    
+    # 关键修改：将 localhost 改为 $host
+    proxy_set_header Host $host;
+    proxy_set_header X-Forwarded-Host $host;
+    proxy_set_header X-Real-IP $remote_addr;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header REMOTE-HOST $remote_addr;
+    proxy_set_header Upgrade $http_upgrade;
+    proxy_set_header Connection $connection_upgrade;
+    proxy_set_header X-Forwarded-Proto $scheme;
+    proxy_http_version 1.1;
+    
+    add_header X-Cache $upstream_cache_status;
+    
+    #Set Nginx Cache
+    set $static_filefgSMcdcd 0;
+    if ( $uri ~* "\.(gif|png|jpg|css|js|woff|woff2)$" )
+    {
+        set $static_filefgSMcdcd 1;
+        expires 1m;
+    }
+    if ( $static_filefgSMcdcd = 0 )
+    {
+        add_header Cache-Control no-cache;
+    }
+}
+#PROXY-END/
+```
+
+4. 配置中间件如 `app/middleware/domainRedirect.js`, 举个例子：
+```js
+module.exports = () => {
+  return async function domainRedirect(ctx, next) {
+    // 现在可以正确获取到域名了
+    const host = ctx.hostname;
+    console.log('访问域名:', host);
+    
+    // 只处理根路径
+    if (ctx.path === '/') {
+      const query = ctx.querystring ? `?${ctx.querystring}` : '';
+      
+      if (host === 'www.mmmcoo.net') {
+        ctx.redirect(`/api/template06/13/v1${query}`);
+        return;
+      }
+      
+      if (host === 'www.ycdmmmcoo.com') {
+        ctx.redirect(`/api/template06/12/v2${query}`);
+        return;
+      }
+      
+      // www.mmmcoo.com 不重定向，继续处理
+    }
+    
+    await next();
+  };
+};
+```
+
+5. 记得把中间件加入到配置文件 `config/config.default.js` 中：
+```js
+config.middleware = ['domainRedirect','errorHandler', 'adminAuth', 'adminMenu', 'shopManagerAuth', 'shopusercenterAuth',];
+```
+
+6. 一定记得重启Ngnix: `宝塔` - `网站` - `上面有手动重启`;
