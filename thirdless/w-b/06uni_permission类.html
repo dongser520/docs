@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>章节6.uni_permission.js权限申请类（支持多端） | 睿晨网</title>
+    <meta name="generator" content="VuePress 1.9.9">
+    <link rel="icon" href="/assets/img/favicon.png">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="apple-touch-icon" href="/icons/apple-touch-icon-152x152.png">
+    <link rel="#icon-pengyouquan" href="/icons/iconfont.svg" color="#3eaf7c">
+    <meta name="description" content="睿晨网|睿晨编程|零基础学做网站、app、小程序就从这里开始">
+    <meta name="keywords" content="睿晨网,睿晨编程,零基础学做网站,零基础学app,零基础学小程序">
+    <meta name="author" content="睿晨网,睿晨编程,阿东老师">
+    <meta name="theme-color" content="#3eaf7c">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="msapplication-TileImage" content="/icons/msapplication-icon-144x144.png">
+    <meta name="msapplication-TileColor" content="#000000">
+    
+    <link rel="preload" href="/assets/css/0.styles.c8027397.css" as="style"><link rel="preload" href="/assets/js/app.1551c49e.js" as="script"><link rel="preload" href="/assets/js/10.a1858127.js" as="script"><link rel="preload" href="/assets/js/2.641709ae.js" as="script"><link rel="preload" href="/assets/js/157.7c186d60.js" as="script"><link rel="preload" href="/assets/js/4.68f7b7e9.js" as="script"><link rel="prefetch" href="/assets/js/100.18619803.js"><link rel="prefetch" href="/assets/js/101.8bd041cc.js"><link rel="prefetch" href="/assets/js/102.68768c8d.js"><link rel="prefetch" href="/assets/js/103.739a9bcb.js"><link rel="prefetch" href="/assets/js/104.9cadff90.js"><link rel="prefetch" href="/assets/js/105.78b9c2c5.js"><link rel="prefetch" href="/assets/js/106.844c8756.js"><link rel="prefetch" href="/assets/js/107.5b519fc6.js"><link rel="prefetch" href="/assets/js/108.ee801dcb.js"><link rel="prefetch" href="/assets/js/109.52a303c7.js"><link rel="prefetch" href="/assets/js/11.e11c94df.js"><link rel="prefetch" href="/assets/js/110.f6ed432b.js"><link rel="prefetch" href="/assets/js/111.285a5894.js"><link rel="prefetch" href="/assets/js/112.a1381053.js"><link rel="prefetch" href="/assets/js/113.debf9c90.js"><link rel="prefetch" href="/assets/js/114.4ce70875.js"><link rel="prefetch" href="/assets/js/115.1408f138.js"><link rel="prefetch" href="/assets/js/116.4e59efa6.js"><link rel="prefetch" href="/assets/js/117.c346744b.js"><link rel="prefetch" href="/assets/js/118.132696e5.js"><link rel="prefetch" href="/assets/js/119.60ccd5df.js"><link rel="prefetch" href="/assets/js/12.a0e9d6b9.js"><link rel="prefetch" href="/assets/js/120.316ae5a5.js"><link rel="prefetch" href="/assets/js/121.012199c0.js"><link rel="prefetch" href="/assets/js/122.5ca95392.js"><link rel="prefetch" href="/assets/js/123.ea49ceda.js"><link rel="prefetch" href="/assets/js/124.b897f52b.js"><link rel="prefetch" href="/assets/js/125.37828099.js"><link rel="prefetch" href="/assets/js/126.ecfe8e36.js"><link rel="prefetch" href="/assets/js/127.267b3d81.js"><link rel="prefetch" href="/assets/js/128.00882258.js"><link rel="prefetch" href="/assets/js/129.9fea3788.js"><link rel="prefetch" href="/assets/js/13.a99e59c7.js"><link rel="prefetch" href="/assets/js/130.954f8f8c.js"><link rel="prefetch" href="/assets/js/131.eaafcb7a.js"><link rel="prefetch" href="/assets/js/132.d2e8f32a.js"><link rel="prefetch" href="/assets/js/133.1dc1d6e0.js"><link rel="prefetch" href="/assets/js/134.2f2faf4f.js"><link rel="prefetch" href="/assets/js/135.24200144.js"><link rel="prefetch" href="/assets/js/136.187156eb.js"><link rel="prefetch" href="/assets/js/137.9fe04d34.js"><link rel="prefetch" href="/assets/js/138.37623004.js"><link rel="prefetch" href="/assets/js/139.10fc690f.js"><link rel="prefetch" href="/assets/js/14.76051a79.js"><link rel="prefetch" href="/assets/js/140.a969638c.js"><link rel="prefetch" href="/assets/js/141.e236c931.js"><link rel="prefetch" href="/assets/js/142.a43949f7.js"><link rel="prefetch" href="/assets/js/143.d885f78e.js"><link rel="prefetch" href="/assets/js/144.ebf722ab.js"><link rel="prefetch" href="/assets/js/145.ba52af84.js"><link rel="prefetch" href="/assets/js/146.e8bbd530.js"><link rel="prefetch" href="/assets/js/147.5a05818f.js"><link rel="prefetch" href="/assets/js/148.e276ad6e.js"><link rel="prefetch" href="/assets/js/149.bddb34d3.js"><link rel="prefetch" href="/assets/js/15.db8daf5b.js"><link rel="prefetch" href="/assets/js/150.cd32a7c3.js"><link rel="prefetch" href="/assets/js/151.6551da2a.js"><link rel="prefetch" href="/assets/js/152.798b2ebc.js"><link rel="prefetch" href="/assets/js/153.150ee96b.js"><link rel="prefetch" href="/assets/js/154.3a632aed.js"><link rel="prefetch" href="/assets/js/155.b1d968ee.js"><link rel="prefetch" href="/assets/js/156.a7558efa.js"><link rel="prefetch" href="/assets/js/158.78b10030.js"><link rel="prefetch" href="/assets/js/159.38ad86c7.js"><link rel="prefetch" href="/assets/js/16.f378a7de.js"><link rel="prefetch" href="/assets/js/160.27a75dfc.js"><link rel="prefetch" href="/assets/js/161.798343cd.js"><link rel="prefetch" href="/assets/js/162.513c160a.js"><link rel="prefetch" href="/assets/js/163.fbb06251.js"><link rel="prefetch" href="/assets/js/164.ff79daa8.js"><link rel="prefetch" href="/assets/js/165.5e2d2eec.js"><link rel="prefetch" href="/assets/js/166.1fc2a343.js"><link rel="prefetch" href="/assets/js/167.49a03db0.js"><link rel="prefetch" href="/assets/js/168.ebe9c55c.js"><link rel="prefetch" href="/assets/js/169.53efa7bb.js"><link rel="prefetch" href="/assets/js/17.96a778e6.js"><link rel="prefetch" href="/assets/js/170.4016444f.js"><link rel="prefetch" href="/assets/js/171.757c64d8.js"><link rel="prefetch" href="/assets/js/172.081f7480.js"><link rel="prefetch" href="/assets/js/173.2997f3cf.js"><link rel="prefetch" href="/assets/js/174.c1023074.js"><link rel="prefetch" href="/assets/js/175.07ca7ced.js"><link rel="prefetch" href="/assets/js/176.4b30a8cb.js"><link rel="prefetch" href="/assets/js/177.07e9b413.js"><link rel="prefetch" href="/assets/js/178.a00e2f64.js"><link rel="prefetch" href="/assets/js/179.24580058.js"><link rel="prefetch" href="/assets/js/18.27191b20.js"><link rel="prefetch" href="/assets/js/180.55016948.js"><link rel="prefetch" href="/assets/js/181.c752bdb6.js"><link rel="prefetch" href="/assets/js/182.042feb52.js"><link rel="prefetch" href="/assets/js/183.b86a5c39.js"><link rel="prefetch" href="/assets/js/184.56bfc2de.js"><link rel="prefetch" href="/assets/js/185.f76f49e1.js"><link rel="prefetch" href="/assets/js/186.96f8766b.js"><link rel="prefetch" href="/assets/js/187.624813c9.js"><link rel="prefetch" href="/assets/js/188.4e072f4e.js"><link rel="prefetch" href="/assets/js/189.41e97faa.js"><link rel="prefetch" href="/assets/js/19.10e6b66e.js"><link rel="prefetch" href="/assets/js/190.ec9c5b21.js"><link rel="prefetch" href="/assets/js/191.40cc4d4f.js"><link rel="prefetch" href="/assets/js/192.c5f96b34.js"><link rel="prefetch" href="/assets/js/193.4f75e166.js"><link rel="prefetch" href="/assets/js/194.ed00019f.js"><link rel="prefetch" href="/assets/js/195.55d74520.js"><link rel="prefetch" href="/assets/js/196.bbf11fae.js"><link rel="prefetch" href="/assets/js/197.36f48310.js"><link rel="prefetch" href="/assets/js/198.6382480c.js"><link rel="prefetch" href="/assets/js/199.0b4a31ca.js"><link rel="prefetch" href="/assets/js/20.c9849598.js"><link rel="prefetch" href="/assets/js/200.a9d76202.js"><link rel="prefetch" href="/assets/js/201.4fe67f1c.js"><link rel="prefetch" href="/assets/js/202.e7a135c5.js"><link rel="prefetch" href="/assets/js/203.b542e6ca.js"><link rel="prefetch" href="/assets/js/204.f5529869.js"><link rel="prefetch" href="/assets/js/205.a0f2a271.js"><link rel="prefetch" href="/assets/js/206.7a631840.js"><link rel="prefetch" href="/assets/js/207.c970a2c8.js"><link rel="prefetch" href="/assets/js/208.5e6266fc.js"><link rel="prefetch" href="/assets/js/209.43081e06.js"><link rel="prefetch" href="/assets/js/21.7b35d070.js"><link rel="prefetch" href="/assets/js/210.8ccf8057.js"><link rel="prefetch" href="/assets/js/211.991f5672.js"><link rel="prefetch" href="/assets/js/212.2cb93159.js"><link rel="prefetch" href="/assets/js/213.62a11f95.js"><link rel="prefetch" href="/assets/js/214.d83d9a17.js"><link rel="prefetch" href="/assets/js/215.97687768.js"><link rel="prefetch" href="/assets/js/216.4d1df106.js"><link rel="prefetch" href="/assets/js/217.4499f4a4.js"><link rel="prefetch" href="/assets/js/218.e733a259.js"><link rel="prefetch" href="/assets/js/219.6b5a8c63.js"><link rel="prefetch" href="/assets/js/22.a81c6dd1.js"><link rel="prefetch" href="/assets/js/220.4eb1d1a7.js"><link rel="prefetch" href="/assets/js/221.93de4946.js"><link rel="prefetch" href="/assets/js/222.29e3105a.js"><link rel="prefetch" href="/assets/js/223.855829f1.js"><link rel="prefetch" href="/assets/js/224.aa3e2b6c.js"><link rel="prefetch" href="/assets/js/23.19ef55db.js"><link rel="prefetch" href="/assets/js/24.14e8df9c.js"><link rel="prefetch" href="/assets/js/25.c61b2c85.js"><link rel="prefetch" href="/assets/js/26.f2e99aca.js"><link rel="prefetch" href="/assets/js/27.0055f1bf.js"><link rel="prefetch" href="/assets/js/28.d502962b.js"><link rel="prefetch" href="/assets/js/29.5274de73.js"><link rel="prefetch" href="/assets/js/3.c29c4376.js"><link rel="prefetch" href="/assets/js/30.d171a8c6.js"><link rel="prefetch" href="/assets/js/31.33ab4c82.js"><link rel="prefetch" href="/assets/js/32.5d7f62dd.js"><link rel="prefetch" href="/assets/js/33.432e7101.js"><link rel="prefetch" href="/assets/js/34.527238ae.js"><link rel="prefetch" href="/assets/js/35.41e2f1a9.js"><link rel="prefetch" href="/assets/js/36.36e8cbe9.js"><link rel="prefetch" href="/assets/js/37.408ecd7e.js"><link rel="prefetch" href="/assets/js/38.adb87b54.js"><link rel="prefetch" href="/assets/js/39.ab1743c0.js"><link rel="prefetch" href="/assets/js/40.dfe88367.js"><link rel="prefetch" href="/assets/js/41.4c0a244c.js"><link rel="prefetch" href="/assets/js/42.0db7ffc1.js"><link rel="prefetch" href="/assets/js/43.9bbc3fdc.js"><link rel="prefetch" href="/assets/js/44.9cb60997.js"><link rel="prefetch" href="/assets/js/45.233bc319.js"><link rel="prefetch" href="/assets/js/46.df825005.js"><link rel="prefetch" href="/assets/js/47.0a01cff4.js"><link rel="prefetch" href="/assets/js/48.7f166177.js"><link rel="prefetch" href="/assets/js/49.8011783f.js"><link rel="prefetch" href="/assets/js/5.669bc404.js"><link rel="prefetch" href="/assets/js/50.20d114ee.js"><link rel="prefetch" href="/assets/js/51.41215bac.js"><link rel="prefetch" href="/assets/js/52.f14ab548.js"><link rel="prefetch" href="/assets/js/53.4f82a59d.js"><link rel="prefetch" href="/assets/js/54.5358a28a.js"><link rel="prefetch" href="/assets/js/55.15f62ff0.js"><link rel="prefetch" href="/assets/js/56.3b96ac00.js"><link rel="prefetch" href="/assets/js/57.82080407.js"><link rel="prefetch" href="/assets/js/58.b87f8a4f.js"><link rel="prefetch" href="/assets/js/59.d0280025.js"><link rel="prefetch" href="/assets/js/6.f6f62d21.js"><link rel="prefetch" href="/assets/js/60.a7627211.js"><link rel="prefetch" href="/assets/js/61.035209e3.js"><link rel="prefetch" href="/assets/js/62.2c485d50.js"><link rel="prefetch" href="/assets/js/63.248fe83e.js"><link rel="prefetch" href="/assets/js/64.78e661de.js"><link rel="prefetch" href="/assets/js/65.dd2bb2cc.js"><link rel="prefetch" href="/assets/js/66.4ee0cd75.js"><link rel="prefetch" href="/assets/js/67.d9fcd12f.js"><link rel="prefetch" href="/assets/js/68.952f4f3c.js"><link rel="prefetch" href="/assets/js/69.8e3c6d8f.js"><link rel="prefetch" href="/assets/js/7.4992cb98.js"><link rel="prefetch" href="/assets/js/70.272781c2.js"><link rel="prefetch" href="/assets/js/71.15cd1362.js"><link rel="prefetch" href="/assets/js/72.5f749898.js"><link rel="prefetch" href="/assets/js/73.d99dde8e.js"><link rel="prefetch" href="/assets/js/74.e998e475.js"><link rel="prefetch" href="/assets/js/75.757237b7.js"><link rel="prefetch" href="/assets/js/76.f5792d24.js"><link rel="prefetch" href="/assets/js/77.1024fde7.js"><link rel="prefetch" href="/assets/js/78.19a91326.js"><link rel="prefetch" href="/assets/js/79.a1f0575e.js"><link rel="prefetch" href="/assets/js/8.876918ab.js"><link rel="prefetch" href="/assets/js/80.4d569b1a.js"><link rel="prefetch" href="/assets/js/81.2cd439e3.js"><link rel="prefetch" href="/assets/js/82.9af7b0cb.js"><link rel="prefetch" href="/assets/js/83.2472ebe5.js"><link rel="prefetch" href="/assets/js/84.dc3685e8.js"><link rel="prefetch" href="/assets/js/85.6b6a015d.js"><link rel="prefetch" href="/assets/js/86.82cafc1a.js"><link rel="prefetch" href="/assets/js/87.cd7ab5af.js"><link rel="prefetch" href="/assets/js/88.69217326.js"><link rel="prefetch" href="/assets/js/89.b36c40f8.js"><link rel="prefetch" href="/assets/js/9.cab32b0c.js"><link rel="prefetch" href="/assets/js/90.dc1195b5.js"><link rel="prefetch" href="/assets/js/91.bda7a16a.js"><link rel="prefetch" href="/assets/js/92.808c8bb7.js"><link rel="prefetch" href="/assets/js/93.317ba4e1.js"><link rel="prefetch" href="/assets/js/94.8805601c.js"><link rel="prefetch" href="/assets/js/95.becd22c7.js"><link rel="prefetch" href="/assets/js/96.67caa618.js"><link rel="prefetch" href="/assets/js/97.4824155c.js"><link rel="prefetch" href="/assets/js/98.214e2bc6.js"><link rel="prefetch" href="/assets/js/99.0cf23487.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.c8027397.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">睿晨网</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">
+  主页
+</a></div><div class="nav-item"><a href="/aboutless.html" class="nav-link">
+  第一期企业网页开发
+</a></div><div class="nav-item"><a href="/secondless/" class="nav-link">
+  第二期企业网站开发
+</a></div><div class="nav-item"><a href="/thirdless/" class="nav-link router-link-active">
+  第三期移动端(H5/小程序/App)课程
+</a></div><div class="nav-item"><a href="/fourthless/" class="nav-link">
+  第四期web全栈课程
+</a></div><div class="nav-item"><a href="/fiveless/" class="nav-link">
+  第五期python课程
+</a></div><div class="nav-item"><a href="/web/software/" class="nav-link">
+  课程软件小案例
+</a></div><div class="nav-item"><a href="/web/mysql/" class="nav-link">
+  课程案例数据表
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="课程答疑汇总" class="dropdown-title"><span class="title">课程答疑</span> <span class="arrow down"></span></button> <button type="button" aria-label="课程答疑汇总" class="mobile-dropdown-title"><span class="title">课程答疑</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/web/answer/课程常见问题.html" class="nav-link">
+  课程常见问题
+</a></li><li class="dropdown-item"><!----> <a href="/deploy/" class="nav-link">
+  项目部署
+</a></li><li class="dropdown-item"><!----> <a href="/web/answer/免费部署SSL证书.html" class="nav-link">
+  免费部署SSL证书
+</a></li><li class="dropdown-item"><!----> <a href="/web/answer/如何清除服务器Nginx缓存.html" class="nav-link">
+  清除Nginx缓存
+</a></li><li class="dropdown-item"><!----> <a href="/web/answer/浏览器指纹.html" class="nav-link">
+  浏览器指纹
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="课程学习网站" class="dropdown-title"><span class="title">课程学习网站</span> <span class="arrow down"></span></button> <button type="button" aria-label="课程学习网站" class="mobile-dropdown-title"><span class="title">课程学习网站</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          视频学习网站
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://study.163.com/provider/480000002289674/index.htm?share=2&amp;shareId=480000002289674" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  网易云课堂
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://space.bilibili.com/3493114067028034/pugv" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  B站
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="实用菜单" class="dropdown-title"><span class="title">实用网站和方法</span> <span class="arrow down"></span></button> <button type="button" aria-label="实用菜单" class="mobile-dropdown-title"><span class="title">实用网站和方法</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          实用方法
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/web/methods/定位相关.html" class="nav-link">
+  定位相关
+</a></li><li class="dropdown-subitem"><a href="/web/methods/地图相关.html" class="nav-link">
+  地图相关
+</a></li><li class="dropdown-subitem"><a href="/web/methods/树形结构数据转换.html" class="nav-link">
+  树形结构数据转换
+</a></li></ul></li><li class="dropdown-item"><h4>
+          uni-app专栏
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/web/methods/uni-app专栏.html" class="nav-link">
+  uni-app的UI框架
+</a></li><li class="dropdown-subitem"><a href="/web/methods/uni-app如何引入库.html" class="nav-link">
+  uni-app如何引入js库
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Egg.js专栏
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/secondless/w-c/Egg.js.html" class="nav-link">
+  Egg.js基础
+</a></li><li class="dropdown-subitem"><a href="/secondless/w-c/egg.js基础总结.html" class="nav-link">
+  Egg.js基础总结
+</a></li><li class="dropdown-subitem"><a href="/secondless/w-c/egg.js重要知识详细文档.html" class="nav-link">
+  Egg.js重要知识详细文档
+</a></li><li class="dropdown-subitem"><a href="/secondless/w-c/ValParams API 说明.html" class="nav-link">
+  Egg.js参数验证说明
+</a></li><li class="dropdown-subitem"><a href="/web/mysql/Sequelize数据类型.html" class="nav-link">
+  Egg.js迁移文件Sequelize数据类型
+</a></li><li class="dropdown-subitem"><a href="/secondless/w-c/Egg.js接口安全防护方案.html" class="nav-link">
+  Egg.js接口安全防护方案
+</a></li><li class="dropdown-subitem"><a href="/web/answer/课程常见问题.html#_3-eggjs如何重置数据表-保证id每次从1开始计算" class="nav-link">
+  Egg.js重置数据表每次ID为1
+</a></li><li class="dropdown-subitem"><a href="/secondless/w-c/Egg.js中extend中helper调用.html" class="nav-link">
+  Egg.js中extend中helper调用
+</a></li></ul></li><li class="dropdown-item"><h4>
+          实用网站
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/web/methods/实用接口.html" class="nav-link">
+  实用接口
+</a></li><li class="dropdown-subitem"><a href="/web/css/" class="nav-link">
+  css
+</a></li><li class="dropdown-subitem"><a href="/web/vue.js/" class="nav-link">
+  Vue.js
+</a></li><li class="dropdown-subitem"><a href="/web/Vue3+ElementPlus/" class="nav-link">
+  Vue3+ElementPlus系统
+</a></li><li class="dropdown-subitem"><a href="/web/echarts/" class="nav-link">
+  echarts图表
+</a></li><li class="dropdown-subitem"><a href="/web/bootstrap/" class="nav-link">
+  Bootstrap
+</a></li><li class="dropdown-subitem"><a href="/web/IIS/" class="nav-link">
+  IIS
+</a></li><li class="dropdown-subitem"><a href="/web/github/" class="nav-link">
+  Github
+</a></li><li class="dropdown-subitem"><a href="/web/Vanta.js/" class="nav-link">
+  Vanta.js网页3D背景
+</a></li><li class="dropdown-subitem"><a href="/web/shop/" class="nav-link">
+  商城系统推荐
+</a></li></ul></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">
+  主页
+</a></div><div class="nav-item"><a href="/aboutless.html" class="nav-link">
+  第一期企业网页开发
+</a></div><div class="nav-item"><a href="/secondless/" class="nav-link">
+  第二期企业网站开发
+</a></div><div class="nav-item"><a href="/thirdless/" class="nav-link router-link-active">
+  第三期移动端(H5/小程序/App)课程
+</a></div><div class="nav-item"><a href="/fourthless/" class="nav-link">
+  第四期web全栈课程
+</a></div><div class="nav-item"><a href="/fiveless/" class="nav-link">
+  第五期python课程
+</a></div><div class="nav-item"><a href="/web/software/" class="nav-link">
+  课程软件小案例
+</a></div><div class="nav-item"><a href="/web/mysql/" class="nav-link">
+  课程案例数据表
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="课程答疑汇总" class="dropdown-title"><span class="title">课程答疑</span> <span class="arrow down"></span></button> <button type="button" aria-label="课程答疑汇总" class="mobile-dropdown-title"><span class="title">课程答疑</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/web/answer/课程常见问题.html" class="nav-link">
+  课程常见问题
+</a></li><li class="dropdown-item"><!----> <a href="/deploy/" class="nav-link">
+  项目部署
+</a></li><li class="dropdown-item"><!----> <a href="/web/answer/免费部署SSL证书.html" class="nav-link">
+  免费部署SSL证书
+</a></li><li class="dropdown-item"><!----> <a href="/web/answer/如何清除服务器Nginx缓存.html" class="nav-link">
+  清除Nginx缓存
+</a></li><li class="dropdown-item"><!----> <a href="/web/answer/浏览器指纹.html" class="nav-link">
+  浏览器指纹
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="课程学习网站" class="dropdown-title"><span class="title">课程学习网站</span> <span class="arrow down"></span></button> <button type="button" aria-label="课程学习网站" class="mobile-dropdown-title"><span class="title">课程学习网站</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          视频学习网站
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://study.163.com/provider/480000002289674/index.htm?share=2&amp;shareId=480000002289674" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  网易云课堂
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://space.bilibili.com/3493114067028034/pugv" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  B站
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="实用菜单" class="dropdown-title"><span class="title">实用网站和方法</span> <span class="arrow down"></span></button> <button type="button" aria-label="实用菜单" class="mobile-dropdown-title"><span class="title">实用网站和方法</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          实用方法
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/web/methods/定位相关.html" class="nav-link">
+  定位相关
+</a></li><li class="dropdown-subitem"><a href="/web/methods/地图相关.html" class="nav-link">
+  地图相关
+</a></li><li class="dropdown-subitem"><a href="/web/methods/树形结构数据转换.html" class="nav-link">
+  树形结构数据转换
+</a></li></ul></li><li class="dropdown-item"><h4>
+          uni-app专栏
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/web/methods/uni-app专栏.html" class="nav-link">
+  uni-app的UI框架
+</a></li><li class="dropdown-subitem"><a href="/web/methods/uni-app如何引入库.html" class="nav-link">
+  uni-app如何引入js库
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Egg.js专栏
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/secondless/w-c/Egg.js.html" class="nav-link">
+  Egg.js基础
+</a></li><li class="dropdown-subitem"><a href="/secondless/w-c/egg.js基础总结.html" class="nav-link">
+  Egg.js基础总结
+</a></li><li class="dropdown-subitem"><a href="/secondless/w-c/egg.js重要知识详细文档.html" class="nav-link">
+  Egg.js重要知识详细文档
+</a></li><li class="dropdown-subitem"><a href="/secondless/w-c/ValParams API 说明.html" class="nav-link">
+  Egg.js参数验证说明
+</a></li><li class="dropdown-subitem"><a href="/web/mysql/Sequelize数据类型.html" class="nav-link">
+  Egg.js迁移文件Sequelize数据类型
+</a></li><li class="dropdown-subitem"><a href="/secondless/w-c/Egg.js接口安全防护方案.html" class="nav-link">
+  Egg.js接口安全防护方案
+</a></li><li class="dropdown-subitem"><a href="/web/answer/课程常见问题.html#_3-eggjs如何重置数据表-保证id每次从1开始计算" class="nav-link">
+  Egg.js重置数据表每次ID为1
+</a></li><li class="dropdown-subitem"><a href="/secondless/w-c/Egg.js中extend中helper调用.html" class="nav-link">
+  Egg.js中extend中helper调用
+</a></li></ul></li><li class="dropdown-item"><h4>
+          实用网站
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/web/methods/实用接口.html" class="nav-link">
+  实用接口
+</a></li><li class="dropdown-subitem"><a href="/web/css/" class="nav-link">
+  css
+</a></li><li class="dropdown-subitem"><a href="/web/vue.js/" class="nav-link">
+  Vue.js
+</a></li><li class="dropdown-subitem"><a href="/web/Vue3+ElementPlus/" class="nav-link">
+  Vue3+ElementPlus系统
+</a></li><li class="dropdown-subitem"><a href="/web/echarts/" class="nav-link">
+  echarts图表
+</a></li><li class="dropdown-subitem"><a href="/web/bootstrap/" class="nav-link">
+  Bootstrap
+</a></li><li class="dropdown-subitem"><a href="/web/IIS/" class="nav-link">
+  IIS
+</a></li><li class="dropdown-subitem"><a href="/web/github/" class="nav-link">
+  Github
+</a></li><li class="dropdown-subitem"><a href="/web/Vanta.js/" class="nav-link">
+  Vanta.js网页3D背景
+</a></li><li class="dropdown-subitem"><a href="/web/shop/" class="nav-link">
+  商城系统推荐
+</a></li></ul></li></ul></div></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>章节6.uni_permission.js权限申请类（支持多端）</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/thirdless/w-b/06uni_permission%E7%B1%BB.html#一、-uni-permission-js权限申请类代码" class="sidebar-link">一、 uni_permission.js权限申请类代码</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/thirdless/w-b/06uni_permission%E7%B1%BB.html#二、安卓端app需要在-app-vue-中添加以下代码" class="sidebar-link">二、安卓端app需要在 App.vue 中添加以下代码</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/thirdless/w-b/06uni_permission%E7%B1%BB.html#三、调用权限类示例" class="sidebar-link">三、调用权限类示例</a><ul class="sidebar-sub-headers"></ul></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h2 id="一、-uni-permission-js权限申请类代码"><a href="#一、-uni-permission-js权限申请类代码" class="header-anchor">#</a> 一、 <code>uni_permission.js</code>权限申请类代码</h2> <p><code>/common/mixins/uni_permission.js</code></p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// /common/mixins/uni_permission.js</span>
+
+<span class="token keyword">const</span> <span class="token constant">PERMISSION_TYPES</span> <span class="token operator">=</span> <span class="token punctuation">{</span>
+    <span class="token constant">LOCATION</span><span class="token operator">:</span> <span class="token string">'location'</span><span class="token punctuation">,</span>
+    <span class="token constant">MICROPHONE</span><span class="token operator">:</span> <span class="token string">'microphone'</span><span class="token punctuation">,</span>
+    <span class="token constant">CAMERA</span><span class="token operator">:</span> <span class="token string">'camera'</span><span class="token punctuation">,</span>
+    <span class="token constant">PHOTO</span><span class="token operator">:</span> <span class="token string">'photo'</span><span class="token punctuation">,</span>
+    <span class="token constant">CONTACTS</span><span class="token operator">:</span> <span class="token string">'contacts'</span><span class="token punctuation">,</span>
+    <span class="token constant">CALENDAR</span><span class="token operator">:</span> <span class="token string">'calendar'</span><span class="token punctuation">,</span>
+    <span class="token constant">MEMO</span><span class="token operator">:</span> <span class="token string">'memo'</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token comment">// 权限状态缓存</span>
+<span class="token keyword">const</span> permissionCache <span class="token operator">=</span> <span class="token punctuation">{</span>
+    <span class="token literal-property property">mp</span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">android</span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">ios</span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token comment">// 全局安卓权限回调处理</span>
+<span class="token keyword">let</span> androidPermissionCallback <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+<span class="token keyword">let</span> androidPermissionRegistered <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">class</span> <span class="token class-name">UniPermission</span> <span class="token punctuation">{</span>
+    <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>platform <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">getPlatform</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">// 注册安卓权限回调</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">_registerAndroidCallback</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">// 注册安卓权限回调</span>
+    <span class="token function">_registerAndroidCallback</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment">// #ifdef APP-PLUS</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>platform <span class="token operator">===</span> <span class="token string">'APP_ANDROID'</span> <span class="token operator">&amp;&amp;</span> <span class="token operator">!</span>androidPermissionRegistered<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            androidPermissionRegistered <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+            
+            <span class="token keyword">const</span> mainActivity <span class="token operator">=</span> plus<span class="token punctuation">.</span>android<span class="token punctuation">.</span><span class="token function">runtimeMainActivity</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>mainActivity<span class="token punctuation">.</span>setRequestPermissionsResultHandler<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                mainActivity<span class="token punctuation">.</span><span class="token function">setRequestPermissionsResultHandler</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">requestCode<span class="token punctuation">,</span> permissions<span class="token punctuation">,</span> grantResults</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+                    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'[安卓权限回调触发] 请求码:'</span><span class="token punctuation">,</span> requestCode<span class="token punctuation">,</span> <span class="token string">'权限:'</span><span class="token punctuation">,</span> permissions<span class="token punctuation">,</span> <span class="token string">'结果:'</span><span class="token punctuation">,</span> grantResults<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token keyword">if</span> <span class="token punctuation">(</span>requestCode <span class="token operator">===</span> <span class="token number">100</span> <span class="token operator">&amp;&amp;</span> androidPermissionCallback<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                        <span class="token function">androidPermissionCallback</span><span class="token punctuation">(</span>requestCode<span class="token punctuation">,</span> permissions<span class="token punctuation">,</span> grantResults<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                        androidPermissionCallback <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span> <span class="token comment">// 清除回调</span>
+                    <span class="token punctuation">}</span>
+                <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+        <span class="token comment">// #endif</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">// 获取当前平台</span>
+    <span class="token function">getPlatform</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment">// #ifdef H5</span>
+        <span class="token keyword">return</span> <span class="token string">'H5'</span><span class="token punctuation">;</span>
+        <span class="token comment">// #endif</span>
+        <span class="token comment">// #ifdef MP-WEIXIN</span>
+        <span class="token keyword">return</span> <span class="token string">'MP_WEIXIN'</span><span class="token punctuation">;</span>
+        <span class="token comment">// #endif</span>
+        <span class="token comment">// #ifdef APP-PLUS</span>
+        <span class="token keyword">return</span> plus<span class="token punctuation">.</span>os<span class="token punctuation">.</span>name<span class="token punctuation">.</span><span class="token function">toLowerCase</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">===</span> <span class="token string">'android'</span> <span class="token operator">?</span> <span class="token string">'APP_ANDROID'</span> <span class="token operator">:</span> <span class="token string">'APP_IOS'</span><span class="token punctuation">;</span>
+        <span class="token comment">// #endif</span>
+        <span class="token keyword">return</span> <span class="token string">'UNKNOWN'</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">// 统一权限申请方法</span>
+    <span class="token keyword">async</span> <span class="token function">requestPermission</span><span class="token punctuation">(</span>permissionType<span class="token punctuation">,</span> purposeText<span class="token punctuation">,</span> title <span class="token operator">=</span> <span class="token string">&quot;权限申请&quot;</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">_showLoading</span><span class="token punctuation">(</span><span class="token string">'正在检查权限...'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">try</span> <span class="token punctuation">{</span>
+            <span class="token comment">// 检查权限缓存</span>
+            <span class="token keyword">const</span> cacheKey <span class="token operator">=</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span><span class="token keyword">this</span><span class="token punctuation">.</span>platform<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">_</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>permissionType<span class="token interpolation-punctuation punctuation">}</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">;</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>permissionCache<span class="token punctuation">[</span>cacheKey<span class="token punctuation">]</span> <span class="token operator">===</span> <span class="token boolean">true</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">_hideLoading</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+
+            <span class="token keyword">let</span> result<span class="token punctuation">;</span>
+            <span class="token keyword">switch</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>platform<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token keyword">case</span> <span class="token string">'H5'</span><span class="token operator">:</span>
+                    result <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">_requestH5Permission</span><span class="token punctuation">(</span>permissionType<span class="token punctuation">,</span> purposeText<span class="token punctuation">,</span> title<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token keyword">break</span><span class="token punctuation">;</span>
+                <span class="token keyword">case</span> <span class="token string">'MP_WEIXIN'</span><span class="token operator">:</span>
+                    result <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">_requestMpPermission</span><span class="token punctuation">(</span>permissionType<span class="token punctuation">,</span> purposeText<span class="token punctuation">,</span> title<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token keyword">break</span><span class="token punctuation">;</span>
+                <span class="token keyword">case</span> <span class="token string">'APP_ANDROID'</span><span class="token operator">:</span>
+                    result <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">_requestAndroidPermission</span><span class="token punctuation">(</span>permissionType<span class="token punctuation">,</span> purposeText<span class="token punctuation">,</span> title<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token keyword">break</span><span class="token punctuation">;</span>
+                <span class="token keyword">case</span> <span class="token string">'APP_IOS'</span><span class="token operator">:</span>
+                    result <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">_requestIosPermission</span><span class="token punctuation">(</span>permissionType<span class="token punctuation">,</span> purposeText<span class="token punctuation">,</span> title<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token keyword">break</span><span class="token punctuation">;</span>
+                <span class="token keyword">default</span><span class="token operator">:</span>
+                    result <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+
+            <span class="token comment">// 缓存授权结果</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>result<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                permissionCache<span class="token punctuation">[</span>cacheKey<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+
+            <span class="token keyword">return</span> result<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span>error<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            console<span class="token punctuation">.</span><span class="token function">error</span><span class="token punctuation">(</span><span class="token string">'权限申请异常:'</span><span class="token punctuation">,</span> error<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span> <span class="token keyword">finally</span> <span class="token punctuation">{</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">_hideLoading</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">// H5平台权限申请</span>
+    <span class="token keyword">async</span> <span class="token function">_requestH5Permission</span><span class="token punctuation">(</span>permissionType<span class="token punctuation">,</span> purposeText<span class="token punctuation">,</span> title <span class="token operator">=</span> <span class="token string">&quot;权限申请&quot;</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">try</span> <span class="token punctuation">{</span>
+            <span class="token keyword">switch</span> <span class="token punctuation">(</span>permissionType<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token keyword">case</span> <span class="token constant">PERMISSION_TYPES</span><span class="token punctuation">.</span><span class="token constant">LOCATION</span><span class="token operator">:</span>
+                    <span class="token keyword">return</span> <span class="token keyword">await</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">_showCustomDialog</span><span class="token punctuation">(</span>purposeText<span class="token punctuation">,</span> title<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token keyword">async</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+                        <span class="token keyword">const</span> position <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">_getH5Location</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                        <span class="token keyword">return</span> <span class="token operator">!</span><span class="token operator">!</span>position<span class="token punctuation">;</span>
+                    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token keyword">case</span> <span class="token constant">PERMISSION_TYPES</span><span class="token punctuation">.</span><span class="token constant">MICROPHONE</span><span class="token operator">:</span>
+                    <span class="token keyword">return</span> <span class="token keyword">await</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">_showCustomDialog</span><span class="token punctuation">(</span>purposeText<span class="token punctuation">,</span> title<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token keyword">async</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+                        <span class="token keyword">const</span> stream <span class="token operator">=</span> <span class="token keyword">await</span> navigator<span class="token punctuation">.</span>mediaDevices<span class="token punctuation">.</span><span class="token function">getUserMedia</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+                            <span class="token literal-property property">audio</span><span class="token operator">:</span> <span class="token boolean">true</span>
+                        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                        stream<span class="token punctuation">.</span><span class="token function">getTracks</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token parameter">track</span> <span class="token operator">=&gt;</span> track<span class="token punctuation">.</span><span class="token function">stop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                        <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+                    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token keyword">case</span> <span class="token constant">PERMISSION_TYPES</span><span class="token punctuation">.</span><span class="token constant">CAMERA</span><span class="token operator">:</span>
+                    <span class="token keyword">return</span> <span class="token keyword">await</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">_showCustomDialog</span><span class="token punctuation">(</span>purposeText<span class="token punctuation">,</span> title<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token keyword">async</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+                        <span class="token keyword">const</span> stream <span class="token operator">=</span> <span class="token keyword">await</span> navigator<span class="token punctuation">.</span>mediaDevices<span class="token punctuation">.</span><span class="token function">getUserMedia</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+                            <span class="token literal-property property">video</span><span class="token operator">:</span> <span class="token boolean">true</span>
+                        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                        stream<span class="token punctuation">.</span><span class="token function">getTracks</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token parameter">track</span> <span class="token operator">=&gt;</span> track<span class="token punctuation">.</span><span class="token function">stop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                        <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+                    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token keyword">case</span> <span class="token constant">PERMISSION_TYPES</span><span class="token punctuation">.</span><span class="token constant">PHOTO</span><span class="token operator">:</span>
+                    <span class="token comment">// H5不需要特殊权限，直接返回true</span>
+                    <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+                <span class="token keyword">default</span><span class="token operator">:</span>
+                    console<span class="token punctuation">.</span><span class="token function">warn</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">H5 does not support </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>permissionType<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string"> permission request</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span>error<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            console<span class="token punctuation">.</span><span class="token function">error</span><span class="token punctuation">(</span><span class="token string">'H5 permission request error:'</span><span class="token punctuation">,</span> error<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">// 微信小程序权限申请</span>
+    <span class="token keyword">async</span> <span class="token function">_requestMpPermission</span><span class="token punctuation">(</span>permissionType<span class="token punctuation">,</span> purposeText<span class="token punctuation">,</span> title <span class="token operator">=</span> <span class="token string">&quot;权限申请&quot;</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">const</span> scopeMap <span class="token operator">=</span> <span class="token punctuation">{</span>
+            <span class="token punctuation">[</span><span class="token constant">PERMISSION_TYPES</span><span class="token punctuation">.</span><span class="token constant">LOCATION</span><span class="token punctuation">]</span><span class="token operator">:</span> <span class="token string">'scope.userLocation'</span><span class="token punctuation">,</span>
+            <span class="token punctuation">[</span><span class="token constant">PERMISSION_TYPES</span><span class="token punctuation">.</span><span class="token constant">MICROPHONE</span><span class="token punctuation">]</span><span class="token operator">:</span> <span class="token string">'scope.record'</span><span class="token punctuation">,</span>
+            <span class="token punctuation">[</span><span class="token constant">PERMISSION_TYPES</span><span class="token punctuation">.</span><span class="token constant">CAMERA</span><span class="token punctuation">]</span><span class="token operator">:</span> <span class="token string">'scope.camera'</span><span class="token punctuation">,</span>
+            <span class="token punctuation">[</span><span class="token constant">PERMISSION_TYPES</span><span class="token punctuation">.</span><span class="token constant">PHOTO</span><span class="token punctuation">]</span><span class="token operator">:</span> <span class="token string">'scope.writePhotosAlbum'</span>
+        <span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">const</span> scope <span class="token operator">=</span> scopeMap<span class="token punctuation">[</span>permissionType<span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>scope<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            console<span class="token punctuation">.</span><span class="token function">warn</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">Unsupported permission type for MP: </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>permissionType<span class="token interpolation-punctuation punctuation">}</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token comment">// 第一步：检查权限状态</span>
+        <span class="token keyword">try</span> <span class="token punctuation">{</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">_updateLoading</span><span class="token punctuation">(</span><span class="token string">'正在检查权限状态...'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">const</span> settingRes <span class="token operator">=</span> <span class="token keyword">await</span> uni<span class="token punctuation">.</span><span class="token function">getSetting</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+            <span class="token comment">// 1. 如果已经是授权状态，直接返回true</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>settingRes<span class="token punctuation">.</span>authSetting<span class="token punctuation">[</span>scope<span class="token punctuation">]</span> <span class="token operator">===</span> <span class="token boolean">true</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+
+            <span class="token comment">// 2. 如果是拒绝状态，引导用户打开设置</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>settingRes<span class="token punctuation">.</span>authSetting<span class="token punctuation">[</span>scope<span class="token punctuation">]</span> <span class="token operator">===</span> <span class="token boolean">false</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token keyword">return</span> <span class="token keyword">await</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">_guideToMpSetting</span><span class="token punctuation">(</span>scope<span class="token punctuation">,</span> purposeText<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span>error<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            console<span class="token punctuation">.</span><span class="token function">error</span><span class="token punctuation">(</span><span class="token string">'获取权限设置失败:'</span><span class="token punctuation">,</span> error<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token comment">// 第二步：显示自定义对话框（仅当权限状态未知时）</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">_updateLoading</span><span class="token punctuation">(</span><span class="token string">''</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">const</span> userAgreed <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">_showCustomDialog</span><span class="token punctuation">(</span>purposeText<span class="token punctuation">,</span> title<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>userAgreed<span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+
+        <span class="token comment">// 第三步：调用微信API申请权限</span>
+        <span class="token keyword">try</span> <span class="token punctuation">{</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">_showLoading</span><span class="token punctuation">(</span><span class="token string">'请求权限中...'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">const</span> authRes <span class="token operator">=</span> <span class="token keyword">await</span> uni<span class="token punctuation">.</span><span class="token function">authorize</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+                scope
+            <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">return</span> authRes<span class="token punctuation">.</span>errMsg <span class="token operator">===</span> <span class="token string">'authorize:ok'</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span>error<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>error<span class="token punctuation">.</span>errMsg<span class="token punctuation">.</span><span class="token function">includes</span><span class="token punctuation">(</span><span class="token string">'auth deny'</span><span class="token punctuation">)</span> <span class="token operator">||</span> error<span class="token punctuation">.</span>errMsg<span class="token punctuation">.</span><span class="token function">includes</span><span class="token punctuation">(</span><span class="token string">'auth denied'</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token keyword">return</span> <span class="token keyword">await</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">_guideToMpSetting</span><span class="token punctuation">(</span>scope<span class="token punctuation">,</span> purposeText<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">// 引导用户打开小程序设置</span>
+    <span class="token keyword">async</span> <span class="token function">_guideToMpSetting</span><span class="token punctuation">(</span><span class="token parameter">scope<span class="token punctuation">,</span> purposeText</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">const</span> res <span class="token operator">=</span> <span class="token keyword">await</span> uni<span class="token punctuation">.</span><span class="token function">showModal</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+            <span class="token literal-property property">title</span><span class="token operator">:</span> <span class="token string">'权限被拒绝'</span><span class="token punctuation">,</span>
+            <span class="token literal-property property">content</span><span class="token operator">:</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">您已拒绝</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>purposeText<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">，是否去设置页面开启权限？</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">,</span>
+            <span class="token literal-property property">confirmText</span><span class="token operator">:</span> <span class="token string">'去设置'</span><span class="token punctuation">,</span>
+            <span class="token literal-property property">cancelText</span><span class="token operator">:</span> <span class="token string">'取消'</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>res<span class="token punctuation">.</span>confirm<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">const</span> settingRes <span class="token operator">=</span> <span class="token keyword">await</span> uni<span class="token punctuation">.</span><span class="token function">openSetting</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">return</span> settingRes<span class="token punctuation">.</span>authSetting<span class="token punctuation">[</span>scope<span class="token punctuation">]</span> <span class="token operator">===</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">// Android平台权限申请</span>
+    <span class="token keyword">async</span> <span class="token function">_requestAndroidPermission</span><span class="token punctuation">(</span>permissionType<span class="token punctuation">,</span> purposeText<span class="token punctuation">,</span> title <span class="token operator">=</span> <span class="token string">&quot;权限申请&quot;</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">const</span> permissions <span class="token operator">=</span> <span class="token punctuation">{</span>
+            <span class="token punctuation">[</span><span class="token constant">PERMISSION_TYPES</span><span class="token punctuation">.</span><span class="token constant">PHOTO</span><span class="token punctuation">]</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+                <span class="token string">'android.permission.READ_EXTERNAL_STORAGE'</span><span class="token punctuation">,</span>
+                <span class="token string">'android.permission.WRITE_EXTERNAL_STORAGE'</span>
+            <span class="token punctuation">]</span><span class="token punctuation">,</span>
+            <span class="token comment">// ...其他权限</span>
+        <span class="token punctuation">}</span><span class="token punctuation">[</span>permissionType<span class="token punctuation">]</span> <span class="token operator">||</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>permissions<span class="token punctuation">.</span>length <span class="token operator">===</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+    
+        <span class="token comment">// 1. 检查权限状态</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">_updateLoading</span><span class="token punctuation">(</span><span class="token string">'正在检查权限状态...'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">const</span> Context <span class="token operator">=</span> plus<span class="token punctuation">.</span>android<span class="token punctuation">.</span><span class="token function">importClass</span><span class="token punctuation">(</span><span class="token string">'android.content.Context'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">const</span> PackageManager <span class="token operator">=</span> plus<span class="token punctuation">.</span>android<span class="token punctuation">.</span><span class="token function">importClass</span><span class="token punctuation">(</span><span class="token string">'android.content.pm.PackageManager'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">const</span> mainActivity <span class="token operator">=</span> plus<span class="token punctuation">.</span>android<span class="token punctuation">.</span><span class="token function">runtimeMainActivity</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">const</span> context <span class="token operator">=</span> mainActivity<span class="token punctuation">.</span><span class="token function">getApplicationContext</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    
+        <span class="token keyword">let</span> hasPermission <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">const</span> perm <span class="token keyword">of</span> permissions<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>context<span class="token punctuation">.</span><span class="token function">checkSelfPermission</span><span class="token punctuation">(</span>perm<span class="token punctuation">)</span> <span class="token operator">!==</span> PackageManager<span class="token punctuation">.</span><span class="token constant">PERMISSION_GRANTED</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                hasPermission <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+                <span class="token keyword">break</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+    
+        <span class="token comment">// 2. 如果已有权限，直接返回</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>hasPermission<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    
+        <span class="token comment">// 3. 显示自定义弹窗说明权限用途</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">_updateLoading</span><span class="token punctuation">(</span><span class="token string">''</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">const</span> userAgreed <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">_showCustomDialog</span><span class="token punctuation">(</span>purposeText<span class="token punctuation">,</span> title<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>userAgreed<span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+    
+        <span class="token comment">// 4. 动态请求权限</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">_showLoading</span><span class="token punctuation">(</span><span class="token string">'请求权限中...'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        
+        <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Promise</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">resolve</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+            <span class="token comment">// 使用全局回调处理</span>
+            <span class="token function-variable function">androidPermissionCallback</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">requestCode<span class="token punctuation">,</span> perms<span class="token punctuation">,</span> grantResults</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+                console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'[安卓权限回调处理] 请求码:'</span><span class="token punctuation">,</span> requestCode<span class="token punctuation">,</span> <span class="token string">'权限:'</span><span class="token punctuation">,</span> perms<span class="token punctuation">,</span> <span class="token string">'结果:'</span><span class="token punctuation">,</span> grantResults<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token keyword">if</span> <span class="token punctuation">(</span>requestCode <span class="token operator">!==</span> <span class="token number">100</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'[警告] 收到非预期请求码:'</span><span class="token punctuation">,</span> requestCode<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token function">resolve</span><span class="token punctuation">(</span><span class="token boolean">false</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token keyword">return</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
+                
+                <span class="token keyword">const</span> PackageManager <span class="token operator">=</span> plus<span class="token punctuation">.</span>android<span class="token punctuation">.</span><span class="token function">importClass</span><span class="token punctuation">(</span><span class="token string">'android.content.pm.PackageManager'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token keyword">let</span> granted <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+                
+                <span class="token comment">// 检查所有权限是否都被授予</span>
+                <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> grantResults<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                    <span class="token keyword">if</span> <span class="token punctuation">(</span>grantResults<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">!==</span> PackageManager<span class="token punctuation">.</span><span class="token constant">PERMISSION_GRANTED</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                        granted <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+                        <span class="token keyword">break</span><span class="token punctuation">;</span>
+                    <span class="token punctuation">}</span>
+                <span class="token punctuation">}</span>
+                
+                <span class="token keyword">if</span> <span class="token punctuation">(</span>granted<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'[成功] 所有权限已授予'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token function">resolve</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+                    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'[警告] 部分权限被拒绝'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token comment">// 部分权限被拒绝，引导设置</span>
+                    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">_guideToAppSetting</span><span class="token punctuation">(</span>purposeText<span class="token punctuation">,</span> title<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span>resolve<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span><span class="token punctuation">;</span>
+    
+            <span class="token comment">// 发起权限请求</span>
+            console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'[发起安卓权限请求]'</span><span class="token punctuation">,</span> permissions<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            
+            <span class="token comment">// 在权限请求中添加监听</span>
+            <span class="token keyword">const</span> <span class="token function-variable function">handleAppShow</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">event</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+                console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'应用回到前台，隐藏时长:'</span><span class="token punctuation">,</span> event<span class="token punctuation">.</span>hideDuration <span class="token operator">||</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                
+                <span class="token comment">// 根据隐藏时间调整延迟</span>
+                <span class="token keyword">const</span> delay <span class="token operator">=</span> event<span class="token punctuation">.</span>hideDuration <span class="token operator">&gt;</span> <span class="token number">3000</span> <span class="token operator">?</span> <span class="token number">1500</span> <span class="token operator">:</span> <span class="token number">800</span><span class="token punctuation">;</span>
+                console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">设置延迟 </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>delay<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">ms 后检查权限</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                
+                <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token keyword">async</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+                    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'延迟后检查权限状态'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    
+                    <span class="token comment">// 重新检查权限状态</span>
+                    <span class="token keyword">let</span> allGranted <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+                    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">const</span> perm <span class="token keyword">of</span> permissions<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                        <span class="token keyword">const</span> result <span class="token operator">=</span> context<span class="token punctuation">.</span><span class="token function">checkSelfPermission</span><span class="token punctuation">(</span>perm<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">权限 </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>perm<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string"> 状态: </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>result<span class="token interpolation-punctuation punctuation">}</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                        
+                        <span class="token keyword">if</span> <span class="token punctuation">(</span>result <span class="token operator">!==</span> PackageManager<span class="token punctuation">.</span><span class="token constant">PERMISSION_GRANTED</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                            allGranted <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+                        <span class="token punctuation">}</span>
+                    <span class="token punctuation">}</span>
+                    
+                    <span class="token keyword">if</span> <span class="token punctuation">(</span>allGranted<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'[成功] 应用回到前台后权限已授予'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                        <span class="token function">resolve</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                        <span class="token function">clearTimeout</span><span class="token punctuation">(</span>timeoutId<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                        uni<span class="token punctuation">.</span><span class="token function">$off</span><span class="token punctuation">(</span><span class="token string">'app_show'</span><span class="token punctuation">,</span> handleAppShow<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+                        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'[警告] 应用回到前台后权限未授予'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                        
+                        <span class="token comment">// 尝试再次检查（最多3次）</span>
+                        <span class="token keyword">if</span> <span class="token punctuation">(</span>retryCount <span class="token operator">&lt;</span> <span class="token number">3</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                            retryCount<span class="token operator">++</span><span class="token punctuation">;</span>
+                            console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">[重试] 第</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>retryCount<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">次检查权限</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                            <span class="token function">checkPermission</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                        <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+                            console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'[失败] 多次检查后权限仍未授予'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                            <span class="token function">resolve</span><span class="token punctuation">(</span><span class="token boolean">false</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                        <span class="token punctuation">}</span>
+                    <span class="token punctuation">}</span>
+                <span class="token punctuation">}</span><span class="token punctuation">,</span> delay<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span><span class="token punctuation">;</span>
+            
+            <span class="token comment">// 重试计数器</span>
+            <span class="token keyword">let</span> retryCount <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+            <span class="token keyword">const</span> <span class="token function-variable function">checkPermission</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+                <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+                    <span class="token keyword">let</span> allGranted <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+                    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">const</span> perm <span class="token keyword">of</span> permissions<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                        <span class="token keyword">const</span> result <span class="token operator">=</span> context<span class="token punctuation">.</span><span class="token function">checkSelfPermission</span><span class="token punctuation">(</span>perm<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">[重试检查] 权限 </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>perm<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string"> 状态: </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>result<span class="token interpolation-punctuation punctuation">}</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                        
+                        <span class="token keyword">if</span> <span class="token punctuation">(</span>result <span class="token operator">!==</span> PackageManager<span class="token punctuation">.</span><span class="token constant">PERMISSION_GRANTED</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                            allGranted <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+                        <span class="token punctuation">}</span>
+                    <span class="token punctuation">}</span>
+                    
+                    <span class="token keyword">if</span> <span class="token punctuation">(</span>allGranted<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'[成功] 重试检查后权限已授予'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                        <span class="token function">resolve</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                        <span class="token function">clearTimeout</span><span class="token punctuation">(</span>timeoutId<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                        uni<span class="token punctuation">.</span><span class="token function">$off</span><span class="token punctuation">(</span><span class="token string">'app_show'</span><span class="token punctuation">,</span> handleAppShow<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>retryCount <span class="token operator">&lt;</span> <span class="token number">3</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                        retryCount<span class="token operator">++</span><span class="token punctuation">;</span>
+                        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">[重试] 第</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>retryCount<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">次检查权限</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                        <span class="token function">checkPermission</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+                        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'[失败] 多次重试后权限仍未授予'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                        <span class="token function">resolve</span><span class="token punctuation">(</span><span class="token boolean">false</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token punctuation">}</span>
+                <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">500</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 每次重试间隔500ms</span>
+            <span class="token punctuation">}</span><span class="token punctuation">;</span>
+            
+            <span class="token comment">// 监听应用回到前台事件</span>
+            uni<span class="token punctuation">.</span><span class="token function">$on</span><span class="token punctuation">(</span><span class="token string">'app_show'</span><span class="token punctuation">,</span> handleAppShow<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            
+            <span class="token comment">// 设置超时清除监听</span>
+            <span class="token keyword">const</span> timeoutId <span class="token operator">=</span> <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+                console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'[超时] 权限请求超时，清除监听'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                uni<span class="token punctuation">.</span><span class="token function">$off</span><span class="token punctuation">(</span><span class="token string">'app_show'</span><span class="token punctuation">,</span> handleAppShow<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token function">resolve</span><span class="token punctuation">(</span><span class="token boolean">false</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">15000</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 延长到15秒</span>
+            
+            <span class="token comment">// 发起请求</span>
+            mainActivity<span class="token punctuation">.</span><span class="token function">requestPermissions</span><span class="token punctuation">(</span>permissions<span class="token punctuation">,</span> <span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+	
+    <span class="token comment">// iOS平台权限申请</span>
+    <span class="token keyword">async</span> <span class="token function">_requestIosPermission</span><span class="token punctuation">(</span>permissionType<span class="token punctuation">,</span> purposeText<span class="token punctuation">,</span> title <span class="token operator">=</span> <span class="token string">'权限申请'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">const</span> permissionMap <span class="token operator">=</span> <span class="token punctuation">{</span>
+            <span class="token punctuation">[</span><span class="token constant">PERMISSION_TYPES</span><span class="token punctuation">.</span><span class="token constant">LOCATION</span><span class="token punctuation">]</span><span class="token operator">:</span> <span class="token string">'location'</span><span class="token punctuation">,</span>
+            <span class="token punctuation">[</span><span class="token constant">PERMISSION_TYPES</span><span class="token punctuation">.</span><span class="token constant">MICROPHONE</span><span class="token punctuation">]</span><span class="token operator">:</span> <span class="token string">'microphone'</span><span class="token punctuation">,</span>
+            <span class="token punctuation">[</span><span class="token constant">PERMISSION_TYPES</span><span class="token punctuation">.</span><span class="token constant">CAMERA</span><span class="token punctuation">]</span><span class="token operator">:</span> <span class="token string">'camera'</span><span class="token punctuation">,</span>
+            <span class="token punctuation">[</span><span class="token constant">PERMISSION_TYPES</span><span class="token punctuation">.</span><span class="token constant">PHOTO</span><span class="token punctuation">]</span><span class="token operator">:</span> <span class="token string">'photo'</span><span class="token punctuation">,</span>
+            <span class="token punctuation">[</span><span class="token constant">PERMISSION_TYPES</span><span class="token punctuation">.</span><span class="token constant">CONTACTS</span><span class="token punctuation">]</span><span class="token operator">:</span> <span class="token string">'contacts'</span><span class="token punctuation">,</span>
+            <span class="token punctuation">[</span><span class="token constant">PERMISSION_TYPES</span><span class="token punctuation">.</span><span class="token constant">CALENDAR</span><span class="token punctuation">]</span><span class="token operator">:</span> <span class="token string">'calendar'</span><span class="token punctuation">,</span>
+            <span class="token punctuation">[</span><span class="token constant">PERMISSION_TYPES</span><span class="token punctuation">.</span><span class="token constant">MEMO</span><span class="token punctuation">]</span><span class="token operator">:</span> <span class="token string">''</span> <span class="token comment">// iOS没有直接的备忘录权限</span>
+        <span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">const</span> permission <span class="token operator">=</span> permissionMap<span class="token punctuation">[</span>permissionType<span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>permission<span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+
+        <span class="token comment">// 第一步：显示自定义对话框</span>
+        <span class="token keyword">const</span> userAgreed <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">_showCustomDialog</span><span class="token punctuation">(</span>purposeText<span class="token punctuation">,</span> title<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>userAgreed<span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+
+        <span class="token comment">// 第二步：申请权限</span>
+        <span class="token keyword">try</span> <span class="token punctuation">{</span>
+            <span class="token keyword">const</span> result <span class="token operator">=</span> <span class="token keyword">await</span> plus<span class="token punctuation">.</span>ios<span class="token punctuation">.</span><span class="token function">requestPermissions</span><span class="token punctuation">(</span><span class="token punctuation">[</span>permission<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>result<span class="token punctuation">[</span>permission<span class="token punctuation">]</span> <span class="token operator">===</span> <span class="token number">3</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment">// 3: 已授权</span>
+                <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            <span class="token keyword">return</span> <span class="token keyword">await</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">_guideToAppSetting</span><span class="token punctuation">(</span>purposeText<span class="token punctuation">,</span> title<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span>error<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            console<span class="token punctuation">.</span><span class="token function">error</span><span class="token punctuation">(</span><span class="token string">'iOS permission request error:'</span><span class="token punctuation">,</span> error<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">return</span> <span class="token keyword">await</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">_guideToAppSetting</span><span class="token punctuation">(</span>purposeText<span class="token punctuation">,</span> title<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">// 显示加载提示</span>
+    <span class="token function">_showLoading</span><span class="token punctuation">(</span>title <span class="token operator">=</span> <span class="token string">'处理中...'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment">// 避免重复显示</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token keyword">this</span><span class="token punctuation">.</span>_loadingShown<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            uni<span class="token punctuation">.</span><span class="token function">showLoading</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+                <span class="token literal-property property">title</span><span class="token operator">:</span> title<span class="token punctuation">,</span>
+                <span class="token literal-property property">mask</span><span class="token operator">:</span> <span class="token boolean">true</span>
+            <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span>_loadingShown <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">// 更新加载提示</span>
+    <span class="token function">_updateLoading</span><span class="token punctuation">(</span><span class="token parameter">title</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>_loadingShown <span class="token operator">&amp;&amp;</span> title<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            uni<span class="token punctuation">.</span><span class="token function">hideLoading</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            uni<span class="token punctuation">.</span><span class="token function">showLoading</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+                <span class="token literal-property property">title</span><span class="token operator">:</span> title<span class="token punctuation">,</span>
+                <span class="token literal-property property">mask</span><span class="token operator">:</span> <span class="token boolean">true</span>
+            <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">// 隐藏加载提示</span>
+    <span class="token function">_hideLoading</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Promise</span><span class="token punctuation">(</span><span class="token parameter">resolve</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>_loadingShown<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                uni<span class="token punctuation">.</span><span class="token function">hideLoading</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+                    <span class="token function-variable function">complete</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+                        <span class="token keyword">this</span><span class="token punctuation">.</span>_loadingShown <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+                        <span class="token function">resolve</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token punctuation">}</span>
+                <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+                <span class="token function">resolve</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">// 显示自定义权限申请对话框</span>
+    <span class="token keyword">async</span> <span class="token function">_showCustomDialog</span><span class="token punctuation">(</span><span class="token parameter">purposeText<span class="token punctuation">,</span> title</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Promise</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">resolve</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+            <span class="token comment">// 先隐藏加载提示</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">_hideLoading</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+                uni<span class="token punctuation">.</span><span class="token function">showModal</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+                    <span class="token literal-property property">title</span><span class="token operator">:</span> title <span class="token operator">||</span> <span class="token string">'权限申请'</span><span class="token punctuation">,</span>
+                    <span class="token literal-property property">content</span><span class="token operator">:</span> purposeText <span class="token operator">||</span> <span class="token string">'我们需要您的授权以提供完整功能'</span><span class="token punctuation">,</span>
+                    <span class="token literal-property property">confirmText</span><span class="token operator">:</span> <span class="token string">'允许'</span><span class="token punctuation">,</span>
+                    <span class="token literal-property property">cancelText</span><span class="token operator">:</span> <span class="token string">'拒绝'</span><span class="token punctuation">,</span>
+                    <span class="token function-variable function">success</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token parameter">res</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+                        <span class="token function">resolve</span><span class="token punctuation">(</span>res<span class="token punctuation">.</span>confirm<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                    <span class="token function-variable function">fail</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+                        <span class="token function">resolve</span><span class="token punctuation">(</span><span class="token boolean">false</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token punctuation">}</span>
+                <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">// 引导用户去应用设置</span>
+    <span class="token function">_guideToAppSetting</span><span class="token punctuation">(</span><span class="token parameter">purposeText<span class="token punctuation">,</span> title</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Promise</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">resolve</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+            <span class="token comment">// 先隐藏加载提示</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">_hideLoading</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+                uni<span class="token punctuation">.</span><span class="token function">showModal</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+                    <span class="token literal-property property">title</span><span class="token operator">:</span> title <span class="token operator">||</span> <span class="token string">'权限被永久拒绝'</span><span class="token punctuation">,</span>
+                    <span class="token literal-property property">content</span><span class="token operator">:</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">请在系统设置中手动开启「</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>purposeText<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">」</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">,</span>
+                    <span class="token literal-property property">confirmText</span><span class="token operator">:</span> <span class="token string">'去设置'</span><span class="token punctuation">,</span>
+                    <span class="token function-variable function">success</span><span class="token operator">:</span> <span class="token keyword">async</span> <span class="token punctuation">(</span><span class="token parameter">res</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+                        <span class="token keyword">if</span> <span class="token punctuation">(</span>res<span class="token punctuation">.</span>confirm<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                            <span class="token comment">// 跳转系统设置</span>
+                            <span class="token comment">// #ifdef APP-ANDROID</span>
+                            <span class="token keyword">const</span> Intent <span class="token operator">=</span> plus<span class="token punctuation">.</span>android<span class="token punctuation">.</span><span class="token function">importClass</span><span class="token punctuation">(</span><span class="token string">&quot;android.content.Intent&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                            <span class="token keyword">const</span> Settings <span class="token operator">=</span> plus<span class="token punctuation">.</span>android<span class="token punctuation">.</span><span class="token function">importClass</span><span class="token punctuation">(</span><span class="token string">&quot;android.provider.Settings&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                            <span class="token keyword">const</span> Uri <span class="token operator">=</span> plus<span class="token punctuation">.</span>android<span class="token punctuation">.</span><span class="token function">importClass</span><span class="token punctuation">(</span><span class="token string">&quot;android.net.Uri&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    
+                            <span class="token keyword">const</span> intent <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Intent</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                            intent<span class="token punctuation">.</span><span class="token function">setAction</span><span class="token punctuation">(</span>Settings<span class="token punctuation">.</span><span class="token constant">ACTION_APPLICATION_DETAILS_SETTINGS</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                            <span class="token keyword">const</span> uri <span class="token operator">=</span> Uri<span class="token punctuation">.</span><span class="token function">fromParts</span><span class="token punctuation">(</span><span class="token string">&quot;package&quot;</span><span class="token punctuation">,</span> plus<span class="token punctuation">.</span>android<span class="token punctuation">.</span><span class="token function">runtimeMainActivity</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+                                <span class="token punctuation">.</span><span class="token function">getPackageName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                            intent<span class="token punctuation">.</span><span class="token function">setData</span><span class="token punctuation">(</span>uri<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    
+                            <span class="token keyword">try</span> <span class="token punctuation">{</span>
+                                plus<span class="token punctuation">.</span>android<span class="token punctuation">.</span><span class="token function">runtimeMainActivity</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">startActivity</span><span class="token punctuation">(</span>intent<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                                
+                                <span class="token comment">// 监听应用回到前台</span>
+                                <span class="token keyword">const</span> <span class="token function-variable function">handleAppShow</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+                                    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'从设置返回，检查权限状态'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                                    <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+                                        <span class="token keyword">const</span> Context <span class="token operator">=</span> plus<span class="token punctuation">.</span>android<span class="token punctuation">.</span><span class="token function">importClass</span><span class="token punctuation">(</span><span class="token string">'android.content.Context'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                                        <span class="token keyword">const</span> PackageManager <span class="token operator">=</span> plus<span class="token punctuation">.</span>android<span class="token punctuation">.</span><span class="token function">importClass</span><span class="token punctuation">(</span><span class="token string">'android.content.pm.PackageManager'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                                        <span class="token keyword">const</span> context <span class="token operator">=</span> plus<span class="token punctuation">.</span>android<span class="token punctuation">.</span><span class="token function">runtimeMainActivity</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getApplicationContext</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                                        
+                                        <span class="token keyword">let</span> allGranted <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+                                        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">const</span> perm <span class="token keyword">of</span> permissions<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                                            <span class="token keyword">if</span> <span class="token punctuation">(</span>context<span class="token punctuation">.</span><span class="token function">checkSelfPermission</span><span class="token punctuation">(</span>perm<span class="token punctuation">)</span> <span class="token operator">!==</span> PackageManager<span class="token punctuation">.</span><span class="token constant">PERMISSION_GRANTED</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                                                allGranted <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+                                                <span class="token keyword">break</span><span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                        <span class="token punctuation">}</span>
+                                        
+                                        <span class="token keyword">if</span> <span class="token punctuation">(</span>allGranted<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                                            console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'[成功] 从设置返回后权限已授予'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                                            <span class="token function">resolve</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                                        <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+                                            console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'[警告] 从设置返回后权限未授予'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                                            <span class="token function">resolve</span><span class="token punctuation">(</span><span class="token boolean">false</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                                        <span class="token punctuation">}</span>
+                                        
+                                        uni<span class="token punctuation">.</span><span class="token function">$off</span><span class="token punctuation">(</span><span class="token string">'app_show'</span><span class="token punctuation">,</span> handleAppShow<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                                    <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                                <span class="token punctuation">}</span><span class="token punctuation">;</span>
+                                
+                                uni<span class="token punctuation">.</span><span class="token function">$on</span><span class="token punctuation">(</span><span class="token string">'app_show'</span><span class="token punctuation">,</span> handleAppShow<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                                
+                                <span class="token comment">// 设置超时</span>
+                                <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+                                    uni<span class="token punctuation">.</span><span class="token function">$off</span><span class="token punctuation">(</span><span class="token string">'app_show'</span><span class="token punctuation">,</span> handleAppShow<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                                    <span class="token function">resolve</span><span class="token punctuation">(</span><span class="token boolean">false</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                                <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">10000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                                
+                            <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span>e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                                console<span class="token punctuation">.</span><span class="token function">error</span><span class="token punctuation">(</span><span class="token string">'跳转设置失败:'</span><span class="token punctuation">,</span> e<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                                <span class="token function">resolve</span><span class="token punctuation">(</span><span class="token boolean">false</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                            <span class="token punctuation">}</span>
+                            <span class="token comment">// #endif</span>
+                            <span class="token comment">// ...其他平台</span>
+                        <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+                            <span class="token function">resolve</span><span class="token punctuation">(</span><span class="token boolean">false</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                        <span class="token punctuation">}</span>
+                    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                    <span class="token function-variable function">fail</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token function">resolve</span><span class="token punctuation">(</span><span class="token boolean">false</span><span class="token punctuation">)</span>
+                <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">// H5获取位置</span>
+    <span class="token function">_getH5Location</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Promise</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">resolve<span class="token punctuation">,</span> reject</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>navigator<span class="token punctuation">.</span>geolocation<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token function">reject</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Error</span><span class="token punctuation">(</span><span class="token string">'Geolocation not supported'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token keyword">return</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            navigator<span class="token punctuation">.</span>geolocation<span class="token punctuation">.</span><span class="token function">getCurrentPosition</span><span class="token punctuation">(</span>resolve<span class="token punctuation">,</span> reject<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h2 id="二、安卓端app需要在-app-vue-中添加以下代码"><a href="#二、安卓端app需要在-app-vue-中添加以下代码" class="header-anchor">#</a> 二、安卓端app需要在 <code>App.vue</code> 中添加以下代码</h2> <div class="language-vue extra-class"><pre class="language-vue"><code>...
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">&gt;</span></span><span class="token script"><span class="token language-javascript">
+	<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
+		<span class="token function-variable function">onLaunch</span><span class="token operator">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+			console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'App Launch'</span><span class="token punctuation">)</span>
+			<span class="token operator">...</span>
+			<span class="token comment">// 监听应用状态变化</span>
+			<span class="token comment">// #ifdef APP-PLUS</span>
+			<span class="token keyword">let</span> appHideTime <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+			
+			plus<span class="token punctuation">.</span>globalEvent<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">'pause'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+				console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'应用进入后台'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+				appHideTime <span class="token operator">=</span> Date<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+				uni<span class="token punctuation">.</span><span class="token function">$emit</span><span class="token punctuation">(</span><span class="token string">'app_hide'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+			<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+			
+			plus<span class="token punctuation">.</span>globalEvent<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">'resume'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+				console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'应用回到前台'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+				<span class="token keyword">const</span> hideDuration <span class="token operator">=</span> Date<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-</span> appHideTime<span class="token punctuation">;</span>
+				console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">应用在后台停留时间: </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>hideDuration<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">ms</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+				uni<span class="token punctuation">.</span><span class="token function">$emit</span><span class="token punctuation">(</span><span class="token string">'app_show'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span> hideDuration <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+			<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+			<span class="token comment">// #endif</span>
+		<span class="token punctuation">}</span><span class="token punctuation">,</span>
+		<span class="token function-variable function">onShow</span><span class="token operator">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+			console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'App Show'</span><span class="token punctuation">)</span>
+		<span class="token punctuation">}</span><span class="token punctuation">,</span>
+		<span class="token function-variable function">onHide</span><span class="token operator">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+			console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'App Hide'</span><span class="token punctuation">)</span>
+		<span class="token punctuation">}</span>
+	<span class="token punctuation">}</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span><span class="token punctuation">&gt;</span></span><span class="token style"><span class="token language-css">
+	...
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">&gt;</span></span>
+</code></pre></div><h2 id="三、调用权限类示例"><a href="#三、调用权限类示例" class="header-anchor">#</a> 三、调用权限类示例</h2> <p>如，在页面 <code>/pages/chat/chat.nvue</code></p> <div class="language-vue extra-class"><pre class="language-vue"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">&gt;</span></span><span class="token script"><span class="token language-javascript">
+	<span class="token keyword">import</span> UniPermission <span class="token keyword">from</span> <span class="token string">'@/common/mixins/uni_permission.js'</span><span class="token punctuation">;</span>
+    <span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
+        <span class="token literal-property property">methods</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+            <span class="token comment">// 处理相册照片</span>
+			<span class="token keyword">async</span> <span class="token function">handlePhoto</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+			    <span class="token keyword">try</span> <span class="token punctuation">{</span>
+                    <span class="token keyword">const</span> permission <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">UniPermission</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token keyword">const</span> granted <span class="token operator">=</span> <span class="token keyword">await</span> permission<span class="token punctuation">.</span><span class="token function">requestPermission</span><span class="token punctuation">(</span><span class="token string">'photo'</span><span class="token punctuation">,</span> 
+                    <span class="token string">'需要访问您的相册来选择照片'</span><span class="token punctuation">,</span><span class="token string">'本功能需要您打开相册'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token keyword">if</span> <span class="token punctuation">(</span>granted<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                        <span class="token comment">//console.log('相册权限已授予，开始选择图片');</span>
+                        <span class="token comment">//this.chooseImage(); // 选择照片</span>
+                        <span class="token comment">// setTimeout(() =&gt; {this.chooseImage();}, 300);</span>
+                    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+                        uni<span class="token punctuation">.</span><span class="token function">showToast</span><span class="token punctuation">(</span><span class="token punctuation">{</span> <span class="token literal-property property">title</span><span class="token operator">:</span> <span class="token string">'无相册权限'</span><span class="token punctuation">,</span> <span class="token literal-property property">icon</span><span class="token operator">:</span> <span class="token string">'none'</span><span class="token punctuation">,</span><span class="token literal-property property">duration</span><span class="token operator">:</span> <span class="token number">2000</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token punctuation">}</span>
+			    <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span>error<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                    console<span class="token punctuation">.</span><span class="token function">error</span><span class="token punctuation">(</span><span class="token string">'权限申请异常:'</span><span class="token punctuation">,</span> error<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    uni<span class="token punctuation">.</span><span class="token function">showToast</span><span class="token punctuation">(</span><span class="token punctuation">{</span> 
+                        <span class="token literal-property property">title</span><span class="token operator">:</span> <span class="token string">'权限申请失败: '</span> <span class="token operator">+</span> error<span class="token punctuation">.</span>message<span class="token punctuation">,</span> 
+                        <span class="token literal-property property">icon</span><span class="token operator">:</span> <span class="token string">'none'</span><span class="token punctuation">,</span>
+                        <span class="token literal-property property">duration</span><span class="token operator">:</span> <span class="token number">3000</span>
+                    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
+			<span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
+</code></pre></div></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">更新时间:</span> <span class="time">2025年6月26日星期四下午1点53分</span></div></footer> <!----> </main></div><div class="global-ui"><!----><!----></div></div>
+    <script src="/assets/js/app.1551c49e.js" defer></script><script src="/assets/js/10.a1858127.js" defer></script><script src="/assets/js/2.641709ae.js" defer></script><script src="/assets/js/157.7c186d60.js" defer></script><script src="/assets/js/4.68f7b7e9.js" defer></script>
+  </body>
+</html>

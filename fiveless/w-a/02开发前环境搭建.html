@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>章节2.开发前环境搭建及准备 | 睿晨网</title>
+    <meta name="generator" content="VuePress 1.9.9">
+    <link rel="icon" href="/assets/img/favicon.png">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="apple-touch-icon" href="/icons/apple-touch-icon-152x152.png">
+    <link rel="#icon-pengyouquan" href="/icons/iconfont.svg" color="#3eaf7c">
+    <meta name="description" content="睿晨网|睿晨编程|零基础学做网站、app、小程序就从这里开始">
+    <meta name="keywords" content="睿晨网,睿晨编程,零基础学做网站,零基础学app,零基础学小程序">
+    <meta name="author" content="睿晨网,睿晨编程,阿东老师">
+    <meta name="theme-color" content="#3eaf7c">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="msapplication-TileImage" content="/icons/msapplication-icon-144x144.png">
+    <meta name="msapplication-TileColor" content="#000000">
+    
+    <link rel="preload" href="/assets/css/0.styles.c8027397.css" as="style"><link rel="preload" href="/assets/js/app.1551c49e.js" as="script"><link rel="preload" href="/assets/js/10.a1858127.js" as="script"><link rel="preload" href="/assets/js/2.641709ae.js" as="script"><link rel="preload" href="/assets/js/22.a81c6dd1.js" as="script"><link rel="preload" href="/assets/js/4.68f7b7e9.js" as="script"><link rel="prefetch" href="/assets/js/100.18619803.js"><link rel="prefetch" href="/assets/js/101.8bd041cc.js"><link rel="prefetch" href="/assets/js/102.68768c8d.js"><link rel="prefetch" href="/assets/js/103.739a9bcb.js"><link rel="prefetch" href="/assets/js/104.9cadff90.js"><link rel="prefetch" href="/assets/js/105.78b9c2c5.js"><link rel="prefetch" href="/assets/js/106.844c8756.js"><link rel="prefetch" href="/assets/js/107.5b519fc6.js"><link rel="prefetch" href="/assets/js/108.ee801dcb.js"><link rel="prefetch" href="/assets/js/109.52a303c7.js"><link rel="prefetch" href="/assets/js/11.e11c94df.js"><link rel="prefetch" href="/assets/js/110.f6ed432b.js"><link rel="prefetch" href="/assets/js/111.285a5894.js"><link rel="prefetch" href="/assets/js/112.a1381053.js"><link rel="prefetch" href="/assets/js/113.debf9c90.js"><link rel="prefetch" href="/assets/js/114.4ce70875.js"><link rel="prefetch" href="/assets/js/115.1408f138.js"><link rel="prefetch" href="/assets/js/116.4e59efa6.js"><link rel="prefetch" href="/assets/js/117.c346744b.js"><link rel="prefetch" href="/assets/js/118.132696e5.js"><link rel="prefetch" href="/assets/js/119.60ccd5df.js"><link rel="prefetch" href="/assets/js/12.a0e9d6b9.js"><link rel="prefetch" href="/assets/js/120.316ae5a5.js"><link rel="prefetch" href="/assets/js/121.012199c0.js"><link rel="prefetch" href="/assets/js/122.5ca95392.js"><link rel="prefetch" href="/assets/js/123.ea49ceda.js"><link rel="prefetch" href="/assets/js/124.b897f52b.js"><link rel="prefetch" href="/assets/js/125.37828099.js"><link rel="prefetch" href="/assets/js/126.ecfe8e36.js"><link rel="prefetch" href="/assets/js/127.267b3d81.js"><link rel="prefetch" href="/assets/js/128.00882258.js"><link rel="prefetch" href="/assets/js/129.9fea3788.js"><link rel="prefetch" href="/assets/js/13.a99e59c7.js"><link rel="prefetch" href="/assets/js/130.954f8f8c.js"><link rel="prefetch" href="/assets/js/131.eaafcb7a.js"><link rel="prefetch" href="/assets/js/132.d2e8f32a.js"><link rel="prefetch" href="/assets/js/133.1dc1d6e0.js"><link rel="prefetch" href="/assets/js/134.2f2faf4f.js"><link rel="prefetch" href="/assets/js/135.24200144.js"><link rel="prefetch" href="/assets/js/136.187156eb.js"><link rel="prefetch" href="/assets/js/137.9fe04d34.js"><link rel="prefetch" href="/assets/js/138.37623004.js"><link rel="prefetch" href="/assets/js/139.10fc690f.js"><link rel="prefetch" href="/assets/js/14.76051a79.js"><link rel="prefetch" href="/assets/js/140.a969638c.js"><link rel="prefetch" href="/assets/js/141.e236c931.js"><link rel="prefetch" href="/assets/js/142.a43949f7.js"><link rel="prefetch" href="/assets/js/143.d885f78e.js"><link rel="prefetch" href="/assets/js/144.ebf722ab.js"><link rel="prefetch" href="/assets/js/145.ba52af84.js"><link rel="prefetch" href="/assets/js/146.e8bbd530.js"><link rel="prefetch" href="/assets/js/147.5a05818f.js"><link rel="prefetch" href="/assets/js/148.e276ad6e.js"><link rel="prefetch" href="/assets/js/149.bddb34d3.js"><link rel="prefetch" href="/assets/js/15.db8daf5b.js"><link rel="prefetch" href="/assets/js/150.cd32a7c3.js"><link rel="prefetch" href="/assets/js/151.6551da2a.js"><link rel="prefetch" href="/assets/js/152.798b2ebc.js"><link rel="prefetch" href="/assets/js/153.150ee96b.js"><link rel="prefetch" href="/assets/js/154.3a632aed.js"><link rel="prefetch" href="/assets/js/155.b1d968ee.js"><link rel="prefetch" href="/assets/js/156.a7558efa.js"><link rel="prefetch" href="/assets/js/157.7c186d60.js"><link rel="prefetch" href="/assets/js/158.78b10030.js"><link rel="prefetch" href="/assets/js/159.38ad86c7.js"><link rel="prefetch" href="/assets/js/16.f378a7de.js"><link rel="prefetch" href="/assets/js/160.27a75dfc.js"><link rel="prefetch" href="/assets/js/161.798343cd.js"><link rel="prefetch" href="/assets/js/162.513c160a.js"><link rel="prefetch" href="/assets/js/163.fbb06251.js"><link rel="prefetch" href="/assets/js/164.ff79daa8.js"><link rel="prefetch" href="/assets/js/165.5e2d2eec.js"><link rel="prefetch" href="/assets/js/166.1fc2a343.js"><link rel="prefetch" href="/assets/js/167.49a03db0.js"><link rel="prefetch" href="/assets/js/168.ebe9c55c.js"><link rel="prefetch" href="/assets/js/169.53efa7bb.js"><link rel="prefetch" href="/assets/js/17.96a778e6.js"><link rel="prefetch" href="/assets/js/170.4016444f.js"><link rel="prefetch" href="/assets/js/171.757c64d8.js"><link rel="prefetch" href="/assets/js/172.081f7480.js"><link rel="prefetch" href="/assets/js/173.2997f3cf.js"><link rel="prefetch" href="/assets/js/174.c1023074.js"><link rel="prefetch" href="/assets/js/175.07ca7ced.js"><link rel="prefetch" href="/assets/js/176.4b30a8cb.js"><link rel="prefetch" href="/assets/js/177.07e9b413.js"><link rel="prefetch" href="/assets/js/178.a00e2f64.js"><link rel="prefetch" href="/assets/js/179.24580058.js"><link rel="prefetch" href="/assets/js/18.27191b20.js"><link rel="prefetch" href="/assets/js/180.55016948.js"><link rel="prefetch" href="/assets/js/181.c752bdb6.js"><link rel="prefetch" href="/assets/js/182.042feb52.js"><link rel="prefetch" href="/assets/js/183.b86a5c39.js"><link rel="prefetch" href="/assets/js/184.56bfc2de.js"><link rel="prefetch" href="/assets/js/185.f76f49e1.js"><link rel="prefetch" href="/assets/js/186.96f8766b.js"><link rel="prefetch" href="/assets/js/187.624813c9.js"><link rel="prefetch" href="/assets/js/188.4e072f4e.js"><link rel="prefetch" href="/assets/js/189.41e97faa.js"><link rel="prefetch" href="/assets/js/19.10e6b66e.js"><link rel="prefetch" href="/assets/js/190.ec9c5b21.js"><link rel="prefetch" href="/assets/js/191.40cc4d4f.js"><link rel="prefetch" href="/assets/js/192.c5f96b34.js"><link rel="prefetch" href="/assets/js/193.4f75e166.js"><link rel="prefetch" href="/assets/js/194.ed00019f.js"><link rel="prefetch" href="/assets/js/195.55d74520.js"><link rel="prefetch" href="/assets/js/196.bbf11fae.js"><link rel="prefetch" href="/assets/js/197.36f48310.js"><link rel="prefetch" href="/assets/js/198.6382480c.js"><link rel="prefetch" href="/assets/js/199.0b4a31ca.js"><link rel="prefetch" href="/assets/js/20.c9849598.js"><link rel="prefetch" href="/assets/js/200.a9d76202.js"><link rel="prefetch" href="/assets/js/201.4fe67f1c.js"><link rel="prefetch" href="/assets/js/202.e7a135c5.js"><link rel="prefetch" href="/assets/js/203.b542e6ca.js"><link rel="prefetch" href="/assets/js/204.f5529869.js"><link rel="prefetch" href="/assets/js/205.a0f2a271.js"><link rel="prefetch" href="/assets/js/206.7a631840.js"><link rel="prefetch" href="/assets/js/207.c970a2c8.js"><link rel="prefetch" href="/assets/js/208.5e6266fc.js"><link rel="prefetch" href="/assets/js/209.43081e06.js"><link rel="prefetch" href="/assets/js/21.7b35d070.js"><link rel="prefetch" href="/assets/js/210.8ccf8057.js"><link rel="prefetch" href="/assets/js/211.991f5672.js"><link rel="prefetch" href="/assets/js/212.2cb93159.js"><link rel="prefetch" href="/assets/js/213.62a11f95.js"><link rel="prefetch" href="/assets/js/214.d83d9a17.js"><link rel="prefetch" href="/assets/js/215.97687768.js"><link rel="prefetch" href="/assets/js/216.4d1df106.js"><link rel="prefetch" href="/assets/js/217.4499f4a4.js"><link rel="prefetch" href="/assets/js/218.e733a259.js"><link rel="prefetch" href="/assets/js/219.6b5a8c63.js"><link rel="prefetch" href="/assets/js/220.4eb1d1a7.js"><link rel="prefetch" href="/assets/js/221.93de4946.js"><link rel="prefetch" href="/assets/js/222.29e3105a.js"><link rel="prefetch" href="/assets/js/223.855829f1.js"><link rel="prefetch" href="/assets/js/224.aa3e2b6c.js"><link rel="prefetch" href="/assets/js/23.19ef55db.js"><link rel="prefetch" href="/assets/js/24.14e8df9c.js"><link rel="prefetch" href="/assets/js/25.c61b2c85.js"><link rel="prefetch" href="/assets/js/26.f2e99aca.js"><link rel="prefetch" href="/assets/js/27.0055f1bf.js"><link rel="prefetch" href="/assets/js/28.d502962b.js"><link rel="prefetch" href="/assets/js/29.5274de73.js"><link rel="prefetch" href="/assets/js/3.c29c4376.js"><link rel="prefetch" href="/assets/js/30.d171a8c6.js"><link rel="prefetch" href="/assets/js/31.33ab4c82.js"><link rel="prefetch" href="/assets/js/32.5d7f62dd.js"><link rel="prefetch" href="/assets/js/33.432e7101.js"><link rel="prefetch" href="/assets/js/34.527238ae.js"><link rel="prefetch" href="/assets/js/35.41e2f1a9.js"><link rel="prefetch" href="/assets/js/36.36e8cbe9.js"><link rel="prefetch" href="/assets/js/37.408ecd7e.js"><link rel="prefetch" href="/assets/js/38.adb87b54.js"><link rel="prefetch" href="/assets/js/39.ab1743c0.js"><link rel="prefetch" href="/assets/js/40.dfe88367.js"><link rel="prefetch" href="/assets/js/41.4c0a244c.js"><link rel="prefetch" href="/assets/js/42.0db7ffc1.js"><link rel="prefetch" href="/assets/js/43.9bbc3fdc.js"><link rel="prefetch" href="/assets/js/44.9cb60997.js"><link rel="prefetch" href="/assets/js/45.233bc319.js"><link rel="prefetch" href="/assets/js/46.df825005.js"><link rel="prefetch" href="/assets/js/47.0a01cff4.js"><link rel="prefetch" href="/assets/js/48.7f166177.js"><link rel="prefetch" href="/assets/js/49.8011783f.js"><link rel="prefetch" href="/assets/js/5.669bc404.js"><link rel="prefetch" href="/assets/js/50.20d114ee.js"><link rel="prefetch" href="/assets/js/51.41215bac.js"><link rel="prefetch" href="/assets/js/52.f14ab548.js"><link rel="prefetch" href="/assets/js/53.4f82a59d.js"><link rel="prefetch" href="/assets/js/54.5358a28a.js"><link rel="prefetch" href="/assets/js/55.15f62ff0.js"><link rel="prefetch" href="/assets/js/56.3b96ac00.js"><link rel="prefetch" href="/assets/js/57.82080407.js"><link rel="prefetch" href="/assets/js/58.b87f8a4f.js"><link rel="prefetch" href="/assets/js/59.d0280025.js"><link rel="prefetch" href="/assets/js/6.f6f62d21.js"><link rel="prefetch" href="/assets/js/60.a7627211.js"><link rel="prefetch" href="/assets/js/61.035209e3.js"><link rel="prefetch" href="/assets/js/62.2c485d50.js"><link rel="prefetch" href="/assets/js/63.248fe83e.js"><link rel="prefetch" href="/assets/js/64.78e661de.js"><link rel="prefetch" href="/assets/js/65.dd2bb2cc.js"><link rel="prefetch" href="/assets/js/66.4ee0cd75.js"><link rel="prefetch" href="/assets/js/67.d9fcd12f.js"><link rel="prefetch" href="/assets/js/68.952f4f3c.js"><link rel="prefetch" href="/assets/js/69.8e3c6d8f.js"><link rel="prefetch" href="/assets/js/7.4992cb98.js"><link rel="prefetch" href="/assets/js/70.272781c2.js"><link rel="prefetch" href="/assets/js/71.15cd1362.js"><link rel="prefetch" href="/assets/js/72.5f749898.js"><link rel="prefetch" href="/assets/js/73.d99dde8e.js"><link rel="prefetch" href="/assets/js/74.e998e475.js"><link rel="prefetch" href="/assets/js/75.757237b7.js"><link rel="prefetch" href="/assets/js/76.f5792d24.js"><link rel="prefetch" href="/assets/js/77.1024fde7.js"><link rel="prefetch" href="/assets/js/78.19a91326.js"><link rel="prefetch" href="/assets/js/79.a1f0575e.js"><link rel="prefetch" href="/assets/js/8.876918ab.js"><link rel="prefetch" href="/assets/js/80.4d569b1a.js"><link rel="prefetch" href="/assets/js/81.2cd439e3.js"><link rel="prefetch" href="/assets/js/82.9af7b0cb.js"><link rel="prefetch" href="/assets/js/83.2472ebe5.js"><link rel="prefetch" href="/assets/js/84.dc3685e8.js"><link rel="prefetch" href="/assets/js/85.6b6a015d.js"><link rel="prefetch" href="/assets/js/86.82cafc1a.js"><link rel="prefetch" href="/assets/js/87.cd7ab5af.js"><link rel="prefetch" href="/assets/js/88.69217326.js"><link rel="prefetch" href="/assets/js/89.b36c40f8.js"><link rel="prefetch" href="/assets/js/9.cab32b0c.js"><link rel="prefetch" href="/assets/js/90.dc1195b5.js"><link rel="prefetch" href="/assets/js/91.bda7a16a.js"><link rel="prefetch" href="/assets/js/92.808c8bb7.js"><link rel="prefetch" href="/assets/js/93.317ba4e1.js"><link rel="prefetch" href="/assets/js/94.8805601c.js"><link rel="prefetch" href="/assets/js/95.becd22c7.js"><link rel="prefetch" href="/assets/js/96.67caa618.js"><link rel="prefetch" href="/assets/js/97.4824155c.js"><link rel="prefetch" href="/assets/js/98.214e2bc6.js"><link rel="prefetch" href="/assets/js/99.0cf23487.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.c8027397.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">睿晨网</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">
+  主页
+</a></div><div class="nav-item"><a href="/aboutless.html" class="nav-link">
+  第一期企业网页开发
+</a></div><div class="nav-item"><a href="/secondless/" class="nav-link">
+  第二期企业网站开发
+</a></div><div class="nav-item"><a href="/thirdless/" class="nav-link">
+  第三期移动端(H5/小程序/App)课程
+</a></div><div class="nav-item"><a href="/fourthless/" class="nav-link">
+  第四期web全栈课程
+</a></div><div class="nav-item"><a href="/fiveless/" class="nav-link router-link-active">
+  第五期python课程
+</a></div><div class="nav-item"><a href="/web/software/" class="nav-link">
+  课程软件小案例
+</a></div><div class="nav-item"><a href="/web/mysql/" class="nav-link">
+  课程案例数据表
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="课程答疑汇总" class="dropdown-title"><span class="title">课程答疑</span> <span class="arrow down"></span></button> <button type="button" aria-label="课程答疑汇总" class="mobile-dropdown-title"><span class="title">课程答疑</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/web/answer/课程常见问题.html" class="nav-link">
+  课程常见问题
+</a></li><li class="dropdown-item"><!----> <a href="/deploy/" class="nav-link">
+  项目部署
+</a></li><li class="dropdown-item"><!----> <a href="/web/answer/免费部署SSL证书.html" class="nav-link">
+  免费部署SSL证书
+</a></li><li class="dropdown-item"><!----> <a href="/web/answer/如何清除服务器Nginx缓存.html" class="nav-link">
+  清除Nginx缓存
+</a></li><li class="dropdown-item"><!----> <a href="/web/answer/浏览器指纹.html" class="nav-link">
+  浏览器指纹
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="课程学习网站" class="dropdown-title"><span class="title">课程学习网站</span> <span class="arrow down"></span></button> <button type="button" aria-label="课程学习网站" class="mobile-dropdown-title"><span class="title">课程学习网站</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          视频学习网站
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://study.163.com/provider/480000002289674/index.htm?share=2&amp;shareId=480000002289674" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  网易云课堂
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://space.bilibili.com/3493114067028034/pugv" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  B站
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="实用菜单" class="dropdown-title"><span class="title">实用网站和方法</span> <span class="arrow down"></span></button> <button type="button" aria-label="实用菜单" class="mobile-dropdown-title"><span class="title">实用网站和方法</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          实用方法
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/web/methods/定位相关.html" class="nav-link">
+  定位相关
+</a></li><li class="dropdown-subitem"><a href="/web/methods/地图相关.html" class="nav-link">
+  地图相关
+</a></li><li class="dropdown-subitem"><a href="/web/methods/树形结构数据转换.html" class="nav-link">
+  树形结构数据转换
+</a></li></ul></li><li class="dropdown-item"><h4>
+          uni-app专栏
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/web/methods/uni-app专栏.html" class="nav-link">
+  uni-app的UI框架
+</a></li><li class="dropdown-subitem"><a href="/web/methods/uni-app如何引入库.html" class="nav-link">
+  uni-app如何引入js库
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Egg.js专栏
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/secondless/w-c/Egg.js.html" class="nav-link">
+  Egg.js基础
+</a></li><li class="dropdown-subitem"><a href="/secondless/w-c/egg.js基础总结.html" class="nav-link">
+  Egg.js基础总结
+</a></li><li class="dropdown-subitem"><a href="/secondless/w-c/egg.js重要知识详细文档.html" class="nav-link">
+  Egg.js重要知识详细文档
+</a></li><li class="dropdown-subitem"><a href="/secondless/w-c/ValParams API 说明.html" class="nav-link">
+  Egg.js参数验证说明
+</a></li><li class="dropdown-subitem"><a href="/web/mysql/Sequelize数据类型.html" class="nav-link">
+  Egg.js迁移文件Sequelize数据类型
+</a></li><li class="dropdown-subitem"><a href="/secondless/w-c/Egg.js接口安全防护方案.html" class="nav-link">
+  Egg.js接口安全防护方案
+</a></li><li class="dropdown-subitem"><a href="/web/answer/课程常见问题.html#_3-eggjs如何重置数据表-保证id每次从1开始计算" class="nav-link">
+  Egg.js重置数据表每次ID为1
+</a></li><li class="dropdown-subitem"><a href="/secondless/w-c/Egg.js中extend中helper调用.html" class="nav-link">
+  Egg.js中extend中helper调用
+</a></li></ul></li><li class="dropdown-item"><h4>
+          实用网站
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/web/methods/实用接口.html" class="nav-link">
+  实用接口
+</a></li><li class="dropdown-subitem"><a href="/web/css/" class="nav-link">
+  css
+</a></li><li class="dropdown-subitem"><a href="/web/vue.js/" class="nav-link">
+  Vue.js
+</a></li><li class="dropdown-subitem"><a href="/web/Vue3+ElementPlus/" class="nav-link">
+  Vue3+ElementPlus系统
+</a></li><li class="dropdown-subitem"><a href="/web/echarts/" class="nav-link">
+  echarts图表
+</a></li><li class="dropdown-subitem"><a href="/web/bootstrap/" class="nav-link">
+  Bootstrap
+</a></li><li class="dropdown-subitem"><a href="/web/IIS/" class="nav-link">
+  IIS
+</a></li><li class="dropdown-subitem"><a href="/web/github/" class="nav-link">
+  Github
+</a></li><li class="dropdown-subitem"><a href="/web/Vanta.js/" class="nav-link">
+  Vanta.js网页3D背景
+</a></li><li class="dropdown-subitem"><a href="/web/shop/" class="nav-link">
+  商城系统推荐
+</a></li></ul></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">
+  主页
+</a></div><div class="nav-item"><a href="/aboutless.html" class="nav-link">
+  第一期企业网页开发
+</a></div><div class="nav-item"><a href="/secondless/" class="nav-link">
+  第二期企业网站开发
+</a></div><div class="nav-item"><a href="/thirdless/" class="nav-link">
+  第三期移动端(H5/小程序/App)课程
+</a></div><div class="nav-item"><a href="/fourthless/" class="nav-link">
+  第四期web全栈课程
+</a></div><div class="nav-item"><a href="/fiveless/" class="nav-link router-link-active">
+  第五期python课程
+</a></div><div class="nav-item"><a href="/web/software/" class="nav-link">
+  课程软件小案例
+</a></div><div class="nav-item"><a href="/web/mysql/" class="nav-link">
+  课程案例数据表
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="课程答疑汇总" class="dropdown-title"><span class="title">课程答疑</span> <span class="arrow down"></span></button> <button type="button" aria-label="课程答疑汇总" class="mobile-dropdown-title"><span class="title">课程答疑</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/web/answer/课程常见问题.html" class="nav-link">
+  课程常见问题
+</a></li><li class="dropdown-item"><!----> <a href="/deploy/" class="nav-link">
+  项目部署
+</a></li><li class="dropdown-item"><!----> <a href="/web/answer/免费部署SSL证书.html" class="nav-link">
+  免费部署SSL证书
+</a></li><li class="dropdown-item"><!----> <a href="/web/answer/如何清除服务器Nginx缓存.html" class="nav-link">
+  清除Nginx缓存
+</a></li><li class="dropdown-item"><!----> <a href="/web/answer/浏览器指纹.html" class="nav-link">
+  浏览器指纹
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="课程学习网站" class="dropdown-title"><span class="title">课程学习网站</span> <span class="arrow down"></span></button> <button type="button" aria-label="课程学习网站" class="mobile-dropdown-title"><span class="title">课程学习网站</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          视频学习网站
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://study.163.com/provider/480000002289674/index.htm?share=2&amp;shareId=480000002289674" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  网易云课堂
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://space.bilibili.com/3493114067028034/pugv" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  B站
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="实用菜单" class="dropdown-title"><span class="title">实用网站和方法</span> <span class="arrow down"></span></button> <button type="button" aria-label="实用菜单" class="mobile-dropdown-title"><span class="title">实用网站和方法</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          实用方法
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/web/methods/定位相关.html" class="nav-link">
+  定位相关
+</a></li><li class="dropdown-subitem"><a href="/web/methods/地图相关.html" class="nav-link">
+  地图相关
+</a></li><li class="dropdown-subitem"><a href="/web/methods/树形结构数据转换.html" class="nav-link">
+  树形结构数据转换
+</a></li></ul></li><li class="dropdown-item"><h4>
+          uni-app专栏
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/web/methods/uni-app专栏.html" class="nav-link">
+  uni-app的UI框架
+</a></li><li class="dropdown-subitem"><a href="/web/methods/uni-app如何引入库.html" class="nav-link">
+  uni-app如何引入js库
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Egg.js专栏
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/secondless/w-c/Egg.js.html" class="nav-link">
+  Egg.js基础
+</a></li><li class="dropdown-subitem"><a href="/secondless/w-c/egg.js基础总结.html" class="nav-link">
+  Egg.js基础总结
+</a></li><li class="dropdown-subitem"><a href="/secondless/w-c/egg.js重要知识详细文档.html" class="nav-link">
+  Egg.js重要知识详细文档
+</a></li><li class="dropdown-subitem"><a href="/secondless/w-c/ValParams API 说明.html" class="nav-link">
+  Egg.js参数验证说明
+</a></li><li class="dropdown-subitem"><a href="/web/mysql/Sequelize数据类型.html" class="nav-link">
+  Egg.js迁移文件Sequelize数据类型
+</a></li><li class="dropdown-subitem"><a href="/secondless/w-c/Egg.js接口安全防护方案.html" class="nav-link">
+  Egg.js接口安全防护方案
+</a></li><li class="dropdown-subitem"><a href="/web/answer/课程常见问题.html#_3-eggjs如何重置数据表-保证id每次从1开始计算" class="nav-link">
+  Egg.js重置数据表每次ID为1
+</a></li><li class="dropdown-subitem"><a href="/secondless/w-c/Egg.js中extend中helper调用.html" class="nav-link">
+  Egg.js中extend中helper调用
+</a></li></ul></li><li class="dropdown-item"><h4>
+          实用网站
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/web/methods/实用接口.html" class="nav-link">
+  实用接口
+</a></li><li class="dropdown-subitem"><a href="/web/css/" class="nav-link">
+  css
+</a></li><li class="dropdown-subitem"><a href="/web/vue.js/" class="nav-link">
+  Vue.js
+</a></li><li class="dropdown-subitem"><a href="/web/Vue3+ElementPlus/" class="nav-link">
+  Vue3+ElementPlus系统
+</a></li><li class="dropdown-subitem"><a href="/web/echarts/" class="nav-link">
+  echarts图表
+</a></li><li class="dropdown-subitem"><a href="/web/bootstrap/" class="nav-link">
+  Bootstrap
+</a></li><li class="dropdown-subitem"><a href="/web/IIS/" class="nav-link">
+  IIS
+</a></li><li class="dropdown-subitem"><a href="/web/github/" class="nav-link">
+  Github
+</a></li><li class="dropdown-subitem"><a href="/web/Vanta.js/" class="nav-link">
+  Vanta.js网页3D背景
+</a></li><li class="dropdown-subitem"><a href="/web/shop/" class="nav-link">
+  商城系统推荐
+</a></li></ul></li></ul></div></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>章节2.开发前环境搭建及准备</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/fiveless/w-a/02%E5%BC%80%E5%8F%91%E5%89%8D%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA.html#一、python环境搭建" class="sidebar-link">一、Python环境搭建</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/fiveless/w-a/02%E5%BC%80%E5%8F%91%E5%89%8D%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA.html#_1-下载python解释器" class="sidebar-link">1. 下载Python解释器</a></li><li class="sidebar-sub-header"><a href="/fiveless/w-a/02%E5%BC%80%E5%8F%91%E5%89%8D%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA.html#_2-python解释器多版本共存问题" class="sidebar-link">2. Python解释器多版本共存问题</a></li><li class="sidebar-sub-header"><a href="/fiveless/w-a/02%E5%BC%80%E5%8F%91%E5%89%8D%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA.html#使用python解释器" class="sidebar-link">使用python解释器</a></li><li class="sidebar-sub-header"><a href="/fiveless/w-a/02%E5%BC%80%E5%8F%91%E5%89%8D%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA.html#_3-python环境变量的配置" class="sidebar-link">3. Python环境变量的配置</a></li><li class="sidebar-sub-header"><a href="/fiveless/w-a/02%E5%BC%80%E5%8F%91%E5%89%8D%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA.html#python解释器多版本共存解决方案" class="sidebar-link">Python解释器多版本共存解决方案</a></li><li class="sidebar-sub-header"><a href="/fiveless/w-a/02%E5%BC%80%E5%8F%91%E5%89%8D%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA.html#pip工具也是经常使用-也配置一下环境变量" class="sidebar-link">pip工具也是经常使用，也配置一下环境变量</a></li></ul></li><li><a href="/fiveless/w-a/02%E5%BC%80%E5%8F%91%E5%89%8D%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA.html#二、运行python程序" class="sidebar-link">二、运行Python程序</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/fiveless/w-a/02%E5%BC%80%E5%8F%91%E5%89%8D%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA.html#_1-直接在命令行运行python程序" class="sidebar-link">1. 直接在命令行运行Python程序</a></li><li class="sidebar-sub-header"><a href="/fiveless/w-a/02%E5%BC%80%E5%8F%91%E5%89%8D%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA.html#也可以把代码写在文件里面-然后在运行" class="sidebar-link">也可以把代码写在文件里面，然后在运行</a></li></ul></li><li><a href="/fiveless/w-a/02%E5%BC%80%E5%8F%91%E5%89%8D%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA.html#三、-python集成开发环境-ide" class="sidebar-link">三、 Python集成开发环境（IDE）</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/fiveless/w-a/02%E5%BC%80%E5%8F%91%E5%89%8D%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA.html#_1-基础配置" class="sidebar-link">1. 基础配置</a></li><li class="sidebar-sub-header"><a href="/fiveless/w-a/02%E5%BC%80%E5%8F%91%E5%89%8D%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA.html#_2-安装插件" class="sidebar-link">2. 安装插件</a></li><li class="sidebar-sub-header"><a href="/fiveless/w-a/02%E5%BC%80%E5%8F%91%E5%89%8D%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA.html#_3-可选插件-按需安装" class="sidebar-link">3. 可选插件（按需安装）</a></li><li class="sidebar-sub-header"><a href="/fiveless/w-a/02%E5%BC%80%E5%8F%91%E5%89%8D%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA.html#_4-配置建议" class="sidebar-link">4. 配置建议</a></li><li class="sidebar-sub-header"><a href="/fiveless/w-a/02%E5%BC%80%E5%8F%91%E5%89%8D%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA.html#_5-示例开发流程" class="sidebar-link">5. 示例开发流程</a></li></ul></li><li><a href="/fiveless/w-a/02%E5%BC%80%E5%8F%91%E5%89%8D%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA.html#四、在vscode中运行python程序" class="sidebar-link">四、在vscode中运行python程序</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/fiveless/w-a/02%E5%BC%80%E5%8F%91%E5%89%8D%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA.html#五、-python-虚拟环境" class="sidebar-link">五、 python 虚拟环境</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/fiveless/w-a/02%E5%BC%80%E5%8F%91%E5%89%8D%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA.html#_1-在vscode中创建python-虚拟环境" class="sidebar-link">1. 在vscode中创建python 虚拟环境</a></li></ul></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><p>前言</p> <blockquote><p>TIOBE 编程社区指数是一个衡量编程语言受欢迎程度的指标，评判的依据来自世界范围内的工程师、课程、供应商及搜索引擎，TIOBE 官网公布了 2025 年 5 月的编程语言排行榜，<code>Python</code> 以25.35%的占比稳居编程语言榜首，与第二名C++拉开15%的差距，凭借简洁语法和广泛适用性&quot;统治全球编程界&quot;。因此，如果大家对这套最受欢迎的编程语言感兴趣，可以来学习一下本套课程。<br>
+关于 <code>Python</code> 这里就不过多介绍了，感兴趣的同学可以去搜索一下关于 <code>Python</code>的相关介绍，接下来我们开始讲 <code>Python</code>的相关基础知识。</p></blockquote> <h2 id="一、python环境搭建"><a href="#一、python环境搭建" class="header-anchor">#</a> 一、Python环境搭建</h2> <h3 id="_1-下载python解释器"><a href="#_1-下载python解释器" class="header-anchor">#</a> 1. 下载Python解释器</h3> <p>Python解释器下载地址，来到官网：<a href="https://www.python.org" target="_blank" rel="noopener noreferrer">https://www.python.org<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a> (打开稍微有点慢，如果同学不想去官网下载，那么直接到群文件，本节课课件里面下载即可) <br></p> <blockquote><ol><li><code>Download</code> -&gt; <code>根据你电脑操作系统选择（以windows 64位为例）</code></li> <li><code>Python Releases for Windows</code> windows系统Python解释器最新的版本 （一般我们不用最新的版本，因为新版本可能会有bug，所以选择一个比较稳定的版本）</li> <li>比如选择 <code>Python 3.12.10</code> (电脑操作系统必须高于window7，如果你的电脑是windows7，那么选择 <code>Python 3.8.10及以前的版本</code>)</li> <li>点击 <code>Download Windows installer (64-bit)</code></li></ol> <blockquote><p>如果有同学不知道下载32位还是64位的，可以这么操作：</p> <blockquote><ol><li><code>开始</code> -&gt; <code>此电脑</code> -&gt; <code>鼠标右键 属性</code> -&gt; <code>查看系统类型</code>（你是32位的就下载32位，是64位的就下载64位）</li></ol></blockquote></blockquote> <ol start="5"><li>如果是<code>macOS</code>系统，那么选择 <code>Download macOS 64-bit universal2 installer</code>即可</li></ol></blockquote> <h3 id="_2-python解释器多版本共存问题"><a href="#_2-python解释器多版本共存问题" class="header-anchor">#</a> 2. Python解释器多版本共存问题</h3> <blockquote><p>我们知道，我们前面课程学习<code>node.js</code>的时候，我们的<code>node</code>存在很多个版本，而有时候我们需要切换node版本，同样的，我们的<code>Python解释器</code>也是有很多版本，我们刚刚下载的是<code>Python 3.x</code>的版本，比如我现在又有一个<code>Python 2.7.18</code>的版本（这个版本下载比较费时大家耐心等待，不想等待的可以去群里面下载），那么我们如何让Python解释器多版本共存呢？<br></p> <ol><li>先安装 <code>Python 2.7.18</code> 解释器</li></ol> <blockquote><ol><li>安装 <code>Python 2.7.18</code> 解释器</li></ol> <blockquote><ol><li>双击安装 -&gt; <code>Install for all users(为本电脑所有用户安装)</code> -&gt; <code>Next(下一步)</code> -&gt; <code>选择安装路径，默认C盘，可以改到D盘（D:\Python27\）(D盘会产生一个Python27的文件夹)</code> -&gt; <code>Next(下一步)</code> -&gt; <code>注意：勾选Add Python.exe to PATH(添加Python.exe就是Python解释器程序到环境变量PATH中)</code>  -&gt; <code>如果不勾选，直接Next(下一步)</code> -&gt; <code>等待安装</code> -&gt; <code>Finish(完成)</code></li></ol></blockquote></blockquote> <ol start="2"><li>分析安装的 <code>Python 2.7.18</code> 解释器</li></ol> <blockquote><ol><li>在 <code>D:\Python27\Scripts\pip.exe</code>文件，这个<code>pip.exe</code>文件是用来帮我们安装别人写好的第三方模块或者别人写好的Python代码，类似我们<code>node</code>里面的<code>npm</code>。这里面有 <code>pip.exe</code>、<code>pip2.exe</code>、<code>pip2.7.exe</code>，其实它们三个文件是一模一样的，只是取了不同的名字，也就是你运行<code>pip</code>、<code>pip2</code>、<code>pip2.7</code>都是一样的。</li> <li>在 <code>D:\Python27\python.exe</code>文件，这个<code>python.exe</code>文件就是我们安装的Python解释器。</li></ol></blockquote> <ol start="3"><li>我们接着安装 <code>Python 3.12.10</code> 解释器</li></ol> <blockquote><ol><li>双击安装<code>python-3.12.10-amd64.exe</code></li></ol> <blockquote><ol><li>提示 <code>Install Now</code>(默认安装)</li> <li>提示 <code>Add Python 3.12 to PATH</code> (添加Python到环境变量)，我们选择 <code>Add Python 3.12 to PATH</code> (正常安装我们应该勾选)，为了方便教学，我们这里先不勾选</li> <li>提示 <code>Customize Installation</code> (自定义安装)，我们选择 <code>Customize Installation</code></li></ol> <blockquote><ol><li>用默认选项即可 -&gt; <code>Next(下一步)</code>-&gt; 来到 <code>Advanced Options</code></li> <li>勾选 <code>Install for all users(给当前电脑所有用户安装)</code></li> <li>再次提示 <code>Add Python to environment variables(添加Python到环境变量)</code>说明这个设置非常重要，但为了方便教学，我们这里先不勾选</li> <li><code>Customize install location(自定义安装位置)</code> -&gt; <code>默认 C:\Program Files\Python37，我们可以改到D盘或者其它盘也可以不改，D:\Python37</code> -&gt; <code>Install（安装）</code> -&gt; <code>Close(关闭即可)</code></li></ol></blockquote></blockquote></blockquote> <ol start="4"><li>分析安装的 <code>Python 3.12.10</code> 解释器</li></ol> <blockquote><ol><li>在 <code>D:\Python312\Scripts\pip.exe</code>文件，这个<code>pip.exe</code>文件是用来帮我们安装别人写好的第三方模块或者别人写好的Python代码，类似我们<code>node</code>里面的<code>npm</code>。这里面有 <code>pip.exe</code>、<code>pip3.exe</code>、<code>pip3.12.exe</code>，其实它们三个文件是一模一样的，只是取了不同的名字，也就是你运行<code>pip</code>、<code>pip3</code>、<code>pip3.12.exe</code>都是一样的。</li> <li>在 <code>D:\Python312\python.exe</code>文件，这个<code>python.exe</code>文件就是我们安装的Python解释器。</li></ol></blockquote> <h3 id="使用python解释器"><a href="#使用python解释器" class="header-anchor">#</a> 使用python解释器</h3> <blockquote><p>和我们使用<code>node</code>一样, <code>开始</code> -&gt; <code>运行</code>(win + R) -&gt; <code>cmd</code> -&gt; <code>默认打开的：C:\Users\Administrator&gt;</code>是没有<code>python.exe</code>文件的，如果输入：<code>python.exe</code> 提示找不到，然后让你安装。</p> <ol><li>我们需要切换目录，我们知道python解释器我们安装在D盘，可以输入：<code>d:</code>（英文冒号）, 切换盘符，直接盘符名加上冒号</li> <li>在D盘 <code>D:\&gt;</code>，切换目录，用 <code>cd</code>，比如： <code>cd d:\Python27</code>, 则来到 <code>D盘文件夹Python27里面了</code></li> <li>在<code>D盘文件夹Python27里面了</code>， <code>d:\Python27&gt;</code>，输入 <code>python 或者 python.exe</code>, 启动python解释器。 这个流程，相当于你用鼠标先找到D盘，然后找到Python27文件夹，然后双击python.exe文件，一样的道理。</li> <li>输入 <code>exit()</code> 退出的意思</li> <li>同样 <code>Python 3.12.10</code> 解释器也是这样操作</li></ol></blockquote></blockquote> <h3 id="_3-python环境变量的配置"><a href="#_3-python环境变量的配置" class="header-anchor">#</a> 3. Python环境变量的配置</h3> <blockquote><p>由于我们在前面安装Python的时候，多次提示要我们把Python加入到环境变量中，但是由于教学原因，我们一直没有加，那么不加入环境变量，会出现什么问题呢？<br><br> <code>出现的问题就是：</code> 我们每次运行<code>Python</code> 解释器，都需要和上节课一样，切换盘符，切换目录，然后双击<code>python.exe</code>文件或者输入<code>python</code>命令，这样太麻烦了，所以我们需要把Python加入到环境变量中，这样我们就可以直接在命令行中运行<code>Python</code>解释器了。<br></p> <ol><li><code>环境变量</code>简单说一下</li></ol> <blockquote><p>我们在前面学习<code>node</code> 和 学习过<code>php</code>的同学，在我们第四期第1季课程，安装<code>thinkphp</code>框架，安装<code>composer</code>，都用到过环境变量。环境变量就是操作系统在当前文件夹下面，找不到你要运行的文件的时候，然后它会去你的环境变量里面依次检索，看看有没有这个文件，那么接下来我们就来配置一下环境变量。</p></blockquote> <ol start="2"><li>配置环境变量</li></ol> <blockquote><ol><li><code>开始</code>-&gt;<code>我的电脑（此电脑）</code>-&gt;<code>鼠标右键</code>-&gt;<code>属性</code>-&gt;<code>高级系统设置</code>-&gt;<code>高级</code>-&gt;<code>环境变量</code></li> <li><code>Administrator的用户变量</code> 是只针对 <code>Administrator</code> 这个用户，我们应该关注 <code>系统变量</code>，<code>系统变量</code>是针对所有用户都有效。</li> <li>在 <code>系统变量</code> 里面找到变量 <code>Path</code>, 这个<code>Path</code>就是环境变量</li> <li>选中 <code>Path</code>， 然后点击下面的 <code>编辑</code></li> <li><code>编辑环境变量</code>，先找到<code>Python27</code>里面的<code>python.exe</code>文件路径<code>D:\Python27</code>, 然后 <code>新建</code>，把路径放进去，确定；<br><br>
+接下来，我们不用在切换盘符和文件夹，直接在命令行里面输入<code>python</code>，就可以直接运行python了。<br><br></li> <li><code>Python3.x</code>的环境变量配置，和<code>Python2.x</code>一样，都是<code>Path</code>里面新建一个变量，然后把<code>python.exe</code>的路径放进去，然后确定。</li></ol> <blockquote><p>当我们在命令行里面输入<code>python</code>，运行的是<code>Python2.x</code>解释器，因此出现了Python解释器，多版本如何共存的问题</p></blockquote></blockquote> <h3 id="python解释器多版本共存解决方案"><a href="#python解释器多版本共存解决方案" class="header-anchor">#</a> Python解释器多版本共存解决方案</h3> <p>我们知道当我们在命令行里面输入<code>python</code>，由于当前路径没有python，那么就去环境变量里面找，而<code>Python2.x</code>解释器路径放在<code>Python3.x</code>的上面，因此会先执行<code>Python2.x</code>解释器。我们有些大聪明就会想到<code>Python3.x</code>的移到上面去，问题就是 <code>Python27</code>里面的<code>Python</code>解释器叫 <code>python.exe</code>, 而 <code>Python312</code>里面的<code>Python</code>解释器也叫 <code>python.exe</code>，因此，就是我把<code>Python3.x</code>移到到上面去，每次命令行里面输入<code>python</code>，它就执行<code>Python3</code>,<code>Python2</code>又执行不了了。<br><br>
+那如何处理呢？<br><br>
+我们可以参考 <code>python</code>安装文件夹 <code>Scripts</code>里面操作pip的方式，把一个exe文件，复制多份，然后取不同的名字就可以了，<span style="text-decoration:underline;color:green;">如 <code>Python27</code>里面的<code>python.exe</code>文件复制一份，取名<code>python2.exe</code>， 然后， <code>Python312</code>文件夹里面的<code>python.exe</code>文件复制一份，取名<code>python3.exe</code></span><br><br>
+然后，<span style="text-decoration:underline;"> 你可以在命令行里面输入<code>python2</code>，则执行 <code>Python2.x</code>解释器，输入 <code>python3</code>，则执行 <code>Python3.x</code>解释器.</span></p> <h3 id="pip工具也是经常使用-也配置一下环境变量"><a href="#pip工具也是经常使用-也配置一下环境变量" class="header-anchor">#</a> pip工具也是经常使用，也配置一下环境变量</h3> <p>操作方式和上面一样</p> <blockquote><ol><li><code>开始</code>-&gt;<code>我的电脑（此电脑）</code>-&gt;<code>鼠标右键</code>-&gt;<code>属性</code>-&gt;<code>高级系统设置</code>-&gt;<code>高级</code>-&gt;<code>环境变量</code></li> <li><code>Administrator的用户变量</code> 是只针对 <code>Administrator</code> 这个用户，我们应该关注 <code>系统变量</code>，<code>系统变量</code>是针对所有用户都有效。</li> <li>在 <code>系统变量</code> 里面找到变量 <code>Path</code>, 这个<code>Path</code>就是环境变量</li> <li>选中 <code>Path</code>， 然后点击下面的 <code>编辑</code></li> <li><code>编辑环境变量</code>，先找到<code>Python27/Scripts</code>里面的<code>pip2.exe</code>文件路径<code>D:\Python27\Scripts</code>, 然后 <code>新建</code>，把路径放进去，确定；<br><br></li> <li><code>编辑环境变量</code>，先找到<code>Python312/Scripts</code>里面的<code>pip3.exe</code>文件路径<code>D:\Python312\Scripts</code>, 然后 <code>新建</code>，把路径放进去，确定；<br><br></li> <li>运行pip工具</li></ol> <blockquote><ol><li>命令行 输入 <code>pip2 -V</code> 即pip2安装的第三方模块或者代码会在 <code>pip 19.2.3 from d:\python27\lib\site-packages\pip (python 2.7)</code>, 当然还有  <code>pip2 -v</code>  命令提示信息</li> <li>命令行 输入 <code>pip3 -V</code> 即pip3安装的第三方模块或者代码会在 <code>pip 25.0.1 from D:\Python312\Lib\site-packages\pip (python 3.12)</code> , 当然还有  <code>pip3 -v</code> 命令提示信息</li></ol></blockquote></blockquote></blockquote> <h2 id="二、运行python程序"><a href="#二、运行python程序" class="header-anchor">#</a> 二、运行Python程序</h2> <h3 id="_1-直接在命令行运行python程序"><a href="#_1-直接在命令行运行python程序" class="header-anchor">#</a> 1. 直接在命令行运行Python程序</h3> <blockquote><ol><li>(win + R) 或者 <code>开始</code> -&gt; <code>运行</code> 输入 <code>cmd</code> 运行命令行</li> <li>执行一个简单的python程序 <br><br>
+比如打印：<code>你好，迪丽热巴!</code></li></ol> <blockquote><div class="language-python extra-class"><pre class="language-python"><code>python3
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">&quot;你好，迪丽热巴!&quot;</span><span class="token punctuation">)</span>
+</code></pre></div></blockquote> <p>上面这种在命令行输入代码，回车查看效果的方法称为 <strong>交互式解释</strong>，即交互式解释器或者交互式环境。<br><br> <code>交互式环境</code> 就是输入一行代码后，回车，可以立马看到运行结果。一般用于测试某一行代码的功能，但是这里写的代码不能保存，大家可以联想一下，我们当时学习<code>node</code>基础时候，也是可以这么运行的，可以类比。<br><br>
+更多时候，我们是把代码写在文件里面，然后通过Python解释器运行代码，和我们的node一样。</p> <h3 id="也可以把代码写在文件里面-然后在运行"><a href="#也可以把代码写在文件里面-然后在运行" class="header-anchor">#</a> 也可以把代码写在文件里面，然后在运行</h3> <blockquote><ol><li>比如，将代码写入记事本，内容为： <code>print(&quot;你好，迪丽热巴!&quot;)</code>, 记事本命名 <code>test.txt</code> 放在D盘</li> <li>命令行运行：<code>d:</code> 切到D盘，然后： <code>python3 test.txt</code>，也是打印：<code>你好，迪丽热巴!</code></li> <li>或者命令行输入: <code>python3</code> 然后把文件直接拖进来，回车也可以运行 <br><br>
+我们运行的文件是<code>test.txt</code>，后缀是<code>.txt</code>，<code>可以看出python程序的文件后缀名，对我们运行程序是没有影响的</code>。<br>
+因为 python 程序是解释执行的，就是把文件打开，读取里面的内容，然后再解释执行，所以，只要文件里面的内容符合 python 语法，就可以执行，和后缀名是什么没有任何关系<br><br> <b>但是最好从规范上面来说，我们应该把<code>python</code> 文件以 <code>.py</code> 的后缀名保存。</b></li></ol></blockquote></blockquote> <h2 id="三、-python集成开发环境-ide"><a href="#三、-python集成开发环境-ide" class="header-anchor">#</a> 三、 Python集成开发环境（IDE）</h2> <blockquote><p>在Python开发中，推荐的集成开发环境是 <code>pycharm</code> <a href="https://www.jetbrains.com.cn/pycharm/download/?section=windows" target="_blank" rel="noopener noreferrer">https://www.jetbrains.com.cn/pycharm/download/?section=windows<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a> <br><br> <code>PyCharm Professional</code>专业版功能多，但是收费。<br> <code>PyCharm Community Edition</code> 社区版，免费，但功能少。<br>
+可以去某宝买一个注册码，或者网上找一个别人分享的注册码。<br><br>
+但，还有一款我们都非常熟悉的IDE工具 <code>Visual Studio Code (VSCode)</code>. 前面几期的课程，大家已经用得非常熟练了<br>
+Visual Studio Code (VSCode) 完全可以用作 Python 的集成开发环境（IDE），并且是许多开发者首选的工具之一。以下是配置 VSCode 为 Python IDE 的关键步骤和必备插件：</p> <h3 id="_1-基础配置"><a href="#_1-基础配置" class="header-anchor">#</a> 1. 基础配置</h3> <blockquote><ol><li>安装 Python 解释器 <br>
+确保你的系统中已安装 Python（推荐 Python 3.7+）。 <br></li> <li>安装 VSCode
+相信能学到第五期的同学，绝对不是小白了，安装VSCode应该是轻松拿捏，如果实在不会，可以看我们 <a href="https://study.163.com/course/courseLearn.htm?courseId=1213374826&amp;share=2&amp;shareId=480000002289674#/learn/video?lessonId=1285001250&amp;courseId=1213374826" target="_blank" title="安装vscode(第一学期视频第4课)点击查看">安装vscode(第一学期视频第4课)</a></li></ol></blockquote> <h3 id="_2-安装插件"><a href="#_2-安装插件" class="header-anchor">#</a> 2. 安装插件</h3> <p>以下插件直接在 VSCode 的扩展市场（Ctrl+Shift+X）搜索安装：  <br></p> <blockquote><p><b> (1) Python 官方扩展</b> <br>
+名称: Python (由 Microsoft 发布) <br>
+功能: 提供 Python 语法高亮、代码补全、调试支持、虚拟环境管理、Jupyter Notebook 集成等核心功能。<br> <br> <b>(2) Pylance </b><br>
+名称: Pylance (由 Microsoft 发布) <br>
+功能: 基于 TypeScript 的智能代码补全、类型检查、代码导航（依赖静态类型推断）。<br>
+配置: 在设置中启用 &quot;python.languageServer&quot;: &quot;Pylance&quot;。 <br> <br> <b>(3) Jupyter </b><br>
+名称: Jupyter (由 Microsoft 发布) <br>
+功能: 在 VSCode 内直接编写和运行 Jupyter Notebook（.ipynb 文件），适合数据分析、机器学习。<br> <br> <b>(4) 代码格式化工具 </b><br>
+推荐插件: <br>
+autopep8（自动格式化 Python 代码）<br>
+black（更严格的代码格式化工具，需通过 <code>pip install black</code> 安装）<br>
+配置: <br>
+在 VSCode 设置中指定格式化工具：<br></p> <div class="language-json extra-class"><pre class="language-json"><code><span class="token property">&quot;python.formatting.provider&quot;</span><span class="token operator">:</span> <span class="token string">&quot;black&quot;</span><span class="token punctuation">,</span>  <span class="token comment">// 或 &quot;autopep8&quot;</span>
+<span class="token property">&quot;editor.formatOnSave&quot;</span><span class="token operator">:</span> <span class="token boolean">true</span>
+</code></pre></div><p><b>(5) 智能补全增强 </b><br>
+名称: Python IntelliCode (由 Microsoft 发布) <br>
+功能: 基于 AI 的代码建议，优先推荐常用代码模式。 <br> <b>(6) 环境管理 </b><br>
+名称: Python Environment Manager <br>
+功能: 可视化管理 Conda、Virtualenv 等 Python 虚拟环境。 <br></p></blockquote> <h3 id="_3-可选插件-按需安装"><a href="#_3-可选插件-按需安装" class="header-anchor">#</a> 3. 可选插件（按需安装）</h3> <blockquote><p><b>测试框架: </b><br>
+pytest（需 pip install pytest）: 单元测试支持。<br>
+Test Explorer UI: 可视化测试结果。<br> <b>调试工具: </b><br>
+Code Runner: 一键运行代码片段。 <br> <b>数据库支持: </b><br>
+SQLite: 编辑和查询 SQLite 数据库。<br> <b>远程开发: </b><br>
+Remote - SSH: 通过 SSH 连接远程服务器开发。<br> <b>代码质量:</b><br>
+flake8 或 pylint: 静态代码检查（需 pip install flake8/pylint）。<br></p></blockquote> <h3 id="_4-配置建议"><a href="#_4-配置建议" class="header-anchor">#</a> 4. 配置建议</h3> <blockquote><p><b>快捷键绑定</b><br>
+使用 <code>Ctrl+Shift+P</code> 搜索 <code>Python: Select Interpreter</code> 选择当前项目的 <code>Python 环境</code>。<br> <b>调试配置</b><br>
+按 <code>F5</code> 启动调试，VSCode 会自动生成调试配置文件<code>（launch.json）</code>。<br> <b>集成终端</b><br>
+按 Ctrl+`  打开终端，直接运行 Python 脚本或激活虚拟环境。<br></p></blockquote> <h3 id="_5-示例开发流程"><a href="#_5-示例开发流程" class="header-anchor">#</a> 5. 示例开发流程</h3> <blockquote><ol><li>创建或打开一个 Python 项目文件夹。</li> <li>编写代码时，<code>Pylance</code> 和 <code>IntelliCode</code> 会提供实时建议。</li> <li>按 <code>Ctrl+S</code> 保存时自动格式化代码。</li> <li>按 <code>F5</code> 调试代码，或在终端输入 <code>python app.py</code> 运行。<br> <br>
+通过上述配置，VSCode 将具备完整的 Python IDE 功能，包括代码编写、调试、测试、环境管理等，满足从简单脚本到大型项目的开发需求。</li></ol></blockquote></blockquote> <h2 id="四、在vscode中运行python程序"><a href="#四、在vscode中运行python程序" class="header-anchor">#</a> 四、在vscode中运行python程序</h2> <blockquote><ol><li>设置python代码字母跟随滚轮变大缩小：<code>设置</code> -&gt; <code>文本编辑器</code> -&gt; <code>字体</code> -&gt; <code>在 settings.json 中编辑</code></li></ol> <div class="language-json extra-class"><pre class="language-json"><code><span class="token punctuation">{</span>
+    ...
+    <span class="token property">&quot;editor.mouseWheelZoom&quot;</span><span class="token operator">:</span> <span class="token boolean">true</span>
+<span class="token punctuation">}</span>
+</code></pre></div><ol start="2"><li>自动补全括号</li></ol> <div class="language-json extra-class"><pre class="language-json"><code><span class="token punctuation">{</span>
+    ...
+    <span class="token property">&quot;python.analysis.completeFunctionParens&quot;</span><span class="token operator">:</span> <span class="token boolean">true</span>
+<span class="token punctuation">}</span>
+</code></pre></div><ol start="3"><li>补全代码插件 <code>python-snippets</code></li></ol></blockquote> <h2 id="五、-python-虚拟环境"><a href="#五、-python-虚拟环境" class="header-anchor">#</a> 五、 python 虚拟环境</h2> <blockquote><p>注意，我们在做python 项目开发的时候，不会直接调用我们安装的python解释器，而是用虚拟环境，比如我们用到<code>Python 3.12.10</code> 解释器，那么我们会虚拟出<code>Python 3.12.10</code>的环境，与当前开发的项目进行绑定。<br>
+那为何要用虚拟环境呢？ 我们在前面安装<code>Python</code> 解释器的时候，给大家分析过安装目录，里面有一个 <code>Scripts</code>文件夹，里面有<code>pip.exe</code>文件，这个文件类似于我们<code>node</code>里面的<code>npm</code>,用于安装第三方模块、组件、库等等。比如，当我们用 <code>python3</code>的时候，通过  <code>pip3 -V</code> 可以看到第三方模块或者库等会放在<code>D:\Python312\Lib\site-packages\pip (python 3.12)</code>里面，这里可以类比我们的<code>node</code>通过<code>npm</code>安装第三方模块或者库放在<code>node_modules</code>文件夹里面。</p></blockquote> <h3 id="_1-在vscode中创建python-虚拟环境"><a href="#_1-在vscode中创建python-虚拟环境" class="header-anchor">#</a> 1. 在vscode中创建python 虚拟环境</h3> <blockquote><p><code>选择项目目录打开终端</code> -&gt; 比如用 <code>python3</code>的解释器：</p> <div class="language-js extra-class"><pre class="language-js"><code> <span class="token comment">// python3 -m venv 固定写法，后面跟虚拟环境的名字，比如：.venv（名字随便，前面有点）</span>
+ python3 <span class="token operator">-</span>m venv <span class="token punctuation">.</span>venv
+</code></pre></div></blockquote> <p>之后，关掉终端，重新运行项目，会发现使用的是<code>(.venv)虚拟环境</code></p></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">更新时间:</span> <span class="time">2025年5月22日星期四中午11点53分</span></div></footer> <!----> </main></div><div class="global-ui"><!----><!----></div></div>
+    <script src="/assets/js/app.1551c49e.js" defer></script><script src="/assets/js/10.a1858127.js" defer></script><script src="/assets/js/2.641709ae.js" defer></script><script src="/assets/js/22.a81c6dd1.js" defer></script><script src="/assets/js/4.68f7b7e9.js" defer></script>
+  </body>
+</html>
