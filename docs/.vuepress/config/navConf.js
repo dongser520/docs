@@ -17,6 +17,7 @@ module.exports = [
             { text: '免费部署SSL证书', link: '/web/answer/免费部署SSL证书' },
             { text: '清除Nginx缓存', link: '/web/answer/如何清除服务器Nginx缓存' },
             { text: '浏览器指纹', link: '/web/answer/浏览器指纹' },
+            { text: 'AI课堂', link: '/web/answer/AI' },
         ]
     },
     {
