@@ -793,12 +793,14 @@ js代码具体查看： <a href="/secondless/w-b/Ajax.html#_3-param-方法将对
 
 ### ③ 查看当前正在使用的 npm 镜像源
 > ```javascript
-> npm config get registry  // https://registry.npmmirror.com/
+> npm config get registry https://npmmirror.com/mirrors/npm/ 
+> // https://registry.npmmirror.com/
 > ```
 
 ### ④  切换 npm 镜像源
 > ```javascript
-> npm config set registry https://registry.npmmirror.com/
+> npm config set registry https://npmmirror.com/mirrors/npm/
+> 旧：https://registry.npmmirror.com/
 > ```
 
 ## 八、系统模块：fs模块详解
