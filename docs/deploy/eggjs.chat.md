@@ -107,6 +107,160 @@ title:  eggjs + 即时通讯后端部署上线
 
 试一下：<http://eggjs.chat.51yrc.com/>
 
+### 12、宝塔面板配置示例：站点配置 及 反向代理
+#### 1️⃣ 站点配置
+```js
+server
+{
+    listen 80;
+    listen 443 ssl;
+    http2 on;
+    server_name test.xinyiji2026.com mp.xinyiji2026.com app.xinyiji2026.com imgs.xinyiji2026.com video.xinyiji2026.com download.xinyiji2026.com www.xinyiji2026.com pc.xinyiji2026.com xinyiji2026.com;
+    index index.php index.html index.htm default.php default.htm default.html;
+    root /www/wwwroot/test.xinyiji2026.com;
+
+    client_max_body_size 300m;
+
+    #CERT-APPLY-CHECK--START
+    # 用于SSL证书申请时的文件验证相关配置 -- 请勿删除
+    include /www/server/panel/vhost/nginx/well-known/test.xinyiji2026.com.conf;
+    #CERT-APPLY-CHECK--END
+
+    include /www/server/panel/vhost/nginx/extension/test.xinyiji2026.com/*.conf;
+    
+    #SSL-START SSL相关配置，请勿删除或修改下一行带注释的404规则
+    #error_page 404/404.html;
+    #HTTP_TO_HTTPS_START
+    set $isRedcert 1;
+    if ($server_port != 443) {
+        set $isRedcert 2;
+    }
+    if ($uri ~ /\.well-known/) {
+        set $isRedcert 1;
+    }
+    if ($isRedcert != 1) {
+        rewrite ^(/.*)$ https://$host$1 permanent;
+    }
+    #HTTP_TO_HTTPS_END
+
+    ssl_certificate /www/server/panel/vhost/cert/test.xinyiji2026.com/fullchain.pem;
+    ssl_certificate_key /www/server/panel/vhost/cert/test.xinyiji2026.com/privkey.pem;
+    ssl_protocols TLSv1.1 TLSv1.2 TLSv1.3;
+    ssl_ciphers EECDH+CHACHA20:EECDH+CHACHA20-draft:EECDH+AES128:RSA+AES128:EECDH+AES256:RSA+AES256:EECDH+3DES:RSA+3DES:!MD5;
+    ssl_prefer_server_ciphers on;
+    ssl_session_tickets on;
+    ssl_session_cache shared:SSL:10m;
+    ssl_session_timeout 10m;
+    add_header Strict-Transport-Security "max-age=31536000";
+    error_page 497 https://$host$request_uri;
+    #SSL-END
+
+    #ERROR-PAGE-START  错误页配置，可以注释、删除或修改
+    error_page 404 /404.html;
+    #error_page 502 /502.html;
+    #ERROR-PAGE-END
+
+    #PHP-INFO-START  PHP引用配置，可以注释或修改
+    #清理缓存规则
+    location ~ /purge(/.*) {
+        proxy_cache_purge cache_one $host$1$is_args$args;
+        #access_log /www/wwwlogs/test.xinyiji2026.com_purge_cache.log;
+    }
+
+    #引用反向代理规则，注释后配置的反向代理将无效
+    include /www/server/panel/vhost/nginx/proxy/test.xinyiji2026.com/*.conf;
+
+    include enable-php-00.conf;
+    #PHP-INFO-END
+
+    #REWRITE-START URL重写规则引用,修改后将导致面板设置的伪静态规则失效
+    include /www/server/panel/vhost/rewrite/test.xinyiji2026.com.conf;
+    #REWRITE-END
+
+    # 禁止访问的敏感文件
+    location ~* (\.user.ini|\.htaccess|\.htpasswd|\.env.*|\.project|\.bashrc|\.bash_profile|\.bash_logout|\.DS_Store|\.gitignore|\.gitattributes|LICENSE|README\.md|CLAUDE\.md|CHANGELOG\.md|CHANGELOG|CONTRIBUTING\.md|TODO\.md|FAQ\.md|composer\.json|composer\.lock|package(-lock)?\.json|yarn\.lock|pnpm-lock\.yaml|\.\w+~|\.swp|\.swo|\.bak(up)?|\.old|\.tmp|\.temp|\.log|\.sql(\.gz)?|docker-compose\.yml|docker\.env|Dockerfile|\.csproj|\.sln|Cargo\.toml|Cargo\.lock|go\.mod|go\.sum|phpunit\.xml|phpunit\.xml|pom\.xml|build\.gradl|pyproject\.toml|requirements\.txt|application(-\w+)?\.(ya?ml|properties))$
+    {
+        return 404;
+    }
+    
+    # 禁止访问的敏感目录
+    location ~* /(\.git|\.svn|\.bzr|\.vscode|\.claude|\.idea|\.ssh|\.github|\.npm|\.yarn|\.pnpm|\.cache|\.husky|\.turbo|\.next|\.nuxt|node_modules|runtime)/ {
+        return 404;
+    }
+
+    #一键申请SSL证书验证目录相关设置
+    location ~ \.well-known {
+        allow all;
+    }
+
+    #禁止在证书验证目录放入敏感文件
+    if ($uri ~ "^/\.well-known/.*\.(php|jsp|py|js|css|lua|ts|go|zip|tar\.gz|rar|7z|sql|bak)$") {
+        return 403;
+    }
+
+    access_log /www/wwwlogs/test.xinyiji2026.com.log;
+    error_log /www/wwwlogs/test.xinyiji2026.com.error.log;
+}
+```
+
+#### 2️⃣ 反向代理
+```js
+#PROXY-START/
+
+location ^~ /
+{
+    client_max_body_size 300m;
+
+    proxy_pass http://127.0.0.1:7001;
+    proxy_set_header Host $host;
+    proxy_set_header X-Real-IP $remote_addr;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header X-Forwarded-Proto $scheme;
+    proxy_set_header REMOTE-HOST $remote_addr;
+    proxy_set_header Upgrade $http_upgrade;
+    proxy_set_header Connection $connection_upgrade;
+    proxy_http_version 1.1;
+
+    proxy_connect_timeout 600s;
+    proxy_send_timeout 600s;
+    proxy_read_timeout 600s;
+    send_timeout 600s;
+
+    add_header X-Cache $upstream_cache_status;
+
+    set $static_fileydWLAIHQ 0;
+    if ($uri ~* "\.(gif|png|jpg|css|js|woff|woff2)$")
+    {
+        set $static_fileydWLAIHQ 1;
+        expires 1m;
+    }
+    if ($static_fileydWLAIHQ = 0)
+    {
+        add_header Cache-Control no-cache;
+    }
+}
+
+location /ws
+{
+    client_max_body_size 300m;
+
+    proxy_pass http://127.0.0.1:7001;
+    proxy_http_version 1.1;
+    proxy_set_header Host $host;
+    proxy_set_header Upgrade $http_upgrade;
+    proxy_set_header Connection "Upgrade";
+    proxy_set_header X-Real-IP $remote_addr;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header X-Forwarded-Proto $scheme;
+
+    proxy_connect_timeout 600s;
+    proxy_send_timeout 600s;
+    proxy_read_timeout 600s;
+    send_timeout 600s;
+}
+
+#PROXY-END/
+```
 
 ## 二、多域名配置同一个网站的不同路由 [配置主站分站]
 ### 1. 配置域名
