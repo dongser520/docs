@@ -208,6 +208,16 @@ server
 ```
 
 #### 2️⃣ 反向代理
+如果想直接在域名后面访问某个文件，如：`https://www.xinyiji2026.com/UKHMwnMaYo.txt` 这可以在反向代理中这样写
+```js
+location = /UKHMwnMaYo.txt {
+    root /www/wwwroot/www.xinyiji2026.com/app/public; // 服务器上的UKHMwnMaYo.txt文件地址，记得重载Nginx服务器
+    default_type text/plain;
+}
+
+#PROXY-START/
+...
+```
 复制下面代码即可
 ```js
 #PROXY-START/
