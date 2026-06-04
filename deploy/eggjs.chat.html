@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>eggjs + 即时通讯后端部署上线 | 睿晨网</title>
+    <meta name="generator" content="VuePress 1.9.9">
+    <link rel="icon" href="/assets/img/favicon.png">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="apple-touch-icon" href="/icons/apple-touch-icon-152x152.png">
+    <link rel="#icon-pengyouquan" href="/icons/iconfont.svg" color="#3eaf7c">
+    <meta name="description" content="睿晨网|睿晨编程|零基础学做网站、app、小程序就从这里开始">
+    <meta name="keywords" content="睿晨网,睿晨编程,零基础学做网站,零基础学app,零基础学小程序">
+    <meta name="author" content="睿晨网,睿晨编程,阿东老师">
+    <meta name="theme-color" content="#3eaf7c">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="msapplication-TileImage" content="/icons/msapplication-icon-144x144.png">
+    <meta name="msapplication-TileColor" content="#000000">
+    
+    <link rel="preload" href="/assets/css/0.styles.91dde81f.css" as="style"><link rel="preload" href="/assets/js/app.e6db21dc.js" as="script"><link rel="preload" href="/assets/js/10.a1858127.js" as="script"><link rel="preload" href="/assets/js/2.641709ae.js" as="script"><link rel="preload" href="/assets/js/17.ae58fc75.js" as="script"><link rel="preload" href="/assets/js/4.68f7b7e9.js" as="script"><link rel="prefetch" href="/assets/js/100.299af99e.js"><link rel="prefetch" href="/assets/js/101.9025324f.js"><link rel="prefetch" href="/assets/js/102.57027a1b.js"><link rel="prefetch" href="/assets/js/103.d44c1956.js"><link rel="prefetch" href="/assets/js/104.f5bd8689.js"><link rel="prefetch" href="/assets/js/105.bcac0f5c.js"><link rel="prefetch" href="/assets/js/106.1c5c7533.js"><link rel="prefetch" href="/assets/js/107.f97eee38.js"><link rel="prefetch" href="/assets/js/108.7a8c098e.js"><link rel="prefetch" href="/assets/js/109.9c757eba.js"><link rel="prefetch" href="/assets/js/11.e11c94df.js"><link rel="prefetch" href="/assets/js/110.bef17d75.js"><link rel="prefetch" href="/assets/js/111.9f04f832.js"><link rel="prefetch" href="/assets/js/112.1edfb2ef.js"><link rel="prefetch" href="/assets/js/113.40c73a0c.js"><link rel="prefetch" href="/assets/js/114.cc08cae5.js"><link rel="prefetch" href="/assets/js/115.991740a7.js"><link rel="prefetch" href="/assets/js/116.dc0dca02.js"><link rel="prefetch" href="/assets/js/117.c346744b.js"><link rel="prefetch" href="/assets/js/118.135771da.js"><link rel="prefetch" href="/assets/js/119.c95f0685.js"><link rel="prefetch" href="/assets/js/12.dbd859b8.js"><link rel="prefetch" href="/assets/js/120.316ae5a5.js"><link rel="prefetch" href="/assets/js/121.0e22304c.js"><link rel="prefetch" href="/assets/js/122.d6815639.js"><link rel="prefetch" href="/assets/js/123.49f6142b.js"><link rel="prefetch" href="/assets/js/124.a0bdfeee.js"><link rel="prefetch" href="/assets/js/125.0eacaa6f.js"><link rel="prefetch" href="/assets/js/126.0e6538b4.js"><link rel="prefetch" href="/assets/js/127.204fd081.js"><link rel="prefetch" href="/assets/js/128.56e03af3.js"><link rel="prefetch" href="/assets/js/129.02e76b11.js"><link rel="prefetch" href="/assets/js/13.a7a496c6.js"><link rel="prefetch" href="/assets/js/130.3bf3ee4b.js"><link rel="prefetch" href="/assets/js/131.80eb1511.js"><link rel="prefetch" href="/assets/js/132.1140defe.js"><link rel="prefetch" href="/assets/js/133.d1761333.js"><link rel="prefetch" href="/assets/js/134.11a7670f.js"><link rel="prefetch" href="/assets/js/135.49442481.js"><link rel="prefetch" href="/assets/js/136.3091e6f4.js"><link rel="prefetch" href="/assets/js/137.7383de64.js"><link rel="prefetch" href="/assets/js/138.8ac053c8.js"><link rel="prefetch" href="/assets/js/139.73696bec.js"><link rel="prefetch" href="/assets/js/14.4b1bb48f.js"><link rel="prefetch" href="/assets/js/140.a02b81f9.js"><link rel="prefetch" href="/assets/js/141.d6ddf235.js"><link rel="prefetch" href="/assets/js/142.de5a359c.js"><link rel="prefetch" href="/assets/js/143.7226a988.js"><link rel="prefetch" href="/assets/js/144.3fc35a71.js"><link rel="prefetch" href="/assets/js/145.ba52af84.js"><link rel="prefetch" href="/assets/js/146.e8bbd530.js"><link rel="prefetch" href="/assets/js/147.f4c1e8f1.js"><link rel="prefetch" href="/assets/js/148.e2d30f8d.js"><link rel="prefetch" href="/assets/js/149.3610859a.js"><link rel="prefetch" href="/assets/js/15.e4d40506.js"><link rel="prefetch" href="/assets/js/150.92e90742.js"><link rel="prefetch" href="/assets/js/151.b3115742.js"><link rel="prefetch" href="/assets/js/152.3206ff84.js"><link rel="prefetch" href="/assets/js/153.080ece01.js"><link rel="prefetch" href="/assets/js/154.aade622c.js"><link rel="prefetch" href="/assets/js/155.5b69eb37.js"><link rel="prefetch" href="/assets/js/156.a0a144c0.js"><link rel="prefetch" href="/assets/js/157.7c186d60.js"><link rel="prefetch" href="/assets/js/158.a4995822.js"><link rel="prefetch" href="/assets/js/159.26e626f4.js"><link rel="prefetch" href="/assets/js/16.f378a7de.js"><link rel="prefetch" href="/assets/js/160.295c35ff.js"><link rel="prefetch" href="/assets/js/161.848f1e9a.js"><link rel="prefetch" href="/assets/js/162.59655f0c.js"><link rel="prefetch" href="/assets/js/163.516a5f49.js"><link rel="prefetch" href="/assets/js/164.b78f5669.js"><link rel="prefetch" href="/assets/js/165.f4185c84.js"><link rel="prefetch" href="/assets/js/166.0d33c09a.js"><link rel="prefetch" href="/assets/js/167.785b343d.js"><link rel="prefetch" href="/assets/js/168.fbbd1130.js"><link rel="prefetch" href="/assets/js/169.596b7d8a.js"><link rel="prefetch" href="/assets/js/170.4016444f.js"><link rel="prefetch" href="/assets/js/171.94342810.js"><link rel="prefetch" href="/assets/js/172.05e2de33.js"><link rel="prefetch" href="/assets/js/173.16ac0093.js"><link rel="prefetch" href="/assets/js/174.8548b12b.js"><link rel="prefetch" href="/assets/js/175.ed43b0c9.js"><link rel="prefetch" href="/assets/js/176.75d9c6d8.js"><link rel="prefetch" href="/assets/js/177.07353175.js"><link rel="prefetch" href="/assets/js/178.a8ea4dde.js"><link rel="prefetch" href="/assets/js/179.dabc5a40.js"><link rel="prefetch" href="/assets/js/18.0d328f16.js"><link rel="prefetch" href="/assets/js/180.35d6c66c.js"><link rel="prefetch" href="/assets/js/181.3a260a1c.js"><link rel="prefetch" href="/assets/js/182.404be146.js"><link rel="prefetch" href="/assets/js/183.4321e610.js"><link rel="prefetch" href="/assets/js/184.766c0182.js"><link rel="prefetch" href="/assets/js/185.bb8cd895.js"><link rel="prefetch" href="/assets/js/186.a9de34de.js"><link rel="prefetch" href="/assets/js/187.e075d33a.js"><link rel="prefetch" href="/assets/js/188.c0c16136.js"><link rel="prefetch" href="/assets/js/189.3b0b29d6.js"><link rel="prefetch" href="/assets/js/19.1cbc6115.js"><link rel="prefetch" href="/assets/js/190.664c65e5.js"><link rel="prefetch" href="/assets/js/191.eaa3da29.js"><link rel="prefetch" href="/assets/js/192.12b8b412.js"><link rel="prefetch" href="/assets/js/193.66d6427f.js"><link rel="prefetch" href="/assets/js/194.c454687d.js"><link rel="prefetch" href="/assets/js/195.1f03e1a0.js"><link rel="prefetch" href="/assets/js/196.877ecb79.js"><link rel="prefetch" href="/assets/js/197.33cc640c.js"><link rel="prefetch" href="/assets/js/198.f33d6d86.js"><link rel="prefetch" href="/assets/js/199.0d215663.js"><link rel="prefetch" href="/assets/js/20.fa43d6a3.js"><link rel="prefetch" href="/assets/js/200.b6607906.js"><link rel="prefetch" href="/assets/js/201.329180be.js"><link rel="prefetch" href="/assets/js/202.7c75cef6.js"><link rel="prefetch" href="/assets/js/203.7c29f024.js"><link rel="prefetch" href="/assets/js/204.456aa8ee.js"><link rel="prefetch" href="/assets/js/205.0292e56b.js"><link rel="prefetch" href="/assets/js/206.820091b5.js"><link rel="prefetch" href="/assets/js/207.98a3df3c.js"><link rel="prefetch" href="/assets/js/208.304bc0dc.js"><link rel="prefetch" href="/assets/js/209.c2daa1a8.js"><link rel="prefetch" href="/assets/js/21.3b286d1a.js"><link rel="prefetch" href="/assets/js/210.509b8671.js"><link rel="prefetch" href="/assets/js/211.bb757a60.js"><link rel="prefetch" href="/assets/js/212.7dbbb7ba.js"><link rel="prefetch" href="/assets/js/213.1058ccd5.js"><link rel="prefetch" href="/assets/js/214.83dad131.js"><link rel="prefetch" href="/assets/js/215.a1f5a096.js"><link rel="prefetch" href="/assets/js/216.0c445f21.js"><link rel="prefetch" href="/assets/js/217.0902bda3.js"><link rel="prefetch" href="/assets/js/218.025bbb32.js"><link rel="prefetch" href="/assets/js/219.e99758a8.js"><link rel="prefetch" href="/assets/js/22.c658a9b2.js"><link rel="prefetch" href="/assets/js/220.fc4479a5.js"><link rel="prefetch" href="/assets/js/221.119b2044.js"><link rel="prefetch" href="/assets/js/222.e41feccf.js"><link rel="prefetch" href="/assets/js/223.e569c48b.js"><link rel="prefetch" href="/assets/js/224.cfa3e5eb.js"><link rel="prefetch" href="/assets/js/225.3c818f61.js"><link rel="prefetch" href="/assets/js/23.3038762d.js"><link rel="prefetch" href="/assets/js/24.241759b0.js"><link rel="prefetch" href="/assets/js/25.58a832e6.js"><link rel="prefetch" href="/assets/js/26.47ceb574.js"><link rel="prefetch" href="/assets/js/27.bbcde0ce.js"><link rel="prefetch" href="/assets/js/28.9c339370.js"><link rel="prefetch" href="/assets/js/29.5274de73.js"><link rel="prefetch" href="/assets/js/3.c28d9b37.js"><link rel="prefetch" href="/assets/js/30.17f1a0c6.js"><link rel="prefetch" href="/assets/js/31.dabb2430.js"><link rel="prefetch" href="/assets/js/32.c13e7b9d.js"><link rel="prefetch" href="/assets/js/33.c9025287.js"><link rel="prefetch" href="/assets/js/34.78dd7dab.js"><link rel="prefetch" href="/assets/js/35.d5c4a8d2.js"><link rel="prefetch" href="/assets/js/36.1bf1616d.js"><link rel="prefetch" href="/assets/js/37.9b6a1565.js"><link rel="prefetch" href="/assets/js/38.b84d41b6.js"><link rel="prefetch" href="/assets/js/39.fa68dd2e.js"><link rel="prefetch" href="/assets/js/40.d62ddb0b.js"><link rel="prefetch" href="/assets/js/41.4c0a244c.js"><link rel="prefetch" href="/assets/js/42.0db7ffc1.js"><link rel="prefetch" href="/assets/js/43.eba2417f.js"><link rel="prefetch" href="/assets/js/44.e3a20798.js"><link rel="prefetch" href="/assets/js/45.233bc319.js"><link rel="prefetch" href="/assets/js/46.4cde5b6f.js"><link rel="prefetch" href="/assets/js/47.94ec1e37.js"><link rel="prefetch" href="/assets/js/48.cc7fe259.js"><link rel="prefetch" href="/assets/js/49.3df09ad7.js"><link rel="prefetch" href="/assets/js/5.8e3ad4ea.js"><link rel="prefetch" href="/assets/js/50.419588dd.js"><link rel="prefetch" href="/assets/js/51.895b481a.js"><link rel="prefetch" href="/assets/js/52.9800a27f.js"><link rel="prefetch" href="/assets/js/53.4f82a59d.js"><link rel="prefetch" href="/assets/js/54.5358a28a.js"><link rel="prefetch" href="/assets/js/55.4d866de2.js"><link rel="prefetch" href="/assets/js/56.31a53067.js"><link rel="prefetch" href="/assets/js/57.82080407.js"><link rel="prefetch" href="/assets/js/58.415ee391.js"><link rel="prefetch" href="/assets/js/59.d0280025.js"><link rel="prefetch" href="/assets/js/6.a9fd5e4f.js"><link rel="prefetch" href="/assets/js/60.a773d6a6.js"><link rel="prefetch" href="/assets/js/61.bb32ed1b.js"><link rel="prefetch" href="/assets/js/62.12d21190.js"><link rel="prefetch" href="/assets/js/63.506ea205.js"><link rel="prefetch" href="/assets/js/64.94c636f7.js"><link rel="prefetch" href="/assets/js/65.a7aa1510.js"><link rel="prefetch" href="/assets/js/66.7cbf6a92.js"><link rel="prefetch" href="/assets/js/67.f5182f00.js"><link rel="prefetch" href="/assets/js/68.29ba900b.js"><link rel="prefetch" href="/assets/js/69.4be56d0e.js"><link rel="prefetch" href="/assets/js/7.bdde6177.js"><link rel="prefetch" href="/assets/js/70.95dc65ae.js"><link rel="prefetch" href="/assets/js/71.ecc5718f.js"><link rel="prefetch" href="/assets/js/72.7a7d2abd.js"><link rel="prefetch" href="/assets/js/73.8ceb9294.js"><link rel="prefetch" href="/assets/js/74.95a6eb13.js"><link rel="prefetch" href="/assets/js/75.c84b835e.js"><link rel="prefetch" href="/assets/js/76.959a3d2a.js"><link rel="prefetch" href="/assets/js/77.8619719a.js"><link rel="prefetch" href="/assets/js/78.6448e6e0.js"><link rel="prefetch" href="/assets/js/79.a1f0575e.js"><link rel="prefetch" href="/assets/js/8.fd151cfb.js"><link rel="prefetch" href="/assets/js/80.eed0bb0d.js"><link rel="prefetch" href="/assets/js/81.2cd439e3.js"><link rel="prefetch" href="/assets/js/82.7f5d6edc.js"><link rel="prefetch" href="/assets/js/83.88fb1d29.js"><link rel="prefetch" href="/assets/js/84.dc3685e8.js"><link rel="prefetch" href="/assets/js/85.0775f854.js"><link rel="prefetch" href="/assets/js/86.569d43a8.js"><link rel="prefetch" href="/assets/js/87.4f514312.js"><link rel="prefetch" href="/assets/js/88.69217326.js"><link rel="prefetch" href="/assets/js/89.b36c40f8.js"><link rel="prefetch" href="/assets/js/9.f512fc89.js"><link rel="prefetch" href="/assets/js/90.512d6a1e.js"><link rel="prefetch" href="/assets/js/91.ddaa39aa.js"><link rel="prefetch" href="/assets/js/92.808c8bb7.js"><link rel="prefetch" href="/assets/js/93.70f92b88.js"><link rel="prefetch" href="/assets/js/94.1e7d7067.js"><link rel="prefetch" href="/assets/js/95.d7859f94.js"><link rel="prefetch" href="/assets/js/96.9f754c36.js"><link rel="prefetch" href="/assets/js/97.58700833.js"><link rel="prefetch" href="/assets/js/98.e49c1821.js"><link rel="prefetch" href="/assets/js/99.e92ec198.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.91dde81f.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">睿晨网</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">
+  主页
+</a></div><div class="nav-item"><a href="/aboutless.html" class="nav-link">
+  第一期企业网页开发
+</a></div><div class="nav-item"><a href="/secondless/" class="nav-link">
+  第二期企业网站开发
+</a></div><div class="nav-item"><a href="/thirdless/" class="nav-link">
+  第三期移动端(H5/小程序/App)课程
+</a></div><div class="nav-item"><a href="/fourthless/" class="nav-link">
+  第四期web全栈课程
+</a></div><div class="nav-item"><a href="/fiveless/" class="nav-link">
+  第五期python课程
+</a></div><div class="nav-item"><a href="/web/software/" class="nav-link">
+  课程软件小案例
+</a></div><div class="nav-item"><a href="/web/mysql/" class="nav-link">
+  课程案例数据表
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="课程答疑汇总" class="dropdown-title"><span class="title">课程答疑</span> <span class="arrow down"></span></button> <button type="button" aria-label="课程答疑汇总" class="mobile-dropdown-title"><span class="title">课程答疑</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/web/answer/课程常见问题.html" class="nav-link">
+  课程常见问题
+</a></li><li class="dropdown-item"><!----> <a href="/deploy/" class="nav-link router-link-active">
+  项目部署
+</a></li><li class="dropdown-item"><!----> <a href="/web/answer/免费部署SSL证书.html" class="nav-link">
+  免费部署SSL证书
+</a></li><li class="dropdown-item"><!----> <a href="/web/answer/如何清除服务器Nginx缓存.html" class="nav-link">
+  清除Nginx缓存
+</a></li><li class="dropdown-item"><!----> <a href="/web/answer/浏览器指纹.html" class="nav-link">
+  浏览器指纹
+</a></li><li class="dropdown-item"><!----> <a href="/web/answer/AI.html" class="nav-link">
+  AI课堂
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="课程学习网站" class="dropdown-title"><span class="title">课程学习网站</span> <span class="arrow down"></span></button> <button type="button" aria-label="课程学习网站" class="mobile-dropdown-title"><span class="title">课程学习网站</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          视频学习网站
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://study.163.com/provider/480000002289674/index.htm?share=2&amp;shareId=480000002289674" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  网易云课堂
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://space.bilibili.com/3493114067028034/pugv" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  B站
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="实用菜单" class="dropdown-title"><span class="title">实用网站和方法</span> <span class="arrow down"></span></button> <button type="button" aria-label="实用菜单" class="mobile-dropdown-title"><span class="title">实用网站和方法</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          实用方法
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/web/methods/定位相关.html" class="nav-link">
+  定位相关
+</a></li><li class="dropdown-subitem"><a href="/web/methods/地图相关.html" class="nav-link">
+  地图相关
+</a></li><li class="dropdown-subitem"><a href="/web/methods/树形结构数据转换.html" class="nav-link">
+  树形结构数据转换
+</a></li></ul></li><li class="dropdown-item"><h4>
+          uni-app专栏
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/web/methods/uni-app专栏.html" class="nav-link">
+  uni-app的UI框架
+</a></li><li class="dropdown-subitem"><a href="/web/methods/uni-app如何引入库.html" class="nav-link">
+  uni-app如何引入js库
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Egg.js专栏
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/secondless/w-c/Egg.js.html" class="nav-link">
+  Egg.js基础
+</a></li><li class="dropdown-subitem"><a href="/secondless/w-c/egg.js基础总结.html" class="nav-link">
+  Egg.js基础总结
+</a></li><li class="dropdown-subitem"><a href="/secondless/w-c/egg.js重要知识详细文档.html" class="nav-link">
+  Egg.js重要知识详细文档
+</a></li><li class="dropdown-subitem"><a href="/secondless/w-c/ValParams API 说明.html" class="nav-link">
+  Egg.js参数验证说明
+</a></li><li class="dropdown-subitem"><a href="/web/mysql/Sequelize数据类型.html" class="nav-link">
+  Egg.js迁移文件Sequelize数据类型
+</a></li><li class="dropdown-subitem"><a href="/secondless/w-c/Egg.js接口安全防护方案.html" class="nav-link">
+  Egg.js接口安全防护方案
+</a></li><li class="dropdown-subitem"><a href="/web/answer/课程常见问题.html#_3-eggjs如何重置数据表-保证id每次从1开始计算" class="nav-link">
+  Egg.js重置数据表每次ID为1
+</a></li><li class="dropdown-subitem"><a href="/secondless/w-c/Egg.js中extend中helper调用.html" class="nav-link">
+  Egg.js中extend中helper调用
+</a></li></ul></li><li class="dropdown-item"><h4>
+          实用网站
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/web/methods/实用接口.html" class="nav-link">
+  实用接口
+</a></li><li class="dropdown-subitem"><a href="/web/css/" class="nav-link">
+  css
+</a></li><li class="dropdown-subitem"><a href="/web/vue.js/" class="nav-link">
+  Vue.js
+</a></li><li class="dropdown-subitem"><a href="/web/Vue3+ElementPlus/" class="nav-link">
+  Vue3+ElementPlus系统
+</a></li><li class="dropdown-subitem"><a href="/web/echarts/" class="nav-link">
+  echarts图表
+</a></li><li class="dropdown-subitem"><a href="/web/bootstrap/" class="nav-link">
+  Bootstrap
+</a></li><li class="dropdown-subitem"><a href="/web/IIS/" class="nav-link">
+  IIS
+</a></li><li class="dropdown-subitem"><a href="/web/github/" class="nav-link">
+  Github
+</a></li><li class="dropdown-subitem"><a href="/web/Vanta.js/" class="nav-link">
+  Vanta.js网页3D背景
+</a></li><li class="dropdown-subitem"><a href="/web/shop/" class="nav-link">
+  商城系统推荐
+</a></li></ul></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">
+  主页
+</a></div><div class="nav-item"><a href="/aboutless.html" class="nav-link">
+  第一期企业网页开发
+</a></div><div class="nav-item"><a href="/secondless/" class="nav-link">
+  第二期企业网站开发
+</a></div><div class="nav-item"><a href="/thirdless/" class="nav-link">
+  第三期移动端(H5/小程序/App)课程
+</a></div><div class="nav-item"><a href="/fourthless/" class="nav-link">
+  第四期web全栈课程
+</a></div><div class="nav-item"><a href="/fiveless/" class="nav-link">
+  第五期python课程
+</a></div><div class="nav-item"><a href="/web/software/" class="nav-link">
+  课程软件小案例
+</a></div><div class="nav-item"><a href="/web/mysql/" class="nav-link">
+  课程案例数据表
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="课程答疑汇总" class="dropdown-title"><span class="title">课程答疑</span> <span class="arrow down"></span></button> <button type="button" aria-label="课程答疑汇总" class="mobile-dropdown-title"><span class="title">课程答疑</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/web/answer/课程常见问题.html" class="nav-link">
+  课程常见问题
+</a></li><li class="dropdown-item"><!----> <a href="/deploy/" class="nav-link router-link-active">
+  项目部署
+</a></li><li class="dropdown-item"><!----> <a href="/web/answer/免费部署SSL证书.html" class="nav-link">
+  免费部署SSL证书
+</a></li><li class="dropdown-item"><!----> <a href="/web/answer/如何清除服务器Nginx缓存.html" class="nav-link">
+  清除Nginx缓存
+</a></li><li class="dropdown-item"><!----> <a href="/web/answer/浏览器指纹.html" class="nav-link">
+  浏览器指纹
+</a></li><li class="dropdown-item"><!----> <a href="/web/answer/AI.html" class="nav-link">
+  AI课堂
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="课程学习网站" class="dropdown-title"><span class="title">课程学习网站</span> <span class="arrow down"></span></button> <button type="button" aria-label="课程学习网站" class="mobile-dropdown-title"><span class="title">课程学习网站</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          视频学习网站
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://study.163.com/provider/480000002289674/index.htm?share=2&amp;shareId=480000002289674" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  网易云课堂
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://space.bilibili.com/3493114067028034/pugv" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  B站
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="实用菜单" class="dropdown-title"><span class="title">实用网站和方法</span> <span class="arrow down"></span></button> <button type="button" aria-label="实用菜单" class="mobile-dropdown-title"><span class="title">实用网站和方法</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          实用方法
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/web/methods/定位相关.html" class="nav-link">
+  定位相关
+</a></li><li class="dropdown-subitem"><a href="/web/methods/地图相关.html" class="nav-link">
+  地图相关
+</a></li><li class="dropdown-subitem"><a href="/web/methods/树形结构数据转换.html" class="nav-link">
+  树形结构数据转换
+</a></li></ul></li><li class="dropdown-item"><h4>
+          uni-app专栏
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/web/methods/uni-app专栏.html" class="nav-link">
+  uni-app的UI框架
+</a></li><li class="dropdown-subitem"><a href="/web/methods/uni-app如何引入库.html" class="nav-link">
+  uni-app如何引入js库
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Egg.js专栏
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/secondless/w-c/Egg.js.html" class="nav-link">
+  Egg.js基础
+</a></li><li class="dropdown-subitem"><a href="/secondless/w-c/egg.js基础总结.html" class="nav-link">
+  Egg.js基础总结
+</a></li><li class="dropdown-subitem"><a href="/secondless/w-c/egg.js重要知识详细文档.html" class="nav-link">
+  Egg.js重要知识详细文档
+</a></li><li class="dropdown-subitem"><a href="/secondless/w-c/ValParams API 说明.html" class="nav-link">
+  Egg.js参数验证说明
+</a></li><li class="dropdown-subitem"><a href="/web/mysql/Sequelize数据类型.html" class="nav-link">
+  Egg.js迁移文件Sequelize数据类型
+</a></li><li class="dropdown-subitem"><a href="/secondless/w-c/Egg.js接口安全防护方案.html" class="nav-link">
+  Egg.js接口安全防护方案
+</a></li><li class="dropdown-subitem"><a href="/web/answer/课程常见问题.html#_3-eggjs如何重置数据表-保证id每次从1开始计算" class="nav-link">
+  Egg.js重置数据表每次ID为1
+</a></li><li class="dropdown-subitem"><a href="/secondless/w-c/Egg.js中extend中helper调用.html" class="nav-link">
+  Egg.js中extend中helper调用
+</a></li></ul></li><li class="dropdown-item"><h4>
+          实用网站
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/web/methods/实用接口.html" class="nav-link">
+  实用接口
+</a></li><li class="dropdown-subitem"><a href="/web/css/" class="nav-link">
+  css
+</a></li><li class="dropdown-subitem"><a href="/web/vue.js/" class="nav-link">
+  Vue.js
+</a></li><li class="dropdown-subitem"><a href="/web/Vue3+ElementPlus/" class="nav-link">
+  Vue3+ElementPlus系统
+</a></li><li class="dropdown-subitem"><a href="/web/echarts/" class="nav-link">
+  echarts图表
+</a></li><li class="dropdown-subitem"><a href="/web/bootstrap/" class="nav-link">
+  Bootstrap
+</a></li><li class="dropdown-subitem"><a href="/web/IIS/" class="nav-link">
+  IIS
+</a></li><li class="dropdown-subitem"><a href="/web/github/" class="nav-link">
+  Github
+</a></li><li class="dropdown-subitem"><a href="/web/Vanta.js/" class="nav-link">
+  Vanta.js网页3D背景
+</a></li><li class="dropdown-subitem"><a href="/web/shop/" class="nav-link">
+  商城系统推荐
+</a></li></ul></li></ul></div></div> <!----></nav>  <ul class="sidebar-links"><li><a href="/aboutless.html" class="sidebar-link">第一期企业网页开发</a></li><li><section class="sidebar-group depth-0"><a href="/secondless/" class="sidebar-heading clickable"><span>第二期企业网站开发</span> <!----></a> <ul class="sidebar-links sidebar-group-items"><li><a href="/secondless/w-a.html" class="sidebar-link">第二学期第一季（课程学习顺序：02）</a></li><li><a href="/secondless/w-b.html" class="sidebar-link">第二学期第二季（课程学习顺序：03）</a></li><li><a href="/secondless/w-c.html" class="sidebar-link">第二学期第三季（课程学习顺序：04）</a></li><li><a href="/secondless/w-d.html" class="sidebar-link">第二学期第四季（课程学习顺序：05）</a></li></ul></section></li><li><section class="sidebar-group depth-0"><a href="/thirdless/" class="sidebar-heading clickable"><span>第三期移动端(H5/小程序/App)</span> <!----></a> <ul class="sidebar-links sidebar-group-items"><li><a href="/thirdless/w-a.html" class="sidebar-link">第三学期第一季（课程学习顺序：06）</a></li><li><a href="/thirdless/w-b.html" class="sidebar-link">第三学期第二季（课程学习顺序：07）</a></li><li><a href="/thirdless/w-c.html" class="sidebar-link">第三学期第三季（课程学习顺序：08）</a></li><li><a href="/thirdless/w-d.html" class="sidebar-link">第三学期第四季（课程学习顺序：09）</a></li><li><a href="/thirdless/w-e.html" class="sidebar-link">第三学期第五季（课程学习顺序：10）</a></li></ul></section></li><li><section class="sidebar-group depth-0"><a href="/fourthless/" class="sidebar-heading clickable"><span>第四期web全栈课程</span> <!----></a> <ul class="sidebar-links sidebar-group-items"><li><a href="/fourthless/w-a.html" class="sidebar-link">第四学期第一季（课程学习顺序：11）</a></li><li><a href="/fourthless/w-b.html" class="sidebar-link">第四学期第二季（课程学习顺序：12）</a></li><li><a href="/fourthless/w-c.html" class="sidebar-link">第四学期第三季（课程学习顺序：13）</a></li><li><a href="/fourthless/w-d.html" class="sidebar-link">第四学期第四季（课程学习顺序：14）</a></li><li><a href="/fourthless/w-e.html" class="sidebar-link">第四学期第五季（课程学习顺序：15）</a></li></ul></section></li><li><section class="sidebar-group depth-0"><a href="/fiveless/" class="sidebar-heading clickable"><span>第五期python课程</span> <!----></a> <ul class="sidebar-links sidebar-group-items"><li><a href="/fiveless/w-a.html" class="sidebar-link">第五学期第一季（课程学习顺序：16）</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="eggjs-即时通讯功能后端部署上线"><a href="#eggjs-即时通讯功能后端部署上线" class="header-anchor">#</a> eggjs + 即时通讯功能后端部署上线</h1> <h2 id="一、正常配置"><a href="#一、正常配置" class="header-anchor">#</a> 一、正常配置</h2> <h3 id="_1、解析一个域名"><a href="#_1、解析一个域名" class="header-anchor">#</a> 1、解析一个域名</h3> <blockquote><p>在阿里云或腾讯云，域名管理中，解析一个域名到线上服务器，本次演示域名： <code>eggjs.chat.51yrc.com</code>，轻量应用服务器在域名栏目绑定域名。<br></p></blockquote> <h3 id="_2、创建网站"><a href="#_2、创建网站" class="header-anchor">#</a> 2、创建网站</h3> <blockquote><p>在宝塔面板中， <code>网站</code>-<code>PHP项目</code>-<code>添加站点</code>-<code>传统项目</code> <br></p> <blockquote><p><code>域名</code>：eggjs.chat.51yrc.com <br> <code>备注</code>：eggjs.chat.51yrc.com (自动生成)<br> <code>根目录</code>：/www/wwwroot/eggjs.chat.51yrc.com  (自动生成)<br> <code>FTP</code>：不创建<br> <code>数据库</code>：MySQL---字符集：utf8mb4（存表情包），数据库账号、密码自动生成<br> <code>PHP版本</code>：这里选择 <code>纯静态</code><br> <code>网站分类</code>：默认分类<br> <code>确定</code>--&gt; 点击域名看默认站点是否可以打开</p></blockquote></blockquote> <h3 id="_3、上传代码到服务器"><a href="#_3、上传代码到服务器" class="header-anchor">#</a> 3、上传代码到服务器</h3> <blockquote><p>群文件下载源码 （或私信老师获取源码）<br>
+打开网站根目录，上传源码压缩包，解压 <br></p></blockquote> <h3 id="_4、面板环境安装"><a href="#_4、面板环境安装" class="header-anchor">#</a> 4、面板环境安装</h3> <blockquote><ol><li>查看是否安装了<code>PM2管理器</code>：<code>软件商店</code>- <code>已安装</code>-查看是否安装了<code>PM2管理器</code>，没有则搜索安装；<br></li> <li>切换node版本到最新版本：<code>PM2管理器</code> -&gt; <code>设置</code> -&gt; <code>Node版本</code> -&gt; <code>选择一个新版本</code> -&gt; <code>确定</code> <br></li> <li>检查安装Redis: <code>软件商店</code>- <code>已安装</code>-查看是否安装了<code>Redis</code>，没有则搜索安装；之后，记得启动<code>Redis服务</code><br></li></ol></blockquote> <h3 id="_5、命令行工具执行"><a href="#_5、命令行工具执行" class="header-anchor">#</a> 5、命令行工具执行</h3> <blockquote><ol><li>打开终端</li></ol> <blockquote><p>可以在面板对应的网站根目录下，<code>终端</code> -&gt; 输入命令 <br>
+也可以在阿里云或者腾讯云控制台，找到服务器的<code>远程连接</code>打开命令终端</p> <blockquote><ol><li>切换root账号： <code>su root</code> <br></li> <li>输入密码 （服务器的<code>远程连接</code>密码，忘了可以重新设置密码再输入）</li></ol></blockquote></blockquote> <ol start="2"><li>切换到对应项目的根目录，如本项目： <code>cd /www/wwwroot/eggjs.chat.51yrc.com</code><br></li> <li>安装依赖： <code>npm install</code> 我们知道安装依赖包，需要找到npm镜像源：</li></ol> <blockquote><ol><li>如果你是国内服务器，我们会使用淘宝镜像源 <code>npm config set registry https://registry.npmmirror.com/</code> ， 通过命令查看npm镜像源：<code>npm config get registry</code> <br></li> <li>如果是中国香港或者国外服务器，则不用切换镜像源，因为它本身就很快 <br>
+执行：<code>npm install</code>安装依赖包<br>
+注意：可能由于npm版本或者其他原因，导致 <code>npm install</code>安装依赖 <code>失败</code>，可尝试以下解决方法：</li></ol> <blockquote><p>通过 <code>yarn</code>命令安装依赖：</p> <blockquote><p>安装yarn：<code>npm install -g yarn</code> <br>
+安装依赖：<code>yarn install</code><br></p></blockquote></blockquote></blockquote></blockquote> <h3 id="_6、安装数据库迁移工具【可选项】"><a href="#_6、安装数据库迁移工具【可选项】" class="header-anchor">#</a> 6、安装数据库迁移工具【可选项】</h3> <blockquote><p>【可选项、可省略，直接导入数据库也可以】<a href="/secondless/w-d/网站代码上线调试.html#八、安装数据库迁移工具-执行迁移命令" target="_blank">（第二期第四季课程有详细讲解）</a></p></blockquote> <h3 id="_7、修改配置信息"><a href="#_7、修改配置信息" class="header-anchor">#</a> 7、修改配置信息</h3> <blockquote><p><code>config/config.default.js</code> 修改数据库连接： <br></p> <blockquote><p>修改数据库连接配置:数据库名称database，数据库用户名username，数据库密码password  <br></p></blockquote> <p><code>另外就是OSS云存储配置记得修改对应的：</code></p> <div class="language-js extra-class"><pre class="language-js"><code>config<span class="token punctuation">.</span>oss <span class="token operator">=</span> <span class="token punctuation">{</span>
+    <span class="token literal-property property">client</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token literal-property property">accessKeyId</span><span class="token operator">:</span> <span class="token string">'xxxx'</span><span class="token punctuation">,</span> <span class="token comment">//你的accessKeyId</span>
+        <span class="token literal-property property">accessKeySecret</span><span class="token operator">:</span> <span class="token string">'xxxx'</span><span class="token punctuation">,</span> <span class="token comment">//你的accessKeySecret</span>
+        <span class="token literal-property property">bucket</span><span class="token operator">:</span> <span class="token string">'xxxx'</span><span class="token punctuation">,</span> <span class="token comment">//你的bucket</span>
+        <span class="token literal-property property">endpoint</span><span class="token operator">:</span> <span class="token string">'xxx'</span><span class="token punctuation">,</span> <span class="token comment">//你的endpoint</span>
+        <span class="token literal-property property">timeout</span><span class="token operator">:</span> <span class="token string">'60s'</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre></div><p><code>database/config.json</code> <br></p> <blockquote><p>数据库相关信息，建议全部改一下,改成当前数据库名，用户名，密码 <br></p></blockquote></blockquote> <h3 id="_8、导入数据库"><a href="#_8、导入数据库" class="header-anchor">#</a> 8、导入数据库</h3> <blockquote><p>导入代码中的数据库到服务器数据库</p></blockquote> <h3 id="_9、端口占用问题"><a href="#_9、端口占用问题" class="header-anchor">#</a> 9、端口占用问题</h3> <blockquote><p>若服务器不止一个项目，则修改配置换一个端口在启动，在 package.json 文件加上：</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">//加上别的端口号,如：7008</span>
+<span class="token string-property property">&quot;scripts&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token string-property property">&quot;start&quot;</span><span class="token operator">:</span> <span class="token string">&quot;egg-scripts start --daemon --title=egg-server-mssql --sticky --port=7008&quot;</span><span class="token punctuation">,</span>
+     <span class="token operator">...</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+</code></pre></div></blockquote> <h3 id="_10、启动项目"><a href="#_10、启动项目" class="header-anchor">#</a> 10、启动项目</h3> <blockquote><p>启动项目：<code>npm start</code> <br></p></blockquote> <h3 id="_11、添加反向代理"><a href="#_11、添加反向代理" class="header-anchor">#</a> 11、添加反向代理</h3> <blockquote><p>找到对应网站 -&gt; <code>设置</code> -&gt; <code>反向代理</code> -&gt; <code>添加反向代理</code></p> <blockquote><p>代理名称 : <code>api</code> <br>
+目标URL : <code>http://localhost:7008</code> 对应启动端口 <br>
+发送域名 : <code>localhost</code> <br>
+还需要添加一个配置，主要针对 websocket <br> <code>添加反向代理</code>之后 --&gt; <code>配置文件</code>--&gt;底部写入下面代码：</p> <div class="language-js extra-class"><pre class="language-js"><code>location <span class="token operator">/</span>ws
+ <span class="token punctuation">{</span>
+    proxy_pass http<span class="token operator">:</span><span class="token operator">/</span><span class="token operator">/</span><span class="token number">127.0</span><span class="token number">.0</span><span class="token number">.1</span><span class="token operator">:</span><span class="token number">7008</span><span class="token punctuation">;</span>
+    proxy_http_version <span class="token number">1.1</span><span class="token punctuation">;</span>
+    proxy_set_header Upgrade $http_upgrade<span class="token punctuation">;</span>
+    proxy_set_header Connection <span class="token string">&quot;Upgrade&quot;</span><span class="token punctuation">;</span>
+    proxy_set_header <span class="token constant">X</span><span class="token operator">-</span>Real<span class="token operator">-</span><span class="token constant">IP</span> $remote_addr<span class="token punctuation">;</span>
+ <span class="token punctuation">}</span>
+</code></pre></div><p>修改前端项目的 /common/lib/config.js和manifest.json里面的域名即可</p></blockquote></blockquote> <p>试一下：<a href="http://eggjs.chat.51yrc.com/" target="_blank" rel="noopener noreferrer">http://eggjs.chat.51yrc.com/<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p> <h3 id="_12、宝塔面板配置示例-站点配置-及-反向代理"><a href="#_12、宝塔面板配置示例-站点配置-及-反向代理" class="header-anchor">#</a> 12、宝塔面板配置示例：站点配置 及 反向代理</h3> <h4 id="_1️⃣-站点配置"><a href="#_1️⃣-站点配置" class="header-anchor">#</a> 1️⃣ 站点配置</h4> <p>加上</p> <div class="language-js extra-class"><pre class="language-js"><code>client_max_body_size 300m<span class="token punctuation">;</span>
+</code></pre></div><div class="language-js extra-class"><pre class="language-js"><code>server
+<span class="token punctuation">{</span>
+    listen <span class="token number">80</span><span class="token punctuation">;</span>
+    listen <span class="token number">443</span> ssl<span class="token punctuation">;</span>
+    http2 on<span class="token punctuation">;</span>
+    server_name test<span class="token punctuation">.</span>xinyiji2026<span class="token punctuation">.</span>com mp<span class="token punctuation">.</span>xinyiji2026<span class="token punctuation">.</span>com app<span class="token punctuation">.</span>xinyiji2026<span class="token punctuation">.</span>com imgs<span class="token punctuation">.</span>xinyiji2026<span class="token punctuation">.</span>com video<span class="token punctuation">.</span>xinyiji2026<span class="token punctuation">.</span>com download<span class="token punctuation">.</span>xinyiji2026<span class="token punctuation">.</span>com www<span class="token punctuation">.</span>xinyiji2026<span class="token punctuation">.</span>com pc<span class="token punctuation">.</span>xinyiji2026<span class="token punctuation">.</span>com xinyiji2026<span class="token punctuation">.</span>com<span class="token punctuation">;</span>
+    index index<span class="token punctuation">.</span>php index<span class="token punctuation">.</span>html index<span class="token punctuation">.</span>htm <span class="token keyword">default</span><span class="token punctuation">.</span>php <span class="token keyword">default</span><span class="token punctuation">.</span>htm <span class="token keyword">default</span><span class="token punctuation">.</span>html<span class="token punctuation">;</span>
+    root <span class="token operator">/</span>www<span class="token operator">/</span>wwwroot<span class="token operator">/</span>test<span class="token punctuation">.</span>xinyiji2026<span class="token punctuation">.</span>com<span class="token punctuation">;</span>
+
+    client_max_body_size 300m<span class="token punctuation">;</span>
+
+    #<span class="token constant">CERT</span><span class="token operator">-</span><span class="token constant">APPLY</span><span class="token operator">-</span><span class="token constant">CHECK</span><span class="token operator">--</span><span class="token constant">START</span>
+    # 用于<span class="token constant">SSL</span>证书申请时的文件验证相关配置 <span class="token operator">--</span> 请勿删除
+    include <span class="token operator">/</span>www<span class="token operator">/</span>server<span class="token operator">/</span>panel<span class="token operator">/</span>vhost<span class="token operator">/</span>nginx<span class="token operator">/</span>well<span class="token operator">-</span>known<span class="token operator">/</span>test<span class="token punctuation">.</span>xinyiji2026<span class="token punctuation">.</span>com<span class="token punctuation">.</span>conf<span class="token punctuation">;</span>
+    #<span class="token constant">CERT</span><span class="token operator">-</span><span class="token constant">APPLY</span><span class="token operator">-</span><span class="token constant">CHECK</span><span class="token operator">--</span><span class="token constant">END</span>
+
+    include <span class="token operator">/</span>www<span class="token operator">/</span>server<span class="token operator">/</span>panel<span class="token operator">/</span>vhost<span class="token operator">/</span>nginx<span class="token operator">/</span>extension<span class="token operator">/</span>test<span class="token punctuation">.</span>xinyiji2026<span class="token punctuation">.</span>com<span class="token comment">/*.conf;
+    
+    #SSL-START SSL相关配置，请勿删除或修改下一行带注释的404规则
+    #error_page 404/404.html;
+    #HTTP_TO_HTTPS_START
+    set $isRedcert 1;
+    if ($server_port != 443) {
+        set $isRedcert 2;
+    }
+    if ($uri ~ /\.well-known/) {
+        set $isRedcert 1;
+    }
+    if ($isRedcert != 1) {
+        rewrite ^(/.*)$ https://$host$1 permanent;
+    }
+    #HTTP_TO_HTTPS_END
+
+    ssl_certificate /www/server/panel/vhost/cert/test.xinyiji2026.com/fullchain.pem;
+    ssl_certificate_key /www/server/panel/vhost/cert/test.xinyiji2026.com/privkey.pem;
+    ssl_protocols TLSv1.1 TLSv1.2 TLSv1.3;
+    ssl_ciphers EECDH+CHACHA20:EECDH+CHACHA20-draft:EECDH+AES128:RSA+AES128:EECDH+AES256:RSA+AES256:EECDH+3DES:RSA+3DES:!MD5;
+    ssl_prefer_server_ciphers on;
+    ssl_session_tickets on;
+    ssl_session_cache shared:SSL:10m;
+    ssl_session_timeout 10m;
+    add_header Strict-Transport-Security &quot;max-age=31536000&quot;;
+    error_page 497 https://$host$request_uri;
+    #SSL-END
+
+    #ERROR-PAGE-START  错误页配置，可以注释、删除或修改
+    error_page 404 /404.html;
+    #error_page 502 /502.html;
+    #ERROR-PAGE-END
+
+    #PHP-INFO-START  PHP引用配置，可以注释或修改
+    #清理缓存规则
+    location ~ /purge(/.*) {
+        proxy_cache_purge cache_one $host$1$is_args$args;
+        #access_log /www/wwwlogs/test.xinyiji2026.com_purge_cache.log;
+    }
+
+    #引用反向代理规则，注释后配置的反向代理将无效
+    include /www/server/panel/vhost/nginx/proxy/test.xinyiji2026.com/*.conf;
+
+    include enable-php-00.conf;
+    #PHP-INFO-END
+
+    #REWRITE-START URL重写规则引用,修改后将导致面板设置的伪静态规则失效
+    include /www/server/panel/vhost/rewrite/test.xinyiji2026.com.conf;
+    #REWRITE-END
+
+    # 禁止访问的敏感文件
+    location ~* (\.user.ini|\.htaccess|\.htpasswd|\.env.*|\.project|\.bashrc|\.bash_profile|\.bash_logout|\.DS_Store|\.gitignore|\.gitattributes|LICENSE|README\.md|CLAUDE\.md|CHANGELOG\.md|CHANGELOG|CONTRIBUTING\.md|TODO\.md|FAQ\.md|composer\.json|composer\.lock|package(-lock)?\.json|yarn\.lock|pnpm-lock\.yaml|\.\w+~|\.swp|\.swo|\.bak(up)?|\.old|\.tmp|\.temp|\.log|\.sql(\.gz)?|docker-compose\.yml|docker\.env|Dockerfile|\.csproj|\.sln|Cargo\.toml|Cargo\.lock|go\.mod|go\.sum|phpunit\.xml|phpunit\.xml|pom\.xml|build\.gradl|pyproject\.toml|requirements\.txt|application(-\w+)?\.(ya?ml|properties))$
+    {
+        return 404;
+    }
+    
+    # 禁止访问的敏感目录
+    location ~* /(\.git|\.svn|\.bzr|\.vscode|\.claude|\.idea|\.ssh|\.github|\.npm|\.yarn|\.pnpm|\.cache|\.husky|\.turbo|\.next|\.nuxt|node_modules|runtime)/ {
+        return 404;
+    }
+
+    #一键申请SSL证书验证目录相关设置
+    location ~ \.well-known {
+        allow all;
+    }
+
+    #禁止在证书验证目录放入敏感文件
+    if ($uri ~ &quot;^/\.well-known/.*\.(php|jsp|py|js|css|lua|ts|go|zip|tar\.gz|rar|7z|sql|bak)$&quot;) {
+        return 403;
+    }
+
+    access_log /www/wwwlogs/test.xinyiji2026.com.log;
+    error_log /www/wwwlogs/test.xinyiji2026.com.error.log;
+}
+</span></code></pre></div><h4 id="_2️⃣-反向代理"><a href="#_2️⃣-反向代理" class="header-anchor">#</a> 2️⃣ 反向代理</h4> <p>如果想直接在域名后面访问某个文件，如：<code>https://www.xinyiji2026.com/UKHMwnMaYo.txt</code> 这可以在反向代理中这样写</p> <div class="language-js extra-class"><pre class="language-js"><code>location <span class="token operator">=</span> <span class="token operator">/</span>UKHMwnMaYo<span class="token punctuation">.</span>txt <span class="token punctuation">{</span>
+    root <span class="token operator">/</span>www<span class="token operator">/</span>wwwroot<span class="token operator">/</span>www<span class="token punctuation">.</span>xinyiji2026<span class="token punctuation">.</span>com<span class="token operator">/</span>app<span class="token operator">/</span><span class="token keyword">public</span><span class="token punctuation">;</span> <span class="token comment">// 服务器上的UKHMwnMaYo.txt文件地址，记得重载Nginx服务器</span>
+    default_type text<span class="token operator">/</span>plain<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+#<span class="token constant">PROXY</span><span class="token operator">-</span><span class="token constant">START</span><span class="token operator">/</span>
+<span class="token operator">...</span>
+</code></pre></div><p>复制下面代码即可</p> <div class="language-js extra-class"><pre class="language-js"><code>#<span class="token constant">PROXY</span><span class="token operator">-</span><span class="token constant">START</span><span class="token operator">/</span>
+
+location <span class="token operator">^</span><span class="token operator">~</span> <span class="token operator">/</span>
+<span class="token punctuation">{</span>
+    client_max_body_size 300m<span class="token punctuation">;</span>
+
+    proxy_pass http<span class="token operator">:</span><span class="token operator">/</span><span class="token operator">/</span><span class="token number">127.0</span><span class="token number">.0</span><span class="token number">.1</span><span class="token operator">:</span><span class="token number">7001</span><span class="token punctuation">;</span>
+    proxy_set_header Host $host<span class="token punctuation">;</span>
+    proxy_set_header <span class="token constant">X</span><span class="token operator">-</span>Real<span class="token operator">-</span><span class="token constant">IP</span> $remote_addr<span class="token punctuation">;</span>
+    proxy_set_header <span class="token constant">X</span><span class="token operator">-</span>Forwarded<span class="token operator">-</span>For $proxy_add_x_forwarded_for<span class="token punctuation">;</span>
+    proxy_set_header <span class="token constant">X</span><span class="token operator">-</span>Forwarded<span class="token operator">-</span>Proto $scheme<span class="token punctuation">;</span>
+    proxy_set_header <span class="token constant">REMOTE</span><span class="token operator">-</span><span class="token constant">HOST</span> $remote_addr<span class="token punctuation">;</span>
+    proxy_set_header Upgrade $http_upgrade<span class="token punctuation">;</span>
+    proxy_set_header Connection $connection_upgrade<span class="token punctuation">;</span>
+    proxy_http_version <span class="token number">1.1</span><span class="token punctuation">;</span>
+
+    proxy_connect_timeout 600s<span class="token punctuation">;</span>
+    proxy_send_timeout 600s<span class="token punctuation">;</span>
+    proxy_read_timeout 600s<span class="token punctuation">;</span>
+    send_timeout 600s<span class="token punctuation">;</span>
+
+    add_header <span class="token constant">X</span><span class="token operator">-</span>Cache $upstream_cache_status<span class="token punctuation">;</span>
+
+    <span class="token keyword">set</span> $static_fileydWLAIHQ <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>$uri <span class="token operator">~</span><span class="token operator">*</span> <span class="token string">&quot;\.(gif|png|jpg|css|js|woff|woff2)$&quot;</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">set</span> $static_fileydWLAIHQ <span class="token number">1</span><span class="token punctuation">;</span>
+        expires 1m<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>$static_fileydWLAIHQ <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        add_header Cache<span class="token operator">-</span>Control no<span class="token operator">-</span>cache<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+location <span class="token operator">/</span>ws
+<span class="token punctuation">{</span>
+    client_max_body_size 300m<span class="token punctuation">;</span>
+
+    proxy_pass http<span class="token operator">:</span><span class="token operator">/</span><span class="token operator">/</span><span class="token number">127.0</span><span class="token number">.0</span><span class="token number">.1</span><span class="token operator">:</span><span class="token number">7001</span><span class="token punctuation">;</span>
+    proxy_http_version <span class="token number">1.1</span><span class="token punctuation">;</span>
+    proxy_set_header Host $host<span class="token punctuation">;</span>
+    proxy_set_header Upgrade $http_upgrade<span class="token punctuation">;</span>
+    proxy_set_header Connection <span class="token string">&quot;Upgrade&quot;</span><span class="token punctuation">;</span>
+    proxy_set_header <span class="token constant">X</span><span class="token operator">-</span>Real<span class="token operator">-</span><span class="token constant">IP</span> $remote_addr<span class="token punctuation">;</span>
+    proxy_set_header <span class="token constant">X</span><span class="token operator">-</span>Forwarded<span class="token operator">-</span>For $proxy_add_x_forwarded_for<span class="token punctuation">;</span>
+    proxy_set_header <span class="token constant">X</span><span class="token operator">-</span>Forwarded<span class="token operator">-</span>Proto $scheme<span class="token punctuation">;</span>
+
+    proxy_connect_timeout 600s<span class="token punctuation">;</span>
+    proxy_send_timeout 600s<span class="token punctuation">;</span>
+    proxy_read_timeout 600s<span class="token punctuation">;</span>
+    send_timeout 600s<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+#<span class="token constant">PROXY</span><span class="token operator">-</span><span class="token constant">END</span><span class="token operator">/</span>
+</code></pre></div><h2 id="二、多域名配置同一个网站的不同路由-配置主站分站"><a href="#二、多域名配置同一个网站的不同路由-配置主站分站" class="header-anchor">#</a> 二、多域名配置同一个网站的不同路由 [配置主站分站]</h2> <h3 id="_1-配置域名"><a href="#_1-配置域名" class="header-anchor">#</a> 1. 配置域名</h3> <ol><li>可对这个网站设置多个域名，可以是该域名的二级域名，或者不同域名都可以，但保证所有域名都解析到这台服务器了， <code>网站</code>-<code>域名管理</code>；</li> <li>在宝塔面板中， <code>网站</code>-<code>SSL</code>-<code>Let's Encrypt</code> 选中这多个域名申请SSL证书，完成之后记得部署，强制https；</li> <li>创建 <code>反向代理</code>，正常创建，如果是多网站，则反向代码如下：</li></ol> <div class="language-js extra-class"><pre class="language-js"><code>#<span class="token constant">PROXY</span><span class="token operator">-</span><span class="token constant">START</span><span class="token operator">/</span>
+
+location <span class="token operator">^</span><span class="token operator">~</span> <span class="token operator">/</span>
+<span class="token punctuation">{</span>
+    proxy_pass http<span class="token operator">:</span><span class="token operator">/</span><span class="token operator">/</span>localhost<span class="token operator">:</span><span class="token number">7001</span><span class="token punctuation">;</span>
+    
+    # 关键修改：将 localhost 改为 $host
+    proxy_set_header Host $host<span class="token punctuation">;</span>
+    proxy_set_header <span class="token constant">X</span><span class="token operator">-</span>Forwarded<span class="token operator">-</span>Host $host<span class="token punctuation">;</span>
+    proxy_set_header <span class="token constant">X</span><span class="token operator">-</span>Real<span class="token operator">-</span><span class="token constant">IP</span> $remote_addr<span class="token punctuation">;</span>
+    proxy_set_header <span class="token constant">X</span><span class="token operator">-</span>Forwarded<span class="token operator">-</span>For $proxy_add_x_forwarded_for<span class="token punctuation">;</span>
+    proxy_set_header <span class="token constant">REMOTE</span><span class="token operator">-</span><span class="token constant">HOST</span> $remote_addr<span class="token punctuation">;</span>
+    proxy_set_header Upgrade $http_upgrade<span class="token punctuation">;</span>
+    proxy_set_header Connection $connection_upgrade<span class="token punctuation">;</span>
+    proxy_set_header <span class="token constant">X</span><span class="token operator">-</span>Forwarded<span class="token operator">-</span>Proto $scheme<span class="token punctuation">;</span>
+    proxy_http_version <span class="token number">1.1</span><span class="token punctuation">;</span>
+    
+    add_header <span class="token constant">X</span><span class="token operator">-</span>Cache $upstream_cache_status<span class="token punctuation">;</span>
+    
+    #Set Nginx Cache
+    <span class="token keyword">set</span> $static_filefgSMcdcd <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span> $uri <span class="token operator">~</span><span class="token operator">*</span> <span class="token string">&quot;\.(gif|png|jpg|css|js|woff|woff2)$&quot;</span> <span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">set</span> $static_filefgSMcdcd <span class="token number">1</span><span class="token punctuation">;</span>
+        expires 1m<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span> $static_filefgSMcdcd <span class="token operator">=</span> <span class="token number">0</span> <span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        add_header Cache<span class="token operator">-</span>Control no<span class="token operator">-</span>cache<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+#<span class="token constant">PROXY</span><span class="token operator">-</span><span class="token constant">END</span><span class="token operator">/</span>
+</code></pre></div><ol start="4"><li>配置中间件如 <code>app/middleware/domainRedirect.js</code>, 举个例子：</li></ol> <div class="language-js extra-class"><pre class="language-js"><code>module<span class="token punctuation">.</span><span class="token function-variable function">exports</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">domainRedirect</span><span class="token punctuation">(</span><span class="token parameter">ctx<span class="token punctuation">,</span> next</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// 现在可以正确获取到域名了</span>
+    <span class="token keyword">const</span> host <span class="token operator">=</span> ctx<span class="token punctuation">.</span>hostname<span class="token punctuation">;</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'访问域名:'</span><span class="token punctuation">,</span> host<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    
+    <span class="token comment">// 只处理根路径</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>ctx<span class="token punctuation">.</span>path <span class="token operator">===</span> <span class="token string">'/'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">const</span> query <span class="token operator">=</span> ctx<span class="token punctuation">.</span>querystring <span class="token operator">?</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">?</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>ctx<span class="token punctuation">.</span>querystring<span class="token interpolation-punctuation punctuation">}</span></span><span class="token template-punctuation string">`</span></span> <span class="token operator">:</span> <span class="token string">''</span><span class="token punctuation">;</span>
+      
+      <span class="token keyword">if</span> <span class="token punctuation">(</span>host <span class="token operator">===</span> <span class="token string">'www.mmmcoo.net'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        ctx<span class="token punctuation">.</span><span class="token function">redirect</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">/api/template06/13/v1</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>query<span class="token interpolation-punctuation punctuation">}</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+      
+      <span class="token keyword">if</span> <span class="token punctuation">(</span>host <span class="token operator">===</span> <span class="token string">'www.ycdmmmcoo.com'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        ctx<span class="token punctuation">.</span><span class="token function">redirect</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">/api/template06/12/v2</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>query<span class="token interpolation-punctuation punctuation">}</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+      
+      <span class="token comment">// www.mmmcoo.com 不重定向，继续处理</span>
+    <span class="token punctuation">}</span>
+    
+    <span class="token keyword">await</span> <span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre></div><ol start="5"><li>记得把中间件加入到配置文件 <code>config/config.default.js</code> 中：</li></ol> <div class="language-js extra-class"><pre class="language-js"><code>config<span class="token punctuation">.</span>middleware <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'domainRedirect'</span><span class="token punctuation">,</span><span class="token string">'errorHandler'</span><span class="token punctuation">,</span> <span class="token string">'adminAuth'</span><span class="token punctuation">,</span> <span class="token string">'adminMenu'</span><span class="token punctuation">,</span> <span class="token string">'shopManagerAuth'</span><span class="token punctuation">,</span> <span class="token string">'shopusercenterAuth'</span><span class="token punctuation">,</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+</code></pre></div><ol start="6"><li>一定记得重启Ngnix: <code>宝塔</code> - <code>网站</code> - <code>上面有手动重启</code>;</li></ol></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">更新时间:</span> <span class="time">2026年6月4日星期四晚上7点11分</span></div></footer> <!----> </main></div><div class="global-ui"><!----><!----></div></div>
+    <script src="/assets/js/app.e6db21dc.js" defer></script><script src="/assets/js/10.a1858127.js" defer></script><script src="/assets/js/2.641709ae.js" defer></script><script src="/assets/js/17.ae58fc75.js" defer></script><script src="/assets/js/4.68f7b7e9.js" defer></script>
+  </body>
+</html>
